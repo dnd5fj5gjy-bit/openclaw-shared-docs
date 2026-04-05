@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Signal Finder</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f14;
+      --panel: #121923;
+      --panel2: #172131;
+      --text: #e7eef7;
+      --muted: #93a4b8;
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .app {
+      width: min(1100px, 100%);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent), var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero {
+      padding: 32px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 60ch;
+      line-height: 1.5;
+    }
+    .input {
+      margin-top: 24px;
+      display: grid;
+      gap: 12px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 18px;
+      font: inherit;
+      outline: none;
+    }
+    .metrics {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      background: var(--panel2);
+      border-top: 1px solid var(--border);
+    }
+    .metric {
+      display: grid;
+      gap: 8px;
+    }
+    .metric label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    .result {
+      padding: 32px;
+      display: grid;
+      gap: 18px;
+    }
+    .score {
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      line-height: 0.85;
+    }
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: rgba(125, 211, 252, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(125, 211, 252, 0.2);
+    }
+    .recommendation {
+      font-size: 1.25rem;
+      line-height: 1.45;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .footer {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; }
+      .score { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="card hero">
+      <h1>The Signal Finder</h1>
+      <p class="sub">A tiny decision lens for sorting ideas fast. Put in the thing, rate it honestly, and let the score tell you whether to build, shrink, or drop it.</p>
+      <div class="input">
+        <textarea id="idea" placeholder="Example: Build a tiny website that helps me decide what to do next tonight."></textarea>
+      </div>
+      <div class="metrics">
+        <div class="metric"><label><span>Usefulness</span><span id="uVal">8</span></label><input id="usefulness" type="range" min="0" max="10" value="8"></div>
+        <div class="metric"><label><span>Surprise</span><span id="sVal">6</span></label><input id="surprise" type="range" min="0" max="10" value="6"></div>
+        <div class="metric"><label><span>Momentum</span><span id="mVal">7</span></label><input id="momentum" type="range" min="0" max="10" value="7"></div>
+        <div class="metric"><label><span>Finishability</span><span id="fVal">8</span></label><input id="finishability" type="range" min="0" max="10" value="8"></div>
+        <div class="metric"><label><span>Team leverage</span><span id="tVal">7</span></label><input id="leverage" type="range" min="0" max="10" value="7"></div>
+      </div>
+    </section>
+
+    <section class="card result">
+      <div class="badge" id="badge">Do now</div>
+      <div class="score" id="score">79</div>
+      <div class="recommendation" id="rec">This has enough momentum and finishability to make sense tonight. Ship the smallest good version.</div>
+      <div class="chips" id="chips">
+        <span class="chip">Momentum wins</span>
+        <span class="chip">Small surface area</span>
+        <span class="chip">Worth the time</span>
+      </div>
+      <div class="footer">Rule of thumb: if usefulness is high but finishability is low, shrink the scope until you can ship it in one sitting.</div>
+    </section>
+  </main>
+  <script>
+    const fields = ["usefulness","surprise","momentum","finishability","leverage"];
+    const weights = { usefulness: 0.24, surprise: 0.12, momentum: 0.28, finishability: 0.24, leverage: 0.12 };
+    const badge = document.getElementById('badge');
+    const scoreEl = document.getElementById('score');
+    const rec = document.getElementById('rec');
+    const chips = document.getElementById('chips');
+
+    function update() {
+      let score = 0;
+      fields.forEach(id => {
+        const v = Number(document.getElementById(id).value);
+        document.getElementById(id[0] + 'Val').textContent = v;
+        score += v * 10 * weights[id];
+      });
+      score = Math.round(score);
+      scoreEl.textContent = score;
+      let msg = '';
+      let cls = '';
+      let chipSet = [];
+      if (score >= 75) {
+        msg = 'This is a strong candidate. Build it now and keep the first version tight.';
+        cls = 'Do now';
+        chipSet = ['Momentum wins', 'Small surface area', 'Worth the time'];
+      } else if (score >= 50) {
+        msg = 'Worth doing, but trim it down. Make the smallest useful version.';
+        cls = 'Do next';
+        chipSet = ['Needs trimming', 'Good enough', 'Maybe split it'];
+      } else {
+        msg = 'Not enough signal. Drop it or keep only the useful core.';
+        cls = 'Leave alone';
+        chipSet = ['Low conviction', 'High friction', 'Not tonight'];
+      }
+      badge.textContent = cls;
+      rec.textContent = msg;
+      chips.innerHTML = chipSet.map(c => `<span class="chip">${c}</span>`).join('');
+    }
+    fields.forEach(id => document.getElementById(id).addEventListener('input', update));
+    document.getElementById('idea').addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>
