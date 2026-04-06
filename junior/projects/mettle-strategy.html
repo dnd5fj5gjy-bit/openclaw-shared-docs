@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mettle — Strategy Brief</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; line-height: 1.6; }
+  .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .topbar a { color: #888; font-size: 13px; text-decoration: none; } .topbar a:hover { color: #fff; } .topbar span { color: #555; }
+  .hero { background: #1a1a1a; color: #fff; padding: 48px 32px; }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  .hero h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+  .hero p { font-size: 15px; color: #aaa; max-width: 560px; line-height: 1.6; }
+  .verdict-bar { background: #cc2200; color: #fff; padding: 16px 32px; }
+  .verdict-inner { max-width: 800px; margin: 0 auto; font-size: 14px; font-weight: 600; }
+  .main { max-width: 800px; margin: 0 auto; padding: 40px 32px; }
+  .section { margin-bottom: 48px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8e8e8; }
+  h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 14px; }
+  p { font-size: 15px; color: #333; margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .metric { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; text-align: center; }
+  .metric-value { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+  .metric-value.red { color: #cc2200; }
+  .metric-value.amber { color: #996600; }
+  .metric-value.green { color: #1a7a40; }
+  .metric-label { font-size: 12px; color: #888; margin-top: 4px; }
+  .metric-note { font-size: 11px; color: #bbb; margin-top: 3px; }
+  .card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .card p { font-size: 14px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .red-card { background: #fff8f8; border-color: #ffd0d0; }
+  .green-card { background: #f8fff8; border-color: #c0e8c0; }
+  .amber-card { background: #fffbf0; border-color: #ffe0a0; }
+  .option { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 28px; margin-bottom: 16px; }
+  .option-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .option h3 { font-size: 18px; font-weight: 700; }
+  .badge { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+  .badge-red { background: #ffeaea; color: #cc2200; }
+  .badge-amber { background: #fff7e6; color: #996600; }
+  .badge-green { background: #e6f9ee; color: #1a7a40; }
+  .badge-blue { background: #e8f0ff; color: #1a4499; }
+  .option p { font-size: 14px; margin-bottom: 10px; }
+  .option ul { font-size: 14px; color: #444; padding-left: 18px; }
+  .option ul li { margin-bottom: 6px; }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+  .pros-cons-box { background: #f8f8f8; border-radius: 8px; padding: 14px; }
+  .pros-cons-box h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 8px; }
+  .pros-cons-box ul { font-size: 13px; color: #444; padding-left: 16px; }
+  .pros-cons-box ul li { margin-bottom: 5px; }
+  .final-box { background: #1a1a1a; color: #fff; border-radius: 12px; padding: 32px; margin-top: 32px; }
+  .final-box h2 { color: #fff; font-size: 22px; margin-bottom: 16px; }
+  .final-box p { color: #ccc; font-size: 15px; margin-bottom: 12px; }
+  .final-box .verdict { color: #fff; font-size: 17px; font-weight: 600; margin-top: 20px; padding-top: 20px; border-top: 1px solid #333; }
+  .competitor-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .competitor-row:last-child { border-bottom: none; }
+  .comp-name { font-weight: 600; }
+  .comp-stat { color: #666; font-size: 13px; }
+  .comp-rating { font-weight: 700; }
+  .comp-rating.bad { color: #cc2200; }
+  .comp-rating.ok { color: #996600; }
+  .comp-rating.good { color: #1a7a40; }
+  .context-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; display: flex; gap: 12px; align-items: baseline; }
+  .context-item:last-child { border-bottom: none; }
+  .context-label { font-weight: 600; min-width: 160px; }
+  .context-detail { color: #555; }
+  @media (max-width: 650px) { .metric-row { grid-template-columns: 1fr 1fr; } .two-col { grid-template-columns: 1fr; } .pros-cons { grid-template-columns: 1fr; } .hero { padding: 32px 20px; } .main { padding: 24px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← All Projects</a><span>/</span><a href="mettle.html">Mettle</a><span>/</span><a href="#" style="color:#fff">Strategy Brief</a>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Strategy Brief — April 2026</div>
+    <h1>Mettle: Final Decision Framework</h1>
+    <p>A critical assessment of performance, market position, and what the options actually are — before you decide.</p>
+  </div>
+</div>
+
+<div class="verdict-bar">
+  <div class="verdict-inner">Bottom line up front: The consumer app is losing. The B2B angle might have legs. Bear's platform is untapped. You need to decide now — runway ends this summer.</div>
+</div>
+
+<div class="main">
+
+  <!-- PERFORMANCE -->
+  <div class="section">
+    <div class="section-label">Current Performance</div>
+
+    <div class="metric-row">
+      <div class="metric">
+        <div class="metric-value red">3.73</div>
+        <div class="metric-label">App Store Rating</div>
+        <div class="metric-note">Calm: 4.8 / Headspace: 4.7</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value red">21K</div>
+        <div class="metric-label">Instagram Followers</div>
+        <div class="metric-note">Bear has 10M+</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value amber">~Summer</div>
+        <div class="metric-label">Runway Ends</div>
+        <div class="metric-note">Per internal emails, Apr 2026</div>
+      </div>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric">
+        <div class="metric-value red">£2.5M</div>
+        <div class="metric-label">Total Raised</div>
+        <div class="metric-note">Single seed round, Nov 2023</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value red">0</div>
+        <div class="metric-label">Series A Rounds</div>
+        <div class="metric-note">Expected 2024. Still hasn't happened.</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value red">~£300K</div>
+        <div class="metric-label">Annual Overhead</div>
+        <div class="metric-note">Directors £87.5K + consultancy £152K + staff £60K</div>
+      </div>
+    </div>
+
+    <div class="card red-card">
+      <h3>The Series A Problem</h3>
+      <p>Neil Smith said in late 2023 they'd raise a Series A "next year." It's now mid-2026 — two and a half years later — and no Series A has been announced. This is the single most important signal. Sophisticated investors have looked at Mettle's growth metrics and passed. That matters more than any amount of positive press coverage.</p>
+      <p>For context: if a mental health app has compelling user growth and retention, it gets funded. Calm raised $75M Series C. Headspace raised $215M. The market rewards growth. The absence of funding means the growth isn't there.</p>
+    </div>
+
+    <div class="card">
+      <h3>What We Don't Know (And Should Ask For)</h3>
+      <p>Before making any final decision, these metrics matter and aren't publicly disclosed:</p>
+      <ul style="font-size:14px; color:#444; padding-left:18px; margin-top:8px;">
+        <li style="margin-bottom:6px;"><strong>Monthly Recurring Revenue (MRR)</strong> — at £6.49/month, how many paying subscribers do they actually have?</li>
+        <li style="margin-bottom:6px;"><strong>DAU/MAU ratio</strong> — are users actually opening the app daily?</li>
+        <li style="margin-bottom:6px;"><strong>30-day retention</strong> — meditation apps live or die on this number</li>
+        <li style="margin-bottom:6px;"><strong>CAC vs LTV</strong> — what does it cost to acquire a subscriber, and how long do they stay?</li>
+        <li style="margin-bottom:6px;"><strong>B2B revenue</strong> — how much are Thames Valley Police, Deutsche Bank, Bank of Ireland actually paying?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MARKET -->
+  <div class="section">
+    <div class="section-label">State of the Market</div>
+
+    <div class="card">
+      <h3>The Opportunity Is Real</h3>
+      <p>Men's mental health is a genuine gap. 1 in 8 men in the UK experience mental health problems. Men account for 75% of suicides. But 40% of men have never spoken to anyone about their mental health. The reluctance to seek help is structural — most existing mental health tools feel clinical, feminine-coded, or stigmatising for men who grew up being told to "man up."</p>
+      <p>The mental health apps market is $7.5B in 2024 growing to $17.5B by 2030 (14.6% CAGR). The B2B corporate wellness market is worth £500M+ in the UK alone and growing. These are real numbers.</p>
+    </div>
+
+    <div class="section-label" style="margin-top:24px;">Competitive Landscape</div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="competitor-row"><span class="comp-name">Calm</span><span class="comp-stat">100M+ downloads · $2B valuation · $220M raised</span><span class="comp-rating good">4.8★</span></div>
+      <div class="competitor-row"><span class="comp-name">Headspace</span><span class="comp-stat">70M+ downloads · $3B valuation · $215M raised</span><span class="comp-rating good">4.7★</span></div>
+      <div class="competitor-row"><span class="comp-name">BetterHelp</span><span class="comp-stat">Therapy-led · $800M revenue (2022) · Teladoc subsidiary</span><span class="comp-rating ok">4.2★</span></div>
+      <div class="competitor-row"><span class="comp-name">Waking Up</span><span class="comp-stat">Sam Harris · Philosophy-led · ~$100M valuation est.</span><span class="comp-rating good">4.8★</span></div>
+      <div class="competitor-row"><span class="comp-name"><strong>Mettle</strong></span><span class="comp-stat">£2.5M raised · Seed stage · 2.5 years in</span><span class="comp-rating bad">3.7★</span></div>
+    </div>
+
+    <div class="card red-card">
+      <h3>The Brutal Truth About Consumer Subscriptions</h3>
+      <p>Calm and Headspace have spent a combined £300M+ building content libraries, running paid acquisition, and building brand awareness over 10+ years. Mettle is trying to compete with £2.5M total funding. This is not a fight Mettle can win on consumer subscriptions alone — not at any realistic funding level that's achievable right now.</p>
+      <p>The 21K Instagram followers on @be.mettle — after 2.5 years with Bear Grylls as co-founder — tells you everything. If the organic growth from the world's most famous adventurer co-founding the app hasn't moved the needle, paid acquisition certainly won't at this stage.</p>
+    </div>
+
+    <div class="card green-card">
+      <h3>Where the Market Is Actually Open</h3>
+      <p><strong>B2B Corporate Wellness.</strong> UK corporate wellness is a £500M+ market where buyers are HR directors with budgets, not individuals choosing between apps. The pitch is completely different: "Reduce mental health sick days, improve resilience, demonstrate duty of care." Mettle already has Thames Valley Police, Deutsche Bank, and Bank of Ireland. That's meaningful proof for seed stage.</p>
+      <p>Corporate wellness procurement moves slowly, but contracts are large (£30K-£200K+ per enterprise client), retention is multi-year, and they don't need to win an App Store algorithm fight. Bear's credibility and network are actually more valuable for this buyer than for consumer Instagram followers.</p>
+    </div>
+  </div>
+
+  <!-- STRATEGY OPTIONS -->
+  <div class="section">
+    <div class="section-label">Strategic Options</div>
+
+    <div class="option">
+      <div class="option-header">
+        <h3>Option 1 — Exit Now</h3>
+        <span class="badge badge-amber">Worth Considering</span>
+      </div>
+      <p>Approach Neil Smith about buying out BGV's equity stake — either back to the company, or to a secondary buyer. Take the financial loss, free up Bear's brand equity and Jesse's mental bandwidth.</p>
+      <div class="pros-cons">
+        <div class="pros-cons-box">
+          <h4>For</h4>
+          <ul>
+            <li>Clean break while equity still has some notional value</li>
+            <li>Frees Bear's name from a company that may fail</li>
+            <li>Jesse's time goes to Modern Savage, Wildernests, EBG</li>
+            <li>Avoids throwing good money after bad</li>
+          </ul>
+        </div>
+        <div class="pros-cons-box">
+          <h4>Against</h4>
+          <ul>
+            <li>Secondary buyers for seed-stage apps are rare</li>
+            <li>Likely to get pennies on the pound</li>
+            <li>Bear's name is tied in regardless — reputationally harder to fully exit</li>
+            <li>Might feel like giving up too early</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="option">
+      <div class="option-header">
+        <h3>Option 2 — Pivot to Pure B2B, Stop Consumer Spend</h3>
+        <span class="badge badge-blue">Highest Potential</span>
+      </div>
+      <p>Tell Neil to stop spending on consumer acquisition entirely. Strip the overhead. Focus 100% on enterprise clients using Bear as a sales asset — not a social media asset. Use Bear's credibility with police forces, banks, corporates to sign 5-10 enterprise contracts. Each one at £30-100K/year changes the revenue profile overnight.</p>
+      <ul style="margin: 12px 0 12px 18px; font-size:14px; color:#444;">
+        <li style="margin-bottom:6px;">Bear attends 2-3 enterprise sales events per year (not social posts — actual boardroom meetings)</li>
+        <li style="margin-bottom:6px;">Target: UK police forces, military, banks, construction (high male workforce, high mental health risk)</li>
+        <li style="margin-bottom:6px;">5 enterprise contracts at £50K/year = £250K MRR — transforms the business</li>
+        <li style="margin-bottom:6px;">This model could actually get them to Series A</li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros-cons-box">
+          <h4>For</h4>
+          <ul>
+            <li>Bear's network is genuinely useful for enterprise sales</li>
+            <li>Already have 3 enterprise clients as proof</li>
+            <li>Removes the unwinnable consumer fight</li>
+            <li>Much higher contract values, better retention</li>
+            <li>Could reach profitability faster</li>
+          </ul>
+        </div>
+        <div class="pros-cons-box">
+          <h4>Against</h4>
+          <ul>
+            <li>Requires Neil to fully embrace the pivot</li>
+            <li>Slower sales cycles (6-12 months per enterprise deal)</li>
+            <li>May need bridge capital to survive until contracts close</li>
+            <li>Bear's time commitment goes up, not down</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="option">
+      <div class="option-header">
+        <h3>Option 3 — Bear Goes All-In on Consumer, Properly</h3>
+        <span class="badge badge-amber">Only If Bear Commits</span>
+      </div>
+      <p>Bear runs a dedicated, sustained 30-60 day campaign across all his platforms — personal stories, daily content, direct calls to download. Not one story. Not a post. An actual campaign. If 1% of Bear's 10M Instagram followers download and 10% convert to paid, that's 10,000 subscribers = £65K/month MRR. That would change the company's trajectory overnight.</p>
+      <div class="pros-cons">
+        <div class="pros-cons-box">
+          <h4>For</h4>
+          <ul>
+            <li>Could genuinely move the needle immediately</li>
+            <li>No additional capital required</li>
+            <li>Creates the growth story needed for Series A</li>
+            <li>Bear's personal mental health story is authentic</li>
+          </ul>
+        </div>
+        <div class="pros-cons-box">
+          <h4>Against</h4>
+          <ul>
+            <li>Bear hasn't done this in 2.5 years — why now?</li>
+            <li>Requires 30-60 days of Bear's social content focus</li>
+            <li>Competes with Running Wild, Adventure Garage, Modern Savage for Bear's posts</li>
+            <li>Even if it works, consumer churn is the next problem</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="option">
+      <div class="option-header">
+        <h3>Option 4 — Passive Hold, Do Nothing</h3>
+        <span class="badge badge-red">Not Recommended</span>
+      </div>
+      <p>Continue as is. Let Neil run it. Don't inject capital or time. Watch what happens by summer 2026.</p>
+      <p>This is the default path and it leads to one outcome: Mettle runs out of money, can't raise, and either folds or sells for almost nothing. Not a strategy — a slow-motion exit with worse optics.</p>
+    </div>
+  </div>
+
+  <!-- JESSE'S CONTEXT -->
+  <div class="section">
+    <div class="section-label">Your Context — What Else Is On Your Plate</div>
+    <div class="card">
+      <p>This isn't just about Mettle in isolation. Here's the honest picture of what you're already running:</p>
+      <div class="context-item"><span class="context-label">EBG / Bear Witness</span><span class="context-detail">$25K/month retainer, active management of all Bear social. This is your primary income and time commitment.</span></div>
+      <div class="context-item"><span class="context-label">Wildernests</span><span class="context-detail">$15K/month retainer + equity. Content plan just kicked off. Real momentum. Needs your attention to execute.</span></div>
+      <div class="context-item"><span class="context-label">Modern Savage</span><span class="context-detail">Formula done. Needs go-to-market plan, pricing, launch sequence. Launching soon.</span></div>
+      <div class="context-item"><span class="context-label">Water2</span><span class="context-detail">Royalty proposal rejected. Needs a response from BGV before the relationship drifts further.</span></div>
+      <div class="context-item"><span class="context-label">BecomingX</span><span class="context-detail">£40K loan, Bear resignation, license dispute. CJ managing but needs oversight.</span></div>
+      <div class="context-item"><span class="context-label">Organised</span><span class="context-detail">Active legal dispute. CJ and Ignition managing.</span></div>
+      <div class="context-item"><span class="context-label">Swiss permit</span><span class="context-detail">Application in. Dacia transfer waiting. Chalet purchase on hold.</span></div>
+      <div class="context-item"><span class="context-label">Sailing expedition</span><span class="context-detail">Norway → Iceland → Greenland this summer. Boat refit ongoing.</span></div>
+      <div class="context-item"><span class="context-label">Substack</span><span class="context-label" style="min-width:0"></span><span class="context-detail">2 posts drafted, needs consistent publishing to build audience.</span></div>
+    </div>
+    <div class="card amber-card" style="margin-top:16px;">
+      <h3>The Opportunity Cost</h3>
+      <p>Every hour spent on Mettle is an hour not spent on Modern Savage (which you own 100% and is launching), Wildernests (which pays you $15K/month and gives equity), or EBG (your primary income). The return profile on those three is far clearer than on Mettle at this stage.</p>
+      <p>Mettle's equity at £10M valuation — even if it 5x'd to £50M — represents a fraction of the upside available in Modern Savage or Wildernests if those execute properly. And Mettle requires active involvement to have any chance of that upside.</p>
+    </div>
+  </div>
+
+  <!-- QUESTIONS TO ASK -->
+  <div class="section">
+    <div class="section-label">Questions To Get Answered Before Deciding</div>
+    <div class="card">
+      <ul style="font-size:15px; color:#333; padding-left:20px;">
+        <li style="margin-bottom:12px;"><strong>What is the current MRR?</strong> Ask Neil directly. If it's under £20K/month after 2.5 years, the consumer model isn't working.</li>
+        <li style="margin-bottom:12px;"><strong>What are the enterprise contracts worth?</strong> If Thames Valley Police, Deutsche Bank, and Bank of Ireland are paying meaningful numbers, the B2B pivot has proof.</li>
+        <li style="margin-bottom:12px;"><strong>Is Bear willing to do a real 30-day campaign?</strong> Not a post. A campaign. If the answer is no, Option 3 is off the table.</li>
+        <li style="margin-bottom:12px;"><strong>How much runway is actually left?</strong> Summer is vague — does that mean June or September?</li>
+        <li style="margin-bottom:12px;"><strong>What does Neil actually want?</strong> More capital? A pivot? Or a soft landing? Understanding his headspace matters for what's possible.</li>
+        <li style="margin-bottom:0;"><strong>What is BGV's equity stake?</strong> You need to know the actual % to assess whether any exit or upside is worth pursuing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FINAL VERDICT -->
+  <div class="final-box">
+    <h2>My Recommendation</h2>
+    <p>The consumer app isn't working and the market evidence suggests it won't without a step-change in Bear's platform commitment — which hasn't happened in 2.5 years despite him being co-founder.</p>
+    <p>Before making a final call, get the MRR and enterprise revenue numbers from Neil. Those two figures change everything. If enterprise revenue is growing (even slowly), the B2B pivot is the play. If it's negligible, this is probably heading toward wind-down.</p>
+    <p>Your time is finite and you have better-returning options competing for it right now. Modern Savage and Wildernests are both earlier stage with cleaner upside paths and more direct control.</p>
+    <div class="verdict">
+      If enterprise revenue is real: Push Neil to pivot fully to B2B and stop consumer burn. Bear does 2-3 enterprise sales appearances per year — not social posts.<br><br>
+      If enterprise revenue is negligible: Explore exit options for BGV's equity while there's still something to exit, or accept the write-down and move on. Don't put more capital or time in.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
