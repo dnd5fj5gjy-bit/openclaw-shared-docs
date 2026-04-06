@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
+  .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .topbar a { color: #888; font-size: 13px; text-decoration: none; } .topbar a:hover { color: #fff; } .topbar span { color: #555; }
+  .hero { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 32px; }
+  .hero-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .hero h1 { font-size: 26px; font-weight: 700; } .hero p { font-size: 14px; color: #555; margin-top: 6px; max-width: 500px; line-height: 1.6; }
+  .badge { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+  .badge-blue { background: #e8f0ff; color: #1a4499; }
+  .main { max-width: 900px; margin: 32px auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; }
+  .card.full { grid-column: 1 / -1; }
+  .card h2 { font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #999; margin-bottom: 16px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .row:last-child { border-bottom: none; }
+  .row-label { color: #666; } .row-value { font-weight: 500; text-align: right; max-width: 60%; }
+  .metric-row { display: flex; gap: 16px; margin-bottom: 16px; }
+  .metric { flex: 1; background: #f8f8f8; border-radius: 8px; padding: 16px; text-align: center; }
+  .metric-value { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+  .metric-label { font-size: 12px; color: #888; margin-top: 4px; }
+  .metric-note { font-size: 11px; color: #aaa; margin-top: 2px; }
+  .policy-box { background: #fff8e6; border: 1px solid #ffe082; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #7a5500; }
+  @media (max-width: 700px) { .main { grid-template-columns: 1fr; padding: 0 16px; } .hero { padding: 24px 16px; } .hero-inner { flex-direction: column; } .metric-row { flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="index.html">← All Projects</a><span>/</span><a href="#" style="color:#fff">Ted's Health</a>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Ted's Health</h1>
+      <p>UK TRT/ED digital health clinic. Pivoting from D2C to white-label B2B platform for other clinics. Felix building tech spec.</p>
+    </div>
+    <span class="badge badge-blue">Strategic Pivot</span>
+  </div>
+</div>
+<div class="main">
+
+  <div class="card full">
+    <h2>Metrics (March 2026)</h2>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-value">97</div><div class="metric-label">Active Patients</div><div class="metric-note">52 TRT + 45 ED</div></div>
+      <div class="metric"><div class="metric-value">225</div><div class="metric-label">Breakeven Target</div><div class="metric-note">Currently at 43% of target</div></div>
+      <div class="metric"><div class="metric-value">£6,343</div><div class="metric-label">March Revenue</div><div class="metric-note">Peak £8,738 (Jan 2026)</div></div>
+    </div>
+    <div style="background:#f5f5f5; border-radius:6px; padding:10px 14px; font-size:13px; color:#555;">
+      Revenue trend: Sep 25 £4,080 → Oct £5,050 → Nov £6,160 → Dec £7,200 → Jan 26 £8,738 → Feb £7,900 → Mar £6,343. BBT price drop (£150→£40) impacted Jan peak.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Team</h2>
+    <div class="row"><span class="row-label">Jonathan Andrews (Medical Dir)</span><span class="row-value">jonathan.andrews@tedshealth.com</span></div>
+    <div class="row"><span class="row-label">Thomas Filmer (Operations)</span><span class="row-value">thomas@tedshealth.com</span></div>
+    <div class="row"><span class="row-label">Mia Silva (CQC/Quality)</span><span class="row-value">mia@tedshealth.com</span></div>
+    <div class="row"><span class="row-label">Ryann Egang (Patient care)</span><span class="row-value">ryann@tedshealth.com</span></div>
+    <div class="row"><span class="row-label">Becky Hopkins (Ex-MD)</span><span class="row-value">Resigned Dec 2025, 0 options</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Legal Entity</h2>
+    <div class="row"><span class="row-label">Legal name</span><span class="row-value">GSET Health Ltd t/a Ted's Health</span></div>
+    <div class="row"><span class="row-label">Previously</span><span class="row-value">Melior Labs Ltd (administration)</span></div>
+    <div class="row"><span class="row-label">Regulation</span><span class="row-value">CQC-registered</span></div>
+    <div class="row"><span class="row-label">Ignition Law</span><span class="row-value">Nicky Cranfield, Jack Colman</span></div>
+    <div class="row"><span class="row-label">IT support</span><span class="row-value">Fusion IT (Peter Ashdown)</span></div>
+  </div>
+
+  <div class="card full">
+    <h2>Strategic Pivot — White Label B2B</h2>
+    <div style="font-size:14px; line-height:1.6; color:#333; margin-bottom:16px;">
+      Vision: Sell CQC-registered TRT delivery infrastructure to other clinics as a white-label backend. Felix building 51-page v1.6 tech spec. Thomas Filmer reviewing. Jonathan Andrews driving it medically.
+    </div>
+    <div class="policy-box">
+      <strong>BGV Policy:</strong> Do NOT proactively build Ted's Health unless Jesse asks. Jesse owns this lane — flag anything inbound but take no action without direction.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
