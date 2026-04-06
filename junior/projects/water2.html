@@ -13,6 +13,7 @@
   .hero-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
   .hero h1 { font-size: 26px; font-weight: 700; } .hero p { font-size: 14px; color: #555; margin-top: 6px; max-width: 500px; line-height: 1.6; }
   .badge { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+  .badge-red { background: #ffeaea; color: #cc2200; }
   .badge-amber { background: #fff7e6; color: #996600; }
   .main { max-width: 900px; margin: 32px auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; }
@@ -22,11 +23,24 @@
   .row:last-child { border-bottom: none; }
   .row-label { color: #666; } .row-value { font-weight: 500; text-align: right; max-width: 60%; }
   .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 8px; }
+  .tag-red { background: #ffeaea; color: #cc2200; }
   .tag-amber { background: #fff7e6; color: #996600; }
+  .tag-green { background: #e6f9ee; color: #1a7a40; }
   .thread-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
   .thread-item:last-child { border-bottom: none; }
   .thread-item .title { font-weight: 500; margin-bottom: 3px; }
-  .thread-item .detail { color: #666; font-size: 13px; line-height: 1.4; }
+  .thread-item .detail { color: #666; font-size: 13px; line-height: 1.5; }
+  .warning-box { background: #fff2f2; border: 1px solid #ffd0d0; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #7a0000; margin-bottom: 16px; line-height: 1.5; }
+  .info-box { background: #f0f7ff; border: 1px solid #b8d4f8; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #1a3a6a; line-height: 1.5; }
+  .timeline { position: relative; padding-left: 20px; border-left: 2px solid #e8e8e8; }
+  .tl-item { margin-bottom: 16px; position: relative; }
+  .tl-item::before { content: ''; position: absolute; left: -25px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #ccc; }
+  .tl-item.done::before { background: #aaa; }
+  .tl-item.bad::before { background: #cc2200; }
+  .tl-item.current::before { background: #996600; }
+  .tl-date { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tl-title { font-size: 14px; font-weight: 500; margin-top: 2px; }
+  .tl-detail { font-size: 13px; color: #666; margin-top: 3px; line-height: 1.45; }
   @media (max-width: 700px) { .main { grid-template-columns: 1fr; padding: 0 16px; } .hero { padding: 24px 16px; } .hero-inner { flex-direction: column; } }
 </style>
 </head>
@@ -37,43 +51,102 @@
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <h1>Water2</div>
-      <p>Water filter company. BGV invested. Targeting extra equity + revenue share in new markets (China, India). Royalty amendment in negotiation.</p>
+      <h1>Water2</h1>
+      <p>Water filter brand. Bear is a customer and informal ambassador. No formal cash deal exists. Royalty proposal was rejected March 24. Negotiation open but stuck.</p>
     </div>
-    <span class="badge badge-amber">Negotiating</span>
+    <span class="badge badge-red">Negotiation Stalled</span>
   </div>
 </div>
 <div class="main">
 
+  <div class="card full">
+    <h2>Current Situation — Read This First</h2>
+    <div class="warning-box">
+      <strong>The royalty proposal has been firmly rejected.</strong> Charles Robinson's March 24 letter makes clear: a perpetual revenue-based royalty would kill Water2's exit value and breach his fiduciary duty to shareholders. He cited Huel's recent acquisition as a comparable — a 5% royalty at scale (£220M revenue) would equal £11M/year = Water2's entire EBIT, tanking the valuation by hundreds of millions. This is a dead end.
+    </div>
+    <div class="info-box">
+      <strong>What Charles will consider:</strong> He remains open to conversation. The original agreed basis was always equity-led (discounted investment + possibly small cash/royalty). The viable path is equity options (5-10%) and potentially a revenue share limited to specific new markets (China, India) — not a blanket perpetual top-line royalty.
+    </div>
+  </div>
+
   <div class="card">
     <h2>Business Status</h2>
-    <div class="row"><span class="row-label">Fluoride filter sales</span><span class="row-value">£2M+ (UK)</span></div>
-    <div class="row"><span class="row-label">Current channels</span><span class="row-value">UK Costco + Amazon UK</span></div>
-    <div class="row"><span class="row-label">Pipeline</span><span class="row-value">Potential Boots listing</span></div>
-    <div class="row"><span class="row-label">R&D</span><span class="row-value">Shower filter in development</span></div>
+    <div class="row"><span class="row-label">Fluoride filter sales</span><span class="row-value">£2M+ (UK, exceeded)</span></div>
+    <div class="row"><span class="row-label">Channels</span><span class="row-value">UK Costco + Amazon UK (live)</span></div>
+    <div class="row"><span class="row-label">Pipeline</span><span class="row-value">Boots online trial (discussions)</span></div>
+    <div class="row"><span class="row-label">R&D</span><span class="row-value">Shower filter (was due Sep 2025)</span></div>
+    <div class="row"><span class="row-label">Charles's target</span><span class="row-value">£1-2M/month domestic revenue</span></div>
+    <div class="row"><span class="row-label">Exit thinking</span><span class="row-value">Hasham Khan flagged fundraise vs sale</span></div>
   </div>
 
   <div class="card">
     <h2>Contacts</h2>
-    <div class="row"><span class="row-label">Charles Robinson (Founder)</span><span class="row-value">c@water2.com</span></div>
-    <div class="row"><span class="row-label">Torrin Joshua</span><span class="row-value">Torrin@water2.com</span></div>
+    <div class="row"><span class="row-label">Charles Robinson</span><span class="row-value">c@water2.com</span></div>
+    <div class="row"><span class="row-label">Craig Robinson</span><span class="row-value">craig.aam@gmail.com (advisor/father)</span></div>
+    <div class="row"><span class="row-label">Torrin Joshua</span><span class="row-value">Torrin@water2.com (content approvals)</span></div>
+    <div class="row"><span class="row-label">Finn</span><span class="row-value">finn@water2.com (ops)</span></div>
     <div class="row"><span class="row-label">Adam Hassan (BGV)</span><span class="row-value">Content approval lead</span></div>
     <div class="row"><span class="row-label">Hasham Khan (ABP)</span><span class="row-value">M&A advisor</span></div>
   </div>
 
   <div class="card full">
-    <h2>BGV Goals + Active Threads</h2>
+    <h2>Deal History Timeline</h2>
+    <div class="timeline">
+      <div class="tl-item done">
+        <div class="tl-date">Mar 2024</div>
+        <div class="tl-title">Rupert Tate (BGV CEO) proposes £1M+/year cash deal</div>
+        <div class="tl-detail">Charles explicitly rejects — not viable for a young startup. Expected equity-led deal from the start. Rupert accepts and says BGV would be open to investing instead.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Jul 2025</div>
+        <div class="tl-title">CJ pushes for 5-10% equity options + revenue share in new markets</div>
+        <div class="tl-detail">Charles acknowledges equity increase should be explored. Share transfer not feasible (existing shareholders). Options path agreed to explore. Revenue share in China/India also discussed.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Aug 2025</div>
+        <div class="tl-title">Bear photoshoot in Wales</div>
+        <div class="tl-detail">Content shoot completed. Water2 team retreat alongside. London pop-up event Sep 12 with Bear attending.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Nov 2025</div>
+        <div class="tl-title">Video approval dispute</div>
+        <div class="tl-detail">Jesse asked to remove a posted video ("comes across arrogant — especially the selling millions of books line"). Charles had transcripts proving it was approved. Jesse/Bear acknowledged the error. Charles was gracious.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Mar 6, 2026</div>
+        <div class="tl-title">Jesse sends Royalty Amendment Notes to Charles</div>
+        <div class="tl-detail">Proposes perpetual revenue-based royalty structure. Jesse met Charles and Bear in person that week, involved in content shoot.</div>
+      </div>
+      <div class="tl-item bad">
+        <div class="tl-date">Mar 24, 2026</div>
+        <div class="tl-title">Charles sends formal rejection letter</div>
+        <div class="tl-detail">Firm rejection of perpetual royalty. Reasons: kills exit value, breaches fiduciary duty, not what was ever agreed. Huel acquisition cited as comparable. Remains open to finding a solution.</div>
+      </div>
+      <div class="tl-item current">
+        <div class="tl-date">Now</div>
+        <div class="tl-title">Negotiation open, no response drafted yet</div>
+        <div class="tl-detail">BGV needs to respond to Charles's letter. The path forward is equity options (5-10%) — not a perpetual royalty. CJ to lead next steps.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card full">
+    <h2>Next Steps</h2>
     <div class="thread-item">
-      <div class="title">Equity increase <span class="tag tag-amber">Negotiating</span></div>
-      <div class="detail">CJ negotiating extra 5-10% equity via options. New markets (China, India) as the lever.</div>
+      <div class="title">Respond to Charles's March 24 letter <span class="tag tag-amber">Needed</span></div>
+      <div class="detail">BGV hasn't responded. Charles said he wants to find a solution. The right response is to acknowledge his position, drop the royalty proposal, and refocus on equity options + limited new market revenue share. CJ to lead.</div>
     </div>
     <div class="thread-item">
-      <div class="title">Royalty amendment <span class="tag tag-amber">Awaiting response</span></div>
-      <div class="detail">Jesse sent "Royalty Amendment Notes" to Charles Robinson on Mar 6, 2026. Charles responded Mar 9 — needs time to digest.</div>
+      <div class="title">Equity options structure (5-10%) <span class="tag tag-amber">Viable path</span></div>
+      <div class="detail">This was the agreed direction from July 2025. Charles acknowledged equity increase should be explored. Share options for C-suite are standard. This is the deal to close.</div>
     </div>
     <div class="thread-item">
-      <div class="title">Content approval process</div>
-      <div class="detail">Jesse and Adam Hassan oversee content for Water2. Jesse pulled a video Nov 2025 that "came across arrogant" — Bear agreed with the decision.</div>
+      <div class="title">New market revenue share (China/India only) <span class="tag tag-amber">Possibly viable</span></div>
+      <div class="detail">A time-limited or market-specific revenue share (not perpetual, not on all revenue) might be acceptable. Very different from a blanket royalty.</div>
+    </div>
+    <div class="thread-item">
+      <div class="title">Day-to-day content approvals <span class="tag tag-green">Ongoing</span></div>
+      <div class="detail">Jesse authorised Torrin to use already-approved footage for ads (Apr 1, 2026). Bi-weekly approval meetings continue.</div>
     </div>
   </div>
 
