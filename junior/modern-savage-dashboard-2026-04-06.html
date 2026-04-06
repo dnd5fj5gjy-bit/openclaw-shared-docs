@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Savage — Launch Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #13171c;
+      --panel-2: #171c22;
+      --text: #eef2f6;
+      --muted: #9aa6b2;
+      --line: #27303a;
+      --green: #36d399;
+      --amber: #f5b942;
+      --red: #ff6b6b;
+      --blue: #67b7ff;
+      --accent: #d7b56d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #090b0e 0%, #0f1318 100%);
+      color: var(--text);
+      line-height: 1.45;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 28px; }
+    .card {
+      background: rgba(19,23,28,.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.28);
+    }
+    h1, h2, h3 { margin: 0 0 10px; }
+    h1 { font-size: 32px; letter-spacing: -.02em; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 14px; }
+    p { margin: 0 0 10px; color: #d9e0e7; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .row { display: grid; gap: 18px; margin-bottom: 18px; }
+    .cols-2 { grid-template-columns: 1fr 1fr; }
+    .cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .hero-grid { grid-template-columns: 1.5fr 1fr; }
+    .inputs { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+    .inputs-2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+    .field {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .field input[type=number] {
+      width: 100%;
+      background: #0d1014;
+      color: var(--text);
+      border: 1px solid #303a46;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 15px;
+    }
+    .field input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+      margin-top: 4px;
+    }
+    .field .range-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .metric { padding: 4px 0; }
+    .metric .label { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+    .metric .value { font-size: 36px; font-weight: 800; letter-spacing: -.03em; }
+    .metric .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .green { background: rgba(54,211,153,.12); color: var(--green); border-color: rgba(54,211,153,.25); }
+    .amber { background: rgba(245,185,66,.12); color: var(--amber); border-color: rgba(245,185,66,.25); }
+    .red { background: rgba(255,107,107,.12); color: var(--red); border-color: rgba(255,107,107,.25); }
+    .blue { background: rgba(103,183,255,.12); color: var(--blue); border-color: rgba(103,183,255,.25); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+    .divider { height: 1px; background: var(--line); margin: 16px 0; }
+    ul.clean { margin: 0; padding-left: 18px; }
+    ul.clean li { margin: 9px 0; color: #dce4eb; font-size: 14px; }
+    .sub-impact {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .sub-col {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .sub-col .pct { font-size: 22px; font-weight: 800; color: var(--accent); }
+    .sub-col .gp { font-size: 20px; font-weight: 700; margin: 4px 0; }
+    .sub-col .lbl { font-size: 11px; color: var(--muted); }
+    .highlight { border-color: var(--accent) !important; }
+    .footer { margin-top: 20px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 900px) {
+      .cols-2, .cols-3, .cols-4, .hero-grid, .inputs, .inputs-2, .sub-impact { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="card row" style="grid-template-columns:1.5fr 1fr; margin-bottom:18px; align-items:start;">
+    <div>
+      <h3>Modern Savage</h3>
+      <h1>Launch Dashboard</h1>
+      <p style="margin-top:8px; color:var(--muted); font-size:14px;">Single-packet model. One packet per purchase. Adjust subscription take rate to see how retention shapes your 90-day economics.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div class="metric">
+        <div class="label">First-order contribution</div>
+        <div class="value" id="contribution">$0</div>
+        <div class="sub">after CAC</div>
+      </div>
+      <div class="metric">
+        <div class="label">90-day gross profit</div>
+        <div class="value" id="profit90">$0</div>
+        <div class="sub">per customer acquired</div>
+      </div>
+      <div class="metric">
+        <div class="label">Breakeven CAC</div>
+        <div class="value" id="breakeven">$0</div>
+        <div class="sub">max you can spend</div>
+      </div>
+      <div class="metric">
+        <div class="label">Status</div>
+        <div style="margin-top:6px;" id="statusPill"><span class="pill blue">-</span></div>
+        <div class="sub" id="statusText" style="margin-top:6px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUTS ROW -->
+  <div class="row cols-2" style="margin-bottom:18px;">
+
+    <!-- Pricing & Costs -->
+    <div class="card">
+      <h3>Pricing and costs — single packet</h3>
+      <div class="inputs">
+        <div class="field">
+          <label>One-time packet price</label>
+          <input id="priceOtp" type="number" value="59" step="0.01">
+        </div>
+        <div class="field">
+          <label>Subscription first-order price</label>
+          <input id="priceSub" type="number" value="52" step="0.01">
+        </div>
+        <div class="field">
+          <label>Subscription renewal price</label>
+          <input id="priceRenew" type="number" value="52" step="0.01">
+        </div>
+        <div class="field">
+          <label>COGS per packet</label>
+          <input id="cogs" type="number" value="15" step="0.01">
+        </div>
+        <div class="field">
+          <label>Ops + payment per order</label>
+          <input id="ops" type="number" value="6" step="0.01">
+        </div>
+        <div class="field">
+          <label>Shipping subsidy per order</label>
+          <input id="ship" type="number" value="5" step="0.01">
+        </div>
+      </div>
+    </div>
+
+    <!-- CAC -->
+    <div class="card">
+      <h3>Customer acquisition cost</h3>
+      <div class="inputs">
+        <div class="field">
+          <label>Good CAC</label>
+          <input id="cacGood" type="number" value="32" step="0.01">
+        </div>
+        <div class="field">
+          <label>Base CAC</label>
+          <input id="cacBase" type="number" value="42" step="0.01">
+        </div>
+        <div class="field">
+          <label>Weak CAC</label>
+          <input id="cacWeak" type="number" value="55" step="0.01">
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="margin-bottom:8px;">Subscription retention</h3>
+      <div class="inputs-2">
+        <div class="field">
+          <label>Month-2 continuation rate (%)</label>
+          <input id="ret2" type="number" value="45" step="1" min="0" max="100">
+        </div>
+        <div class="field">
+          <label>Month-3 continuation rate (%)</label>
+          <input id="ret3" type="number" value="35" step="1" min="0" max="100">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIPTION SLIDER -->
+  <div class="card" style="margin-bottom:18px;">
+    <h3>Subscription take rate — drag to see the impact</h3>
+    <div style="display:grid; grid-template-columns:1fr 2fr; gap:24px; align-items:center;">
+      <div class="field" style="background:transparent; border:none; padding:0;">
+        <label style="font-size:14px; color:var(--text);">% of customers who take a subscription</label>
+        <span class="range-val" id="subRateVal">15%</span>
+        <input id="subRate" type="range" min="0" max="100" value="15" step="1">
+        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:4px;">
+          <span>0% — all one-time</span><span>50%</span><span>100% — all subscribe</span>
+        </div>
+      </div>
+      <div>
+        <p class="muted" style="margin-bottom:12px;">What your 90-day gross profit looks like across subscription take rates:</p>
+        <div class="sub-impact" id="subImpactGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO TABLE + ACTIONS -->
+  <div class="row cols-2" style="margin-bottom:18px;">
+    <div class="card">
+      <h3>Scenario outputs</h3>
+      <table style="margin-top:6px;">
+        <thead>
+          <tr><th>Scenario</th><th>CAC</th><th>1st-order contrib.</th><th>90-day GP</th><th>Call</th></tr>
+        </thead>
+        <tbody id="scenarioTable"></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>What to do next</h3>
+      <ul class="clean" id="actions"></ul>
+      <div class="divider"></div>
+      <h3>Guardrails</h3>
+      <ul class="clean">
+        <li>Green: CAC under $35 AND 90-day GP above $20 per customer.</li>
+        <li>Yellow: Breaking even on first order. Subscription retention becomes critical.</li>
+        <li>Red: Losing money on first order. Do not scale.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">Modern Savage — built by Junior. Single-packet model, 2026-04-06.</div>
+</div>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const money = n => `$${n.toFixed(2)}`;
+  const moneyInt = n => `$${Math.round(n)}`;
+
+  function calc(subRateFrac, cacVal, priceOtp, priceSub, priceRenew, cogs, ops, ship, ret2Frac, ret3Frac) {
+    // Blended first-order AOV
+    const aov = (subRateFrac * priceSub) + ((1 - subRateFrac) * priceOtp);
+    // Variable cost is same regardless (one packet)
+    const variable = cogs + ops + ship;
+    // Gross margin before CAC
+    const grossMargin = aov - variable;
+    // Contribution after CAC
+    const contribution = grossMargin - cacVal;
+    // Subscription reorder GP (months 2 and 3)
+    // Only subscribers reorder. Month 2: subRate * ret2. Month 3: subRate * ret2 * ret3.
+    const renewalMargin = priceRenew - variable;
+    const m2gp = subRateFrac * ret2Frac * renewalMargin;
+    const m3gp = subRateFrac * ret2Frac * ret3Frac * renewalMargin;
+    const gp90 = contribution + m2gp + m3gp;
+    return { aov, grossMargin, contribution, gp90, breakeven: grossMargin };
+  }
+
+  function callLabel(contribution, gp90, cac) {
+    if (contribution > 0 && gp90 > 20 && cac <= 35) return ['Ready to scale', 'green', 'Unit economics are solid. Run traffic carefully and watch CAC weekly.'];
+    if (contribution >= 0 && gp90 > 0) return ['Refine before scaling', 'amber', 'Breaking even on first order. Subscription retention is your growth lever — improve it before adding spend.'];
+    if (contribution < 0 && gp90 > 0) return ['Subscription-dependent', 'amber', 'Losing money on day one. You need subscription to bail you out — raise sub take rate or cut CAC.'];
+    return ['Too soft — fix first', 'red', 'Losing money across 90 days. Do not buy volume. Fix CAC, price, or cost structure first.'];
+  }
+
+  function scenarioCall(contribution, gp90) {
+    if (contribution > 0 && gp90 > 20) return '<span class="pill green">Scale</span>';
+    if (gp90 > 0) return '<span class="pill amber">Refine</span>';
+    return '<span class="pill red">Fix</span>';
+  }
+
+  function update() {
+    const priceOtp = +$('priceOtp').value || 0;
+    const priceSub = +$('priceSub').value || 0;
+    const priceRenew = +$('priceRenew').value || 0;
+    const cogs = +$('cogs').value || 0;
+    const ops = +$('ops').value || 0;
+    const ship = +$('ship').value || 0;
+    const cacBase = +$('cacBase').value || 0;
+    const cacGood = +$('cacGood').value || 0;
+    const cacWeak = +$('cacWeak').value || 0;
+    const ret2 = (+$('ret2').value || 0) / 100;
+    const ret3 = (+$('ret3').value || 0) / 100;
+    const subRate = +$('subRate').value / 100;
+
+    $('subRateVal').textContent = `${Math.round(subRate * 100)}%`;
+
+    const r = calc(subRate, cacBase, priceOtp, priceSub, priceRenew, cogs, ops, ship, ret2, ret3);
+
+    $('contribution').textContent = moneyInt(r.contribution);
+    $('contribution').style.color = r.contribution >= 0 ? 'var(--green)' : 'var(--red)';
+    $('profit90').textContent = moneyInt(r.gp90);
+    $('profit90').style.color = r.gp90 > 0 ? 'var(--green)' : 'var(--red)';
+    $('breakeven').textContent = moneyInt(r.breakeven);
+
+    const [headline, tone, text] = callLabel(r.contribution, r.gp90, cacBase);
+    $('statusPill').innerHTML = `<span class="pill ${tone}">${headline}</span>`;
+    $('statusText').textContent = text;
+
+    // Scenario table
+    const scenarios = [
+      ['Good', cacGood],
+      ['Base', cacBase],
+      ['Weak', cacWeak],
+    ].map(([name, cac]) => {
+      const s = calc(subRate, cac, priceOtp, priceSub, priceRenew, cogs, ops, ship, ret2, ret3);
+      const contColor = s.contribution >= 0 ? 'var(--green)' : 'var(--red)';
+      const gpColor = s.gp90 > 0 ? 'var(--green)' : 'var(--red)';
+      return `<tr>
+        <td>${name}</td>
+        <td>${money(cac)}</td>
+        <td style="color:${contColor}">${money(s.contribution)}</td>
+        <td style="color:${gpColor}">${money(s.gp90)}</td>
+        <td>${scenarioCall(s.contribution, s.gp90)}</td>
+      </tr>`;
+    }).join('');
+    $('scenarioTable').innerHTML = scenarios;
+
+    // Actions
+    const actions = [];
+    const currentSubRatePct = Math.round(subRate * 100);
+    if (r.contribution < 0) actions.push('You are losing money on the first order at base CAC. Subscription revenue cannot fix a broken unit — raise the one-time price or cut CAC before anything else.');
+    if (currentSubRatePct < 20 && r.gp90 < 20) actions.push(`At ${currentSubRatePct}% subscription take rate your 90-day GP is thin. Drag the slider to 30%+ to see what a stronger sub take rate does — then build the product experience to get there.`);
+    if (r.contribution >= 0 && r.gp90 < 15) actions.push('First order is profitable but 90-day retention is weak. Every subscriber you keep is worth more than acquiring a new one. Improve month-2 continuation before scaling ad spend.');
+    if (cacBase > 42) actions.push('CAC is above $42 in the base scenario. Creator and organic content need to do the heavy lifting before you buy paid volume.');
+    if (r.gp90 > 20 && cacBase <= 35) actions.push('Economics are looking healthy. Start testing paid traffic at low volume and track CAC weekly before increasing spend.');
+    if (currentSubRatePct >= 40 && r.gp90 > 25) actions.push('Strong subscription model at this take rate. Focus your product experience on month-2 retention — that second subscription charge is the engine.');
+    if (!actions.length) actions.push('Update inputs with real numbers from your cost sheet. Compare good vs weak CAC scenarios and decide where you want to be before committing to a spend target.');
+    $('actions').innerHTML = actions.map(x => `<li>${x}</li>`).join('');
+
+    // Subscription impact grid — show 0%, 15%, 30%, 50% (or highlight current)
+    const snapshots = [0, 15, 30, 50];
+    const currentPct = Math.round(subRate * 100);
+    let gridHTML = '';
+    snapshots.forEach(pct => {
+      const s = calc(pct / 100, cacBase, priceOtp, priceSub, priceRenew, cogs, ops, ship, ret2, ret3);
+      const isActive = Math.abs(pct - currentPct) < 8;
+      const gpColor = s.gp90 > 0 ? 'var(--green)' : 'var(--red)';
+      gridHTML += `<div class="sub-col ${isActive ? 'highlight' : ''}">
+        <div class="pct">${pct}%</div>
+        <div class="gp" style="color:${gpColor}">${money(s.gp90)}</div>
+        <div class="lbl">90-day GP<br>at ${pct}% sub</div>
+      </div>`;
+    });
+    $('subImpactGrid').innerHTML = gridHTML;
+  }
+
+  document.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+  update();
+</script>
+</body>
+</html>
