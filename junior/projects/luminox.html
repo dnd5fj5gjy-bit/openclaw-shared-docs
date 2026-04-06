@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminox — Deal Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
+  .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .topbar a { color: #888; font-size: 13px; text-decoration: none; } .topbar a:hover { color: #fff; } .topbar span { color: #555; }
+  .hero { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 32px; }
+  .hero-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .hero h1 { font-size: 26px; font-weight: 700; } .hero p { font-size: 14px; color: #555; margin-top: 6px; max-width: 500px; line-height: 1.6; }
+  .badge { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+  .badge-amber { background: #fff7e6; color: #996600; }
+  .main { max-width: 900px; margin: 32px auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; }
+  .card.full { grid-column: 1 / -1; }
+  .card h2 { font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #999; margin-bottom: 16px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .row:last-child { border-bottom: none; }
+  .row-label { color: #666; } .row-value { font-weight: 500; text-align: right; max-width: 60%; }
+  .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 8px; }
+  .tag-green { background: #e6f9ee; color: #1a7a40; }
+  .tag-amber { background: #fff7e6; color: #996600; }
+  .thread-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .thread-item:last-child { border-bottom: none; }
+  .thread-item .title { font-weight: 500; margin-bottom: 3px; }
+  .thread-item .detail { color: #666; font-size: 13px; line-height: 1.4; }
+  .timeline { position: relative; padding-left: 20px; border-left: 2px solid #e8e8e8; }
+  .tl-item { margin-bottom: 16px; position: relative; }
+  .tl-item::before { content: ''; position: absolute; left: -25px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #ccc; }
+  .tl-item.done::before { background: #1a7a40; }
+  .tl-item.current::before { background: #996600; }
+  .tl-date { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tl-title { font-size: 14px; font-weight: 500; margin-top: 2px; }
+  .tl-detail { font-size: 13px; color: #666; margin-top: 2px; }
+  @media (max-width: 700px) { .main { grid-template-columns: 1fr; padding: 0 16px; } .hero { padding: 24px 16px; } .hero-inner { flex-direction: column; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="index.html">← All Projects</a><span>/</span><a href="#" style="color:#fff">Luminox</a>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Luminox</h1>
+      <p>Bear Grylls watch licensing deal. 2nd amendment in final drafting. 2026 on actual royalties; $100K/year minimum resumes 2027.</p>
+    </div>
+    <span class="badge badge-amber">2nd Amendment Pending</span>
+  </div>
+</div>
+<div class="main">
+
+  <div class="card">
+    <h2>Financial Terms</h2>
+    <div class="row"><span class="row-label">2025</span><span class="row-value">$100K minimum (already with agent)</span></div>
+    <div class="row"><span class="row-label">2025 actual earned</span><span class="row-value">~$60K (US tariffs + Asia drops)</span></div>
+    <div class="row"><span class="row-label">2026</span><span class="row-value">Actual royalties only (no floor)</span></div>
+    <div class="row"><span class="row-label">2027-2029</span><span class="row-value">$100K/year minimum — 3yr extension</span></div>
+    <div class="row"><span class="row-label">US market share</span><span class="row-value">~40% of Luminox sales</span></div>
+    <div class="row"><span class="row-label">New product</span><span class="row-value">Aluminox series 3170</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Contacts</h2>
+    <div class="row"><span class="row-label">André Bernheim (CEO)</span><span class="row-value">A.Bernheim@mondaine.ch</span></div>
+    <div class="row"><span class="row-label">Oscar Absalom</span><span class="row-value">o.absalom@luminox.com</span></div>
+    <div class="row"><span class="row-label">Maria Valenzuela</span><span class="row-value">m.valenzuela@mondaine.ch</span></div>
+    <div class="row"><span class="row-label">Jesse role</span><span class="row-value">Marketing strategy lead</span></div>
+    <div class="row"><span class="row-label">CJ role</span><span class="row-value">Contract + legal</span></div>
+  </div>
+
+  <div class="card full">
+    <h2>2nd Amendment Deliverables (Agreed)</h2>
+    <div class="thread-item">
+      <div class="title">6 feed posts/year</div>
+      <div class="detail">Instagram + TikTok combined. All in video format. Watch clearly visible in every post. Luminox tagged.</div>
+    </div>
+    <div class="thread-item">
+      <div class="title">6 YouTube integrations/year</div>
+      <div class="detail">Watch visible in video. Link to specific Luminox model in description. Jesse's discretion on verbal mention.</div>
+    </div>
+    <div class="thread-item">
+      <div class="title">6 email interviews/year</div>
+      <div class="detail">Bear responds in writing to distributor questions. For Luminox-owned channels.</div>
+    </div>
+    <div class="thread-item">
+      <div class="title">New product launches</div>
+      <div class="detail">5 hi-res stills (1 wrist shot + 4 close action) + 1x20s video per new model. Delivered within 20 days of sample receipt. Included in fee — no additional charge.</div>
+    </div>
+    <div class="thread-item">
+      <div class="title">Source material rights</div>
+      <div class="detail">BGV shares approved final assets with Luminox. Usage rights for agreement duration only. Luminox cannot edit without BGV approval. TV/Running Wild: BGV to intro Luminox to rights holders — additional fees apply.</div>
+    </div>
+  </div>
+
+  <div class="card full">
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="tl-item done"><div class="tl-date">2018</div><div class="tl-title">Original agreement signed</div><div class="tl-detail">$100K/year minimum guarantee. 1 half-day shoot/year. 6 social posts.</div></div>
+      <div class="tl-item done"><div class="tl-date">2022</div><div class="tl-title">1st amendment</div><div class="tl-detail">Added: 12 social posts/year, 6 email interviews, press quote rights.</div></div>
+      <div class="tl-item done"><div class="tl-date">Jan 27, 2026</div><div class="tl-title">Jesse sends new marketing strategy to André</div><div class="tl-detail">Platform-native content, YouTube links, everyday content where watch visible. Well received.</div></div>
+      <div class="tl-item done"><div class="tl-date">Feb 23, 2026</div><div class="tl-title">Luminox sends draft 2nd amendment</div><div class="tl-detail">CJ reviewing.</div></div>
+      <div class="tl-item done"><div class="tl-date">Mar 4, 2026</div><div class="tl-title">CJ sends markup to Luminox</div><div class="tl-detail">Luminox reviewing BGV's markup.</div></div>
+      <div class="tl-item current"><div class="tl-date">Now</div><div class="tl-title">2nd amendment pending final sign-off</div><div class="tl-detail">Deliverables agreed. Financial structure agreed. Final document to be signed.</div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
