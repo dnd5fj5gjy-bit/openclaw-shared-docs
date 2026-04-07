@@ -97,6 +97,42 @@
   .decision-box ul li { font-size: 14px; color: #554400; padding: 5px 0; display: flex; gap: 10px; line-height: 1.5; }
   .decision-box ul li::before { content: '?'; font-weight: 800; color: #996600; flex-shrink: 0; }
   @media (max-width: 720px) { .grid-2, .grid-3, .grid-4, .vs-grid { grid-template-columns: 1fr; } .main { padding: 0 16px; } .hero { padding: 32px 16px; } .hero-meta { flex-direction: column; gap: 14px; } }
+
+  /* Calculator */
+  .calc-shell { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; overflow: hidden; margin-bottom: 14px; }
+  .preset-bar { background: #f8f8f8; border-bottom: 1px solid #ebebeb; padding: 14px 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .preset-bar-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; white-space: nowrap; }
+  .preset-chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+  .preset-chip { display: flex; align-items: center; gap: 4px; background: #1a1a1a; color: #fff; border-radius: 20px; padding: 4px 10px 4px 12px; font-size: 12px; font-weight: 600; cursor: pointer; }
+  .preset-chip:hover { background: #333; }
+  .preset-chip .chip-del { background: none; border: none; color: #888; cursor: pointer; font-size: 14px; padding: 0 2px; line-height: 1; }
+  .preset-chip .chip-del:hover { color: #fff; }
+  .preset-save-row { display: flex; gap: 8px; align-items: center; }
+  .preset-name-input { font-size: 12px; padding: 5px 10px; border: 1px solid #ddd; border-radius: 6px; outline: none; width: 140px; font-family: inherit; }
+  .preset-name-input:focus { border-color: #888; }
+  .btn-save { font-size: 12px; font-weight: 700; padding: 5px 14px; background: #1a1a1a; color: #fff; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .btn-save:hover { background: #333; }
+  .calc-body { padding: 22px; }
+  .calc-inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
+  .calc-input-group { display: flex; flex-direction: column; gap: 6px; }
+  .calc-input-group label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; }
+  .calc-input-row { display: flex; align-items: center; gap: 6px; }
+  .calc-prefix { font-size: 14px; color: #666; font-weight: 600; }
+  .calc-input { font-size: 16px; font-weight: 700; width: 90px; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; color: #1a1a1a; outline: none; }
+  .calc-input:focus { border-color: #1a1a1a; }
+  .calc-suffix { font-size: 12px; color: #aaa; }
+  .calc-slider { width: 100%; margin-top: 4px; accent-color: #1a1a1a; }
+  .calc-outputs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .calc-out { background: #f8f8f8; border-radius: 8px; padding: 14px 16px; }
+  .calc-out.highlight { background: #1a1a1a; }
+  .calc-out .out-val { font-size: 22px; font-weight: 900; color: #1a1a1a; letter-spacing: -0.5px; }
+  .calc-out.highlight .out-val { color: #fff; }
+  .calc-out .out-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-top: 5px; }
+  .calc-out.highlight .out-label { color: #666; }
+  .calc-out .out-sub { font-size: 11px; color: #bbb; margin-top: 3px; }
+  .calc-out.highlight .out-sub { color: #555; }
+  .no-presets { font-size: 12px; color: #bbb; font-style: italic; }
+  @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr 1fr; } .calc-outputs { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
