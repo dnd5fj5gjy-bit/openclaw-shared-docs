@@ -98,41 +98,68 @@
   .decision-box ul li::before { content: '?'; font-weight: 800; color: #996600; flex-shrink: 0; }
   @media (max-width: 720px) { .grid-2, .grid-3, .grid-4, .vs-grid { grid-template-columns: 1fr; } .main { padding: 0 16px; } .hero { padding: 32px 16px; } .hero-meta { flex-direction: column; gap: 14px; } }
 
-  /* Calculator */
-  .calc-shell { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; overflow: hidden; margin-bottom: 14px; }
-  .preset-bar { background: #f8f8f8; border-bottom: 1px solid #ebebeb; padding: 14px 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .preset-bar-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; white-space: nowrap; }
-  .preset-chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
-  .preset-chip { display: flex; align-items: center; gap: 4px; background: #1a1a1a; color: #fff; border-radius: 20px; padding: 4px 10px 4px 12px; font-size: 12px; font-weight: 600; cursor: pointer; }
-  .preset-chip:hover { background: #333; }
-  .preset-chip .chip-del { background: none; border: none; color: #888; cursor: pointer; font-size: 14px; padding: 0 2px; line-height: 1; }
-  .preset-chip .chip-del:hover { color: #fff; }
-  .preset-save-row { display: flex; gap: 8px; align-items: center; }
-  .preset-name-input { font-size: 12px; padding: 5px 10px; border: 1px solid #ddd; border-radius: 6px; outline: none; width: 140px; font-family: inherit; }
-  .preset-name-input:focus { border-color: #888; }
-  .btn-save { font-size: 12px; font-weight: 700; padding: 5px 14px; background: #1a1a1a; color: #fff; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap; }
-  .btn-save:hover { background: #333; }
-  .calc-body { padding: 22px; }
-  .calc-inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
-  .calc-input-group { display: flex; flex-direction: column; gap: 6px; }
-  .calc-input-group label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; }
-  .calc-input-row { display: flex; align-items: center; gap: 6px; }
-  .calc-prefix { font-size: 14px; color: #666; font-weight: 600; }
-  .calc-input { font-size: 16px; font-weight: 700; width: 90px; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; color: #1a1a1a; outline: none; }
-  .calc-input:focus { border-color: #1a1a1a; }
-  .calc-suffix { font-size: 12px; color: #aaa; }
-  .calc-slider { width: 100%; margin-top: 4px; accent-color: #1a1a1a; }
-  .calc-outputs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-  .calc-out { background: #f8f8f8; border-radius: 8px; padding: 14px 16px; }
-  .calc-out.highlight { background: #1a1a1a; }
-  .calc-out .out-val { font-size: 22px; font-weight: 900; color: #1a1a1a; letter-spacing: -0.5px; }
-  .calc-out.highlight .out-val { color: #fff; }
-  .calc-out .out-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-top: 5px; }
-  .calc-out.highlight .out-label { color: #666; }
-  .calc-out .out-sub { font-size: 11px; color: #bbb; margin-top: 3px; }
-  .calc-out.highlight .out-sub { color: #555; }
-  .no-presets { font-size: 12px; color: #bbb; font-style: italic; }
-  @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr 1fr; } .calc-outputs { grid-template-columns: 1fr 1fr; } }
+  /* ── Calculator ── */
+  .calc-shell { background:#fff; border-radius:10px; border:1px solid #e8e8e8; overflow:hidden; margin-bottom:14px; }
+  .preset-bar { background:#f8f8f8; border-bottom:1px solid #ebebeb; padding:12px 22px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .preset-bar-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#999; white-space:nowrap; }
+  .preset-chips { display:flex; gap:8px; flex-wrap:wrap; flex:1; min-width:0; }
+  .preset-chip { display:flex; align-items:center; gap:4px; background:#1a1a1a; color:#fff; border-radius:20px; padding:4px 10px 4px 12px; font-size:12px; font-weight:600; cursor:pointer; white-space:nowrap; }
+  .preset-chip:hover { background:#333; }
+  .chip-del { background:none; border:none; color:#888; cursor:pointer; font-size:15px; padding:0 2px; line-height:1; }
+  .chip-del:hover { color:#fff; }
+  .preset-save-row { display:flex; gap:8px; align-items:center; flex-shrink:0; }
+  .preset-name-input { font-size:12px; padding:5px 10px; border:1px solid #ddd; border-radius:6px; outline:none; width:150px; font-family:inherit; }
+  .preset-name-input:focus { border-color:#888; }
+  .btn-save { font-size:12px; font-weight:700; padding:5px 14px; background:#1a1a1a; color:#fff; border:none; border-radius:6px; cursor:pointer; white-space:nowrap; }
+  .btn-save:hover { background:#333; }
+  .no-presets { font-size:12px; color:#bbb; font-style:italic; }
+  /* input panels */
+  .calc-panels { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #f0f0f0; }
+  .calc-panel { padding:20px 24px; }
+  .calc-panel + .calc-panel { border-left:1px solid #f0f0f0; }
+  .calc-panel-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:#bbb; margin-bottom:16px; }
+  .ig { display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; }
+  .ig3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px 16px; }
+  .f { display:flex; flex-direction:column; gap:5px; }
+  .f label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.4px; color:#aaa; }
+  .fi { display:flex; align-items:center; gap:5px; }
+  .fp { font-size:13px; color:#888; font-weight:600; }
+  .fn { font-size:15px; font-weight:800; width:80px; padding:5px 7px; border:1px solid #ddd; border-radius:6px; font-family:inherit; color:#1a1a1a; outline:none; }
+  .fn:focus { border-color:#1a1a1a; }
+  .fs { font-size:11px; color:#bbb; }
+  input[type=range] { width:100%; margin-top:3px; accent-color:#1a1a1a; }
+  /* key metrics */
+  .key-metrics { display:grid; grid-template-columns:repeat(6,1fr); gap:0; border-bottom:1px solid #f0f0f0; }
+  .km { padding:16px 18px; border-right:1px solid #f0f0f0; }
+  .km:last-child { border-right:none; }
+  .km.dark { background:#1a1a1a; }
+  .km .kv { font-size:20px; font-weight:900; color:#1a1a1a; letter-spacing:-.5px; }
+  .km.dark .kv { color:#fff; }
+  .km .kl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#bbb; margin-top:5px; }
+  .km.dark .kl { color:#666; }
+  .km .ks { font-size:10px; color:#ccc; margin-top:3px; }
+  .km.dark .ks { color:#444; }
+  /* projection table */
+  .proj-wrap { overflow-x:auto; }
+  .proj-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .proj-table th { padding:9px 12px; background:#f8f8f8; font-size:10px; text-transform:uppercase; letter-spacing:.5px; color:#999; font-weight:700; text-align:right; border-bottom:2px solid #eee; white-space:nowrap; }
+  .proj-table th:first-child { text-align:left; }
+  .proj-table td { padding:9px 12px; border-bottom:1px solid #f5f5f5; color:#333; text-align:right; white-space:nowrap; }
+  .proj-table td:first-child { text-align:left; font-weight:700; color:#1a1a1a; }
+  .proj-table tr:last-child td { border-bottom:none; font-weight:700; background:#f8f8f8; }
+  .proj-table .pos { color:#1a7a40; }
+  .proj-table .neg { color:#cc3300; }
+  /* year summary */
+  .yr-summary { display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-top:1px solid #f0f0f0; }
+  .yr-box { padding:18px 20px; border-right:1px solid #f0f0f0; }
+  .yr-box:last-child { border-right:none; }
+  .yr-box.profit { background:#f0fff6; }
+  .yr-box.loss { background:#fff5f5; }
+  .yr-box .yv { font-size:22px; font-weight:900; letter-spacing:-.5px; color:#1a1a1a; }
+  .yr-box.profit .yv { color:#1a7a40; }
+  .yr-box.loss .yv { color:#cc3300; }
+  .yr-box .yl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#bbb; margin-top:5px; }
+  @media(max-width:720px) { .calc-panels { grid-template-columns:1fr; } .key-metrics { grid-template-columns:repeat(3,1fr); } .yr-summary { grid-template-columns:1fr 1fr; } .ig,.ig3 { grid-template-columns:1fr 1fr; } }
 </style>
 </head>
 <body>
