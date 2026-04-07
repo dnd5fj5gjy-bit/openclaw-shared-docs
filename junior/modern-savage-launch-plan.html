@@ -3,65 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Savage — 90-Day US Launch Plan</title>
+<title>Modern Savage — Launch Strategy</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
   .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
   .topbar a { color: #888; font-size: 13px; text-decoration: none; } .topbar a:hover { color: #fff; } .topbar span { color: #555; }
-  .hero { background: #1a1a1a; padding: 48px 32px; }
+  .hero { background: #111; padding: 52px 32px; }
   .hero-inner { max-width: 960px; margin: 0 auto; }
-  .hero h1 { font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-  .hero .sub { font-size: 15px; color: #888; margin-top: 8px; }
-  .hero .date { font-size: 12px; color: #555; margin-top: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .main { max-width: 960px; margin: 32px auto; padding: 0 32px; }
-  .section { margin-bottom: 32px; }
-  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #e8e8e8; }
-  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; margin-bottom: 16px; }
-  .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-  .card p { font-size: 14px; color: #555; line-height: 1.65; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .stat { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 20px; }
-  .stat .num { font-size: 28px; font-weight: 800; color: #1a1a1a; }
-  .stat .label { font-size: 12px; color: #888; margin-top: 4px; }
-  .stat .sub { font-size: 12px; color: #aaa; margin-top: 2px; }
-  .phase { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; margin-bottom: 16px; }
-  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .phase-num { width: 32px; height: 32px; border-radius: 50%; background: #1a1a1a; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .phase-num.p2 { background: #996600; }
-  .phase-num.p3 { background: #1a7a40; }
-  .phase h3 { font-size: 16px; font-weight: 700; }
-  .phase .weeks { font-size: 12px; color: #999; margin-top: 2px; }
-  .task-list { list-style: none; }
-  .task-list li { font-size: 14px; color: #555; padding: 7px 0; border-bottom: 1px solid #f5f5f5; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .hero-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+  .hero h1 { font-size: 36px; font-weight: 900; color: #fff; letter-spacing: -0.5px; line-height: 1.15; }
+  .hero .sub { font-size: 15px; color: #777; margin-top: 12px; max-width: 600px; line-height: 1.6; }
+  .hero-meta { display: flex; gap: 32px; margin-top: 28px; }
+  .hero-meta-item .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
+  .hero-meta-item .val { font-size: 14px; color: #ccc; margin-top: 3px; }
+  .main { max-width: 960px; margin: 36px auto; padding: 0 32px; }
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #e8e8e8; }
+  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 26px; margin-bottom: 14px; }
+  .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: #555; line-height: 1.7; }
+  .card p + p { margin-top: 10px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stat { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 22px; }
+  .stat .num { font-size: 30px; font-weight: 900; color: #1a1a1a; line-height: 1; }
+  .stat .label { font-size: 12px; color: #888; margin-top: 6px; font-weight: 600; }
+  .stat .sub { font-size: 12px; color: #bbb; margin-top: 4px; }
+  .phase { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 26px; margin-bottom: 14px; }
+  .phase-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+  .phase-badge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .badge-pre { background: #f0f0f0; color: #555; }
+  .badge-launch { background: #1a1a1a; color: #fff; }
+  .badge-scale { background: #e6f9ee; color: #1a7a40; }
+  .badge-grow { background: #e8f0ff; color: #1a3aaa; }
+  .phase h3 { font-size: 17px; font-weight: 800; }
+  .phase .timing { font-size: 13px; color: #999; margin-top: 3px; }
+  .task-list { list-style: none; margin-top: 4px; }
+  .task-list li { font-size: 14px; color: #444; padding: 8px 0; border-bottom: 1px solid #f5f5f5; display: flex; align-items: flex-start; gap: 12px; line-height: 1.55; }
   .task-list li:last-child { border-bottom: none; }
-  .task-list li::before { content: '→'; color: #bbb; flex-shrink: 0; margin-top: 1px; }
+  .bullet { width: 6px; height: 6px; border-radius: 50%; background: #1a1a1a; flex-shrink: 0; margin-top: 6px; }
+  .bullet.amber { background: #996600; }
+  .bullet.green { background: #1a7a40; }
+  .bullet.blue { background: #1a3aaa; }
   .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .comp-table th { text-align: left; padding: 10px 12px; background: #f8f8f8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; border-bottom: 1px solid #e8e8e8; }
-  .comp-table td { padding: 11px 12px; border-bottom: 1px solid #f5f5f5; color: #444; }
+  .comp-table th { text-align: left; padding: 10px 14px; background: #f8f8f8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; border-bottom: 2px solid #e8e8e8; }
+  .comp-table td { padding: 12px 14px; border-bottom: 1px solid #f5f5f5; color: #444; vertical-align: top; }
   .comp-table tr:last-child td { border-bottom: none; }
-  .comp-table .brand { font-weight: 600; color: #1a1a1a; }
-  .comp-table .us { background: #fffbe6; font-weight: 600; color: #664400; }
-  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .comp-table .brand { font-weight: 700; color: #1a1a1a; font-size: 14px; }
+  .us-row td { background: #fffbe6; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
   .tag-black { background: #1a1a1a; color: #fff; }
   .tag-amber { background: #fff7e6; color: #996600; }
   .tag-green { background: #e6f9ee; color: #1a7a40; }
   .tag-blue { background: #e8f0ff; color: #1a3aaa; }
+  .tag-red { background: #ffeaea; color: #cc2200; }
   .row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
   .row:last-child { border-bottom: none; }
   .row-label { color: #666; }
-  .row-value { font-weight: 500; }
-  .highlight-box { background: #1a1a1a; color: #fff; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
-  .highlight-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-  .highlight-box p { font-size: 14px; color: #aaa; line-height: 1.65; }
-  .highlight-box .big { font-size: 22px; font-weight: 800; color: #fff; }
-  .channel-card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 20px; }
-  .channel-card .name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-  .channel-card .desc { font-size: 13px; color: #666; line-height: 1.5; }
-  .channel-card .kpi { font-size: 12px; color: #999; margin-top: 8px; }
-  @media (max-width: 700px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .main { padding: 0 16px; } .hero { padding: 32px 16px; } }
+  .row-value { font-weight: 600; text-align: right; }
+  .callout { background: #1a1a1a; color: #fff; border-radius: 10px; padding: 28px; margin-bottom: 14px; }
+  .callout h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+  .callout p { font-size: 14px; color: #aaa; line-height: 1.7; }
+  .callout p strong { color: #fff; }
+  .callout .divider { border: none; border-top: 1px solid #333; margin: 16px 0; }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .vs-card { border-radius: 10px; padding: 22px; }
+  .vs-card.them { background: #f8f8f8; border: 1px solid #e8e8e8; }
+  .vs-card.us { background: #1a1a1a; }
+  .vs-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .vs-card.them h4 { color: #999; }
+  .vs-card.us h4 { color: #555; }
+  .vs-card ul { list-style: none; }
+  .vs-card ul li { font-size: 14px; padding: 5px 0; border-bottom: 1px solid #f0f0f0; color: #444; }
+  .vs-card.us ul li { border-bottom: 1px solid #222; color: #ccc; }
+  .vs-card ul li:last-child { border-bottom: none; }
+  .channel-row { display: flex; align-items: flex-start; gap: 18px; padding: 18px 0; border-bottom: 1px solid #f0f0f0; }
+  .channel-row:last-child { border-bottom: none; }
+  .channel-icon { width: 40px; height: 40px; border-radius: 8px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .channel-body { flex: 1; }
+  .channel-name { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .channel-desc { font-size: 13px; color: #666; margin-top: 5px; line-height: 1.55; }
+  .channel-kpi { font-size: 12px; color: #999; margin-top: 6px; }
+  .priority-num { width: 28px; height: 28px; border-radius: 50%; background: #1a1a1a; color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 4px; }
+  .priority-num.p2 { background: #333; }
+  .priority-num.p3 { background: #555; }
+  .priority-num.p4 { background: #888; }
+  .priority-num.p5 { background: #bbb; color: #333; }
+  .decision-box { background: #fff8e6; border: 1px solid #f0d060; border-radius: 10px; padding: 22px; margin-bottom: 14px; }
+  .decision-box h3 { font-size: 14px; font-weight: 700; color: #664400; margin-bottom: 10px; }
+  .decision-box ul { list-style: none; }
+  .decision-box ul li { font-size: 14px; color: #554400; padding: 5px 0; display: flex; gap: 10px; line-height: 1.5; }
+  .decision-box ul li::before { content: '?'; font-weight: 800; color: #996600; flex-shrink: 0; }
+  @media (max-width: 720px) { .grid-2, .grid-3, .grid-4, .vs-grid { grid-template-columns: 1fr; } .main { padding: 0 16px; } .hero { padding: 32px 16px; } .hero-meta { flex-direction: column; gap: 14px; } }
 </style>
 </head>
 <body>
@@ -72,259 +107,327 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <h1>Modern Savage — 90-Day US Launch Plan</h1>
-    <div class="sub">Primal organ blend. DTC launch strategy, channel playbook, financial model.</div>
-    <div class="date">Built: April 7, 2026</div>
+    <div class="hero-tag">Strategy Brief — April 2026</div>
+    <h1>Modern Savage<br>US Launch Strategy</h1>
+    <div class="sub">Primal organ blend supplement. DTC-first launch using Bear Grylls Meta ads — the proven playbook. Amazon FBA from day one. Retail from month 6.</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="label">Status</div><div class="val">Formula finalising</div></div>
+      <div class="hero-meta-item"><div class="label">Market</div><div class="val">US DTC first</div></div>
+      <div class="hero-meta-item"><div class="label">Launch target</div><div class="val">July-Aug 2026</div></div>
+      <div class="hero-meta-item"><div class="label">Year 1 target</div><div class="val">$1-3M revenue</div></div>
+    </div>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- MARKET OPPORTUNITY -->
+  <!-- THE STRATEGIC POSITION -->
   <div class="section">
-    <div class="section-title">Market Opportunity</div>
+    <div class="section-title">The Strategic Position — Read This First</div>
+    <div class="callout">
+      <h3>Modern Savage is not a carnivore supplement. It's a performance supplement with a survival identity.</h3>
+      <p>Every competitor — Heart & Soil, Ancestral Supplements, Optimal Carnivore — is fighting for the same 2-3 million self-identified carnivore followers. That's a ceiling. <strong>Modern Savage's target customer is 10x bigger:</strong> the mainstream health-conscious man who trains, optimises his health, and respects Bear Grylls — but doesn't call himself a carnivore and never will.</p>
+      <hr class="divider">
+      <p><strong>The proof this model works:</strong> Heart & Soil went $0 to $60M in 4 years on Paul Saladino's personal brand alone. Saladino has a fraction of Bear's reach and a niche audience. Bear has 20M+ mainstream followers and global name recognition. <strong>The same playbook, with Bear's platform, should scale faster and bigger.</strong></p>
+      <hr class="divider">
+      <p><strong>The Organised validation:</strong> BGV already proved Bear's Meta ads convert for supplement products. That data is the foundation. This isn't theory — it's a proven model being applied at larger scale with a better product and a better brand.</p>
+    </div>
+  </div>
+
+  <!-- WHO WE'RE TARGETING -->
+  <div class="section">
+    <div class="section-title">The Customer</div>
+    <div class="grid-2">
+      <div class="vs-card them">
+        <h4>Who we are NOT targeting</h4>
+        <ul>
+          <li>Self-identified carnivores</li>
+          <li>Paul Saladino / Heart & Soil loyalists</li>
+          <li>Hardcore ancestral diet community</li>
+          <li>People who already buy Ancestral Supplements</li>
+        </ul>
+      </div>
+      <div class="vs-card us">
+        <h4 style="color:#aaa;">Who we ARE targeting</h4>
+        <ul>
+          <li>Men 28-55 who train seriously</li>
+          <li>Bear Grylls followers who trust him on health</li>
+          <li>Joe Rogan listener types — open to optimisation</li>
+          <li>Guy who already takes protein, creatine, omega-3 and wants the next level</li>
+          <li>Outdoor, fitness, survival culture</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <h3>Why this positioning wins</h3>
+      <p>The carnivore market is real but saturated and ideologically rigid. Our customer doesn't need to believe in carnivore — he just needs to trust Bear and believe the product works. That's a much lower barrier. Bear's mainstream credibility opens a door that Saladino's niche identity closes.</p>
+    </div>
+  </div>
+
+  <!-- MARKET -->
+  <div class="section">
+    <div class="section-title">Market Reality</div>
     <div class="grid-4">
       <div class="stat">
         <div class="num">$585M</div>
-        <div class="label">Grass-fed organ supplement market (2025)</div>
-        <div class="sub">Growing at 5.8% CAGR to $979M by 2032</div>
+        <div class="label">Organ supplement market</div>
+        <div class="sub">5.8% CAGR — $979M by 2032</div>
       </div>
       <div class="stat">
-        <div class="num">$4.1B</div>
-        <div class="label">Carnivore diet food market (2025)</div>
-        <div class="sub">8.4% CAGR — the broader audience you're fishing in</div>
+        <div class="num">$60M</div>
+        <div class="label">Heart & Soil revenue</div>
+        <div class="sub">$0 to $60M in 4 years on Saladino's brand alone</div>
       </div>
       <div class="stat">
-        <div class="num">2.6M+</div>
-        <div class="label">#carnivore posts on Instagram</div>
-        <div class="sub">Highly engaged, buying community</div>
+        <div class="num">$20M+</div>
+        <div class="label">Multiple brands at this level</div>
+        <div class="sub">Category is proven — not a niche experiment</div>
       </div>
       <div class="stat">
-        <div class="num">$3M</div>
-        <div class="label">Ancestral Supplements revenue</div>
-        <div class="sub">Market leader — yet only 0.5% of TAM. Massive whitespace.</div>
+        <div class="num">20M+</div>
+        <div class="label">Bear's followers</div>
+        <div class="sub">10x Saladino's reach, mainstream not niche</div>
       </div>
     </div>
-  </div>
-
-  <!-- THE OPPORTUNITY IN ONE LINE -->
-  <div class="section">
-    <div class="highlight-box">
-      <h3>The Thesis</h3>
-      <p>This is a proven, scaling market — multiple brands are doing $20M+ per year with no mainstream breakthrough brand yet. The category is still owned by carnivore influencers and niche communities. <span style="color:#fff; font-weight:600;">Modern Savage's job is to be the brand that crosses over.</span> Heart & Soil, Ancestral Supplements, and the rest are fighting for the same 2.6M #carnivore followers. Bear Grylls can reach 200M. The opportunity isn't to win the niche — it's to own the mainstream man who wants to eat and live more primally but doesn't identity as a carnivore. Nobody has built that brand yet.</p>
-    </div>
-  </div>
-
-  <!-- COMPETITIVE LANDSCAPE -->
-  <div class="section">
-    <div class="section-title">Competitive Landscape</div>
-    <div class="card">
+    <div class="card" style="margin-top:14px;">
       <table class="comp-table">
         <thead>
-          <tr>
-            <th>Brand</th>
-            <th>Price / bottle</th>
-            <th>Revenue est.</th>
-            <th>Key strength</th>
-            <th>Weakness</th>
-          </tr>
+          <tr><th>Brand</th><th>Revenue</th><th>Audience</th><th>Positioning</th><th>Their weakness</th></tr>
         </thead>
         <tbody>
           <tr>
             <td class="brand">Heart & Soil</td>
-            <td>$59-69</td>
             <td>~$60M/yr</td>
-            <td>$0 to $60M in 4 years, strong community, premium brand</td>
-            <td>100% Paul Saladino-dependent — if he goes, it goes</td>
+            <td>Saladino (carnivore)</td>
+            <td>Premium carnivore lifestyle</td>
+            <td>100% Saladino-dependent. If he moves on, brand collapses.</td>
           </tr>
           <tr>
             <td class="brand">Ancestral Supplements</td>
-            <td>$30-65</td>
             <td>$20M+/yr</td>
-            <td>Category pioneer, strong reviews, loyal base</td>
-            <td>Liver King association, generic brand, no mainstream pull</td>
+            <td>Liver King (niche)</td>
+            <td>Category pioneer, liver focus</td>
+            <td>Liver King controversy, generic brand, no mainstream pull</td>
           </tr>
           <tr>
             <td class="brand">Optimal Carnivore</td>
-            <td>$35-55</td>
-            <td>N/A</td>
-            <td>Amazon presence, 9-organ blend</td>
-            <td>No brand identity, commodity play</td>
+            <td>Unknown</td>
+            <td>Amazon SEO</td>
+            <td>Multi-organ blend, Amazon native</td>
+            <td>Zero brand identity, pure commodity</td>
           </tr>
-          <tr class="us">
+          <tr class="us-row">
             <td class="brand">Modern Savage</td>
-            <td>$55-75 (target)</td>
             <td>Launch</td>
-            <td>Bear Grylls, premium identity, survival narrative</td>
-            <td>New entrant — needs proof and velocity fast</td>
+            <td>Bear Grylls (mainstream)</td>
+            <td>Primal performance for serious men</td>
+            <td>New — needs proof fast and consistent Bear involvement</td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="card">
-      <h3>Pricing Strategy</h3>
-      <p>Position at $65-75/bottle — a clear premium over Ancestral ($30-65) but justified by brand, sourcing story, and Bear's credibility. At $70 with a 35% gross margin, you need ~1,430 bottles/month to hit $100K revenue. That's 100 customers on subscribe-and-save. Subscription is the core unit economics play.</p>
     </div>
   </div>
 
   <!-- THE PLAYBOOK -->
   <div class="section">
-    <div class="highlight-box" style="background:#111; border: 1px solid #333;">
-      <h3>The Playbook — Learned from Organised</h3>
-      <p style="color:#ccc;">Organised Nutrition proved this model works: Bear Grylls Meta ads, DTC only, no discounts, no retail. That's it. Bear's face converts. The plan below is built around that single insight — everything else is supporting infrastructure.</p>
-      <br>
-      <p style="color:#888;"><strong style="color:#fff;">What NOT to do:</strong> No launch discounts (they train customers to wait for sales and kill brand premium). No Amazon (splits DTC data, lower margins, undermines brand). No micro-influencer scatter — Bear outperforms all of them combined.</p>
+    <div class="section-title">The Playbook</div>
+    <div class="callout" style="background:#0d0d0d;">
+      <h3>Primary engine: Bear Meta ads → DTC site.</h3>
+      <p>This is what worked at Organised and what drove Heart & Soil's growth (Saladino's content as paid creative). Everything else is amplification. <strong>Bear's face, voice, and story run as Meta ads — raw and authentic, not polished brand content.</strong> Spend aggressively from launch day, not cautiously. The creative is the product; the media budget scales it.</p>
+      <hr class="divider">
+      <p style="color:#666;"><strong style="color:#aaa;">Secondary engine:</strong> Amazon FBA from day one (captures search buyers, low ops overhead with FBA). Bear organic social (zero cost amplifier). Email/Klaviyo (retention + subscriptions). Retail from month 6 once DTC is proven.</p>
     </div>
   </div>
 
   <!-- LAUNCH PHASES -->
   <div class="section">
-    <div class="section-title">Launch Phases</div>
+    <div class="section-title">Launch Plan</div>
 
     <div class="phase">
       <div class="phase-header">
-        <div class="phase-num">1</div>
+        <div><span class="phase-badge badge-pre">PRE-LAUNCH</span></div>
         <div>
-          <h3>Shoot the Creative</h3>
-          <div class="weeks">Before launch — the most important work</div>
+          <h3>Shoot the Creative + Build the Infrastructure</h3>
+          <div class="timing">6-8 weeks before launch — the critical path</div>
         </div>
       </div>
       <ul class="task-list">
-        <li><strong>Bear shoots 5-10 ad creatives.</strong> Raw, authentic, personal — not polished brand ads. "This is what I actually take." Filmed on expedition, at home, post-workout. Multiple formats: 15s, 30s, 60s, portrait and landscape.</li>
-        <li>At least one long-form piece (3-5 min): Bear's personal story on why organ nutrition, what he notices, why he built this. This becomes the hero ad and feeds all shorter cuts.</li>
-        <li>No discount codes in any creative. Full price, full confidence. "This is worth it" energy only.</li>
-        <li>Set up Shopify DTC store — clean, minimal, premium. One product, one CTA. No pop-ups offering 10% off. Subscribe-and-save at full price or a modest saving only.</li>
-        <li>Klaviyo email flows set up before launch: welcome series, post-purchase education (builds the habit), abandoned cart, 60-day win-back.</li>
+        <li><span class="bullet"></span><strong>Bear shoots 8-12 creatives.</strong> This is the most important work before launch. Raw and personal — filmed on expedition, post-training, at home. Multiple formats: 60s hero, 30s punchy, 15s hook-heavy. Portrait and landscape. At least one 3-5 min long-form piece (his personal story on why organ nutrition).</li>
+        <li><span class="bullet"></span>Creative brief: Bear explains what he takes, why, what he notices. No script. No "this product has been shown to..." Authentic, specific, personal. The ad creative that converts is Bear being genuinely honest — not performing.</li>
+        <li><span class="bullet"></span>No launch discounts baked into creative. Full price confidence only. Build premium from day one.</li>
+        <li><span class="bullet"></span>Shopify DTC store: clean, premium, minimal. One hero product, one CTA. Subscribe-and-save enabled (not discounted — positoned as convenience, not saving). Klaviyo flows set up: welcome, post-purchase habit series, abandoned cart, 60-day win-back.</li>
+        <li><span class="bullet"></span>Amazon FBA listing set up simultaneously — same copy, same imagery, price-matched to DTC. Submit for FBA before launch so it's live day one.</li>
+        <li><span class="bullet"></span>Bear's newsletter (beargrylls.com subscribers): segment the US list. This is the highest-intent warm audience for launch day email blast. Zero cost.</li>
       </ul>
     </div>
 
     <div class="phase">
       <div class="phase-header">
-        <div class="phase-num p2">2</div>
+        <div><span class="phase-badge badge-launch">LAUNCH</span></div>
         <div>
-          <h3>Launch Hard on Meta</h3>
-          <div class="weeks">Week 1 — go straight to meaningful spend</div>
+          <h3>Launch Hard — Meta + Bear Organic + Email Same Day</h3>
+          <div class="timing">Week 1 — coordinated, not staggered</div>
         </div>
       </div>
       <ul class="task-list">
-        <li>Launch Meta ads at $5-10K/week from day 1 — not $500 "testing" spend. Bear's creative is already proven by the Organised model; don't waste time being timid.</li>
-        <li>Run 3-4 creative variants simultaneously. Bear's long-form hero ad, 2-3 shorter cuts. Test hook/first-3-seconds variations.</li>
-        <li>Audiences: lookalike of Bear's Instagram followers, outdoor/survival interest stack, men 28-55 health and fitness. US-only to start.</li>
-        <li>Bear posts organically on the same day ads launch — same content direction as ads, not a separate "influencer post." Organic and paid reinforce each other.</li>
-        <li>Kill any ad with CAC above $120 after 500 impressions. Scale anything under $80.</li>
-        <li>Email the launch to Bear's newsletter list (beargrylls.com subscribers) — zero cost, warm audience, highest intent.</li>
+        <li><span class="bullet"></span><strong>Meta ads: $5-10K/week from day one.</strong> Not testing spend — meaningful spend. Bear creative is pre-validated by the Organised model. Run 4 variants: hero long-form, two 30s cuts, one 15s hook test. US-only targeting.</li>
+        <li><span class="bullet"></span>Audiences: (1) Lookalike of Bear's Instagram followers — highest intent, (2) Men 28-55, outdoor/fitness/survival interest stack, (3) Retargeting: site visitors who didn't convert in first 48 hours.</li>
+        <li><span class="bullet"></span>Bear posts organically on launch day — same direction as ads, not a separate "promo post." The organic and paid creative should feel like the same conversation.</li>
+        <li><span class="bullet"></span>Email blast to Bear's US newsletter subscribers on launch day. Simple message: "I built something I actually take." Link to DTC site. No discount code.</li>
+        <li><span class="bullet"></span>Amazon listing goes live same day — price matched. Some buyers will discover via Meta and then search Amazon to buy (habit). Don't lose them.</li>
+        <li><span class="bullet"></span>Cut any ad with CAC above $120 after $500 spend. Scale anything under $80 immediately.</li>
       </ul>
     </div>
 
     <div class="phase">
       <div class="phase-header">
-        <div class="phase-num p3">3</div>
+        <div><span class="phase-badge badge-scale">MONTH 2-3</span></div>
         <div>
-          <h3>Scale the Winners</h3>
-          <div class="weeks">Month 2-3 — double down, not diversify</div>
+          <h3>Scale Winners + Drive Subscriptions</h3>
+          <div class="timing">The flywheel starts here</div>
         </div>
       </div>
       <ul class="task-list">
-        <li>Take the 1-2 winning creatives and scale spend to $20-30K/week. Meta rewards consolidating budget into winning ad sets.</li>
-        <li>Shoot a second batch of Bear creatives — same raw style, new angles. Creative refresh is the main lever for sustaining scale without CAC creep.</li>
-        <li>Subscription push via email: campaign to all one-time buyers. Target 30%+ subscription conversion. Subscriptions are what turns a launch into a business.</li>
-        <li>Introduce a bundle (2-pack or 3-pack) at a small saving — not a discount, a volume incentive. Increases AOV from $70 to $130+, dramatically improving CAC payback.</li>
-        <li>Do not launch retail or Amazon yet. Stay DTC. Every customer you own directly is more valuable than one you don't.</li>
+        <li><span class="bullet amber"></span>Take the 1-2 winning Meta creatives and scale to $20-30K/week. Don't try to fix the losers — bury them and pour into winners.</li>
+        <li><span class="bullet amber"></span>Shoot second batch of Bear creatives — same raw style, new angles. Creative refresh every 4-6 weeks is the key lever to prevent CAC creep at scale.</li>
+        <li><span class="bullet amber"></span>Subscription push email campaign to all one-time buyers. Target: 30%+ on subscribe-and-save. Subscriptions are what converts a launch into a real business.</li>
+        <li><span class="bullet amber"></span>Introduce a bundle (2-pack or 3-pack) at a modest saving. Increases AOV from $70 to $130+. Better AOV = better payback period = more room to scale Meta spend.</li>
+        <li><span class="bullet amber"></span>Amazon: drive reviews aggressively via post-purchase email flow (compliant approach). Target 200+ reviews by end of month 3. Reviews are the compounding asset that drives organic Amazon ranking.</li>
+        <li><span class="bullet amber"></span>Month 3 checkpoint: if subscription rate is above 25% and CAC is holding below $90, raise Meta budget to $50K+/month.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div><span class="phase-badge badge-grow">MONTH 6+</span></div>
+        <div>
+          <h3>Retail Entry + International</h3>
+          <div class="timing">Once DTC is proven and brand is established</div>
+        </div>
+      </div>
+      <ul class="task-list">
+        <li><span class="bullet blue"></span><strong>First retail conversations at month 4-5.</strong> Target 1-2 premium US health retailers — Vitamin Shoppe, GNC, or a specialist supplement retailer. Bring: DTC sell-through data, 500+ Amazon reviews, clear brand identity. You're now negotiating from strength, not begging for shelf space.</li>
+        <li><span class="bullet blue"></span>Bear's existing Costco relationship (Water2 is in UK Costco) could be a fast track to a US Costco trial SKU. Worth exploring at month 6 if DTC is strong.</li>
+        <li><span class="bullet blue"></span>UK launch: Bear's primary audience is UK/Europe. Once US is proven (product, ops, creative), roll to UK — same playbook, same creative, localised DTC store. Bear's UK organic reach makes the CAC even lower than US.</li>
+        <li><span class="bullet blue"></span>Product line expansion: second SKU only when first has 500+ reviews and 30%+ subscription rate. Don't split focus before you own one product's market.</li>
       </ul>
     </div>
   </div>
 
-  <!-- CHANNEL STRATEGY -->
+  <!-- CHANNEL PRIORITY -->
   <div class="section">
-    <div class="section-title">Channel Strategy</div>
-    <div class="grid-2">
-      <div class="channel-card">
-        <div class="name">Bear Meta Ads <span class="tag tag-black">Primary driver</span></div>
-        <div class="desc">This is the whole engine. Bear's face, Bear's voice, Bear's story — run as paid Meta ads. Organised proved Bear's creative converts. Don't dilute this with other channels until Meta is maxed out. Budget: $5-10K/week launch, scale to $30K+/week on winners.</div>
-        <div class="kpi">Target CAC: under $80. Organised benchmark: confirms this is achievable with Bear creative.</div>
+    <div class="section-title">Channel Priority Stack</div>
+    <div class="card">
+      <div class="channel-row">
+        <div class="priority-num">1</div>
+        <div class="channel-body">
+          <div class="channel-name">Bear Meta Ads <span class="tag tag-black">Primary engine</span></div>
+          <div class="channel-desc">Bear's face on paid Meta (Facebook + Instagram). This is the only channel you need to get right first. Run heavy, refresh creative every 4-6 weeks. Budget from $5K/week at launch to $50K+/week when scaled.</div>
+          <div class="channel-kpi">Target CAC: under $80. Blended CAC should drop to $50-60 once email + Amazon kick in.</div>
+        </div>
       </div>
-      <div class="channel-card">
-        <div class="name">Bear Organic Social <span class="tag tag-black">Zero-cost amplifier</span></div>
-        <div class="desc">Bear's organic posts reinforce the paid ads — same message, same creative direction. Organic doesn't replace paid but dramatically lowers blended CAC when both are running. Bear needs to post consistently, not just at launch.</div>
-        <div class="kpi">Target: 2-3 posts/month minimum. Treat Bear's organic reach as free top-of-funnel media.</div>
+      <div class="channel-row">
+        <div class="priority-num p2">2</div>
+        <div class="channel-body">
+          <div class="channel-name">Amazon FBA <span class="tag tag-amber">Day one, low-ops</span></div>
+          <div class="channel-desc">FBA handles fulfilment so there's no ops overhead for a small team. Captures buyers who discover via Meta then search Amazon (a real behaviour). Builds reviews which drive organic ranking. ~50-55% margin vs 60%+ DTC but incremental volume worth it.</div>
+          <div class="channel-kpi">Target: 200 reviews by month 3. Top-5 ranking for "organ supplements" by month 6.</div>
+        </div>
       </div>
-      <div class="channel-card">
-        <div class="name">Email / SMS (Klaviyo) <span class="tag tag-green">Highest LTV</span></div>
-        <div class="desc">Once you have customers, email is the highest-ROI channel. Post-purchase flow builds the habit (the key to subscription). Welcome series educates on why organ nutrition works. Win-back at 60 days recovers lapsed customers.</div>
-        <div class="kpi">Target: 30%+ of revenue from email by month 3. Zero marginal ad spend.</div>
+      <div class="channel-row">
+        <div class="priority-num p3">3</div>
+        <div class="channel-body">
+          <div class="channel-name">Bear Organic Social <span class="tag tag-green">Zero cost</span></div>
+          <div class="channel-desc">Bear's organic posts reinforce paid ads and massively lower blended CAC. 2-3 posts/month minimum — not a campaign, a consistent presence. Treat Bear's 20M followers as free top-of-funnel media. Every organic post makes the paid ads work harder.</div>
+          <div class="channel-kpi">2-3 posts/month Bear. Target organic traffic at 20-30% of total site visitors.</div>
+        </div>
       </div>
-      <div class="channel-card">
-        <div class="name">Amazon (FBA) <span class="tag tag-amber">Month 1-2</span></div>
-        <div class="desc">Worth doing from launch — FBA handles storage and shipping so it's low-overhead for a small team. ~20% of buyers search Amazon regardless of how they discover the brand. Lower margin (~50-55% vs 60%+ DTC) but incremental volume with minimal ops lift. Builds reviews fast which reinforce DTC conversion too.</div>
-        <div class="kpi">Set up alongside DTC launch. Price match DTC. Target 100+ reviews in 90 days.</div>
+      <div class="channel-row">
+        <div class="priority-num p4">4</div>
+        <div class="channel-body">
+          <div class="channel-name">Email / SMS (Klaviyo) <span class="tag tag-green">Highest LTV</span></div>
+          <div class="channel-desc">Post-purchase automation turns one-time buyers into subscribers. Welcome series, habit education (why organ nutrition works), 60-day win-back. Once list is 5K+, email alone should drive 25-30% of monthly revenue with zero ad spend.</div>
+          <div class="channel-kpi">Target: 30%+ of revenue from email by month 4. 30%+ subscriber conversion rate.</div>
+        </div>
       </div>
-      <div class="channel-card">
-        <div class="name">Retail <span class="tag tag-blue">Month 6+</span></div>
-        <div class="desc">Viable with a small team if kept to 1-2 key accounts rather than full wholesale. Best targets: Vitamin Shoppe, GNC, or a premium US health retailer. Requires 3-6 months DTC proof and 500+ Amazon reviews to negotiate from strength. Bear's existing relationships (Costco) could accelerate this.</div>
-        <div class="kpi">Plan for first retail conversation at month 4-5 once DTC revenue and reviews are established.</div>
+      <div class="channel-row">
+        <div class="priority-num p5">5</div>
+        <div class="channel-body">
+          <div class="channel-name">Retail <span class="tag tag-blue">Month 6+</span></div>
+          <div class="channel-desc">Vitamin Shoppe, GNC, or Costco (Bear relationship). Only approach when DTC is strong and you have negotiating leverage. 1-2 accounts max for a small team. Retail validates the brand publicly and opens wholesale volume.</div>
+          <div class="channel-kpi">First retail conversation at month 4-5. Target shelf presence by month 8-10.</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- FINANCIAL MODEL -->
+  <!-- FINANCIALS -->
   <div class="section">
-    <div class="section-title">Financial Model — 12 Month Projection</div>
+    <div class="section-title">Financial Model</div>
     <div class="grid-2">
       <div class="card">
         <h3>Unit Economics</h3>
-        <div class="row"><span class="row-label">Retail price per bottle</span><span class="row-value">$70</span></div>
-        <div class="row"><span class="row-label">COGS (product + fulfilment)</span><span class="row-value">~$28 (40%)</span></div>
-        <div class="row"><span class="row-label">Gross margin</span><span class="row-value">$42 (60%)</span></div>
-        <div class="row"><span class="row-label">Target CAC (paid)</span><span class="row-value">$85</span></div>
-        <div class="row"><span class="row-label">LTV (12 months, 30% sub rate)</span><span class="row-value">~$280</span></div>
-        <div class="row"><span class="row-label">LTV:CAC ratio</span><span class="row-value">3.3x (healthy)</span></div>
+        <div class="row"><span class="row-label">Retail price (DTC)</span><span class="row-value">$70/bottle</span></div>
+        <div class="row"><span class="row-label">COGS incl. fulfilment</span><span class="row-value">~$28 (40%)</span></div>
+        <div class="row"><span class="row-label">Gross margin (DTC)</span><span class="row-value">$42 (60%)</span></div>
+        <div class="row"><span class="row-label">Gross margin (Amazon)</span><span class="row-value">$35 (50%)</span></div>
+        <div class="row"><span class="row-label">Target CAC (paid)</span><span class="row-value">$80</span></div>
+        <div class="row"><span class="row-label">12-month LTV (30% sub)</span><span class="row-value">~$280</span></div>
+        <div class="row"><span class="row-label">LTV:CAC</span><span class="row-value">3.5x</span></div>
         <div class="row"><span class="row-label">CAC payback period</span><span class="row-value">~2 months</span></div>
       </div>
       <div class="card">
         <h3>Revenue Targets</h3>
-        <div class="row"><span class="row-label">Month 1 (launch)</span><span class="row-value">$15-25K</span></div>
-        <div class="row"><span class="row-label">Month 3</span><span class="row-value">$40-60K</span></div>
-        <div class="row"><span class="row-label">Month 6</span><span class="row-value">$80-120K</span></div>
-        <div class="row"><span class="row-label">Month 12</span><span class="row-value">$150-200K/mo</span></div>
-        <div class="row"><span class="row-label">Year 1 total</span><span class="row-value">$800K-$1.2M</span></div>
-        <div class="row"><span class="row-label">Year 2 target (with Bear)</span><span class="row-value">$3-5M</span></div>
+        <div class="row"><span class="row-label">Month 1</span><span class="row-value">$20-40K</span></div>
+        <div class="row"><span class="row-label">Month 3</span><span class="row-value">$80-120K</span></div>
+        <div class="row"><span class="row-label">Month 6</span><span class="row-value">$150-250K/mo</span></div>
+        <div class="row"><span class="row-label">Month 12</span><span class="row-value">$300-500K/mo</span></div>
+        <div class="row"><span class="row-label">Year 1 total</span><span class="row-value">$1.5-3M</span></div>
+        <div class="row"><span class="row-label">Year 2 (with retail + UK)</span><span class="row-value">$5-10M</span></div>
       </div>
     </div>
     <div class="card">
-      <h3>Launch Budget (First 90 Days) — Aggressive Model</h3>
-      <div class="row"><span class="row-label">Meta ads — month 1 ($5-10K/wk)</span><span class="row-value">$30,000</span></div>
-      <div class="row"><span class="row-label">Meta ads — month 2-3 (scaling winners)</span><span class="row-value">$80,000</span></div>
-      <div class="row"><span class="row-label">Bear creative shoot (2 rounds)</span><span class="row-value">$15,000</span></div>
-      <div class="row"><span class="row-label">Shopify + Klaviyo setup</span><span class="row-value">$5,000</span></div>
-      <div class="row"><span class="row-label">Ops / fulfilment setup</span><span class="row-value">$5,000</span></div>
-      <div class="row"><span class="row-label"><strong>Total 90-day budget</strong></span><span class="row-value"><strong>~$135,000</strong></span></div>
-      <div class="row"><span class="row-label">Expected 90-day revenue (at $80 CAC)</span><span class="row-value">~$140,000</span></div>
-      <div class="row"><span class="row-label">Note</span><span class="row-value">Break-even at launch, profitable from month 2 subscriptions</span></div>
+      <h3>Launch Investment (First 90 Days)</h3>
+      <div class="row"><span class="row-label">Meta ads — month 1</span><span class="row-value">$30,000</span></div>
+      <div class="row"><span class="row-label">Meta ads — months 2-3 (scaling winners)</span><span class="row-value">$80,000</span></div>
+      <div class="row"><span class="row-label">Bear creative shoots (2 rounds)</span><span class="row-value">$15,000</span></div>
+      <div class="row"><span class="row-label">Shopify, Klaviyo, ops setup</span><span class="row-value">$8,000</span></div>
+      <div class="row"><span class="row-label">Amazon setup + early PPC</span><span class="row-value">$5,000</span></div>
+      <div class="row"><span class="row-label"><strong>Total 90-day investment</strong></span><span class="row-value"><strong>~$138,000</strong></span></div>
+      <div class="row"><span class="row-label">Expected 90-day revenue</span><span class="row-value">$150-250K</span></div>
     </div>
   </div>
 
-  <!-- BEAR'S ROLE -->
+  <!-- TEAM -->
   <div class="section">
-    <div class="section-title">Bear's Role — The Unfair Advantage</div>
-    <div class="highlight-box">
-      <h3>This is the whole game.</h3>
-      <p>Every competitor in this space is fighting for the same carnivore/ancestral audience with paid ads and micro-influencers. Modern Savage has a different weapon. Bear Grylls is the most credible living embodiment of primal resilience, survival, and doing hard things. The people who buy organ supplements already know Bear. They trust him. The launch plan above is the baseline — but Bear showing up authentically (not just "sponsored content") is what builds a category-defining brand versus just another supplement SKU.</p>
-      <br>
-      <p style="color:#888;"><strong style="color:#fff;">What Bear needs to do:</strong> 1-2 personal posts/month, honest and raw — not polished ads. A YouTube/Shorts video (5-10 min) of him talking about why he takes these. Stories from expeditions where nutrition mattered. This content lives forever and drives compounding organic traffic. The biggest risk is Modern Savage becoming a brand Bear is associated with rather than one he actually drives.</p>
+    <div class="section-title">Team Required (Small)</div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>DTC Operator</h3>
+        <p>Runs Shopify, Meta Ads Manager, Klaviyo day-to-day. Manages Amazon Seller Central. Reports weekly on CAC, ROAS, subscription rate. This is the hire that determines whether the whole thing works. Not a generalist — someone who has scaled a DTC supplement brand before.</p>
+      </div>
+      <div class="card">
+        <h3>Creative / Social</h3>
+        <p>Edits Bear's raw footage into ad variants. Manages Bear's social posting schedule. Writes email copy. Turns one Bear shoot into 10-15 distinct creatives. Could be the same person as KU Creatives (Calvin) if they have DTC supplement experience.</p>
+      </div>
+      <div class="card">
+        <h3>Bear (part-time)</h3>
+        <p>Shoots 8-12 creatives pre-launch, 4-6 per refresh thereafter. Posts 2-3x/month organically. Reviews and approves all messaging. This is the irreplaceable input — without Bear's genuine involvement, the whole model breaks. Not a time-heavy commitment but must be consistent.</p>
+      </div>
     </div>
   </div>
 
-  <!-- NEXT STEPS -->
+  <!-- DECISIONS NEEDED -->
   <div class="section">
-    <div class="section-title">Immediate Next Steps</div>
-    <div class="card">
-      <ul class="task-list">
-        <li><strong>Finalise formula</strong> — what's the exact organ blend? Confirm sourcing (New Zealand grass-fed beats US for premium positioning). This determines label claims.</li>
-        <li><strong>Get 3 quotes on manufacturing</strong> — capsule vs powder vs tablet. Capsule is standard and best for premium DTC. MOQ typically 5,000-10,000 units for first run.</li>
-        <li><strong>Appoint a DTC supplement ops person</strong> — you need someone running Shopify, Klaviyo, Meta ads day-to-day. This is not a Jesse task. Calvin at KU Creatives or a specialist DTC hire.</li>
-        <li><strong>Secure beargrylls.com cross-promotion</strong> — a landing page link from beargrylls.com to modern-savage.com is worth 6 months of SEO work. Get Felix to build this.</li>
-        <li><strong>Draft Bear's launch video brief</strong> — 3-5 minute personal piece, filmed on location ideally. This single asset drives everything: paid ads, organic, email headers, Amazon A+ content.</li>
-        <li><strong>Set launch date target</strong> — working backwards, if formula finalises by end of April, manufacturing takes 8-12 weeks, you're looking at July-August 2026 launch. Summer is strong for health/fitness launches in the US.</li>
+    <div class="section-title">Decisions to Make Now</div>
+    <div class="decision-box">
+      <h3>Jesse needs answers to these before the plan can move forward:</h3>
+      <ul>
+        <li>Is the formula locked? What's the organ blend — and can the sourcing story be premium (New Zealand grass-fed is the gold standard for positioning)?</li>
+        <li>Is Bear willing to shoot 8-12 authentic video creatives before launch? Not a polished brand shoot — raw personal content. This is the single most important input.</li>
+        <li>Who is the DTC operator? This person determines whether launch succeeds. Calvin at KU or a new hire?</li>
+        <li>What's the launch budget? The model works at $138K for 90 days. Is that available?</li>
+        <li>What's the launch date target? Working back: if formula finalises April/May, manufacturing takes 8-12 weeks, July-August launch is realistic.</li>
       </ul>
     </div>
   </div>
