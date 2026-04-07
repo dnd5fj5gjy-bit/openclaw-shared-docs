@@ -534,188 +534,349 @@
     </div>
   </div>
 
-  <!-- INTERACTIVE CALCULATOR -->
+  <!-- INTERACTIVE FINANCIAL MODEL -->
   <div class="section" id="calculator">
     <div class="section-title">Financial Model — Interactive</div>
     <div class="calc-shell">
+
+      <!-- Presets bar -->
       <div class="preset-bar">
         <span class="preset-bar-label">Presets</span>
         <div class="preset-chips" id="presetChips"><span class="no-presets">No saved presets yet</span></div>
         <div class="preset-save-row">
-          <input class="preset-name-input" id="presetNameInput" type="text" placeholder="Name this scenario..." maxlength="24">
-          <button class="btn-save" onclick="savePreset()">Save</button>
+          <input class="preset-name-input" id="presetNameInput" type="text" placeholder="Name this scenario..." maxlength="28">
+          <button class="btn-save" onclick="savePreset()">Save preset</button>
         </div>
       </div>
-      <div class="calc-body">
-        <div class="calc-inputs">
 
-          <div class="calc-input-group">
-            <label>Retail Price</label>
-            <div class="calc-input-row">
-              <span class="calc-prefix">$</span>
-              <input class="calc-input" id="inPrice" type="number" value="79" min="1" max="300" oninput="syncSlider('inPrice','slPrice');recalc()">
+      <!-- Input panels -->
+      <div class="calc-panels">
+        <!-- LEFT: Product & Customer -->
+        <div class="calc-panel">
+          <div class="calc-panel-title">Product &amp; Customer</div>
+          <div class="ig">
+
+            <div class="f">
+              <label>Retail Price</label>
+              <div class="fi"><span class="fp">$</span><input class="fn" id="inPrice" type="number" value="79" min="1" max="500" oninput="si('inPrice','slPrice');go()"></div>
+              <input type="range" id="slPrice" min="49" max="149" value="79" oninput="ss('slPrice','inPrice');go()">
             </div>
-            <input class="calc-slider" id="slPrice" type="range" min="49" max="149" value="79" oninput="syncInput('slPrice','inPrice');recalc()">
-          </div>
 
-          <div class="calc-input-group">
-            <label>COGS incl. Fulfilment</label>
-            <div class="calc-input-row">
-              <span class="calc-prefix">$</span>
-              <input class="calc-input" id="inCogs" type="number" value="25" min="1" max="100" oninput="syncSlider('inCogs','slCogs');recalc()">
+            <div class="f">
+              <label>COGS (product)</label>
+              <div class="fi"><span class="fp">$</span><input class="fn" id="inCogsP" type="number" value="20" min="1" max="200" oninput="si('inCogsP','slCogsP');go()"></div>
+              <input type="range" id="slCogsP" min="5" max="60" value="20" oninput="ss('slCogsP','inCogsP');go()">
             </div>
-            <input class="calc-slider" id="slCogs" type="range" min="10" max="60" value="25" oninput="syncInput('slCogs','inCogs');recalc()">
-          </div>
 
-          <div class="calc-input-group">
-            <label>Target CAC</label>
-            <div class="calc-input-row">
-              <span class="calc-prefix">$</span>
-              <input class="calc-input" id="inCac" type="number" value="80" min="1" max="300" oninput="syncSlider('inCac','slCac');recalc()">
+            <div class="f">
+              <label>DTC Fulfilment</label>
+              <div class="fi"><span class="fp">$</span><input class="fn" id="inFul" type="number" value="5" min="0" max="30" oninput="si('inFul','slFul');go()"></div>
+              <input type="range" id="slFul" min="0" max="20" value="5" oninput="ss('slFul','inFul');go()">
             </div>
-            <input class="calc-slider" id="slCac" type="range" min="30" max="200" value="80" oninput="syncInput('slCac','inCac');recalc()">
-          </div>
 
-          <div class="calc-input-group">
-            <label>Subscription Rate</label>
-            <div class="calc-input-row">
-              <input class="calc-input" id="inSub" type="number" value="30" min="0" max="100" oninput="syncSlider('inSub','slSub');recalc()">
-              <span class="calc-suffix">%</span>
+            <div class="f">
+              <label>Amazon Fee</label>
+              <div class="fi"><input class="fn" id="inAmzFee" type="number" value="33" min="0" max="60" oninput="si('inAmzFee','slAmzFee');go()"><span class="fs">%</span></div>
+              <input type="range" id="slAmzFee" min="20" max="50" value="33" oninput="ss('slAmzFee','inAmzFee');go()">
             </div>
-            <input class="calc-slider" id="slSub" type="range" min="0" max="80" value="30" oninput="syncInput('slSub','inSub');recalc()">
-          </div>
 
-          <div class="calc-input-group">
-            <label>Weekly Meta Budget</label>
-            <div class="calc-input-row">
-              <span class="calc-prefix">$</span>
-              <input class="calc-input" id="inMeta" type="number" value="10000" min="1000" max="200000" step="1000" oninput="syncSlider('inMeta','slMeta');recalc()">
+            <div class="f">
+              <label>Target CAC</label>
+              <div class="fi"><span class="fp">$</span><input class="fn" id="inCac" type="number" value="80" min="10" max="400" oninput="si('inCac','slCac');go()"></div>
+              <input type="range" id="slCac" min="20" max="250" value="80" oninput="ss('slCac','inCac');go()">
             </div>
-            <input class="calc-slider" id="slMeta" type="range" min="1000" max="100000" step="1000" value="10000" oninput="syncInput('slMeta','inMeta');recalc()">
-          </div>
 
-          <div class="calc-input-group">
-            <label>Bag Duration (days)</label>
-            <div class="calc-input-row">
-              <input class="calc-input" id="inDays" type="number" value="30" min="14" max="90" oninput="syncSlider('inDays','slDays');recalc()">
-              <span class="calc-suffix">days</span>
+            <div class="f">
+              <label>Subscription Rate</label>
+              <div class="fi"><input class="fn" id="inSub" type="number" value="30" min="0" max="100" oninput="si('inSub','slSub');go()"><span class="fs">%</span></div>
+              <input type="range" id="slSub" min="0" max="80" value="30" oninput="ss('slSub','inSub');go()">
             </div>
-            <input class="calc-slider" id="slDays" type="range" min="14" max="90" value="30" oninput="syncInput('slDays','inDays');recalc()">
-          </div>
 
+            <div class="f">
+              <label>Monthly Churn</label>
+              <div class="fi"><input class="fn" id="inChurn" type="number" value="8" min="0" max="50" oninput="si('inChurn','slChurn');go()"><span class="fs">%</span></div>
+              <input type="range" id="slChurn" min="0" max="40" value="8" oninput="ss('slChurn','inChurn');go()">
+            </div>
+
+            <div class="f">
+              <label>Bag Duration</label>
+              <div class="fi"><input class="fn" id="inDays" type="number" value="30" min="14" max="90" oninput="si('inDays','slDays');go()"><span class="fs">days</span></div>
+              <input type="range" id="slDays" min="14" max="90" value="30" oninput="ss('slDays','inDays');go()">
+            </div>
+
+          </div>
         </div>
-        <div class="calc-outputs" id="calcOutputs">
-          <div class="calc-out"><div class="out-val" id="outMargin">—</div><div class="out-label">Gross Margin</div><div class="out-sub" id="outMarginDollar">—</div></div>
-          <div class="calc-out"><div class="out-val" id="outLtv">—</div><div class="out-label">12-mo LTV</div><div class="out-sub" id="outSubOrders">—</div></div>
-          <div class="calc-out highlight"><div class="out-val" id="outRatio">—</div><div class="out-label">LTV : CAC</div><div class="out-sub" id="outRatioSub">—</div></div>
-          <div class="calc-out"><div class="out-val" id="outOrders">—</div><div class="out-label">Monthly Orders</div><div class="out-sub" id="outOrdersSub">from Meta spend</div></div>
-          <div class="calc-out"><div class="out-val" id="outRevenue">—</div><div class="out-label">Monthly Revenue</div><div class="out-sub" id="outRevenueSub">from Meta channel</div></div>
+
+        <!-- RIGHT: Growth & Channels -->
+        <div class="calc-panel">
+          <div class="calc-panel-title">Growth &amp; Channels</div>
+          <div class="ig">
+
+            <div class="f">
+              <label>Week 1 Meta Budget</label>
+              <div class="fi"><span class="fp">$</span><input class="fn" id="inMeta" type="number" value="10000" min="500" max="200000" step="500" oninput="si('inMeta','slMeta');go()"></div>
+              <input type="range" id="slMeta" min="500" max="100000" step="500" value="10000" oninput="ss('slMeta','inMeta');go()">
+            </div>
+
+            <div class="f">
+              <label>Monthly Budget Growth</label>
+              <div class="fi"><input class="fn" id="inGrowth" type="number" value="20" min="0" max="100" oninput="si('inGrowth','slGrowth');go()"><span class="fs">%/mo</span></div>
+              <input type="range" id="slGrowth" min="0" max="80" value="20" oninput="ss('slGrowth','inGrowth');go()">
+            </div>
+
+            <div class="f">
+              <label>Organic / Email Uplift</label>
+              <div class="fi"><input class="fn" id="inOrganic" type="number" value="10" min="0" max="100" oninput="si('inOrganic','slOrganic');go()"><span class="fs">%</span></div>
+              <input type="range" id="slOrganic" min="0" max="80" value="10" oninput="ss('slOrganic','inOrganic');go()">
+            </div>
+
+            <div class="f">
+              <label>Amazon % of Orders</label>
+              <div class="fi"><input class="fn" id="inAmzPct" type="number" value="25" min="0" max="80" oninput="si('inAmzPct','slAmzPct');go()"><span class="fs">%</span></div>
+              <input type="range" id="slAmzPct" min="0" max="70" value="25" oninput="ss('slAmzPct','inAmzPct');go()">
+            </div>
+
+            <div class="f">
+              <label>Bundle/AOV Uplift</label>
+              <div class="fi"><input class="fn" id="inAov" type="number" value="0" min="0" max="80" oninput="si('inAov','slAov');go()"><span class="fs">%</span></div>
+              <input type="range" id="slAov" min="0" max="80" value="0" oninput="ss('slAov','inAov');go()">
+            </div>
+
+            <div class="f">
+              <label>Retail % of Orders</label>
+              <div class="fi"><input class="fn" id="inRetail" type="number" value="0" min="0" max="60" oninput="si('inRetail','slRetail');go()"><span class="fs">%</span></div>
+              <input type="range" id="slRetail" min="0" max="50" value="0" oninput="ss('slRetail','inRetail');go()">
+            </div>
+
+            <div class="f">
+              <label>Retail Margin</label>
+              <div class="fi"><input class="fn" id="inRetailM" type="number" value="40" min="10" max="70" oninput="si('inRetailM','slRetailM');go()"><span class="fs">%</span></div>
+              <input type="range" id="slRetailM" min="10" max="65" value="40" oninput="ss('slRetailM','inRetailM');go()">
+            </div>
+
+            <div class="f">
+              <label>CAC Creep (monthly)</label>
+              <div class="fi"><input class="fn" id="inCacCreep" type="number" value="3" min="0" max="20" oninput="si('inCacCreep','slCacCreep');go()"><span class="fs">%/mo</span></div>
+              <input type="range" id="slCacCreep" min="0" max="20" value="3" oninput="ss('slCacCreep','inCacCreep');go()">
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- Key metrics strip -->
+      <div class="key-metrics">
+        <div class="km"><div class="kv" id="kmDtcMargin">—</div><div class="kl">DTC Margin</div><div class="ks" id="kmDtcMarginD">—</div></div>
+        <div class="km"><div class="kv" id="kmAmzMargin">—</div><div class="kl">Amazon Margin</div><div class="ks" id="kmAmzMarginD">—</div></div>
+        <div class="km"><div class="kv" id="kmLtv">—</div><div class="kl">12-mo LTV</div><div class="ks" id="kmLtvSub">—</div></div>
+        <div class="km dark"><div class="kv" id="kmRatio">—</div><div class="kl">LTV : CAC</div><div class="ks" id="kmRatioSub">—</div></div>
+        <div class="km"><div class="kv" id="kmPayback">—</div><div class="kl">Payback</div><div class="ks">months to recover CAC</div></div>
+        <div class="km"><div class="kv" id="kmBreakeven">—</div><div class="kl">Break-even Month</div><div class="ks">cumulative net profit ≥ 0</div></div>
+      </div>
+
+      <!-- 12-month table -->
+      <div class="proj-wrap">
+        <table class="proj-table" id="projTable">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Meta Spend</th>
+              <th>New Customers</th>
+              <th>Organic Add</th>
+              <th>Active Subs</th>
+              <th>Sub Reorders</th>
+              <th>Total Orders</th>
+              <th>Revenue</th>
+              <th>Gross Profit</th>
+              <th>Net Profit</th>
+              <th>Cumulative</th>
+            </tr>
+          </thead>
+          <tbody id="projBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Year summary -->
+      <div class="yr-summary" id="yrSummary"></div>
+
     </div>
   </div>
 
   <script>
-  function syncSlider(inputId, sliderId) {
-    const v = parseFloat(document.getElementById(inputId).value);
-    const sl = document.getElementById(sliderId);
-    if (!isNaN(v)) sl.value = Math.min(Math.max(v, sl.min), sl.max);
+  // ── helpers ──
+  function v(id) { return parseFloat(document.getElementById(id).value) || 0; }
+  function si(nId, sId) { const el=document.getElementById(sId); el.value=Math.min(Math.max(v(nId),+el.min),+el.max); }
+  function ss(sId, nId) { document.getElementById(nId).value = document.getElementById(sId).value; }
+  function fmtD(n) {
+    const neg = n < 0; const a = Math.abs(n);
+    let s = a>=1e6 ? '$'+(a/1e6).toFixed(2)+'M' : a>=1e3 ? '$'+Math.round(a/1000)+'K' : '$'+Math.round(a);
+    return neg ? '-'+s : s;
   }
-  function syncInput(sliderId, inputId) {
-    document.getElementById(inputId).value = document.getElementById(sliderId).value;
-  }
-  function fmt(n, prefix='$') {
-    if (n >= 1000000) return prefix + (n/1000000).toFixed(1) + 'M';
-    if (n >= 1000) return prefix + Math.round(n/1000) + 'K';
-    return prefix + Math.round(n);
-  }
-  function recalc() {
-    const price = parseFloat(document.getElementById('inPrice').value) || 79;
-    const cogs  = parseFloat(document.getElementById('inCogs').value)  || 25;
-    const cac   = parseFloat(document.getElementById('inCac').value)   || 80;
-    const sub   = parseFloat(document.getElementById('inSub').value)   || 30;
-    const meta  = parseFloat(document.getElementById('inMeta').value)  || 10000;
-    const days  = parseFloat(document.getElementById('inDays').value)  || 30;
+  function fmtN(n) { return Math.round(n).toLocaleString(); }
 
-    const margin    = price - cogs;
-    const marginPct = (margin / price * 100).toFixed(0);
-    const ordersPerYear = 365 / days;
-    const ltv       = price + (sub / 100) * price * (ordersPerYear - 1);
-    const ratio     = ltv / cac;
-    const monthlyOrders = (meta * 4.33) / cac;
-    const monthlyRevenue = monthlyOrders * price;
+  // ── main calc ──
+  function go() {
+    const price    = v('inPrice');
+    const cogsP    = v('inCogsP');
+    const ful      = v('inFul');
+    const amzFee   = v('inAmzFee') / 100;
+    const cac0     = v('inCac');
+    const subR     = v('inSub') / 100;
+    const churn    = v('inChurn') / 100;
+    const days     = v('inDays');
+    const meta0    = v('inMeta') * 4.33; // weekly → monthly
+    const growth   = v('inGrowth') / 100;
+    const organic  = v('inOrganic') / 100;
+    const amzPct   = v('inAmzPct') / 100;
+    const aovUplift = 1 + v('inAov') / 100;
+    const retailPct = v('inRetail') / 100;
+    const retailM   = v('inRetailM') / 100;
+    const cacCreep  = v('inCacCreep') / 100;
 
-    document.getElementById('outMargin').textContent     = marginPct + '%';
-    document.getElementById('outMarginDollar').textContent = fmt(margin) + ' per bag';
-    document.getElementById('outLtv').textContent        = fmt(ltv);
-    document.getElementById('outSubOrders').textContent  = Math.round(ordersPerYear) + ' orders/yr if subscribed';
-    document.getElementById('outRatio').textContent      = ratio.toFixed(1) + 'x';
-    document.getElementById('outRatioSub').textContent   = ratio >= 3 ? 'Healthy' : ratio >= 2 ? 'Marginal' : 'Poor';
-    document.getElementById('outOrders').textContent     = Math.round(monthlyOrders);
-    document.getElementById('outRevenue').textContent    = fmt(monthlyRevenue);
-    document.getElementById('outRevenueSub').textContent = fmt(meta * 4.33) + '/mo ad spend';
+    const dtcPct  = 1 - amzPct - retailPct;
+    const cogsDtc = cogsP + ful;
+    const cogsAmz = cogsP; // Amazon handles fulfillment
+    const marginDtc = price - cogsDtc;
+    const marginAmz = price * (1 - amzFee) - cogsAmz;
+    const marginRetail = price * retailM;
+
+    // blended margin per order (weighted by channel mix)
+    function blendedGP(orders) {
+      return orders * (dtcPct * marginDtc + amzPct * marginAmz + retailPct * marginRetail) * aovUplift;
+    }
+
+    // LTV: avg bags customer buys over 12mo
+    // - one-time buyer: 1 bag
+    // - subscriber: starts month 0, reorders monthly until churn. Expected months retained = 1/(churn) capped at 12
+    const expectedSubMonths = churn > 0 ? Math.min(12, 1/churn) : 12;
+    const ltv = price * ((1 - subR) * 1 + subR * expectedSubMonths) * aovUplift;
+    const payback = marginDtc > 0 ? cac0 / marginDtc : 99;
+    const ratio = ltv / cac0;
+
+    // key metrics
+    document.getElementById('kmDtcMargin').textContent  = Math.round(marginDtc / price * 100) + '%';
+    document.getElementById('kmDtcMarginD').textContent = fmtD(marginDtc) + ' per bag';
+    document.getElementById('kmAmzMargin').textContent  = Math.round(marginAmz / price * 100) + '%';
+    document.getElementById('kmAmzMarginD').textContent = fmtD(marginAmz) + ' per bag';
+    document.getElementById('kmLtv').textContent        = fmtD(ltv);
+    document.getElementById('kmLtvSub').textContent     = Math.round(expectedSubMonths) + ' avg sub months';
+    document.getElementById('kmRatio').textContent      = ratio.toFixed(1) + 'x';
+    document.getElementById('kmRatioSub').textContent   = ratio >= 4 ? 'Strong' : ratio >= 3 ? 'Healthy' : ratio >= 2 ? 'Marginal' : 'Poor';
+    document.getElementById('kmPayback').textContent    = payback.toFixed(1);
+
+    // 12-month projection
+    const rows = [];
+    let activeSubs = 0;
+    let cumNet = 0;
+    let breakEvenMonth = null;
+    let totMeta=0, totOrders=0, totRevenue=0, totGP=0, totNet=0;
+
+    for (let m = 1; m <= 12; m++) {
+      const metaSpend = meta0 * Math.pow(1 + growth, m - 1);
+      const cac = cac0 * Math.pow(1 + cacCreep, m - 1);
+      const paidNew   = metaSpend / cac;
+      const orgNew    = paidNew * organic;
+      const newCust   = paidNew + orgNew;
+      const newSubs   = newCust * subR;
+      // carry-over subs reorder, then new subs join
+      const subReorders = activeSubs; // they all reorder this month
+      activeSubs = activeSubs * (1 - churn) + newSubs;
+      const totalOrders = newCust + subReorders;
+      const revenue = totalOrders * price * aovUplift;
+      const gp = blendedGP(totalOrders);
+      const netProfit = gp - metaSpend;
+      cumNet += netProfit;
+      if (cumNet >= 0 && !breakEvenMonth) breakEvenMonth = m;
+
+      totMeta    += metaSpend;
+      totOrders  += totalOrders;
+      totRevenue += revenue;
+      totGP      += gp;
+      totNet     += netProfit;
+
+      rows.push({ m, metaSpend, newCust, orgNew, activeSubs, subReorders, totalOrders, revenue, gp, netProfit, cumNet });
+    }
+
+    document.getElementById('kmBreakeven').textContent = breakEvenMonth ? 'Month ' + breakEvenMonth : 'Not yet';
+
+    // render table
+    document.getElementById('projBody').innerHTML = rows.map(r => `
+      <tr>
+        <td>Month ${r.m}</td>
+        <td>${fmtD(r.metaSpend)}</td>
+        <td>${fmtN(r.newCust - r.orgNew)}</td>
+        <td>${fmtN(r.orgNew)}</td>
+        <td>${fmtN(r.activeSubs)}</td>
+        <td>${fmtN(r.subReorders)}</td>
+        <td>${fmtN(r.totalOrders)}</td>
+        <td>${fmtD(r.revenue)}</td>
+        <td>${fmtD(r.gp)}</td>
+        <td class="${r.netProfit>=0?'pos':'neg'}">${fmtD(r.netProfit)}</td>
+        <td class="${r.cumNet>=0?'pos':'neg'}">${fmtD(r.cumNet)}</td>
+      </tr>`).join('') +
+      `<tr>
+        <td>Year 1 Total</td>
+        <td>${fmtD(totMeta)}</td>
+        <td colspan="4"></td>
+        <td>${fmtN(totOrders)}</td>
+        <td>${fmtD(totRevenue)}</td>
+        <td>${fmtD(totGP)}</td>
+        <td class="${totNet>=0?'pos':'neg'}">${fmtD(totNet)}</td>
+        <td></td>
+      </tr>`;
+
+    // year summary boxes
+    const endSubs = rows[11].activeSubs;
+    document.getElementById('yrSummary').innerHTML = `
+      <div class="yr-box"><div class="yv">${fmtD(totRevenue)}</div><div class="yl">Year 1 Revenue</div></div>
+      <div class="yr-box"><div class="yv">${fmtD(totGP)}</div><div class="yl">Year 1 Gross Profit</div></div>
+      <div class="yr-box"><div class="yv">${fmtD(totMeta)}</div><div class="yl">Total Ad Spend</div></div>
+      <div class="yr-box ${totNet>=0?'profit':'loss'}"><div class="yv">${fmtD(totNet)}</div><div class="yl">Net Profit (after ads)</div></div>
+      <div class="yr-box"><div class="yv">${fmtN(endSubs)}</div><div class="yl">Active Subscribers at Month 12</div></div>`;
   }
 
-  // Presets
-  const PRESET_KEY = 'ms_presets';
-  function getInputState() {
-    return {
-      price: document.getElementById('inPrice').value,
-      cogs:  document.getElementById('inCogs').value,
-      cac:   document.getElementById('inCac').value,
-      sub:   document.getElementById('inSub').value,
-      meta:  document.getElementById('inMeta').value,
-      days:  document.getElementById('inDays').value,
-    };
+  // ── presets ──
+  const PK = 'ms_presets_v2';
+  const FIELDS = ['inPrice','inCogsP','inFul','inAmzFee','inCac','inSub','inChurn','inDays','inMeta','inGrowth','inOrganic','inAmzPct','inAov','inRetail','inRetailM','inCacCreep'];
+  const SLIDERS = { inPrice:'slPrice',inCogsP:'slCogsP',inFul:'slFul',inAmzFee:'slAmzFee',inCac:'slCac',inSub:'slSub',inChurn:'slChurn',inDays:'slDays',inMeta:'slMeta',inGrowth:'slGrowth',inOrganic:'slOrganic',inAmzPct:'slAmzPct',inAov:'slAov',inRetail:'slRetail',inRetailM:'slRetailM',inCacCreep:'slCacCreep' };
+
+  function getState() {
+    const s = {};
+    FIELDS.forEach(id => s[id] = document.getElementById(id).value);
+    return s;
   }
-  function setInputState(state) {
-    const fields = { inPrice:'slPrice', inCogs:'slCogs', inCac:'slCac', inSub:'slSub', inMeta:'slMeta', inDays:'slDays' };
-    Object.entries(fields).forEach(([inputId, sliderId]) => {
-      const key = inputId.replace('in','').toLowerCase();
-      if (state[key] !== undefined) {
-        document.getElementById(inputId).value = state[key];
-        document.getElementById(sliderId).value = state[key];
+  function setState(s) {
+    FIELDS.forEach(id => {
+      if (s[id] !== undefined) {
+        document.getElementById(id).value = s[id];
+        const slId = SLIDERS[id];
+        if (slId) { const sl=document.getElementById(slId); sl.value=Math.min(Math.max(+s[id],+sl.min),+sl.max); }
       }
     });
-    recalc();
+    go();
   }
-  function loadPresets() { try { return JSON.parse(localStorage.getItem(PRESET_KEY)) || {}; } catch(e) { return {}; } }
-  function savePresets(p) { localStorage.setItem(PRESET_KEY, JSON.stringify(p)); }
+  function loadPresets() { try { return JSON.parse(localStorage.getItem(PK)) || {}; } catch(e) { return {}; } }
+  function savePresets(p) { localStorage.setItem(PK, JSON.stringify(p)); }
   function savePreset() {
     const name = document.getElementById('presetNameInput').value.trim();
     if (!name) { document.getElementById('presetNameInput').focus(); return; }
-    const presets = loadPresets();
-    presets[name] = getInputState();
-    savePresets(presets);
+    const p = loadPresets(); p[name] = getState(); savePresets(p);
     document.getElementById('presetNameInput').value = '';
     renderPresets();
   }
-  function loadPreset(name) {
-    const presets = loadPresets();
-    if (presets[name]) setInputState(presets[name]);
-  }
-  function deletePreset(name) {
-    const presets = loadPresets();
-    delete presets[name];
-    savePresets(presets);
-    renderPresets();
-  }
+  function loadPreset(name) { const p=loadPresets(); if(p[name]) setState(p[name]); }
+  function deletePreset(name) { const p=loadPresets(); delete p[name]; savePresets(p); renderPresets(); }
+  function esc(s) { return s.replace(/'/g,"\\'"); }
   function renderPresets() {
-    const presets = loadPresets();
-    const container = document.getElementById('presetChips');
-    const names = Object.keys(presets);
-    if (!names.length) { container.innerHTML = '<span class="no-presets">No saved presets yet</span>'; return; }
-    container.innerHTML = names.map(name =>
-      `<span class="preset-chip" onclick="loadPreset('${name.replace(/'/g,"\\'")}')">
-        ${name}
-        <button class="chip-del" onclick="event.stopPropagation();deletePreset('${name.replace(/'/g,"\\'")}')">×</button>
-      </span>`
-    ).join('');
+    const p = loadPresets(); const names = Object.keys(p);
+    const el = document.getElementById('presetChips');
+    el.innerHTML = names.length
+      ? names.map(n=>`<span class="preset-chip" onclick="loadPreset('${esc(n)}')">${n}<button class="chip-del" onclick="event.stopPropagation();deletePreset('${esc(n)}')">×</button></span>`).join('')
+      : '<span class="no-presets">No saved presets yet</span>';
   }
 
-  // Init
   renderPresets();
-  recalc();
+  go();
   </script>
 
   <!-- DECISIONS NEEDED -->
