@@ -507,6 +507,190 @@
     </div>
   </div>
 
+  <!-- INTERACTIVE CALCULATOR -->
+  <div class="section" id="calculator">
+    <div class="section-title">Financial Model — Interactive</div>
+    <div class="calc-shell">
+      <div class="preset-bar">
+        <span class="preset-bar-label">Presets</span>
+        <div class="preset-chips" id="presetChips"><span class="no-presets">No saved presets yet</span></div>
+        <div class="preset-save-row">
+          <input class="preset-name-input" id="presetNameInput" type="text" placeholder="Name this scenario..." maxlength="24">
+          <button class="btn-save" onclick="savePreset()">Save</button>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div class="calc-inputs">
+
+          <div class="calc-input-group">
+            <label>Retail Price</label>
+            <div class="calc-input-row">
+              <span class="calc-prefix">$</span>
+              <input class="calc-input" id="inPrice" type="number" value="79" min="1" max="300" oninput="syncSlider('inPrice','slPrice');recalc()">
+            </div>
+            <input class="calc-slider" id="slPrice" type="range" min="49" max="149" value="79" oninput="syncInput('slPrice','inPrice');recalc()">
+          </div>
+
+          <div class="calc-input-group">
+            <label>COGS incl. Fulfilment</label>
+            <div class="calc-input-row">
+              <span class="calc-prefix">$</span>
+              <input class="calc-input" id="inCogs" type="number" value="25" min="1" max="100" oninput="syncSlider('inCogs','slCogs');recalc()">
+            </div>
+            <input class="calc-slider" id="slCogs" type="range" min="10" max="60" value="25" oninput="syncInput('slCogs','inCogs');recalc()">
+          </div>
+
+          <div class="calc-input-group">
+            <label>Target CAC</label>
+            <div class="calc-input-row">
+              <span class="calc-prefix">$</span>
+              <input class="calc-input" id="inCac" type="number" value="80" min="1" max="300" oninput="syncSlider('inCac','slCac');recalc()">
+            </div>
+            <input class="calc-slider" id="slCac" type="range" min="30" max="200" value="80" oninput="syncInput('slCac','inCac');recalc()">
+          </div>
+
+          <div class="calc-input-group">
+            <label>Subscription Rate</label>
+            <div class="calc-input-row">
+              <input class="calc-input" id="inSub" type="number" value="30" min="0" max="100" oninput="syncSlider('inSub','slSub');recalc()">
+              <span class="calc-suffix">%</span>
+            </div>
+            <input class="calc-slider" id="slSub" type="range" min="0" max="80" value="30" oninput="syncInput('slSub','inSub');recalc()">
+          </div>
+
+          <div class="calc-input-group">
+            <label>Weekly Meta Budget</label>
+            <div class="calc-input-row">
+              <span class="calc-prefix">$</span>
+              <input class="calc-input" id="inMeta" type="number" value="10000" min="1000" max="200000" step="1000" oninput="syncSlider('inMeta','slMeta');recalc()">
+            </div>
+            <input class="calc-slider" id="slMeta" type="range" min="1000" max="100000" step="1000" value="10000" oninput="syncInput('slMeta','inMeta');recalc()">
+          </div>
+
+          <div class="calc-input-group">
+            <label>Bag Duration (days)</label>
+            <div class="calc-input-row">
+              <input class="calc-input" id="inDays" type="number" value="30" min="14" max="90" oninput="syncSlider('inDays','slDays');recalc()">
+              <span class="calc-suffix">days</span>
+            </div>
+            <input class="calc-slider" id="slDays" type="range" min="14" max="90" value="30" oninput="syncInput('slDays','inDays');recalc()">
+          </div>
+
+        </div>
+        <div class="calc-outputs" id="calcOutputs">
+          <div class="calc-out"><div class="out-val" id="outMargin">—</div><div class="out-label">Gross Margin</div><div class="out-sub" id="outMarginDollar">—</div></div>
+          <div class="calc-out"><div class="out-val" id="outLtv">—</div><div class="out-label">12-mo LTV</div><div class="out-sub" id="outSubOrders">—</div></div>
+          <div class="calc-out highlight"><div class="out-val" id="outRatio">—</div><div class="out-label">LTV : CAC</div><div class="out-sub" id="outRatioSub">—</div></div>
+          <div class="calc-out"><div class="out-val" id="outOrders">—</div><div class="out-label">Monthly Orders</div><div class="out-sub" id="outOrdersSub">from Meta spend</div></div>
+          <div class="calc-out"><div class="out-val" id="outRevenue">—</div><div class="out-label">Monthly Revenue</div><div class="out-sub" id="outRevenueSub">from Meta channel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function syncSlider(inputId, sliderId) {
+    const v = parseFloat(document.getElementById(inputId).value);
+    const sl = document.getElementById(sliderId);
+    if (!isNaN(v)) sl.value = Math.min(Math.max(v, sl.min), sl.max);
+  }
+  function syncInput(sliderId, inputId) {
+    document.getElementById(inputId).value = document.getElementById(sliderId).value;
+  }
+  function fmt(n, prefix='$') {
+    if (n >= 1000000) return prefix + (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return prefix + Math.round(n/1000) + 'K';
+    return prefix + Math.round(n);
+  }
+  function recalc() {
+    const price = parseFloat(document.getElementById('inPrice').value) || 79;
+    const cogs  = parseFloat(document.getElementById('inCogs').value)  || 25;
+    const cac   = parseFloat(document.getElementById('inCac').value)   || 80;
+    const sub   = parseFloat(document.getElementById('inSub').value)   || 30;
+    const meta  = parseFloat(document.getElementById('inMeta').value)  || 10000;
+    const days  = parseFloat(document.getElementById('inDays').value)  || 30;
+
+    const margin    = price - cogs;
+    const marginPct = (margin / price * 100).toFixed(0);
+    const ordersPerYear = 365 / days;
+    const ltv       = price + (sub / 100) * price * (ordersPerYear - 1);
+    const ratio     = ltv / cac;
+    const monthlyOrders = (meta * 4.33) / cac;
+    const monthlyRevenue = monthlyOrders * price;
+
+    document.getElementById('outMargin').textContent     = marginPct + '%';
+    document.getElementById('outMarginDollar').textContent = fmt(margin) + ' per bag';
+    document.getElementById('outLtv').textContent        = fmt(ltv);
+    document.getElementById('outSubOrders').textContent  = Math.round(ordersPerYear) + ' orders/yr if subscribed';
+    document.getElementById('outRatio').textContent      = ratio.toFixed(1) + 'x';
+    document.getElementById('outRatioSub').textContent   = ratio >= 3 ? 'Healthy' : ratio >= 2 ? 'Marginal' : 'Poor';
+    document.getElementById('outOrders').textContent     = Math.round(monthlyOrders);
+    document.getElementById('outRevenue').textContent    = fmt(monthlyRevenue);
+    document.getElementById('outRevenueSub').textContent = fmt(meta * 4.33) + '/mo ad spend';
+  }
+
+  // Presets
+  const PRESET_KEY = 'ms_presets';
+  function getInputState() {
+    return {
+      price: document.getElementById('inPrice').value,
+      cogs:  document.getElementById('inCogs').value,
+      cac:   document.getElementById('inCac').value,
+      sub:   document.getElementById('inSub').value,
+      meta:  document.getElementById('inMeta').value,
+      days:  document.getElementById('inDays').value,
+    };
+  }
+  function setInputState(state) {
+    const fields = { inPrice:'slPrice', inCogs:'slCogs', inCac:'slCac', inSub:'slSub', inMeta:'slMeta', inDays:'slDays' };
+    Object.entries(fields).forEach(([inputId, sliderId]) => {
+      const key = inputId.replace('in','').toLowerCase();
+      if (state[key] !== undefined) {
+        document.getElementById(inputId).value = state[key];
+        document.getElementById(sliderId).value = state[key];
+      }
+    });
+    recalc();
+  }
+  function loadPresets() { try { return JSON.parse(localStorage.getItem(PRESET_KEY)) || {}; } catch(e) { return {}; } }
+  function savePresets(p) { localStorage.setItem(PRESET_KEY, JSON.stringify(p)); }
+  function savePreset() {
+    const name = document.getElementById('presetNameInput').value.trim();
+    if (!name) { document.getElementById('presetNameInput').focus(); return; }
+    const presets = loadPresets();
+    presets[name] = getInputState();
+    savePresets(presets);
+    document.getElementById('presetNameInput').value = '';
+    renderPresets();
+  }
+  function loadPreset(name) {
+    const presets = loadPresets();
+    if (presets[name]) setInputState(presets[name]);
+  }
+  function deletePreset(name) {
+    const presets = loadPresets();
+    delete presets[name];
+    savePresets(presets);
+    renderPresets();
+  }
+  function renderPresets() {
+    const presets = loadPresets();
+    const container = document.getElementById('presetChips');
+    const names = Object.keys(presets);
+    if (!names.length) { container.innerHTML = '<span class="no-presets">No saved presets yet</span>'; return; }
+    container.innerHTML = names.map(name =>
+      `<span class="preset-chip" onclick="loadPreset('${name.replace(/'/g,"\\'")}')">
+        ${name}
+        <button class="chip-del" onclick="event.stopPropagation();deletePreset('${name.replace(/'/g,"\\'")}')">×</button>
+      </span>`
+    ).join('');
+  }
+
+  // Init
+  renderPresets();
+  recalc();
+  </script>
+
   <!-- DECISIONS NEEDED -->
   <div class="section">
     <div class="section-title">Decisions to Make Now</div>
