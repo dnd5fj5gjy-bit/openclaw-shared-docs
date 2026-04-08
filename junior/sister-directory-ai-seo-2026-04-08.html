@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sister Directory — AI SEO / GEO Strategy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f4f4; color: #1a1a1a; }
+
+  /* TOPBAR */
+  .topbar { background: #0a0a0a; padding: 13px 36px; display: flex; align-items: center; gap: 20px; }
+  .topbar-brand { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: -.2px; }
+  .topbar-sep { color: #333; }
+  .topbar-title { font-size: 13px; color: #666; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #0a0a1a 0%, #0d1f3c 50%, #0a1628 100%); padding: 52px 36px 44px; }
+  .hero-inner { max-width: 980px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #3a6fff; margin-bottom: 16px; }
+  .hero h1 { font-size: 36px; font-weight: 900; color: #fff; letter-spacing: -1px; line-height: 1.15; margin-bottom: 14px; }
+  .hero h1 span { color: #3a6fff; }
+  .hero-sub { font-size: 15px; color: #8899bb; line-height: 1.65; max-width: 700px; margin-bottom: 32px; }
+  .hero-stats { display: flex; gap: 0; flex-wrap: wrap; border: 1px solid #1e2d4a; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.03); }
+  .hero-stat { padding: 18px 28px; flex: 1; min-width: 160px; border-right: 1px solid #1e2d4a; }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .s-val { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -1px; }
+  .hero-stat .s-label { font-size: 11px; color: #4a5e7a; margin-top: 3px; text-transform: uppercase; letter-spacing: .5px; }
+  .hero-note { margin-top: 24px; background: rgba(58, 111, 255, 0.1); border: 1px solid rgba(58,111,255,0.25); border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #7a9fff; line-height: 1.6; }
+  .hero-note strong { color: #a0bcff; }
+
+  /* LAYOUT */
+  .main { max-width: 980px; margin: 0 auto; padding: 32px 36px 80px; }
+
+  /* SECTION HEADERS */
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; padding: 36px 0 16px; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+  .section-num { background: #0d1f3c; color: #3a6fff; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 4px; }
+
+  /* CARDS */
+  .card { background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+  .card-head { padding: 20px 24px 16px; border-bottom: 1px solid #f2f2f2; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  .card-title { font-size: 17px; font-weight: 800; color: #0a0a1a; margin-bottom: 4px; }
+  .card-sub { font-size: 13px; color: #666; line-height: 1.5; }
+  .card-body { padding: 20px 24px; }
+  .card-badges { display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0; }
+
+  /* BADGES */
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+  .badge-blue { background: #e8f0ff; color: #1a4499; }
+  .badge-green { background: #e6f9ee; color: #1a7a40; }
+  .badge-amber { background: #fff7e6; color: #996600; }
+  .badge-red { background: #ffeaea; color: #cc2200; }
+  .badge-dark { background: #1a1a2e; color: #6a8fff; }
+  .badge-purple { background: #f2e8ff; color: #5a1a99; }
+  .badge-grey { background: #f0f0f0; color: #666; }
+
+  /* PLATFORM CARDS */
+  .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .platform-card { background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; padding: 18px 20px; }
+  .platform-card.featured { border-color: #3a6fff; background: #f7f9ff; }
+  .platform-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .platform-name .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-chatgpt { background: #10a37f; }
+  .dot-perplexity { background: #20b8cd; }
+  .dot-google { background: #ea4335; }
+  .dot-claude { background: #cc785c; }
+  .dot-copilot { background: #0078d4; }
+  .platform-stat { font-size: 12px; color: #555; line-height: 1.6; margin-bottom: 4px; }
+  .platform-stat strong { color: #1a1a1a; }
+  .platform-key { background: #f7f7f7; border-radius: 6px; padding: 10px 12px; margin-top: 10px; font-size: 12px; color: #444; line-height: 1.55; border-left: 3px solid #3a6fff; }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 4px 0; }
+  .data-table th { background: #f7f7f7; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #999; padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; }
+  .data-table td { padding: 9px 12px; border-bottom: 1px solid #f5f5f5; vertical-align: top; color: #333; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #fafafa; }
+  .td-em { font-weight: 700; color: #0a0a1a; }
+  .td-green { color: #1a7a40; font-weight: 700; }
+  .td-amber { color: #996600; font-weight: 700; }
+  .td-red { color: #cc2200; font-weight: 700; }
+  .td-blue { color: #1a4499; font-weight: 700; }
+
+  /* PRIORITY PHASES */
+  .phase { background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .phase-head { padding: 14px 20px; display: flex; align-items: center; gap: 14px; cursor: default; }
+  .phase-num { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; flex-shrink: 0; }
+  .p1 .phase-num { background: #e6f9ee; color: #1a7a40; }
+  .p2 .phase-num { background: #fff7e6; color: #996600; }
+  .p3 .phase-num { background: #e8f0ff; color: #1a4499; }
+  .p4 .phase-num { background: #f2e8ff; color: #5a1a99; }
+  .p5 .phase-num { background: #f0f0f0; color: #666; }
+  .phase-title { font-size: 15px; font-weight: 800; color: #0a0a1a; }
+  .phase-meta { font-size: 12px; color: #888; margin-top: 1px; }
+  .phase-body { padding: 0 20px 16px 66px; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li { font-size: 13px; color: #333; line-height: 1.6; padding: 6px 0; border-bottom: 1px solid #f5f5f5; display: flex; gap: 10px; align-items: flex-start; }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box { width: 16px; height: 16px; border: 2px solid #ddd; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .check-label { flex: 1; }
+  .check-label .priority { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .priority-high { background: #e6f9ee; color: #1a7a40; }
+  .priority-med { background: #fff7e6; color: #996600; }
+  .priority-low { background: #f0f0f0; color: #888; }
+
+  /* CODE BLOCKS */
+  .code-block { background: #0d1117; color: #c9d1d9; border-radius: 8px; padding: 16px 18px; font-family: 'SFMono-Regular', 'Consolas', 'Monaco', monospace; font-size: 12px; line-height: 1.7; overflow-x: auto; margin: 10px 0; }
+  .code-block .comment { color: #6a737d; }
+  .code-block .key { color: #79c0ff; }
+  .code-block .val { color: #a5d6ff; }
+  .code-block .str { color: #a8d8a8; }
+  .code-block .tag { color: #7ee787; }
+
+  /* INSIGHT BLOCKS */
+  .insight { background: #0d1f3c; border-radius: 10px; padding: 20px 24px; margin-bottom: 14px; }
+  .insight-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3a6fff; margin-bottom: 8px; }
+  .insight-text { font-size: 14px; color: #c0d0ee; line-height: 1.7; }
+  .insight-text strong { color: #fff; }
+
+  /* STAT PILLS */
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 10px 0; }
+  .stat-pill { background: #f7f9ff; border: 1px solid #d0daff; border-radius: 8px; padding: 10px 14px; text-align: center; min-width: 110px; }
+  .stat-pill .sp-val { font-size: 22px; font-weight: 900; color: #1a4499; letter-spacing: -1px; }
+  .stat-pill .sp-label { font-size: 11px; color: #666; margin-top: 2px; line-height: 1.4; }
+
+  /* CONTENT ITEMS */
+  .content-item { border: 1px solid #e8e8e8; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .content-item.tier1 { border-color: #1a7a40; background: #f7fdf9; }
+  .content-item.tier2 { border-color: #996600; background: #fffdf7; }
+  .content-item.tier3 { border-color: #ccc; background: #fafafa; }
+  .ci-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .ci-title { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+  .ci-body { font-size: 13px; color: #555; line-height: 1.6; }
+  .ci-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .ci-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; background: #f0f0f0; color: #666; }
+  .ci-tag.schema { background: #e8f0ff; color: #1a4499; }
+  .ci-tag.boost { background: #e6f9ee; color: #1a7a40; }
+  .ci-tag.words { background: #fff7e6; color: #996600; }
+
+  /* CASE STUDIES */
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .case-card { background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; padding: 16px 18px; }
+  .case-name { font-size: 13px; font-weight: 700; color: #0a0a1a; margin-bottom: 4px; }
+  .case-result { font-size: 22px; font-weight: 900; color: #1a4499; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .case-desc { font-size: 12px; color: #666; line-height: 1.55; }
+  .case-lesson { font-size: 12px; color: #333; background: #f7f9ff; border-radius: 4px; padding: 8px 10px; margin-top: 8px; border-left: 3px solid #3a6fff; line-height: 1.5; }
+
+  /* TOOL TABLE */
+  .tool-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f2f2f2; }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-name { font-size: 13px; font-weight: 700; min-width: 160px; flex-shrink: 0; }
+  .tool-desc { font-size: 13px; color: #555; line-height: 1.55; flex: 1; }
+  .tool-cost { font-size: 12px; font-weight: 700; color: #888; min-width: 90px; text-align: right; flex-shrink: 0; }
+
+  /* PROMPT LIST */
+  .prompt-item { font-size: 13px; color: #333; padding: 7px 0; border-bottom: 1px solid #f5f5f5; display: flex; gap: 10px; align-items: flex-start; line-height: 1.55; }
+  .prompt-item:last-child { border-bottom: none; }
+  .prompt-num { font-size: 11px; font-weight: 800; color: #aaa; min-width: 22px; }
+  .prompt-text { flex: 1; font-family: 'SFMono-Regular', monospace; font-size: 12px; color: #333; background: #f8f8f8; padding: 5px 9px; border-radius: 4px; }
+
+  /* WARNING */
+  .warning { background: #fff8e6; border: 1px solid #ffcc44; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #6b4c00; line-height: 1.6; margin-bottom: 14px; }
+  .warning strong { color: #4a3000; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: #eee; margin: 8px 0 4px; }
+
+  @media (max-width: 700px) {
+    .main { padding: 20px 16px 60px; }
+    .hero { padding: 32px 16px 28px; }
+    .platform-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">Sister Directory</div>
+  <div class="topbar-sep">/</div>
+  <div class="topbar-title">AI SEO &amp; Generative Engine Optimization — Implementation Guide</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">For Felix — Technical Implementation</div>
+    <h1>AI SEO Strategy<br><span>for Sister Directory</span></h1>
+    <div class="hero-sub">How to get Sister Directory recommended by ChatGPT, Perplexity, Google AI Overviews, and Claude when women search for non-toxic alternatives. This is the highest-leverage growth channel for the site. Deep research, specific actions, exact code.</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="s-val">4.4x</div><div class="s-label">AI visitors vs search in revenue</div></div>
+      <div class="hero-stat"><div class="s-val">5%</div><div class="s-label">AI visitor conversion rate</div></div>
+      <div class="hero-stat"><div class="s-val">3.2x</div><div class="s-label">FAQ schema AIO boost</div></div>
+      <div class="hero-stat"><div class="s-val">+40%</div><div class="s-label">AI citation boost from GEO tactics</div></div>
+      <div class="hero-stat"><div class="s-val">46.7%</div><div class="s-label">Perplexity citations from Reddit</div></div>
+    </div>
+    <div class="hero-note"><strong>Why this matters more than traditional SEO:</strong> People asking AI "where can I find non-toxic beauty products in the UK?" are high-intent buyers. They're pre-qualified. They convert at 4.4x the rate of a Google search visitor. Getting one consistent AI recommendation is worth more than 5 top-10 Google rankings in business impact. This is the most important growth lever for Sister Directory right now.</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ===== SECTION 1: HOW AI SYSTEMS WORK ===== -->
+  <div class="section-label"><span class="section-num">01</span> How Each AI System Sources Recommendations</div>
+
+  <div class="insight">
+    <div class="insight-label">Critical Finding</div>
+    <div class="insight-text">Only <strong>11% of domains</strong> are cited by both ChatGPT and Perplexity. Each platform pulls from fundamentally different sources. A strategy that optimises for Google AIOs will not automatically work for Perplexity. Sister Directory needs a multi-platform approach — not a single "AI SEO" tactic.</div>
+  </div>
+
+  <div class="platform-grid">
+
+    <div class="platform-card">
+      <div class="platform-name"><span class="dot dot-chatgpt"></span>ChatGPT (GPT-4o)</div>
+      <div class="platform-stat"><strong>Without browsing (~60% of queries):</strong> Answers from training data. Wikipedia appears in ~1 in 6 conversations. Sister Directory needs to exist in the web corpus that trained the model — editorial coverage, Reddit threads, "best of" lists, forum mentions.</div>
+      <div class="platform-stat"><strong>With browsing enabled:</strong> Uses Bing as retrieval source. Critically, 90% of cited URLs come from position 21+ — you don't need to rank #1, you need to be indexed and structured clearly.</div>
+      <div class="platform-stat"><strong>What it weights:</strong> Referring domains (32K+ = 3x citation rate), content depth (2,900+ words = 5+ citations), data density (19+ data points = 2x citations).</div>
+      <div class="platform-key">Key action: Get 20+ editorial mentions across the web. Submit to Bing Webmaster Tools. Build content depth on core pages.</div>
+    </div>
+
+    <div class="platform-card featured">
+      <div class="platform-name"><span class="dot dot-perplexity"></span>Perplexity AI <span class="badge badge-green" style="font-size:9px;">Fastest wins</span></div>
+      <div class="platform-stat"><strong>Real-time web crawl:</strong> Most like a search engine. Citations refresh within hours/days of new content going live. Sister Directory content published today can appear in Perplexity answers within 2-4 weeks.</div>
+      <div class="platform-stat"><strong>Reddit = 46.7% of citations:</strong> The highest Reddit dependence of any AI platform. Reddit mentions are your single fastest path to Perplexity citations.</div>
+      <div class="platform-stat"><strong>3-7 citations per answer:</strong> Pulls from Bing+Google rankings + Reddit + freshness signals. Explicit preference for content with dates, headers, and factual specificity.</div>
+      <div class="platform-key">Key action: Build Reddit presence in r/CleanBeauty, r/SkincareAddictionUK. Publish fresh, dated, structured content regularly. Show "Last updated" dates prominently.</div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-name"><span class="dot dot-google"></span>Google AI Overviews</div>
+      <div class="platform-stat"><strong>Now in 60%+ of all searches</strong> (up from 25% mid-2024). Not going away — this is becoming the default Google experience.</div>
+      <div class="platform-stat"><strong>47% of AIO citations rank below position #5</strong> — relevance and structure matter more than raw ranking. Domain authority correlation dropped to r=0.18 (weak signal).</div>
+      <div class="platform-stat"><strong>96% of AIO citations</strong> come from sources with strong E-E-A-T signals. FAQPage schema = 3.2x citation rate. Multimodal pages (text + images + schema) = 317% more citations.</div>
+      <div class="platform-key">Key action: Implement FAQPage schema everywhere. Build E-E-A-T (named authors, methodology page, credentials). Ensure site passes Core Web Vitals.</div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-name"><span class="dot dot-claude"></span>Claude (Anthropic)</div>
+      <div class="platform-stat"><strong>Without web tools (most deployments):</strong> Entirely from training data (cutoff August 2025). No real-time retrieval.</div>
+      <div class="platform-stat"><strong>Most influenced by Tier 1 sources</strong> at 65% citation weight — the highest of any platform. Being listed in high-authority health/beauty databases, UK regulatory body sites, and well-known consumer resources matters most for Claude.</div>
+      <div class="platform-stat"><strong>Awards and accreditations:</strong> Claude is the platform most influenced by these signals (19% weight vs. Perplexity at 5%). Industry recognition directly increases Claude recommendation rate.</div>
+      <div class="platform-key">Key action: Pursue listings on EWG partner pages, CTPA resources, Mintel references, Vogue UK, and any clean beauty industry awards. These are the sources in Claude's training data.</div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-name"><span class="dot dot-copilot"></span>Microsoft Copilot</div>
+      <div class="platform-stat"><strong>Essentially Bing AI.</strong> Copilot is directly powered by Bing's index. Whatever ranks on Bing gets surfaced by Copilot. Wikipedia at ~35% citation share.</div>
+      <div class="platform-stat"><strong>Action: Submit sitemap to Bing Webmaster Tools</strong> (separate from Google Search Console — many sites never do this). This is a 30-minute task with direct impact on both Copilot and ChatGPT browsing mode.</div>
+      <div class="platform-key">Key action: Bing Webmaster Tools submission + structured data are the two highest-leverage Copilot wins.</div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-name"><span class="dot" style="background:#6236ff"></span>Gemini (Google DeepMind)</div>
+      <div class="platform-stat"><strong>Uses Google Search index</strong> as primary grounding source. Traditional Google SEO work (E-E-A-T, quality content, backlinks from authority sites) is the direct path to Gemini citations.</div>
+      <div class="platform-stat"><strong>Strong bias toward Google's own properties:</strong> Google Business Profile, Google Reviews, and Google Shopping data all feed directly into Gemini responses.</div>
+      <div class="platform-key">Key action: Google Business Profile optimisation. All standard Google SEO improvements flow directly to Gemini.</div>
+    </div>
+
+  </div>
+
+  <!-- Platform divergence table -->
+  <div class="card" style="margin-top: 16px;">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Platform-by-Platform Strategy Summary</div>
+        <div class="card-sub">Different sources, different timelines, different tactics. Run all of these in parallel.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="data-table">
+        <tr>
+          <th>Platform</th>
+          <th>Dominant Source</th>
+          <th>Key Tactic for Sister Directory</th>
+          <th>Time to Impact</th>
+          <th>Difficulty</th>
+        </tr>
+        <tr>
+          <td class="td-em">ChatGPT</td>
+          <td>Wikipedia, editorial web, training data</td>
+          <td>Editorial mentions, "best of" list inclusions, backlink volume</td>
+          <td class="td-amber">3-6 months</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td class="td-em">Perplexity</td>
+          <td>Reddit (46.7%), real-time web</td>
+          <td>Reddit presence, fresh dated content, structured formatting</td>
+          <td class="td-green">2-4 weeks</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td class="td-em">Google AIOs</td>
+          <td>E-E-A-T sources, structured pages</td>
+          <td>FAQPage schema, methodology page, named authors</td>
+          <td class="td-amber">4-8 weeks</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td class="td-em">Claude</td>
+          <td>High-authority databases, trade press</td>
+          <td>EWG listing, Vogue UK/Glamour UK coverage, industry awards</td>
+          <td class="td-red">6-12 months</td>
+          <td>Hard</td>
+        </tr>
+        <tr>
+          <td class="td-em">Copilot</td>
+          <td>Bing index, Wikipedia</td>
+          <td>Bing Webmaster Tools submission, structured data</td>
+          <td class="td-amber">4-8 weeks</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td class="td-em">Gemini</td>
+          <td>Google Search index</td>
+          <td>Standard Google SEO, Google Business Profile</td>
+          <td class="td-amber">4-8 weeks</td>
+          <td>Medium</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 2: TECHNICAL IMPLEMENTATION ===== -->
+  <div class="section-label"><span class="section-num">02</span> Technical Implementation — What Felix Needs to Build</div>
+
+  <!-- robots.txt -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">1. robots.txt — Allow All AI Crawlers</div>
+        <div class="card-sub">Many sites accidentally block AI crawlers via security plugins. This is a silent killer. Check and fix immediately.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Do first</span><span class="badge badge-grey">30 minutes</span></div>
+    </div>
+    <div class="card-body">
+      <div class="warning"><strong>Watch out:</strong> WordPress security plugins (Wordfence, Sucuri, iThemes) often block unusual user agents including GPTBot and ClaudeBot by default. Check your plugin settings explicitly. Check current state at sisterdirectory.co.uk/robots.txt</div>
+      <p style="font-size:13px;color:#444;margin-bottom:10px;">Ensure <code>robots.txt</code> includes explicit Allow directives for every major AI crawler:</p>
+      <div class="code-block"><span class="comment"># Allow all major AI crawlers — critical for AI SEO</span>
+
+<span class="tag">User-agent:</span> <span class="val">GPTBot</span>          <span class="comment"># ChatGPT browsing mode</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">User-agent:</span> <span class="val">ClaudeBot</span>       <span class="comment"># Claude with web tools</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">User-agent:</span> <span class="val">PerplexityBot</span>   <span class="comment"># Perplexity AI</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">User-agent:</span> <span class="val">Bingbot</span>         <span class="comment"># Bing = ChatGPT browsing + Copilot</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">User-agent:</span> <span class="val">Google-Extended</span> <span class="comment"># Google Gemini training</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">User-agent:</span> <span class="val">Googlebot</span>
+<span class="tag">Allow:</span> <span class="val">/</span>
+
+<span class="tag">Sitemap:</span> <span class="val">https://sisterdirectory.co.uk/sitemap.xml</span></div>
+    </div>
+  </div>
+
+  <!-- llms.txt -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">2. llms.txt — AI Navigation File</div>
+        <div class="card-sub">Emerging standard. Not yet adopted by any major AI, but implement now for future-proofing and possible upside. 30 minutes, no downside.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-blue">Future-proof</span><span class="badge badge-grey">30 minutes</span></div>
+    </div>
+    <div class="card-body">
+      <p style="font-size:13px;color:#444;margin-bottom:10px;">Create <code>/llms.txt</code> at the root of the domain. This tells AI crawlers what your highest-priority content is. Concurate case study: implementing llms.txt pointing to high-intent product pages contributed to a 5x AI traffic increase.</p>
+      <div class="code-block"><span class="comment"># llms.txt — Sister Directory</span>
+<span class="comment"># Non-toxic product directory for UK shoppers</span>
+
+<span class="tag">Name:</span> <span class="val">Sister Directory</span>
+<span class="tag">Description:</span> <span class="val">The UK's free, curated directory of clean and non-toxic beauty, skincare, and homecare products. Searchable by category, ingredient, and brand.</span>
+<span class="tag">URL:</span> <span class="val">https://sisterdirectory.co.uk</span>
+
+<span class="comment">## Key Pages</span>
+
+<span class="tag">About:</span> <span class="val">https://sisterdirectory.co.uk/about</span>
+<span class="tag">Methodology:</span> <span class="val">https://sisterdirectory.co.uk/methodology</span>
+<span class="tag">Directory:</span> <span class="val">https://sisterdirectory.co.uk/directory</span>
+
+<span class="comment">## Priority Content</span>
+
+<span class="val">https://sisterdirectory.co.uk/non-toxic-beauty-uk-guide</span>
+<span class="val">https://sisterdirectory.co.uk/ingredients-to-avoid</span>
+<span class="val">https://sisterdirectory.co.uk/best-non-toxic-beauty-brands-uk</span>
+<span class="val">https://sisterdirectory.co.uk/what-is-sister-directory</span></div>
+    </div>
+  </div>
+
+  <!-- Schema Markup -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">3. Schema Markup — Priority Implementation Order</div>
+        <div class="card-sub">GPT-4o accuracy jumps from 16% to 54% when content uses structured data. FAQPage schema gives 3.2x more Google AIO citations. This is the highest-ROI technical change available.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Highest ROI</span><span class="badge badge-amber">2-4 hours</span></div>
+    </div>
+    <div class="card-body">
+      <table class="data-table" style="margin-bottom:16px;">
+        <tr>
+          <th>Priority</th>
+          <th>Schema Type</th>
+          <th>Where to add</th>
+          <th>Impact</th>
+        </tr>
+        <tr>
+          <td class="td-em">1</td>
+          <td><strong>Organization</strong></td>
+          <td>Homepage <code>&lt;head&gt;</code></td>
+          <td class="td-green">Entity recognition across all AI platforms</td>
+        </tr>
+        <tr>
+          <td class="td-em">2</td>
+          <td><strong>FAQPage</strong></td>
+          <td>Every page with Q&amp;A content</td>
+          <td class="td-green">3.2x Google AIO citation rate</td>
+        </tr>
+        <tr>
+          <td class="td-em">3</td>
+          <td><strong>ItemList + ListItem</strong></td>
+          <td>Directory listing pages</td>
+          <td class="td-green">AI can extract directory data directly</td>
+        </tr>
+        <tr>
+          <td class="td-em">4</td>
+          <td><strong>Article + Person</strong></td>
+          <td>All blog/guide content</td>
+          <td class="td-amber">E-E-A-T signal, author credibility</td>
+        </tr>
+        <tr>
+          <td class="td-em">5</td>
+          <td><strong>BreadcrumbList</strong></td>
+          <td>All pages</td>
+          <td class="td-amber">Site structure clarity for AI</td>
+        </tr>
+        <tr>
+          <td class="td-em">6</td>
+          <td><strong>WebSite + SearchAction</strong></td>
+          <td>Homepage</td>
+          <td class="td-amber">Sitelinks search box in Google</td>
+        </tr>
+      </table>
+
+      <p style="font-size:13px;color:#444;font-weight:700;margin-bottom:8px;">Organization Schema (Homepage) — Exact Code:</p>
+      <div class="code-block">&lt;<span class="tag">script</span> type=<span class="str">"application/ld+json"</span>&gt;
+{
+  <span class="key">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="str">"Organization"</span>,
+  <span class="key">"name"</span>: <span class="str">"Sister Directory"</span>,
+  <span class="key">"description"</span>: <span class="str">"The UK's free, curated directory of clean and non-toxic beauty, skincare, and homecare products."</span>,
+  <span class="key">"url"</span>: <span class="str">"https://sisterdirectory.co.uk"</span>,
+  <span class="key">"logo"</span>: <span class="str">"https://sisterdirectory.co.uk/logo.png"</span>,
+  <span class="key">"foundingDate"</span>: <span class="str">"2024"</span>,
+  <span class="key">"areaServed"</span>: <span class="str">"GB"</span>,
+  <span class="key">"knowsAbout"</span>: [<span class="str">"non-toxic beauty"</span>, <span class="str">"clean beauty UK"</span>, <span class="str">"ingredient safety"</span>, <span class="str">"toxic-free skincare"</span>],
+  <span class="key">"sameAs"</span>: [
+    <span class="str">"https://instagram.com/sisterdirectory"</span>,
+    <span class="str">"https://www.facebook.com/sisterdirectory"</span>,
+    <span class="str">"https://twitter.com/sisterdirectory"</span>
+  ]
+}
+&lt;/<span class="tag">script</span>&gt;</div>
+
+      <p style="font-size:13px;color:#444;font-weight:700;margin-bottom:8px;margin-top:14px;">FAQPage Schema — Exact Code Template:</p>
+      <div class="code-block">&lt;<span class="tag">script</span> type=<span class="str">"application/ld+json"</span>&gt;
+{
+  <span class="key">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="str">"FAQPage"</span>,
+  <span class="key">"mainEntity"</span>: [
+    {
+      <span class="key">"@type"</span>: <span class="str">"Question"</span>,
+      <span class="key">"name"</span>: <span class="str">"What is Sister Directory?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="str">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="str">"Sister Directory is the UK's free, searchable directory of non-toxic and clean beauty products. Every listed product is reviewed against a blocklist of over 1,000 potentially harmful synthetic chemicals and hormone disruptors. It is specifically designed for UK shoppers, where product availability and EU/UK regulations differ significantly from US markets."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="str">"Question"</span>,
+      <span class="key">"name"</span>: <span class="str">"How does Sister Directory decide if a product is non-toxic?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="str">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="str">"Each product listed on Sister Directory is evaluated against our ingredient blocklist, which excludes parabens, phthalates, formaldehyde-releasers, synthetic fragrances, oxybenzone, and over 1,000 other flagged chemicals. We cross-reference EU Cosmetics Regulation 1223/2009 and EWG Skin Deep database ratings. Products must pass all criteria before listing."</span>
+      }
+    }
+  ]
+}
+&lt;/<span class="tag">script</span>&gt;</div>
+
+      <p style="font-size:13px;color:#444;font-weight:700;margin-bottom:8px;margin-top:14px;">ItemList Schema for Directory Pages:</p>
+      <div class="code-block">{
+  <span class="key">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="str">"ItemList"</span>,
+  <span class="key">"name"</span>: <span class="str">"Non-Toxic Skincare Brands UK"</span>,
+  <span class="key">"description"</span>: <span class="str">"Curated list of verified non-toxic skincare brands available in the UK"</span>,
+  <span class="key">"numberOfItems"</span>: <span class="val">47</span>,
+  <span class="key">"itemListElement"</span>: [
+    {
+      <span class="key">"@type"</span>: <span class="str">"ListItem"</span>,
+      <span class="key">"position"</span>: <span class="val">1</span>,
+      <span class="key">"name"</span>: <span class="str">"[Brand Name]"</span>,
+      <span class="key">"description"</span>: <span class="str">"[Short description]"</span>,
+      <span class="key">"url"</span>: <span class="str">"https://sisterdirectory.co.uk/brands/[brand-slug]"</span>
+    }
+  ]
+}</div>
+    </div>
+  </div>
+
+  <!-- Bing + Technical -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">4. Bing Webmaster Tools — Often Overlooked, High Impact</div>
+        <div class="card-sub">Required for ChatGPT browsing mode + Microsoft Copilot. Most sites only do Google Search Console. This is a 20-minute task.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Do first</span><span class="badge badge-grey">20 minutes</span></div>
+    </div>
+    <div class="card-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Go to <strong>bing.com/webmasters</strong> and sign in with Microsoft account</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add <strong>sisterdirectory.co.uk</strong> as a property (can import from Google Search Console)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Submit sitemap: <strong>sisterdirectory.co.uk/sitemap.xml</strong></span></li>
+        <li><span class="check-box"></span><span class="check-label">Use the URL Inspection tool to request indexing of your most important pages immediately</span></li>
+        <li><span class="check-box"></span><span class="check-label">Check "Crawl" settings — ensure nothing is blocking Bingbot</span></li>
+        <li><span class="check-box"></span><span class="check-label">Verify Bingbot is not blocked in robots.txt (see Section 1)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content dates -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">5. Date Signals — Recency is Critical for Perplexity</div>
+        <div class="card-sub">Perplexity has an aggressive recency bias. Content over 3 months old drops in citation rate. All pages must have visible, accurate publish and update dates.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-amber">1 hour</span></div>
+    </div>
+    <div class="card-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Add <code>datePublished</code> and <code>dateModified</code> to all Article schema on every page</span></li>
+        <li><span class="check-box"></span><span class="check-label">Show visible "Last updated: [date]" text on all guide and directory pages — not hidden in code, visible to readers</span></li>
+        <li><span class="check-box"></span><span class="check-label">Set up a recurring calendar task to update key pages every 60-90 days (even minor updates reset the freshness clock)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Ensure CMS is outputting correct <code>&lt;meta property="article:modified_time"&gt;</code> tags</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Core Web Vitals -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">6. Core Web Vitals and Page Speed</div>
+        <div class="card-sub">Chemours case study identified &lt;2 second load times as a contributing factor. AI crawlers skip slow pages. Run PageSpeed Insights and fix the top issues.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-grey">Ongoing</span></div>
+    </div>
+    <div class="card-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Run <strong>pagespeed.web.dev</strong> on homepage and top 5 pages — target 90+ mobile score</span></li>
+        <li><span class="check-box"></span><span class="check-label">Compress all images — use WebP format, add descriptive alt text on all images</span></li>
+        <li><span class="check-box"></span><span class="check-label">Ensure no render-blocking JavaScript on critical path</span></li>
+        <li><span class="check-box"></span><span class="check-label">Verify Google Search Console shows no Core Web Vitals failures</span></li>
+        <li><span class="check-box"></span><span class="check-label">Check for mobile usability issues in Google Search Console</span></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 3: CONTENT ARCHITECTURE ===== -->
+  <div class="section-label"><span class="section-num">03</span> Content Architecture — What to Build and Why</div>
+
+  <div class="insight">
+    <div class="insight-label">Foundational Research Finding — Princeton GEO Study</div>
+    <div class="insight-text">The academic paper that defined GEO (Princeton, 2024) tested which content modifications increased AI citation rates. Results: adding statistics <strong>+22%</strong>, adding expert quotations <strong>+37%</strong>, comparative/listicle format <strong>+32.5% of all AI citations</strong>. These specific content types are disproportionately cited by every major AI system.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Content Format Priority — What AI Systems Actually Cite</div>
+        <div class="card-sub">Not all content is equal. These formats get cited at dramatically different rates.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="data-table">
+        <tr><th>Rank</th><th>Format</th><th>AI Citation Share</th><th>Notes</th></tr>
+        <tr><td class="td-em">1</td><td><strong>Comparative listicles</strong> ("Best X UK")</td><td class="td-green">32.5% of all AI citations</td><td>Highest-performing format across all platforms. Update quarterly.</td></tr>
+        <tr><td class="td-em">2</td><td><strong>FAQ pages</strong></td><td class="td-green">3.2x AIO boost</td><td>Must use FAQPage schema. H3 questions + 40-60 word answers.</td></tr>
+        <tr><td class="td-em">3</td><td><strong>How-to / step-by-step guides</strong></td><td class="td-green">High across all platforms</td><td>HowTo schema amplifies. Step-by-step structure preferred.</td></tr>
+        <tr><td class="td-em">4</td><td><strong>Definition/explainer content</strong></td><td class="td-amber">Moderate</td><td>"What is X" format. AI uses these as reference definitions.</td></tr>
+        <tr><td class="td-em">5</td><td><strong>Original research/data</strong></td><td class="td-amber">Highest authority signal</td><td>Hardest to produce. If you test products, publish the data.</td></tr>
+        <tr><td class="td-em">6</td><td><strong>Product comparison pages</strong></td><td class="td-amber">Strong for Perplexity</td><td>"A vs B" format. "Sister Directory vs Think Dirty UK"</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ Structure -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">FAQ Page Architecture — The Exact Format That Gets Cited</div>
+        <div class="card-sub">AI systems extract "answer blocks" from pages. The format must be machine-readable. Every FAQ page on the site should follow this exact structure.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Critical</span></div>
+    </div>
+    <div class="card-body">
+      <p style="font-size:13px;color:#444;margin-bottom:12px;"><strong>Rules:</strong> H3 tags for questions. Immediate 40-60 word answer in the first paragraph after the H3. No accordion/collapse — the answer must be visible in the HTML source. FAQPage schema wrapping the whole section.</p>
+      <div class="code-block"><span class="comment">&lt;!-- HTML Structure for FAQ Sections --&gt;</span>
+
+&lt;<span class="tag">section</span> itemscope itemtype="https://schema.org/FAQPage"&gt;
+
+  &lt;<span class="tag">div</span> itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"&gt;
+    &lt;<span class="tag">h3</span> itemprop="name"&gt;What does non-toxic beauty mean in the UK?&lt;/<span class="tag">h3</span>&gt;
+    &lt;<span class="tag">div</span> itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"&gt;
+      &lt;<span class="tag">p</span> itemprop="text"&gt;
+        <span class="comment">&lt;!-- 40-60 WORD DIRECT ANSWER MUST GO HERE FIRST --&gt;</span>
+        Non-toxic beauty in the UK refers to products formulated without ingredients
+        flagged as harmful by EU Cosmetics Regulation 1223/2009, including parabens,
+        phthalates, synthetic musks, formaldehyde-releasers, and oxybenzone.
+        UK standards differ from US FDA regulations — not all EWG-approved products
+        are available or identically formulated here.
+      &lt;/<span class="tag">p</span>&gt;
+      <span class="comment">&lt;!-- Additional context can follow --&gt;</span>
+    &lt;/<span class="tag">div</span>&gt;
+  &lt;/<span class="tag">div</span>&gt;
+
+&lt;/<span class="tag">section</span>&gt;</div>
+      <p style="font-size:12px;color:#888;margin-top:8px;">Use this microdata format OR JSON-LD in the head (both work — JSON-LD is easier to maintain).</p>
+    </div>
+  </div>
+
+  <!-- Tier 1 Content -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Content Build Priority — Tier 1 (Build First)</div>
+        <div class="card-sub">These 5 pages will drive the most AI citations. Build all of them before anything else. Every page must be 1,500+ words, FAQ-structured, with all schema types applied.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Build weeks 2-4</span></div>
+    </div>
+    <div class="card-body">
+
+      <div class="content-item tier1">
+        <div class="ci-header">
+          <div class="ci-title">1. Methodology Page — "How Sister Directory Vets Products"</div>
+          <span class="badge badge-green">Most Important</span>
+        </div>
+        <div class="ci-body">Your single most important E-E-A-T page. AI systems look for methodology transparency. Must include: exact criteria for listing, complete ingredient blocklist with chemical names and why each is flagged, regulatory sources cited (EU Cosmetics Regulation 1223/2009, EWG, UK REACH), and how often products are re-reviewed. This page tells every AI system that Sister Directory is a trustworthy, expert source — not a random blog.</div>
+        <div class="ci-tags">
+          <span class="ci-tag schema">Organization schema</span>
+          <span class="ci-tag schema">FAQPage schema</span>
+          <span class="ci-tag boost">E-E-A-T signal</span>
+          <span class="ci-tag words">1,500+ words</span>
+        </div>
+      </div>
+
+      <div class="content-item tier1">
+        <div class="ci-header">
+          <div class="ci-title">2. "What Does Non-Toxic Beauty Mean? UK Guide"</div>
+          <span class="badge badge-green">Highest Search Volume</span>
+        </div>
+        <div class="ci-body">Definitional content. Answers the most fundamental question in the space. Lead with a 50-word direct answer. Include: definition, how UK regulations differ from FDA, what "clean," "natural," and "non-toxic" actually mean (they're different), a list of key ingredients to avoid with INCI names, and a FAQ section. Cite EU Regulation, EWG, Dermatology journals. This page will be cited by every AI system that answers this query.</div>
+        <div class="ci-tags">
+          <span class="ci-tag schema">FAQPage schema</span>
+          <span class="ci-tag schema">Article + Person schema</span>
+          <span class="ci-tag boost">Defintion format</span>
+          <span class="ci-tag boost">Data-dense</span>
+          <span class="ci-tag words">2,000+ words</span>
+        </div>
+      </div>
+
+      <div class="content-item tier1">
+        <div class="ci-header">
+          <div class="ci-title">3. "Ingredients to Avoid in UK Beauty Products 2026"</div>
+          <span class="badge badge-amber">Update quarterly</span>
+        </div>
+        <div class="ci-body">Data-dense content performs best (19+ data points = 2x AI citation rate). List 30+ flagged ingredients with: INCI name, what category it's in (paraben, phthalate, synthetic fragrance, etc.), health concern (hormone disruptor, carcinogen, allergen), regulatory status in EU/UK vs US. Cite primary research sources. Add a FAQ section at the end. This page will be cited every time AI answers "what ingredients to avoid in makeup UK."</div>
+        <div class="ci-tags">
+          <span class="ci-tag schema">FAQPage schema</span>
+          <span class="ci-tag schema">Table markup</span>
+          <span class="ci-tag boost">30+ data points</span>
+          <span class="ci-tag boost">Primary sources cited</span>
+          <span class="ci-tag words">2,500+ words</span>
+        </div>
+      </div>
+
+      <div class="content-item tier1">
+        <div class="ci-header">
+          <div class="ci-title">4. "Best Non-Toxic Beauty Brands UK 2026" — Listicle</div>
+          <span class="badge badge-green">Highest AI citation format</span>
+        </div>
+        <div class="ci-body">Listicles drive 32.5% of all AI citations — the single highest-performing format. Build a numbered list of 15-20 brands with: brand name, category, 2-3 sentence description of why it qualifies, link to their Sister Directory profile, price range, where to buy in UK. Include Sister Directory's own methodology for how brands qualified. Update quarterly — add "Updated [quarter] [year]" in title. Use ItemList schema.</div>
+        <div class="ci-tags">
+          <span class="ci-tag schema">ItemList schema</span>
+          <span class="ci-tag schema">FAQPage schema</span>
+          <span class="ci-tag boost">Listicle format</span>
+          <span class="ci-tag boost">Quarterly update</span>
+          <span class="ci-tag words">2,000+ words</span>
+        </div>
+      </div>
+
+      <div class="content-item tier1">
+        <div class="ci-header">
+          <div class="ci-title">5. "Non-Toxic vs Natural vs Clean Beauty: What's the Difference?" </div>
+          <span class="badge badge-blue">AI reference content</span>
+        </div>
+        <div class="ci-body">AI systems constantly cite comparison/definitional content. This query comes up in every clean beauty conversation. Cover: exact definitions with regulatory basis, why these terms aren't interchangeable, UK vs EU vs US distinctions, how to read a label, and a buying guide. This becomes the reference page AI cites every time this question comes up — which is constantly.</div>
+        <div class="ci-tags">
+          <span class="ci-tag schema">FAQPage schema</span>
+          <span class="ci-tag schema">Article schema</span>
+          <span class="ci-tag boost">Comparison format</span>
+          <span class="ci-tag words">1,800+ words</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tier 2 Content -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Content Build Priority — Tier 2 (Build in Months 2-3)</div>
+        <div class="card-sub">Category-specific and high-anxiety content that drives long-tail AI queries. High-intent audience.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-amber">Months 2-3</span></div>
+    </div>
+    <div class="card-body">
+      <div class="content-item tier2">
+        <div class="ci-title">6. "Best Non-Toxic Sunscreen UK 2026" — high-anxiety, high-search category</div>
+        <div class="ci-body" style="margin-top:6px;">Sunscreen is the highest-anxiety category in non-toxic beauty (oxybenzone, octinoxate concerns). Listicle format, 15+ products, include SPF, ingredients, price, where to buy. FAQPage schema + ItemList schema.</div>
+      </div>
+      <div class="content-item tier2">
+        <div class="ci-title">7. "Non-Toxic Baby and Children's Products UK" — highest emotional stakes</div>
+        <div class="ci-body" style="margin-top:6px;">Parents are the most motivated non-toxic searchers. Covers skincare, bath products, laundry. High-intent audience that converts immediately. Cover baby-specific regulatory requirements in UK.</div>
+      </div>
+      <div class="content-item tier2">
+        <div class="ci-title">8. "How to Spot Greenwashing in Beauty Products" — thought leadership</div>
+        <div class="ci-body" style="margin-top:6px;">Positions Sister Directory as an authority, not just a directory. AI systems cite thought leadership for credibility. Include examples of greenwashing tactics with real brand examples (where legally appropriate).</div>
+      </div>
+      <div class="content-item tier2">
+        <div class="ci-title">9. "UK Cosmetics Regulations 2026 — What You Need to Know"</div>
+        <div class="ci-body" style="margin-top:6px;">Cites EU Regulation 1223/2009, post-Brexit UK updates, REACH, Annex II/III/IV banned/restricted substances. This is authoritative, primary-source content that AI systems love to cite.</div>
+      </div>
+      <div class="content-item tier2">
+        <div class="ci-title">10. "Sister Directory vs EWG Skin Deep — Which is Better for UK Shoppers?"</div>
+        <div class="ci-body" style="margin-top:6px;">Comparison content is the second-highest AI citation format. This directly captures queries from people who know EWG and are looking for UK alternatives. Be fair and honest — EWG is US-focused and genuinely misses UK context. That's the story.</div>
+      </div>
+      <div class="content-item tier2">
+        <div class="ci-title">11. Ingredient deep-dives: "Is [ingredient] Safe? The Evidence"</div>
+        <div class="ci-body" style="margin-top:6px;">One page per major flagged ingredient: parabens, phthalates, oxybenzone, SLS, synthetic fragrance, formaldehyde, etc. Cites primary research. Data-dense. These rank for long-tail queries and each one adds AI citation surface area.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entity language -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Entity Language — The "15+ Entity Signal" Rule</div>
+        <div class="card-sub">Pages with 15+ recognized entities (brand names, ingredient names, regulatory bodies, certifications) show 4.8x higher AI selection probability. Use this language consistently.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p style="font-size:13px;color:#444;margin-bottom:10px;">Include these recognized entities throughout Sister Directory content. These are terms AI models have learned to associate with credibility in the beauty/health space:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">EU Cosmetics Regulation 1223/2009</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">INCI listing</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">EWG Skin Deep</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">COSMOS-certified</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">UK REACH</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">CTPA</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">endocrine disruptors</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">hormone disruptors</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">parabens</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">phthalates</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">oxybenzone</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">formaldehyde-releasers</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">synthetic fragrance</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Annex II prohibited substances</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Think Dirty</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Leaping Bunny</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Soil Association</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Natrue certified</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">Ecocert</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">PubMed</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">dermatologist-tested</span>
+        <span style="font-size:12px;background:#f0f0f0;padding:4px 10px;border-radius:4px;">non-comedogenic</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 4: OFF-SITE AUTHORITY ===== -->
+  <div class="section-label"><span class="section-num">04</span> Off-Site Authority — Getting Mentioned Where AI Looks</div>
+
+  <div class="insight">
+    <div class="insight-label">Key Data Point</div>
+    <div class="insight-text">Brand search volume now shows a <strong>0.334 correlation with AI citations</strong>. Unlinked brand mentions correlate with AI visibility at <strong>0.664-0.709</strong> — a very strong signal. <strong>A mention of "Sister Directory" in Vogue UK without a hyperlink is genuinely valuable for AI visibility.</strong> Pursue editorial coverage as aggressively as link building. Mentions matter as much as links.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Authority Building — Priority Targets</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="data-table">
+        <tr><th>Target</th><th>Why It Matters for AI</th><th>Action</th><th>Priority</th></tr>
+        <tr>
+          <td class="td-em">Reddit (r/CleanBeauty, r/SkincareAddictionUK)</td>
+          <td>Perplexity pulls 46.7% of citations from Reddit. Being mentioned here is the fastest path to Perplexity citations.</td>
+          <td>Organic mentions when genuinely helpful. Modmail for wiki inclusion.</td>
+          <td class="td-green">P1</td>
+        </tr>
+        <tr>
+          <td class="td-em">EWG (ewg.org) partner/resource page</td>
+          <td>EWG is a Tier 1 source in Claude's training data. An EWG reference to Sister Directory directly influences Claude recommendations.</td>
+          <td>Email EWG partnerships team. Explore EWG Verified partnership or resource listing.</td>
+          <td class="td-green">P1</td>
+        </tr>
+        <tr>
+          <td class="td-em">Vogue UK / Glamour UK / Refinery29 UK</td>
+          <td>These are in every AI model's training corpus. Even an unlinked mention in a beauty roundup influences ChatGPT and Claude.</td>
+          <td>PR outreach. Target beauty editors directly. Angle: "UK non-toxic directory closes the gap US databases leave."</td>
+          <td class="td-green">P1</td>
+        </tr>
+        <tr>
+          <td class="td-em">"Best non-toxic directories UK" listicles</td>
+          <td>Being included in 3rd-party "best of" lists is cited at the highest rate by all AI systems. Being on 5 of these is worth more than 50 backlinks.</td>
+          <td>Find existing listicles ranking for this query. Email authors to request inclusion. Offer to provide content or a quote.</td>
+          <td class="td-green">P1</td>
+        </tr>
+        <tr>
+          <td class="td-em">Trustpilot reviews</td>
+          <td>Perplexity weights review volume and rating. 100 reviews &gt; 12 reviews significantly in citation probability. Minimum 3.5/5 required for consideration.</td>
+          <td>Get to 20+ reviews as fast as possible. Email existing users asking for Trustpilot review. Build Trustpilot widget onto site.</td>
+          <td class="td-amber">P2</td>
+        </tr>
+        <tr>
+          <td class="td-em">Industry awards (clean beauty, sustainability)</td>
+          <td>Claude weights awards/accreditations at 19% of its citation framework — highest of any platform. Winning a "Best Clean Beauty Resource" award directly influences Claude recommendations.</td>
+          <td>Research UK and EU clean beauty awards. Apply to any relevant category. Even shortlisting generates citation-worthy content.</td>
+          <td class="td-amber">P2</td>
+        </tr>
+        <tr>
+          <td class="td-em">Quora answers</td>
+          <td>Quora is a top citation source for ChatGPT. Expert answers on "What's the best non-toxic beauty resource UK?" with a mention of Sister Directory get cited directly.</td>
+          <td>Create Quora account, identify 10 relevant questions, post detailed expert answers that mention Sister Directory naturally.</td>
+          <td class="td-amber">P2</td>
+        </tr>
+        <tr>
+          <td class="td-em">CTPA (UK Cosmetics, Toiletry and Perfumery Association)</td>
+          <td>CTPA is an authoritative UK regulatory body. Any reference from them to Sister Directory is Tier 1 authority for all AI systems.</td>
+          <td>Explore membership, resources listing, or contributing to their consumer-facing content.</td>
+          <td class="td-amber">P2</td>
+        </tr>
+        <tr>
+          <td class="td-em">Wikipedia</td>
+          <td>Wikipedia appears in ~1 in 6 ChatGPT conversations. If Sister Directory is notable enough for a Wikipedia mention (as a resource or in an article on clean beauty UK), that's a direct ChatGPT training signal.</td>
+          <td>Long-term: when Sister Directory has significant press coverage, consider creating a Wikipedia article or getting mentioned in the "Clean Beauty" article's external links.</td>
+          <td class="td-amber">P3</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 5: MEASUREMENT ===== -->
+  <div class="section-label"><span class="section-num">05</span> Measurement — How to Track AI Visibility</div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">GA4 Setup — Tracking AI-Sourced Traffic</div>
+        <div class="card-sub">AI platforms often show as "direct" or "organic" in analytics. Set up a custom channel group to track them separately.</div>
+      </div>
+      <div class="card-badges"><span class="badge badge-green">Do this week</span><span class="badge badge-grey">1 hour</span></div>
+    </div>
+    <div class="card-body">
+      <p style="font-size:13px;color:#444;margin-bottom:10px;">In GA4: Admin → Channel Groups → Create new group → Add these referral sources as a channel called "AI Assistants":</p>
+      <div class="code-block"><span class="comment"># Referral sources to include in "AI Assistants" channel group</span>
+
+chat.openai.com       <span class="comment"># ChatGPT</span>
+perplexity.ai         <span class="comment"># Perplexity</span>
+gemini.google.com     <span class="comment"># Gemini</span>
+claude.ai             <span class="comment"># Claude</span>
+copilot.microsoft.com <span class="comment"># Microsoft Copilot</span>
+bing.com/chat         <span class="comment"># Bing Chat</span>
+you.com               <span class="comment"># You.com AI</span>
+phind.com             <span class="comment"># Phind</span></div>
+      <p style="font-size:13px;color:#444;margin-top:10px;">Once set up, monitor: AI sessions per week, AI conversion rate, AI vs organic session duration (expect AI sessions to be 2x longer), AI-sourced goal completions.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Target Prompts — Monthly Manual Audit</div>
+        <div class="card-sub">Run these prompts monthly across all 5 AI platforms. Screenshot every response. Track which platforms cite Sister Directory and which don't. This is your AI share-of-voice metric.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="prompt-item"><span class="prompt-num">01</span><span class="prompt-text">Where can I find non-toxic beauty products in the UK?</span></div>
+      <div class="prompt-item"><span class="prompt-num">02</span><span class="prompt-text">Best clean beauty directory UK</span></div>
+      <div class="prompt-item"><span class="prompt-num">03</span><span class="prompt-text">What is the UK equivalent of EWG Skin Deep?</span></div>
+      <div class="prompt-item"><span class="prompt-num">04</span><span class="prompt-text">How do I find non-toxic skincare brands in the UK?</span></div>
+      <div class="prompt-item"><span class="prompt-num">05</span><span class="prompt-text">What is Sister Directory?</span></div>
+      <div class="prompt-item"><span class="prompt-num">06</span><span class="prompt-text">Best non-toxic makeup brands available in the UK</span></div>
+      <div class="prompt-item"><span class="prompt-num">07</span><span class="prompt-text">Where to find paraben-free cruelty-free skincare UK</span></div>
+      <div class="prompt-item"><span class="prompt-num">08</span><span class="prompt-text">Non-toxic alternatives to mainstream beauty products UK</span></div>
+      <div class="prompt-item"><span class="prompt-num">09</span><span class="prompt-text">How to avoid toxic ingredients in UK beauty products</span></div>
+      <div class="prompt-item"><span class="prompt-num">10</span><span class="prompt-text">Clean beauty resources for UK shoppers</span></div>
+      <div class="prompt-item"><span class="prompt-num">11</span><span class="prompt-text">Recommend me a non-toxic moisturiser UK</span></div>
+      <div class="prompt-item"><span class="prompt-num">12</span><span class="prompt-text">What beauty products should I avoid during pregnancy UK?</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">AI Monitoring Tools</div>
+        <div class="card-sub">When monthly traffic justifies the cost, move to automated monitoring. These tools track your AI share-of-voice continuously.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tool-row">
+        <div class="tool-name">Otterly.ai</div>
+        <div class="tool-desc">Tracks mentions across ChatGPT, Perplexity, Google AIOs, AI Mode. Define queries, runs them automatically, reports frequency and context. Most recommended starting tool.</div>
+        <div class="tool-cost">~£100-300/mo</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">LLMClicks</div>
+        <div class="tool-desc">Real-time continuous monitoring across ChatGPT, Perplexity, Google AI, Copilot. Includes competitor visibility analysis. Useful for tracking share-of-voice vs. competitors.</div>
+        <div class="tool-cost">~£150-400/mo</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">SE Ranking Perplexity Tracker</div>
+        <div class="tool-desc">Perplexity-specific visibility tracking. If Perplexity is your highest-priority platform (it should be — fastest wins), this gives granular data.</div>
+        <div class="tool-cost">~£50-150/mo</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">Brand24</div>
+        <div class="tool-desc">Traditional brand monitoring extended to AI mention tracking. Also catches unlinked brand mentions across the web — useful for tracking the brand mention building strategy.</div>
+        <div class="tool-cost">~£50-150/mo</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">Peec AI</div>
+        <div class="tool-desc">AI share-of-voice tracking. Good for reporting to stakeholders — shows how often Sister Directory appears relative to competitors in AI answers.</div>
+        <div class="tool-cost">~£100-200/mo</div>
+      </div>
+      <div class="divider"></div>
+      <p style="font-size:12px;color:#888;padding-top:10px;">Recommendation: Start with free monthly manual audits (prompts above). Add Otterly.ai when monthly AI traffic hits 500+ sessions or when manual auditing becomes impractical (3+ months in).</p>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 6: CASE STUDIES ===== -->
+  <div class="section-label"><span class="section-num">06</span> Proven Case Studies — What Actually Worked</div>
+
+  <div class="case-grid">
+
+    <div class="case-card">
+      <div class="case-name">Siege Media / Mentimeter</div>
+      <div class="case-result">124,000</div>
+      <div class="case-desc">ChatGPT sessions in 6 months. 3,400 conversions in a single month.</div>
+      <div class="case-lesson">Tactic: "Best X" and "alternatives to X" comparison content. Led with buyer-intent alignment and AI-friendly formatting. Most relevant format for Sister Directory.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Click Intelligence</div>
+      <div class="case-result">+1,000%</div>
+      <div class="case-desc">AI search growth in 9 months.</div>
+      <div class="case-lesson">Tactic: Strategic "best of" listicles that included their own brand among genuinely useful competitors. Transparent, genuinely useful content that happened to feature themselves.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Netpeak (e-commerce directory)</div>
+      <div class="case-result">+693%</div>
+      <div class="case-desc">AI traffic. 5% conversion rate from AI visitors vs 4% from organic.</div>
+      <div class="case-lesson">Tactic: Conversational product descriptions with use cases, full structured data implementation (Product, Offer, Review, FAQ schemas). AI visitors convert better — they arrive pre-qualified.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Nine Peaks Media</div>
+      <div class="case-result">+36%</div>
+      <div class="case-desc">AI visibility improvement. First ChatGPT and Perplexity citations earned.</div>
+      <div class="case-lesson">Tactic: Expanded FAQs using LLM research to find what people actually ask, inserted into high-ranking listicles and directories. Even small sites with limited authority can earn first citations quickly.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">IreneChan.co (new site)</div>
+      <div class="case-result">First citations</div>
+      <div class="case-desc">ChatGPT + Perplexity referrals from a new, low-authority site.</div>
+      <div class="case-lesson">Tactic: People Also Ask data integration, clear FAQ answers, FAQ schema implementation. FAQ schema works even for brand-new, low-authority sites. Highest-leverage entry-point for Sister Directory.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Rank Masters</div>
+      <div class="case-result">6.4%</div>
+      <div class="case-desc">AI-assisted conversion rate over 5 months. AI visitors are significantly higher quality than organic.</div>
+      <div class="case-lesson">Tactic: GA4 AI channel group tracking revealed that AI-sourced sessions converted at 6.4% vs. typical organic rates of 1-2%. This proves the business case — AI traffic is worth pursuing aggressively.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ===== SECTION 7: PHASED ROADMAP ===== -->
+  <div class="section-label"><span class="section-num">07</span> Implementation Roadmap — Felix's Action Plan</div>
+
+  <div class="insight">
+    <div class="insight-label">Key Principle</div>
+    <div class="insight-text">Phase 1 and 2 are entirely Felix's domain — technical and on-site. Phase 3 onwards requires coordination with Ruby/the Sister Directory team for content production and outreach. <strong>Felix can unblock the fastest wins (Perplexity + Google AIOs) in the first 4 weeks without waiting on anyone else.</strong></div>
+  </div>
+
+  <div class="phase p1">
+    <div class="phase-head">
+      <div class="phase-num">W1</div>
+      <div><div class="phase-title">Week 1 — Technical Foundation</div><div class="phase-meta">Felix only. No content needed. Unblocks everything.</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Audit <code>robots.txt</code> — verify GPTBot, ClaudeBot, PerplexityBot, Bingbot are explicitly Allowed <span class="priority priority-high">Critical</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Check security plugins (Wordfence, Sucuri) for bot-blocking settings — disable AI crawler blocks <span class="priority priority-high">Critical</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Register for Bing Webmaster Tools. Submit sitemap. Request indexing of top 10 pages. <span class="priority priority-high">High</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Create <code>/llms.txt</code> pointing to homepage, methodology, directory, and key guide pages</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add Organization JSON-LD schema to homepage <code>&lt;head&gt;</code> (exact code above)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add <code>datePublished</code> and <code>dateModified</code> to all existing Article schema across the site</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add visible "Last updated: [date]" display to all guide/category pages</span></li>
+        <li><span class="check-box"></span><span class="check-label">Set up GA4 "AI Assistants" custom channel group (sources listed above)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Run baseline manual audit: test all 12 target prompts across ChatGPT, Perplexity, Gemini, Claude. Screenshot. Record results. This is Week 1 baseline.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase p1">
+    <div class="phase-head">
+      <div class="phase-num">W2</div>
+      <div><div class="phase-title">Week 2 — Schema Implementation</div><div class="phase-meta">Felix. Highest-ROI technical change. GPT-4o accuracy jumps 16% → 54% with structured data.</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Implement FAQPage schema on every existing page that has any Q&amp;A content <span class="priority priority-high">Critical</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Implement ItemList + ListItem schema on all directory/category listing pages <span class="priority priority-high">Critical</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Add Article + Person schema to all existing blog/guide content (include author name, credentials, datePublished, dateModified)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add BreadcrumbList schema to all pages</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add WebSite + SearchAction schema to homepage</span></li>
+        <li><span class="check-box"></span><span class="check-label">Validate all schema using Google's Rich Results Test (search.google.com/test/rich-results)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Submit updated sitemap to Bing Webmaster Tools after all schema is live</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase p2">
+    <div class="phase-head">
+      <div class="phase-num">W3-4</div>
+      <div><div class="phase-title">Weeks 3-4 — Core Content Build (Felix + Content Team)</div><div class="phase-meta">Requires content production. Felix implements technically; content team writes.</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Build Methodology page — how products are vetted, full ingredient blocklist, regulatory sources cited <span class="priority priority-high">Most Important</span></span></li>
+        <li><span class="check-box"></span><span class="check-label">Rewrite all existing page introductions to lead with a direct 40-60 word answer (answer-first structure)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Add H3-structured FAQ sections to every category and guide page</span></li>
+        <li><span class="check-box"></span><span class="check-label">Ensure every author has a named bio with credentials on all published content</span></li>
+        <li><span class="check-box"></span><span class="check-label">Begin drafting "What Does Non-Toxic Beauty Mean? UK Guide" (Tier 1 content #2)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Begin drafting "Ingredients to Avoid in UK Beauty Products 2026" (Tier 1 content #3)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Run PageSpeed Insights on top 5 pages — fix any issues scoring below 80</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase p3">
+    <div class="phase-head">
+      <div class="phase-num">M2</div>
+      <div><div class="phase-title">Month 2 — Content Pipeline + Authority Building</div><div class="phase-meta">Content + outreach. First AI citation results expected for Perplexity by end of this phase.</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Publish "Best Non-Toxic Beauty Brands UK 2026" listicle — 15-20 brands, ItemList schema, 2,000+ words</span></li>
+        <li><span class="check-box"></span><span class="check-label">Publish "Non-Toxic vs Natural vs Clean Beauty" comparison page</span></li>
+        <li><span class="check-box"></span><span class="check-label">Begin Reddit presence: contribute genuinely to r/CleanBeauty, r/SkincareAddictionUK, r/ZeroWaste</span></li>
+        <li><span class="check-box"></span><span class="check-label">Begin Quora presence: identify 10 relevant questions, post detailed expert answers mentioning Sister Directory</span></li>
+        <li><span class="check-box"></span><span class="check-label">Launch Trustpilot profile — get to 20+ reviews via email to existing users</span></li>
+        <li><span class="check-box"></span><span class="check-label">Outreach to 5 existing "best clean beauty directories" listicles for inclusion</span></li>
+        <li><span class="check-box"></span><span class="check-label">Run second manual audit (Month 2). Compare to baseline. Track improvement.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase p4">
+    <div class="phase-head">
+      <div class="phase-num">M3-4</div>
+      <div><div class="phase-title">Months 3-4 — PR Push + Long-Term Authority</div><div class="phase-meta">Editorial coverage. This phase builds ChatGPT and Claude visibility (longer-horizon platforms).</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">PR campaign: pitch Vogue UK, Glamour UK, Refinery29 UK, The Independent beauty editors with Sister Directory story</span></li>
+        <li><span class="check-box"></span><span class="check-label">Approach EWG (ewg.org) partnerships team for resource listing or partner status</span></li>
+        <li><span class="check-box"></span><span class="check-label">Research and apply to UK clean beauty awards (shortlisting = citation-worthy content)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Publish "Non-Toxic Baby and Children's Products UK" — highest-emotion, highest-convert audience</span></li>
+        <li><span class="check-box"></span><span class="check-label">Publish "UK Cosmetics Regulations 2026" authoritative guide</span></li>
+        <li><span class="check-box"></span><span class="check-label">Publish "Sister Directory vs EWG Skin Deep" comparison page</span></li>
+        <li><span class="check-box"></span><span class="check-label">Begin individual ingredient deep-dive pages (parabens, phthalates, synthetic fragrance, etc.)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Consider Otterly.ai subscription if AI traffic is growing measurably</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase p5">
+    <div class="phase-head">
+      <div class="phase-num">Ongoing</div>
+      <div><div class="phase-title">Ongoing — Maintenance and Compounding Growth</div><div class="phase-meta">Quarterly rhythm keeps freshness scores high. Content compounds over time.</div></div>
+    </div>
+    <div class="phase-body">
+      <ul class="checklist">
+        <li><span class="check-box"></span><span class="check-label">Quarterly update to all major listicles (update date in title + minor content refresh)</span></li>
+        <li><span class="check-box"></span><span class="check-label">Monthly manual AI audit — 12 prompts across 5 platforms, compare to baseline</span></li>
+        <li><span class="check-box"></span><span class="check-label">Monthly "new brands in the directory" blog post — keeps freshness signals active</span></li>
+        <li><span class="check-box"></span><span class="check-label">Monitor GA4 AI channel group for traffic trends</span></li>
+        <li><span class="check-box"></span><span class="check-label">Build original research pieces when possible: "We reviewed 100 UK beauty products — here's what we found"</span></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 8: WATCHOUTS ===== -->
+  <div class="section-label"><span class="section-num">08</span> What Not to Do — Watchouts and Traps</div>
+
+  <div class="card">
+    <div class="card-body">
+      <table class="data-table">
+        <tr><th>Trap</th><th>Why It Fails</th><th>What to Do Instead</th></tr>
+        <tr>
+          <td class="td-em">Optimising only for Google AIOs</td>
+          <td>Only 11% of domains are cited by both ChatGPT and Perplexity. Google-only tactics miss Perplexity entirely — which is your fastest-win platform.</td>
+          <td>Run all five platform strategies in parallel. They're compatible, not conflicting.</td>
+        </tr>
+        <tr>
+          <td class="td-em">Self-promotional "best of" lists where Sister Directory ranks #1 without transparency</td>
+          <td>Google penalised multiple brands in early 2026 for non-transparent self-promotion. AI systems are also beginning to detect this.</td>
+          <td>If Sister Directory publishes a "best non-toxic directories" list that includes itself, be explicit about the conflict of interest. Position it as "we built this because these resources existed" not "we're #1."</td>
+        </tr>
+        <tr>
+          <td class="td-em">Ignoring Perplexity freshness requirements</td>
+          <td>Content over 3 months old drops significantly in Perplexity citation rate. Static content won't hold position.</td>
+          <td>Schedule quarterly content reviews. Even minor updates + date change resets the freshness clock.</td>
+        </tr>
+        <tr>
+          <td class="td-em">Blocking AI crawlers in security plugins</td>
+          <td>Wordfence and Sucuri often block GPTBot and ClaudeBot by default. This silently prevents all AI indexing.</td>
+          <td>Check plugin settings explicitly. Check robots.txt at sisterdirectory.co.uk/robots.txt and verify all crawlers are allowed.</td>
+        </tr>
+        <tr>
+          <td class="td-em">Accordion/collapsed FAQ answers</td>
+          <td>AI crawlers read the HTML source. If answers are hidden behind a click in JavaScript, they may not be extracted. FAQ schema will also not validate correctly.</td>
+          <td>FAQ answers must be visible in the HTML source (not behind JavaScript toggle). Use CSS for visual collapsing only if needed — but default-open is better.</td>
+        </tr>
+        <tr>
+          <td class="td-em">Relying on backlinks alone</td>
+          <td>Brand mention correlation (0.664-0.709) exceeds backlink correlation for AI visibility. Link-only strategy misses unlinked mentions — which matter hugely for AI.</td>
+          <td>Pursue editorial mentions even without links. A Vogue UK mention without a hyperlink still influences ChatGPT and Claude.</td>
+        </tr>
+        <tr>
+          <td class="td-em">Generic "clean beauty" language without regulatory specificity</td>
+          <td>AI systems with E-E-A-T training data recognise authority through regulatory citations and specific chemical names. Vague language doesn't signal expertise.</td>
+          <td>Use INCI names, cite EU Regulation 1223/2009, reference EWG, mention specific chemicals by their scientific names. This is the entity language that drives the 4.8x citation boost.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #aaa; text-align: center; line-height: 1.8;">
+    Sister Directory — AI SEO Strategy · Prepared by Junior · 8 April 2026<br>
+    Research sources: First Page Sage, Princeton GEO Study, The Digital Bloom AI Visibility Report, Search Engine Land, SE Ranking, Wellows, Geneo, Maximus Labs, iProspect, Search Engine Journal
+  </div>
+
+</div>
+</body>
+</html>
