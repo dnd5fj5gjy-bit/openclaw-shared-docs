@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sister Directory — Outreach Playbook</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
+  .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .topbar a { color: #888; font-size: 13px; text-decoration: none; }
+  .topbar a:hover { color: #fff; }
+  .hero { background: #111; padding: 40px 32px 32px; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
+  .hero h1 { font-size: 28px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .hero .sub { font-size: 14px; color: #666; margin-top: 10px; line-height: 1.6; max-width: 640px; }
+  .hero-stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+  .hero-stat .label { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #555; }
+  .hero-stat .val { font-size: 14px; color: #bbb; margin-top: 3px; font-weight: 600; }
+
+  .main { max-width: 900px; margin: 28px auto; padding: 0 32px 60px; }
+
+  .section-header { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #999; padding: 28px 0 14px; display: flex; align-items: center; gap: 12px; }
+  .section-header::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+
+  .channel-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+  .channel-head { padding: 18px 22px 14px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  .channel-name { font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 4px; }
+  .channel-name a { color: inherit; text-decoration: none; border-bottom: 1px solid #ddd; }
+  .channel-name a:hover { border-bottom-color: #666; }
+  .channel-sub { font-size: 13px; color: #666; line-height: 1.5; }
+  .channel-badges { display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0; }
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+  .badge-green { background: #e6f9ee; color: #1a7a40; }
+  .badge-amber { background: #fff7e6; color: #996600; }
+  .badge-red { background: #ffeaea; color: #cc2200; }
+  .badge-blue { background: #e8f0ff; color: #1a4499; }
+  .badge-purple { background: #f2e8ff; color: #5a1a99; }
+  .badge-grey { background: #f0f0f0; color: #666; }
+
+  .channel-body { padding: 18px 22px; }
+  .meta-row { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 16px; }
+  .meta-item { min-width: 120px; }
+  .meta-item .m-label { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #aaa; margin-bottom: 3px; }
+  .meta-item .m-val { font-size: 13px; color: #333; font-weight: 600; }
+  .meta-item .m-val a { color: #1a4499; text-decoration: none; word-break: break-all; }
+  .meta-item .m-val a:hover { text-decoration: underline; }
+
+  .strategy-note { background: #f8f8f8; border-left: 3px solid #ddd; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+  .strategy-note strong { color: #1a1a1a; }
+
+  .draft-section { margin-top: 4px; }
+  .draft-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: #aaa; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+  .draft-type-pill { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; background: #e8f0ff; color: #1a4499; }
+  .draft-box { background: #fafafa; border: 1px solid #e8e8e8; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #2a2a2a; line-height: 1.75; white-space: pre-wrap; font-family: inherit; }
+  .draft-box .subj { font-weight: 700; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; color: #1a1a1a; }
+
+  .send-to { background: #f7f9ff; border: 1px solid #d0daff; border-radius: 6px; padding: 8px 12px; font-size: 12px; color: #1a4499; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .send-to-label { font-weight: 700; flex-shrink: 0; }
+
+  .two-drafts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .two-drafts { grid-template-columns: 1fr; } .main { padding: 0 16px 40px; } .hero { padding: 24px 16px; } .channel-head { flex-direction: column; } }
+
+  .priority-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .p-chip { font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; border: 1px solid #e0e0e0; background: #fff; color: #555; display: flex; align-items: center; gap: 6px; }
+  .p-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .p-chip.p1 { border-color: #1a7a40; color: #1a7a40; background: #f0faf4; }
+  .p-chip.p1 .dot { background: #1a7a40; }
+  .p-chip.p2 { border-color: #996600; color: #996600; background: #fffbf0; }
+  .p-chip.p2 .dot { background: #996600; }
+  .p-chip.p3 { border-color: #aaa; color: #777; }
+  .p-chip.p3 .dot { background: #aaa; }
+
+  .note-box { background: #fff8e6; border: 1px solid #ffe0a0; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #6b4c00; line-height: 1.6; margin-bottom: 18px; }
+  .note-box strong { color: #4a3000; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="projects/index.html">← Dashboard</a></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Sister Directory — Outreach Playbook · 8 April 2026</div>
+    <h1>Community Outreach — Real Contacts &amp; Draft Messages</h1>
+    <div class="sub">Every channel verified. Real URLs, real contacts, real subscriber counts. Draft messages written and ready to send.</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="label">Reddit channels</div><div class="val">7 subreddits</div></div>
+      <div class="hero-stat"><div class="label">Facebook groups</div><div class="val">5 groups</div></div>
+      <div class="hero-stat"><div class="label">Newsletters / blogs</div><div class="val">6 publications</div></div>
+      <div class="hero-stat"><div class="label">UK forums</div><div class="val">2 forums</div></div>
+      <div class="hero-stat"><div class="label">Total reach</div><div class="val">5M+ combined</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- PRIORITY KEY -->
+  <div style="padding-top: 20px; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #aaa;">Priority Key</div>
+  <div class="priority-strip">
+    <div class="p-chip p1"><span class="dot"></span>P1 — Send this week</div>
+    <div class="p-chip p2"><span class="dot"></span>P2 — Send this month</div>
+    <div class="p-chip p3"><span class="dot"></span>P3 — Long game / organic only</div>
+  </div>
+
+  <!-- ==================== REDDIT ==================== -->
+  <div class="section-header">Reddit</div>
+
+  <div class="note-box">
+    <strong>Reddit rules:</strong> Never drop a link cold on a post. Use modmail to ask mods to add Sister Directory to their wiki or sidebar first. For the organic approach, become a genuine community member, then reference the site naturally when someone asks "where do I find non-toxic X?" — that's when it spreads. Subreddit wikis are permanent, indexed by Google, and trusted by communities.
+  </div>
+
+  <!-- r/CleanBeauty -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/CleanBeauty/" target="_blank">r/CleanBeauty</a></div>
+        <div class="channel-sub">Niche, highly targeted community. Small enough that a personal modmail gets read.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Best fit</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">~5,770</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/CleanBeauty/" target="_blank">reddit.com/r/CleanBeauty</a></div></div>
+        <div class="meta-item"><div class="m-label">Self-promo rules</div><div class="m-val">No formal rules published — ask mods first</div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/CleanBeauty" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Modmail mods first asking to add to the wiki. Small team, fast response. If approved, post an "ingredient horror" thread (no link) that organically drives curiosity, then drop the link in a comment when people ask.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/CleanBeauty" target="_blank">reddit.com/message/compose?to=/r/CleanBeauty</a></div>
+        <div class="draft-box"><span class="subj">Subject: Request — add a UK non-toxic product directory to the wiki?</span>Hi r/CleanBeauty mods,
+
+Long-time lurker, first time reaching out. I help run Sister Directory (sisterdirectory.co.uk) — a free, curated directory of clean and non-toxic beauty and household products in the UK.
+
+We built it because finding genuinely non-toxic alternatives in the UK is still painfully fragmented — ingredient databases, brand claims, and retailer listings are all over the place. The directory pulls it together in one searchable place.
+
+I thought it might be a useful resource to add to your community wiki, if you have one, or even just mention in the sidebar under recommended resources. We're not selling anything — the directory is free to search and free to list.
+
+Happy to answer any questions. And if it's not something you'd add, no worries at all — just wanted to ask.
+
+Thanks for keeping this community going,
+[Your name]
+Sister Directory</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/nontoxic -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/nontoxic/" target="_blank">r/nontoxic</a></div>
+        <div class="channel-sub">Small, active, highly aligned. "Your space for embracing a non-toxic lifestyle."</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Best fit</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">~473</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/nontoxic/" target="_blank">reddit.com/r/nontoxic</a></div></div>
+        <div class="meta-item"><div class="m-label">Self-promo rules</div><div class="m-val">No formal rules — small team, easy to reach</div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/nontoxic" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> This is tiny enough that a well-crafted modmail could result in a pinned post. Approach as a community resource, not a promotion. Mods here will almost certainly say yes.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/nontoxic" target="_blank">reddit.com/message/compose?to=/r/nontoxic</a></div>
+        <div class="draft-box"><span class="subj">Subject: Free UK non-toxic product directory — worth adding to the sub?</span>Hi mods,
+
+I help with Sister Directory (sisterdirectory.co.uk) — a free UK-focused directory of non-toxic beauty, skincare, and household products.
+
+We noticed there isn't a great centralised resource for UK shoppers trying to find non-toxic alternatives, so we built one. Everything is searchable and it's completely free.
+
+Would it be worth adding to the community wiki or sidebar? We're not monetising it — just want it to be useful. If you'd rather we just post about it and see how the community responds, happy to do that too.
+
+Thanks,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/SustainableBeauty -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/SustainableBeauty/" target="_blank">r/SustainableBeauty</a></div>
+        <div class="channel-sub">Overlapping audience. ~2 posts/day. Good topic alignment.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">~1,029</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/SustainableBeauty/" target="_blank">reddit.com/r/SustainableBeauty</a></div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/SustainableBeauty" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Same modmail approach. Sustainable beauty and non-toxic overlap heavily. Lead with the UK angle — that's a gap this community will appreciate.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/SustainableBeauty" target="_blank">reddit.com/message/compose?to=/r/SustainableBeauty</a></div>
+        <div class="draft-box"><span class="subj">Subject: UK sustainable/non-toxic product directory — wiki resource?</span>Hi r/SustainableBeauty mods,
+
+I wanted to reach out about a free resource that might be useful for your community. Sister Directory (sisterdirectory.co.uk) is a searchable directory of sustainable, clean, and non-toxic beauty and homecare brands in the UK.
+
+One gap I kept running into personally was that most non-toxic / sustainable beauty resources are very US-centric. UK shoppers often can't access the same brands, and UK regulations differ from FDA standards. We built Sister Directory specifically to address the UK market.
+
+Would you consider adding it to your wiki or resources section? Nothing commercial — just a free search tool.
+
+Thanks for the work you do moderating this community,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/ZeroWaste -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/ZeroWaste/" target="_blank">r/ZeroWaste</a></div>
+        <div class="channel-sub">Massive community. Strict no-self-promo rules. Only route is wiki or organic weekly thread.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+        <span class="badge badge-grey">Hard to crack</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">1,066,886</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/ZeroWaste/" target="_blank">reddit.com/r/ZeroWaste</a></div></div>
+        <div class="meta-item"><div class="m-label">Self-promo rules</div><div class="m-val">Strict — Rules 3.1, 3.2, 3.3 prohibit promotion</div></div>
+        <div class="meta-item"><div class="m-label">Weekly thread</div><div class="m-val">"Random Thoughts / Newbie Help" thread</div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/ZeroWaste" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Do NOT post directly. Two routes only: (1) modmail mods asking to add Sister Directory to their wiki as a community resource — frame as a public-good tool, not a business. (2) In the weekly thread, mention organically when relevant. If mods say no to wiki, engage genuinely for 3-4 weeks, then reference the site naturally in a comment when someone asks where to find non-toxic alternatives.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail — Wiki Request <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/ZeroWaste" target="_blank">reddit.com/message/compose?to=/r/ZeroWaste</a></div>
+        <div class="draft-box"><span class="subj">Subject: Suggesting a UK resource for the wiki — free non-toxic product directory</span>Hi r/ZeroWaste mod team,
+
+Totally understand if this isn't something you'd add, but wanted to ask: we've built a free, searchable directory of clean and non-toxic beauty and household products in the UK called Sister Directory (sisterdirectory.co.uk).
+
+We're not a brand or a retailer — we don't sell anything. We built it because there's no good centralised resource for UK shoppers trying to avoid toxic ingredients, and most of the existing guides are US-focused.
+
+If you have a wiki or resources section where community-built tools are listed, we'd love for it to be there. If not, no problem — I understand you get a lot of requests like this.
+
+Thanks for reading,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/SkincareAddiction -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/SkincareAddiction/" target="_blank">r/SkincareAddiction</a></div>
+        <div class="channel-sub">Huge. Science-forward community. Only viable route is wiki inclusion via modmail.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+        <span class="badge badge-grey">Hard to crack</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">2,452,721</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/SkincareAddiction/" target="_blank">reddit.com/r/SkincareAddiction</a></div></div>
+        <div class="meta-item"><div class="m-label">Self-promo rules</div><div class="m-val">Strictly enforced. No self-promotion.</div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/SkincareAddiction" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> This community is science-driven and skeptical of "clean beauty" marketing language. If pitching for wiki inclusion, lead with ingredient transparency and data — not the "non-toxic" framing. Mention that Sister Directory helps users look up specific ingredients across UK-available products. That framing fits their values better.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/SkincareAddiction" target="_blank">reddit.com/message/compose?to=/r/SkincareAddiction</a></div>
+        <div class="draft-box"><span class="subj">Subject: UK ingredient transparency tool — worth adding to wiki resources?</span>Hi mods,
+
+I help with a UK-based resource called Sister Directory (sisterdirectory.co.uk). It's a searchable directory of skincare and beauty products in the UK that lets users filter by ingredient profile — useful for people trying to avoid specific actives or categories of ingredients.
+
+We know this community values evidence over marketing claims, so we've tried to build something that's genuinely useful rather than promotional. It surfaces UK-available products in a searchable format — something that's surprisingly hard to find for UK-specific shoppers.
+
+If you have a wiki section for community tools or resources, we'd be grateful for consideration. We're not affiliated with any brand and don't sell anything.
+
+Thanks for your time,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/SkincareAddictionUK -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/SkincareAddictionUK/" target="_blank">r/SkincareAddictionUK</a></div>
+        <div class="channel-sub">UK-specific skincare community. Same audience as Sister Directory, ideal fit.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">High priority</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">407,213</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/SkincareAddictionUK/" target="_blank">reddit.com/r/SkincareAddictionUK</a></div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/SkincareAddictionUK" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> This is the sweet spot — 407K UK-specific skincare users. Modmail for wiki inclusion. The UK angle is the core pitch here: there's no equivalent resource specifically for UK shoppers.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Modmail <span class="draft-type-pill">Send via modmail link above</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> <a href="https://www.reddit.com/message/compose?to=/r/SkincareAddictionUK" target="_blank">reddit.com/message/compose?to=/r/SkincareAddictionUK</a></div>
+        <div class="draft-box"><span class="subj">Subject: UK non-toxic product directory — worth adding to resources?</span>Hi r/SkincareAddictionUK mods,
+
+I help with Sister Directory (sisterdirectory.co.uk) — a free, searchable directory of clean and non-toxic beauty and skincare products available in the UK.
+
+We built it because so many "clean beauty" databases and ingredient lists are US-focused, and UK shoppers are often left trying to translate — brands differ, availability differs, and UK/EU regulations aren't the same as FDA ones. Sister Directory is specifically built for the UK market.
+
+It's completely free to search. We thought it might be a useful addition to your community wiki or resources section, if you have one.
+
+No worries if not. Thanks for reading,
+[Your name]
+Sister Directory</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- r/MakeupAddiction -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.reddit.com/r/MakeupAddiction/" target="_blank">r/MakeupAddiction</a></div>
+        <div class="channel-sub">4.6M members. Not primarily a non-toxic community, but large enough to be worth a long-game organic play.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-grey">P3 — Long game</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Subscribers</div><div class="m-val">4,651,425</div></div>
+        <div class="meta-item"><div class="m-label">URL</div><div class="m-val"><a href="https://www.reddit.com/r/MakeupAddiction/" target="_blank">reddit.com/r/MakeupAddiction</a></div></div>
+        <div class="meta-item"><div class="m-label">Self-promo rules</div><div class="m-val">Explicit ban on social/blog/business promotion in post titles</div></div>
+        <div class="meta-item"><div class="m-label">Contact</div><div class="m-val"><a href="https://www.reddit.com/message/compose?to=/r/MakeupAddiction" target="_blank">Modmail link</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Skip the modmail for now. Organic only. When someone asks "where can I find clean makeup in the UK?" — that's your moment. One well-placed helpful comment beats ten promotional posts. Watch for those threads.</div>
+      <div class="draft-section">
+        <div class="draft-label">Organic Comment Template <span class="draft-type-pill">Post in replies, not as a standalone post</span></div>
+        <div class="draft-box">There's a UK directory for exactly this — Sister Directory (sisterdirectory.co.uk). Free, searchable by category. Saved me a lot of research time.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== FACEBOOK ==================== -->
+  <div class="section-header">Facebook Groups</div>
+
+  <div class="note-box">
+    <strong>Facebook groups note:</strong> Facebook does not expose admin names or contact details publicly. The process is: join the group → look under Members → Admins &amp; Moderators → send a personal message to the admin. Draft messages below are written as direct messages to the admin once you have their name. Member counts require direct group access to verify.
+  </div>
+
+  <!-- Simple Non-Toxic Living -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.facebook.com/groups/505424555506989/" target="_blank">Simple Non-Toxic Living</a></div>
+        <div class="channel-sub">Facebook group. URL confirmed. Member count requires direct access.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Best fit</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Facebook URL</div><div class="m-val"><a href="https://www.facebook.com/groups/505424555506989/" target="_blank">facebook.com/groups/505424555506989</a></div></div>
+        <div class="meta-item"><div class="m-label">Admin contact</div><div class="m-val">Join group → Members → Admins → DM directly</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Join the group. Find the lead admin in the members section. Send a short personal DM — don't post in the group without admin permission first. Ask to share the directory as a pinned resource or introduce it in a post.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Admin DM <span class="draft-type-pill">Send via Facebook Messenger to admin</span></div>
+        <div class="draft-box">Hi [Admin name],
+
+I just joined your group — what a great community you've built here.
+
+I wanted to reach out because I help run Sister Directory (sisterdirectory.co.uk) — a free, searchable directory of non-toxic beauty, skincare, and home products available in the UK. We built it specifically for people like your members who are actively looking for healthier alternatives but find the research exhausting.
+
+Would you be open to sharing it with the group — maybe as a pinned resource or a post? There's nothing to buy and nothing commercial about it, it's just meant to be a useful tool. Happy to write a short intro post if that would make it easier.
+
+Thanks so much,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Low Tox Club -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.facebook.com/groups/lowtoxclub/" target="_blank">Low Tox Club</a></div>
+        <div class="channel-sub">Run by Alexx Stuart, founder of Low Tox Life. She has a direct email — valuable contact.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Has direct email</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Facebook group</div><div class="m-val"><a href="https://www.facebook.com/groups/lowtoxclub/" target="_blank">facebook.com/groups/lowtoxclub</a></div></div>
+        <div class="meta-item"><div class="m-label">Facebook page</div><div class="m-val"><a href="https://www.facebook.com/lowtoxlife/" target="_blank">facebook.com/lowtoxlife</a> — 71,561 likes</div></div>
+        <div class="meta-item"><div class="m-label">Founder</div><div class="m-val">Alexx Stuart</div></div>
+        <div class="meta-item"><div class="m-label">General email</div><div class="m-val"><a href="mailto:team@lowtoxlife.com">team@lowtoxlife.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Partnership email</div><div class="m-val"><a href="mailto:partnerships@lowtoxlife.com">partnerships@lowtoxlife.com</a> (Mon/Wed)</div></div>
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://www.lowtoxlife.com/" target="_blank">lowtoxlife.com</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Email partnerships@lowtoxlife.com — this is a real, monitored inbox. Alexx has 10,000+ course graduates and a major newsletter. A feature from her reaches far beyond just the Facebook group. Low Tox Life is Australia-based but has a global audience including significant UK readership. Position Sister Directory as a useful UK-specific extension of what she teaches.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Email to Alexx Stuart / Low Tox Life <span class="draft-type-pill">Email — partnerships@lowtoxlife.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> partnerships@lowtoxlife.com</div>
+        <div class="draft-box"><span class="subj">Subject: UK non-toxic product directory — possible resource for your community?</span>Hi Alexx / Low Tox Life team,
+
+I help run Sister Directory (sisterdirectory.co.uk) — a free, searchable directory of non-toxic beauty, skincare, and homecare products specifically for UK shoppers.
+
+We've long admired what you've built with Low Tox Life — the way you've made the non-toxic lifestyle genuinely accessible and practical is exactly what we're trying to do for the UK market. Most of the brilliant resources in this space (yours included) are global or Australia-focused, and UK shoppers often struggle to translate: brands aren't available, products are reformulated, and EU regulations don't map cleanly onto what US or AU guides recommend.
+
+Sister Directory fills that gap. It's completely free, no ads, no brand partnerships. Just a clean, searchable tool.
+
+We'd love to be a resource you point your UK community toward — whether that's a mention in the Facebook group, a newsletter shoutout, or something more involved if it feels like a fit.
+
+Happy to send more info or jump on a call.
+
+Thanks for everything you do,
+[Your name]
+Sister Directory
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Low Tox Project -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.facebook.com/groups/thelowtoxproject/" target="_blank">The Low Tox Project</a></div>
+        <div class="channel-sub">Facebook group. URL confirmed. Admin contact via group membership.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Facebook URL</div><div class="m-val"><a href="https://www.facebook.com/groups/thelowtoxproject/" target="_blank">facebook.com/groups/thelowtoxproject</a></div></div>
+        <div class="meta-item"><div class="m-label">Admin contact</div><div class="m-val">Join group → Members → Admins → DM</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Same approach as Simple Non-Toxic Living. Join first, find the admin, send a personal DM before posting.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Admin DM <span class="draft-type-pill">Facebook Messenger DM to admin</span></div>
+        <div class="draft-box">Hi [Admin name],
+
+Really glad I found this group — exactly the kind of community I was looking for.
+
+I wanted to reach out because I help with Sister Directory (sisterdirectory.co.uk), a free UK directory of non-toxic products. We built it because there's nowhere good online that consolidates non-toxic alternatives specifically for UK shoppers.
+
+Would you be happy for me to share it with the group? Or if you'd prefer to introduce it yourself, I can send you a short write-up. No commercial angle — it's a free tool.
+
+Thanks,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toxin Free Living -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.facebook.com/groups/1263533637083695/" target="_blank">Toxin Free Living</a></div>
+        <div class="channel-sub">Facebook group. URL confirmed. General non-toxic living focus.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Facebook URL</div><div class="m-val"><a href="https://www.facebook.com/groups/1263533637083695/" target="_blank">facebook.com/groups/1263533637083695</a></div></div>
+        <div class="meta-item"><div class="m-label">Admin contact</div><div class="m-val">Join group → Members → Admins → DM</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Join and approach admin directly. Group name is very aligned with Sister Directory's positioning.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Admin DM <span class="draft-type-pill">Facebook Messenger DM to admin</span></div>
+        <div class="draft-box">Hi [Admin name],
+
+I help run Sister Directory (sisterdirectory.co.uk) — a free, searchable UK directory of toxin-free beauty and household products.
+
+Your group is exactly the kind of community that Sister Directory was built for. Would you be open to sharing it as a resource for your members? Happy to write an intro post or just share the link — whatever works best for your group.
+
+Thanks so much,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skincare & Beauty Chat UK -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.facebook.com/groups/453966431724386/" target="_blank">Skincare &amp; Beauty Chat UK</a></div>
+        <div class="channel-sub">UK-specific. Broader beauty focus — non-toxic is a subset, not the whole conversation.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Facebook URL</div><div class="m-val"><a href="https://www.facebook.com/groups/453966431724386/" target="_blank">facebook.com/groups/453966431724386</a></div></div>
+        <div class="meta-item"><div class="m-label">Admin contact</div><div class="m-val">Join group → Members → Admins → DM</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> UK-specific is the strongest angle here. The group is about beauty broadly, so lead with "UK directory" rather than "non-toxic" in your pitch. Catch people who are curious about clean alternatives but haven't committed to the lifestyle yet.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Admin DM <span class="draft-type-pill">Facebook Messenger DM to admin</span></div>
+        <div class="draft-box">Hi [Admin name],
+
+I help with Sister Directory (sisterdirectory.co.uk) — a free UK-based directory of clean beauty and skincare products.
+
+We've noticed that when people in UK beauty communities ask "are there non-toxic alternatives to X?" there's nowhere good to point them. Sister Directory is built to solve that — it's searchable, free, and UK-specific.
+
+Would you be happy for us to share it with the group? I can write a short intro post or just drop the link as a recommended resource — whatever suits how you run the group.
+
+Thanks,
+[Your name]</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== NEWSLETTERS ==================== -->
+  <div class="section-header">Newsletters &amp; Blogs</div>
+
+  <!-- Girls Who Eat -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://girlswhoeat.com/" target="_blank">Girls Who Eat</a></div>
+        <div class="channel-sub">Jamie Koll's platform. Non-toxic pivot after chronic illness. 220K Instagram, major newsletter. Direct founder email available.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Direct founder contact</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://girlswhoeat.com/" target="_blank">girlswhoeat.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Substack</div><div class="m-val"><a href="https://wearegirlswhoeat.substack.com/" target="_blank">wearegirlswhoeat.substack.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Instagram</div><div class="m-val">@girlswhoeat — 220,000+ followers</div></div>
+        <div class="meta-item"><div class="m-label">Founder</div><div class="m-val">Jamie Koll</div></div>
+        <div class="meta-item"><div class="m-label">Contact email</div><div class="m-val"><a href="mailto:jamie@girlswhoeat.com">jamie@girlswhoeat.com</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Email Jamie directly. She built her whole platform around the personal story of getting sick and cleaning up her life — Sister Directory's story should resonate. Keep it short. Don't pitch advertising. Pitch a genuine editorial feature or a "resource I wish I had" angle. If she features it to her newsletter list, that's a significant spike.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Email to Jamie Koll <span class="draft-type-pill">Email — jamie@girlswhoeat.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> jamie@girlswhoeat.com</div>
+        <div class="draft-box"><span class="subj">Subject: UK non-toxic product directory — thought of you immediately</span>Hi Jamie,
+
+I've been following Girls Who Eat for a while — the pivot you made after your health journey really resonated with me.
+
+I help with Sister Directory (sisterdirectory.co.uk) — a free, searchable UK directory of non-toxic beauty and homecare products. We built it because UK women trying to clean up their lives run into a particular problem: almost every non-toxic guide and database out there is US-focused, but UK availability, brands, and regulations are completely different.
+
+Sister Directory fills that gap. It's free to search, free to list, and has no commercial relationships with brands.
+
+I thought it might be genuinely useful to your audience — especially UK readers who want practical help actually finding the products, not just the philosophy. Would love to share it with your community if you think it's a fit.
+
+Happy to send more info or get on a quick call.
+
+Best,
+[Your name]
+Sister Directory
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EcoCult -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://ecocult.substack.com/" target="_blank">EcoCult</a></div>
+        <div class="channel-sub">Alden Wicker, investigative journalist. Author of "To Dye For." Multiple verified contact emails. Does NOT accept paid links.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">Multiple verified contacts</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://ecocult.substack.com/" target="_blank">ecocult.substack.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Founder</div><div class="m-val">Alden Wicker</div></div>
+        <div class="meta-item"><div class="m-label">Brand submissions</div><div class="m-val"><a href="mailto:brands@ecocult.com">brands@ecocult.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Shopping guide submissions</div><div class="m-val"><a href="mailto:shopping@ecocult.com">shopping@ecocult.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Sponsorship</div><div class="m-val"><a href="mailto:eva@ecocult.com">eva@ecocult.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Tips/editorial</div><div class="m-val"><a href="mailto:tips@ecocult.com">tips@ecocult.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Policy</div><div class="m-val">No prewritten articles. No paid links/mentions. Sponsorship available.</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Email brands@ecocult.com — this is the right inbox for a directory like Sister Directory. Alden is an investigative journalist who values rigour and transparency. Lead with what makes the directory trustworthy (no brand relationships, free, curated). Don't ask to be "featured" — ask to be considered as a resource she might find useful for her readers.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Email to EcoCult <span class="draft-type-pill">Email — brands@ecocult.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> brands@ecocult.com</div>
+        <div class="draft-box"><span class="subj">Subject: Free UK non-toxic product directory — a resource for your readers</span>Hi Alden,
+
+Big fan of your work — "To Dye For" is on my shelf and your investigative approach is exactly what this space needs more of.
+
+I wanted to share a resource that might be useful for your UK readers: Sister Directory (sisterdirectory.co.uk) is a free, searchable directory of non-toxic and clean beauty products available in the UK. It's independently maintained, with no paid placements or brand relationships.
+
+The gap we're filling: most non-toxic databases (EWG, Think Dirty, etc.) are US-centric. UK shoppers face different product availability, different formulations, and EU/UK REACH regulations — not FDA standards. Sister Directory maps the UK landscape specifically.
+
+Not pitching for a paid feature — just thought it might be genuinely useful to your audience and possibly to you as a reference tool when covering UK brands. If you ever want to point readers somewhere concrete for UK alternatives, we'd be glad to be that resource.
+
+Best,
+[Your name]
+Sister Directory
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Good Trade -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.thegoodtrade.com/" target="_blank">The Good Trade</a></div>
+        <div class="channel-sub">250,000+ newsletter subscribers. Two verified editorial contacts. High-profile but selective.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+        <span class="badge badge-grey">Selective — pitch carefully</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://www.thegoodtrade.com/" target="_blank">thegoodtrade.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Newsletter</div><div class="m-val">250,000+ subscribers</div></div>
+        <div class="meta-item"><div class="m-label">Editorial (SME pitches)</div><div class="m-val"><a href="mailto:editorial@thegoodtrade.com">editorial@thegoodtrade.com</a> — include "SME" in subject</div></div>
+        <div class="meta-item"><div class="m-label">Senior Editor</div><div class="m-val">Kayti Christian — <a href="mailto:kayti@thegoodtrade.com">kayti@thegoodtrade.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Editorial Director</div><div class="m-val">Emily Torres</div></div>
+        <div class="meta-item"><div class="m-label">Advertising</div><div class="m-val"><a href="https://www.vraimedia.com/advertise" target="_blank">vraimedia.com/advertise</a></div></div>
+        <div class="meta-item"><div class="m-label">Policy</div><div class="m-val">Highly selective. Pitch only — they reply only to pitches they want. No spec work.</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Don't pitch Sister Directory as a company — pitch an editorial angle: "UK Women Can't Use Your Non-Toxic Guides — Here's Why (and What We Built)" as a contributed piece. That's the format they want. If Kayti Christian bites, the article naturally references Sister Directory. Include SME in the subject line.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Pitch to Kayti Christian <span class="draft-type-pill">Email — kayti@thegoodtrade.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> kayti@thegoodtrade.com</div>
+        <div class="draft-box"><span class="subj">Subject: SME pitch — "Why UK Women Can't Use Your Non-Toxic Beauty Guides"</span>Hi Kayti,
+
+I'm [your name], and I help run Sister Directory — a UK-specific non-toxic product directory. I wanted to pitch a piece I think your readers would find genuinely useful.
+
+Working title: "The Non-Toxic Beauty Guide Gap: Why UK Women Are Being Left Behind"
+
+The angle: Clean beauty resources — including some fantastic ones on The Good Trade — are almost entirely US-focused. But UK shoppers face a completely different landscape: different brands, different availability, and EU/UK REACH chemical regulations that don't map onto FDA standards. A product rated safe on EWG or Think Dirty might not be available in the UK at all, or might have a different formulation entirely.
+
+The piece would walk through the specific reasons UK readers can't use most clean beauty guides, what they should actually be looking for, and what resources exist for them — including a directory we built to help (Sister Directory, sisterdirectory.co.uk).
+
+It would be practical, not promotional — the kind of thing that saves a reader three hours of frustrated Googling.
+
+Happy to provide clips or share an outline. Thanks for your time.
+
+[Your name]
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Well+Good -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.wellandgood.com/" target="_blank">Well+Good</a></div>
+        <div class="channel-sub">Millions of monthly readers. Acquired by Ziff Davis/Everyday Health in 2025. PR route is the right approach.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-amber">P2 — This month</span>
+        <span class="badge badge-grey">PR pitch route</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://www.wellandgood.com/" target="_blank">wellandgood.com</a></div></div>
+        <div class="meta-item"><div class="m-label">PR / comms</div><div class="m-val"><a href="mailto:pr@wellandgood.com">pr@wellandgood.com</a></div></div>
+        <div class="meta-item"><div class="m-label">PR lead</div><div class="m-val">Susan Turner, Senior Director</div></div>
+        <div class="meta-item"><div class="m-label">Senior Beauty Editor</div><div class="m-val">Aimee Simeon</div></div>
+        <div class="meta-item"><div class="m-label">Beauty Awards</div><div class="m-val"><a href="mailto:beautyawards@wellandgood.com">beautyawards@wellandgood.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Pitching guidelines</div><div class="m-val"><a href="https://www.wellandgood.com/lifestyle/pitching-guidelines" target="_blank">wellandgood.com/lifestyle/pitching-guidelines</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> PR angle rather than editorial pitch. Frame Sister Directory as a news story — "first comprehensive UK non-toxic product directory launches." If you can get Aimee Simeon (Senior Beauty Editor) to cover it as a trend piece on UK clean beauty, that's significant reach. The PR inbox is the right starting point.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft PR Pitch <span class="draft-type-pill">Email — pr@wellandgood.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> pr@wellandgood.com</div>
+        <div class="draft-box"><span class="subj">Subject: Press pitch — UK's first non-toxic beauty product directory</span>Hi Susan / Well+Good PR team,
+
+I'm reaching out about Sister Directory (sisterdirectory.co.uk) — the UK's dedicated clean and non-toxic product directory, free for consumers to search and for brands to list.
+
+The editorial angle: clean beauty has exploded globally, but UK shoppers have been largely overlooked by the major databases and guides. EU/UK chemical regulations differ significantly from FDA standards, UK brand availability is completely different from the US market, and products are sometimes reformulated between markets. UK women trying to clean up their beauty routines have had no equivalent of EWG or Think Dirty built for their market — until now.
+
+Sister Directory is positioned as the go-to resource for UK consumers navigating this space. We thought it might be worth a mention for Well+Good's UK readership, particularly for the clean beauty vertical.
+
+Happy to send product samples from listed brands, connect you with the founders, or provide data on UK consumer demand for non-toxic alternatives.
+
+Thanks for your time,
+[Your name]
+Sister Directory
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The New Knew -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://thenewknew.com/" target="_blank">The New Knew</a></div>
+        <div class="channel-sub">Clean beauty blog founded 2016 by journalist Lisa Fennessy. Weekly newsletter. Direct media contact available.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://thenewknew.com/" target="_blank">thenewknew.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Founder</div><div class="m-val">Lisa Fennessy (journalist, since 2016)</div></div>
+        <div class="meta-item"><div class="m-label">General contact</div><div class="m-val"><a href="mailto:hello@thenewknew.com">hello@thenewknew.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Media / partnerships</div><div class="m-val"><a href="mailto:media@thenewknew.com">media@thenewknew.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Instagram</div><div class="m-val">@thenew.knew</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Journalist-founded blog with a loyal audience. Lisa built this from scratch and writes for a community she genuinely cares about. Keep the email personal and short. The media inbox is the right route for partnerships/features.</div>
+      <div class="draft-section">
+        <div class="draft-label">Draft Email to The New Knew <span class="draft-type-pill">Email — media@thenewknew.com</span></div>
+        <div class="send-to"><span class="send-to-label">To:</span> media@thenewknew.com</div>
+        <div class="draft-box"><span class="subj">Subject: UK non-toxic directory — resource for your readers?</span>Hi Lisa / The New Knew team,
+
+I help with Sister Directory (sisterdirectory.co.uk) — a free, searchable UK directory of clean and non-toxic beauty products.
+
+Your audience and ours overlap so completely that I had to reach out. We built Sister Directory because we kept running into the same problem you must hear about all the time: UK readers who want to make the switch to clean beauty but have nowhere to start that's actually relevant to where they live and shop.
+
+We're not pitching an ad or a paid feature. We just think Sister Directory could be a genuinely useful resource to mention when your readers ask the perennial "where do I actually find this stuff in the UK?" question.
+
+Would you be open to taking a look? Happy to share more about how we curate the directory.
+
+Thanks so much,
+[Your name]
+sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Low Tox Life newsletter -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.lowtoxlife.com/" target="_blank">Low Tox Life — Newsletter</a></div>
+        <div class="channel-sub">Alexx Stuart's full platform: 71.5K Facebook, 10K+ course graduates, weekly newsletter. One contact covers both newsletter and Facebook group.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-green">P1 — Send this week</span>
+        <span class="badge badge-blue">One email covers Facebook + newsletter</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Website</div><div class="m-val"><a href="https://www.lowtoxlife.com/" target="_blank">lowtoxlife.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Partnership email</div><div class="m-val"><a href="mailto:partnerships@lowtoxlife.com">partnerships@lowtoxlife.com</a></div></div>
+        <div class="meta-item"><div class="m-label">Response days</div><div class="m-val">Mondays and Wednesdays only</div></div>
+        <div class="meta-item"><div class="m-label">Affiliate program</div><div class="m-val"><a href="https://lowtoxlifecourses.com/affiliate_users/sign_up" target="_blank">lowtoxlifecourses.com/affiliate_users/sign_up</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> The Low Tox Life email to partnerships@ covers their Facebook group, newsletter, and platform as a whole. See the draft above under Facebook groups — the same email works for both. Send once to partnerships@lowtoxlife.com and it reaches all of Alexx's channels.</div>
+      <div class="draft-section">
+        <div class="draft-label">Note <span class="draft-type-pill">See Facebook section above</span></div>
+        <div class="draft-box">Draft email already written above (Low Tox Club / Facebook groups section). The same outreach email to partnerships@lowtoxlife.com covers both the newsletter and the Facebook group — send once.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== UK FORUMS ==================== -->
+  <div class="section-header">UK Forums</div>
+
+  <!-- Mumsnet -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.mumsnet.com/talk/style_and_beauty" target="_blank">Mumsnet — Style &amp; Beauty</a></div>
+        <div class="channel-sub">UK's largest parenting forum. Style and Beauty subforum has active non-toxic threads. No overt promotion allowed — organic only.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-grey">P3 — Long game / organic</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Forum URL</div><div class="m-val"><a href="https://www.mumsnet.com/talk/style_and_beauty" target="_blank">mumsnet.com/talk/style_and_beauty</a></div></div>
+        <div class="meta-item"><div class="m-label">Rules</div><div class="m-val">No self-promotion. Organic engagement only. New accounts posting promo = removed.</div></div>
+        <div class="meta-item"><div class="m-label">Paid option</div><div class="m-val">Commercial advertising available — contact via mumsnet.com</div></div>
+        <div class="meta-item"><div class="m-label">Guidelines</div><div class="m-val"><a href="https://www.mumsnet.com/i/netiquette" target="_blank">mumsnet.com/i/netiquette</a></div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Do NOT post a promotional thread. Create an account with a genuine username, contribute to existing threads for 2-3 weeks, then naturally reference Sister Directory in a thread where someone asks "where do I find non-toxic alternatives?" The forum will see through a new account dropping a link immediately. This is a long-game play.</div>
+      <div class="draft-section">
+        <div class="draft-label">Organic Comment Template <span class="draft-type-pill">Post in reply to relevant threads only</span></div>
+        <div class="draft-box">I've been using Sister Directory (sisterdirectory.co.uk) for this — it's a UK-specific directory of non-toxic beauty products, free to search. Much easier than trying to adapt US guides to what's actually available here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Netmums -->
+  <div class="channel-card">
+    <div class="channel-head">
+      <div>
+        <div class="channel-name"><a href="https://www.netmums.com/coffeehouse/" target="_blank">Netmums — Coffee House</a></div>
+        <div class="channel-sub">Active UK parenting forum. Health and wellbeing subforum relevant. Similar rules to Mumsnet.</div>
+      </div>
+      <div class="channel-badges">
+        <span class="badge badge-grey">P3 — Long game / organic</span>
+      </div>
+    </div>
+    <div class="channel-body">
+      <div class="meta-row">
+        <div class="meta-item"><div class="m-label">Forum URL</div><div class="m-val"><a href="https://www.netmums.com/coffeehouse/" target="_blank">netmums.com/coffeehouse</a></div></div>
+        <div class="meta-item"><div class="m-label">Note</div><div class="m-val">Uses Skimlinks — external links are tolerated but commercially tracked</div></div>
+      </div>
+      <div class="strategy-note"><strong>Strategy:</strong> Same organic approach as Mumsnet. Netmums uses Skimlinks on its platform, which means affiliate links are tracked. Sister Directory should be shared as a resource, not an affiliate. Engage genuinely first.</div>
+      <div class="draft-section">
+        <div class="draft-label">Organic Comment Template <span class="draft-type-pill">Post in reply to relevant threads only</span></div>
+        <div class="draft-box">Have you tried Sister Directory? It's a free UK directory specifically for non-toxic products — much more relevant for UK shoppers than the US databases. sisterdirectory.co.uk</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
