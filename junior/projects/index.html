@@ -3,148 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesse Grylls — Projects</title>
+<title>Jesse Grylls — Dashboard</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
-  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
-  .header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.3px; }
-  .header p { font-size: 13px; color: #888; margin-top: 4px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; padding: 32px 40px; max-width: 1200px; }
-  .card { background: #fff; border-radius: 10px; padding: 24px; text-decoration: none; color: inherit; transition: box-shadow 0.15s; border: 1px solid #e8e8e8; display: block; }
-  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-  .card-title { font-size: 16px; font-weight: 600; }
-  .badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header p { font-size: 13px; color: #666; margin-top: 4px; }
+  .header-right { font-size: 12px; color: #555; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; padding: 0 40px; max-width: 1280px; margin: 0 auto; }
+  .grid-wide { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; padding: 0 40px; max-width: 1280px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 10px; padding: 20px; text-decoration: none; color: inherit; transition: box-shadow 0.12s; border: 1px solid #e8e8e8; display: block; }
+  .card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.09); border-color: #d0d0d0; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .card-title { font-size: 15px; font-weight: 700; line-height: 1.3; }
+  .card-desc { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 12px; }
+  .card-meta { font-size: 11px; color: #aaa; border-top: 1px solid #f0f0f0; padding-top: 10px; }
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-left: 8px; }
   .badge-green { background: #e6f9ee; color: #1a7a40; }
   .badge-amber { background: #fff7e6; color: #996600; }
   .badge-red { background: #ffeaea; color: #cc2200; }
   .badge-blue { background: #e8f0ff; color: #1a4499; }
-  .card-desc { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 14px; }
-  .card-meta { font-size: 12px; color: #999; border-top: 1px solid #f0f0f0; padding-top: 12px; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #999; padding: 0 40px; margin-bottom: 8px; margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 24px 20px; } .grid { padding: 20px; } .section-label { padding: 0 20px; } }
+  .badge-grey { background: #f0f0f0; color: #666; }
+  .section-block { max-width: 1280px; margin: 0 auto; padding: 28px 0 0; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #999; padding: 0 40px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #e8e8e8; }
+  .divider { height: 1px; background: #e8e8e8; margin: 32px 40px 0; max-width: 1280px; }
+  @media (max-width: 640px) { .header { padding: 20px; } .grid, .grid-wide, .section-label { padding: 0 16px; } .section-label { padding: 0 16px; } }
 </style>
 </head>
 <body>
+
 <div class="header">
-  <h1>Jesse Grylls — Projects</h1>
-  <p>Updated 6 April 2026</p>
+  <div>
+    <h1>Jesse Grylls — Dashboard</h1>
+    <p>All projects, briefs, and strategy docs — updated 8 April 2026</p>
+  </div>
+  <div class="header-right">Junior · AI Agent</div>
 </div>
 
-<div class="section-label">Active Businesses</div>
-<div class="grid">
+<!-- ACTIVE BUSINESSES -->
+<div class="section-block">
+  <div class="section-label">Active Businesses</div>
+  <div class="grid">
 
-  <a href="wildernests.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Wildernests</div>
-      <span class="badge badge-amber">Launching May</span>
-    </div>
-    <div class="card-desc">$15K/month retainer + 0.5% equity at $250M valuation. Social content plan live. Homes launching May 2026.</div>
-    <div class="card-meta">Retainer agreement + equity docs pending</div>
-  </a>
+    <a href="modern-savage.html" class="card">
+      <div class="card-top"><div class="card-title">Modern Savage</div><span class="badge badge-blue">Launch Jul-Aug</span></div>
+      <div class="card-desc">100% Grylls-owned organ blend powder. Formula approved Mar 2026. Adult + Kids SKUs. Launch strategy set.</div>
+      <div class="card-meta">ACF Pharma · ~$79/bag · ~75% DTC margin</div>
+    </a>
 
-  <a href="modern-savage.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Modern Savage</div>
-      <span class="badge badge-amber">Formula Final</span>
-    </div>
-    <div class="card-desc">Organ blend supplement. Formula approved by Bear. Awaiting ACF Pharma quotes. Two SKUs: Adult + Kids.</div>
-    <div class="card-meta">Next: pricing quotes + go-to-market plan</div>
-  </a>
+    <a href="wildernests.html" class="card">
+      <div class="card-top"><div class="card-title">Wildernests</div><span class="badge badge-amber">Launching May</span></div>
+      <div class="card-desc">$15K/month retainer + 0.5% equity at $250M valuation. Social content plan live. Homes launching May 2026.</div>
+      <div class="card-meta">Retainer agreement + equity docs pending</div>
+    </a>
 
-  <a href="teds-health.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Ted's Health</div>
-      <span class="badge badge-blue">Pivoting</span>
-    </div>
-    <div class="card-desc">UK TRT/ED clinic. 97 active patients. Pivoting from D2C to white-label B2B platform. Felix building tech spec.</div>
-    <div class="card-meta">Breakeven at 225 patients (currently 97)</div>
-  </a>
+    <a href="teds-health.html" class="card">
+      <div class="card-top"><div class="card-title">Ted's Health</div><span class="badge badge-blue">Pivoting</span></div>
+      <div class="card-desc">UK TRT/ED clinic. Pivoting from D2C to white-label B2B platform for clinics.</div>
+      <div class="card-meta">97 active patients · breakeven at 225</div>
+    </a>
 
-  <a href="ebg-bear-witness.html" class="card">
-    <div class="card-top">
-      <div class="card-title">EBG / Bear Witness</div>
-      <span class="badge badge-green">Active</span>
-    </div>
-    <div class="card-desc">$25K/month EBG retainer via Bear Witness Ltd (IoM). Running Wild S9+10 social. Adventure Garage.</div>
-    <div class="card-meta">Retainer live from April 1, 2026</div>
-  </a>
+    <a href="ebg-bear-witness.html" class="card">
+      <div class="card-top"><div class="card-title">EBG / Bear Witness</div><span class="badge badge-green">Active</span></div>
+      <div class="card-desc">$25K/month EBG retainer via Bear Witness Ltd (IoM). Running Wild S9+10 social. Adventure Garage.</div>
+      <div class="card-meta">Retainer live from April 1, 2026</div>
+    </a>
 
+  </div>
 </div>
 
-<div class="section-label">Deals in Negotiation</div>
-<div class="grid">
+<!-- DEALS & INVESTMENTS -->
+<div class="section-block">
+  <div class="section-label">Deals &amp; Investments</div>
+  <div class="grid">
 
-  <a href="luminox.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Luminox</div>
-      <span class="badge badge-amber">2nd Amendment</span>
-    </div>
-    <div class="card-desc">Watch licensing deal. 2026 on actual royalties (no $100K floor). 2027-2029 back to $100K min. 6 posts + 6 YouTube/year.</div>
-    <div class="card-meta">CJ drafting 2nd amendment — pending sign-off</div>
-  </a>
+    <a href="luminox.html" class="card">
+      <div class="card-top"><div class="card-title">Luminox</div><span class="badge badge-amber">2nd Amendment</span></div>
+      <div class="card-desc">Watch licensing. 2026 on actual royalties (no $100K floor). 2027-2029 back to $100K min.</div>
+      <div class="card-meta">CJ drafting amendment — pending sign-off</div>
+    </a>
 
-  <a href="becomingx.html" class="card">
-    <div class="card-top">
-      <div class="card-title">BecomingX</div>
-      <span class="badge badge-red">Dispute</span>
-    </div>
-    <div class="card-desc">£40K loan outstanding. Separation negotiations ongoing. Bear resigning as director. License stays in place.</div>
-    <div class="card-meta">Loan amendment + Bear resignation TBD</div>
-  </a>
+    <a href="becomingx.html" class="card">
+      <div class="card-top"><div class="card-title">BecomingX</div><span class="badge badge-red">Dispute</span></div>
+      <div class="card-desc">£40K loan outstanding. Bear resigning as director. License stays in place.</div>
+      <div class="card-meta">Loan amendment + resignation TBD</div>
+    </a>
 
-  <a href="water2.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Water2</div>
-      <span class="badge badge-amber">Negotiating</span>
-    </div>
-    <div class="card-desc">Water filter company. BGV targeting extra 5-10% equity + revenue share in China/India. Jesse drafted royalty amendment.</div>
-    <div class="card-meta">Charles Robinson reviewing amendment (Mar 9)</div>
-  </a>
+    <a href="water2.html" class="card">
+      <div class="card-top"><div class="card-title">Water2</div><span class="badge badge-amber">Negotiating</span></div>
+      <div class="card-desc">BGV targeting extra 5-10% equity + revenue share in China/India.</div>
+      <div class="card-meta">Charles Robinson reviewing amendment</div>
+    </a>
 
-  <a href="organised.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Organised</div>
-      <span class="badge badge-red">Legal Dispute</span>
-    </div>
-    <div class="card-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position Apr 2. Demanding loss breakdown + docs.</div>
-    <div class="card-meta">CJ + Ignition Law managing</div>
-  </a>
+    <a href="organised.html" class="card">
+      <div class="card-top"><div class="card-title">Organised</div><span class="badge badge-red">Legal Dispute</span></div>
+      <div class="card-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div>
+      <div class="card-meta">CJ + Ignition Law managing</div>
+    </a>
 
+    <a href="mettle.html" class="card">
+      <div class="card-top"><div class="card-title">Mettle</div><span class="badge badge-red">Watch</span></div>
+      <div class="card-desc">BGV investment. Men's health app. High overheads, slow subscriber growth. Runway to summer 2026.</div>
+      <div class="card-meta">Needs investment decision</div>
+    </a>
+
+  </div>
 </div>
 
-<div class="section-label">Content & Brand</div>
-<div class="grid">
+<!-- CONTENT & BRAND -->
+<div class="section-block">
+  <div class="section-label">Content &amp; Brand</div>
+  <div class="grid">
 
-  <a href="substack.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Substack</div>
-      <span class="badge badge-blue">Drafts Ready</span>
-    </div>
-    <div class="card-desc">Jesse's personal Substack. 2 draft posts ready to review: Arctic sailing story + marketing philosophy piece.</div>
-    <div class="card-meta">3 posts published as of Feb 2026</div>
-  </a>
+    <a href="substack.html" class="card">
+      <div class="card-top"><div class="card-title">Substack</div><span class="badge badge-blue">Drafts Ready</span></div>
+      <div class="card-desc">Jesse's personal Substack. 2 draft posts revised: Arctic sailing story + marketing philosophy piece.</div>
+      <div class="card-meta">Ready to publish</div>
+    </a>
 
-  <a href="gset.html" class="card">
-    <div class="card-top">
-      <div class="card-title">GSET (Book)</div>
-      <span class="badge badge-green">Year 2</span>
-    </div>
-    <div class="card-desc">Bear's book, published by Hodder. Target 200K more copies in year 2. Jesse aligning strategy with Andy Lyon.</div>
-    <div class="card-meta">Publisher: Andy Lyon, Hodder</div>
-  </a>
+    <a href="gset.html" class="card">
+      <div class="card-top"><div class="card-title">GSET (Book)</div><span class="badge badge-green">Year 2</span></div>
+      <div class="card-desc">Bear's book, published by Hodder. Target 200K more copies in year 2.</div>
+      <div class="card-meta">Publisher: Andy Lyon, Hodder</div>
+    </a>
 
-  <a href="mettle.html" class="card">
-    <div class="card-top">
-      <div class="card-title">Mettle</div>
-      <span class="badge badge-red">Watch</span>
-    </div>
-    <div class="card-desc">BGV investment. Men's health app. High overheads, slow subscriber growth. Runway to summer 2026.</div>
-    <div class="card-meta">Needs additional investment decision</div>
-  </a>
+    <a href="bg-charitable-arm.html" class="card">
+      <div class="card-top"><div class="card-title">BG Charitable Arm</div><span class="badge badge-blue">Exploring</span></div>
+      <div class="card-desc">Strategy for BG's charitable identity. Pure patronage model — no fundraising, no commercial tie-in. One outdoor youth charity.</div>
+      <div class="card-meta">Top pick: Outward Bound Trust</div>
+    </a>
 
+  </div>
 </div>
 
+<!-- MODERN SAVAGE DOCS -->
+<div class="section-block">
+  <div class="section-label">Modern Savage — Strategy &amp; Docs</div>
+  <div class="grid-wide">
+
+    <a href="../modern-savage-launch-plan.html" class="card">
+      <div class="card-top"><div class="card-title">US Launch Strategy</div><span class="badge badge-blue">Apr 2026</span></div>
+      <div class="card-desc">Full 90-day launch plan. Bear Meta ads playbook, DTC + Amazon FBA, interactive financial model with preset saving, kids supplement phase 2.</div>
+      <div class="card-meta">The main strategy doc</div>
+    </a>
+
+    <a href="../modern-savage-conversion-blueprint-2026-04-02.html" class="card">
+      <div class="card-top"><div class="card-title">Conversion Blueprint</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">DTC conversion optimisation — landing page, funnel, email flows, subscribe-and-save mechanics.</div>
+      <div class="card-meta">2 Apr 2026</div>
+    </a>
+
+    <a href="../modern-savage-creator-seeding-engine-2026-03-24.html" class="card">
+      <div class="card-top"><div class="card-title">Creator Seeding Engine</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Micro-influencer seeding strategy — target profiles, outreach templates, tracking system.</div>
+      <div class="card-meta">24 Mar 2026</div>
+    </a>
+
+    <a href="../modern-savage-launch-messaging-brief-2026-03-22.html" class="card">
+      <div class="card-top"><div class="card-title">Messaging Brief</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Brand voice, ad copy direction, key messages. What Bear says and how he says it.</div>
+      <div class="card-meta">22 Mar 2026</div>
+    </a>
+
+    <a href="../modern-savage-dashboard-2026-04-06.html" class="card">
+      <div class="card-top"><div class="card-title">Launch Dashboard</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Live metrics dashboard template — CAC, ROAS, subscription rate, revenue tracking.</div>
+      <div class="card-meta">6 Apr 2026</div>
+    </a>
+
+    <a href="../dirtea-analysis-2026-04-05.html" class="card">
+      <div class="card-top"><div class="card-title">Dirtea Competitive Analysis</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Deep-dive on Dirtea as a benchmark for premium wellness DTC. Positioning, pricing, growth model.</div>
+      <div class="card-meta">5 Apr 2026</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- MEETING BRIEFS -->
+<div class="section-block">
+  <div class="section-label">Meeting Briefs</div>
+  <div class="grid-wide">
+
+    <a href="../2026-04-08-moth-brief.html" class="card">
+      <div class="card-top"><div class="card-title">MOTH — Rob Wallis</div><span class="badge badge-green">Today 2pm Swiss</span></div>
+      <div class="card-desc">UK's leading premium RTD cocktail brand. 41% market share. £4.6M raised Sep 2024. Eyeing US. Partnership/ambassador opportunity.</div>
+      <div class="card-meta">8 Apr 2026 · 2pm Swiss / 1pm BST</div>
+    </a>
+
+    <a href="../brief-jim-2026-03-24.html" class="card">
+      <div class="card-top"><div class="card-title">Brief — Jim</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Meeting brief prepared for Jesse.</div>
+      <div class="card-meta">24 Mar 2026</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- STRATEGY & ANALYSIS -->
+<div class="section-block">
+  <div class="section-label">Strategy &amp; Analysis</div>
+  <div class="grid-wide">
+
+    <a href="mettle-strategy.html" class="card">
+      <div class="card-top"><div class="card-title">Mettle — Investment Decision</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Full strategy brief. £6K MRR, runway to summer. Passive hold recommendation with 60-90 day watch window.</div>
+      <div class="card-meta">Updated with Neil Smith's reply</div>
+    </a>
+
+    <a href="../jesse-s-world-2026-04-02.html" class="card">
+      <div class="card-top"><div class="card-title">Jesse's World</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Full map of Jesse's businesses, people, deals, and priorities as of April 2026.</div>
+      <div class="card-meta">2 Apr 2026</div>
+    </a>
+
+    <a href="../brand-voice-library-2026-04-02.html" class="card">
+      <div class="card-top"><div class="card-title">Brand Voice Library</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Bear Grylls brand voice guidelines — tone, language, dos and don'ts for all BGV comms.</div>
+      <div class="card-meta">2 Apr 2026</div>
+    </a>
+
+    <a href="../relationship-tracker-2026-04-02.html" class="card">
+      <div class="card-top"><div class="card-title">Relationship Tracker</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Key contacts across all BGV businesses — names, roles, context, relationship status.</div>
+      <div class="card-meta">2 Apr 2026</div>
+    </a>
+
+    <a href="../scout-feed-2026-04-02.html" class="card">
+      <div class="card-top"><div class="card-title">Scout Feed</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Opportunity radar — new deals, partnerships, and trends worth watching for BGV.</div>
+      <div class="card-meta">2 Apr 2026</div>
+    </a>
+
+    <a href="../sister-directory-ruby-strategy-2026-04-05.html" class="card">
+      <div class="card-top"><div class="card-title">Sister Directory — Strategy</div><span class="badge badge-grey">Apr 2026</span></div>
+      <div class="card-desc">Ruby Read's business strategy brief.</div>
+      <div class="card-meta">5 Apr 2026</div>
+    </a>
+
+    <a href="../amazon-fba-bootlet-2026-03-26.html" class="card">
+      <div class="card-top"><div class="card-title">Amazon FBA Brief</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Amazon FBA setup and automation brief for supplement DTC brands.</div>
+      <div class="card-meta">26 Mar 2026</div>
+    </a>
+
+    <a href="../openclaw-amazon-ai-brief-2026-03-31.html" class="card">
+      <div class="card-top"><div class="card-title">Amazon AI Brief</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">AI-powered Amazon listing and ops brief.</div>
+      <div class="card-meta">31 Mar 2026</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- TED'S HEALTH DOCS -->
+<div class="section-block">
+  <div class="section-label">Ted's Health — Research &amp; Analysis</div>
+  <div class="grid-wide">
+
+    <a href="../teds-health-clinic-partner-pipeline-2026-03-31.html" class="card">
+      <div class="card-top"><div class="card-title">Clinic Partner Pipeline</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Target list and outreach strategy for Ted's Health B2B white-label clinic partners.</div>
+      <div class="card-meta">31 Mar 2026</div>
+    </a>
+
+    <a href="../teds-health-partner-economics-toolkit-2026-03-30.html" class="card">
+      <div class="card-top"><div class="card-title">Partner Economics Toolkit</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Unit economics model for clinic partnership deals — revenue share, pricing, margins.</div>
+      <div class="card-meta">30 Mar 2026</div>
+    </a>
+
+    <a href="../teds-health-offer-teardown-2026-03-29.html" class="card">
+      <div class="card-top"><div class="card-title">Offer Teardown</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Analysis of Ted's Health current offer vs competitors. Positioning gaps and opportunities.</div>
+      <div class="card-meta">29 Mar 2026</div>
+    </a>
+
+    <a href="../teds-health-uk-clinic-target-list-2026-03-28.html" class="card">
+      <div class="card-top"><div class="card-title">UK Clinic Target List</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">Researched list of UK clinics for white-label outreach — with contact details and priority ranking.</div>
+      <div class="card-meta">28 Mar 2026</div>
+    </a>
+
+    <a href="../teds-health-clinic-offer-brief-2026-03-27.html" class="card">
+      <div class="card-top"><div class="card-title">Clinic Offer Brief</div><span class="badge badge-grey">Mar 2026</span></div>
+      <div class="card-desc">B2B offer brief for Ted's Health white-label pitch to private clinics.</div>
+      <div class="card-meta">27 Mar 2026</div>
+    </a>
+
+  </div>
+</div>
+
+<div style="height: 48px;"></div>
 </body>
 </html>
