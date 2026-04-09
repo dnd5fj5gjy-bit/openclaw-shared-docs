@@ -19,142 +19,196 @@
   strong { color: #ffffff; }
   .callout { background: #1a1a2e; border-left: 4px solid #e94560; padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
   .callout p { margin: 0; color: #e8e8e8; font-size: 1.05em; }
-  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin: 24px 0; }
   .data-card { background: #111; border: 1px solid #222; border-radius: 8px; padding: 20px; }
   .data-card .number { font-size: 1.8em; font-weight: 700; color: #e94560; }
   .data-card .label { font-size: 0.8em; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .three-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .pillar { background: #111; border: 1px solid #222; border-radius: 8px; padding: 20px; text-align: center; }
+  .pillar .icon { font-size: 2em; margin-bottom: 8px; }
+  .pillar h4 { color: #e94560; font-size: 1.1em; margin-bottom: 8px; }
+  .pillar p { font-size: 0.85em; color: #999; margin: 0; }
   .prompt-box { background: #0d1117; border: 1px solid #e94560; border-radius: 12px; padding: 30px; margin: 30px 0; }
   .prompt-box h3 { color: #e94560; margin-top: 0; margin-bottom: 16px; }
-  .prompt-box p { color: #d0d0d0; font-style: italic; }
-  .tag { display: inline-block; background: #e94560; color: white; font-size: 0.75em; padding: 3px 10px; border-radius: 20px; margin-right: 6px; margin-bottom: 6px; font-weight: 600; letter-spacing: 0.5px; }
-  .competitor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .prompt-box p { color: #d0d0d0; }
+  .timeline { margin: 20px 0; }
+  .timeline-item { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+  .timeline-date { background: #e94560; color: white; font-size: 0.75em; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; min-width: 80px; text-align: center; margin-top: 2px; }
+  .timeline-text { color: #c8c8c8; font-size: 0.9em; }
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
   .comp-card { background: #111; border: 1px solid #222; border-radius: 8px; padding: 16px; }
   .comp-card .name { font-weight: 700; color: #fff; margin-bottom: 6px; }
   .comp-card .verdict { font-size: 0.85em; color: #888; }
+  .comp-card.threat { border-color: #e94560; }
   hr { border: none; border-top: 1px solid #222; margin: 40px 0; }
-  @media (max-width: 600px) { .container { padding: 30px 20px; } .header { padding: 40px 20px; } .competitor-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .container { padding: 30px 20px; } .header { padding: 40px 20px; } .comp-grid, .three-pillars { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <div class="header">
   <div style="max-width:900px; margin:0 auto;">
-    <div class="meta">Bear Witness x Alfred — 9 April 2026</div>
+    <div class="meta">Bear Witness x Alfred — 9 April 2026 — Rebuilt from official deck</div>
     <h1>Digital Media Strategy Brief</h1>
-    <p style="color:#aaa; margin-top:12px; font-size:0.95em;">Full context brief for building Alfred's digital media strategy from zero. Input this into Claude to generate the full strategy.</p>
+    <p style="color:#aaa; margin-top:12px; font-size:0.95em;">Full context brief built from Alfred's official investor deck. Input this into Claude alongside the Alfred PDF to generate the social media strategy.</p>
   </div>
 </div>
 
 <div class="container">
 
-  <h2>Who Alfred Is</h2>
-  <p>Alfred is a UK membership-based utilities company founded by <strong>Thomas Inskip</strong>. Tagline: <em>"More life, less admin."</em></p>
-  <p><strong>The product:</strong> Alfred centralises all of a household's utilities — electricity, water, broadband, and mobile SIM — into a single membership. Members pay <strong>£20/month</strong> and receive all four utilities at <strong>wholesale prices</strong>. Alfred makes money on the membership fee alone, not on the utility margins. There is no profit motive embedded in the bills themselves.</p>
-  <p>This is not a comparison site. It is not a switching tool. It is a fundamentally different model with two distinct benefits that should be communicated equally:</p>
-  <ul>
-    <li><strong>Simplicity:</strong> One place for everything. One bill. One login. No more managing four separate contracts with four separate providers. The admin is gone.</li>
-    <li><strong>Wholesale prices:</strong> Alfred buys at wholesale and passes that directly to members. No retail markup, no loyalty penalties, no profit extraction on the utilities themselves. You pay what it actually costs.</li>
-  </ul>
-  <p>The simplicity angle is as important as the savings angle. Many consumers are not just frustrated by overpaying — they're exhausted by the admin burden of managing multiple utilities across multiple providers. Alfred solves both problems at once.</p>
-  <p>Alfred is pre-launch. No public digital presence, no social following, no paid media history. Clean slate.</p>
-  <p><strong>Bear Witness (Jesse Grylls) is taking on Alfred's full digital media operation from day one</strong> — building the entire presence from scratch. Monthly retainer + equity.</p>
-  <p>There is a potential Bear Grylls brand association in discussion — a premium add-on for the right moment. Do not build the strategy around it, but keep the architecture flexible enough to integrate it powerfully when the time comes.</p>
+  <h2>What Alfred Actually Is</h2>
+
+  <p>Alfred is a UK membership company that centralises all of a household's essential services — <strong>energy, broadband, mobile, home insurance, and car insurance</strong> — into one app, one bill, and one phone number. Members pay a <strong>fixed £20/month membership fee</strong> and receive all services at <strong>wholesale prices</strong>. Alfred makes money on the membership fee only — not on utility margins.</p>
+
+  <div class="three-pillars">
+    <div class="pillar">
+      <div class="icon">🧩</div>
+      <h4>Simpler</h4>
+      <p>Everything from one provider. Single point of contact. 3 working days/year less admin.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">💬</div>
+      <h4>Easier</h4>
+      <p>24/7 chat support. AI answers first, escalates to human instantly. One continuous conversation.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">⚖️</div>
+      <h4>Fairer</h4>
+      <p>Wholesale prices. No hidden charges. No loyalty penalties. No price hikes. Target savings: ~£1,000/year.</p>
+    </div>
+  </div>
 
   <div class="callout">
-    <p><strong>The goal:</strong> Make Alfred the #1 digital-first utilities brand in the UK. The brand consumers associate with two things: finally being treated fairly on their bills, and finally having one simple place to manage everything. Not a comparison tool. Not a switching service. A membership that gives you wholesale prices and removes the admin entirely.</p>
+    <p><strong>Alfred's vision:</strong> "To create the most trusted brand in the UK." Members switch everything to Alfred, safe in the knowledge they will never overpay again.</p>
   </div>
 
-  <h2>Market Landscape</h2>
+  <h3>Why this hasn't existed before</h3>
+  <p>AI and cloud infrastructure now make multi-service support viable at scale. Alfred uses AI-augmented agents for customer service — AI handles queries first, escalates to humans when needed. This is what makes the unit economics work.</p>
 
-  <h3>The Opportunity</h3>
+  <h3>Alfred's team</h3>
   <ul>
-    <li>Alfred is not a comparison site — it is a <strong>membership model that eliminates the profit motive from utility bills entirely</strong></li>
-    <li>The average UK household manages 4+ separate utility bills from 4+ profit-driven providers. Alfred replaces all of them with one £20/month membership at cost price</li>
-    <li>Most comparison sites (uSwitch, MoneySuperMarket, GoCompare) are functional but bland — they help people switch, but the underlying rip-off continues. Alfred ends it.</li>
-    <li>Switching rates are low: <strong>44% of consumers unlikely to switch</strong> in the next 12 months — but Alfred isn't asking them to switch. It's asking them to join a better system entirely.</li>
-    <li>1 in 5 consumers think switching "isn't worth the hassle" — Alfred eliminates the hassle argument by removing all the separate contracts at once</li>
-    <li><strong>Energy price cap rising 18% in July 2026</strong> — enormous consumer urgency moment coming right now</li>
-    <li>No competitor offers the at-cost, all-utilities-in-one membership model. <strong>Alfred owns a category that doesn't exist yet.</strong></li>
+    <li><strong>Tom (CEO)</strong> — Former President, Afiniti</li>
+    <li><strong>Alice (Marketing)</strong> — Former Marketing Director, OVO, BT, EE (Oxford). Bear Witness works alongside Alice, not instead of her.</li>
+    <li><strong>Chris (Energy)</strong> — CEO, OVO; Former CFO, Utility Warehouse</li>
+    <li><strong>Tom F</strong> — Former CPO, Utility Warehouse</li>
+    <li><strong>NEDs:</strong> Ronan Dunne (former CEO Verizon + O2), Peter (CEO Esure, former MD British Gas)</li>
   </ul>
 
-  <h3>Key Data Points</h3>
+  <h3>Investors</h3>
+  <ul>
+    <li><strong>Liberty Global</strong> (owners of Virgin Media O2) invested £2.5m in a £7.5m seed round at £22.5m pre-money valuation</li>
+    <li>Sponsored by Liberty Global CEO Mike Fries — Alfred is based at Liberty's London HQ</li>
+    <li>Liberty Global's Virgin Media O2 relationship gave Alfred access to a national UK mobile network (same as Sky and Tesco Mobile)</li>
+    <li>Hellman & Friedman owners also invested</li>
+    <li>Ongoing investment conversations with Which? and MONY Group</li>
+  </ul>
+
+  <h2>The Market Problem</h2>
+
   <div class="data-grid">
     <div class="data-card">
-      <div class="number">44%</div>
-      <div class="label">UK consumers unlikely to switch in next 12 months</div>
+      <div class="number">92%</div>
+      <div class="label">Households unhappy with overpaying or needing to switch to save</div>
     </div>
     <div class="data-card">
-      <div class="number">+18%</div>
-      <div class="label">Energy price cap increase forecast July 2026</div>
+      <div class="number">28M</div>
+      <div class="label">UK households — Alfred targeting the top 30%</div>
     </div>
     <div class="data-card">
-      <div class="number">223K</div>
-      <div class="label">Electricity switches in December 2025 alone</div>
+      <div class="number">£1,000</div>
+      <div class="label">Target annual saving per Alfred member</div>
     </div>
     <div class="data-card">
-      <div class="number">£1,641</div>
-      <div class="label">Current annual energy price cap (rising)</div>
-    </div>
-    <div class="data-card">
-      <div class="number">1 in 5</div>
-      <div class="label">Consumers think switching "isn't worth the hassle"</div>
-    </div>
-    <div class="data-card">
-      <div class="number">91%</div>
-      <div class="label">UK energy market controlled by just 6 suppliers</div>
+      <div class="number">60%</div>
+      <div class="label">Aggregate value represented by top 30% of households</div>
     </div>
   </div>
 
-  <h3>Competitors — Why There Are None Like Alfred</h3>
-  <p>Alfred does not have a direct competitor. No other company offers all four household utilities at cost price through a single membership. The closest reference points are:</p>
-  <div class="competitor-grid">
+  <p>The headlines say it all: energy "cheap deal" traps, broadband firms betting on fear of going offline, AA charging loyal members 200% more than newcomers, mobile networks selling 5x the data you need. Every utility category is built on the inertia economy — profiting from consumers' reluctance to call. Alfred removes the incentive to do this entirely.</p>
+
+  <h2>Target Audience</h2>
+
+  <p><strong>Primary: Mid-upper homeowner segment.</strong> 3+ bedroom homes, 2+ cars, £0.4m-£1.5m home value. This top 30% of UK households represents ~60% of aggregate utility spend across all four sectors. They spend more, they have more services, and they have the most to save.</p>
+
+  <p>Alfred's own trust archetypes for early adopters:</p>
+  <ul>
+    <li><strong>Consumer protectors</strong> — people who actively research and champion fair deals</li>
+    <li><strong>Home experts</strong> — engaged homeowners who manage their household proactively</li>
+    <li><strong>Smart money</strong> — financially savvy, hate waste, early adopters of fintech-style products</li>
+  </ul>
+
+  <p>This is not a mass-market product at launch. The social media strategy should speak to aspirational homeowners who are organised, financially aware, and frustrated by the fragmentation of their household admin.</p>
+
+  <h2>The Real Competitor: Utility Warehouse</h2>
+
+  <p>Alfred's only genuine structural competitor is <strong>Utility Warehouse (Telecom Plus PLC)</strong> — the only other multi-service utility provider in the UK. UW has grown customers at 15%+ CAGR over 20+ years and proven the demand for multi-service bundling at scale.</p>
+
+  <p><strong>But UW is ripe for disruption:</strong></p>
+  <ul>
+    <li>Built around and beholden to a multi-level marketing distribution machine</li>
+    <li>Brand and approach skewed to lower-mid market — not the premium homeowner segment Alfred targets</li>
+    <li>Non-transparent pricing hidden behind "bundle discounts"</li>
+    <li>Owned by income investors prioritising dividends over growth</li>
+    <li>Legacy tech creating poor customer experience</li>
+  </ul>
+
+  <p>Alfred is coming for UW's market with better tech, better branding, transparent pricing, and a target audience UW cannot serve.</p>
+
+  <div class="comp-grid">
+    <div class="comp-card threat">
+      <div class="name">Utility Warehouse — THE competitor</div>
+      <div class="verdict">Only multi-service provider. 15%+ CAGR over 20 years. But MLM-dependent, lower-market, legacy tech. Premium homeowners won't touch it. This is who Alfred displaces.</div>
+    </div>
     <div class="comp-card">
       <div class="name">uSwitch / MoneySuperMarket</div>
-      <div class="verdict">Comparison tools — they help you find a slightly better deal from a profit-driven supplier. The rip-off continues, just at a different rate. Not the same as Alfred at all.</div>
+      <div class="verdict">Not competitors — they help people find slightly better deals within the broken system. Alfred replaces the system. Different category entirely.</div>
     </div>
     <div class="comp-card">
-      <div class="name">Utility Warehouse</div>
-      <div class="verdict">Closest structural comparison — multi-utility bundle. But it is a profit-driven supplier, not at-cost. No membership model. Uses MLM distribution. Different positioning entirely.</div>
+      <div class="name">Monzo / Revolut (analogy)</div>
+      <div class="verdict">Best comparison for brand strategy. Disrupted banking with radical transparency and consumer alignment. Same playbook for utilities. Alfred is Monzo for your household bills.</div>
     </div>
     <div class="comp-card">
-      <div class="name">Octopus Energy ⭐</div>
-      <div class="verdict">Brand benchmark for the category. Fun, irreverent, community-driven. 163% signup increase from one bold campaign. Shows what brand-led growth looks like in utilities.</div>
-    </div>
-    <div class="comp-card">
-      <div class="name">Bulb (pre-collapse)</div>
-      <div class="verdict">1.7M customers, £1.5bn revenue in 5 years almost entirely via genuine referrals. Proved viral word-of-mouth works in utilities when the product and trust are right.</div>
-    </div>
-    <div class="comp-card">
-      <div class="name">Costco / Amazon Prime</div>
-      <div class="verdict">Not utilities — but the membership-for-cost-price model is exactly what Alfred is doing for bills. The consumer psychology (pay once, save on everything) is already proven at scale.</div>
-    </div>
-    <div class="comp-card">
-      <div class="name">Monzo / Revolut</div>
-      <div class="verdict">Category analogy — fintech that disrupted banking by being radically transparent and consumer-first. Alfred is doing the same for utilities. Same playbook, different sector.</div>
+      <div class="name">Costco (model analogy)</div>
+      <div class="verdict">Pay a membership fee, get wholesale prices. Alfred is exactly this for utilities. The consumer psychology is already proven at scale.</div>
     </div>
   </div>
 
-  <h3>Target Audience</h3>
-  <ul>
-    <li><strong>Primary:</strong> UK homeowners and renters aged 25-45, Direct Debit payers (statistically most likely to switch)</li>
-    <li><strong>Secondary:</strong> Environmentally conscious consumers seeking green/renewable energy options</li>
-    <li><strong>Tertiary:</strong> Financially stretched households — highest need, currently hardest to reach</li>
-    <li><strong>Highest-switching segments:</strong> Direct Debit payers, higher education, less-deprived postcodes</li>
-    <li><strong>Seasonality:</strong> Spikes pre-winter and ahead of quarterly price cap changes (April, July, October, January)</li>
-  </ul>
+  <h2>Alfred's Launch Plan (Already Defined)</h2>
 
-  <h2>What Bear Witness Brings</h2>
-  <p>Bear Witness is not an agency. We build brands from zero, embed into the business, and take ownership of outcomes. Our scope for Alfred:</p>
-  <ul>
-    <li><strong>Brand identity online</strong> — look, feel, voice, visual system</li>
-    <li><strong>Social media</strong> — strategy, content creation, community management</li>
-    <li><strong>Content strategy</strong> — editorial calendar, content pillars, YouTube, blog/SEO content</li>
-    <li><strong>Paid acquisition</strong> — Meta ads, TikTok ads, Google Search/Shopping</li>
-    <li><strong>SEO</strong> — technical foundation, content clusters, keyword domination</li>
-    <li><strong>Email marketing</strong> — acquisition flows, lifecycle campaigns, retention</li>
-    <li><strong>Website optimisation</strong> — CRO, speed, conversion strategy, landing pages</li>
-    <li><strong>Technical marketing</strong> (with Felix/BGV tech team) — analytics, tracking, attribution</li>
-  </ul>
+  <p>Alfred has a clear launch strategy — the social media strategy should amplify it, not contradict it:</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Apr 2026</div>
+      <div class="timeline-text">Home & motor insurance ready. Broadband ready. Bear Witness engagement begins.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Jun 2026</div>
+      <div class="timeline-text"><strong>Waitlist launches</strong> — Monzo-style in-app waiting list, trust and authenticity over virality. Founding members onboarded in waves.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Jul 2026</div>
+      <div class="timeline-text">Mobile ready. First waitlisters onboarded. <strong>Golden tickets</strong> mechanic — new members can give a friend a ticket to skip the queue.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Aug-Sep 2026</div>
+      <div class="timeline-text">Energy ready. CS software live. All four services fully operational.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Nov 2026</div>
+      <div class="timeline-text"><strong>Public release.</strong> All services live, AI support active, full member onboarding.</div>
+    </div>
+  </div>
+
+  <h3>Alfred's own scaling channels (from their deck)</h3>
+  <ol>
+    <li><strong>Direct response:</strong> Google, Instagram, Facebook, MoneySavingExpert, Rightmove, Which?, The Telegraph, The Guardian, MoneySuperMarket, Daily Mail, Thames Water, Hometrack</li>
+    <li><strong>Channel partners:</strong> M&S, Waitrose, American Express, The Times, David Lloyd Clubs, Savills, Knight Frank, Costco, Vitality, Mindful Chef, John Lewis, HomeServe</li>
+    <li><strong>Influencer marketing:</strong> Olly Proudlock, Mike Tindall, Will Greenwood, Justin Rose, Anthony Joshua, Bear Grylls</li>
+  </ol>
+
+  <h3>Community and mission</h3>
+  <p>Alfred is committing 1% of membership revenues to <strong>Fields in Trust</strong> (protected parks and green spaces). President: Jill Scott MBE. Alfred's "More Life, Less Admin" mission is positioned as giving people their time back — aligned with protecting shared outdoor spaces. This is a powerful content and community angle.</p>
 
   <h2>Why Bear Witness — Not an Agency, a Partner</h2>
 
@@ -162,89 +216,70 @@
 
   <h3>The agency model is broken for early-stage brands</h3>
   <p>A standard agency charges a retainer, assigns a junior account manager, and optimises for client retention rather than brand growth. They are incentivised to keep you dependent, not to make you independently successful. They hand over a content calendar. They report on vanity metrics. They cycle through staff. And when the brand doesn't grow as expected, they write a new proposal for a new retainer.</p>
-  <p>Alfred doesn't need that. Alfred needs someone who thinks like a co-founder, moves like a startup, and is financially aligned with the outcome — not the hours billed.</p>
+  <p>Alfred doesn't need that. Alfred needs someone who thinks like a co-founder, moves like a startup, and is financially aligned with the outcome.</p>
 
   <h3>How Bear Witness works</h3>
-  <p>Bear Witness is the digital media company built by Jesse Grylls to manage and grow brands he is personally invested in. The model is simple: we take equity, not inflated fees. We embed into the brand, not above it. We build the systems, the content engine, and the audience from zero — and we stay long enough to see it compound.</p>
-  <p>This is not a service relationship. Bear Witness becomes part of Alfred. The digital media operation — every social post, every ad, every piece of content, every email — is built as if we are shareholders, because we are.</p>
+  <p>Bear Witness is the digital media company Jesse Grylls runs across all his projects. The model: we take equity, not inflated fees. We embed into the brand and build the systems, the content engine, and the audience from zero — and we stay long enough to see it compound.</p>
+  <p>This is not a service relationship. Bear Witness becomes part of Alfred. The digital media operation is built as if we are shareholders, because we are.</p>
 
   <div class="callout">
-    <p><strong>The core difference:</strong> An agency optimises for their own continuity. Bear Witness optimises for Alfred's growth. Those are not the same thing, and the distinction shows in every decision made.</p>
+    <p><strong>The core difference:</strong> An agency optimises for their own continuity. Bear Witness optimises for Alfred's growth. Those are not the same thing.</p>
   </div>
 
-  <h3>What long-term integration actually looks like</h3>
-  <p>Most brands hire agencies campaign by campaign — a launch push here, a seasonal activation there. The result is a fragmented digital presence with no compounding value. Bear Witness operates on a different timeline. We build for 24 months, not 3. Every piece of content we create is part of a longer narrative. Every audience we build is an asset that belongs to Alfred permanently. Every SEO article we publish compounds in authority over time. Every email subscriber we add is a relationship, not a transaction.</p>
-  <p>The brands that win digitally are the ones that build consistently over time — not the ones that spike and fade. Bear Witness is structured to deliver that consistency because our incentive is the same as Alfred's: long-term brand equity.</p>
+  <h3>What long-term integration looks like</h3>
+  <p>Every system Bear Witness builds — email lists, SEO authority, social following, paid audiences — is owned by Alfred permanently. We build for 24 months, not 3. Every piece of content is part of a longer narrative. Every audience is an asset. Bear Witness is structured around compounding, not campaigns.</p>
 
-  <h3>The network Bear Witness brings</h3>
-  <p>Beyond execution, Bear Witness brings a network that no traditional agency can match. Access to one of the most recognisable adventure and survival brands in the world. Relationships across media, entertainment, and consumer brands built over years of operating at the highest level. Distribution channels, creator relationships, and media contacts that can be activated at the right moment to amplify Alfred in ways that paid media cannot buy.</p>
-  <p>The Bear Grylls brand association is a potential asset that sits above and beyond the marketing retainer — but the foundation Bear Witness builds in year one is what makes that association meaningful when it lands. A brand with no audience cannot leverage a celebrity partnership. A brand with 200,000 TikTok followers and a trusted voice in the energy space can turn a Bear Grylls endorsement into a category-defining moment.</p>
+  <h3>The Bear Grylls network</h3>
+  <p>Alfred has already put Bear Grylls in their investor deck as a planned influencer partner. Bear Witness is how that relationship is activated properly — not as a celebrity endorsement, but as a genuine brand integration where Bear becomes part of Alfred's story. His audience (millions of engaged UK homeowners and families) is exactly Alfred's target demographic. The timing, the message, and the trust transfer are all aligned. Bear Witness delivers this with full strategic ownership rather than a transactional post.</p>
 
-  <h3>Our track record in digital-first brand building</h3>
-  <p>Bear Witness manages the digital media for one of the world's most followed adventure brands — Bear Grylls, with approximately 100 million impressions per month across all platforms. We have built social strategies for businesses from zero, advised on go-to-market campaigns that have been described as standout quality by founders and investors, and developed content systems that drive consistent growth without relying on paid spend alone.</p>
-  <p>We understand how digital audiences are built, what makes content spread, and how to turn platform algorithms into distribution engines rather than fighting them. More importantly, we understand brand — the difference between content that gets clicks and content that builds trust. Alfred needs both, and Bear Witness delivers both.</p>
-
-  <h3>Structure of the partnership</h3>
+  <h3>Partnership structure</h3>
   <ul>
-    <li><strong>Monthly retainer</strong> — covers Jesse's time, production costs, paid media management, and the core team. Lean and transparent.</li>
-    <li><strong>Equity</strong> — Bear Witness takes a stake in Alfred. This is the alignment mechanism. We do not profit unless Alfred grows.</li>
-    <li><strong>No lock-in to vanity deliverables</strong> — we measure success by audience growth, switching volume, brand search uplift, and revenue contribution. Not posts delivered or impressions served.</li>
-    <li><strong>Direct founder access</strong> — Jesse works directly with Tom. No account managers, no briefing chains, no creative interpretation games. Strategy is built together, executed fast.</li>
-    <li><strong>Long-term architecture</strong> — every system we build (email lists, SEO authority, social following, paid audiences) is owned by Alfred. If the relationship ever ends, Alfred keeps everything.</li>
+    <li><strong>Monthly retainer</strong> — covers Jesse's time, production costs, paid media management</li>
+    <li><strong>Equity</strong> — Bear Witness is aligned on Alfred's long-term outcome, not deliverables</li>
+    <li><strong>No lock-in to vanity metrics</strong> — success = member growth, waitlist signups, brand search uplift</li>
+    <li><strong>Direct access</strong> — Jesse works directly with Tom. No briefing chains.</li>
+    <li><strong>Everything stays with Alfred</strong> — all audiences, all content, all infrastructure is Alfred's asset</li>
   </ul>
 
-  <h2>Strategic Angles to Build Around</h2>
+  <h2>Strategic Philosophy (from Jesse's original analysis)</h2>
 
-  <h3>1. Two pain points, one solution — The dual content engine</h3>
-  <p>Alfred solves two distinct problems that need to be communicated equally in the content strategy:</p>
-  <p><strong>The money problem:</strong> Most people are paying retail prices for utilities when Alfred members pay wholesale. The content should show the real gap — "here's what you're paying, here's what it actually costs, here's the difference." Real numbers, real families, real savings.</p>
-  <p><strong>The admin problem:</strong> Managing electricity, water, broadband, and mobile separately means multiple logins, multiple bills, multiple renewal dates, multiple call centres. Alfred collapses all of that into one. This is the simplicity story — and it's equally powerful for people who are tired rather than just overpaying.</p>
+  <h3>Don't play their game</h3>
+  <p>The moment Alfred competes on incentives — referral codes, gamification, discounts — it mentally brackets itself alongside the companies it's replacing. The incumbents have to play that game because they lack integrity. Alfred doesn't have that problem.</p>
 
-  <h3>2. Own the price cap cycle — Seasonal media strategy</h3>
-  <p>The UK energy price cap changes quarterly (April, July, October, January). Each change is a major media moment. Alfred should be the brand that shows up with the clearest, most useful explanation every time. Own the news cycle. Be the first result when people search "energy price cap July 2026." This is a recurring calendar of earned media moments that no competitor is fully exploiting.</p>
+  <h3>Earn the relationship, don't buy it</h3>
+  <p>When you win a customer through a gimmick, the dynamic is set from day one: you work for them. The relationship is transactional. Instead: tell them the problem. Make them feel the pain — the overpaying, the loyalty penalties, the inertia economy quietly taking them for a ride. Then show them Alfred. The customer doesn't feel sold to. They feel rescued. That gratitude is the foundation of loyalty that actually compounds.</p>
 
-  <h3>3. The anti-admin brand — Tone and identity</h3>
-  <p>Alfred's tagline is "More life, less admin." Build a voice that sounds like a smart, slightly cheeky friend who has done all the boring research so you don't have to. Not corporate. Not financial. Not boring. Think Monzo for energy. The brand should be followed for entertainment and education, not just consulted when people need to switch.</p>
+  <h3>The narrative: a movement, not a product</h3>
+  <p>Alfred isn't a comparison tool or a bundle provider. It's the brand that finally told the truth about household bills and did something about it. "A company for the people." The content strategy, social voice, and brand positioning should all flow from this. Not: here's a deal. Instead: here's what's been happening to your money, here's why, here's how Alfred stops it.</p>
 
-  <h3>4. TikTok-first growth engine</h3>
-  <p>The tallow skincare trend proves that niche educational content explodes on TikTok. Energy savings is a far larger category. "I switched energy providers and saved £580 in 10 minutes" is a TikTok video that can do millions of views with zero production budget. This should be the primary organic growth channel for Alfred's first 12 months. The content writes itself — real people, real savings, real reactions.</p>
-
-  <h3>5. SEO domination from day one</h3>
-  <p>Alfred should target top 3 positions for every major energy switching keyword in the UK within 18 months. This requires a content cluster strategy from launch — not a blog tacked on later. Every switching term, every price cap explainer, every "best energy deal" comparison needs a page built and ranking before the July price cap increase.</p>
-
-  <h3>6. Referral flywheel (Bulb model, done right)</h3>
-  <p>Bulb grew to 1.7M customers almost entirely through referrals. Simple, viral, genuinely rewarding. Alfred should build referral mechanics into the core product from launch and make sharing effortless. The digital media strategy amplifies the referral loop — every piece of content should have a shareable hook and a clear CTA to refer a friend.</p>
-
-  <h3>7. The Bear Grylls integration (when the time is right)</h3>
-  <p>Bear Grylls is potentially a brand association. If activated, it fundamentally changes the media strategy — particularly around "resilience" and "taking control" messaging. Build a flexible content architecture that can absorb this without restructuring. The narrative writes itself: "Bear doesn't overpay for utilities. Neither should you." Keep the door open architecturally.</p>
-
-  <h2>What the Strategy Needs to Cover</h2>
+  <h2>What the Social Media Strategy Needs to Cover</h2>
   <ol>
-    <li><strong>Brand positioning and voice</strong> — tone guide, personality, key messages, visual direction brief</li>
-    <li><strong>Channel strategy</strong> — TikTok, Instagram, YouTube, Facebook, LinkedIn, Email, SEO, Paid. Priority order, rationale, target KPIs per channel</li>
-    <li><strong>Content strategy</strong> — pillars, cadence, content types, editorial calendar framework, specific video and post concepts</li>
-    <li><strong>SEO strategy</strong> — keyword cluster map, content architecture, technical priorities, target rankings, timeline</li>
-    <li><strong>Paid media strategy</strong> — Meta, TikTok, Google. Budget allocation framework, campaign types, audience targeting, ROAS benchmarks</li>
-    <li><strong>Email and lifecycle marketing</strong> — acquisition flows, welcome series, re-engagement, lifecycle triggers</li>
-    <li><strong>Launch plan</strong> — weeks 1-4, months 1-3, months 3-6 phased rollout</li>
-    <li><strong>Growth milestones</strong> — success metrics at 3, 6, and 12 months</li>
-    <li><strong>Bear Grylls integration roadmap</strong> — how and when to introduce, what it unlocks</li>
+    <li><strong>Brand voice and positioning</strong> — tone guide for Alfred's social channels. Smart, slightly cheeky, anti-admin. The friend who's sorted their bills and wants you to do the same. Premium homeowner audience, not mass market.</li>
+    <li><strong>Pre-launch waitlist strategy (now - June 2026)</strong> — building anticipation and a qualified waitlist. Golden ticket mechanic. Which channels, what content, what CTA.</li>
+    <li><strong>Channel priority and rationale</strong> — TikTok, Instagram, YouTube, LinkedIn, Facebook. Which channels for which audience segments and why.</li>
+    <li><strong>Content pillars</strong> — the recurring content types that build audience and drive trust over time. Education, outrage, transformation, community, behind-scenes.</li>
+    <li><strong>The "inertia economy" content series</strong> — explainers on how the loyalty penalty works across every utility category. This is Alfred's core organic growth engine.</li>
+    <li><strong>Influencer and trust archetype strategy</strong> — how to engage consumer protectors, home experts, and smart money people. Which influencers and why. How Bear Grylls fits.</li>
+    <li><strong>Channel partner social strategy</strong> — how to leverage M&S, Waitrose, David Lloyd, Costco etc. for co-branded social reach to exactly the right audience.</li>
+    <li><strong>Fields in Trust community angle</strong> — how the 1% charity partnership becomes a content and community building tool.</li>
+    <li><strong>Launch month content plan (November 2026)</strong> — the specific content that converts waitlist to members at public release.</li>
+    <li><strong>Milestones</strong> — what does success look like at waitlist launch (June), first wave onboarding (July-Sept), and public release (November)?</li>
   </ol>
 
-  <div class="callout">
-    <p>Be bold, specific, and executable — not generic marketing advice. Include concrete TikTok video concepts, specific SEO keywords to target, sample ad copy angles, real content ideas, and a phased launch plan. Do not pad with generalities. Alfred is starting from zero — every recommendation needs to be actionable from week one.</p>
-  </div>
-
-  <h2>Prompt for Your AI</h2>
+  <h2>Prompt for Your Claude</h2>
   <div class="prompt-box">
-    <h3>Copy and paste this into Claude:</h3>
-    <p>Use the above document as full context. Produce a comprehensive digital media strategy for Alfred — a pre-launch UK utilities/energy switching fintech brand. Bear Witness (digital media company run by Jesse Grylls) is building their entire digital media operation from scratch. The goal is to make Alfred the most trusted and recognised utilities brand in the UK within 24 months.</p>
+    <h3>Paste this into Claude with the Alfred deck attached:</h3>
+    <p>I've attached Alfred's official investor deck and a detailed strategy brief from Bear Witness. Alfred is a UK membership company — £20/month for wholesale energy, broadband, mobile, home and car insurance all in one place. Pre-launch, waitlist going live June 2026, public release November 2026. Bear Witness (Jesse Grylls's digital media company) is building Alfred's entire social media presence from scratch.</p>
     <br>
-    <p>The strategy should be bold, specific, and executable. Include: concrete TikTok video concepts, specific SEO keyword targets, sample ad copy angles, a content pillar breakdown, channel priority order with rationale, phased 0-6 month launch plan, and measurable milestones. Be as specific and detailed as possible. No generic advice.</p>
+    <p>Target audience: mid-upper UK homeowners, 3+ beds, financially organised, the top 30% who represent 60% of utility spend. Not mass market.</p>
+    <br>
+    <p>Core brand territory: "More Life, Less Admin." The emotional strategy is not about savings — it's about rescuing people from a system that's been quietly taking them for a ride. Don't sell. Tell the truth. Make them feel found.</p>
+    <br>
+    <p>Using everything above, build a full HTML social media strategy. Include: channel priorities with rationale, content pillars with specific post/video ideas for each, pre-launch waitlist content plan (April-June), launch month plan (November), influencer strategy, the inertia economy content series concept, and measurable milestones. Be specific and bold. No generic advice.</p>
   </div>
 
   <hr>
-  <p style="color:#555; font-size:0.85em; text-align:center;">Bear Witness — Prepared 9 April 2026</p>
+  <p style="color:#555; font-size:0.85em; text-align:center;">Bear Witness — Rebuilt from Alfred official deck — 9 April 2026</p>
 
 </div>
 </body>
