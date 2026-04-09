@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Creator Seeding Playbook</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f2f2f0; color: #1a1a1a; }
+  .topbar { background: #1a1a1a; padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .topbar a { color: #888; font-size: 13px; text-decoration: none; } .topbar a:hover { color: #fff; }
+  .hero { background: #0d0d0d; padding: 44px 32px; }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .hero-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #666; margin-bottom: 12px; }
+  .hero h1 { font-size: 32px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .hero .sub { font-size: 14px; color: #555; margin-top: 10px; line-height: 1.7; max-width: 640px; }
+  .hero-meta { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+  .hero-meta-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #555; }
+  .hero-meta-item .val { font-size: 13px; color: #aaa; margin-top: 3px; }
+  .main { max-width: 860px; margin: 28px auto; padding: 0 32px 80px; }
+  .section { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 28px 30px; margin-bottom: 18px; }
+  .section h2 { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #bbb; margin-bottom: 18px; }
+  .section h3 { font-size: 15px; font-weight: 800; color: #111; margin: 22px 0 10px; }
+  .section h3:first-of-type { margin-top: 0; }
+  .body-text { font-size: 14px; line-height: 1.8; color: #2a2a2a; }
+  .body-text p { margin-bottom: 12px; }
+  .callout { background: #0d0d0d; color: #fff; border-radius: 10px; padding: 24px 28px; margin-bottom: 18px; }
+  .callout h2 { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
+  .callout p { font-size: 14px; color: #888; line-height: 1.75; }
+  .callout p strong { color: #fff; }
+  /* CREATOR CARDS */
+  .tier-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 10px 0 6px; margin-bottom: 10px; border-bottom: 2px solid; display: flex; align-items: center; gap: 10px; }
+  .tier-mega { color: #cc2200; border-color: #cc2200; }
+  .tier-macro { color: #1a4499; border-color: #1a4499; }
+  .tier-mid { color: #1a7a40; border-color: #1a7a40; }
+  .tier-micro { color: #996600; border-color: #996600; }
+  .creator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .creator-card { border: 1px solid #e8e8e8; border-radius: 8px; padding: 16px 18px; }
+  .creator-card.priority { border-color: #1a1a1a; background: #fafafa; }
+  .creator-name { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+  .creator-handle { font-size: 11px; color: #999; margin-bottom: 8px; }
+  .creator-reach { font-size: 11px; color: #555; margin-bottom: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .creator-reach span { background: #f0f0f0; padding: 2px 7px; border-radius: 3px; font-weight: 600; }
+  .creator-pitch { font-size: 12px; color: #555; line-height: 1.6; margin-bottom: 8px; }
+  .creator-offer { font-size: 11px; font-weight: 700; color: #1a4499; }
+  .badge { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 2px 6px; border-radius: 3px; }
+  .badge-fire { background: #ffeaea; color: #cc2200; }
+  .badge-bear { background: #e8f0ff; color: #1a4499; }
+  .badge-uk { background: #e6f9ee; color: #1a7a40; }
+  /* OUTREACH TEMPLATES */
+  .template { background: #f8f8f8; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; font-size: 13px; line-height: 1.7; color: #333; border-left: 3px solid #e0e0e0; }
+  .template-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: #999; margin-bottom: 10px; }
+  .template em { color: #999; font-style: normal; }
+  /* STRATEGY TABLE */
+  .strat-row { display: flex; padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; gap: 12px; }
+  .strat-row:last-child { border-bottom: none; }
+  .strat-tier { font-weight: 700; min-width: 90px; }
+  .strat-offer { color: #555; flex: 1; }
+  .strat-goal { color: #1a4499; font-weight: 600; min-width: 120px; text-align: right; }
+  @media (max-width: 700px) { .main { padding: 0 16px 60px; } .hero { padding: 28px 16px; } .creator-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="projects/index.html">← Dashboard</a></div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Modern Savage — Launch Prep · April 2026</div>
+    <h1>Creator Seeding Playbook</h1>
+    <div class="sub">40+ creators across primal health, survival, hunting, biohacking, and fitness. Prioritised, pitched, and ready to seed ahead of the Jul–Aug 2026 launch.</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="label">Launch window</div><div class="val">Jul–Aug 2026</div></div>
+      <div class="hero-meta-item"><div class="label">Seed start</div><div class="val">May 2026 (8 weeks pre-launch)</div></div>
+      <div class="hero-meta-item"><div class="label">Target niches</div><div class="val">Primal · Carnivore · Survival · Biohacking · Hunting</div></div>
+      <div class="hero-meta-item"><div class="label">Benchmark</div><div class="val">Paul Saladino / Lineage Provisions model</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="callout">
+    <h2>Why This Matters</h2>
+    <p>Paul Saladino built Heart &amp; Soil into a multi-million dollar organ supplement brand almost entirely on the back of creator credibility and his own audience. <strong>Modern Savage has something Saladino doesn't: Bear Grylls.</strong> That's the unfair advantage — but only if it's used correctly. The creator layer amplifies Bear's credibility into communities that already believe in primal nutrition. Done right, this is the difference between a launch and a movement.</p>
+  </div>
+
+  <div class="section">
+    <h2>Strategy Overview</h2>
+    <div class="body-text">
+      <p>Modern Savage should seed product to creators in three waves before launch, with different objectives at each stage. The goal is not "paid posts" — it's authentic product belief from voices the audience already trusts. Creators who genuinely use the product and talk about it in their own language are worth 10x a sponsored post.</p>
+    </div>
+
+    <div class="strat-row"><span class="strat-tier" style="color:#cc2200;">Wave 1 — May</span><span class="strat-offer">Send product to top-tier targets. No ask. Just the product and a personal note from Bear or Jesse. Let them try it.</span><span class="strat-goal">Build genuine believers</span></div>
+    <div class="strat-row"><span class="strat-tier" style="color:#1a4499;">Wave 2 — Jun</span><span class="strat-offer">Follow up with those who responded. Offer early access / founding partner affiliate code. Lock in content agreements with willing partners.</span><span class="strat-goal">Secure launch voices</span></div>
+    <div class="strat-row"><span class="strat-tier" style="color:#1a7a40;">Wave 3 — Jul–Aug</span><span class="strat-offer">Launch week push. Coordinated posts from seeded creators. Affiliate codes live. Bear's own content drops. Reviews going live simultaneously.</span><span class="strat-goal">Launch momentum</span></div>
+
+    <h3>The Pitch Frame for Every Creator</h3>
+    <div class="body-text">
+      <p>Never pitch this as "sponsored content." The pitch is: <em>this is the product Bear Grylls actually uses, built on the same ancestral nutrition principles you already believe in. We'd love you to try it first — before anyone else has it.</em> Exclusivity and authenticity over transactional.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tier 1 — Mega Creators (5M+ reach)</h2>
+    <p style="font-size:13px;color:#888;margin-bottom:18px;">Highest risk, highest reward. Don't lead with a deal. Lead with product. These names move markets.</p>
+
+    <div class="tier-label tier-mega">Mega · 5M+ · Organic outreach only — no cold paid ask</div>
+    <div class="creator-grid">
+
+      <div class="creator-card priority">
+        <div class="creator-name">Joe Rogan <span class="badge badge-fire">Highest upside</span></div>
+        <div class="creator-handle">@joerogan · JRE Podcast</div>
+        <div class="creator-reach"><span>16M+ YouTube</span><span>14M+ Spotify</span></div>
+        <div class="creator-pitch">Rogan has talked about organ meats, tallow, and ancestral nutrition multiple times. He's a Paul Saladino fan. Modern Savage sits perfectly in his world. Bear Grylls as the face gives a credible entry — Rogan respects survival experts.</div>
+        <div class="creator-offer">Approach: Bear sends product with personal note. Aim for a JRE mention or a guest conversation about ancestral nutrition + the brand.</div>
+      </div>
+
+      <div class="creator-card priority">
+        <div class="creator-name">Paul Saladino MD <span class="badge badge-fire">Competitor but key validator</span></div>
+        <div class="creator-handle">@paulsaladinomd · Heart &amp; Soil / Lineage</div>
+        <div class="creator-reach"><span>1.2M IG</span><span>600K YouTube</span></div>
+        <div class="creator-pitch">He IS the ancestral nutrition supplement market. Partnering or getting a positive mention from Saladino would be the single biggest organic validator. He's not a competitor to ignore — he's a standard-setter to align with.</div>
+        <div class="creator-offer">Approach: Not affiliate. Peer-to-peer conversation. Bear reaches out directly as a fellow primal health believer. If Saladino tries the product and respects it, a single post from him is worth more than a full paid campaign.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Andrew Huberman</div>
+        <div class="creator-handle">@hubermanlab · Huberman Lab</div>
+        <div class="creator-reach"><span>5M+ YouTube</span><span>4.5M IG</span></div>
+        <div class="creator-pitch">The most trusted voice in performance science. Talks extensively about nutrition, supplementation, and ancestral health protocols. His audience (high-income, educated, male-skewing) is almost identical to Modern Savage's target.</div>
+        <div class="creator-offer">Approach: Long-lead. Send product. Position as a performance nutrition tool, not just an organ supplement. Scientific framing matters for Huberman's audience.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Peter Attia MD</div>
+        <div class="creator-handle">@peterattiamd · The Drive Podcast</div>
+        <div class="creator-reach"><span>1M+ YouTube</span><span>800K IG</span></div>
+        <div class="creator-pitch">Longevity medicine, performance nutrition. Very credible, very selective about what he endorses. If Modern Savage can demonstrate quality sourcing and formulation, Attia's audience trusts his recommendations absolutely.</div>
+        <div class="creator-offer">Approach: Product + formulation breakdown. Let the science speak. No ask initially.</div>
+      </div>
+
+    </div>
+
+    <div class="tier-label tier-macro">Macro · 500K–5M · Core seeding targets — aim for affiliate or founding partner</div>
+    <div class="creator-grid">
+
+      <div class="creator-card priority">
+        <div class="creator-name">Shawn Baker MD <span class="badge badge-fire">Direct fit</span></div>
+        <div class="creator-handle">@shawnbaker1967 · MeatRx</div>
+        <div class="creator-reach"><span>500K IG</span><span>300K YouTube</span></div>
+        <div class="creator-pitch">The OG carnivore diet authority. Built a massive following on all-meat, high performance eating. Vocal about organ meats. His audience is exactly Modern Savage's buyer — convinced, committed, looking for the best product.</div>
+        <div class="creator-offer">Affiliate + founding partner code. He has his own MeatRx platform — potential to feature Modern Savage there too.</div>
+      </div>
+
+      <div class="creator-card priority">
+        <div class="creator-name">Ken Berry MD <span class="badge badge-fire">Direct fit</span></div>
+        <div class="creator-handle">@kendberrymd</div>
+        <div class="creator-reach"><span>2M YouTube</span><span>1M IG</span></div>
+        <div class="creator-pitch">Carnivore and ancestral nutrition advocate. Huge YouTube reach with a trusting audience that buys what he recommends. One of the most reliable conversion channels in the carnivore space.</div>
+        <div class="creator-offer">Paid integration + affiliate. YouTube integration in a nutrition-focused episode is the primary ask.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Anthony Chaffee MD</div>
+        <div class="creator-handle">@anthonychaffeemd</div>
+        <div class="creator-reach"><span>800K YouTube</span><span>500K IG</span></div>
+        <div class="creator-pitch">Plant-free carnivore doctor. Highly evangelical audience. Very active recommender of organ supplements. Fast-growing channel with strong engagement.</div>
+        <div class="creator-offer">Affiliate + product. High conversion likelihood given audience buy-in to the philosophy.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Brian Sanders</div>
+        <div class="creator-handle">@foodlies · Sacred Cow</div>
+        <div class="creator-reach"><span>300K YouTube</span><span>200K IG</span></div>
+        <div class="creator-pitch">Co-author of Sacred Cow (with Diana Rodgers), documentary filmmaker, ancestral nutrition advocate. Respected intellectual voice in the regenerative food movement. Less commercial than Saladino — more credible for that reason.</div>
+        <div class="creator-offer">Founding partner / product. Align with the regenerative sourcing angle — he cares deeply about provenance.</div>
+      </div>
+
+      <div class="creator-card priority">
+        <div class="creator-name">Jack Carr <span class="badge badge-bear">Bear audience crossover</span></div>
+        <div class="creator-handle">@jackcarrusa</div>
+        <div class="creator-reach"><span>600K IG</span><span>500K+ readers</span></div>
+        <div class="creator-pitch">Navy SEAL, bestselling thriller novelist, massive outdoors/tactical/performance following. The exact modern masculine audience Modern Savage targets. Not a nutrition creator — which makes an endorsement feel more authentic, not sponsored.</div>
+        <div class="creator-offer">Product + personal note from Bear. If he tries it and likes it, his audience will too. This is Bear's natural world.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Cameron Hanes</div>
+        <div class="creator-handle">@cameronhanes</div>
+        <div class="creator-reach"><span>1.2M IG</span><span>800K YouTube</span></div>
+        <div class="creator-pitch">Elite bowhunter, ultramarathoner, performance obsessive. Hugely respected in the hunting/outdoor performance space. Rogan's training partner. Real crossover between ancestral food philosophy and elite performance.</div>
+        <div class="creator-offer">Product + affiliate. Performance framing — recovery, energy, durability in the field.</div>
+      </div>
+
+    </div>
+
+    <div class="tier-label tier-mid">Mid-Tier · 100K–500K · High conversion, authentic niche audiences — best ROI tier</div>
+    <div class="creator-grid">
+
+      <div class="creator-card priority">
+        <div class="creator-name">Steak and Butter Gal <span class="badge badge-fire">High conversion</span></div>
+        <div class="creator-handle">@steakandbuttergal</div>
+        <div class="creator-reach"><span>350K TikTok</span><span>200K IG</span></div>
+        <div class="creator-pitch">One of the most trusted carnivore voices on TikTok. Female audience with strong crossover to male-skewing health. Product reviews convert hard. Known for being honest and selective.</div>
+        <div class="creator-offer">Free product first. Affiliate if she likes it. Don't pressure — let her come to it.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Meat Dad</div>
+        <div class="creator-handle">@meatdad</div>
+        <div class="creator-reach"><span>400K TikTok</span><span>150K IG</span></div>
+        <div class="creator-pitch">High-engagement carnivore/ancestral content. Funny, accessible, growing fast on TikTok. Strong family angle which could be interesting for the Kids SKU down the line.</div>
+        <div class="creator-offer">Affiliate + paid TikTok integration. Good value-per-dollar on mid-tier paid.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Brad Kearns</div>
+        <div class="creator-handle">@bradkearns1</div>
+        <div class="creator-reach"><span>200K YouTube</span><span>100K IG</span></div>
+        <div class="creator-pitch">Primal Blueprint co-author with Mark Sisson. Deep credibility in the ancestral health movement. Trusted by the audience that has been doing this longest — highest-converting, most committed buyers.</div>
+        <div class="creator-offer">Founding partner + affiliate. The primal/paleo OG community is small but extremely loyal and willing to spend.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Ben Greenfield</div>
+        <div class="creator-handle">@bengreenfieldfitness</div>
+        <div class="creator-reach"><span>500K YouTube</span><span>300K IG</span></div>
+        <div class="creator-pitch">Biohacker, performance nutrition expert, one of the most prolific supplement reviewers in the space. His audience buys supplements aggressively and trusts his reviews.</div>
+        <div class="creator-offer">Paid podcast integration + affiliate. He does a lot of paid but his audience still converts well. Be upfront with the deal structure.</div>
+      </div>
+
+      <div class="creator-card priority">
+        <div class="creator-name">Carnivore Ray <span class="badge badge-fire">Fast growing</span></div>
+        <div class="creator-handle">@carnivoreray</div>
+        <div class="creator-reach"><span>300K TikTok</span><span>120K IG</span></div>
+        <div class="creator-pitch">Fast-growing carnivore content creator with high engagement. Part of the new wave of TikTok-native ancestral health voices. Authentic, not overly commercial — which makes his recommendations land.</div>
+        <div class="creator-offer">Product + affiliate. Early access positioning works well for this tier.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">Kaitlin Orr</div>
+        <div class="creator-handle">@kaitlinorr</div>
+        <div class="creator-reach"><span>200K IG</span><span>150K TikTok</span></div>
+        <div class="creator-pitch">Female carnivore voice, strong community engagement. Reaches a demographic (women, 25–40) that is an important growth market for organ supplements beyond the core male audience.</div>
+        <div class="creator-offer">Product. If she tries it and it fits her content, the audience follows.</div>
+      </div>
+
+    </div>
+
+    <div class="tier-label tier-micro">Micro · 10K–100K · Bear audience crossover — survival, military, hunting, outdoors</div>
+    <div class="creator-grid">
+
+      <div class="creator-card priority">
+        <div class="creator-name">Running Wild adjacent creators <span class="badge badge-bear">Bear crossover</span></div>
+        <div class="creator-handle">Various — survival, military, adventure</div>
+        <div class="creator-reach"><span>10K–100K each</span></div>
+        <div class="creator-pitch">The highest-quality micro-creator tier for Modern Savage is the survival and military adjacent space — ex-military fitness influencers, wilderness guides, hunting YouTubers, adventure athletes. These are Bear's natural community. They're not carnivore influencers per se but they live the lifestyle.</div>
+        <div class="creator-offer">Product seeding + affiliate. Focus on 10–15 creators in this space who would be genuinely excited to be part of something Bear is building. Personal outreach from Jesse or Bear directly converts here.</div>
+      </div>
+
+      <div class="creator-card">
+        <div class="creator-name">UK-based health creators <span class="badge badge-uk">UK launch priority</span></div>
+        <div class="creator-handle">Davinia Taylor, Kat Harvey, UK carnivore community</div>
+        <div class="creator-reach"><span>50K–500K each (UK)</span></div>
+        <div class="creator-pitch">If Modern Savage launches in the UK (or ships to UK), a small number of UK-based ancestral health and wellness creators matter. Davinia Taylor (carnivore advocate, 200K IG) is the obvious UK name. Bear's British identity is a natural in.</div>
+        <div class="creator-offer">Product + affiliate. UK creators are less saturated with supplement sponsorship so conversion rates are higher.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Outreach Templates</h2>
+
+    <div class="template">
+      <div class="template-label">Template A — Personal send from Bear (top tier)</div>
+      Subject: Something I've been building<br><br>
+      Hey [name],<br><br>
+      I've been working on something for a while that I wanted you to be one of the first people to try. It's called Modern Savage — a grass-fed organ blend I built because I couldn't find a supplement that reflected the way I actually think about nutrition.<br><br>
+      No synthetics. No fillers. Grass-fed and finished. The way our ancestors ate.<br><br>
+      I'm sending you some to try. No ask, no strings — I just think you'll get what it's about.<br><br>
+      Bear
+    </div>
+
+    <div class="template">
+      <div class="template-label">Template B — Jesse outreach (mid-tier, founding partner angle)</div>
+      Subject: Modern Savage — founding partner<br><br>
+      Hey [name],<br><br>
+      I'm Jesse — I work closely with Bear Grylls and I'm building Modern Savage with him. It's a grass-fed organ supplement, launching this summer. Ancestral nutrition in a form that actually fits how we live.<br><br>
+      We're putting together a small founding partner group — people who genuinely believe in this way of eating and want to be part of it from the beginning. If you're interested, I'd love to send you product and talk about what that looks like.<br><br>
+      Jesse<br><br>
+      <em>[Note: Keep it short. If they reply, that's when you explain the affiliate structure and founding partner perks.]</em>
+    </div>
+
+    <div class="template">
+      <div class="template-label">Template C — DM version (TikTok / Instagram, 3 sentences max)</div>
+      Hey [name] — building a grass-fed organ supplement with Bear Grylls. Launching this summer. Would love to send you some before anyone else has it — want in?
+    </div>
+
+    <div class="template">
+      <div class="template-label">Template D — Follow-up after product sent (no response after 2 weeks)</div>
+      Hey [name] — just checking the product arrived OK. No pressure at all — just wanted to make sure it got to you. Would love to hear what you think whenever you've had a chance to try it.
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>Execution Priority Order</h2>
+    <div class="body-text">
+      <p><strong>Week 1 of May:</strong> Bear personally sends product + note to Joe Rogan, Paul Saladino, Andrew Huberman, Cameron Hanes, Jack Carr. Jesse sends to Shawn Baker, Ken Berry, Anthony Chaffee, Brad Kearns.</p>
+      <p><strong>Week 2–3 of May:</strong> Mid-tier product send — Steak and Butter Gal, Meat Dad, Carnivore Ray, Ben Greenfield, Kaitlin Orr. DM outreach to 10–15 micro-tier survival/military creators.</p>
+      <p><strong>June:</strong> Follow up on responses. Lock in affiliate codes and founding partner agreements. Begin softly coordinating launch week content timing.</p>
+      <p><strong>July launch week:</strong> Coordinated drop. Product in hand, affiliate codes live, Bear content drops, creator posts land in the same 48–72 hour window.</p>
+    </div>
+
+    <h3>What NOT To Do</h3>
+    <div class="body-text">
+      <p>Don't blast everyone at once with a templated PR email. Don't lead with payment — it signals low confidence in the product. Don't ask for posts before they've tried it. Don't over-explain the formulation in the first message. The first contact is product delivery, not a brief. Keep it human.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>The Competitive Edge</h2>
+    <div class="body-text">
+      <p>Lineage Provisions ($80/bag, Paul Saladino's brand) is the benchmark. They built primarily on Paul's own audience and a small creator network. Modern Savage has something Lineage doesn't: a globally recognised face with 8M+ social followers, a Running Wild platform on Fox, and a story that is genuinely more extreme than "I'm a doctor who eats meat."</p>
+      <p>Bear Grylls eating organ meat in the wilderness is the authentic origin story. That's not a marketing angle — it's actually true. No other organ supplement brand has that. The creator seeding strategy should keep coming back to that: Modern Savage isn't manufactured credibility. It's what Bear actually eats.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
