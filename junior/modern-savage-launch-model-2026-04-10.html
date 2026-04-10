@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Launch Financial Model</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+.container { max-width: 960px; margin: 0 auto; padding: 40px 30px; }
+.header { border-bottom: 3px solid #c8a96e; padding-bottom: 30px; margin-bottom: 40px; }
+.brand { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c8a96e; margin-bottom: 8px; }
+h1 { font-size: 32px; font-weight: bold; color: #ffffff; margin-bottom: 6px; }
+.subtitle { font-size: 14px; color: #888; }
+h2 { font-size: 18px; font-weight: bold; color: #c8a96e; margin: 40px 0 16px 0; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #222; padding-bottom: 8px; }
+h3 { font-size: 14px; font-weight: bold; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+
+/* Data cards */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+.card { background: #141414; border: 1px solid #222; padding: 20px; }
+.card-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.card-value { font-size: 26px; font-weight: bold; color: #ffffff; }
+.card-value.gold { color: #c8a96e; }
+.card-value.green { color: #4caf7d; }
+.card-value.red { color: #e05555; }
+.card-sub { font-size: 12px; color: #555; margin-top: 4px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }
+th { background: #1a1a1a; color: #c8a96e; text-align: left; padding: 10px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #c8a96e; }
+td { padding: 10px 14px; border-bottom: 1px solid #1e1e1e; color: #ccc; }
+tr:hover td { background: #161616; }
+td.num { text-align: right; font-family: monospace; }
+td.green { color: #4caf7d; font-weight: bold; }
+td.gold { color: #c8a96e; font-weight: bold; }
+td.red { color: #e05555; }
+td.white { color: #fff; font-weight: bold; }
+td.label { color: #888; font-size: 12px; }
+tr.total td { border-top: 2px solid #333; color: #fff; font-weight: bold; background: #0f0f0f; }
+tr.section-header td { background: #1a1a1a; color: #c8a96e; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 8px 14px; }
+
+/* Scenario blocks */
+.scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.scenario { background: #141414; border: 1px solid #222; padding: 20px; }
+.scenario.base { border-color: #c8a96e; }
+.scenario-name { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 4px; }
+.scenario-name.base { color: #c8a96e; }
+.scenario-headline { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 12px; }
+.scenario-line { display: flex; justify-content: space-between; font-size: 13px; color: #888; margin-bottom: 6px; border-bottom: 1px solid #1e1e1e; padding-bottom: 6px; }
+.scenario-line span:last-child { color: #ccc; }
+.scenario-line.profit span:last-child { color: #4caf7d; font-weight: bold; }
+
+/* Callout */
+.callout { background: #141414; border-left: 4px solid #c8a96e; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #bbb; line-height: 1.7; }
+.callout strong { color: #fff; }
+
+/* Comp table */
+.comp-winner { background: #1a1f17; }
+
+.footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #1e1e1e; font-size: 11px; color: #444; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="brand">Bear Grylls Ventures</div>
+    <h1>Modern Savage — Launch Financial Model</h1>
+    <div class="subtitle">Based on ACF Pharma / Lightning Nutra pricing received 9 April 2026 &nbsp;|&nbsp; Model date: 10 April 2026</div>
+  </div>
+
+  <!-- Key snapshot -->
+  <h2>Unit Economics Snapshot — Adult (with Creatine) at Launch</h2>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Retail Price</div>
+      <div class="card-value gold">$79.00</div>
+      <div class="card-sub">28 servings / bag</div>
+    </div>
+    <div class="card">
+      <div class="card-label">COGS at 2,500 units</div>
+      <div class="card-value">$28.53</div>
+      <div class="card-sub">$27.03 formula + $1.50 bag</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Gross Margin</div>
+      <div class="card-value green">63.9%</div>
+      <div class="card-sub">$50.47 per unit</div>
+    </div>
+  </div>
+
+  <!-- Full unit economics by SKU -->
+  <h2>Unit Economics — All SKUs</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>SKU</th>
+        <th>Retail Price</th>
+        <th>Formula (2.5k)</th>
+        <th>Bag</th>
+        <th>Total COGS</th>
+        <th>Gross Profit</th>
+        <th>Gross Margin</th>
+        <th>COGS at 10k</th>
+        <th>Margin at 10k</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="white">Adult + Creatine</td>
+        <td class="num gold">$79.00</td>
+        <td class="num">$27.03</td>
+        <td class="num">$1.50</td>
+        <td class="num">$28.53</td>
+        <td class="num green">$50.47</td>
+        <td class="num green">63.9%</td>
+        <td class="num">$27.50</td>
+        <td class="num green">65.2%</td>
+      </tr>
+      <tr>
+        <td class="white">Adult (no Creatine)</td>
+        <td class="num gold">$79.00</td>
+        <td class="num">$24.45</td>
+        <td class="num">$1.50</td>
+        <td class="num">$25.95</td>
+        <td class="num green">$53.05</td>
+        <td class="num green">67.2%</td>
+        <td class="num">$23.50</td>
+        <td class="num green">70.3%</td>
+      </tr>
+      <tr>
+        <td class="white">Kids</td>
+        <td class="num gold">$69.00</td>
+        <td class="num">$22.28</td>
+        <td class="num">$1.50</td>
+        <td class="num">$23.78</td>
+        <td class="num green">$45.22</td>
+        <td class="num green">65.5%</td>
+        <td class="num">$21.50</td>
+        <td class="num green">68.8%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Note on Kids pricing:</strong> Drew's pricing assumes the same retail as Adult. Modelled at $69 here to give a slight discount vs. Adult ($79) — positions it as accessible for families and differentiated on shelf. Adjust as needed. Kids formula has lower organ blend and 250mg colostrum (no creatine), so lower COGS supports a lower price point without hurting margins.
+  </div>
+
+  <!-- DTC unit economics waterfall -->
+  <h2>DTC Profit Waterfall — Adult + Creatine (Launch Volume: 2,500 units)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th>Per Unit</th>
+        <th>% of Revenue</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="white">Revenue (retail)</td>
+        <td class="num gold">$79.00</td>
+        <td class="num">100%</td>
+        <td class="label">Direct-to-consumer, no retail margin haircut</td>
+      </tr>
+      <tr class="section-header"><td colspan="4">Cost of Goods</td></tr>
+      <tr>
+        <td>Formula + manufacturing</td>
+        <td class="num red">-$27.03</td>
+        <td class="num">34.2%</td>
+        <td class="label">ACF Pharma 2,500 unit price</td>
+      </tr>
+      <tr>
+        <td>Bag / packaging</td>
+        <td class="num red">-$1.50</td>
+        <td class="num">1.9%</td>
+        <td class="label">Mid estimate; can go lower at volume</td>
+      </tr>
+      <tr class="total">
+        <td>Gross Profit</td>
+        <td class="num green">$50.47</td>
+        <td class="num green">63.9%</td>
+        <td></td>
+      </tr>
+      <tr class="section-header"><td colspan="4">Operating Costs (DTC)</td></tr>
+      <tr>
+        <td>Fulfilment + shipping (US)</td>
+        <td class="num red">-$7.00</td>
+        <td class="num">8.9%</td>
+        <td class="label">Pick/pack + last mile; $5 at scale</td>
+      </tr>
+      <tr>
+        <td>Payment processing</td>
+        <td class="num red">-$2.60</td>
+        <td class="num">3.3%</td>
+        <td class="label">Stripe ~3.3% of $79</td>
+      </tr>
+      <tr>
+        <td>Platform / Shopify</td>
+        <td class="num red">-$0.80</td>
+        <td class="num">1.0%</td>
+        <td class="label">~1% blended at launch volume</td>
+      </tr>
+      <tr>
+        <td>Returns / refunds (3%)</td>
+        <td class="num red">-$2.37</td>
+        <td class="num">3.0%</td>
+        <td class="label">Industry standard for supplements</td>
+      </tr>
+      <tr class="total">
+        <td>Contribution Margin (pre-marketing)</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">47.7%</td>
+        <td></td>
+      </tr>
+      <tr class="section-header"><td colspan="4">Customer Acquisition</td></tr>
+      <tr>
+        <td>Paid acquisition (CAC target)</td>
+        <td class="num red">-$35.00</td>
+        <td class="num">44.3%</td>
+        <td class="label">$25 aggressive / $35 base / $50 conservative</td>
+      </tr>
+      <tr class="total">
+        <td>Net Profit Per Order (first purchase)</td>
+        <td class="num gold">$2.70</td>
+        <td class="num gold">3.4%</td>
+        <td></td>
+      </tr>
+      <tr class="total">
+        <td>Net Profit (subscriber month 2+, no CAC)</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">47.7%</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>The subscription math is everything.</strong> First-order profit is thin at a $35 CAC — but month 2 onwards with no acquisition cost, every subscriber delivers $37.70 (47.7% margin). A subscriber retained for 3 months fully covers CAC by month 2. The goal at launch is to acquire subscribers at break-even and let LTV compound.
+  </div>
+
+  <!-- LTV model -->
+  <h2>Lifetime Value Model — Adult Subscriber</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Revenue</th>
+        <th>COGS + Ops</th>
+        <th>CAC (month 1 only)</th>
+        <th>Net Profit</th>
+        <th>Cumulative Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Month 1 (acquisition)</td>
+        <td class="num">$79.00</td>
+        <td class="num">$41.30</td>
+        <td class="num red">-$35.00</td>
+        <td class="num gold">$2.70</td>
+        <td class="num gold">$2.70</td>
+      </tr>
+      <tr>
+        <td>Month 2</td>
+        <td class="num">$79.00</td>
+        <td class="num">$41.30</td>
+        <td class="num">—</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">$40.40</td>
+      </tr>
+      <tr>
+        <td>Month 3</td>
+        <td class="num">$79.00</td>
+        <td class="num">$41.30</td>
+        <td class="num">—</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">$78.10</td>
+      </tr>
+      <tr>
+        <td>Month 6</td>
+        <td class="num">$79.00</td>
+        <td class="num">$41.30</td>
+        <td class="num">—</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">$191.20</td>
+      </tr>
+      <tr>
+        <td>Month 12</td>
+        <td class="num">$79.00</td>
+        <td class="num">$41.30</td>
+        <td class="num">—</td>
+        <td class="num green">$37.70</td>
+        <td class="num green">$417.40</td>
+      </tr>
+      <tr class="total">
+        <td>12-Month LTV (assuming 70% retention)</td>
+        <td class="num">$632</td>
+        <td class="num"></td>
+        <td class="num"></td>
+        <td class="num green">$292</td>
+        <td class="num green">8.3x CAC</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Launch scenarios -->
+  <h2>Year 1 Launch Scenarios</h2>
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="scenario-name">Conservative</div>
+      <div class="scenario-headline">500 subscribers</div>
+      <div class="scenario-line"><span>Launch units</span><span>2,500 (one run)</span></div>
+      <div class="scenario-line"><span>Avg active subs</span><span>~300</span></div>
+      <div class="scenario-line"><span>Year 1 revenue</span><span>$284K</span></div>
+      <div class="scenario-line"><span>Gross profit</span><span>$181K</span></div>
+      <div class="scenario-line profit"><span>Net profit (est.)</span><span>$47K</span></div>
+      <div class="scenario-line"><span>CAC assumption</span><span>$50</span></div>
+    </div>
+    <div class="scenario base">
+      <div class="scenario-name base">Base Case ★</div>
+      <div class="scenario-headline">1,500 subscribers</div>
+      <div class="scenario-line"><span>Launch units</span><span>2,500 → 5,000</span></div>
+      <div class="scenario-line"><span>Avg active subs</span><span>~900</span></div>
+      <div class="scenario-line"><span>Year 1 revenue</span><span>$853K</span></div>
+      <div class="scenario-line"><span>Gross profit</span><span>$544K</span></div>
+      <div class="scenario-line profit"><span>Net profit (est.)</span><span>$194K</span></div>
+      <div class="scenario-line"><span>CAC assumption</span><span>$35</span></div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-name">Aggressive</div>
+      <div class="scenario-headline">4,000 subscribers</div>
+      <div class="scenario-line"><span>Launch units</span><span>2,500 → 10,000</span></div>
+      <div class="scenario-line"><span>Avg active subs</span><span>~2,500</span></div>
+      <div class="scenario-line"><span>Year 1 revenue</span><span>$2.37M</span></div>
+      <div class="scenario-line"><span>Gross profit</span><span>$1.51M</span></div>
+      <div class="scenario-line profit"><span>Net profit (est.)</span><span>$649K</span></div>
+      <div class="scenario-line"><span>CAC assumption</span><span>$25</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Base case is the right framing for launch.</strong> 1,500 subscribers in Year 1 is conservative for a brand with Bear Grylls's audience reach (~100M impressions/month). The creator seeding strategy (wave 1: April-May) should drive organic trial before any paid spend kicks in, keeping early CAC low and improving unit economics across the board.
+  </div>
+
+  <!-- Competitive pricing -->
+  <h2>Competitive Pricing Landscape</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Servings</th>
+        <th>Price / Serving</th>
+        <th>Key Ingredients</th>
+        <th>Audience</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="comp-winner">
+        <td class="white">Modern Savage (adult)</td>
+        <td class="num gold">$79.00</td>
+        <td class="num">28</td>
+        <td class="num gold">$2.82</td>
+        <td>Organ blend, creatine (CreaVitalis), whole food vitamins, testicles</td>
+        <td>Primal / survival / fitness men 25-45</td>
+      </tr>
+      <tr>
+        <td>Lineage Provisions (Saladino)</td>
+        <td class="num">$80.00</td>
+        <td class="num">30</td>
+        <td class="num">$2.67</td>
+        <td>Organ blend, no creatine</td>
+        <td>Carnivore community</td>
+      </tr>
+      <tr>
+        <td>Ancestral Supplements</td>
+        <td class="num">$48–68</td>
+        <td class="num">30</td>
+        <td class="num">$1.60–$2.27</td>
+        <td>Single-organ capsules</td>
+        <td>Ancestral health niche</td>
+      </tr>
+      <tr>
+        <td>Heart &amp; Soil (Saladino)</td>
+        <td class="num">$55–75</td>
+        <td class="num">30</td>
+        <td class="num">$1.83–$2.50</td>
+        <td>Various organ complexes</td>
+        <td>Carnivore / keto</td>
+      </tr>
+      <tr>
+        <td>DIRTEA / premium adaptogens</td>
+        <td class="num">$60–80</td>
+        <td class="num">30</td>
+        <td class="num">$2.00–$2.67</td>
+        <td>Mushrooms, adaptogens</td>
+        <td>Wellness / biohacking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Pricing verdict: $79 is defensible.</strong> At $2.82/serving Modern Savage is fractionally above Lineage Provisions, which is the closest true competitor. The differentiation: Bear Grylls brand trust, CreaVitalis creatine (premium German source, EU-compliant), and whole-food vitamin sourcing — not just an organ capsule. The survival/primal brand story can command the premium. Going to $74.99 would sharpen conversion without materially hurting margin (~1% reduction at 2,500 units).
+  </div>
+
+  <!-- Cash requirements -->
+  <h2>Launch Cash Requirements</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Conservative (2,500 units adult only)</th>
+        <th>Base (2,500 adult + 1,000 kids)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Manufacturing (formula)</td>
+        <td class="num">$67,575</td>
+        <td class="num">$89,855</td>
+        <td class="label">Drew's quoted prices</td>
+      </tr>
+      <tr>
+        <td>Packaging (bags)</td>
+        <td class="num">$3,750</td>
+        <td class="num">$5,250</td>
+        <td class="label">$1.50/unit mid estimate</td>
+      </tr>
+      <tr>
+        <td>Branding / design</td>
+        <td class="num">$5,000</td>
+        <td class="num">$5,000</td>
+        <td class="label">Label design, brand identity</td>
+      </tr>
+      <tr>
+        <td>Shopify + tech setup</td>
+        <td class="num">$2,000</td>
+        <td class="num">$2,000</td>
+        <td class="label">One-time build</td>
+      </tr>
+      <tr>
+        <td>Creator seeding (wave 1)</td>
+        <td class="num">$3,000</td>
+        <td class="num">$5,000</td>
+        <td class="label">Product gifting to 40+ creators</td>
+      </tr>
+      <tr>
+        <td>Initial paid ads budget</td>
+        <td class="num">$10,000</td>
+        <td class="num">$20,000</td>
+        <td class="label">Test and learn in months 1-2</td>
+      </tr>
+      <tr>
+        <td>3PL setup + initial freight</td>
+        <td class="num">$3,500</td>
+        <td class="num">$3,500</td>
+        <td class="label">US warehouse, fulfilment setup</td>
+      </tr>
+      <tr class="total">
+        <td>Total Cash Required</td>
+        <td class="num white">~$94,825</td>
+        <td class="num white">~$130,605</td>
+        <td class="label">Before first revenue</td>
+      </tr>
+      <tr>
+        <td>Revenue to break even</td>
+        <td class="num green">~$149K</td>
+        <td class="num green">~$205K</td>
+        <td class="label">~1,900 / 2,600 units sold</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Recommended next steps -->
+  <h2>Decision Points for Jesse</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Decision</th>
+        <th>Recommendation</th>
+        <th>Timing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="gold">1</td>
+        <td class="white">Confirm pricing with Drew</td>
+        <td>Green-light adult + creatine at $27.03. Get official quote. Kids can follow wave 2.</td>
+        <td>This week</td>
+      </tr>
+      <tr>
+        <td class="gold">2</td>
+        <td class="white">Confirm retail price</td>
+        <td>$79 adult, $69 kids. Matches Lineage Provisions positioning without undercutting.</td>
+        <td>This week</td>
+      </tr>
+      <tr>
+        <td class="gold">3</td>
+        <td class="white">Launch order size</td>
+        <td>2,500 units adult for initial run. Low risk, proves demand before scaling to 5k.</td>
+        <td>Once quote confirmed</td>
+      </tr>
+      <tr>
+        <td class="gold">4</td>
+        <td class="white">Brand / packaging brief</td>
+        <td>Commission label design. Need to decide: Modern Savage vs. Survivor Blend name.</td>
+        <td>April</td>
+      </tr>
+      <tr>
+        <td class="gold">5</td>
+        <td class="white">Creator seeding list</td>
+        <td>Creator seeding playbook already built (April 9). Activate wave 1 on receipt of product.</td>
+        <td>May / on receipt</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Bottom line:</strong> The numbers work. At $79 retail and 2,500 units, you're looking at 63.9% gross margin and a clear path to profitability by subscriber month 2. The brand is 100% Grylls-owned, the formula is finalized, and the creator seeding strategy is ready. The only missing piece is a green-light to Drew for the official quote and a packaging brief. Total cash to launch: approximately $95K-$130K depending on whether you launch adult-only or adult + kids simultaneously.
+  </div>
+
+  <div class="footer">
+    Modern Savage Launch Financial Model — Bear Grylls Ventures — Built by Junior — 10 April 2026
+  </div>
+
+</div>
+</body>
+</html>
