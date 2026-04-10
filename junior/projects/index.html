@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jesse Grylls — Dashboard</title>
+<!-- LAST_REFRESHED: 10 Apr 2026 18:33 BST -->
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -259,26 +260,41 @@
   .label-past { background: var(--cream-deep); color: var(--ink-light); }
   .label-coming { background: var(--amber-bg); color: var(--amber); }
 
-  /* DECISIONS SIDEBAR CARD */
+  /* DECISIONS INTERACTIVE CARD */
   .decisions-card {
     background: var(--card); border: 1px solid var(--card-border);
     border-radius: 12px; overflow: hidden;
     box-shadow: var(--shadow); margin-bottom: 10px;
   }
   .decisions-card-head {
-    padding: 10px 16px 8px;
+    padding: 10px 16px 9px;
     font-size: 10px; font-weight: 800; text-transform: uppercase;
     letter-spacing: .8px; color: var(--terracotta);
     border-bottom: 1px solid #E8D0C4;
     background: var(--terracotta-bg);
-    display: flex; align-items: center; gap: 6px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .decision-item {
-    padding: 10px 16px; border-bottom: 1px solid var(--card-border);
-    display: flex; gap: 10px; align-items: flex-start;
+  .decisions-card-head-left { display: flex; align-items: center; gap: 6px; }
+  .decisions-count {
+    font-size: 11px; font-weight: 700;
+    background: var(--terracotta); color: #fff;
+    border-radius: 10px; padding: 1px 7px;
   }
-  .decision-item:last-child { border-bottom: none; }
-  .decision-urgency {
+  /* Individual decision item */
+  .di {
+    border-bottom: 1px solid var(--card-border);
+    overflow: hidden;
+    transition: background 0.15s;
+  }
+  .di:last-child { border-bottom: none; }
+  .di.resolved { opacity: 0.4; }
+  .di-header {
+    padding: 10px 16px; display: flex; gap: 10px;
+    align-items: flex-start; cursor: pointer;
+    user-select: none;
+  }
+  .di-header:hover { background: var(--cream); }
+  .di-urgency {
     font-size: 9px; font-weight: 800; text-transform: uppercase;
     padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 2px;
     letter-spacing: 0.5px;
@@ -286,8 +302,53 @@
   .urgency-now   { background: var(--terracotta); color: #fff; }
   .urgency-week  { background: var(--amber-bg); color: var(--amber); }
   .urgency-ready { background: var(--cream-deep); color: var(--ink-light); }
-  .decision-text { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.4; }
-  .decision-sub  { font-size: 11px; color: var(--ink-mid); margin-top: 2px; }
+  .di-body { flex: 1; }
+  .di-title { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .di-sub   { font-size: 11px; color: var(--ink-mid); margin-top: 2px; }
+  .di-chevron {
+    font-size: 13px; color: var(--ink-light); flex-shrink: 0;
+    margin-top: 2px; transition: transform 0.2s;
+  }
+  .di.open .di-chevron { transform: rotate(90deg); }
+  /* Expanded panel */
+  .di-expanded {
+    display: none; padding: 0 16px 14px;
+    background: var(--cream);
+    border-top: 1px solid var(--card-border);
+  }
+  .di.open .di-expanded { display: block; }
+  .di-context {
+    font-size: 12px; color: var(--ink-mid); line-height: 1.6;
+    margin-bottom: 12px; padding-top: 10px;
+  }
+  .di-options { display: flex; flex-direction: column; gap: 7px; }
+  .di-option {
+    display: block; width: 100%;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 8px; padding: 9px 14px;
+    font-size: 12px; font-weight: 600; color: var(--ink);
+    cursor: pointer; text-align: left; text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+    line-height: 1.4;
+  }
+  .di-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
+  .di-option-letter {
+    display: inline-block; width: 18px; height: 18px;
+    background: var(--cream-deep); border-radius: 4px;
+    text-align: center; line-height: 18px;
+    font-size: 10px; font-weight: 800; margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .di-resolve {
+    margin-top: 10px; display: block; width: 100%;
+    background: none; border: 1px dashed var(--card-border);
+    border-radius: 8px; padding: 7px 14px;
+    font-size: 11px; font-weight: 600; color: var(--ink-light);
+    cursor: pointer; text-align: center;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .di-resolve:hover { border-color: var(--sage); color: var(--sage); }
+  .di.resolved .di-title { text-decoration: line-through; }
 
   @media (max-width: 820px) {
     .main { grid-template-columns: 1fr; padding: 20px 16px 60px; }
@@ -593,31 +654,33 @@
     <!-- TODAY'S MEETINGS -->
     <div class="section-label">Meetings</div>
 
+
     <div class="ref-card">
-      <div class="ref-head" style="color: var(--terracotta);">Today — 10 April</div>
-      <div class="ref-list">
-        <a href="#" class="ref-item">
-          <span class="ref-item-label label-now">4pm BST</span>
-          Jumper — The Shed Hotel
-          <span class="ref-item-meta">30 min</span>
-        </a>
-      </div>
+      <div class="ref-head" style="color: var(--ink-light);">Today — 10 April</div>
+      <div class="ref-list"><div class="ref-item" style="color:var(--ink-light);font-style:italic;font-weight:400;">No meetings today</div></div>
     </div>
 
-    <details style="background:var(--card);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;margin-bottom:10px;box-shadow:var(--shadow);">
-      <summary style="padding:10px 16px;font-size:11px;font-weight:700;color:var(--ink-light);cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;user-select:none;background:var(--cream-deep);">
-        Past meeting briefs
-      </summary>
-      <div class="ref-list" style="padding:3px 0 6px;">
-        <a href="../2026-04-09-fat-cow-brief.html" class="ref-item">BGV x Fat Cow — Ryan Porter<span class="ref-item-meta">9 Apr</span></a>
-        <a href="../2026-04-09-cj-ai-training-brief.html" class="ref-item">CJ AI Training — Felix + CJ<span class="ref-item-meta">9 Apr</span></a>
-        <a href="../2026-04-09-wildernests-weekly-brief.html" class="ref-item">Wildernests Weekly<span class="ref-item-meta">9 Apr</span></a>
-        <a href="../2026-04-08-moth-brief.html" class="ref-item">MOTH x Jesse — Rob Wallis<span class="ref-item-meta">8 Apr</span></a>
-        <a href="../brief-jim-2026-03-24.html" class="ref-item">Brief — Jim<span class="ref-item-meta">24 Mar</span></a>
-      </div>
-    </details>
 
-    <!-- REFERENCE -->
+    <div class="ref-card">
+      <div class="ref-head">Upcoming</div>
+      <div class="ref-list">
+        <a href="#" class="ref-item">
+          <span class="ref-item-label label-coming">Wed 15 Apr</span>
+          BGV catch up Zoom Meeting
+          <span class="ref-item-meta">2:00PM</span>
+        </a>
+        <a href="#" class="ref-item">
+          <span class="ref-item-label label-coming">Thu 16 Apr</span>
+          Bear Grylls Financial Model v1
+          <span class="ref-item-meta">4:00PM</span>
+        </a>
+        <a href="#" class="ref-item">
+          <span class="ref-item-label label-coming">Thu 16 Apr</span>
+          Weekly call: Jesse, Alex, Gunnar
+          <span class="ref-item-meta">6:00PM</span>
+        </a></div>
+    </div>
+
     <div class="section-label">Reference</div>
 
     <div class="ref-card">
