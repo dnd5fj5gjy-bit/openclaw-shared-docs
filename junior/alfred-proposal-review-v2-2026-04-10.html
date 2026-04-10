@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfred Proposal — Review v2</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #f5f5f5; color: #1a1a1a; line-height: 1.7; }
+.container { max-width: 880px; margin: 0 auto; padding: 50px 30px; }
+.header { border-bottom: 4px solid #000; padding-bottom: 30px; margin-bottom: 40px; }
+.label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+h1 { font-size: 30px; font-weight: bold; color: #000; margin-bottom: 6px; }
+.subtitle { font-size: 14px; color: #666; }
+h2 { font-size: 17px; font-weight: bold; color: #000; margin: 40px 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #000; text-transform: uppercase; letter-spacing: 0.5px; }
+h3 { font-size: 15px; font-weight: bold; color: #000; margin: 20px 0 8px 0; }
+p { margin-bottom: 14px; font-size: 15px; color: #333; }
+ul, ol { margin: 0 0 16px 20px; }
+li { margin-bottom: 8px; font-size: 15px; color: #333; }
+
+.verdict-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+.verdict-card { background: #fff; border: 2px solid #e0e0e0; padding: 16px; text-align: center; }
+.verdict-card.strong { border-color: #2d7a4f; }
+.verdict-card.medium { border-color: #e67e22; }
+.verdict-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
+.verdict-score { font-size: 28px; font-weight: bold; }
+.verdict-score.green { color: #2d7a4f; }
+.verdict-score.amber { color: #e67e22; }
+.verdict-name { font-size: 12px; color: #555; margin-top: 4px; }
+
+.fixed-list { background: #f0fdf4; border-left: 5px solid #2d7a4f; padding: 16px 20px; margin-bottom: 28px; }
+.fixed-list li { color: #1a5c35; }
+
+.issue { background: #fff; border-left: 5px solid #000; padding: 20px 24px; margin-bottom: 20px; }
+.issue.critical { border-color: #c0392b; }
+.issue.important { border-color: #e67e22; }
+.issue.polish { border-color: #2d7a4f; }
+.issue-badge { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; margin-bottom: 10px; font-weight: bold; }
+.issue-badge.critical { background: #c0392b; color: #fff; }
+.issue-badge.important { background: #e67e22; color: #fff; }
+.issue-badge.polish { background: #2d7a4f; color: #fff; }
+.issue h3 { margin-top: 0; }
+
+.prompt-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #c8a96e; margin-bottom: 8px; margin-top: 16px; }
+.prompt-block { background: #1a1a1a; color: #e0e0e0; padding: 20px 24px; margin: 8px 0 8px 0; font-size: 13px; line-height: 1.8; white-space: pre-wrap; font-family: monospace; border-left: 4px solid #c8a96e; }
+
+.callout { background: #fffbe6; border-left: 4px solid #f0c040; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
+.callout.red { background: #fff5f5; border-color: #c0392b; }
+.callout strong { color: #000; }
+hr { border: none; border-top: 1px solid #ddd; margin: 36px 0; }
+.footer { margin-top: 50px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="label">Internal Review v2 — Bear Witness</div>
+    <h1>Alfred Proposal — Round 2 Deep Dive</h1>
+    <div class="subtitle">bearwitness-x-alfred.netlify.app &nbsp;|&nbsp; Reviewed 10 April 2026</div>
+  </div>
+
+  <h2>What Changed — And It Shows</h2>
+  <p>Jesse implemented almost everything from round 1. The proposal is materially better. The narrative arc is now correct, the hero lands, "Why Bear Witness" works as a closer, and the track record section gives it real credibility. Overall score has jumped from a patchy 6/10 to a strong 8/10.</p>
+
+  <div class="verdict-grid">
+    <div class="verdict-card strong">
+      <div class="verdict-label">Narrative Flow</div>
+      <div class="verdict-score green">9/10</div>
+      <div class="verdict-name">Fixed — now excellent</div>
+    </div>
+    <div class="verdict-card strong">
+      <div class="verdict-label">Content Quality</div>
+      <div class="verdict-score green">8/10</div>
+      <div class="verdict-name">Two issues remain</div>
+    </div>
+    <div class="verdict-card strong">
+      <div class="verdict-label">Strategy Depth</div>
+      <div class="verdict-score green">9/10</div>
+      <div class="verdict-name">Best in class</div>
+    </div>
+    <div class="verdict-card strong">
+      <div class="verdict-label">Credibility</div>
+      <div class="verdict-score green">8/10</div>
+      <div class="verdict-name">Track record lands</div>
+    </div>
+  </div>
+
+  <div class="fixed-list">
+    <h3 style="color:#1a5c35; margin-bottom:10px;">Fixed from round 1:</h3>
+    <ul>
+      <li>Section order restructured — "Why Bear Witness" is now the closer. Works perfectly.</li>
+      <li>Hero headline: "The brand that told the truth about household bills." Strong. Keep exactly as is.</li>
+      <li>"Monzo-style" removed. Replaced with the earned moment framing — much better.</li>
+      <li>Bear Witness track record added with impressions stat. Good placement.</li>
+      <li>"Seek the thank-you" → "Useful first, always." Clear improvement.</li>
+      <li>Phase 2 target now justified with context sentence. Reads credibly.</li>
+      <li>CTA upgraded to "Schedule a Call" with specific next step.</li>
+      <li>Fields in Trust elevated throughout. Community Stewardship is now Strong Secondary.</li>
+      <li>SEO section now has a framing sentence explaining the strategy rationale.</li>
+      <li>Channel volume framing sentence added. Transforms the numbers from overwhelming to deliberate.</li>
+    </ul>
+  </div>
+
+  <hr>
+  <h2>Two Critical Issues Still in the Proposal</h2>
+
+  <div class="issue critical">
+    <span class="issue-badge critical">Critical #1 — Must Fix</span>
+    <h3>There is a person named "Alice" in the proposal who does not exist</h3>
+    <p>In the "Why Bear Witness" integration section, this sentence appears: <em>"Bear Witness works alongside Alice and the marketing team, not instead of them."</em></p>
+    <p>Alice is not Alfred's marketing director. This looks like a placeholder name that was never updated — possibly carried over from a different proposal or generated by Claude and not caught. If Tom reads this and asks "who is Alice?" the whole proposal loses credibility in a single sentence. This must be fixed before the proposal goes anywhere.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the "Why Bear Witness" section, under the Integration subsection, there is this sentence: "Bear Witness works alongside Alice and the marketing team, not instead of them."
+
+"Alice" is a placeholder name that should not be in this proposal. Replace the sentence with: "Bear Witness works alongside Alfred's marketing team, not instead of them." Remove the name entirely. Keep the rest of the paragraph exactly as is.</div>
+  </div>
+
+  <div class="issue critical">
+    <span class="issue-badge critical">Critical #2 — Must Fix</span>
+    <h3>"Costco for your home" is a brand comparison — exactly what we agreed to avoid</h3>
+    <p>In the "Real Numbers" content pillar, this line appears: <em>"Costco for your home: the framework people already understand and trust. Pay a membership fee, get wholesale prices."</em></p>
+    <p>This is a brand comparison — and specifically the one that was a concern from the start. Using Costco as the framework for explaining Alfred is exactly the shorthand Jesse said felt lazy and made founders feel unspecial. Alfred's membership model is its own thing. It doesn't need a retail analogy to explain it. The explanation immediately before it already makes the model clear — this sentence adds nothing and undermines Alfred's uniqueness.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the "Real Numbers" content pillar, remove this sentence entirely: "Costco for your home: the framework people already understand and trust. Pay a membership fee, get wholesale prices."
+
+The surrounding copy already explains the Alfred membership model clearly and doesn't need this analogy. Remove it and join the preceding and following content naturally. Do not replace it with any other brand comparison.</div>
+  </div>
+
+  <hr>
+  <h2>Important — Fix Before Sending</h2>
+
+  <div class="issue important">
+    <span class="issue-badge important">Important #3</span>
+    <h3>Verify the 250 million impressions figure</h3>
+    <p>The track record section states: <em>"Bear Grylls's social channels, managed entirely by Bear Witness, generate over 250 million monthly impressions across Instagram, TikTok, YouTube, and LinkedIn."</em></p>
+    <p>This is a specific claim Tom could check. Jesse — is 250 million accurate? The number I had in memory was 100 million. If it's been updated and is correct, leave it. If the correct number is lower, change it — an inflated stat that gets fact-checked is worse than a smaller true one. Just confirm before this goes to Tom.</p>
+    <p><em>(No Claude prompt needed — this is a quick check for Jesse to confirm.)</em></p>
+  </div>
+
+  <div class="issue important">
+    <span class="issue-badge important">Important #4</span>
+    <h3>"Referral programme for members" contradicts Alfred's brand voice</h3>
+    <p>Phase 5 lists: <em>"Referral programme for members."</em></p>
+    <p>But the brand voice section explicitly says: <em>"No gamification or referral code energy."</em> A referral programme is exactly that — even if it's positioned as a member benefit, Tom will notice the contradiction. Either remove it from Phase 5 or reframe it in a way that doesn't conflict: something like "word-of-mouth amplification through genuine member advocacy" makes the same point without the coded incentive connotation.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the Phase 5 (Public Release) section of the roadmap, remove "Referral programme for members" from the list of launch activities.
+
+This contradicts the brand voice section which explicitly rules out "gamification or referral code energy." Replace it with: "Member advocacy programme — tools that make it easy for members to share Alfred with their network, without incentive mechanics or referral codes."
+
+This preserves the word-of-mouth intention while staying true to Alfred's positioning.</div>
+  </div>
+
+  <div class="issue important">
+    <span class="issue-badge important">Important #5</span>
+    <h3>The equity structure mention is too vague — add one clarifying sentence</h3>
+    <p>The "Why Bear Witness" section mentions equity twice: "We take stakes, not just retainers" and "Our real incentive is Alfred's success." But it never says what that looks like structurally. Tom's next question will be: <em>what are you asking for?</em> Even a single sentence that frames the conversation — without committing to a number — would give him something to engage with rather than a follow-up question hanging in the air.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the "Why Bear Witness" section, under the Equity / Alignment subsection (the part that says "Our retainer covers costs. Our real incentive is Alfred's success."), add one sentence at the end of that block:
+
+"The equity ask is structured around the 24-month commitment and sized to reflect the work we're doing at pre-launch — the most valuable and highest-risk phase of any brand build."
+
+This gives Tom something concrete to engage with without locking in a number before the conversation happens.</div>
+  </div>
+
+  <hr>
+  <h2>Polish — Final Sharpening</h2>
+
+  <div class="issue polish">
+    <span class="issue-badge polish">Polish #6</span>
+    <h3>Opening paragraph of "Why Bear Witness" still has agency-speak</h3>
+    <p>The section opens with: <em>"Bear Witness is a digital media and investment company. We specialise in community building, ecosystem development, social strategy, and brand promotion."</em> The second sentence sounds like an agency about us page. "Ecosystem development" in particular is jargon. The track record paragraph immediately below it is better. Consider cutting or replacing the opening two sentences — the section is stronger without them.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the "Why Bear Witness" section, replace the opening two sentences:
+
+Current: "Bear Witness is a digital media and investment company. We specialise in community building, ecosystem development, social strategy, and brand promotion."
+
+Replace with: "Bear Witness is the digital media operation that builds brands people actually talk about. We do not work for brands — we invest in them."
+
+Then continue with "But we do not operate like an agency..." as it currently reads. This removes the generic agency-speak and leads with something sharper.</div>
+  </div>
+
+  <div class="issue polish">
+    <span class="issue-badge polish">Polish #7</span>
+    <h3>Hero subtitle is functional — it could be exceptional</h3>
+    <p>The hero subtitle reads: <em>"Alfred has the opportunity to become the most trusted name in UK utilities. This is the strategy to make that happen."</em> This is solid. But "most trusted name in UK utilities" sets a category ceiling. Alfred isn't just competing in utilities — it's building a household brand. The ambition is bigger than a category win. Consider whether the framing can be bigger.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">In the hero section, update the subtitle text only (keep the headline "The brand that told the truth about household bills" exactly as is).
+
+Current subtitle: "Alfred has the opportunity to become the most trusted name in UK utilities. This is the strategy to make that happen."
+
+Replace with: "Alfred has the opportunity to become the household brand that finally took the consumer's side. This is how we build it."
+
+"Household brand" rather than "UK utilities" — larger framing, higher ceiling, positions Alfred as a consumer movement rather than a category winner.</div>
+  </div>
+
+  <div class="issue polish">
+    <span class="issue-badge polish">Polish #8</span>
+    <h3>Navigation label "The Opportunity" points to "The Challenge" section</h3>
+    <p>The navigation shows "The Opportunity" as the first item, but the section heading is "The Challenge." These should match. Either update the nav label to "The Challenge" or update the section heading. "The Opportunity" is actually the better framing — it's more energising than "The Challenge." Rename the section heading to match the nav.</p>
+
+    <div class="prompt-label">Prompt for Claude:</div>
+    <div class="prompt-block">The navigation has "The Opportunity" as the first item, but the actual section heading reads "The Challenge." These should match.
+
+Update the section heading from "The Challenge" to "The Opportunity." Keep all the body copy inside the section exactly as is — only the section title changes.
+
+Update the corresponding anchor/id so the navigation scroll still works correctly.</div>
+  </div>
+
+  <div class="issue polish">
+    <span class="issue-badge polish">Polish #9</span>
+    <h3>"Schedule a Call" should link to a Calendly, not a mailto</h3>
+    <p>The CTA button currently triggers a mailto: link. For a proposal built on digital-first thinking, a mailto feels incongruent. When Jesse has a Calendly or scheduling link, swap the button to that URL. If he doesn't have one set up yet, at minimum style it so the email address is clearly clickable rather than being the button destination — keeps it clean and professional.</p>
+    <p><em>(No Claude prompt needed until Jesse has a scheduling link ready.)</em></p>
+  </div>
+
+  <hr>
+  <h2>What to Leave Completely Alone</h2>
+  <ul>
+    <li><strong>Hero headline:</strong> "The brand that told the truth about household bills." Do not touch this.</li>
+    <li><strong>The Inertia Files six-episode structure.</strong> The earned reveal in episode 6 is the best idea in the whole proposal.</li>
+    <li><strong>The Phase 2 waitlist framing</strong> — "The first people who know Alfred is real are the ones who have been paying attention." Excellent writing. Leave it.</li>
+    <li><strong>The five brand voice principles</strong> (with the renamed #4). Sharp, specific, client-ready.</li>
+    <li><strong>"An agency optimises for their own continuity. Bear Witness optimises for Alfred's growth."</strong> Best line in the pitch. Do not change a word.</li>
+    <li><strong>Trust archetypes</strong> (Consumer Protectors, Home Experts, Smart Money). Sophisticated and specific.</li>
+    <li><strong>The insider content angle</strong> (former OVO, BT, EE, UW, British Gas team). If this is accurate, it's a credibility weapon. Keep it prominent.</li>
+    <li><strong>The channel framing sentence.</strong> "Content is the engine, and the engine needs to run consistently. Every piece of content has a job." Keep exactly as is.</li>
+    <li><strong>Fields in Trust throughout.</strong> Elevated correctly from round 1. Leave it.</li>
+  </ul>
+
+  <hr>
+  <h2>Final Checklist — In Order</h2>
+  <ol>
+    <li><strong>[Critical]</strong> Fix "Alice" → "Alfred's marketing team"</li>
+    <li><strong>[Critical]</strong> Remove "Costco for your home" from The Real Numbers pillar</li>
+    <li><strong>[Jesse to check]</strong> Confirm the 250M impressions figure is accurate</li>
+    <li><strong>[Important]</strong> Fix referral programme contradiction in Phase 5</li>
+    <li><strong>[Important]</strong> Add equity structure sentence to the alignment block</li>
+    <li><strong>[Polish]</strong> Replace "ecosystem development" opening with sharper line</li>
+    <li><strong>[Polish]</strong> Update hero subtitle to "household brand" framing</li>
+    <li><strong>[Polish]</strong> Rename "The Challenge" section heading to match nav ("The Opportunity")</li>
+    <li><strong>[When ready]</strong> Swap mailto CTA for Calendly link</li>
+  </ol>
+
+  <div class="callout">
+    After fixes 1-2 it is ready to send. Fixes 3-5 make it tighter. Polish 6-8 make it exceptional. This is close — two quick fixes and it goes.
+  </div>
+
+  <div class="footer">Alfred Proposal Strategic Review v2 — Junior — 10 April 2026 — Internal use only</div>
+</div>
+</body>
+</html>
