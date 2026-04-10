@@ -615,8 +615,29 @@ function markHandled(id) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 
-loadEmails();
-// Auto-refresh every 90 seconds
+// Load server-side state first, then emails
+async function init() {
+  try {
+    const r = await fetch(API+'/state', {cache:'no-store'});
+    if (r.ok) {
+      const state = await r.json();
+      handledIds = new Set(state.handled_emails || []);
+    }
+  } catch(e) {}
+  loadEmails();
+}
+
+async function saveHandled() {
+  try {
+    await fetch(API+'/state', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({handled_emails: [...handledIds]})
+    });
+  } catch(e) {}
+}
+
+init();
 refreshTimer = setInterval(()=>loadEmails(true), 90000);
 </script>
 </body>
