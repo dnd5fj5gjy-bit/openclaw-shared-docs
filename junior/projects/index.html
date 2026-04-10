@@ -6,119 +6,339 @@
 <title>Jesse Grylls — Dashboard</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f2f2f0; color: #1a1a1a; }
+
+  /* PALETTE — earthy, warm, organic */
+  :root {
+    --cream:      #F6F1E9;
+    --cream-deep: #EDE7DA;
+    --card:       #FDFAF5;
+    --card-border:#E8E0D0;
+    --ink:        #2C2318;
+    --ink-mid:    #6B5F52;
+    --ink-light:  #A09080;
+    --sage:       #7A9E7E;
+    --sage-bg:    #EBF3EB;
+    --amber:      #C48A2A;
+    --amber-bg:   #FBF3E2;
+    --terracotta: #C05A35;
+    --terracotta-bg: #FAE9E2;
+    --blue:       #3A6EA5;
+    --blue-bg:    #E5EEF8;
+    --rule:       #DDD5C5;
+    --shadow:     0 1px 4px rgba(44,35,24,0.07), 0 2px 12px rgba(44,35,24,0.04);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+  }
 
   /* HEADER */
-  .header { background: #111; padding: 22px 36px; display: flex; justify-content: space-between; align-items: center; }
-  .header h1 { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
-  .header-meta { font-size: 12px; color: #555; text-align: right; line-height: 1.6; }
-  .header-meta span { color: #888; }
+  .header {
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--terracotta);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px; font-weight: 800; flex-shrink: 0;
+  }
+  .header h1 { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; }
+  .header-sub { font-size: 12px; color: var(--ink-light); margin-top: 1px; }
+  .header-right { text-align: right; }
+  .header-date { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .header-agent { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
+
+  /* DECISIONS STRIP */
+  .decisions-strip {
+    background: var(--terracotta-bg);
+    border-bottom: 1px solid #E8C8BC;
+    padding: 0 36px;
+  }
+  .decisions-strip-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 10px 0;
+    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  }
+  .decisions-label {
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--terracotta); flex-shrink: 0;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .decision-chip {
+    font-size: 12px; font-weight: 600; color: var(--terracotta);
+    background: #fff;
+    border: 1px solid #E8C8BC;
+    border-radius: 20px; padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .decision-chip.today { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
 
   /* TODAY STRIP */
-  .today-strip { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 12px 36px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-  .today-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #aaa; flex-shrink: 0; }
-  .today-item { font-size: 13px; color: #333; display: flex; align-items: center; gap: 8px; }
+  .today-strip {
+    background: var(--card);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 36px;
+  }
+  .today-strip-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 10px 0;
+    display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  }
+  .today-label {
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--ink-light); flex-shrink: 0;
+  }
+  .today-item {
+    font-size: 13px; color: var(--ink-mid);
+    display: flex; align-items: center; gap: 7px;
+  }
   .today-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .dot-now { background: #cc2200; }
-  .dot-tomorrow { background: #996600; }
-  .dot-urgent { background: #1a4499; }
+  .dot-now    { background: var(--terracotta); }
+  .dot-future { background: var(--amber); }
+  .dot-urgent { background: var(--blue); }
+  .today-time {
+    font-size: 11px; font-weight: 700; color: #fff;
+    background: var(--ink-mid); border-radius: 4px;
+    padding: 1px 6px; flex-shrink: 0;
+  }
 
-  /* MAIN */
-  .main { max-width: 1100px; margin: 0 auto; padding: 28px 36px 80px; display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 1100px; margin: 0 auto;
+    padding: 28px 36px 80px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+  }
 
   /* SECTION LABELS */
-  .section-label { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+  .section-label {
+    font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--ink-light);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-  /* PROJECT BLOCKS */
-  .project { background: #fff; border: 1px solid #e4e4e4; border-radius: 11px; margin-bottom: 12px; overflow: hidden; }
-  .project-head { padding: 16px 20px; display: flex; align-items: flex-start; gap: 14px; }
-  .project-icon { width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  /* PROJECT CARDS */
+  .project {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.15s;
+  }
+  .project:hover { box-shadow: 0 2px 8px rgba(44,35,24,0.1), 0 4px 20px rgba(44,35,24,0.06); }
+  .project-head { padding: 16px 18px; display: flex; align-items: flex-start; gap: 14px; }
+  .project-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center; font-size: 16px;
+  }
   .project-info { flex: 1; min-width: 0; }
-  .project-name { font-size: 15px; font-weight: 800; color: #111; line-height: 1.2; margin-bottom: 3px; }
-  .project-desc { font-size: 12px; color: #666; line-height: 1.5; }
+  .project-name { font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 3px; }
+  .project-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
   .project-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
 
-  /* BADGES */
-  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
-  .badge-green { background: #e6f9ee; color: #1a7a40; }
-  .badge-amber { background: #fff7e6; color: #996600; }
-  .badge-red { background: #ffeaea; color: #cc2200; }
-  .badge-blue { background: #e8f0ff; color: #1a4499; }
-  .badge-grey { background: #f0f0f0; color: #777; }
-  .badge-purple { background: #f2e8ff; color: #5a1a99; }
+  /* METRIC BAR */
+  .project-metric {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--card-border);
+    padding: 7px 18px;
+    font-size: 11px; color: var(--ink-mid);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .project-metric strong { color: var(--ink); }
 
-  /* DOCS LIST inside project */
-  details { border-top: 1px solid #f0f0f0; }
-  details summary { padding: 9px 20px; font-size: 11px; font-weight: 700; color: #aaa; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; user-select: none; }
+  /* NEXT DECISION inside card */
+  .project-decision {
+    background: var(--amber-bg);
+    border-top: 1px solid #E8D5A8;
+    padding: 7px 18px;
+    font-size: 11px; color: var(--amber);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .project-decision::before { content: '→'; font-weight: 800; }
+
+  /* DOCS DROPDOWN */
+  details { border-top: 1px solid var(--card-border); }
+  details summary {
+    padding: 8px 18px;
+    font-size: 11px; font-weight: 700; color: var(--ink-light);
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; gap: 6px; user-select: none;
+  }
   details summary::-webkit-details-marker { display: none; }
   details summary::before { content: '›'; font-size: 14px; transition: transform 0.15s; display: inline-block; }
   details[open] summary::before { transform: rotate(90deg); }
-  details summary:hover { color: #555; background: #fafafa; }
-  .doc-list { padding: 4px 0 10px; }
-  .doc-item { display: flex; align-items: center; padding: 6px 20px; gap: 10px; text-decoration: none; color: inherit; }
-  .doc-item:hover { background: #f8f8f8; }
-  .doc-item-name { font-size: 13px; color: #1a4499; font-weight: 600; flex: 1; }
-  .doc-item-meta { font-size: 11px; color: #bbb; white-space: nowrap; }
+  details summary:hover { color: var(--ink-mid); background: var(--cream); }
+  .doc-list { padding: 2px 0 8px; }
+  .doc-item {
+    display: flex; align-items: center; padding: 6px 18px; gap: 10px;
+    text-decoration: none; color: inherit;
+  }
+  .doc-item:hover { background: var(--cream); }
+  .doc-item-name { font-size: 13px; color: var(--blue); font-weight: 600; flex: 1; }
+  .doc-item-meta { font-size: 11px; color: var(--ink-light); white-space: nowrap; }
 
-  /* DEALS TABLE */
-  .deals-table { width: 100%; }
-  .deal-row { background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; margin-bottom: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: border-color 0.1s; }
-  .deal-row:hover { border-color: #ccc; }
-  .deal-name { font-size: 14px; font-weight: 700; flex: 1; }
-  .deal-desc { font-size: 12px; color: #777; margin-top: 2px; }
+  /* BADGES */
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+  .badge-green  { background: var(--sage-bg);        color: var(--sage); }
+  .badge-amber  { background: var(--amber-bg);       color: var(--amber); }
+  .badge-red    { background: var(--terracotta-bg);  color: var(--terracotta); }
+  .badge-blue   { background: var(--blue-bg);        color: var(--blue); }
+  .badge-grey   { background: var(--cream-deep);     color: var(--ink-light); }
+  .badge-purple { background: #F0EAFF;               color: #6B3FA0; }
+
+  /* DEALS ROWS */
+  .deals-table { display: flex; flex-direction: column; gap: 8px; }
+  .deal-row {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: inherit;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.15s;
+  }
+  .deal-row:hover { box-shadow: 0 2px 8px rgba(44,35,24,0.1); }
+  .deal-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .deal-body { flex: 1; }
+  .deal-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .deal-desc { font-size: 12px; color: var(--ink-mid); margin-top: 1px; }
+
+  /* ICON COLOURS */
+  .icon-ms  { background: #EAF3FF; }
+  .icon-wn  { background: var(--sage-bg); }
+  .icon-th  { background: var(--terracotta-bg); }
+  .icon-ebg { background: var(--amber-bg); }
+  .icon-sd  { background: #F0EAFF; }
+  .icon-bg  { background: var(--cream-deep); }
+  .icon-al  { background: #E5F0F8; }
+  .icon-deal{ background: var(--cream-deep); }
 
   /* SIDEBAR */
   .sidebar-section { margin-bottom: 20px; }
-  .ref-card { background: #fff; border: 1px solid #e4e4e4; border-radius: 11px; overflow: hidden; margin-bottom: 12px; }
-  .ref-list { padding: 4px 0 8px; }
-  .ref-item { display: flex; align-items: center; padding: 7px 16px; gap: 10px; text-decoration: none; color: #1a4499; font-size: 13px; font-weight: 600; }
-  .ref-item:hover { background: #f8f8f8; }
-  .ref-item-meta { font-size: 11px; color: #bbb; margin-left: auto; }
-  .ref-head { padding: 12px 16px 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; color: #aaa; border-bottom: 1px solid #f2f2f2; }
 
-  /* ICON COLOURS */
-  .icon-ms { background: #f0f7ff; }
-  .icon-wn { background: #f0fff4; }
-  .icon-th { background: #fff0f0; }
-  .icon-ebg { background: #fffbf0; }
-  .icon-sd { background: #f8f0ff; }
-  .icon-bg { background: #f0f4ff; }
-  .icon-deal { background: #f5f5f5; }
+  .ref-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: var(--shadow); margin-bottom: 10px;
+  }
+  .ref-head {
+    padding: 10px 16px 8px;
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .8px; color: var(--ink-light);
+    border-bottom: 1px solid var(--card-border);
+    background: var(--cream-deep);
+  }
+  .ref-list { padding: 3px 0 6px; }
+  .ref-item {
+    display: flex; align-items: center; padding: 7px 16px; gap: 10px;
+    text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 600;
+  }
+  .ref-item:hover { background: var(--cream); }
+  .ref-item-meta { font-size: 11px; color: var(--ink-light); margin-left: auto; white-space: nowrap; }
+  .ref-item-label {
+    font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .label-now  { background: var(--sage-bg);  color: var(--sage); }
+  .label-past { background: var(--cream-deep); color: var(--ink-light); }
+  .label-coming { background: var(--amber-bg); color: var(--amber); }
 
-  /* METRIC STRIP inside project */
-  .project-metric { background: #fafafa; border-top: 1px solid #f2f2f2; padding: 8px 20px; font-size: 11px; color: #888; }
-  .project-metric strong { color: #555; }
+  /* DECISIONS SIDEBAR CARD */
+  .decisions-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: var(--shadow); margin-bottom: 10px;
+  }
+  .decisions-card-head {
+    padding: 10px 16px 8px;
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .8px; color: var(--terracotta);
+    border-bottom: 1px solid #E8D0C4;
+    background: var(--terracotta-bg);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .decision-item {
+    padding: 10px 16px; border-bottom: 1px solid var(--card-border);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .decision-item:last-child { border-bottom: none; }
+  .decision-urgency {
+    font-size: 9px; font-weight: 800; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .urgency-now   { background: var(--terracotta); color: #fff; }
+  .urgency-week  { background: var(--amber-bg); color: var(--amber); }
+  .urgency-ready { background: var(--cream-deep); color: var(--ink-light); }
+  .decision-text { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .decision-sub  { font-size: 11px; color: var(--ink-mid); margin-top: 2px; }
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     .main { grid-template-columns: 1fr; padding: 20px 16px 60px; }
-    .header { padding: 18px 16px; }
-    .today-strip { padding: 10px 16px; }
+    .header { padding: 16px; }
+    .today-strip, .decisions-strip { padding: 0 16px; }
   }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <div class="header">
-  <h1>Jesse Grylls</h1>
-  <div class="header-meta">
-    <span>Thursday 9 April 2026</span><br>
-    Junior · AI Agent
+  <div class="header-left">
+    <div class="header-avatar">JG</div>
+    <div>
+      <h1>Jesse Grylls</h1>
+      <div class="header-sub">Bear Grylls Ventures · Personal Command</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="header-date">Friday 10 April 2026</div>
+    <div class="header-agent">Junior · AI Agent</div>
+  </div>
+</div>
+
+<!-- DECISIONS STRIP -->
+<div class="decisions-strip">
+  <div class="decisions-strip-inner">
+    <div class="decisions-label">⚡ Decisions needed</div>
+    <span class="decision-chip today">Modern Savage: confirm ACF pricing?</span>
+    <span class="decision-chip">Family constitution: John Winstanley draft in inbox</span>
+    <span class="decision-chip">Alfred: send proposal to Alfred team?</span>
+    <span class="decision-chip">Mettle: stay passive or lean in?</span>
   </div>
 </div>
 
 <!-- TODAY STRIP -->
 <div class="today-strip">
-  <div class="today-label">Today</div>
-  <div class="today-item"><span class="today-dot dot-now"></span>BGV x Fat Cow — 9am BST · Zoom · Ryan Porter</div>
-  <div class="today-item"><span class="today-dot dot-now"></span>CJ AI Training — 4pm BST · Zoom · Felix + CJ</div>
-  <div class="today-item"><span class="today-dot dot-now"></span>Wildernests Weekly — 7pm BST · Zoom · Alex + Gunnar</div>
-  <div class="today-item"><span class="today-dot dot-urgent"></span>Metricool — Bear YouTube account disconnected, posts won't publish</div>
+  <div class="today-strip-inner">
+    <div class="today-label">Today</div>
+    <div class="today-item">
+      <span class="today-time">4pm BST</span>
+      <span class="today-dot dot-now"></span>
+      Jumper Meeting — The Shed Hotel (30 min)
+    </div>
+  </div>
 </div>
 
 <div class="main">
 
-  <!-- LEFT COLUMN: BUSINESSES + DEALS -->
+  <!-- LEFT COLUMN -->
   <div>
 
     <div class="section-label">Active Businesses</div>
@@ -129,21 +349,43 @@
         <div class="project-icon icon-ms">🐗</div>
         <div class="project-info">
           <div class="project-name">Modern Savage</div>
-          <div class="project-desc">US organ blend supplement. 100% Grylls-owned. Formula approved. Adult + Kids SKUs. Launch Jul-Aug 2026.</div>
+          <div class="project-desc">US organ blend supplement. 100% Grylls-owned. Adult + Kids SKUs. ACF Pharma pricing received. Launch Jul-Aug 2026.</div>
         </div>
         <div class="project-badges"><span class="badge badge-amber">Launch Jul-Aug</span></div>
       </div>
-      <div class="project-metric"><strong>~$79/bag · ~75% DTC margin · ACF Pharma</strong></div>
+      <div class="project-metric"><strong>$79 retail · 64-67% DTC margin · $95-130K cash to launch</strong></div>
+      <div class="project-decision">Confirm ACF Pharma pricing with Drew, or request adjustments</div>
       <details open>
-        <summary>6 strategy docs</summary>
+        <summary>7 strategy docs</summary>
         <div class="doc-list">
+          <a href="../modern-savage-launch-model-2026-04-10.html" class="doc-item"><span class="doc-item-name">Launch Financial Model</span><span class="doc-item-meta">10 Apr · Latest</span></a>
           <a href="../modern-savage-launch-plan.html" class="doc-item"><span class="doc-item-name">US Launch Strategy</span><span class="doc-item-meta">Main doc</span></a>
-          <a href="../modern-savage-launch-plan.html#financial-model" class="doc-item"><span class="doc-item-name">Interactive Financial Model</span><span class="doc-item-meta">Inside launch plan</span></a>
+          <a href="../modern-savage-dashboard-2026-04-06.html" class="doc-item"><span class="doc-item-name">Launch Dashboard</span><span class="doc-item-meta">6 Apr</span></a>
+          <a href="../modern-savage-creator-seeding-playbook-2026-04-09.html" class="doc-item"><span class="doc-item-name">Creator Seeding Playbook</span><span class="doc-item-meta">9 Apr</span></a>
           <a href="../modern-savage-conversion-blueprint-2026-04-02.html" class="doc-item"><span class="doc-item-name">Conversion Blueprint</span><span class="doc-item-meta">2 Apr</span></a>
           <a href="../modern-savage-creator-seeding-engine-2026-03-24.html" class="doc-item"><span class="doc-item-name">Creator Seeding Engine</span><span class="doc-item-meta">24 Mar</span></a>
-          <a href="../modern-savage-launch-messaging-brief-2026-03-22.html" class="doc-item"><span class="doc-item-name">Messaging Brief</span><span class="doc-item-meta">22 Mar</span></a>
-          <a href="../modern-savage-dashboard-2026-04-06.html" class="doc-item"><span class="doc-item-name">Launch Dashboard</span><span class="doc-item-meta">6 Apr</span></a>
           <a href="../dirtea-analysis-2026-04-05.html" class="doc-item"><span class="doc-item-name">Dirtea Competitive Analysis</span><span class="doc-item-meta">5 Apr</span></a>
+        </div>
+      </details>
+    </div>
+
+    <!-- ALFRED PITCH -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-icon icon-al">⚡</div>
+        <div class="project-info">
+          <div class="project-name">Alfred — Bear Witness Pitch</div>
+          <div class="project-desc">Bear Witness digital media partnership with Alfred (energy, broadband, mobile, insurance). Proposal reviewed and ready. bearwitness-x-alfred.netlify.app</div>
+        </div>
+        <div class="project-badges"><span class="badge badge-blue">Ready to send</span></div>
+      </div>
+      <div class="project-metric"><strong>£20/month membership · utility + insurance bundle · UK market</strong></div>
+      <div class="project-decision">Send proposal to Alfred team when ready</div>
+      <details>
+        <summary>2 strategy docs</summary>
+        <div class="doc-list">
+          <a href="../alfred-proposal-review-v2-2026-04-10.html" class="doc-item"><span class="doc-item-name">Proposal Review v2 — 8/10</span><span class="doc-item-meta">10 Apr · Latest</span></a>
+          <a href="../alfred-digital-media-brief-2026-04-09.html" class="doc-item"><span class="doc-item-name">Digital Media Strategy Brief</span><span class="doc-item-meta">9 Apr</span></a>
         </div>
       </details>
     </div>
@@ -159,14 +401,14 @@
         <div class="project-badges"><span class="badge badge-green">Active</span></div>
       </div>
       <div class="project-metric"><strong>sisterdirectory.co.uk</strong> · Ruby actioning outreach this week</div>
-      <details open>
+      <details>
         <summary>5 strategy docs</summary>
         <div class="doc-list">
           <a href="../sister-directory-ruby-strategy-2026-04-05.html" class="doc-item"><span class="doc-item-name">Business Strategy Brief</span><span class="doc-item-meta">5 Apr</span></a>
-          <a href="../sister-directory-ruby-outreach-guide-2026-04-08.html" class="doc-item"><span class="doc-item-name">Ruby's Complete Outreach Guide</span><span class="doc-item-meta">8 Apr · Send to Ruby</span></a>
-          <a href="../sister-directory-outreach-2026-04-08.html" class="doc-item"><span class="doc-item-name">Outreach Contacts &amp; Draft Messages</span><span class="doc-item-meta">8 Apr</span></a>
+          <a href="../sister-directory-ruby-outreach-guide-2026-04-08.html" class="doc-item"><span class="doc-item-name">Ruby's Outreach Guide</span><span class="doc-item-meta">8 Apr</span></a>
+          <a href="../sister-directory-outreach-2026-04-08.html" class="doc-item"><span class="doc-item-name">Outreach Contacts &amp; Drafts</span><span class="doc-item-meta">8 Apr</span></a>
           <a href="../sister-directory-growth-playbook-2026-04-08.html" class="doc-item"><span class="doc-item-name">Growth Playbook</span><span class="doc-item-meta">8 Apr</span></a>
-          <a href="../sister-directory-ai-seo-2026-04-08.html" class="doc-item"><span class="doc-item-name">AI SEO Strategy (for Felix)</span><span class="doc-item-meta">8 Apr · Technical</span></a>
+          <a href="../sister-directory-ai-seo-2026-04-08.html" class="doc-item"><span class="doc-item-name">AI SEO Strategy (Felix)</span><span class="doc-item-meta">8 Apr</span></a>
         </div>
       </details>
     </div>
@@ -190,7 +432,7 @@
       </details>
     </div>
 
-    <!-- EBG -->
+    <!-- EBG / BEAR WITNESS -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-ebg">📺</div>
@@ -219,15 +461,15 @@
         </div>
         <div class="project-badges"><span class="badge badge-blue">Pivoting</span></div>
       </div>
-      <div class="project-metric"><strong>97 patients · breakeven at 225</strong></div>
+      <div class="project-metric"><strong>97 patients · breakeven at 225 · pivot underway</strong></div>
       <details>
         <summary>5 research docs</summary>
         <div class="doc-list">
+          <a href="../teds-health-calvin-brief-2026-04-08.html" class="doc-item"><span class="doc-item-name">Calvin Marketing Brief</span><span class="doc-item-meta">8 Apr</span></a>
           <a href="../teds-health-clinic-partner-pipeline-2026-03-31.html" class="doc-item"><span class="doc-item-name">Clinic Partner Pipeline</span><span class="doc-item-meta">31 Mar</span></a>
           <a href="../teds-health-partner-economics-toolkit-2026-03-30.html" class="doc-item"><span class="doc-item-name">Partner Economics Toolkit</span><span class="doc-item-meta">30 Mar</span></a>
           <a href="../teds-health-offer-teardown-2026-03-29.html" class="doc-item"><span class="doc-item-name">Offer Teardown</span><span class="doc-item-meta">29 Mar</span></a>
           <a href="../teds-health-uk-clinic-target-list-2026-03-28.html" class="doc-item"><span class="doc-item-name">UK Clinic Target List</span><span class="doc-item-meta">28 Mar</span></a>
-          <a href="../teds-health-clinic-offer-brief-2026-03-27.html" class="doc-item"><span class="doc-item-name">Clinic Offer Brief</span><span class="doc-item-meta">27 Mar</span></a>
         </div>
       </details>
     </div>
@@ -242,7 +484,7 @@
         </div>
         <div class="project-badges"><span class="badge badge-blue">Ongoing</span></div>
       </div>
-      <details open>
+      <details>
         <summary>4 docs</summary>
         <div class="doc-list">
           <a href="substack.html" class="doc-item"><span class="doc-item-name">Substack — Draft Posts</span><span class="doc-item-meta">Ready to publish</span></a>
@@ -253,115 +495,133 @@
       </details>
     </div>
 
-    <!-- DEALS -->
-    <div class="section-label" style="margin-top: 28px;">Deals &amp; Investments</div>
+    <!-- DEALS & INVESTMENTS -->
+    <div class="section-label" style="margin-top: 32px;">Deals &amp; Investments</div>
+    <div class="deals-table">
 
-    <a href="luminox.html" class="deal-row">
-      <div style="flex:1">
-        <div class="deal-name">Luminox</div>
-        <div class="deal-desc">Watch licensing. 2026 on actual royalties. 2027-2029 back to $100K min.</div>
-      </div>
-      <span class="badge badge-amber">Amendment pending</span>
-    </a>
+      <a href="luminox.html" class="deal-row">
+        <div class="deal-icon icon-deal">⌚</div>
+        <div class="deal-body">
+          <div class="deal-name">Luminox</div>
+          <div class="deal-desc">Watch licensing. 2026 on actual royalties. 2027-2029 back to $100K min.</div>
+        </div>
+        <span class="badge badge-amber">Amendment pending</span>
+      </a>
 
-    <a href="water2.html" class="deal-row">
-      <div style="flex:1">
-        <div class="deal-name">Water2</div>
-        <div class="deal-desc">BGV targeting extra 5-10% equity + revenue share in China/India. Charles Robinson reviewing.</div>
-      </div>
-      <span class="badge badge-amber">Negotiating</span>
-    </a>
+      <a href="water2.html" class="deal-row">
+        <div class="deal-icon icon-deal">💧</div>
+        <div class="deal-body">
+          <div class="deal-name">Water2</div>
+          <div class="deal-desc">BGV targeting extra 5-10% equity + revenue share in China/India. Charles Robinson reviewing.</div>
+        </div>
+        <span class="badge badge-amber">Negotiating</span>
+      </a>
 
-    <a href="becomingx.html" class="deal-row">
-      <div style="flex:1">
-        <div class="deal-name">BecomingX</div>
-        <div class="deal-desc">£40K loan outstanding. Bear resigning as director. License stays.</div>
-      </div>
-      <span class="badge badge-red">Dispute</span>
-    </a>
+      <a href="becomingx.html" class="deal-row">
+        <div class="deal-icon icon-deal">📘</div>
+        <div class="deal-body">
+          <div class="deal-name">BecomingX</div>
+          <div class="deal-desc">£40K loan outstanding. Bear resigning as director. License stays.</div>
+        </div>
+        <span class="badge badge-red">Dispute</span>
+      </a>
 
-    <a href="organised.html" class="deal-row">
-      <div style="flex:1">
-        <div class="deal-name">Organised</div>
-        <div class="deal-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div>
-      </div>
-      <span class="badge badge-red">Legal</span>
-    </a>
+      <a href="organised.html" class="deal-row">
+        <div class="deal-icon icon-deal">⚖️</div>
+        <div class="deal-body">
+          <div class="deal-name">Organised</div>
+          <div class="deal-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div>
+        </div>
+        <span class="badge badge-red">Legal</span>
+      </a>
 
-    <a href="mettle.html" class="deal-row">
-      <div style="flex:1">
-        <div class="deal-name">Mettle</div>
-        <div class="deal-desc">Men's health app. High overheads, slow growth. Runway to summer 2026. Decision needed.</div>
-      </div>
-      <span class="badge badge-red">Watch</span>
-    </a>
+      <a href="mettle.html" class="deal-row">
+        <div class="deal-icon icon-deal">📱</div>
+        <div class="deal-body">
+          <div class="deal-name">Mettle</div>
+          <div class="deal-desc">Men's health app. £6k MRR. Peer group retention is strongest signal. Neil replied 7 Apr.</div>
+        </div>
+        <span class="badge badge-amber">Watch</span>
+      </a>
 
-    <details style="background:#fff;border:1px solid #e4e4e4;border-radius:8px;overflow:hidden;margin-top:8px;">
-      <summary style="padding:10px 16px;font-size:11px;font-weight:700;color:#aaa;cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;user-select:none;">
-        Mettle strategy doc
-      </summary>
-      <div class="doc-list">
-        <a href="mettle-strategy.html" class="doc-item"><span class="doc-item-name">Mettle — Investment Decision Brief</span><span class="doc-item-meta">Passive hold rec.</span></a>
-      </div>
-    </details>
+    </div>
 
   </div>
 
   <!-- RIGHT SIDEBAR -->
   <div>
 
-    <!-- MEETING BRIEFS -->
-    <div class="section-label">Meeting Briefs</div>
+    <!-- DECISIONS NEEDED -->
+    <div class="section-label">Decisions Needed</div>
+    <div class="decisions-card">
+      <div class="decisions-card-head">⚡ Open items</div>
 
-    <div class="ref-head" style="padding:8px 0 6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#cc2200;">Today — 9 April</div>
+      <div class="decision-item">
+        <span class="decision-urgency urgency-now">Today</span>
+        <div>
+          <div class="decision-text">Modern Savage — ACF Pharma pricing</div>
+          <div class="decision-sub">Drew sent updated Survivor Blend pricing. Confirm or negotiate?</div>
+        </div>
+      </div>
+
+      <div class="decision-item">
+        <span class="decision-urgency urgency-week">This week</span>
+        <div>
+          <div class="decision-text">Alfred proposal — send to Alfred team?</div>
+          <div class="decision-sub">Proposal reviewed 8/10, fully sense-checked. Ready.</div>
+        </div>
+      </div>
+
+      <div class="decision-item">
+        <span class="decision-urgency urgency-week">This week</span>
+        <div>
+          <div class="decision-text">Family constitution — John Winstanley</div>
+          <div class="decision-sub">Draft reply in your inbox. John reviewing 92-page doc.</div>
+        </div>
+      </div>
+
+      <div class="decision-item">
+        <span class="decision-urgency urgency-ready">When ready</span>
+        <div>
+          <div class="decision-text">Mettle — passive hold or lean in?</div>
+          <div class="decision-sub">Neil keen on a call. £6k MRR, peer group angle interesting.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TODAY'S MEETINGS -->
+    <div class="section-label">Meetings</div>
+
     <div class="ref-card">
+      <div class="ref-head" style="color: var(--terracotta);">Today — 10 April</div>
       <div class="ref-list">
-        <a href="../2026-04-09-fat-cow-brief.html" class="ref-item">
-          <span style="font-size:11px;background:#e6f9ee;color:#1a7a40;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;">9am BST</span>
-          BGV x Fat Cow — Ryan Porter
-          <span class="ref-item-meta">Zoom</span>
-        </a>
-        <a href="../2026-04-09-cj-ai-training-brief.html" class="ref-item">
-          <span style="font-size:11px;background:#e6f9ee;color:#1a7a40;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;">4pm BST</span>
-          CJ AI Training — Felix + CJ
-          <span class="ref-item-meta">Zoom</span>
-        </a>
-        <a href="../2026-04-09-wildernests-weekly-brief.html" class="ref-item">
-          <span style="font-size:11px;background:#e6f9ee;color:#1a7a40;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;">7pm BST</span>
-          Wildernests Weekly — Alex + Gunnar
-          <span class="ref-item-meta">Zoom</span>
+        <a href="#" class="ref-item">
+          <span class="ref-item-label label-now">4pm BST</span>
+          Jumper — The Shed Hotel
+          <span class="ref-item-meta">30 min</span>
         </a>
       </div>
     </div>
 
-    <div class="ref-head" style="padding:12px 0 6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#996600;">Upcoming</div>
-    <div class="ref-card">
-      <div class="ref-list">
-        <a href="#" class="ref-item" style="color:#ccc;">
-          <span style="font-size:11px;background:#f0f0f0;color:#aaa;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;">Wed 15 Apr</span>
-          BGV Catch Up — Em Lovell
-          <span class="ref-item-meta">Brief pending</span>
-        </a>
-        <a href="#" class="ref-item" style="color:#ccc;">
-          <span style="font-size:11px;background:#f0f0f0;color:#aaa;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;">Mon 20 Apr</span>
-          EBG / BGV Catch Up — Em Lovell
-          <span class="ref-item-meta">Brief pending</span>
-        </a>
-      </div>
-    </div>
-
-    <details style="background:#fff;border:1px solid #e4e4e4;border-radius:8px;overflow:hidden;margin-top:10px;">
-      <summary style="padding:10px 16px;font-size:11px;font-weight:700;color:#aaa;cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;user-select:none;">Past Briefs</summary>
-      <div class="ref-list">
+    <details style="background:var(--card);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;margin-bottom:10px;box-shadow:var(--shadow);">
+      <summary style="padding:10px 16px;font-size:11px;font-weight:700;color:var(--ink-light);cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;user-select:none;background:var(--cream-deep);">
+        Past meeting briefs
+      </summary>
+      <div class="ref-list" style="padding:3px 0 6px;">
+        <a href="../2026-04-09-fat-cow-brief.html" class="ref-item">BGV x Fat Cow — Ryan Porter<span class="ref-item-meta">9 Apr</span></a>
+        <a href="../2026-04-09-cj-ai-training-brief.html" class="ref-item">CJ AI Training — Felix + CJ<span class="ref-item-meta">9 Apr</span></a>
+        <a href="../2026-04-09-wildernests-weekly-brief.html" class="ref-item">Wildernests Weekly<span class="ref-item-meta">9 Apr</span></a>
         <a href="../2026-04-08-moth-brief.html" class="ref-item">MOTH x Jesse — Rob Wallis<span class="ref-item-meta">8 Apr</span></a>
         <a href="../brief-jim-2026-03-24.html" class="ref-item">Brief — Jim<span class="ref-item-meta">24 Mar</span></a>
       </div>
     </details>
 
     <!-- REFERENCE -->
-    <div class="section-label" style="margin-top:20px;">Reference</div>
+    <div class="section-label">Reference</div>
+
     <div class="ref-card">
-      <div class="ref-head">BGV Docs</div>
+      <div class="ref-head">BGV Intelligence</div>
       <div class="ref-list">
         <a href="../jesse-s-world-2026-04-02.html" class="ref-item">Jesse's World (full map)<span class="ref-item-meta">2 Apr</span></a>
         <a href="../relationship-tracker-2026-04-02.html" class="ref-item">Relationship Tracker<span class="ref-item-meta">2 Apr</span></a>
@@ -369,7 +629,7 @@
       </div>
     </div>
 
-    <div class="ref-card" style="margin-top:10px;">
+    <div class="ref-card">
       <div class="ref-head">Amazon / DTC</div>
       <div class="ref-list">
         <a href="../amazon-fba-bootlet-2026-03-26.html" class="ref-item">Amazon FBA Brief<span class="ref-item-meta">26 Mar</span></a>
@@ -377,13 +637,11 @@
       </div>
     </div>
 
-    <!-- QUICK LINKS -->
-    <div class="section-label" style="margin-top:20px;">Quick Links</div>
     <div class="ref-card">
+      <div class="ref-head">Quick Links</div>
       <div class="ref-list">
         <a href="https://sisterdirectory.co.uk" target="_blank" class="ref-item">sisterdirectory.co.uk ↗<span class="ref-item-meta">Site</span></a>
-        <a href="https://www.reddit.com/message/compose?to=/r/CleanBeauty" target="_blank" class="ref-item">Reddit modmail — r/CleanBeauty ↗<span class="ref-item-meta">Send</span></a>
-        <a href="https://www.reddit.com/message/compose?to=/r/SkincareAddictionUK" target="_blank" class="ref-item">Reddit modmail — r/SkincareAddictionUK ↗<span class="ref-item-meta">Send</span></a>
+        <a href="https://bearwitness-x-alfred.netlify.app" target="_blank" class="ref-item">Bear Witness x Alfred ↗<span class="ref-item-meta">Proposal</span></a>
       </div>
     </div>
 
