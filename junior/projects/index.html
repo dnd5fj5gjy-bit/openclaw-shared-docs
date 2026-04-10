@@ -22,41 +22,53 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--cream); color: var(--ink); font-size: 14px; line-height: 1.5; }
 
 /* HEADER */
-.header {
-  background: linear-gradient(135deg, #2C1A0E 0%, #3D2510 60%, #4A2E15 100%);
-  padding: 20px 32px; display: flex; justify-content: space-between; align-items: center;
-}
+.header { background: linear-gradient(135deg, #2C1A0E 0%, #3D2510 60%, #4A2E15 100%);
+  padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
 .header-left { display: flex; align-items: center; gap: 14px; }
 .header-avatar { width: 42px; height: 42px; border-radius: 50%;
   background: linear-gradient(135deg, var(--terracotta), var(--amber));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; font-weight: 800; }
 .header-name { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
-.header-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+.header-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 .header-right { display: flex; align-items: center; gap: 14px; }
 .header-clock { text-align: right; }
-.header-time { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
-.header-date { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
-.inbox-btn { display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(255,255,255,0.12); color: #fff; font-size: 12px; font-weight: 700;
-  padding: 8px 14px; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18);
-  transition: background 0.15s; position: relative; }
+.header-time { font-size: 22px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.header-date { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 1px; }
+.inbox-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12);
+  color: #fff; font-size: 12px; font-weight: 700; padding: 8px 14px; border-radius: 10px;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.18); transition: background 0.15s; position: relative; }
 .inbox-btn:hover { background: rgba(255,255,255,0.2); }
-.inbox-btn-badge { position: absolute; top: -5px; right: -5px; background: var(--terracotta);
-  color: #fff; font-size: 10px; font-weight: 800; border-radius: 10px;
-  padding: 1px 5px; min-width: 16px; text-align: center; display: none; }
+.inbox-badge { position: absolute; top: -5px; right: -5px; background: var(--terracotta);
+  color: #fff; font-size: 10px; font-weight: 800; border-radius: 10px; padding: 1px 5px; display: none; }
 
-/* JUNIOR STATUS BAR */
+/* MORNING BRIEF BANNER */
+.brief-banner { background: linear-gradient(135deg, #3D2510 0%, #5A3820 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.08); }
+.brief-banner-inner { max-width: 1100px; margin: 0 auto; padding: 12px 32px;
+  display: flex; align-items: flex-start; gap: 12px; }
+.brief-banner-icon { width: 30px; height: 30px; background: rgba(255,255,255,0.12);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.brief-banner-body { flex: 1; }
+.brief-banner-label { font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+.brief-banner-text { font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.6;
+  white-space: pre-wrap; display: none; }
+.brief-banner-text.expanded { display: block; }
+.brief-banner-toggle { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+  cursor: pointer; background: none; border: none; padding: 0; margin-top: 4px; }
+.brief-banner-toggle:hover { color: rgba(255,255,255,0.8); }
+#brief-preview { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* STATUS BAR */
 .status-bar { background: var(--cream-deep); border-bottom: 1px solid var(--rule);
-  padding: 8px 32px; display: flex; align-items: center; gap: 16px; }
-.status-junior { display: flex; align-items: center; gap: 7px; }
+  padding: 7px 32px; display: flex; align-items: center; gap: 16px; }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green);
   animation: pulse 2.5s infinite; flex-shrink: 0; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 .status-text { font-size: 12px; font-weight: 600; color: var(--ink-mid); }
-.status-refresh { font-size: 11px; color: var(--ink-light); margin-left: auto; }
-.status-refresh a { color: var(--blue); text-decoration: none; font-weight: 600; }
-.status-refresh a:hover { text-decoration: underline; }
+.status-sync { font-size: 11px; color: var(--ink-light); margin-left: auto; }
+.status-sync a { color: var(--blue); text-decoration: none; font-weight: 600; }
 
 /* TODAY STRIP */
 .today-strip { background: var(--card); border-bottom: 1px solid var(--rule); padding: 0 32px; }
@@ -67,38 +79,33 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 .today-event { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-mid); }
 .today-time-badge { font-size: 11px; font-weight: 700; background: var(--ink);
   color: #fff; border-radius: 4px; padding: 1px 7px; flex-shrink: 0; }
-.today-dot { width: 6px; height: 6px; border-radius: 50%;
-  background: var(--terracotta); flex-shrink: 0; }
-.no-events { font-size: 13px; color: var(--ink-light); font-style: italic; }
+.today-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); }
 
-/* MAIN GRID */
+/* MAIN */
 .main { max-width: 1100px; margin: 0 auto; padding: 24px 32px 80px;
-  display: grid; grid-template-columns: 1fr 310px; gap: 24px; align-items: start; }
-
-/* SECTION LABELS */
+  display: grid; grid-template-columns: 1fr 315px; gap: 24px; align-items: start; }
 .section-label { font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--ink-light); margin-bottom: 12px;
   display: flex; align-items: center; gap: 10px; }
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
 /* PROJECT CARDS */
-.project { background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 14px; margin-bottom: 10px; overflow: hidden; box-shadow: var(--shadow);
-  transition: box-shadow 0.15s, transform 0.15s; }
+.project { background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
+  margin-bottom: 10px; overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.15s; }
 .project:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .project-head { padding: 15px 18px; display: flex; align-items: flex-start; gap: 13px; }
 .project-icon { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center; font-size: 16px; }
 .project-info { flex: 1; min-width: 0; }
-.project-name { font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 3px; }
+.project-name { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
 .project-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
 .project-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
 .project-metric { background: var(--cream-deep); border-top: 1px solid var(--card-border);
-  padding: 7px 18px; font-size: 11px; color: var(--ink-mid); display: flex; align-items: center; gap: 6px; }
+  padding: 7px 18px; font-size: 11px; color: var(--ink-mid); }
 .project-metric strong { color: var(--ink); }
 .project-decision { background: var(--amber-bg); border-top: 1px solid #E8D5A8;
-  padding: 7px 18px; font-size: 11px; color: var(--amber); display: flex; align-items: center; gap: 6px; }
-.project-decision::before { content: '→'; font-weight: 800; }
+  padding: 7px 18px; font-size: 11px; color: var(--amber); }
+.project-decision::before { content: '→ '; font-weight: 800; }
 details { border-top: 1px solid var(--card-border); }
 details summary { padding: 8px 18px; font-size: 11px; font-weight: 700; color: var(--ink-light);
   cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; user-select: none; }
@@ -120,30 +127,70 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
 .badge-red    { background: var(--terracotta-bg); color: var(--terracotta); }
 .badge-blue   { background: var(--blue-bg); color: var(--blue); }
 .badge-grey   { background: var(--cream-deep); color: var(--ink-light); }
-.badge-purple { background: #F0EAFF; color: #6B3FA0; }
 
-/* DEAL ROWS */
+/* DEALS */
 .deals-table { display: flex; flex-direction: column; gap: 8px; }
 .deal-row { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
-  padding: 12px 16px; display: flex; align-items: center; gap: 12px;
-  text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.15s; }
+  padding: 11px 16px; display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.15s; position: relative; }
 .deal-row:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .deal-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
 .deal-body { flex: 1; }
 .deal-name { font-size: 14px; font-weight: 700; color: var(--ink); }
 .deal-desc { font-size: 12px; color: var(--ink-mid); margin-top: 1px; }
+.deal-velocity { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.vel-green { background: var(--green); }
+.vel-amber { background: var(--amber); }
+.vel-red   { background: var(--terracotta); }
 
 /* ICON COLOURS */
-.icon-ms { background: linear-gradient(135deg, #EAF3FF, #D5E8FF); }
-.icon-wn { background: var(--sage-bg); }
-.icon-th { background: var(--terracotta-bg); }
+.icon-ms  { background: linear-gradient(135deg, #EAF3FF, #D5E8FF); }
+.icon-wn  { background: var(--sage-bg); }
+.icon-th  { background: var(--terracotta-bg); }
 .icon-ebg { background: var(--amber-bg); }
-.icon-sd { background: #F0EAFF; }
-.icon-bg { background: var(--cream-deep); }
-.icon-al { background: var(--blue-bg); }
+.icon-sd  { background: #F0EAFF; }
+.icon-bg  { background: var(--cream-deep); }
+.icon-al  { background: var(--blue-bg); }
 .icon-deal { background: var(--cream-deep); }
 
-/* SIDEBAR */
+/* ─── SIDEBAR COMPONENTS ─────────────────────────────── */
+
+/* REVENUE PULSE */
+.revenue-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.revenue-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--green);
+  border-bottom: 1px solid #C8E0CF; background: var(--green-bg);
+  display: flex; align-items: center; justify-content: space-between; }
+.revenue-total { font-size: 11px; font-weight: 800; color: var(--ink); }
+.revenue-stream { padding: 8px 16px; border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 8px; }
+.revenue-stream:last-child { border-bottom: none; }
+.revenue-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.revenue-name { font-size: 12px; font-weight: 600; color: var(--ink); flex: 1; }
+.revenue-amount { font-size: 12px; font-weight: 700; color: var(--ink); }
+.revenue-status { font-size: 10px; color: var(--ink-light); }
+
+/* RELATIONSHIP RADAR */
+.radar-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.radar-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--blue);
+  border-bottom: 1px solid #C5D9EF; background: var(--blue-bg); }
+.radar-item { padding: 9px 16px; border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 9px; cursor: pointer; transition: background 0.1s; }
+.radar-item:last-child { border-bottom: none; }
+.radar-item:hover { background: var(--cream); }
+.radar-avatar { width: 26px; height: 26px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.radar-body { flex: 1; }
+.radar-name { font-size: 12px; font-weight: 700; color: var(--ink); }
+.radar-role { font-size: 11px; color: var(--ink-light); }
+.radar-days { font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
+.days-ok  { background: var(--sage-bg); color: var(--sage); }
+.days-warn{ background: var(--amber-bg); color: var(--amber); }
+.days-late{ background: var(--terracotta-bg); color: var(--terracotta); }
+
 /* DECISIONS */
 .decisions-card { background: var(--card); border: 1px solid var(--card-border);
   border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
@@ -155,11 +202,11 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
   color: #fff; border-radius: 10px; padding: 1px 7px; }
 .di { border-bottom: 1px solid var(--card-border); overflow: hidden; }
 .di:last-child { border-bottom: none; }
-.di.resolved { opacity: 0.35; }
-.di.resolved .di-header { cursor: default; }
-.di-header { padding: 10px 14px; display: flex; gap: 9px;
-  align-items: flex-start; cursor: pointer; user-select: none; transition: background 0.1s; }
+.di.resolved { opacity: 0.32; }
+.di-header { padding: 10px 14px; display: flex; gap: 9px; align-items: flex-start;
+  cursor: pointer; user-select: none; transition: background 0.1s; }
 .di-header:hover { background: var(--cream); }
+.di.resolved .di-header { cursor: default; }
 .di-urgency { font-size: 9px; font-weight: 800; text-transform: uppercase;
   padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.5px; }
 .urgency-now   { background: var(--terracotta); color: #fff; }
@@ -175,8 +222,8 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
 .di-context { font-size: 12px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 10px; padding-top: 10px; }
 .di-options { display: flex; flex-direction: column; gap: 6px; }
 .di-option { display: block; width: 100%; background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 8px; padding: 9px 12px; font-size: 12px; font-weight: 600; color: var(--ink);
-  cursor: pointer; text-align: left; text-decoration: none; transition: all 0.15s; line-height: 1.4; }
+  border-radius: 8px; padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--ink);
+  text-align: left; text-decoration: none; transition: all 0.15s; cursor: pointer; }
 .di-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
 .di-option-letter { display: inline-block; width: 18px; height: 18px; background: var(--cream-deep);
   border-radius: 4px; text-align: center; line-height: 18px; font-size: 10px; font-weight: 800; margin-right: 7px; }
@@ -185,6 +232,41 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
   font-size: 11px; font-weight: 600; color: var(--ink-light); cursor: pointer; text-align: center; transition: all 0.15s; }
 .di-resolve:hover { border-color: var(--sage); color: var(--sage); }
 .di.resolved .di-title { text-decoration: line-through; }
+
+/* QUICK CAPTURE */
+.capture-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.capture-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--ink-light);
+  border-bottom: 1px solid var(--card-border); background: var(--cream-deep); }
+.capture-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+.capture-input { width: 100%; padding: 9px 12px; border: 1px solid var(--card-border);
+  border-radius: 8px; font-family: inherit; font-size: 13px; color: var(--ink);
+  background: var(--cream); resize: none; line-height: 1.5; transition: border-color 0.15s; min-height: 60px; }
+.capture-input:focus { outline: none; border-color: var(--blue); background: #fff; }
+.capture-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn-xs { padding: 6px 12px; border-radius: 7px; font-size: 11px; font-weight: 700;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid transparent; transition: all 0.15s; }
+.btn-capture { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-capture:hover { background: #2A4E7A; }
+.btn-capture-tg { background: var(--card); color: var(--ink); border-color: var(--card-border); }
+.btn-capture-tg:hover { border-color: var(--ink-mid); }
+
+/* AI DRAFT PANEL */
+.draft-panel { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.draft-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--ink-light);
+  border-bottom: 1px solid var(--card-border); background: var(--cream-deep);
+  display: flex; align-items: center; justify-content: space-between; }
+.draft-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; }
+.draft-type { display: block; padding: 9px 12px; background: var(--cream);
+  border: 1px solid var(--card-border); border-radius: 8px;
+  font-size: 12px; font-weight: 600; color: var(--ink); text-decoration: none; transition: all 0.15s; }
+.draft-type:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
+.draft-type-icon { margin-right: 7px; }
+.draft-type-sub { font-size: 10px; font-weight: 400; color: var(--ink-light); display: block; margin-top: 2px; }
 
 /* MEETINGS */
 .meetings-card { background: var(--card); border: 1px solid var(--card-border);
@@ -197,7 +279,7 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
   cursor: pointer; transition: background 0.1s; }
 .meeting-item:last-child { border-bottom: none; }
 .meeting-item:hover { background: var(--cream); }
-.meeting-item-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.meeting-item-top { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
 .meeting-date-badge { font-size: 9px; font-weight: 800; text-transform: uppercase;
   padding: 2px 6px; border-radius: 3px; letter-spacing: 0.4px; flex-shrink: 0; }
 .badge-today { background: var(--terracotta); color: #fff; }
@@ -206,28 +288,26 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
 .meeting-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
 .meeting-loc { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
 
-/* MEETING MODAL */
-.modal-overlay { position: fixed; inset: 0; background: rgba(38,32,15,0.45);
-  z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(38,32,15,0.5); z-index: 100;
+  display: none; align-items: center; justify-content: center; padding: 20px; }
 .modal-overlay.open { display: flex; }
-.modal { background: var(--card); border-radius: 16px; max-width: 500px; width: 100%;
+.modal { background: var(--card); border-radius: 16px; max-width: 480px; width: 100%;
   box-shadow: 0 8px 40px rgba(38,32,15,0.2); overflow: hidden; }
 .modal-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--rule); }
 .modal-title { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-.modal-meta { font-size: 12px; color: var(--ink-light); }
-.modal-body { padding: 16px 20px; }
+.modal-meta  { font-size: 12px; color: var(--ink-light); }
+.modal-body  { padding: 16px 20px; }
 .modal-body p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 10px; }
-.modal-body p:last-child { margin-bottom: 0; }
-.modal-actions { padding: 12px 20px 16px; display: flex; gap: 8px; border-top: 1px solid var(--rule); }
-.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
-  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid transparent; transition: all 0.15s; }
+.modal-footer { padding: 12px 20px 16px; display: flex; gap: 8px; border-top: 1px solid var(--rule); }
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; transition: all 0.15s; }
 .btn-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
 .btn-primary:hover { background: #9E4222; }
 .btn-ghost { background: none; color: var(--ink-light); border-color: var(--card-border); }
-.btn-ghost:hover { color: var(--ink); border-color: var(--ink-mid); }
+.btn-ghost:hover { color: var(--ink); }
 
-/* REFERENCE CARD */
+/* REF CARDS */
 .ref-card { background: var(--card); border: 1px solid var(--card-border);
   border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 10px; }
 .ref-head { padding: 10px 16px 9px; font-size: 10px; font-weight: 800; text-transform: uppercase;
@@ -238,17 +318,18 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
   text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 600; }
 .ref-item:hover { background: var(--cream); }
 .ref-item-meta { font-size: 11px; color: var(--ink-light); margin-left: auto; white-space: nowrap; }
-.ref-label { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
-.label-coming { background: var(--amber-bg); color: var(--amber); }
-.label-past { background: var(--cream-deep); color: var(--ink-light); }
-.label-live { background: var(--sage-bg); color: var(--sage); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 20px; right: 20px; background: var(--ink);
+  color: #fff; padding: 9px 16px; border-radius: 10px; font-size: 12px; font-weight: 600;
+  opacity: 0; transform: translateY(8px); transition: all 0.3s; pointer-events: none; z-index: 200; }
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.ok { background: var(--green); }
 
 @media (max-width: 820px) {
   .main { grid-template-columns: 1fr; padding: 16px 16px 60px; }
-  .header { padding: 16px; }
-  .today-strip { padding: 0 16px; }
-  .status-bar { padding: 8px 16px; }
-  .header-time { font-size: 18px; }
+  .header, .status-bar, .today-strip { padding-left: 16px; padding-right: 16px; }
+  .brief-banner-inner { padding: 12px 16px; }
 }
 </style>
 </head>
@@ -266,32 +347,41 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
   <div class="header-right">
     <a href="email.html" class="inbox-btn">
       📬 Inbox
-      <span class="inbox-btn-badge" id="inbox-badge">0</span>
+      <span class="inbox-badge" id="inbox-badge"></span>
     </a>
     <div class="header-clock">
       <div class="header-time" id="live-time">--:--</div>
-      <div class="header-date" id="live-date">Loading...</div>
+      <div class="header-date" id="live-date"></div>
     </div>
   </div>
 </div>
 
-<!-- JUNIOR STATUS BAR -->
+<!-- MORNING BRIEF BANNER -->
+<div class="brief-banner" id="brief-banner" style="display:none">
+  <div class="brief-banner-inner">
+    <div class="brief-banner-icon">☀️</div>
+    <div class="brief-banner-body">
+      <div class="brief-banner-label">Morning Brief</div>
+      <div id="brief-preview">Loading...</div>
+      <button class="brief-banner-toggle" id="brief-toggle" onclick="toggleBrief()">Show full brief ▾</button>
+      <div class="brief-banner-text" id="brief-full"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
 <div class="status-bar">
-  <div class="status-junior">
-    <div class="status-dot"></div>
-    <div class="status-text">Junior is live</div>
-  </div>
-  <div class="status-refresh" id="status-refresh">
-    Calendar &amp; email updating every 5 min
-  </div>
+  <div class="status-dot"></div>
+  <div class="status-text">Junior is live · Mac Studio</div>
+  <div class="status-sync" id="status-sync">Syncing...</div>
 </div>
 
 <!-- TODAY STRIP -->
 <div class="today-strip">
   <div class="today-inner">
     <div class="today-label">Today</div>
-    <div id="today-events">
-      <div class="no-events">Loading calendar...</div>
+    <div id="today-events" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <span style="font-size:13px;color:var(--ink-light);font-style:italic;">Loading calendar...</span>
     </div>
   </div>
 </div>
@@ -300,10 +390,8 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
 
   <!-- LEFT COLUMN -->
   <div>
-
     <div class="section-label">Active Businesses</div>
 
-    <!-- MODERN SAVAGE -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-ms">🐗</div>
@@ -329,13 +417,12 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
       </details>
     </div>
 
-    <!-- ALFRED PITCH -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-al">⚡</div>
         <div class="project-info">
           <div class="project-name">Alfred — Bear Witness Pitch</div>
-          <div class="project-desc">Bear Witness digital media partnership with Alfred (energy, broadband, mobile, insurance). Proposal reviewed and ready.</div>
+          <div class="project-desc">Bear Witness digital media partnership with Alfred. Proposal reviewed, 8/10, ready to send.</div>
         </div>
         <div class="project-badges"><span class="badge badge-blue">Ready to send</span></div>
       </div>
@@ -344,13 +431,12 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
       <details>
         <summary>2 strategy docs</summary>
         <div class="doc-list">
-          <a href="../alfred-proposal-review-v2-2026-04-10.html" class="doc-item"><span class="doc-item-name">Proposal Review v2 — 8/10</span><span class="doc-item-meta">10 Apr · Latest</span></a>
+          <a href="../alfred-proposal-review-v2-2026-04-10.html" class="doc-item"><span class="doc-item-name">Proposal Review v2 — 8/10</span><span class="doc-item-meta">10 Apr</span></a>
           <a href="../alfred-digital-media-brief-2026-04-09.html" class="doc-item"><span class="doc-item-name">Digital Media Strategy Brief</span><span class="doc-item-meta">9 Apr</span></a>
         </div>
       </details>
     </div>
 
-    <!-- SISTER DIRECTORY -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-sd">🌿</div>
@@ -373,7 +459,6 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
       </details>
     </div>
 
-    <!-- WILDERNESTS -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-wn">🏕️</div>
@@ -392,7 +477,6 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
       </details>
     </div>
 
-    <!-- EBG / BEAR WITNESS -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-ebg">📺</div>
@@ -403,15 +487,8 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
         <div class="project-badges"><span class="badge badge-green">Active</span></div>
       </div>
       <div class="project-metric"><strong>Retainer live from April 1, 2026</strong></div>
-      <details>
-        <summary>1 doc</summary>
-        <div class="doc-list">
-          <a href="ebg-bear-witness.html" class="doc-item"><span class="doc-item-name">EBG Overview</span><span class="doc-item-meta">Status</span></a>
-        </div>
-      </details>
     </div>
 
-    <!-- TED'S HEALTH -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-th">💊</div>
@@ -434,7 +511,6 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
       </details>
     </div>
 
-    <!-- BEAR GRYLLS BRAND -->
     <div class="project">
       <div class="project-head">
         <div class="project-icon icon-bg">🐻</div>
@@ -456,38 +532,55 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
     </div>
 
     <div class="section-label" style="margin-top:28px;">Deals &amp; Investments</div>
-    <div class="deals-table">
+    <div class="deals-table" id="deals-table">
+      <!-- Populated by JS with velocity indicators -->
       <a href="luminox.html" class="deal-row">
         <div class="deal-icon icon-deal">⌚</div>
         <div class="deal-body"><div class="deal-name">Luminox</div><div class="deal-desc">Watch licensing. 2026 on actual royalties. 2027-2029 back to $100K min.</div></div>
         <span class="badge badge-amber">Amendment pending</span>
+        <span class="deal-velocity vel-amber" title="Last contact: 26 days ago"></span>
       </a>
       <a href="water2.html" class="deal-row">
         <div class="deal-icon icon-deal">💧</div>
-        <div class="deal-body"><div class="deal-name">Water2</div><div class="deal-desc">BGV targeting extra 5-10% equity + revenue share in China/India. Charles Robinson reviewing.</div></div>
+        <div class="deal-body"><div class="deal-name">Water2</div><div class="deal-desc">BGV targeting extra 5-10% equity + revenue share. Charles Robinson reviewing.</div></div>
         <span class="badge badge-amber">Negotiating</span>
+        <span class="deal-velocity vel-amber" title="Last contact: 21 days ago"></span>
       </a>
       <a href="becomingx.html" class="deal-row">
         <div class="deal-icon icon-deal">📘</div>
-        <div class="deal-body"><div class="deal-name">BecomingX</div><div class="deal-desc">£40K loan outstanding. Bear resigning as director. License stays.</div></div>
+        <div class="deal-body"><div class="deal-name">BecomingX</div><div class="deal-desc">£40K loan outstanding. Bear resigning as director. Ignition Law managing.</div></div>
         <span class="badge badge-red">Dispute</span>
+        <span class="deal-velocity vel-red" title="Legal dispute active"></span>
       </a>
       <a href="organised.html" class="deal-row">
         <div class="deal-icon icon-deal">⚖️</div>
         <div class="deal-body"><div class="deal-name">Organised</div><div class="deal-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div></div>
         <span class="badge badge-red">Legal</span>
+        <span class="deal-velocity vel-red" title="Legal dispute active"></span>
       </a>
       <a href="mettle.html" class="deal-row">
         <div class="deal-icon icon-deal">📱</div>
         <div class="deal-body"><div class="deal-name">Mettle</div><div class="deal-desc">Men's health app. £6k MRR. Peer group retention is strongest signal. Neil replied 7 Apr.</div></div>
         <span class="badge badge-amber">Watch</span>
+        <span class="deal-velocity vel-green" title="Neil replied Apr 7"></span>
       </a>
     </div>
-
   </div>
 
   <!-- RIGHT SIDEBAR -->
   <div>
+
+    <!-- REVENUE PULSE -->
+    <div class="section-label">Revenue Pulse</div>
+    <div class="revenue-card">
+      <div class="revenue-head">
+        <span>💰 Active income</span>
+        <span class="revenue-total" id="revenue-total">Loading...</span>
+      </div>
+      <div id="revenue-streams">
+        <div style="padding:12px 16px;font-size:12px;color:var(--ink-light);">Loading...</div>
+      </div>
+    </div>
 
     <!-- DECISIONS -->
     <div class="section-label">Decisions Needed</div>
@@ -496,80 +589,64 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
         <span>⚡ Open items</span>
         <span class="decisions-count" id="decisions-count">4</span>
       </div>
-
       <div class="di" id="di-1">
         <div class="di-header" onclick="toggleDi('di-1')">
           <span class="di-urgency urgency-now">Today</span>
-          <div class="di-body">
-            <div class="di-title">Modern Savage — ACF Pharma pricing</div>
-            <div class="di-sub">Drew sent updated Survivor Blend pricing. Confirm or negotiate?</div>
-          </div>
+          <div class="di-body"><div class="di-title">Modern Savage — ACF Pharma pricing</div><div class="di-sub">Drew sent updated Survivor Blend pricing. Confirm or negotiate?</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
           <div class="di-context">Drew Kouvel (ACF Pharma) sent updated Survivor Blend pricing Apr 9. Adult: ~$27 COGS at 2,500 units → $79 retail = 64% gross margin. Kids: ~$22 COGS → $69 retail. Cash to launch ~$95-130K.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+A%3A+Confirm+Drew%27s+pricing+as+quoted+and+move+forward"><span class="di-option-letter">A</span>Confirm pricing and move forward</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+B%3A+Push+back+on+pricing%2C+negotiate+better+rates"><span class="di-option-letter">B</span>Push back — negotiate better rates first</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+C%3A+Request+official+detailed+quote+first"><span class="di-option-letter">C</span>Request official detailed quote first</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+A%3A+Confirm+Drew%27s+pricing+as+quoted"><span class="di-option-letter">A</span>Confirm pricing and move forward</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+B%3A+Push+back+and+negotiate"><span class="di-option-letter">B</span>Push back — negotiate better rates</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+C%3A+Request+official+quote+first"><span class="di-option-letter">C</span>Request official detailed quote first</a>
           </div>
           <button class="di-resolve" onclick="resolveDi(event,'di-1')">✓ Mark as resolved</button>
         </div>
       </div>
-
       <div class="di" id="di-2">
         <div class="di-header" onclick="toggleDi('di-2')">
           <span class="di-urgency urgency-week">This week</span>
-          <div class="di-body">
-            <div class="di-title">Alfred proposal — ready to send?</div>
-            <div class="di-sub">bearwitness-x-alfred.netlify.app — reviewed 8/10, sense-checked.</div>
-          </div>
+          <div class="di-body"><div class="di-title">Alfred proposal — ready to send?</div><div class="di-sub">bearwitness-x-alfred.netlify.app — reviewed 8/10.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">The Bear Witness x Alfred proposal has been reviewed twice (8/10), all critical issues resolved. The proposal is at bearwitness-x-alfred.netlify.app. Choose how to proceed:</div>
+          <div class="di-context">Bear Witness x Alfred proposal reviewed twice (8/10). All critical issues resolved. Proposal at bearwitness-x-alfred.netlify.app.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+A%3A+Send+it+now%2C+draft+a+covering+email+to+the+Alfred+team"><span class="di-option-letter">A</span>Send it now — draft covering email to Alfred</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+B%3A+Hold+for+now%2C+I%27ll+let+you+know+when+to+send"><span class="di-option-letter">B</span>Hold — I'll decide when to send</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+A%3A+Send+now%2C+draft+covering+email+to+Alfred+team"><span class="di-option-letter">A</span>Send it now — draft covering email</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+B%3A+Hold+for+now"><span class="di-option-letter">B</span>Hold — I'll decide when to send</a>
           </div>
           <button class="di-resolve" onclick="resolveDi(event,'di-2')">✓ Mark as resolved</button>
         </div>
       </div>
-
       <div class="di" id="di-3">
         <div class="di-header" onclick="toggleDi('di-3')">
           <span class="di-urgency urgency-week">This week</span>
-          <div class="di-body">
-            <div class="di-title">Family constitution — John Winstanley</div>
-            <div class="di-sub">John on leave until 13 Apr. Follow up when he returns.</div>
-          </div>
+          <div class="di-body"><div class="di-title">Family constitution — John Winstanley</div><div class="di-sub">John on leave until 13 Apr. Follow up when he returns.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Jesse sent the 92-page Grylls Family Constitution to John Winstanley (Clarion Wealth). John is on annual leave until April 13. A follow-up draft is in your Drafts folder.</div>
+          <div class="di-context">92-page Grylls Family Constitution sent to John Winstanley (Clarion Wealth). John on leave until Apr 13. Follow-up drafted in Drafts folder.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+A%3A+I%27ve+sent+the+draft+already%2C+mark+this+done"><span class="di-option-letter">A</span>I've sent the draft already - mark done</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+B%3A+Draft+a+new+follow-up+when+John+returns+13+Apr"><span class="di-option-letter">B</span>Draft a follow-up when John returns (13 Apr)</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+A%3A+Already+sent+the+draft%2C+mark+done"><span class="di-option-letter">A</span>I've sent it — mark done</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+B%3A+Draft+new+follow-up+for+when+John+returns+13+Apr"><span class="di-option-letter">B</span>Draft follow-up for 13 Apr return</a>
           </div>
           <button class="di-resolve" onclick="resolveDi(event,'di-3')">✓ Mark as resolved</button>
         </div>
       </div>
-
       <div class="di" id="di-4">
         <div class="di-header" onclick="toggleDi('di-4')">
           <span class="di-urgency urgency-ready">When ready</span>
-          <div class="di-body">
-            <div class="di-title">Mettle — passive hold or take a call?</div>
-            <div class="di-sub">Neil replied Apr 7. £6k MRR. Peer group retention is the signal.</div>
-          </div>
+          <div class="di-body"><div class="di-title">Mettle — passive hold or take a call?</div><div class="di-sub">Neil replied Apr 7. £6k MRR. Strong retention signal.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Neil Smith replied April 7. Honest: ~£6k MRR consumer, £3k enterprise one-off. Strongest signal: 300+ day streaks in peer group use. He asked for a call.</div>
+          <div class="di-context">Neil Smith replied April 7. ~£6k MRR. Strongest signal: 300+ day streaks in peer group use. He asked for a call.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+A%3A+Stay+passive%2C+no+action+needed+right+now"><span class="di-option-letter">A</span>Stay passive — no action needed</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+B%3A+Accept+Neil%27s+call+offer%2C+draft+a+reply"><span class="di-option-letter">B</span>Accept the call — draft a reply to Neil</a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+C%3A+Build+an+investment+decision+brief+first"><span class="di-option-letter">C</span>Build an investment decision brief first</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+A%3A+Stay+passive%2C+no+action+needed"><span class="di-option-letter">A</span>Stay passive — no action needed</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+B%3A+Accept+Neil%27s+call+offer%2C+draft+reply"><span class="di-option-letter">B</span>Accept the call — draft a reply</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+C%3A+Build+investment+decision+brief+first"><span class="di-option-letter">C</span>Build investment brief first</a>
           </div>
           <button class="di-resolve" onclick="resolveDi(event,'di-4')">✓ Mark as resolved</button>
         </div>
@@ -580,11 +657,61 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
     <div class="section-label">Meetings</div>
     <div class="meetings-card">
       <div class="meetings-head">
-        <span id="meetings-head-label">Upcoming</span>
-        <span id="meetings-live-dot" style="font-size:10px;color:var(--ink-light);">Live</span>
+        <span id="meetings-label">Upcoming</span>
+        <span id="meetings-live" style="font-size:10px;color:var(--ink-light);">Live</span>
       </div>
       <div id="meetings-list">
-        <div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">Loading calendar...</div>
+        <div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">Loading...</div>
+      </div>
+    </div>
+
+    <!-- RELATIONSHIP RADAR -->
+    <div class="section-label">Relationship Radar</div>
+    <div class="radar-card">
+      <div class="radar-head" id="radar-head">Checking contacts...</div>
+      <div id="radar-list">
+        <div style="padding:12px 16px;font-size:12px;color:var(--ink-light);">Loading...</div>
+      </div>
+    </div>
+
+    <!-- QUICK CAPTURE -->
+    <div class="section-label">Quick Capture</div>
+    <div class="capture-card">
+      <div class="capture-head">📝 Save a thought, note, or task</div>
+      <div class="capture-body">
+        <textarea class="capture-input" id="capture-input" placeholder="e.g. 'Follow up with Drew about pricing by Friday' or 'Research UK supplement regulations for Modern Savage'"></textarea>
+        <div class="capture-actions">
+          <button class="btn-xs btn-capture" onclick="sendCapture()">→ Send to Junior</button>
+          <a class="btn-xs btn-capture-tg" href="https://t.me/bgv_junior_bot" target="_blank">💬 Open Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI DRAFTING -->
+    <div class="section-label">AI Drafting</div>
+    <div class="draft-panel">
+      <div class="draft-head"><span>✏️ Ask Junior to draft</span></div>
+      <div class="draft-body">
+        <a class="draft-type" href="https://t.me/bgv_junior_bot?text=Please+draft+an+email+to+%5Brecipient%5D+about+%5Btopic%5D" target="_blank">
+          <span class="draft-type-icon">📧</span> Email
+          <span class="draft-type-sub">Draft + review before send</span>
+        </a>
+        <a class="draft-type" href="https://t.me/bgv_junior_bot?text=Please+prepare+a+briefing+for+my+meeting%3A+" target="_blank">
+          <span class="draft-type-icon">📋</span> Meeting Brief
+          <span class="draft-type-sub">Pre-read for any upcoming meeting</span>
+        </a>
+        <a class="draft-type" href="https://t.me/bgv_junior_bot?text=Please+write+up+meeting+notes+for%3A+" target="_blank">
+          <span class="draft-type-icon">📝</span> Meeting Notes
+          <span class="draft-type-sub">Turn bullet points into clean notes</span>
+        </a>
+        <a class="draft-type" href="https://t.me/bgv_junior_bot?text=Please+write+a+proposal+for%3A+" target="_blank">
+          <span class="draft-type-icon">📄</span> Proposal / Brief
+          <span class="draft-type-sub">Strategy doc, partner pitch, brief</span>
+        </a>
+        <a class="draft-type" href="https://t.me/bgv_junior_bot?text=I+need+to+research%3A+" target="_blank">
+          <span class="draft-type-icon">🔍</span> Research
+          <span class="draft-type-sub">Market research, competitor analysis</span>
+        </a>
       </div>
     </div>
 
@@ -596,13 +723,6 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
         <a href="../jesse-s-world-2026-04-02.html" class="ref-item">Jesse's World (full map)<span class="ref-item-meta">2 Apr</span></a>
         <a href="../relationship-tracker-2026-04-02.html" class="ref-item">Relationship Tracker<span class="ref-item-meta">2 Apr</span></a>
         <a href="../scout-feed-2026-04-02.html" class="ref-item">Scout Feed<span class="ref-item-meta">2 Apr</span></a>
-      </div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-head">Amazon / DTC</div>
-      <div class="ref-list">
-        <a href="../amazon-fba-bootlet-2026-03-26.html" class="ref-item">Amazon FBA Brief<span class="ref-item-meta">26 Mar</span></a>
-        <a href="../openclaw-amazon-ai-brief-2026-03-31.html" class="ref-item">Amazon AI Brief<span class="ref-item-meta">31 Mar</span></a>
       </div>
     </div>
     <div class="ref-card">
@@ -618,249 +738,309 @@ details summary:hover { color: var(--ink-mid); background: var(--cream); }
 </div>
 
 <!-- MEETING MODAL -->
-<div class="modal-overlay" id="meeting-modal" onclick="closeMeetingModal(event)">
-  <div class="modal" id="modal-content">
+<div class="modal-overlay" id="meeting-modal" onclick="if(event.target===this)closeMeetingModal()">
+  <div class="modal">
     <div class="modal-head">
       <div class="modal-title" id="modal-title"></div>
       <div class="modal-meta" id="modal-meta"></div>
     </div>
     <div class="modal-body" id="modal-body"></div>
-    <div class="modal-actions">
-      <a class="btn btn-primary" id="modal-brief-btn" href="#" target="_blank">📋 Open Brief</a>
+    <div class="modal-footer">
+      <a class="btn btn-primary" id="modal-brief-btn" href="#" target="_blank">📋 Get Junior's Brief</a>
       <button class="btn btn-ghost" onclick="closeMeetingModal()">Close</button>
     </div>
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
 const API = 'https://especially-eco-joseph-regardless.trycloudflare.com';
 const BOT = 'bgv_junior_bot';
 
-// MEETING BRIEFS — pre-defined context for known upcoming meetings
-const MEETING_BRIEFS = {
-  'BGV catch up': {
-    brief: 'Weekly team sync with CJ Cardenas (MD) and Raemy Singh (CFO). Agenda: Modern Savage launch timeline, Wildernests equity docs, Alfred proposal status, any legal updates on BecomingX/Organised.',
-    link: null,
-    tgPrompt: 'Please generate a briefing for the BGV catch up meeting on Wed 15 Apr at 2pm with CJ and Raemy'
-  },
-  'Bear Grylls Financial Model': {
-    brief: 'Review of Bear Grylls Financial Model v1 with CJ Cardenas and Zain Qazi (mytwyn.com, 20 North Audley Street, Mayfair). This is a financial modelling session — likely reviewing income streams, forecasts, and asset valuations across BGV portfolio.',
-    link: null,
-    tgPrompt: 'Please generate a briefing for the Bear Grylls Financial Model v1 meeting on Thu 16 Apr at 4pm with CJ and Zain Qazi'
-  },
-  'Weekly call': {
-    brief: 'Regular weekly call with Jesse, Alex and Gunnar. Standing operational check-in.',
-    link: null,
-    tgPrompt: 'Please generate a briefing for the weekly call with Jesse, Alex, Gunnar on Thu 16 Apr at 6pm'
-  },
-  'Jumper': {
-    brief: 'Meeting at The Shed Hotel. Jumper partnership / pitch discussion.',
-    link: null,
-    tgPrompt: 'Please generate a briefing for the Jumper meeting today at 4pm at The Shed Hotel'
-  }
-};
-
-function getMeetingBrief(subject) {
-  for (const [key, val] of Object.entries(MEETING_BRIEFS)) {
-    if (subject.toLowerCase().includes(key.toLowerCase())) return val;
-  }
-  return null;
+// ── UTILS ──────────────────────────────────────────────────────────────────────
+function escH(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function toast(msg, ok=false, dur=3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show' + (ok?' ok':'');
+  clearTimeout(t._t); t._t = setTimeout(()=>t.className='toast', dur);
+}
+function avatarColor(s) {
+  const cols = ['#B8502A','#B8801E','#627B5E','#375E8F','#7B5EA7'];
+  let h=0; for(let i=0;i<s.length;i++) h=s.charCodeAt(i)+((h<<5)-h);
+  return cols[Math.abs(h)%cols.length];
+}
+function initials(n) {
+  const p=(n||'').trim().split(/\s+/);
+  return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():(n||'??').slice(0,2).toUpperCase();
 }
 
-function openMeetingModal(ev) {
-  ev.preventDefault();
-  const id = ev.currentTarget.dataset.id;
-  const subject = ev.currentTarget.dataset.subject;
-  const time = ev.currentTarget.dataset.time;
-  const date = ev.currentTarget.dataset.date;
-  const loc = ev.currentTarget.dataset.loc || '';
-
-  document.getElementById('modal-title').textContent = subject;
-  document.getElementById('modal-meta').textContent = date + ' · ' + time + (loc ? ' · ' + loc : '');
-
-  const brief = getMeetingBrief(subject);
-  const bodyEl = document.getElementById('modal-body');
-  if (brief) {
-    bodyEl.innerHTML = `<p>${escH(brief.brief)}</p>`;
-    const tgLink = document.getElementById('modal-brief-btn');
-    if (brief.tgPrompt) {
-      tgLink.href = 'https://t.me/' + BOT + '?text=' + encodeURIComponent(brief.tgPrompt);
-      tgLink.textContent = '📋 Get Junior to brief me';
-      tgLink.style.display = '';
-    } else if (brief.link) {
-      tgLink.href = brief.link;
-      tgLink.textContent = '📋 Open Brief';
-      tgLink.style.display = '';
-    } else {
-      tgLink.style.display = 'none';
-    }
-  } else {
-    bodyEl.innerHTML = `<p style="color:var(--ink-light);font-style:italic;">No brief available yet. Ask Junior to prepare one.</p>`;
-    const tgLink = document.getElementById('modal-brief-btn');
-    tgLink.href = 'https://t.me/' + BOT + '?text=' + encodeURIComponent('Please prepare a meeting brief for: ' + subject + ' on ' + date + ' at ' + time);
-    tgLink.textContent = '📋 Ask Junior for a Brief';
-    tgLink.style.display = '';
-  }
-  document.getElementById('meeting-modal').classList.add('open');
-}
-
-function closeMeetingModal(ev) {
-  if (!ev || ev.target === document.getElementById('meeting-modal')) {
-    document.getElementById('meeting-modal').classList.remove('open');
-  }
-}
-
-function escH(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-// LIVE CLOCK
+// ── CLOCK ──────────────────────────────────────────────────────────────────────
 function updateClock() {
   const now = new Date();
-  const t = now.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit',timeZone:'Europe/London'});
-  const d = now.toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Europe/London'});
-  document.getElementById('live-time').textContent = t;
-  document.getElementById('live-date').textContent = d;
+  document.getElementById('live-time').textContent =
+    now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/London'});
+  document.getElementById('live-date').textContent =
+    now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Europe/London'});
 }
-updateClock();
-setInterval(updateClock, 30000);
+updateClock(); setInterval(updateClock, 30000);
 
-// DECISIONS
+// ── SERVER-SIDE STATE ──────────────────────────────────────────────────────────
+let serverState = {resolved_decisions: [], handled_emails: []};
+
+async function loadState() {
+  try {
+    const r = await fetch(API+'/state', {cache:'no-store'});
+    if (r.ok) {
+      serverState = await r.json();
+      applyResolvedDecisions(serverState.resolved_decisions);
+    }
+  } catch(e) {}
+}
+
+async function saveState(patch) {
+  Object.assign(serverState, patch);
+  try {
+    await fetch(API+'/state', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(serverState)
+    });
+  } catch(e) {}
+}
+
+// ── DECISIONS ──────────────────────────────────────────────────────────────────
+function applyResolvedDecisions(ids) {
+  (ids||[]).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('resolved');
+  });
+  updateDecisionsCount();
+}
+
 function toggleDi(id) {
   const el = document.getElementById(id);
   if (el.classList.contains('resolved')) return;
   el.classList.toggle('open');
 }
+
 function resolveDi(ev, id) {
   ev.stopPropagation();
   const el = document.getElementById(id);
   el.classList.remove('open');
   el.classList.add('resolved');
-  const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
-  if (!resolved.includes(id)) resolved.push(id);
-  localStorage.setItem('resolved_decisions', JSON.stringify(resolved));
+  const resolved = [...new Set([...(serverState.resolved_decisions||[]), id])];
+  saveState({resolved_decisions: resolved});
   updateDecisionsCount();
+  toast('Decision marked resolved', true);
 }
+
 function updateDecisionsCount() {
-  const all = document.querySelectorAll('.di');
-  const open = [...all].filter(el => !el.classList.contains('resolved')).length;
+  const open = [...document.querySelectorAll('.di')].filter(e=>!e.classList.contains('resolved')).length;
   document.getElementById('decisions-count').textContent = open;
 }
-(function restoreDecisions() {
-  const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
-  resolved.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('resolved');
-  });
-  updateDecisionsCount();
-})();
 
-// LOAD CALENDAR FROM API
+// ── REVENUE PULSE ──────────────────────────────────────────────────────────────
+async function loadRevenue() {
+  try {
+    const r = await fetch(API+'/revenue', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    const streams = data.streams||[];
+    const totalUSD = streams.filter(s=>s.status==='live'&&s.currency==='USD').reduce((a,s)=>a+s.amount,0);
+    const totalGBP = streams.filter(s=>s.status==='live'&&s.currency==='GBP').reduce((a,s)=>a+s.amount,0);
+    const totalLabel = (totalUSD?'$'+totalUSD.toLocaleString()+'/mo ':'') + (totalGBP?'£'+totalGBP.toLocaleString()+'/mo':'');
+    document.getElementById('revenue-total').textContent = totalLabel;
+    document.getElementById('revenue-streams').innerHTML = streams.map(s => {
+      const color = s.status==='live'?'var(--green)':s.status==='pre-launch'?'var(--ink-light)':'var(--amber)';
+      const amt = s.amount>0 ? (s.currency==='USD'?'$':'£')+s.amount.toLocaleString()+'/mo' : s.status==='pre-launch'?'Pre-launch':'TBC';
+      return `<div class="revenue-stream">
+        <div class="revenue-dot" style="background:${color}"></div>
+        <div class="revenue-name">${escH(s.name)}</div>
+        <div class="revenue-amount">${escH(amt)}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('revenue-total').textContent = 'Offline';
+  }
+}
+
+// ── RELATIONSHIP RADAR ──────────────────────────────────────────────────────────
+async function loadRelationships() {
+  try {
+    const r = await fetch(API+'/relationships', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    const contacts = (data.contacts||[]).sort((a,b)=>b.days_since-a.days_since);
+    const overdue = contacts.filter(c=>c.overdue);
+    const headEl = document.getElementById('radar-head');
+    headEl.textContent = overdue.length > 0
+      ? `👀 ${overdue.length} contact${overdue.length>1?'s':''} need${overdue.length===1?'s':''} attention`
+      : '✓ All key relationships current';
+
+    const listEl = document.getElementById('radar-list');
+    if (!contacts.length) {
+      listEl.innerHTML = '<div style="padding:12px 16px;font-size:12px;color:var(--ink-light);">No contacts loaded</div>';
+      return;
+    }
+    listEl.innerHTML = contacts.slice(0,7).map(c => {
+      const bg = avatarColor(c.email||c.name);
+      const daysClass = c.days_since >= c.frequency_target_days ? (c.days_since >= c.frequency_target_days*1.5 ? 'days-late' : 'days-warn') : 'days-ok';
+      const tgLink = `https://t.me/${BOT}?text=${encodeURIComponent('Please check in: '+c.name+' ('+c.role+'). Draft a message to re-engage.')}`;
+      return `<a class="radar-item" href="${tgLink}" target="_blank">
+        <div class="radar-avatar" style="background:${bg}">${initials(c.name)}</div>
+        <div class="radar-body">
+          <div class="radar-name">${escH(c.name)}</div>
+          <div class="radar-role">${escH(c.role)}</div>
+        </div>
+        <div class="radar-days ${daysClass}">${c.days_since}d</div>
+      </a>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('radar-head').textContent = 'Radar offline';
+    document.getElementById('radar-list').innerHTML = '<div style="padding:12px 16px;font-size:12px;color:var(--ink-light);">Could not load relationship data</div>';
+  }
+}
+
+// ── MORNING BRIEF ──────────────────────────────────────────────────────────────
+let briefExpanded = false;
+async function loadBrief() {
+  try {
+    const r = await fetch(API+'/brief', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    if (!data.brief) return;
+    document.getElementById('brief-banner').style.display = '';
+    const lines = data.brief.split('\n').filter(l=>l.trim());
+    const preview = lines.slice(0,2).join(' ').slice(0,150) + (data.brief.length>150?'...':'');
+    document.getElementById('brief-preview').textContent = preview;
+    document.getElementById('brief-full').textContent = data.brief;
+    document.getElementById('brief-toggle').textContent = 'Show full brief ▾';
+  } catch(e) {}
+}
+
+function toggleBrief() {
+  briefExpanded = !briefExpanded;
+  document.getElementById('brief-full').classList.toggle('expanded', briefExpanded);
+  document.getElementById('brief-toggle').textContent = briefExpanded ? 'Hide ▴' : 'Show full brief ▾';
+}
+
+// ── CALENDAR ──────────────────────────────────────────────────────────────────
+const MEETING_CONTEXT = {
+  'BGV catch up': {brief: 'Weekly BGV team sync. Attendees: CJ Cardenas (MD), Raemy Singh (CFO). Agenda: financials, active deals, legal/people issues.', tg: 'Please prepare a briefing for the BGV catch up meeting'},
+  'Bear Grylls Financial Model': {brief: 'Financial modelling session with CJ Cardenas and Zain Qazi (mytwyn.com, 20 North Audley Street Mayfair). Reviewing BG income streams, forecasts, asset valuations.', tg: 'Please prepare a briefing for the Bear Grylls Financial Model v1 meeting with CJ and Zain Qazi'},
+  'Weekly call': {brief: 'Regular weekly call with Alex and Gunnar. Standing operational check-in.', tg: 'Please prepare a briefing for the weekly call with Alex and Gunnar'},
+  'Jumper': {brief: 'Jumper partnership discussion at The Shed Hotel.', tg: 'Please prepare a briefing for the Jumper meeting'},
+};
+
+function getMeetingContext(subj) {
+  for(const [k,v] of Object.entries(MEETING_CONTEXT))
+    if(subj.toLowerCase().includes(k.toLowerCase())) return v;
+  return null;
+}
+
 async function loadCalendar() {
   try {
-    const res = await fetch(API + '/calendar', {cache:'no-store'});
-    if (!res.ok) throw new Error('HTTP '+res.status);
-    const events = await res.json();
+    const r = await fetch(API+'/calendar', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    const events = await r.json();
+    const today = events.filter(e=>e.date_label==='Today');
+    const upcoming = events.filter(e=>e.date_label!=='Today');
 
-    // Today strip
-    const today = events.filter(e => e.date_label === 'Today');
-    const todayEl = document.getElementById('today-events');
-    if (today.length === 0) {
-      todayEl.innerHTML = '<div class="no-events">No meetings today</div>';
-    } else {
-      todayEl.innerHTML = today.map(e => `
-        <div class="today-event">
-          <span class="today-time-badge">${escH(e.time)}</span>
-          <span class="today-dot"></span>
-          <span>${escH(e.subject)}${e.location ? ' · ' + escH(e.location) : ''}</span>
-        </div>`).join('');
-    }
+    document.getElementById('today-events').innerHTML = today.length
+      ? today.map(e=>`<div class="today-event"><span class="today-time-badge">${escH(e.time)}</span><span class="today-dot"></span><span>${escH(e.subject)}</span></div>`).join('')
+      : '<span style="font-size:13px;color:var(--ink-light);font-style:italic;">No meetings today</span>';
 
-    // Upcoming meetings
-    const upcoming = events.filter(e => e.date_label !== 'Today');
-    const meetingsList = document.getElementById('meetings-list');
-    const todayMeetings = today;
-    const allMeetings = [...todayMeetings, ...upcoming];
+    const all = [...today, ...upcoming];
+    document.getElementById('meetings-list').innerHTML = all.length
+      ? all.map(e=>{
+          const isToday = e.date_label==='Today';
+          return `<div class="meeting-item" onclick="openMeetingModal('${escH(e.id)}','${escH(e.subject)}','${escH(e.time)}','${escH(e.date_label)}','${escH(e.location||'')}')">
+            <div class="meeting-item-top">
+              <span class="meeting-date-badge ${isToday?'badge-today':'badge-soon'}">${escH(e.date_label)}</span>
+              <span class="meeting-time">${escH(e.time)}</span>
+            </div>
+            <div class="meeting-title">${escH(e.subject)}</div>
+            ${e.location?`<div class="meeting-loc">${escH(e.location)}</div>`:''}
+          </div>`;
+        }).join('')
+      : '<div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">No upcoming meetings</div>';
 
-    if (allMeetings.length === 0) {
-      meetingsList.innerHTML = '<div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">No upcoming meetings</div>';
-    } else {
-      meetingsList.innerHTML = allMeetings.map(e => {
-        const isToday = e.date_label === 'Today';
-        return `<div class="meeting-item"
-          data-id="${escH(e.id)}"
-          data-subject="${escH(e.subject)}"
-          data-time="${escH(e.time)}"
-          data-date="${escH(e.date_label)}"
-          data-loc="${escH(e.location||'')}"
-          onclick="openMeetingModal(event)">
-          <div class="meeting-item-top">
-            <span class="meeting-date-badge ${isToday?'badge-today':'badge-soon'}">${escH(e.date_label)}</span>
-            <span class="meeting-time">${escH(e.time)}</span>
-          </div>
-          <div class="meeting-title">${escH(e.subject)}</div>
-          ${e.location ? `<div class="meeting-loc">${escH(e.location)}</div>` : ''}
-        </div>`;
-      }).join('');
-
-      // Add event listeners
-      document.querySelectorAll('.meeting-item').forEach(el => {
-        el.addEventListener('click', openMeetingModal);
-      });
-    }
-
-    document.getElementById('meetings-head-label').textContent = 'Next 2 weeks';
-    document.getElementById('meetings-live-dot').textContent = '● Live';
-    document.getElementById('meetings-live-dot').style.color = 'var(--green)';
+    document.getElementById('meetings-label').textContent = 'Next 14 days';
+    document.getElementById('meetings-live').innerHTML = '● Live';
+    document.getElementById('meetings-live').style.color = 'var(--green)';
   } catch(e) {
-    // Fallback to static data
-    document.getElementById('today-events').innerHTML = '<div class="no-events" style="color:var(--terracotta)">Calendar offline</div>';
+    // Static fallback
+    document.getElementById('today-events').innerHTML = '<span style="font-size:13px;color:var(--ink-light);">Calendar offline</span>';
     document.getElementById('meetings-list').innerHTML = `
-      <div class="meeting-item" onclick="openMeetingModal(event)"
-        data-subject="BGV catch up Zoom Meeting" data-time="2:00pm" data-date="Wed 15 Apr" data-loc="Zoom">
+      <div class="meeting-item" onclick="openMeetingModal('','BGV catch up Zoom Meeting','2:00pm','Wed 15 Apr','Zoom')">
         <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Wed 15 Apr</span><span class="meeting-time">2:00pm</span></div>
         <div class="meeting-title">BGV catch up Zoom Meeting</div>
       </div>
-      <div class="meeting-item" onclick="openMeetingModal(event)"
-        data-subject="Bear Grylls Financial Model v1" data-time="4:00pm" data-date="Thu 16 Apr" data-loc="">
+      <div class="meeting-item" onclick="openMeetingModal('','Bear Grylls Financial Model v1','4:00pm','Thu 16 Apr','')">
         <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">4:00pm</span></div>
         <div class="meeting-title">Bear Grylls Financial Model v1</div>
       </div>
-      <div class="meeting-item" onclick="openMeetingModal(event)"
-        data-subject="Weekly call: Jesse, Alex, Gunnar" data-time="6:00pm" data-date="Thu 16 Apr" data-loc="">
+      <div class="meeting-item" onclick="openMeetingModal('','Weekly call: Jesse, Alex, Gunnar','6:00pm','Thu 16 Apr','')">
         <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">6:00pm</span></div>
         <div class="meeting-title">Weekly call: Jesse, Alex, Gunnar</div>
       </div>`;
   }
 }
 
-// LOAD EMAIL COUNT
+function openMeetingModal(id, subject, time, date, loc) {
+  document.getElementById('modal-title').textContent = subject;
+  document.getElementById('modal-meta').textContent = date + ' · ' + time + (loc?' · '+loc:'');
+  const ctx = getMeetingContext(subject);
+  const body = ctx ? `<p>${escH(ctx.brief)}</p>` : `<p style="color:var(--ink-light);font-style:italic">No pre-loaded brief. Ask Junior to prepare one.</p>`;
+  document.getElementById('modal-body').innerHTML = body;
+  const tgPrompt = ctx ? ctx.tg : 'Please prepare a meeting brief for: '+subject+' on '+date+' at '+time;
+  document.getElementById('modal-brief-btn').href = 'https://t.me/'+BOT+'?text='+encodeURIComponent(tgPrompt);
+  document.getElementById('meeting-modal').classList.add('open');
+}
+function closeMeetingModal() { document.getElementById('meeting-modal').classList.remove('open'); }
+
+// ── EMAIL BADGE ──────────────────────────────────────────────────────────────
 async function loadEmailBadge() {
   try {
-    const res = await fetch(API + '/emails?count=20', {cache:'no-store'});
-    if (!res.ok) return;
-    const emails = await res.json();
-    const unread = emails.filter(e => !e.is_read).length;
+    const r = await fetch(API+'/emails?count=20', {cache:'no-store'});
+    if (!r.ok) return;
+    const emails = await r.json();
+    const handled = serverState.handled_emails||[];
+    const unread = emails.filter(e=>!e.is_read&&!handled.includes(e.id)).length;
     const badge = document.getElementById('inbox-badge');
-    if (unread > 0) {
-      badge.textContent = unread;
-      badge.style.display = '';
-    } else {
-      badge.style.display = 'none';
-    }
-    const now = new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('status-refresh').innerHTML =
-      `Last synced ${now} · <a href="javascript:void(0)" onclick="init()">Refresh now</a>`;
+    badge.textContent = unread;
+    badge.style.display = unread>0 ? '' : 'none';
   } catch(e) {}
 }
 
-async function init() {
-  await Promise.all([loadCalendar(), loadEmailBadge()]);
+// ── QUICK CAPTURE ──────────────────────────────────────────────────────────────
+async function sendCapture() {
+  const input = document.getElementById('capture-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const tgUrl = 'https://t.me/'+BOT+'?text='+encodeURIComponent('CAPTURE: '+text);
+  window.open(tgUrl, '_blank');
+  input.value = '';
+  toast('Sent to Junior', true);
 }
 
-init();
-// Refresh every 5 minutes
-setInterval(init, 300000);
+// ── SYNC ──────────────────────────────────────────────────────────────────────
+async function syncAll() {
+  await Promise.all([
+    loadCalendar(),
+    loadEmailBadge(),
+    loadRevenue(),
+    loadRelationships(),
+    loadBrief(),
+  ]);
+  const now = new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('status-sync').innerHTML = `Synced ${now} · <a href="javascript:void(0)" onclick="syncAll()">Refresh</a>`;
+}
+
+// ── BOOT ──────────────────────────────────────────────────────────────────────
+loadState().then(syncAll);
+setInterval(syncAll, 300000); // every 5 min
 </script>
 </body>
 </html>
