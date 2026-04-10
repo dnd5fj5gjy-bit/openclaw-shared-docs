@@ -598,7 +598,7 @@ async function sendReply(emailId, toAddr, subject) {
 
 function markHandled(id) {
   handledIds.add(id);
-  localStorage.setItem('handled_emails', JSON.stringify([...handledIds]));
+  saveHandled();
   updateCounts();
   renderList();
   showToast('Marked as handled');
