@@ -785,5 +785,42 @@
 
 </div>
 
+<script>
+// Toggle decision card open/closed
+function toggleDi(id) {
+  const el = document.getElementById(id);
+  if (el.classList.contains('resolved')) return;
+  el.classList.toggle('open');
+}
+
+// Mark a decision as resolved (persisted in localStorage)
+function resolveDi(id) {
+  const el = document.getElementById(id);
+  el.classList.remove('open');
+  el.classList.add('resolved');
+  const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
+  if (!resolved.includes(id)) resolved.push(id);
+  localStorage.setItem('resolved_decisions', JSON.stringify(resolved));
+  updateCount();
+}
+
+// Update the open items count badge
+function updateCount() {
+  const all = document.querySelectorAll('.di');
+  const open = [...all].filter(el => !el.classList.contains('resolved')).length;
+  const badge = document.getElementById('decisions-count');
+  if (badge) badge.textContent = open;
+}
+
+// On load: restore resolved state
+(function init() {
+  const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
+  resolved.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('resolved');
+  });
+  updateCount();
+})();
+</script>
 </body>
 </html>
