@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — UK TRT Competitive Intelligence 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #0f4c81 0%, #1a7a9e 100%); color: white; padding: 48px 40px; }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header p { opacity: 0.85; font-size: 15px; }
+  .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-top: 12px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .section-title { font-size: 20px; font-weight: 700; color: #0f4c81; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .summary-card { background: white; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; text-align: center; }
+  .summary-card .num { font-size: 32px; font-weight: 800; color: #0f4c81; }
+  .summary-card .label { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+  /* Competitor table */
+  .competitor-grid { display: flex; flex-direction: column; gap: 16px; }
+  .competitor-card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; }
+  .competitor-card.ted { border-color: #0f4c81; border-width: 2px; }
+  .comp-header { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .comp-name { font-size: 16px; font-weight: 700; }
+  .comp-price { font-size: 18px; font-weight: 800; color: #0f4c81; }
+  .comp-rating { font-size: 13px; color: #64748b; }
+  .comp-body { padding: 0 20px 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .comp-body { grid-template-columns: 1fr; } }
+  .comp-col h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; margin-bottom: 8px; }
+  .comp-col ul { list-style: none; }
+  .comp-col ul li { font-size: 13px; color: #475569; padding: 2px 0; }
+  .comp-col ul li::before { content: '• '; color: #94a3b8; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin: 2px; }
+  .pill-green { background: #dcfce7; color: #166534; }
+  .pill-red { background: #fee2e2; color: #991b1b; }
+  .pill-amber { background: #fef3c7; color: #92400e; }
+  .pill-blue { background: #dbeafe; color: #1e40af; }
+  .ted-badge { background: #0f4c81; color: white; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+
+  /* Strategy section */
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .insight-card { background: white; border-radius: 12px; padding: 20px; border-left: 4px solid #0f4c81; border: 1px solid #e2e8f0; border-left: 4px solid; }
+  .insight-card.opp { border-left-color: #22c55e; }
+  .insight-card.risk { border-left-color: #ef4444; }
+  .insight-card.action { border-left-color: #f59e0b; }
+  .insight-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .insight-card p { font-size: 13px; color: #475569; line-height: 1.6; }
+
+  /* Price chart */
+  .price-bar-container { display: flex; flex-direction: column; gap: 10px; }
+  .price-bar-row { display: flex; align-items: center; gap: 12px; }
+  .price-bar-label { font-size: 13px; width: 160px; flex-shrink: 0; font-weight: 500; }
+  .price-bar-label.ted-label { color: #0f4c81; font-weight: 700; }
+  .price-bar { height: 28px; border-radius: 6px; display: flex; align-items: center; padding: 0 10px; font-size: 12px; font-weight: 600; color: white; min-width: 40px; transition: width 0.3s; }
+  .price-val { font-size: 13px; color: #64748b; margin-left: 4px; }
+
+  footer { text-align: center; padding: 32px; color: #94a3b8; font-size: 12px; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ted's Health — UK TRT Competitive Intelligence</h1>
+  <p>A comprehensive map of the UK TRT clinic landscape to inform pricing, positioning, and growth strategy.</p>
+  <div class="badge">Compiled by Nexus · April 2026 · Confidential</div>
+</div>
+
+<div class="container">
+
+  <!-- Summary -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="num">19</div>
+      <div class="label">UK TRT Clinics Tracked</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">£59–£350</div>
+      <div class="label">Monthly Price Range</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">£115/mo</div>
+      <div class="label">Ted's Health Starting Price</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">4.2/5</div>
+      <div class="label">Ted's Health TRTCompare Rating</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">97</div>
+      <div class="label">Current Active Patients</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">225</div>
+      <div class="label">Breakeven Patient Count</div>
+    </div>
+  </div>
+
+  <!-- Price chart -->
+  <div class="section-title">Price Positioning Map</div>
+  <p style="font-size:13px;color:#64748b;margin-bottom:20px;">Monthly subscription price (entry-level, ongoing treatment). Excludes initial consultation and blood test costs.</p>
+  <div class="price-bar-container">
+    <div class="price-bar-row">
+      <div class="price-bar-label">Optimale</div>
+      <div class="price-bar" style="width:120px;background:#94a3b8;">£60/mo</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Leger Clinic</div>
+      <div class="price-bar" style="width:158px;background:#94a3b8;">£95/mo yr2</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Voy (Manual)</div>
+      <div class="price-bar" style="width:165px;background:#94a3b8;">£99/mo</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Numan</div>
+      <div class="price-bar" style="width:165px;background:#94a3b8;">£99/mo</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Manual</div>
+      <div class="price-bar" style="width:178px;background:#94a3b8;">£110/mo</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label ted-label">Ted's Health ★</div>
+      <div class="price-bar" style="width:192px;background:#0f4c81;">£115/mo</div>
+      <div class="price-val" style="color:#0f4c81;font-weight:700;">← You are here</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Balance My Hormones</div>
+      <div class="price-bar" style="width:230px;background:#64748b;">£149–189/mo</div>
+    </div>
+    <div class="price-bar-row">
+      <div class="price-bar-label">Omniya (London)</div>
+      <div class="price-bar" style="width:280px;background:#475569;">£170–350/mo</div>
+    </div>
+  </div>
+
+  <!-- Competitor cards -->
+  <div class="section-title" style="margin-top:40px;">Competitor Deep Dives</div>
+  <div class="competitor-grid">
+
+    <!-- Ted's Health -->
+    <div class="competitor-card ted">
+      <div class="comp-header" style="background:#f0f7ff;">
+        <div>
+          <div class="comp-name">🏥 Ted's Health <span class="ted-badge">YOU</span></div>
+          <div class="comp-rating">★ 4.2/5 on TRTCompare · CQC Registered · GSET Health Ltd</div>
+        </div>
+        <div class="comp-price">£115/mo</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Strengths</h4>
+          <ul>
+            <li>CQC registered (key trust signal)</li>
+            <li>Removing barriers angle</li>
+            <li>Strong medical team (Dr Andrews)</li>
+            <li>£89/mo ED plan (competitive)</li>
+            <li>BGV brand backing</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Weaknesses</h4>
+          <ul>
+            <li>Only 97 patients (vs hundreds at competitors)</li>
+            <li>Lower rating than top competitors</li>
+            <li>Limited online reviews volume</li>
+            <li>No Bear Grylls brand activation yet</li>
+            <li>No visible affiliate programme</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Immediate Opportunities</h4>
+          <ul>
+            <li>Activate Bear Grylls association</li>
+            <li>Build review volume on TRTCompare</li>
+            <li>Launch affiliate/referral scheme</li>
+            <li>Target "removed barriers" messaging</li>
+            <li>Explore B2B white-label pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optimale -->
+    <div class="competitor-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">Optimale</div>
+          <div class="comp-rating">Price leader · Fully remote · Est. UK market leader by volume</div>
+        </div>
+        <div class="comp-price">£59.99/mo</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Model</h4>
+          <ul>
+            <li>Fully remote/digital</li>
+            <li>No hidden fees on postage, letters</li>
+            <li>Medication-based pricing (injection/cream/gel)</li>
+            <li>Blood tests included</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>Price leader — lowest in market</li>
+            <li>"No hidden costs" — strong trust angle</li>
+            <li>Heavy SEO investment</li>
+            <li>Strong organic search presence</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Ted's Response</h4>
+          <ul>
+            <li>Don't compete on price — differentiate on quality + brand</li>
+            <li>CQC registration is a credibility advantage Optimale lacks</li>
+            <li>Bear Grylls association = premium positioning justifier</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numan -->
+    <div class="competitor-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">Numan</div>
+          <div class="comp-rating">★ 4.4/5 · 33,000+ Trustpilot reviews · VC-backed scale player</div>
+        </div>
+        <div class="comp-price">£99/mo</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Model</h4>
+          <ul>
+            <li>Holistic men's health platform</li>
+            <li>TRT + ED + weight + hair loss</li>
+            <li>CQC regulated</li>
+            <li>App-based patient management</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>"Complete men's health" — not just TRT</li>
+            <li>Massive brand awareness via TV/podcast ads</li>
+            <li>Strong Trustpilot social proof (33K reviews)</li>
+            <li>Comprehensive support programme</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Ted's Response</h4>
+          <ul>
+            <li>Numan = scale/volume; Ted's = premium/personal</li>
+            <li>Ted's CQC + medical team is comparable</li>
+            <li>Bear Grylls > any Numan celebrity association</li>
+            <li>Compete on personalisation, not scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manual -->
+    <div class="competitor-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">Manual (incl. Voy)</div>
+          <div class="comp-rating">★ 4.7/5 · 11,500+ reviews · Recently raised prices Apr 2026</div>
+        </div>
+        <div class="comp-price">£110–169/mo</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Model</h4>
+          <ul>
+            <li>Cypionate + HCG: £169/mo (up from £159 Apr 2026)</li>
+            <li>Cypionate + Clomid: £149/mo (up from £139)</li>
+            <li>Voy brand = entry-level at £99/mo</li>
+            <li>Multi-treatment platform</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>Premium positioning with high review volume</li>
+            <li>Raised prices in April 2026 — market signal</li>
+            <li>Excellent patient experience ratings</li>
+            <li>Strong medical credibility</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Ted's Response</h4>
+          <ul>
+            <li>OPPORTUNITY: Manual's price rise creates an opening</li>
+            <li>Ted's £115/mo now undercuts Manual's core product</li>
+            <li>Target Manual's price-sensitive patients actively</li>
+            <li>Match Manual's review volume strategy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance My Hormones -->
+    <div class="competitor-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">Balance My Hormones</div>
+          <div class="comp-rating">★ 4.9/5 · 25 years combined experience · Founded by TRT patient</div>
+        </div>
+        <div class="comp-price">£149–189/mo</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Model</h4>
+          <ul>
+            <li>All-inclusive subscription</li>
+            <li>Premium segment — premium price</li>
+            <li>Founded by someone on TRT (authentic)</li>
+            <li>Strong community/personal touch</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>Highest rated clinic on TRTCompare</li>
+            <li>Personal, community-driven approach</li>
+            <li>Premium price signals quality</li>
+            <li>Authenticity as differentiator</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Ted's Response</h4>
+          <ul>
+            <li>BMH = premium benchmark; Ted's should aspire here</li>
+            <li>£115/mo is well below — room to grow margin</li>
+            <li>Invest in review volume to close rating gap</li>
+            <li>Match their authenticity via Bear's story</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leger -->
+    <div class="competitor-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">Leger Clinic</div>
+          <div class="comp-rating">8+ year customer relationships · Specialist TRT-only focus</div>
+        </div>
+        <div class="comp-price">£95/mo yr2 · £124/mo yr1</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-col">
+          <h4>Model</h4>
+          <ul>
+            <li>Initial consultation: £149</li>
+            <li>Year 1: ~£1,485 total (~£124/mo)</li>
+            <li>Year 2+: ~£1,140 total (~£95/mo)</li>
+            <li>All blood tests + equipment included</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>TRT-only specialist — deep expertise signal</li>
+            <li>Very high retention (8yr patients reported)</li>
+            <li>Transparent pricing model</li>
+            <li>Strong Trustpilot presence</li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <h4>Ted's Response</h4>
+          <ul>
+            <li>Leger retains long-term — Ted's needs same</li>
+            <li>Consider annual pricing tier to drive loyalty</li>
+            <li>Explicit TRT specialist credentials front-page</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Strategic Insights -->
+  <div class="section-title">Strategic Opportunities & Threats</div>
+  <div class="insight-grid">
+
+    <div class="insight-card opp">
+      <h3>🟢 OPPORTUNITY — Manual's April 2026 Price Rise</h3>
+      <p>Manual raised prices in April 2026 (Cypionate + HCG: £159 → £169). Ted's Health at £115/mo is now £54/month cheaper than Manual's most popular plan. This is an immediate acquisition window — target Manual customers via Google/Meta with "switching" messaging and a simple price comparison.</p>
+    </div>
+
+    <div class="insight-card opp">
+      <h3>🟢 OPPORTUNITY — Bear Grylls Activation</h3>
+      <p>No competitor has a celebrity of Bear's calibre associated with their clinic. This is Ted's unfair advantage. A single Bear endorsement post or testimonial (not paid sponsorship — authentic association) could generate significant awareness. Even a quote about men's health on Ted's site would materially differentiate.</p>
+    </div>
+
+    <div class="insight-card opp">
+      <h3>🟢 OPPORTUNITY — Review Volume Gap</h3>
+      <p>Numan has 33,000 Trustpilot reviews. Manual has 11,500. Ted's Health has a 4.2/5 rating but low volume. A structured review collection programme (post-treatment email, SMS prompt, incentivised referrals) could close this gap within 6 months and dramatically improve TRTCompare visibility.</p>
+    </div>
+
+    <div class="insight-card opp">
+      <h3>🟢 OPPORTUNITY — Affiliate / Influencer Programme</h3>
+      <p>No major TRT clinic runs a strong affiliate programme targeting health influencers, podcasters, or fitness creators. Ted's Health already has Olly managing influencer/affiliate work. An exclusive affiliate scheme with 5-10 well-selected health creators could generate 20-30 new patients/month at low CAC.</p>
+    </div>
+
+    <div class="insight-card risk">
+      <h3>🔴 RISK — Optimale on Price</h3>
+      <p>Optimale at £59.99/mo is almost half Ted's price. Price-sensitive patients will compare. Ted's Health needs to make its premium positioning clear — CQC registration, Bear Grylls association, clinical quality — so that the £55/month premium feels justified. Never compete on price alone.</p>
+    </div>
+
+    <div class="insight-card risk">
+      <h3>🔴 RISK — Numan's Scale Moat</h3>
+      <p>Numan's 33,000 reviews create a compounding SEO and social proof advantage. At 97 patients, Ted's review count is minimal. This is a credibility gap that takes time to close. In the short term, lean into the "personal" angle — Numan is a big digital business; Ted's is a specialist clinic where you get a real doctor.</p>
+    </div>
+
+    <div class="insight-card action">
+      <h3>🟡 ACTION — Immediate: Boost TRTCompare Profile</h3>
+      <p>TRTCompare is where patients actively comparison shop. Ted's Health currently shows 4.2/5 with limited reviews. Request all existing patients leave a review. Ensure the clinic profile is 100% complete with pricing, treatments, and differentiators clearly listed. This is free marketing to warm, high-intent buyers.</p>
+    </div>
+
+    <div class="insight-card action">
+      <h3>🟡 ACTION — Medium Term: Annual Subscription Tier</h3>
+      <p>Leger Clinic builds strong retention via annual pricing. Ted's Health should offer an annual plan at a discount (e.g., 10 months for 12) to lock in patients, improve cash flow, and reduce churn risk. A retained patient is worth 10x an acquired one at breakeven stage.</p>
+    </div>
+
+    <div class="insight-card action">
+      <h3>🟡 ACTION — Breakeven Path: 128 More Patients</h3>
+      <p>Ted's needs 225 patients to break even; currently at 97. At average £115/month that's 128 more patients = ~£14,700 additional monthly revenue needed. At a conservative 10 new patients/month (achievable with affiliate programme + Manual switchers), breakeven is ~13 months. The Bear Grylls activation could compress this to 6-8 months.</p>
+    </div>
+
+  </div>
+
+  <!-- Market context -->
+  <div class="section-title">Market Context</div>
+  <div style="background:white;border-radius:12px;padding:24px;border:1px solid #e2e8f0;">
+    <p style="font-size:14px;color:#475569;line-height:1.8;">
+      The UK TRT market is valued at <strong>$2.13 billion globally in 2026</strong>, growing at 3.88% CAGR toward $2.57B by 2031 (Mordor Intelligence). The UK private TRT market has expanded significantly since 2020, driven by increased awareness, NHS wait times (often 6-12 months for TRT referrals), and normalisation via men's health media. At least 19 private UK clinics now operate in this space. The NHS threshold for TRT (<8 nmol/L) is stricter than private clinics — creating a large addressable market of men who are symptomatic but don't qualify for NHS treatment. TRTCompare lists clinics for active comparison shoppers — this platform is a significant patient acquisition channel and Ted's Health's profile there is an immediate priority.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  Compiled by Nexus (🔗) · April 2026 · For internal BGV use only<br>
+  Sources: TRTCompare, clinic websites, Trustpilot, Mordor Intelligence, Manual pricing pages
+</footer>
+
+</body>
+</html>
