@@ -3,210 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesse — Inbox</title>
+<title>Jesse — Email</title>
+<!-- LAST_REFRESHED: 11 Apr 2026 00:10 BST -->
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --cream: #F6F1E9; --cream-deep: #EDE7DA; --card: #FDFAF5;
-  --card-border: #E8E0D0; --ink: #2C2318; --ink-mid: #6B5F52;
-  --ink-light: #A09080; --sage: #7A9E7E; --sage-bg: #EBF3EB;
-  --amber: #C48A2A; --amber-bg: #FBF3E2;
-  --terracotta: #C05A35; --terracotta-bg: #FAE9E2;
-  --blue: #3A6EA5; --blue-bg: #E5EEF8;
-  --green: #2E7D47; --green-bg: #E8F5EE;
-  --rule: #DDD5C5;
-  --shadow: 0 1px 4px rgba(44,35,24,0.07), 0 2px 12px rgba(44,35,24,0.04);
-  --shadow-lg: 0 4px 20px rgba(44,35,24,0.12);
-}
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--cream); color: var(--ink); font-size: 14px; height: 100vh;
-  display: flex; flex-direction: column; overflow: hidden; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F6F1E9; --cream-deep: #EDE7DA; --card: #FDFAF5;
+    --card-border: #E8E0D0; --ink: #2C2318; --ink-mid: #6B5F52;
+    --ink-light: #A09080; --sage: #7A9E7E; --sage-bg: #EBF3EB;
+    --amber: #C48A2A; --amber-bg: #FBF3E2;
+    --terracotta: #C05A35; --terracotta-bg: #FAE9E2;
+    --blue: #3A6EA5; --blue-bg: #E5EEF8;
+    --rule: #DDD5C5;
+    --shadow: 0 1px 4px rgba(44,35,24,0.07), 0 2px 12px rgba(44,35,24,0.04);
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--cream); color: var(--ink); font-size: 14px; height: 100vh;
+    display: flex; flex-direction: column; overflow: hidden; }
 
-/* HEADER */
-.header { background: var(--cream-deep); border-bottom: 1px solid var(--rule);
-  padding: 12px 20px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.header-back { font-size: 13px; font-weight: 700; color: var(--blue);
-  text-decoration: none; display: flex; align-items: center; gap: 4px; padding: 5px 10px;
-  border-radius: 6px; background: var(--blue-bg); border: 1px solid #C5D9EF; }
-.header-back:hover { background: #d5e6f5; }
-.header h1 { font-size: 17px; font-weight: 800; color: var(--ink); }
-.header-status { font-size: 11px; color: var(--ink-light); margin-left: auto;
-  display: flex; align-items: center; gap: 10px; }
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; }
-.status-dot.live { background: var(--green); animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.unread-badge { background: var(--terracotta); color: #fff; font-size: 11px;
-  font-weight: 800; border-radius: 10px; padding: 2px 8px; }
-.btn-refresh { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 700;
-  cursor: pointer; background: var(--card); border: 1px solid var(--card-border);
-  color: var(--ink-mid); transition: all 0.15s; }
-.btn-refresh:hover { border-color: var(--ink-mid); color: var(--ink); }
-.btn-refresh.loading { opacity: 0.5; }
+  /* HEADER */
+  .header { background: var(--cream-deep); border-bottom: 1px solid var(--rule);
+    padding: 14px 24px; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .header-back { font-size: 13px; font-weight: 700; color: var(--blue);
+    text-decoration: none; display: flex; align-items: center; gap: 5px; }
+  .header-back:hover { color: var(--terracotta); }
+  .header h1 { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .header-meta { font-size: 11px; color: var(--ink-light); margin-left: auto; }
+  .unread-badge { background: var(--terracotta); color: #fff; font-size: 11px;
+    font-weight: 700; border-radius: 10px; padding: 1px 7px; margin-left: 8px; }
 
-/* TABS */
-.tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--rule);
-  flex-shrink: 0; padding: 0 20px; }
-.tab { padding: 10px 14px; font-size: 12px; font-weight: 700; color: var(--ink-light);
-  cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.15s; white-space: nowrap; }
-.tab:hover { color: var(--ink); }
-.tab.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
-.tab-count { font-size: 10px; background: var(--cream-deep); border-radius: 8px;
-  padding: 1px 6px; margin-left: 4px; font-weight: 800; color: var(--ink-mid); }
-.tab.active .tab-count { background: var(--terracotta-bg); color: var(--terracotta); }
+  /* TABS */
+  .tabs { display: flex; gap: 0; background: var(--card); border-bottom: 1px solid var(--rule);
+    flex-shrink: 0; padding: 0 24px; }
+  .tab { padding: 10px 16px; font-size: 12px; font-weight: 700; color: var(--ink-light);
+    cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.15s;
+    white-space: nowrap; }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+  .tab-count { font-size: 10px; background: var(--cream-deep); border-radius: 8px;
+    padding: 1px 5px; margin-left: 4px; font-weight: 800; color: var(--ink-mid); }
+  .tab.active .tab-count { background: var(--terracotta-bg); color: var(--terracotta); }
 
-/* MAIN LAYOUT */
-.main { display: flex; flex: 1; overflow: hidden; }
+  /* MAIN LAYOUT */
+  .main { display: flex; flex: 1; overflow: hidden; }
 
-/* EMAIL LIST */
-.email-list { width: 340px; flex-shrink: 0; border-right: 1px solid var(--rule);
-  overflow-y: auto; background: var(--card); }
-.email-item { padding: 12px 16px; border-bottom: 1px solid var(--rule);
-  cursor: pointer; transition: background 0.1s; position: relative; }
-.email-item:hover { background: var(--cream); }
-.email-item.selected { background: var(--cream-deep); border-right: 3px solid var(--terracotta); }
-.email-item.unread { border-left: 3px solid var(--terracotta); padding-left: 13px; }
-.email-item.handled { opacity: 0.35; }
-.email-from { font-size: 12px; font-weight: 700; color: var(--ink);
-  display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-.email-from-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.email-time { font-size: 10px; color: var(--ink-light); flex-shrink: 0; }
-.email-subject { font-size: 12px; font-weight: 600; color: var(--ink-mid);
-  margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.email-preview { font-size: 11px; color: var(--ink-light); margin-top: 3px;
-  line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical; overflow: hidden; }
-.email-cat { font-size: 9px; font-weight: 800; text-transform: uppercase;
-  padding: 1px 5px; border-radius: 3px; letter-spacing: 0.4px; flex-shrink: 0; }
-.cat-priority { background: var(--terracotta-bg); color: var(--terracotta); }
-.cat-reply { background: var(--amber-bg); color: var(--amber); }
-.cat-updates { background: var(--cream-deep); color: var(--ink-light); }
+  /* EMAIL LIST */
+  .email-list { width: 360px; flex-shrink: 0; border-right: 1px solid var(--rule);
+    overflow-y: auto; background: var(--card); }
+  .email-item { padding: 13px 18px; border-bottom: 1px solid var(--rule);
+    cursor: pointer; transition: background 0.1s; position: relative; }
+  .email-item:hover { background: var(--cream); }
+  .email-item.selected { background: var(--cream-deep); }
+  .email-item.unread { border-left: 3px solid var(--terracotta); padding-left: 15px; }
+  .email-item.handled { opacity: 0.4; }
+  .email-from { font-size: 13px; font-weight: 700; color: var(--ink);
+    display: flex; align-items: center; justify-content: space-between; }
+  .email-from-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .email-time { font-size: 11px; color: var(--ink-light); flex-shrink: 0; margin-left: 8px; }
+  .email-subject { font-size: 12px; font-weight: 600; color: var(--ink-mid);
+    margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .email-preview { font-size: 11px; color: var(--ink-light); margin-top: 3px;
+    line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; }
+  .email-cat { font-size: 9px; font-weight: 800; text-transform: uppercase;
+    padding: 1px 5px; border-radius: 3px; letter-spacing: 0.4px; margin-left: 6px; flex-shrink: 0; }
+  .cat-priority { background: var(--terracotta-bg); color: var(--terracotta); }
+  .cat-reply    { background: var(--amber-bg); color: var(--amber); }
+  .cat-updates  { background: var(--cream-deep); color: var(--ink-light); }
 
-/* EMAIL DETAIL */
-.email-detail { flex: 1; overflow-y: auto; display: flex; flex-direction: column; background: var(--cream); }
-.detail-empty { display: flex; align-items: center; justify-content: center;
-  flex: 1; color: var(--ink-light); font-size: 14px; font-style: italic; flex-direction: column; gap: 12px; }
-.detail-empty-icon { font-size: 40px; opacity: 0.4; }
+  /* EMAIL DETAIL */
+  .email-detail { flex: 1; overflow-y: auto; padding: 28px 32px; }
+  .detail-empty { display: flex; align-items: center; justify-content: center;
+    height: 100%; color: var(--ink-light); font-size: 14px; font-style: italic; }
+  .detail-header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+  .detail-subject { font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.3; margin-bottom: 8px; }
+  .detail-from { font-size: 13px; color: var(--ink-mid); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .detail-from-avatar { width: 28px; height: 28px; border-radius: 50%;
+    background: var(--amber); color: #fff; font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .detail-from-info { flex: 1; }
+  .detail-from-name { font-weight: 700; color: var(--ink); }
+  .detail-from-addr { font-size: 11px; color: var(--ink-light); }
+  .detail-time { font-size: 11px; color: var(--ink-light); margin-left: auto; }
+  .detail-body { font-size: 14px; color: var(--ink-mid); line-height: 1.75;
+    white-space: pre-wrap; word-break: break-word; margin-bottom: 28px; }
+  .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid transparent; transition: all 0.15s; }
+  .btn-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+  .btn-primary:hover { background: #A84A28; }
+  .btn-secondary { background: var(--card); color: var(--ink); border-color: var(--card-border); }
+  .btn-secondary:hover { border-color: var(--ink-mid); }
+  .btn-ghost { background: none; color: var(--ink-light); border-color: var(--card-border); }
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink-mid); }
 
-/* DETAIL CONTENT */
-.detail-content { padding: 24px 28px; max-width: 800px; display: flex; flex-direction: column; gap: 0; }
+  /* EMPTY STATE */
+  .empty-tab { padding: 32px; text-align: center; color: var(--ink-light);
+    font-size: 13px; font-style: italic; }
 
-.detail-header { margin-bottom: 0; }
-.detail-subject { font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.3; margin-bottom: 12px; }
-.detail-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
-.detail-avatar { width: 32px; height: 32px; border-radius: 50%;
-  background: var(--amber); color: #fff; font-size: 12px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.detail-from-name { font-size: 13px; font-weight: 700; color: var(--ink); }
-.detail-from-addr { font-size: 11px; color: var(--ink-light); }
-.detail-time { font-size: 11px; color: var(--ink-light); margin-left: auto; }
-.detail-cat-badge { font-size: 10px; font-weight: 800; text-transform: uppercase;
-  padding: 2px 8px; border-radius: 4px; letter-spacing: 0.4px; }
-
-/* EMAIL BODY */
-.detail-divider { height: 1px; background: var(--rule); margin: 0 0 20px; }
-.detail-body { font-size: 14px; color: var(--ink-mid); line-height: 1.8;
-  word-break: break-word; margin-bottom: 24px; }
-.detail-body p { margin-bottom: 12px; }
-.detail-body p:last-child { margin-bottom: 0; }
-
-/* JUNIOR BRIEF */
-.brief-section { background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; box-shadow: var(--shadow); }
-.brief-header { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-.brief-icon { width: 28px; height: 28px; background: var(--terracotta); border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; flex-shrink: 0; }
-.brief-title { font-size: 13px; font-weight: 800; color: var(--ink); }
-.brief-subtitle { font-size: 11px; color: var(--ink-light); }
-.brief-load-btn { margin-left: auto; padding: 5px 12px; border-radius: 6px;
-  font-size: 12px; font-weight: 700; cursor: pointer; background: var(--terracotta);
-  color: #fff; border: none; transition: all 0.15s; }
-.brief-load-btn:hover { background: #A84A28; }
-.brief-load-btn:disabled { opacity: 0.5; }
-.brief-loading { color: var(--ink-light); font-size: 13px; font-style: italic;
-  padding: 8px 0; display: none; }
-
-.brief-summary { font-size: 13px; color: var(--ink-mid); line-height: 1.6;
-  margin-bottom: 14px; padding: 10px 14px; background: var(--cream);
-  border-radius: 8px; border-left: 3px solid var(--terracotta); }
-
-.brief-actions-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-.brief-action-item { display: flex; align-items: flex-start; gap: 8px;
-  font-size: 12px; color: var(--ink-mid); padding: 6px 10px;
-  background: var(--amber-bg); border-radius: 6px; }
-.brief-action-bullet { color: var(--amber); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-
-/* COMPOSE SECTION */
-.compose-section { background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; box-shadow: var(--shadow); }
-.compose-header { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-.compose-icon { width: 28px; height: 28px; background: var(--blue); border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; flex-shrink: 0; }
-.compose-title { font-size: 13px; font-weight: 800; color: var(--ink); }
-
-.draft-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-.draft-option { padding: 10px 14px; border: 1px solid var(--card-border);
-  border-radius: 8px; cursor: pointer; background: var(--cream);
-  font-size: 12px; color: var(--ink-mid); line-height: 1.6; transition: all 0.15s;
-  position: relative; }
-.draft-option:hover { border-color: var(--blue); background: var(--blue-bg); }
-.draft-option.selected { border-color: var(--blue); background: var(--blue-bg); box-shadow: 0 0 0 2px rgba(58,110,165,0.15); }
-.draft-option-label { font-size: 10px; font-weight: 800; text-transform: uppercase;
-  color: var(--blue); letter-spacing: 0.4px; margin-bottom: 4px; }
-.draft-option-text { white-space: pre-wrap; }
-
-.compose-area { margin-top: 4px; }
-.compose-label { font-size: 11px; font-weight: 700; color: var(--ink-mid);
-  text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px; }
-.compose-textarea { width: 100%; min-height: 120px; padding: 12px 14px;
-  border: 1px solid var(--card-border); border-radius: 8px; font-family: inherit;
-  font-size: 13px; color: var(--ink); background: var(--cream); resize: vertical;
-  line-height: 1.7; transition: border-color 0.15s; }
-.compose-textarea:focus { outline: none; border-color: var(--blue); background: #fff; }
-.compose-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-
-/* BUTTONS */
-.btn { padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
-  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid transparent; transition: all 0.15s; white-space: nowrap; }
-.btn-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
-.btn-primary:hover { background: #A84A28; }
-.btn-send { background: var(--green); color: #fff; border-color: var(--green); }
-.btn-send:hover { background: #236638; }
-.btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-secondary { background: var(--card); color: var(--ink); border-color: var(--card-border); }
-.btn-secondary:hover { border-color: var(--ink-mid); }
-.btn-ghost { background: none; color: var(--ink-light); border-color: var(--card-border); }
-.btn-ghost:hover { color: var(--ink); border-color: var(--ink-mid); }
-.btn-sm { padding: 6px 12px; font-size: 12px; }
-
-/* ACTION BAR */
-.action-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
-
-/* TOAST */
-.toast { position: fixed; bottom: 24px; right: 24px; background: var(--ink);
-  color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
-  box-shadow: var(--shadow-lg); opacity: 0; transform: translateY(10px);
-  transition: all 0.3s; pointer-events: none; z-index: 1000; }
-.toast.show { opacity: 1; transform: translateY(0); }
-.toast.success { background: var(--green); }
-.toast.error { background: var(--terracotta); }
-
-/* LOADING SPINNER */
-.spinner { display: inline-block; width: 14px; height: 14px;
-  border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
-  border-radius: 50%; animation: spin 0.7s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ERROR BANNER */
-.error-banner { background: var(--terracotta-bg); border: 1px solid #E8C0B0;
-  border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--terracotta);
-  margin: 16px; display: none; }
-
-@media (max-width: 750px) {
-  .main { flex-direction: column; }
-  .email-list { width: 100%; height: 45vh; border-right: none; border-bottom: 1px solid var(--rule); }
-  .detail-content { padding: 16px; }
-}
+  @media (max-width: 700px) {
+    .main { flex-direction: column; }
+    .email-list { width: 100%; height: 50vh; border-right: none; border-bottom: 1px solid var(--rule); }
+    .email-detail { padding: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -214,12 +114,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 <div class="header">
   <a href="index.html" class="header-back">← Dashboard</a>
   <h1>Inbox</h1>
-  <span id="unread-badge" class="unread-badge" style="display:none">0</span>
-  <div class="header-status">
-    <div class="status-dot" id="status-dot"></div>
-    <span id="status-text">Loading...</span>
-    <button class="btn-refresh" id="refresh-btn" onclick="loadEmails()">Refresh</button>
-  </div>
+  <span id="unread-badge" class="unread-badge">0</span>
+  <div class="header-meta">Refreshed 11 Apr 2026 00:10 BST</div>
 </div>
 
 <div class="tabs">
@@ -229,416 +125,124 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 </div>
 
 <div class="main">
-  <div class="email-list" id="email-list">
-    <div class="detail-empty" style="height:100%;padding:40px 16px;text-align:center;font-size:13px;color:var(--ink-light);">
-      Loading inbox...
-    </div>
-  </div>
+  <div class="email-list" id="email-list"></div>
   <div class="email-detail" id="email-detail">
-    <div class="detail-empty">
-      <div class="detail-empty-icon">📬</div>
-      <span>Select an email to read</span>
-    </div>
+    <div class="detail-empty">Select an email to read it</div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
-
 <script>
-const API = 'https://especially-eco-joseph-regardless.trycloudflare.com';
-const JESSE_TG = '7989359858';
+const EMAILS = [{"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEMAACZr_W_ecjHTLCCOOSf1FwuAATCG67lAAA=", "subject": "Max accepted your invitation, explore their network", "from_name": "Max Bracken-Smith via LinkedIn", "from_addr": "invitations@linkedin.com", "date": "2026-04-10T20:23:15Z", "time_display": "10 Apr", "is_read": false, "preview": "See Max Bracken-Smith’s connections, experience, and more\r\n͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏  ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏  ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏  ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏  ͏ ͏ ͏ ͏", "body": "See Max Bracken-Smith’s connections, experience, and more ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; ͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp;͏&nbsp; Max has accepted your invitation Max Bracken-Smith Student at Eton College Studying Maths, Economics, Spanish and Geography for A levels Message Suggestions from Max’s network Harry Bush Exeter University Computer Science and… 73 mutual connections Connect Ilyan Benamor Young Carer. Orwell award winner from… 29 mutual connections Connect Johnny Deng -- 2 mutual connections Connect Alexander Snook Final-Year Combined Honours in Social… 35 mutual connections Connect Basil Tuma Footballer &amp; Student at King’s College… 80 mutual connections Connect Christopher Ricketts Molecular Bioengineering @ Imperial… 15 mutual connections Connect See all Get the new LinkedIn desktop app Also available on mobile This email was intended for Jesse Grylls (Bear Witness media.) Learn why we included this. Accepte", "score": 0, "category": "updates"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEMAACZr_W_ecjHTLCCOOSf1FwuAATCG67kAAA=", "subject": "Re: Mettle Shareholder Update - February 2026", "from_name": "Neil Smith", "from_addr": "neil@bemettle.com", "date": "2026-04-10T18:33:59Z", "time_display": "10 Apr", "is_read": true, "preview": "Thanks Jesse. Are you around Monday or Tuesday for a quick call?\r\n\r\nBest\r\n\r\nNeil\r\n\r\n\r\nOn 10 Apr 2026, at 15:31, Jesse Grylls <Jesse@beargryllsventures", "body": "Thanks Jesse. Are you around Monday or Tuesday for a quick call? Best&nbsp; Neil On 10 Apr 2026, at 15:31, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; wrote: &#65279; Hi Neil, Thanks for the&nbsp;update - useful to have the clear picture. The peer group retention finding is interesting. Happy to jump on a quick call when you have time. Best, Jesse Jesse Grylls https://www.beargrylls.com/ From: Neil Smith &lt;neil@bemettle.com&gt; Date: Tuesday, 7 April 2026 at 18:55 To: Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Bear Grylls &lt;private@beargryllsventures.com&gt; Subject: Re: Mettle Shareholder Update - February 2026 Hi Jesse, Great to hear from you. I really appreciate you taking the time to look at things properly. On where we are today: We’re currently averaging ~£6k MRR over the past three months, primarily from consumer subscriptions, with clear evidence of strong retention within engaged user groups. On enterprise, we’ve generated initial revenue (c. £3k recently from ClearScore), with a number of deployments and pilots underway, but these are not yet contributing consistent recurring revenue. So the honest picture is that while we’ve built strong access and early validation, we haven’t yet converted that into meaningful, repeatable revenue at scale. That’s exactly why I’ve shifted focus recently toward proving consistent engagement and retention - particularly through structured cohorts like the Liverpool John Moores University project and partnerships with existing men’s communities. One of the key things we’ve seen is that when Mettle is used alongside peer groups, engagement becomes materially stronger. In some of the men’s groups we’ve worked with, users are maintaining daily streaks of 300+ days, which is a very different level of retention to standalone app usage. The next 60–90 days are about proving that this level of engagement can be replicated consistently, and translated into repeatabl", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASeRLI8AACZr_W_ecjHTLCCOOSf1FwuAATCHE3cAAA=", "subject": "Re: Bear Grylls Financial Model v1", "from_name": "Zain Qazi", "from_addr": "Zain.Qazi@mytwyn.com", "date": "2026-04-10T16:23:00Z", "time_display": "10 Apr", "is_read": true, "preview": "Works for me. Just sent through an invite.\r\nLet me know if you would like me to add anyone else from your team to the call.\r\n\r\n\r\nBest,\r\n\r\n\r\n\r\nZain Qaz", "body": "Works for me. Just sent through an invite.&nbsp; Let me know if you would like me to add anyone else from your team to the call.&nbsp; Best, &nbsp; Zain Qazi Finance Director M: +44 (0) 7403 648 012 20 North Audley Street,&nbsp; Mayfair, London W1K 6WE mytwyn.com &nbsp; From: &nbsp;CJ Cardenas &lt;CJ@beargryllsventures.com&gt; Sent: &nbsp;Friday, April 10, 2026 16:58 To: &nbsp;Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;; Tim Levy &lt;Tim@mytwyn.com&gt;; Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: &nbsp;Re: Bear Grylls Financial Model v1 &nbsp; Thank you Zain - how does Thursday at 11am ET / 4pm UK &nbsp;work on your end? &nbsp;Just to do a sanity check on the&nbsp;assumptions so no need to prepare anything special. Also, this should not hold up the agreement drafting process which Tim is currently leading. &nbsp;Looking forward to connecting. CJ&nbsp; &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.beargrylls.com &nbsp; From: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt; Date: Friday, April 10, 2026 at 10:57 AM To: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Tim Levy &lt;Tim@mytwyn.com&gt;, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: Re: Bear Grylls Financial Model v1 Hi CJ, We’re absolutely thrilled by this news and very excited to turn this idea into reality soon!&nbsp; I’m happy to run you through the model next week. Let me know if you have any questions in the meantime and send over some dates/times that work for you. Have a wonderful weekend! Best, &nbsp; Zain Qazi Finance Director M: +44 (0) 7403 648 012 20 North Audley Street,&nbsp; Mayfair, London W1K 6WE mytwyn.com &nbsp; From: &nbsp;CJ Cardenas &lt;CJ@beargryllsventures.com&gt; Sent: &nbsp;Friday, April 10, 2026 2:46:14 PM To: &nbsp;Tim Levy &lt;Tim@mytwyn.com&gt;; Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: &nbsp;Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;; Tim Levy &lt;Tim@mytwyn.com&gt;; Jim Edmondson &lt;jim@", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASeRLI8AACZr_W_ecjHTLCCOOSf1FwuAATCHE3bAAA=", "subject": "Re: Bear Grylls Financial Model v1", "from_name": "CJ Cardenas", "from_addr": "CJ@beargryllsventures.com", "date": "2026-04-10T15:55:40Z", "time_display": "10 Apr", "is_read": true, "preview": "Thank you Zain - how does Thursday at 11am ET / 4pm UK  work on your end?  Just to do a sanity check on the assumptions so no need to prepare anything", "body": "Thank you Zain - how does Thursday at 11am ET / 4pm UK &nbsp;work on your end? &nbsp;Just to do a sanity check on the&nbsp;assumptions so no need to prepare anything special. Also, this should not hold up the agreement drafting process which Tim is currently leading. &nbsp;Looking forward to connecting. CJ&nbsp; &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.beargrylls.com &nbsp; From: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt; Date: Friday, April 10, 2026 at 10:57 AM To: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Tim Levy &lt;Tim@mytwyn.com&gt;, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: Re: Bear Grylls Financial Model v1 Hi CJ, We’re absolutely thrilled by this news and very excited to turn this idea into reality soon!&nbsp; I’m happy to run you through the model next week. Let me know if you have any questions in the meantime and send over some dates/times that work for you. Have a wonderful weekend! Best, &nbsp; Zain Qazi Finance Director M: +44 (0) 7403 648 012 20 North Audley Street,&nbsp; Mayfair, London W1K 6WE mytwyn.com &nbsp; From: &nbsp;CJ Cardenas &lt;CJ@beargryllsventures.com&gt; Sent: &nbsp;Friday, April 10, 2026 2:46:14 PM To: &nbsp;Tim Levy &lt;Tim@mytwyn.com&gt;; Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: &nbsp;Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;; Tim Levy &lt;Tim@mytwyn.com&gt;; Jim Edmondson &lt;jim@mytwyn.com&gt; Subject: &nbsp;Re: Bear Grylls Financial Model v1 &nbsp; Hey Tim, Thank you for sending this through. We’ve had a chance to review and are pleased to move forward. Could you have your legal team prepare a draft agreement for our review? In the meantime, it would be helpful to connect with you and Zain to walk through some of the model assumptions and do a quick sanity check. Looking forward to building this together. CJ &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.bearg", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASeRLI8AACZr_W_ecjHTLCCOOSf1FwuAATCHE3aAAA=", "subject": "Re: Bear Grylls Financial Model v1", "from_name": "Zain Qazi", "from_addr": "Zain.Qazi@mytwyn.com", "date": "2026-04-10T14:57:49Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi CJ,\r\n\r\nWe’re absolutely thrilled by this news and very excited to turn this idea into reality soon!\r\n\r\nI’m happy to run you through the model next ", "body": "Hi CJ, We’re absolutely thrilled by this news and very excited to turn this idea into reality soon!&nbsp; I’m happy to run you through the model next week. Let me know if you have any questions in the meantime and send over some dates/times that work for you. Have a wonderful weekend! Best, &nbsp; Zain Qazi Finance Director M: +44 (0) 7403 648 012 20 North Audley Street,&nbsp; Mayfair, London W1K 6WE mytwyn.com &nbsp; From: CJ Cardenas &lt;CJ@beargryllsventures.com&gt; Sent: Friday, April 10, 2026 2:46:14 PM To: Tim Levy &lt;Tim@mytwyn.com&gt;; Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;; Tim Levy &lt;Tim@mytwyn.com&gt;; Jim Edmondson &lt;jim@mytwyn.com&gt; Subject: Re: Bear Grylls Financial Model v1 &nbsp; Hey Tim, Thank you for sending this through. We’ve had a chance to review and are pleased to move forward. Could you have your legal team prepare a draft agreement for our review? In the meantime, it would be helpful to connect with you and Zain to walk through some of the model assumptions and do a quick sanity check. Looking forward to building this together. CJ &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.beargrylls.com &nbsp; From: Tim Levy &lt;Tim@mytwyn.com&gt; Date: Monday, February 23, 2026 at 8:02 PM To: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;, Tim Levy &lt;Tim@mytwyn.com&gt;, Jim Edmondson &lt;jim@mytwyn.com&gt; Subject: Bear Grylls Financial Model v1 Dear CJ and Jesse &nbsp; Our detailed model is attached. &nbsp; Let me know if there are any questions. &nbsp; The model is predicated on marketing spend as a percentage of revenues, but the model also assumes that more marketing spend doesn’t drive higher user acquisition numbers in Years 3 and 4 (rather substantially less per ?). &nbsp; Best wishes &nbsp; Tim &nbsp; &nbsp; &nbsp; &nbsp; &", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEKAACZr_W_ecjHTLCCOOSf1FwuAATCG-WhAAA=", "subject": "Fwd: Running Wild!", "from_name": "Bear Grylls", "from_addr": "private@beargryllsventures.com", "date": "2026-04-10T14:38:56Z", "time_display": "10 Apr", "is_read": true, "preview": "Begin forwarded message:\r\n\r\nFrom: R R <nineoclockgun@mac.com>\r\nDate: 10 April 2026 at 14:54:09 BST\r\nTo: Bear Grylls <private@beargryllsventures.com>\r\n", "body": "Begin forwarded message:\r\n\r\nFrom: R R <nineoclockgun@mac.com>\r\nDate: 10 April 2026 at 14:54:09 BST\r\nTo: Bear Grylls <private@beargryllsventures.com>\r\nSubject: Re: Running Wild!\r\n\r\n﻿\r\nSwitzerland in Sept sounds great! The Alps?\r\n\r\nLet me make sure I’", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASeRLI8AACZr_W_ecjHTLCCOOSf1FwuAATCHE3ZAAA=", "subject": "Re: Bear Grylls Financial Model v1", "from_name": "CJ Cardenas", "from_addr": "CJ@beargryllsventures.com", "date": "2026-04-10T13:46:21Z", "time_display": "10 Apr", "is_read": true, "preview": "Hey Tim,\r\n\r\nThank you for sending this through. We’ve had a chance to review and are pleased to move forward. Could you have your legal team prepare a", "body": "Hey Tim,\r\n\r\nThank you for sending this through. We’ve had a chance to review and are pleased to move forward. Could you have your legal team prepare a draft agreement for our review?\r\nIn the meantime, it would be helpful to connect with you and Zain to wa", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEMAACZr_W_ecjHTLCCOOSf1FwuAATAgeplAAA=", "subject": "Re: Survivor Blend!", "from_name": "Andrew Kouvel", "from_addr": "drew@acfpharma.com", "date": "2026-04-09T19:26:11Z", "time_display": "9 Apr", "is_read": true, "preview": "Hey Guys,\r\n\r\nSee attached and let me know if you think you can make these numbers work.\r\n\r\nSo you're aware with the kids version we lowered the Organ ", "body": "Hey Guys,\r\n\r\nSee attached and let me know if you think you can make these numbers work.\r\n\r\nSo you're aware with the kids version we lowered the Organ blend even further to get a bit better of a price point, and also so kids aren't taking as much of the or", "score": 6, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAARdaBYbAACZr_W_ecjHTLCCOOSf1FwuAATCHHGTAAA=", "subject": "Automatic reply: Family Constitution", "from_name": "John Winstanley", "from_addr": "jwinstanley@clarionwealth.co.uk", "date": "2026-04-10T17:11:22Z", "time_display": "10 Apr", "is_read": true, "preview": "I am now away from the office on annual leave until Monday 13th April.\r\n\r\nI will have limited access to my emails during this time and will respond to", "body": "I am now away from the office on annual leave until Monday 13th April. &nbsp; I will have limited access to my emails during this time and will respond to all queries on my return to the office. &nbsp; If your enquiry is urgent, please call the office on 01625 466360. &nbsp;", "score": 5, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEMAACZr_W_ecjHTLCCOOSf1FwuAATCG67dAAA=", "subject": "Quick q: GSET Easter post", "from_name": "Alex Orr", "from_addr": "Alex.Orr@johnmurrays.co.uk", "date": "2026-04-10T16:04:53Z", "time_display": "10 Apr", "is_read": true, "preview": "Dear Jesse,\r\n\r\nI hope you're well and that you had a lovely Easter weekend?\r\n\r\nSo great to see this video (and the other Easter-themed post, too!). Wh", "body": "Dear Jesse, I hope you're well and that you had a lovely Easter weekend? So great to see this video (and the other Easter-themed post, too!). What an amazing reaction from your audience! It sounds like Bear, did the audio come from his reading with Premier last Easter? Best wishes, Alex Orr | &nbsp;they/them Marketing Assistant | Hodder Faith, John Murray Press Please note&nbsp;that my typical working pattern is 8/8:30-4/4:30. Level 2, 50 Frederick Street, Edinburgh , EH2 1EX Find me online: @alexreads_ &nbsp; Disclaimer The information contained in this communication from the sender is confidential. It is intended solely for use by the recipient and others authorized to receive it. If you are not the recipient, you are hereby notified that any disclosure, copying, distribution or taking action in relation of the contents of this information is strictly prohibited and may be unlawful. This email has been scanned for viruses and malware, and may have been automatically archived by Mimecast, a leader in email security and cyber resilience. Mimecast integrates email defenses with brand protection, security awareness training, web security, compliance and other essential capabilities. Mimecast helps protect large and small organizations from malicious activity, human error and technology failure; and to lead the movement toward building a more resilient world. To find out more, visit our website.", "score": 5, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASeRLI8AACZr_W_ecjHTLCCOOSf1FwuAATCHE3dAAA=", "subject": "Re: Bear Grylls Financial Model v1", "from_name": "CJ Cardenas", "from_addr": "CJ@beargryllsventures.com", "date": "2026-04-10T16:23:25Z", "time_display": "10 Apr", "is_read": true, "preview": "Received - all good!\r\n\r\nFrom: Zain Qazi <Zain.Qazi@mytwyn.com>\r\nDate: Friday, April 10, 2026 at 12:22 PM\r\nTo: CJ Cardenas <CJ@beargryllsventures.com>,", "body": "Received - all good! &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.beargrylls.com &nbsp; From: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt; Date: Friday, April 10, 2026 at 12:22 PM To: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Tim Levy &lt;Tim@mytwyn.com&gt;, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: Re: Bear Grylls Financial Model v1 Works for me. Just sent through an invite.&nbsp; Let me know if you would like me to add anyone else from your team to the call.&nbsp; Best, &nbsp; Zain Qazi Finance Director M: +44 (0) 7403 648 012 20 North Audley Street,&nbsp; Mayfair, London W1K 6WE mytwyn.com &nbsp; From: &nbsp;CJ Cardenas &lt;CJ@beargryllsventures.com&gt; Sent: &nbsp;Friday, April 10, 2026 16:58 To: &nbsp;Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt;; Tim Levy &lt;Tim@mytwyn.com&gt;; Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: &nbsp;Re: Bear Grylls Financial Model v1 &nbsp; Thank you Zain - how does Thursday at 11am ET / 4pm UK &nbsp;work on your end? &nbsp;Just to do a sanity check on the&nbsp;assumptions so no need to prepare anything special. Also, this should not hold up the agreement drafting process which Tim is currently leading. &nbsp;Looking forward to connecting. CJ&nbsp; &nbsp;——————————— CJ Cardenas Managing Director +1 (805) 300-2728 Bear Grylls Ventures Inspire. Equip. Empower. www.beargrylls.com &nbsp; From: Zain Qazi &lt;Zain.Qazi@mytwyn.com&gt; Date: Friday, April 10, 2026 at 10:57 AM To: CJ Cardenas &lt;CJ@beargryllsventures.com&gt;, Tim Levy &lt;Tim@mytwyn.com&gt;, Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Subject: Re: Bear Grylls Financial Model v1 Hi CJ, We’re absolutely thrilled by this news and very excited to turn this idea into reality soon!&nbsp; I’m happy to run you through the model next week. Let me know if you have any questions in the meantime and send over some dates/times that work for you. Have a wonderful weekend! Best, &nbsp; Za", "score": 4, "category": "priority"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAP_mGOKAACZr_W_ecjHTLCCOOSf1FwuAATCG_nJAAA=", "subject": "Fwd: So nice to reconnect after all these years", "from_name": "Bear Grylls", "from_addr": "private@beargryllsventures.com", "date": "2026-04-10T14:48:21Z", "time_display": "10 Apr", "is_read": true, "preview": "Hearing and bunions!\r\nThe Lord provides…\r\n\r\n\r\nBegin forwarded message:\r\n\r\nFrom: Milly Ng <ngmilly@gmail.com>\r\nDate: 10 April 2026 at 15:10:40 BST\r\nTo:", "body": "Hearing and bunions!\r\nThe Lord provides…\r\n\r\n\r\nBegin forwarded message:\r\n\r\nFrom: Milly Ng <ngmilly@gmail.com>\r\nDate: 10 April 2026 at 15:10:40 BST\r\nTo: Bear Grylls <private@beargryllsventures.com>\r\nSubject: So nice to reconnect after all these years\r\n\r\n﻿", "score": 4, "category": "priority"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAP_mGOKAACZr_W_ecjHTLCCOOSf1FwuAATCG_nIAAA=", "subject": "Re: British Forces in Business Awards ", "from_name": "Bear Grylls", "from_addr": "private@beargryllsventures.com", "date": "2026-04-10T08:19:33Z", "time_display": "10 Apr", "is_read": true, "preview": "Let’s say yes\r\n5-7mins speech at start of evening setting the scene and tone\r\nThey can help give me key points\r\n\r\n\r\n\r\nOn 10 Apr 2026, at 09:17, Em Lov", "body": "Let’s say yes\r\n5-7mins speech at start of evening setting the scene and tone\r\nThey can help give me key points\r\n\r\n\r\n\r\nOn 10 Apr 2026, at 09:17, Em Lovell <Em@beargryllsventures.com> wrote:\r\n\r\n﻿\r\nHe said the audience size is usually between 500-2000 and th", "score": 4, "category": "priority"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEJAACZr_W_ecjHTLCCOOSf1FwuAATCHCpxAAA=", "subject": "RE: Family Constitution", "from_name": "Jesse Grylls", "from_addr": "Jesse@beargryllsventures.com", "date": "2026-04-10T17:11:05Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi John, Just wanted to check in - did you get a chance to have a look through it? Happy to jump on a call with you and Steven whenever works. Best, J", "body": "Hi John, Just wanted to check in - did you get a chance to have a look through it? Happy to jump on a call with you and Steven whenever works. Best, Jesse From: &nbsp;Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Sent: &nbsp;Friday, March 6, 2026 10:40:06 AM To: &nbsp;John Winstanley &lt;jwinstanley@clarionwealth.co.uk&gt; Cc: &nbsp;Bear Grylls &lt;private@beargryllsventures.com&gt;; Alistair Cartwright &lt;acartwright@clarionwealth.co.uk&gt; Subject: &nbsp;Re: Family Constitution &nbsp; Let me know what you think. I have tried to cover everything, it is 92 pages! But I'm sure something need tweaking. There are also numbers, percentages etc that need deciding. Thank you Jesse Grylls https://www.beargrylls.com/ From: John Winstanley &lt;jwinstanley@clarionwealth.co.uk&gt; Date: Wednesday, 4 March 2026 at 22:51 To: Jesse Grylls &lt;Jesse@beargryllsventures.com&gt; Cc: Bear Grylls &lt;private@beargryllsventures.com&gt;, Alistair Cartwright &lt;acartwright@clarionwealth.co.uk&gt; Subject: Family Constitution Hi Jesse. I hope you are well. I caught up with your dad earlier today, and he mentioned that you’ve now put together an initial version of the Grylls Family Constitution, along with a one‑page summary for quick reference. When you get a moment, could you share both of these with me? Once we’ve had a look, I suggest we jump on a call with Steven Appleton, the solicitor I’ve recommended to handle the family’s Wills and estate planning and go through everything together. It’ll give us a chance to pick up on anything that may have been overlooked and suggest any refinements that could make the document even stronger. Look forward to hearing from you. Best regards, John Winstanley Managing Director Chartered Financial Planner &nbsp; &nbsp; Clarion Wealth Planning Limited Overbank, 52 London Road Alderley Edge, Cheshire SK9 7DZ www.clarionwealth.co.uk &nbsp; T: 01625 466360 M: 07944 183113 &nbsp; Click here &nbsp;to sign-up to The Clarion for regular updates. &nbsp; ", "score": 3, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEKAACZr_W_ecjHTLCCOOSf1FwuAATCG-WgAAA=", "subject": "RE: Mettle Shareholder Update - February 2026", "from_name": "Jesse Grylls", "from_addr": "Jesse@beargryllsventures.com", "date": "2026-04-10T13:33:37Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi Neil, Thanks for the honest update - useful to have the clear picture. The peer group retention finding is interesting. Happy to jump on a quick ca", "body": "Hi Neil, Thanks for the honest update - useful to have the clear picture. The peer group retention finding is interesting. Happy to jump on a quick call when you have time. Best, Jesse\r\n________________________________\r\nFrom: Neil Smith <neil@bemettle.com", "score": 3, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEKAACZr_W_ecjHTLCCOOSf1FwuAATCG-WfAAA=", "subject": "RE: Mettle Shareholder Update - February 2026", "from_name": "Jesse Grylls", "from_addr": "Jesse@beargryllsventures.com", "date": "2026-04-10T13:29:21Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi Neil,\r\n\r\nThanks for the honest update - useful to have the clear picture.\r\n\r\nThe peer group retention finding is interesting. Happy to jump on a qu", "body": "Hi Neil,\r\n\r\nThanks for the honest update - useful to have the clear picture.\r\n\r\nThe peer group retention finding is interesting. Happy to jump on a quick call when you have time.\r\n\r\nBest,\r\nJesse", "score": 3, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASAkP2GAACZr_W_ecjHTLCCOOSf1FwuAATCG-t1AAA=", "subject": "Re: Fane x Bear Grylls 2026 Dates", "from_name": "Em Lovell", "from_addr": "Em@beargryllsventures.com", "date": "2026-04-10T08:13:57Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi Minnie\r\nPlease see an approved photo they can use on the Dropbox link below:\r\nIMGL5141.tif\r\ndropbox.com\r\n\r\n\r\nOn 8 Apr 2026, at 12:07, Em Lovell <Em", "body": "Hi Minnie\r\nPlease see an approved photo they can use on the Dropbox link below:\r\nIMGL5141.tif\r\ndropbox.com\r\n\r\n\r\nOn 8 Apr 2026, at 12:07, Em Lovell <Em@beargryllsventures.com> wrote:\r\n\r\n﻿\r\nThanks Minnie - I do have a photo but just waiting on a high res ve", "score": 3, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEJAACZr_W_ecjHTLCCOOSf1FwuAATCHCpvAAA=", "subject": "Meeting Notes: Fat Cow Business Overview - 09/04/2026", "from_name": "Jesse Grylls", "from_addr": "/O=EXCHANGELABS/OU=EXCHANGE ADMINISTRATIVE GROUP (FYDIBOHF23SPDLT)/CN=RECIPIENTS/CN=491B717D7659444AA3E4E59F29260619-JESSE", "date": "2026-04-10T10:20:26Z", "time_display": "10 Apr", "is_read": true, "preview": "Hi,\r\n\r\nPlease find the meeting notes from our recent call:\r\n\r\nMeeting: Fat Cow Business Overview\r\nDate: 09/04/2026\r\n\r\nView the full notes and AI summa", "body": "Hi,\r\n\r\nPlease find the meeting notes from our recent call:\r\n\r\nMeeting: Fat Cow Business Overview\r\nDate: 09/04/2026\r\n\r\nView the full notes and AI summary here:\r\nhttps://htmlpreview.github.io/?https://kywqpmemdatiakshljdz.supabase.co/storage/v1/object/publi", "score": 2, "category": "reply"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASAkP2GAACZr_W_ecjHTLCCOOSf1FwuAATCG-t3AAA=", "subject": "Re: April Shows - Travel / Accommodation", "from_name": "Em Lovell", "from_addr": "Em@beargryllsventures.com", "date": "2026-04-10T13:00:10Z", "time_display": "10 Apr", "is_read": true, "preview": "Thanks Max, let’s see how we get on at Aylesbury. Bear’s happy with the video concept but we might leave the PTC’s, I think you’ve got some generic on", "body": "Thanks Max, let’s see how we get on at Aylesbury. Bear’s happy with the video concept but we might leave the PTC’s, I think you’ve got some generic ones and Oslo we could revisit if needed nearer the date.\r\n\r\nOn 8 Apr 2026, at 16:53, Max Hilton <Max.Hilto", "score": 1, "category": "priority"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAASAkP2GAACZr_W_ecjHTLCCOOSf1FwuAATCG-t2AAA=", "subject": "Re: Fane x Bear Grylls 2026 Dates", "from_name": "Minnie Hampton", "from_addr": "minnie.hampton@fane.co.uk", "date": "2026-04-10T09:28:41Z", "time_display": "10 Apr", "is_read": true, "preview": "Morning Em,\r\n\r\nThank you for this! We have sent this onto Oslo.\r\n\r\nBest wishes,\r\n\r\nMinnie\r\n\r\n\r\nMinnie Hampton | Live Event Coordinator\r\n\r\n\r\n\r\n\r\n\r\nFirs", "body": "Morning Em,\r\n\r\nThank you for this! We have sent this onto Oslo.\r\n\r\nBest wishes,\r\n\r\nMinnie\r\n\r\n\r\nMinnie Hampton | Live Event Coordinator\r\n\r\n\r\n\r\n\r\n\r\nFirst Floor Northburgh House, 10 Northburgh St, London, EC1V 0AT\r\n\r\n\r\n\r\nDiscover more at fane-group.com, watc", "score": 1, "category": "priority"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEMAACZr_W_ecjHTLCCOOSf1FwuAATCG67jAAA=", "subject": "Keeping you informed: Website security update", "from_name": "Lizzie Butcher", "from_addr": "complianceofficer@britishskydiving.org", "date": "2026-04-10T18:31:35Z", "time_display": "10 Apr", "is_read": true, "preview": "Dear Jesse Neville Harold\r\nKeeping you informed: Website security update\r\n\r\n\r\n\r\nWe are currently carrying out a precautionary security review of our w", "body": "Dear Jesse Neville Harold Keeping you informed: Website security update &nbsp; We are currently carrying out a precautionary security review of our website and membership system following a concern that was brought to our attention. &nbsp; The issue relates to how certain parts of the system were visible online and whether this could potentially expose information about how the system is structured. As a precaution, we have taken immediate steps to reduce visibility of internal system pages and also strengthened security settings, while we carry out a full review with our technical partners.&nbsp; &nbsp; At this stage, we have no evidence that any personal data has been accessed, downloaded or misused. &nbsp; There is no action required from you and membership services continue to operate as normal. &nbsp; As a general precaution, we recommend remaining vigilant to unexpected communications and only sharing personal information where you are confident of the source. &nbsp; We are working with our Data Protection Officer to ensure all appropriate steps are followed and will provide a further update if required. &nbsp; If you have any questions, please contact us at complianceofficer@britishskydiving.org or call 0116 278 5271. &nbsp; Yours sincerely, &nbsp; British Skydiving &nbsp; &nbsp; CONTACT US: T.&nbsp; 0116 278 5271 W.&nbsp; britishskydiving.org E.&nbsp; info@britishskydiving.org FIND US HERE: British Skydiving, 5 Wharf Way, Glen Parva, Leicester, LE2 9TF, United Kingdom &nbsp; We sent you this email because you hold an active membership with British Skydiving or have signed up to our emails.&nbsp; &nbsp; &nbsp; &nbsp; Registered in England No: 875429.", "score": 0, "category": "updates"}, {"id": "AAMkAGRlMmIxNTY3LWI3MWEtNDg3ZS1hZDU1LWQ5YjczMGEyNDJmNgBGAAAAAACxXLvazp0HQaqzQo0ph7Q4BwCZr_W_ecjHTLCCOOSf1FwuAAAAAAEKAACZr_W_ecjHTLCCOOSf1FwuAATCG-WeAAA=", "subject": "Teams across your company are already on Pro", "from_name": "Vercel", "from_addr": "ship@info.vercel.com", "date": "2026-04-09T19:10:13Z", "time_display": "9 Apr", "is_read": true, "preview": "Bring your developers and designers into a single workspace\r\n                                                    ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏", "body": "Bring your developers and designers into a single workspace\r\n                                                    ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏  ͏  ‍͏", "score": 0, "category": "updates"}];
 const BOT = 'bgv_junior_bot';
-
-let allEmails = [];
 let currentTab = 'all';
 let selectedId = null;
-let handledIds = new Set(); // loaded from server-side state
-let refreshTimer = null;
+const handled = new Set(JSON.parse(localStorage.getItem('handled_emails') || '[]'));
 
-// ── UTIL ──────────────────────────────────────────────────────────────────────
-
-function showToast(msg, type='', duration=3000) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show' + (type ? ' ' + type : '');
-  clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.className = 'toast', duration);
+function initials(name) {
+  return (name || '?').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
 }
 
-function avatarInitials(name) {
-  if (!name) return '?';
-  const parts = name.trim().split(/\s+/);
-  return parts.length >= 2
-    ? (parts[0][0] + parts[parts.length-1][0]).toUpperCase()
-    : name.slice(0,2).toUpperCase();
+function relTime(iso) {
+  const d = new Date(iso);
+  const now = new Date();
+  const diff = (now - d) / 1000;
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+  return d.toLocaleDateString('en-GB', {day:'numeric',month:'short'});
 }
 
-function avatarColor(str) {
-  const colors = ['#C05A35','#C48A2A','#7A9E7E','#3A6EA5','#8B5E83','#5E8B6E'];
-  let h = 0;
-  for (let i=0; i<str.length; i++) h = str.charCodeAt(i) + ((h<<5)-h);
-  return colors[Math.abs(h) % colors.length];
-}
+function renderList() {
+  const list = document.getElementById('email-list');
+  const emails = EMAILS.filter(e => {
+    if (handled.has(e.id)) return false;
+    if (currentTab === 'all') return true;
+    return e.category === currentTab;
+  });
 
-function cleanBody(raw) {
-  if (!raw) return '';
-  // Remove encoded characters
-  let s = raw
-    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
-    .replace(/&nbsp;/g,' ').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
-    .replace(/&#\d+;/g,'');
-  // Remove leftover HTML tags
-  s = s.replace(/<[^>]+>/g,' ');
-  // Normalize whitespace - keep paragraph structure
-  s = s.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
-  // Collapse runs of blank lines to max 2
-  s = s.replace(/\n{3,}/g,'\n\n');
-  // Trim each line
-  s = s.split('\n').map(l=>l.trim()).join('\n');
-  return s.trim();
-}
+  // Update counts
+  document.getElementById('count-all').textContent = EMAILS.filter(e => !handled.has(e.id)).length;
+  document.getElementById('count-priority').textContent = EMAILS.filter(e => !handled.has(e.id) && e.category === 'priority').length;
+  document.getElementById('count-reply').textContent = EMAILS.filter(e => !handled.has(e.id) && e.category === 'reply').length;
+  document.getElementById('unread-badge').textContent = EMAILS.filter(e => !handled.has(e.id) && !e.is_read).length;
 
-function bodyToParagraphs(text) {
-  if (!text) return '<p>No content.</p>';
-  const paras = text.split(/\n\n+/).filter(p=>p.trim());
-  if (paras.length <= 1) {
-    // Try single newline split
-    const lines = text.split('\n').filter(l=>l.trim());
-    if (lines.length > 1) {
-      return lines.map(l=>`<p>${escHtml(l)}</p>`).join('');
-    }
+  if (!emails.length) {
+    list.innerHTML = '<div class="empty-tab">Nothing here — all handled.</div>';
+    return;
   }
-  return paras.map(p=>`<p>${escHtml(p.replace(/\n/g,' '))}</p>`).join('');
+
+  list.innerHTML = emails.map(e => {
+    const cls = [
+      'email-item',
+      !e.is_read ? 'unread' : '',
+      e.id === selectedId ? 'selected' : '',
+    ].filter(Boolean).join(' ');
+    const catCls = 'cat-' + e.category;
+    return `<div class="${cls}" onclick="selectEmail('${e.id}')">
+      <div class="email-from">
+        <span class="email-from-name">${e.from_name}</span>
+        <span class="email-cat ${catCls}">${e.category === 'reply' ? 'Reply' : e.category === 'priority' ? 'Priority' : ''}</span>
+        <span class="email-time">${e.time_display}</span>
+      </div>
+      <div class="email-subject">${e.subject}</div>
+      <div class="email-preview">${e.preview}</div>
+    </div>`;
+  }).join('');
 }
 
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function selectEmail(id) {
+  selectedId = id;
+  renderList();
+
+  const e = EMAILS.find(x => x.id === id);
+  if (!e) return;
+
+  const avatar = initials(e.from_name);
+  const tgText = encodeURIComponent(`EMAILREPLY: ${e.subject}\nFrom: ${e.from_name} <${e.from_addr}>\nInstruction: `);
+  const tgLink = `https://t.me/${BOT}?text=${tgText}`;
+
+  const flagText = encodeURIComponent(`DECISION: Email from ${e.from_name} — "${e.subject}" > Flag this for a decision — what should I do?`);
+  const flagLink = `https://t.me/${BOT}?text=${flagText}`;
+
+  document.getElementById('email-detail').innerHTML = `
+    <div class="detail-header">
+      <div class="detail-subject">${e.subject}</div>
+      <div class="detail-from">
+        <div class="detail-from-avatar">${avatar}</div>
+        <div class="detail-from-info">
+          <div class="detail-from-name">${e.from_name}</div>
+          <div class="detail-from-addr">${e.from_addr}</div>
+        </div>
+        <span class="detail-time">${e.time_display}</span>
+      </div>
+    </div>
+    <div class="detail-body">${e.body}</div>
+    <div class="detail-actions">
+      <a class="btn btn-primary" href="${tgLink}" target="_blank">💬 Reply with Junior</a>
+      <a class="btn btn-secondary" href="${flagLink}" target="_blank">⚡ Flag as Decision</a>
+      <button class="btn btn-ghost" onclick="markHandled('${e.id}')">✓ Handled</button>
+    </div>
+  `;
 }
 
-function formatFullDate(iso) {
-  try {
-    const d = new Date(iso);
-    return d.toLocaleString('en-GB', {weekday:'short',day:'numeric',month:'short',
-      year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/London'});
-  } catch(e) { return iso; }
-}
-
-// ── LOAD EMAILS ───────────────────────────────────────────────────────────────
-
-async function loadEmails(silent=false) {
-  const btn = document.getElementById('refresh-btn');
-  const dot = document.getElementById('status-dot');
-  const statusTxt = document.getElementById('status-text');
-  if (!silent) {
-    btn.textContent = 'Loading...';
-    btn.disabled = true;
+function markHandled(id) {
+  handled.add(id);
+  localStorage.setItem('handled_emails', JSON.stringify([...handled]));
+  if (selectedId === id) {
+    selectedId = null;
+    document.getElementById('email-detail').innerHTML = '<div class="detail-empty">Select an email to read it</div>';
   }
-  dot.className = 'status-dot';
-  try {
-    const res = await fetch(API + '/emails?count=40', {cache:'no-store'});
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    allEmails = await res.json();
-    dot.className = 'status-dot live';
-    const now = new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    statusTxt.textContent = 'Live · ' + now;
-    renderList();
-    updateCounts();
-    if (!silent) showToast('Inbox refreshed', 'success');
-  } catch(e) {
-    dot.className = 'status-dot';
-    dot.style.background = 'var(--terracotta)';
-    statusTxt.textContent = 'Offline';
-    if (!silent) showToast('Could not reach email API — is the server running?', 'error', 5000);
-  } finally {
-    btn.textContent = 'Refresh';
-    btn.disabled = false;
-  }
-}
-
-function updateCounts() {
-  const visible = allEmails.filter(e=>!handledIds.has(e.id));
-  document.getElementById('count-all').textContent = visible.length;
-  document.getElementById('count-priority').textContent = visible.filter(e=>e.category==='priority').length;
-  document.getElementById('count-reply').textContent = visible.filter(e=>e.category==='reply').length;
-  const unread = visible.filter(e=>!e.is_read).length;
-  const badge = document.getElementById('unread-badge');
-  badge.textContent = unread;
-  badge.style.display = unread > 0 ? '' : 'none';
+  renderList();
 }
 
 function filterTab(tab) {
   currentTab = tab;
   ['all','priority','reply'].forEach(t => {
-    document.getElementById('tab-'+t).className = 'tab' + (t===tab?' active':'');
+    document.getElementById('tab-' + t).classList.toggle('active', t === tab);
   });
   renderList();
 }
 
-function renderList() {
-  const list = document.getElementById('email-list');
-  let emails = allEmails;
-  if (currentTab === 'priority') emails = emails.filter(e=>e.category==='priority');
-  if (currentTab === 'reply') emails = emails.filter(e=>e.category==='reply');
-
-  if (!emails.length) {
-    list.innerHTML = '<div class="detail-empty" style="height:100%;padding:40px 16px;text-align:center;font-size:13px;color:var(--ink-light);">No emails in this view</div>';
-    return;
-  }
-
-  list.innerHTML = emails.map(e => {
-    const handled = handledIds.has(e.id);
-    const catClass = 'cat-'+e.category;
-    const catLabel = e.category === 'priority' ? 'Priority' : e.category === 'reply' ? 'Reply' : '';
-    return `<div class="email-item${e.is_read?'':' unread'}${handled?' handled':''}${e.id===selectedId?' selected':''}"
-      onclick="selectEmail('${e.id}')">
-      <div class="email-from">
-        <span class="email-from-name">${escHtml(e.from_name || e.from_addr)}</span>
-        <span class="email-time">${escHtml(e.time_display||'')}</span>
-        ${catLabel ? `<span class="email-cat ${catClass}">${catLabel}</span>` : ''}
-      </div>
-      <div class="email-subject">${escHtml(e.subject||'(no subject)')}</div>
-      <div class="email-preview">${escHtml(e.preview||'')}</div>
-    </div>`;
-  }).join('');
-}
-
-// ── EMAIL DETAIL ──────────────────────────────────────────────────────────────
-
-function selectEmail(id) {
-  selectedId = id;
-  renderList(); // update selected highlight
-  const e = allEmails.find(x=>x.id===id);
-  if (!e) return;
-  renderDetail(e);
-}
-
-function renderDetail(e) {
-  const detail = document.getElementById('email-detail');
-  const body = cleanBody(e.body || e.preview || '');
-  const bodyHtml = bodyToParagraphs(body);
-  const initials = avatarInitials(e.from_name);
-  const avColor = avatarColor(e.from_addr||'');
-  const catLabel = e.category==='priority'?'Priority':e.category==='reply'?'Needs Reply':'';
-  const catClass = 'cat-'+e.category;
-  const tgReply = `https://t.me/${BOT}?text=${encodeURIComponent('EMAILREPLY: '+e.subject+'\nFrom: '+e.from_name+' <'+e.from_addr+'>\nInstruction: ')}`;
-  const tgDecision = `https://t.me/${BOT}?text=${encodeURIComponent('DECISION: Email from '+e.from_name+' re: '+e.subject+'\nDecision needed: ')}`;
-
-  detail.innerHTML = `<div class="detail-content" id="detail-content">
-
-    <div class="detail-header">
-      <div class="detail-subject">${escHtml(e.subject||'(no subject)')}</div>
-      <div class="detail-meta">
-        <div class="detail-avatar" style="background:${avColor}">${initials}</div>
-        <div>
-          <div class="detail-from-name">${escHtml(e.from_name||'')}</div>
-          <div class="detail-from-addr">${escHtml(e.from_addr||'')}</div>
-        </div>
-        <div class="detail-time">${formatFullDate(e.date)}</div>
-        ${catLabel?`<span class="detail-cat-badge ${catClass}">${catLabel}</span>`:''}
-      </div>
-    </div>
-
-    <div class="detail-divider"></div>
-
-    <div class="detail-body" id="detail-body">${bodyHtml}</div>
-
-    <div class="action-bar">
-      <button class="btn btn-primary btn-sm" onclick="loadBrief('${e.id}')">🎯 Get Junior's Brief</button>
-      <button class="btn btn-secondary btn-sm" onclick="openCompose('${e.id}')">✏️ Draft Reply</button>
-      <a href="${tgDecision}" target="_blank" class="btn btn-secondary btn-sm">🔀 Flag Decision</a>
-      <button class="btn btn-ghost btn-sm" onclick="markHandled('${e.id}')">✓ Handled</button>
-    </div>
-
-    <div id="brief-section" style="display:none" class="brief-section">
-      <div class="brief-header">
-        <div class="brief-icon">🎯</div>
-        <div>
-          <div class="brief-title">Junior's Brief</div>
-          <div class="brief-subtitle" id="brief-sub">Loading...</div>
-        </div>
-      </div>
-      <div id="brief-body"></div>
-    </div>
-
-    <div id="compose-section" style="display:none" class="compose-section">
-      <div class="compose-header">
-        <div class="compose-icon">✏️</div>
-        <div class="compose-title">Draft Reply</div>
-      </div>
-      <div id="draft-options" class="draft-options" style="display:none"></div>
-      <div class="compose-area">
-        <div class="compose-label">Your reply</div>
-        <textarea class="compose-textarea" id="compose-text" placeholder="Type your reply here, or load Junior's drafts above..."></textarea>
-      </div>
-      <div class="compose-actions">
-        <button class="btn btn-send" id="send-btn" onclick="sendReply('${e.id}','${escHtml(e.from_addr)}','${escHtml(e.subject)}')">
-          Send Reply
-        </button>
-        <a href="${tgReply}" target="_blank" class="btn btn-secondary btn-sm">💬 Draft with Junior on Telegram</a>
-        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('compose-section').style.display='none'">Cancel</button>
-      </div>
-    </div>
-
-  </div>`;
-}
-
-// ── JUNIOR BRIEF ──────────────────────────────────────────────────────────────
-
-async function loadBrief(emailId) {
-  const section = document.getElementById('brief-section');
-  const sub = document.getElementById('brief-sub');
-  const body = document.getElementById('brief-body');
-  section.style.display = '';
-  sub.textContent = 'Generating...';
-  body.innerHTML = '<div class="brief-loading" style="display:block;padding:8px 0;color:var(--ink-light);font-size:13px;font-style:italic;">Analysing email...</div>';
-
-  // Scroll into view
-  section.scrollIntoView({behavior:'smooth', block:'nearest'});
-
-  try {
-    const res = await fetch(`${API}/synopsis?id=${encodeURIComponent(emailId)}`, {cache:'no-store'});
-    if (!res.ok) throw new Error('HTTP '+res.status);
-    const data = await res.json();
-
-    sub.textContent = 'Analysis ready';
-
-    let html = '';
-    if (data.summary) {
-      html += `<div class="brief-summary">${escHtml(data.summary)}</div>`;
-    }
-    if (data.actions && data.actions.length) {
-      html += `<div class="brief-actions-list">${data.actions.map(a=>`
-        <div class="brief-action-item">
-          <span class="brief-action-bullet">→</span>
-          <span>${escHtml(a)}</span>
-        </div>`).join('')}</div>`;
-    }
-    if (data.drafts && data.drafts.length) {
-      html += `<div style="margin-top:4px">
-        <div class="compose-label" style="margin-bottom:8px">Suggested responses</div>
-        <div class="draft-options">
-          ${data.drafts.map((d,i)=>`
-            <div class="draft-option" onclick="useDraft(this, ${JSON.stringify(d)})">
-              <div class="draft-option-label">Option ${i+1}</div>
-              <div class="draft-option-text">${escHtml(d)}</div>
-            </div>`).join('')}
-        </div>
-      </div>`;
-    }
-    body.innerHTML = html || '<p style="color:var(--ink-light);font-size:13px">No additional analysis available.</p>';
-  } catch(e) {
-    sub.textContent = 'Could not load brief';
-    body.innerHTML = `<div style="color:var(--ink-light);font-size:12px;padding:8px 0">
-      API not available. Use the Telegram button to get Junior's analysis.<br>
-      <a href="https://t.me/${BOT}" target="_blank" style="color:var(--blue)">Open Telegram</a>
-    </div>`;
-  }
-}
-
-function useDraft(el, text) {
-  // Mark selected
-  document.querySelectorAll('.draft-option').forEach(d=>d.classList.remove('selected'));
-  el.classList.add('selected');
-  // Open compose with this draft
-  openCompose(selectedId);
-  const ta = document.getElementById('compose-text');
-  if (ta) { ta.value = text; ta.focus(); }
-}
-
-// ── COMPOSE ───────────────────────────────────────────────────────────────────
-
-function openCompose(emailId) {
-  const section = document.getElementById('compose-section');
-  if (!section) return;
-  section.style.display = '';
-  section.scrollIntoView({behavior:'smooth', block:'nearest'});
-  const ta = document.getElementById('compose-text');
-  if (ta && !ta.value) ta.focus();
-}
-
-async function sendReply(emailId, toAddr, subject) {
-  const ta = document.getElementById('compose-text');
-  const btn = document.getElementById('send-btn');
-  if (!ta || !ta.value.trim()) {
-    showToast('Write your reply first', 'error');
-    return;
-  }
-
-  const confirm = window.confirm(`Send this reply to ${toAddr}?\n\n${ta.value.trim().slice(0,200)}${ta.value.length>200?'...':''}`);
-  if (!confirm) return;
-
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Sending...';
-
-  try {
-    const res = await fetch(`${API}/send`, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        message_id: emailId,
-        body: ta.value.trim()
-      })
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(()=>({error:'Unknown error'}));
-      throw new Error(err.error || 'HTTP '+res.status);
-    }
-    showToast('Reply sent successfully', 'success');
-    ta.value = '';
-    document.getElementById('compose-section').style.display = 'none';
-    markHandled(emailId);
-  } catch(e) {
-    showToast('Send failed: ' + e.message, 'error', 6000);
-    btn.disabled = false;
-    btn.textContent = 'Send Reply';
-  }
-}
-
-// ── ACTIONS ───────────────────────────────────────────────────────────────────
-
-function markHandled(id) {
-  handledIds.add(id);
-  saveHandled();
-  updateCounts();
-  renderList();
-  showToast('Marked as handled');
-  // Clear detail if this was selected
-  if (id === selectedId) {
-    selectedId = null;
-    document.getElementById('email-detail').innerHTML = `
-      <div class="detail-empty">
-        <div class="detail-empty-icon">✓</div>
-        <span>Email handled</span>
-      </div>`;
-  }
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
-
-// Load server-side state first, then emails
-async function init() {
-  try {
-    const r = await fetch(API+'/state', {cache:'no-store'});
-    if (r.ok) {
-      const state = await r.json();
-      handledIds = new Set(state.handled_emails || []);
-    }
-  } catch(e) {}
-  loadEmails();
-}
-
-async function saveHandled() {
-  try {
-    await fetch(API+'/state', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({handled_emails: [...handledIds]})
-    });
-  } catch(e) {}
-}
-
-init();
-refreshTimer = setInterval(()=>loadEmails(true), 90000);
+renderList();
 </script>
 </body>
 </html>
