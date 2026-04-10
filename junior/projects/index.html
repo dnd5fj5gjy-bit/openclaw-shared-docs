@@ -3,358 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesse Grylls — Dashboard</title>
-<!-- LAST_REFRESHED: 10 Apr 2026 18:51 BST -->
+<title>Jesse Grylls — Command Centre</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5EFE4; --cream-deep: #EBE3D4; --card: #FDFAF4;
+  --card-border: #E5DCC8; --ink: #26200F; --ink-mid: #6B5C48;
+  --ink-light: #9C8A74; --sage: #627B5E; --sage-bg: #E8F0E6;
+  --amber: #B8801E; --amber-bg: #FAF2E0;
+  --terracotta: #B8502A; --terracotta-bg: #FAE8E0;
+  --blue: #375E8F; --blue-bg: #E4EEF8;
+  --green: #2E6E3F; --green-bg: #E5F2E9;
+  --rule: #DDD3BE;
+  --shadow: 0 1px 3px rgba(38,32,15,0.06), 0 2px 10px rgba(38,32,15,0.04);
+  --shadow-md: 0 2px 8px rgba(38,32,15,0.09), 0 4px 20px rgba(38,32,15,0.05);
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--cream); color: var(--ink); font-size: 14px; line-height: 1.5; }
 
-  /* PALETTE — earthy, warm, organic */
-  :root {
-    --cream:      #F6F1E9;
-    --cream-deep: #EDE7DA;
-    --card:       #FDFAF5;
-    --card-border:#E8E0D0;
-    --ink:        #2C2318;
-    --ink-mid:    #6B5F52;
-    --ink-light:  #A09080;
-    --sage:       #7A9E7E;
-    --sage-bg:    #EBF3EB;
-    --amber:      #C48A2A;
-    --amber-bg:   #FBF3E2;
-    --terracotta: #C05A35;
-    --terracotta-bg: #FAE9E2;
-    --blue:       #3A6EA5;
-    --blue-bg:    #E5EEF8;
-    --rule:       #DDD5C5;
-    --shadow:     0 1px 4px rgba(44,35,24,0.07), 0 2px 12px rgba(44,35,24,0.04);
-  }
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #2C1A0E 0%, #3D2510 60%, #4A2E15 100%);
+  padding: 20px 32px; display: flex; justify-content: space-between; align-items: center;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.header-avatar { width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--terracotta), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+.header-name { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+.header-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+.header-right { display: flex; align-items: center; gap: 14px; }
+.header-clock { text-align: right; }
+.header-time { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+.header-date { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
+.inbox-btn { display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.12); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 8px 14px; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18);
+  transition: background 0.15s; position: relative; }
+.inbox-btn:hover { background: rgba(255,255,255,0.2); }
+.inbox-btn-badge { position: absolute; top: -5px; right: -5px; background: var(--terracotta);
+  color: #fff; font-size: 10px; font-weight: 800; border-radius: 10px;
+  padding: 1px 5px; min-width: 16px; text-align: center; display: none; }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1.5;
-  }
+/* JUNIOR STATUS BAR */
+.status-bar { background: var(--cream-deep); border-bottom: 1px solid var(--rule);
+  padding: 8px 32px; display: flex; align-items: center; gap: 16px; }
+.status-junior { display: flex; align-items: center; gap: 7px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+  animation: pulse 2.5s infinite; flex-shrink: 0; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.status-text { font-size: 12px; font-weight: 600; color: var(--ink-mid); }
+.status-refresh { font-size: 11px; color: var(--ink-light); margin-left: auto; }
+.status-refresh a { color: var(--blue); text-decoration: none; font-weight: 600; }
+.status-refresh a:hover { text-decoration: underline; }
 
-  /* HEADER */
-  .header {
-    background: var(--cream-deep);
-    border-bottom: 1px solid var(--rule);
-    padding: 20px 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .header-left { display: flex; align-items: center; gap: 14px; }
-  .header-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--terracotta);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 16px; font-weight: 800; flex-shrink: 0;
-  }
-  .header h1 { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; }
-  .header-sub { font-size: 12px; color: var(--ink-light); margin-top: 1px; }
-  .header-right { text-align: right; }
-  .header-date { font-size: 13px; font-weight: 700; color: var(--ink); }
-  .header-agent { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
+/* TODAY STRIP */
+.today-strip { background: var(--card); border-bottom: 1px solid var(--rule); padding: 0 32px; }
+.today-inner { max-width: 1100px; margin: 0 auto; padding: 9px 0;
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.today-label { font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--ink-light); flex-shrink: 0; }
+.today-event { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-mid); }
+.today-time-badge { font-size: 11px; font-weight: 700; background: var(--ink);
+  color: #fff; border-radius: 4px; padding: 1px 7px; flex-shrink: 0; }
+.today-dot { width: 6px; height: 6px; border-radius: 50%;
+  background: var(--terracotta); flex-shrink: 0; }
+.no-events { font-size: 13px; color: var(--ink-light); font-style: italic; }
 
-  /* DECISIONS STRIP */
-  .decisions-strip {
-    background: var(--terracotta-bg);
-    border-bottom: 1px solid #E8C8BC;
-    padding: 0 36px;
-  }
-  .decisions-strip-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 10px 0;
-    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
-  }
-  .decisions-label {
-    font-size: 10px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--terracotta); flex-shrink: 0;
-    display: flex; align-items: center; gap: 5px;
-  }
-  .decision-chip {
-    font-size: 12px; font-weight: 600; color: var(--terracotta);
-    background: #fff;
-    border: 1px solid #E8C8BC;
-    border-radius: 20px; padding: 3px 10px;
-    white-space: nowrap;
-  }
-  .decision-chip.today { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+/* MAIN GRID */
+.main { max-width: 1100px; margin: 0 auto; padding: 24px 32px 80px;
+  display: grid; grid-template-columns: 1fr 310px; gap: 24px; align-items: start; }
 
-  /* TODAY STRIP */
-  .today-strip {
-    background: var(--card);
-    border-bottom: 1px solid var(--rule);
-    padding: 0 36px;
-  }
-  .today-strip-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 10px 0;
-    display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
-  }
-  .today-label {
-    font-size: 10px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--ink-light); flex-shrink: 0;
-  }
-  .today-item {
-    font-size: 13px; color: var(--ink-mid);
-    display: flex; align-items: center; gap: 7px;
-  }
-  .today-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .dot-now    { background: var(--terracotta); }
-  .dot-future { background: var(--amber); }
-  .dot-urgent { background: var(--blue); }
-  .today-time {
-    font-size: 11px; font-weight: 700; color: #fff;
-    background: var(--ink-mid); border-radius: 4px;
-    padding: 1px 6px; flex-shrink: 0;
-  }
+/* SECTION LABELS */
+.section-label { font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--ink-light); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-  /* MAIN LAYOUT */
-  .main {
-    max-width: 1100px; margin: 0 auto;
-    padding: 28px 36px 80px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 24px;
-    align-items: start;
-  }
+/* PROJECT CARDS */
+.project { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; margin-bottom: 10px; overflow: hidden; box-shadow: var(--shadow);
+  transition: box-shadow 0.15s, transform 0.15s; }
+.project:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.project-head { padding: 15px 18px; display: flex; align-items: flex-start; gap: 13px; }
+.project-icon { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.project-info { flex: 1; min-width: 0; }
+.project-name { font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 3px; }
+.project-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
+.project-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+.project-metric { background: var(--cream-deep); border-top: 1px solid var(--card-border);
+  padding: 7px 18px; font-size: 11px; color: var(--ink-mid); display: flex; align-items: center; gap: 6px; }
+.project-metric strong { color: var(--ink); }
+.project-decision { background: var(--amber-bg); border-top: 1px solid #E8D5A8;
+  padding: 7px 18px; font-size: 11px; color: var(--amber); display: flex; align-items: center; gap: 6px; }
+.project-decision::before { content: '→'; font-weight: 800; }
+details { border-top: 1px solid var(--card-border); }
+details summary { padding: 8px 18px; font-size: 11px; font-weight: 700; color: var(--ink-light);
+  cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; user-select: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: '›'; font-size: 14px; transition: transform 0.15s; display: inline-block; }
+details[open] summary::before { transform: rotate(90deg); }
+details summary:hover { color: var(--ink-mid); background: var(--cream); }
+.doc-list { padding: 2px 0 8px; }
+.doc-item { display: flex; align-items: center; padding: 6px 18px; gap: 10px;
+  text-decoration: none; color: inherit; }
+.doc-item:hover { background: var(--cream); }
+.doc-item-name { font-size: 13px; color: var(--blue); font-weight: 600; flex: 1; }
+.doc-item-meta { font-size: 11px; color: var(--ink-light); white-space: nowrap; }
 
-  /* SECTION LABELS */
-  .section-label {
-    font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
-    text-transform: uppercase; color: var(--ink-light);
-    margin-bottom: 12px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+/* BADGES */
+.badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.badge-green  { background: var(--sage-bg); color: var(--sage); }
+.badge-amber  { background: var(--amber-bg); color: var(--amber); }
+.badge-red    { background: var(--terracotta-bg); color: var(--terracotta); }
+.badge-blue   { background: var(--blue-bg); color: var(--blue); }
+.badge-grey   { background: var(--cream-deep); color: var(--ink-light); }
+.badge-purple { background: #F0EAFF; color: #6B3FA0; }
 
-  /* PROJECT CARDS */
-  .project {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: box-shadow 0.15s;
-  }
-  .project:hover { box-shadow: 0 2px 8px rgba(44,35,24,0.1), 0 4px 20px rgba(44,35,24,0.06); }
-  .project-head { padding: 16px 18px; display: flex; align-items: flex-start; gap: 14px; }
-  .project-icon {
-    width: 36px; height: 36px; border-radius: 9px;
-    flex-shrink: 0; display: flex; align-items: center;
-    justify-content: center; font-size: 16px;
-  }
-  .project-info { flex: 1; min-width: 0; }
-  .project-name { font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 3px; }
-  .project-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
-  .project-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+/* DEAL ROWS */
+.deals-table { display: flex; flex-direction: column; gap: 8px; }
+.deal-row { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+  padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.15s; }
+.deal-row:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.deal-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.deal-body { flex: 1; }
+.deal-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.deal-desc { font-size: 12px; color: var(--ink-mid); margin-top: 1px; }
 
-  /* METRIC BAR */
-  .project-metric {
-    background: var(--cream-deep);
-    border-top: 1px solid var(--card-border);
-    padding: 7px 18px;
-    font-size: 11px; color: var(--ink-mid);
-    display: flex; align-items: center; gap: 6px;
-  }
-  .project-metric strong { color: var(--ink); }
+/* ICON COLOURS */
+.icon-ms { background: linear-gradient(135deg, #EAF3FF, #D5E8FF); }
+.icon-wn { background: var(--sage-bg); }
+.icon-th { background: var(--terracotta-bg); }
+.icon-ebg { background: var(--amber-bg); }
+.icon-sd { background: #F0EAFF; }
+.icon-bg { background: var(--cream-deep); }
+.icon-al { background: var(--blue-bg); }
+.icon-deal { background: var(--cream-deep); }
 
-  /* NEXT DECISION inside card */
-  .project-decision {
-    background: var(--amber-bg);
-    border-top: 1px solid #E8D5A8;
-    padding: 7px 18px;
-    font-size: 11px; color: var(--amber);
-    display: flex; align-items: center; gap: 6px;
-  }
-  .project-decision::before { content: '→'; font-weight: 800; }
+/* SIDEBAR */
+/* DECISIONS */
+.decisions-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.decisions-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--terracotta);
+  border-bottom: 1px solid #E8D0C4; background: var(--terracotta-bg);
+  display: flex; align-items: center; justify-content: space-between; }
+.decisions-count { font-size: 11px; font-weight: 700; background: var(--terracotta);
+  color: #fff; border-radius: 10px; padding: 1px 7px; }
+.di { border-bottom: 1px solid var(--card-border); overflow: hidden; }
+.di:last-child { border-bottom: none; }
+.di.resolved { opacity: 0.35; }
+.di.resolved .di-header { cursor: default; }
+.di-header { padding: 10px 14px; display: flex; gap: 9px;
+  align-items: flex-start; cursor: pointer; user-select: none; transition: background 0.1s; }
+.di-header:hover { background: var(--cream); }
+.di-urgency { font-size: 9px; font-weight: 800; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.5px; }
+.urgency-now   { background: var(--terracotta); color: #fff; }
+.urgency-week  { background: var(--amber-bg); color: var(--amber); }
+.urgency-ready { background: var(--cream-deep); color: var(--ink-light); }
+.di-body { flex: 1; }
+.di-title { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.di-sub   { font-size: 11px; color: var(--ink-mid); margin-top: 2px; }
+.di-chevron { font-size: 13px; color: var(--ink-light); flex-shrink: 0; margin-top: 2px; transition: transform 0.2s; }
+.di.open .di-chevron { transform: rotate(90deg); }
+.di-expanded { display: none; padding: 0 14px 14px; background: var(--cream); border-top: 1px solid var(--card-border); }
+.di.open .di-expanded { display: block; }
+.di-context { font-size: 12px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 10px; padding-top: 10px; }
+.di-options { display: flex; flex-direction: column; gap: 6px; }
+.di-option { display: block; width: 100%; background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 8px; padding: 9px 12px; font-size: 12px; font-weight: 600; color: var(--ink);
+  cursor: pointer; text-align: left; text-decoration: none; transition: all 0.15s; line-height: 1.4; }
+.di-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
+.di-option-letter { display: inline-block; width: 18px; height: 18px; background: var(--cream-deep);
+  border-radius: 4px; text-align: center; line-height: 18px; font-size: 10px; font-weight: 800; margin-right: 7px; }
+.di-resolve { margin-top: 10px; display: block; width: 100%; background: none;
+  border: 1px dashed var(--card-border); border-radius: 8px; padding: 7px 12px;
+  font-size: 11px; font-weight: 600; color: var(--ink-light); cursor: pointer; text-align: center; transition: all 0.15s; }
+.di-resolve:hover { border-color: var(--sage); color: var(--sage); }
+.di.resolved .di-title { text-decoration: line-through; }
 
-  /* DOCS DROPDOWN */
-  details { border-top: 1px solid var(--card-border); }
-  details summary {
-    padding: 8px 18px;
-    font-size: 11px; font-weight: 700; color: var(--ink-light);
-    cursor: pointer; list-style: none;
-    display: flex; align-items: center; gap: 6px; user-select: none;
-  }
-  details summary::-webkit-details-marker { display: none; }
-  details summary::before { content: '›'; font-size: 14px; transition: transform 0.15s; display: inline-block; }
-  details[open] summary::before { transform: rotate(90deg); }
-  details summary:hover { color: var(--ink-mid); background: var(--cream); }
-  .doc-list { padding: 2px 0 8px; }
-  .doc-item {
-    display: flex; align-items: center; padding: 6px 18px; gap: 10px;
-    text-decoration: none; color: inherit;
-  }
-  .doc-item:hover { background: var(--cream); }
-  .doc-item-name { font-size: 13px; color: var(--blue); font-weight: 600; flex: 1; }
-  .doc-item-meta { font-size: 11px; color: var(--ink-light); white-space: nowrap; }
+/* MEETINGS */
+.meetings-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
+.meetings-head { padding: 11px 16px 10px; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .8px; color: var(--ink-light);
+  border-bottom: 1px solid var(--card-border); background: var(--cream-deep);
+  display: flex; align-items: center; justify-content: space-between; }
+.meeting-item { padding: 10px 16px; border-bottom: 1px solid var(--card-border);
+  cursor: pointer; transition: background 0.1s; }
+.meeting-item:last-child { border-bottom: none; }
+.meeting-item:hover { background: var(--cream); }
+.meeting-item-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.meeting-date-badge { font-size: 9px; font-weight: 800; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px; letter-spacing: 0.4px; flex-shrink: 0; }
+.badge-today { background: var(--terracotta); color: #fff; }
+.badge-soon  { background: var(--amber-bg); color: var(--amber); }
+.meeting-time { font-size: 11px; font-weight: 700; color: var(--ink-light); margin-left: auto; }
+.meeting-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.meeting-loc { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
 
-  /* BADGES */
-  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
-  .badge-green  { background: var(--sage-bg);        color: var(--sage); }
-  .badge-amber  { background: var(--amber-bg);       color: var(--amber); }
-  .badge-red    { background: var(--terracotta-bg);  color: var(--terracotta); }
-  .badge-blue   { background: var(--blue-bg);        color: var(--blue); }
-  .badge-grey   { background: var(--cream-deep);     color: var(--ink-light); }
-  .badge-purple { background: #F0EAFF;               color: #6B3FA0; }
+/* MEETING MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(38,32,15,0.45);
+  z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--card); border-radius: 16px; max-width: 500px; width: 100%;
+  box-shadow: 0 8px 40px rgba(38,32,15,0.2); overflow: hidden; }
+.modal-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--rule); }
+.modal-title { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.modal-meta { font-size: 12px; color: var(--ink-light); }
+.modal-body { padding: 16px 20px; }
+.modal-body p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 10px; }
+.modal-body p:last-child { margin-bottom: 0; }
+.modal-actions { padding: 12px 20px 16px; display: flex; gap: 8px; border-top: 1px solid var(--rule); }
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid transparent; transition: all 0.15s; }
+.btn-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+.btn-primary:hover { background: #9E4222; }
+.btn-ghost { background: none; color: var(--ink-light); border-color: var(--card-border); }
+.btn-ghost:hover { color: var(--ink); border-color: var(--ink-mid); }
 
-  /* DEALS ROWS */
-  .deals-table { display: flex; flex-direction: column; gap: 8px; }
-  .deal-row {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 10px; padding: 12px 16px;
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none; color: inherit;
-    box-shadow: var(--shadow);
-    transition: box-shadow 0.15s;
-  }
-  .deal-row:hover { box-shadow: 0 2px 8px rgba(44,35,24,0.1); }
-  .deal-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
-  .deal-body { flex: 1; }
-  .deal-name { font-size: 14px; font-weight: 700; color: var(--ink); }
-  .deal-desc { font-size: 12px; color: var(--ink-mid); margin-top: 1px; }
+/* REFERENCE CARD */
+.ref-card { background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 10px; }
+.ref-head { padding: 10px 16px 9px; font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .8px; color: var(--ink-light); border-bottom: 1px solid var(--card-border);
+  background: var(--cream-deep); }
+.ref-list { padding: 3px 0 6px; }
+.ref-item { display: flex; align-items: center; padding: 7px 16px; gap: 10px;
+  text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 600; }
+.ref-item:hover { background: var(--cream); }
+.ref-item-meta { font-size: 11px; color: var(--ink-light); margin-left: auto; white-space: nowrap; }
+.ref-label { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
+.label-coming { background: var(--amber-bg); color: var(--amber); }
+.label-past { background: var(--cream-deep); color: var(--ink-light); }
+.label-live { background: var(--sage-bg); color: var(--sage); }
 
-  /* ICON COLOURS */
-  .icon-ms  { background: #EAF3FF; }
-  .icon-wn  { background: var(--sage-bg); }
-  .icon-th  { background: var(--terracotta-bg); }
-  .icon-ebg { background: var(--amber-bg); }
-  .icon-sd  { background: #F0EAFF; }
-  .icon-bg  { background: var(--cream-deep); }
-  .icon-al  { background: #E5F0F8; }
-  .icon-deal{ background: var(--cream-deep); }
-
-  /* SIDEBAR */
-  .sidebar-section { margin-bottom: 20px; }
-
-  .ref-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 12px; overflow: hidden;
-    box-shadow: var(--shadow); margin-bottom: 10px;
-  }
-  .ref-head {
-    padding: 10px 16px 8px;
-    font-size: 10px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: .8px; color: var(--ink-light);
-    border-bottom: 1px solid var(--card-border);
-    background: var(--cream-deep);
-  }
-  .ref-list { padding: 3px 0 6px; }
-  .ref-item {
-    display: flex; align-items: center; padding: 7px 16px; gap: 10px;
-    text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 600;
-  }
-  .ref-item:hover { background: var(--cream); }
-  .ref-item-meta { font-size: 11px; color: var(--ink-light); margin-left: auto; white-space: nowrap; }
-  .ref-item-label {
-    font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px;
-    flex-shrink: 0;
-  }
-  .label-now  { background: var(--sage-bg);  color: var(--sage); }
-  .label-past { background: var(--cream-deep); color: var(--ink-light); }
-  .label-coming { background: var(--amber-bg); color: var(--amber); }
-
-  /* DECISIONS INTERACTIVE CARD */
-  .decisions-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 12px; overflow: hidden;
-    box-shadow: var(--shadow); margin-bottom: 10px;
-  }
-  .decisions-card-head {
-    padding: 10px 16px 9px;
-    font-size: 10px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: .8px; color: var(--terracotta);
-    border-bottom: 1px solid #E8D0C4;
-    background: var(--terracotta-bg);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .decisions-card-head-left { display: flex; align-items: center; gap: 6px; }
-  .decisions-count {
-    font-size: 11px; font-weight: 700;
-    background: var(--terracotta); color: #fff;
-    border-radius: 10px; padding: 1px 7px;
-  }
-  /* Individual decision item */
-  .di {
-    border-bottom: 1px solid var(--card-border);
-    overflow: hidden;
-    transition: background 0.15s;
-  }
-  .di:last-child { border-bottom: none; }
-  .di.resolved { opacity: 0.4; }
-  .di-header {
-    padding: 10px 16px; display: flex; gap: 10px;
-    align-items: flex-start; cursor: pointer;
-    user-select: none;
-  }
-  .di-header:hover { background: var(--cream); }
-  .di-urgency {
-    font-size: 9px; font-weight: 800; text-transform: uppercase;
-    padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 2px;
-    letter-spacing: 0.5px;
-  }
-  .urgency-now   { background: var(--terracotta); color: #fff; }
-  .urgency-week  { background: var(--amber-bg); color: var(--amber); }
-  .urgency-ready { background: var(--cream-deep); color: var(--ink-light); }
-  .di-body { flex: 1; }
-  .di-title { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.4; }
-  .di-sub   { font-size: 11px; color: var(--ink-mid); margin-top: 2px; }
-  .di-chevron {
-    font-size: 13px; color: var(--ink-light); flex-shrink: 0;
-    margin-top: 2px; transition: transform 0.2s;
-  }
-  .di.open .di-chevron { transform: rotate(90deg); }
-  /* Expanded panel */
-  .di-expanded {
-    display: none; padding: 0 16px 14px;
-    background: var(--cream);
-    border-top: 1px solid var(--card-border);
-  }
-  .di.open .di-expanded { display: block; }
-  .di-context {
-    font-size: 12px; color: var(--ink-mid); line-height: 1.6;
-    margin-bottom: 12px; padding-top: 10px;
-  }
-  .di-options { display: flex; flex-direction: column; gap: 7px; }
-  .di-option {
-    display: block; width: 100%;
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 8px; padding: 9px 14px;
-    font-size: 12px; font-weight: 600; color: var(--ink);
-    cursor: pointer; text-align: left; text-decoration: none;
-    transition: border-color 0.15s, background 0.15s;
-    line-height: 1.4;
-  }
-  .di-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
-  .di-option-letter {
-    display: inline-block; width: 18px; height: 18px;
-    background: var(--cream-deep); border-radius: 4px;
-    text-align: center; line-height: 18px;
-    font-size: 10px; font-weight: 800; margin-right: 8px;
-    flex-shrink: 0;
-  }
-  .di-resolve {
-    margin-top: 10px; display: block; width: 100%;
-    background: none; border: 1px dashed var(--card-border);
-    border-radius: 8px; padding: 7px 14px;
-    font-size: 11px; font-weight: 600; color: var(--ink-light);
-    cursor: pointer; text-align: center;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .di-resolve:hover { border-color: var(--sage); color: var(--sage); }
-  .di.resolved .di-title { text-decoration: line-through; }
-
-  @media (max-width: 820px) {
-    .main { grid-template-columns: 1fr; padding: 20px 16px 60px; }
-    .header { padding: 16px; }
-    .today-strip, .decisions-strip { padding: 0 16px; }
-  }
+@media (max-width: 820px) {
+  .main { grid-template-columns: 1fr; padding: 16px 16px 60px; }
+  .header { padding: 16px; }
+  .today-strip { padding: 0 16px; }
+  .status-bar { padding: 8px 16px; }
+  .header-time { font-size: 18px; }
+}
 </style>
 </head>
 <body>
@@ -364,38 +259,39 @@
   <div class="header-left">
     <div class="header-avatar">JG</div>
     <div>
-      <h1>Jesse Grylls</h1>
+      <div class="header-name">Jesse Grylls</div>
       <div class="header-sub">Bear Grylls Ventures · Personal Command</div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <a href="email.html" style="display:inline-flex;align-items:center;gap:6px;background:var(--terracotta);color:#fff;font-size:12px;font-weight:800;padding:7px 14px;border-radius:8px;text-decoration:none;">📬 Inbox</a>
-    <div class="header-right">
-      <div class="header-date">Friday 10 April 2026</div>
-      <div class="header-agent">Junior · AI Agent</div>
+  <div class="header-right">
+    <a href="email.html" class="inbox-btn">
+      📬 Inbox
+      <span class="inbox-btn-badge" id="inbox-badge">0</span>
+    </a>
+    <div class="header-clock">
+      <div class="header-time" id="live-time">--:--</div>
+      <div class="header-date" id="live-date">Loading...</div>
     </div>
   </div>
 </div>
 
-<!-- DECISIONS STRIP -->
-<div class="decisions-strip">
-  <div class="decisions-strip-inner">
-    <div class="decisions-label">⚡ Decisions needed</div>
-    <span class="decision-chip today">Modern Savage: confirm ACF pricing?</span>
-    <span class="decision-chip">Family constitution: John Winstanley draft in inbox</span>
-    <span class="decision-chip">Alfred: send proposal to Alfred team?</span>
-    <span class="decision-chip">Mettle: stay passive or lean in?</span>
+<!-- JUNIOR STATUS BAR -->
+<div class="status-bar">
+  <div class="status-junior">
+    <div class="status-dot"></div>
+    <div class="status-text">Junior is live</div>
+  </div>
+  <div class="status-refresh" id="status-refresh">
+    Calendar &amp; email updating every 5 min
   </div>
 </div>
 
 <!-- TODAY STRIP -->
 <div class="today-strip">
-  <div class="today-strip-inner">
+  <div class="today-inner">
     <div class="today-label">Today</div>
-    <div class="today-item">
-      <span class="today-time">4pm BST</span>
-      <span class="today-dot dot-now"></span>
-      Jumper Meeting — The Shed Hotel (30 min)
+    <div id="today-events">
+      <div class="no-events">Loading calendar...</div>
     </div>
   </div>
 </div>
@@ -439,7 +335,7 @@
         <div class="project-icon icon-al">⚡</div>
         <div class="project-info">
           <div class="project-name">Alfred — Bear Witness Pitch</div>
-          <div class="project-desc">Bear Witness digital media partnership with Alfred (energy, broadband, mobile, insurance). Proposal reviewed and ready. bearwitness-x-alfred.netlify.app</div>
+          <div class="project-desc">Bear Witness digital media partnership with Alfred (energy, broadband, mobile, insurance). Proposal reviewed and ready.</div>
         </div>
         <div class="project-badges"><span class="badge badge-blue">Ready to send</span></div>
       </div>
@@ -559,55 +455,33 @@
       </details>
     </div>
 
-    <!-- DEALS & INVESTMENTS -->
-    <div class="section-label" style="margin-top: 32px;">Deals &amp; Investments</div>
+    <div class="section-label" style="margin-top:28px;">Deals &amp; Investments</div>
     <div class="deals-table">
-
       <a href="luminox.html" class="deal-row">
         <div class="deal-icon icon-deal">⌚</div>
-        <div class="deal-body">
-          <div class="deal-name">Luminox</div>
-          <div class="deal-desc">Watch licensing. 2026 on actual royalties. 2027-2029 back to $100K min.</div>
-        </div>
+        <div class="deal-body"><div class="deal-name">Luminox</div><div class="deal-desc">Watch licensing. 2026 on actual royalties. 2027-2029 back to $100K min.</div></div>
         <span class="badge badge-amber">Amendment pending</span>
       </a>
-
       <a href="water2.html" class="deal-row">
         <div class="deal-icon icon-deal">💧</div>
-        <div class="deal-body">
-          <div class="deal-name">Water2</div>
-          <div class="deal-desc">BGV targeting extra 5-10% equity + revenue share in China/India. Charles Robinson reviewing.</div>
-        </div>
+        <div class="deal-body"><div class="deal-name">Water2</div><div class="deal-desc">BGV targeting extra 5-10% equity + revenue share in China/India. Charles Robinson reviewing.</div></div>
         <span class="badge badge-amber">Negotiating</span>
       </a>
-
       <a href="becomingx.html" class="deal-row">
         <div class="deal-icon icon-deal">📘</div>
-        <div class="deal-body">
-          <div class="deal-name">BecomingX</div>
-          <div class="deal-desc">£40K loan outstanding. Bear resigning as director. License stays.</div>
-        </div>
+        <div class="deal-body"><div class="deal-name">BecomingX</div><div class="deal-desc">£40K loan outstanding. Bear resigning as director. License stays.</div></div>
         <span class="badge badge-red">Dispute</span>
       </a>
-
       <a href="organised.html" class="deal-row">
         <div class="deal-icon icon-deal">⚖️</div>
-        <div class="deal-body">
-          <div class="deal-name">Organised</div>
-          <div class="deal-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div>
-        </div>
+        <div class="deal-body"><div class="deal-name">Organised</div><div class="deal-desc">IP/equity dispute with Niall Kiddle. TC Group rejected BGV's position. Ignition Law managing.</div></div>
         <span class="badge badge-red">Legal</span>
       </a>
-
       <a href="mettle.html" class="deal-row">
         <div class="deal-icon icon-deal">📱</div>
-        <div class="deal-body">
-          <div class="deal-name">Mettle</div>
-          <div class="deal-desc">Men's health app. £6k MRR. Peer group retention is strongest signal. Neil replied 7 Apr.</div>
-        </div>
+        <div class="deal-body"><div class="deal-name">Mettle</div><div class="deal-desc">Men's health app. £6k MRR. Peer group retention is strongest signal. Neil replied 7 Apr.</div></div>
         <span class="badge badge-amber">Watch</span>
       </a>
-
     </div>
 
   </div>
@@ -615,15 +489,14 @@
   <!-- RIGHT SIDEBAR -->
   <div>
 
-    <!-- DECISIONS NEEDED — interactive -->
+    <!-- DECISIONS -->
     <div class="section-label">Decisions Needed</div>
-    <div class="decisions-card" id="decisions-card">
-      <div class="decisions-card-head">
-        <div class="decisions-card-head-left">⚡ Open items</div>
+    <div class="decisions-card">
+      <div class="decisions-head">
+        <span>⚡ Open items</span>
         <span class="decisions-count" id="decisions-count">4</span>
       </div>
 
-      <!-- DECISION 1: Modern Savage pricing -->
       <div class="di" id="di-1">
         <div class="di-header" onclick="toggleDi('di-1')">
           <span class="di-urgency urgency-now">Today</span>
@@ -634,23 +507,16 @@
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Drew Kouvel (ACF Pharma) sent updated Survivor Blend pricing on Apr 9. Adult: ~$27 COGS at 2,500 units → $79 retail = 64% gross margin. Kids: ~$22 COGS → $69 retail. Cash to launch ~$95-130K. Lineage Provisions charges $80/bag (competitor). Tap an option and send the pre-filled Telegram message — Junior will draft the email.</div>
+          <div class="di-context">Drew Kouvel (ACF Pharma) sent updated Survivor Blend pricing Apr 9. Adult: ~$27 COGS at 2,500 units → $79 retail = 64% gross margin. Kids: ~$22 COGS → $69 retail. Cash to launch ~$95-130K.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+A%3A+Confirm+Drew%27s+pricing+as+quoted+and+move+forward">
-              <span class="di-option-letter">A</span>Confirm pricing and move forward
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+B%3A+Push+back+on+pricing%2C+negotiate+better+rates+before+committing">
-              <span class="di-option-letter">B</span>Push back — negotiate better rates first
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+C%3A+Request+an+official+detailed+quote+and+breakdown+before+deciding">
-              <span class="di-option-letter">C</span>Request official detailed quote first
-            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+A%3A+Confirm+Drew%27s+pricing+as+quoted+and+move+forward"><span class="di-option-letter">A</span>Confirm pricing and move forward</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+B%3A+Push+back+on+pricing%2C+negotiate+better+rates"><span class="di-option-letter">B</span>Push back — negotiate better rates first</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+C%3A+Request+official+detailed+quote+first"><span class="di-option-letter">C</span>Request official detailed quote first</a>
           </div>
-          <button class="di-resolve" onclick="resolveDi('di-1')">✓ Mark as resolved</button>
+          <button class="di-resolve" onclick="resolveDi(event,'di-1')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <!-- DECISION 2: Alfred proposal -->
       <div class="di" id="di-2">
         <div class="di-header" onclick="toggleDi('di-2')">
           <span class="di-urgency urgency-week">This week</span>
@@ -661,44 +527,34 @@
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">The Bear Witness x Alfred proposal has been reviewed twice (8/10), Alice placeholder removed, Costco brand comparison removed, all critical issues resolved. The proposal is at bearwitness-x-alfred.netlify.app. Choose how to proceed:</div>
+          <div class="di-context">The Bear Witness x Alfred proposal has been reviewed twice (8/10), all critical issues resolved. The proposal is at bearwitness-x-alfred.netlify.app. Choose how to proceed:</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+A%3A+Send+it+now%2C+draft+a+covering+email+to+the+Alfred+team">
-              <span class="di-option-letter">A</span>Send it now — draft covering email to Alfred
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+B%3A+Hold+for+now%2C+I%27ll+let+you+know+when+to+send">
-              <span class="di-option-letter">B</span>Hold — I'll let you know when to send
-            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+A%3A+Send+it+now%2C+draft+a+covering+email+to+the+Alfred+team"><span class="di-option-letter">A</span>Send it now — draft covering email to Alfred</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+B%3A+Hold+for+now%2C+I%27ll+let+you+know+when+to+send"><span class="di-option-letter">B</span>Hold — I'll decide when to send</a>
           </div>
-          <button class="di-resolve" onclick="resolveDi('di-2')">✓ Mark as resolved</button>
+          <button class="di-resolve" onclick="resolveDi(event,'di-2')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <!-- DECISION 3: Family constitution -->
       <div class="di" id="di-3">
         <div class="di-header" onclick="toggleDi('di-3')">
           <span class="di-urgency urgency-week">This week</span>
           <div class="di-body">
             <div class="di-title">Family constitution — John Winstanley</div>
-            <div class="di-sub">Draft follow-up in your Drafts folder. John reviewing 92-page doc.</div>
+            <div class="di-sub">John on leave until 13 Apr. Follow up when he returns.</div>
           </div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Jesse sent the 92-page Grylls Family Constitution to John Winstanley (Clarion Wealth) on Mar 6. No reply since. A follow-up draft is in your Drafts folder (threaded, to John + Bear + Alistair Cartwright). Steven Appleton (solicitor) is also involved.</div>
+          <div class="di-context">Jesse sent the 92-page Grylls Family Constitution to John Winstanley (Clarion Wealth). John is on annual leave until April 13. A follow-up draft is in your Drafts folder.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+A%3A+Draft+in+inbox+looks+good%2C+confirm+I%27ve+sent+it">
-              <span class="di-option-letter">A</span>I've sent the draft — mark this done
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+B%3A+Revise+the+draft+before+sending%2C+here%27s+what+to+change%3A+">
-              <span class="di-option-letter">B</span>Revise the draft — tell Junior what to change
-            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+A%3A+I%27ve+sent+the+draft+already%2C+mark+this+done"><span class="di-option-letter">A</span>I've sent the draft already - mark done</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+B%3A+Draft+a+new+follow-up+when+John+returns+13+Apr"><span class="di-option-letter">B</span>Draft a follow-up when John returns (13 Apr)</a>
           </div>
-          <button class="di-resolve" onclick="resolveDi('di-3')">✓ Mark as resolved</button>
+          <button class="di-resolve" onclick="resolveDi(event,'di-3')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <!-- DECISION 4: Mettle -->
       <div class="di" id="di-4">
         <div class="di-header" onclick="toggleDi('di-4')">
           <span class="di-urgency urgency-ready">When ready</span>
@@ -709,56 +565,31 @@
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Neil Smith (Founder/CEO) replied April 7. Honest: ~£6k MRR consumer, £3k enterprise one-off from ClearScore. Strongest signal: 300+ day streaks when used in peer groups vs standalone. He asked for a call. Jesse replied warmly but non-committally. BGV rule: don't offer free help or BG assets without clear benefit back.</div>
+          <div class="di-context">Neil Smith replied April 7. Honest: ~£6k MRR consumer, £3k enterprise one-off. Strongest signal: 300+ day streaks in peer group use. He asked for a call.</div>
           <div class="di-options">
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+A%3A+Stay+passive%2C+no+action+needed+right+now">
-              <span class="di-option-letter">A</span>Stay passive — no action needed
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+B%3A+Accept+Neil%27s+call+offer%2C+draft+a+reply+confirming">
-              <span class="di-option-letter">B</span>Accept the call — draft a reply to Neil
-            </a>
-            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+C%3A+Write+up+an+investment+decision+brief+for+me+to+review">
-              <span class="di-option-letter">C</span>Build an investment decision brief first
-            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+A%3A+Stay+passive%2C+no+action+needed+right+now"><span class="di-option-letter">A</span>Stay passive — no action needed</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+B%3A+Accept+Neil%27s+call+offer%2C+draft+a+reply"><span class="di-option-letter">B</span>Accept the call — draft a reply to Neil</a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+C%3A+Build+an+investment+decision+brief+first"><span class="di-option-letter">C</span>Build an investment decision brief first</a>
           </div>
-          <button class="di-resolve" onclick="resolveDi('di-4')">✓ Mark as resolved</button>
+          <button class="di-resolve" onclick="resolveDi(event,'di-4')">✓ Mark as resolved</button>
         </div>
       </div>
-
     </div>
 
-    <!-- TODAY'S MEETINGS -->
+    <!-- MEETINGS -->
     <div class="section-label">Meetings</div>
-
-
-    <div class="ref-card">
-      <div class="ref-head" style="color: var(--ink-light);">Today — 10 April</div>
-      <div class="ref-list"><div class="ref-item" style="color:var(--ink-light);font-style:italic;font-weight:400;">No meetings today</div></div>
+    <div class="meetings-card">
+      <div class="meetings-head">
+        <span id="meetings-head-label">Upcoming</span>
+        <span id="meetings-live-dot" style="font-size:10px;color:var(--ink-light);">Live</span>
+      </div>
+      <div id="meetings-list">
+        <div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">Loading calendar...</div>
+      </div>
     </div>
 
-
-    <div class="ref-card">
-      <div class="ref-head">Upcoming</div>
-      <div class="ref-list">
-        <a href="#" class="ref-item">
-          <span class="ref-item-label label-coming">Wed 15 Apr</span>
-          BGV catch up Zoom Meeting
-          <span class="ref-item-meta">2:00PM</span>
-        </a>
-        <a href="#" class="ref-item">
-          <span class="ref-item-label label-coming">Thu 16 Apr</span>
-          Bear Grylls Financial Model v1
-          <span class="ref-item-meta">4:00PM</span>
-        </a>
-        <a href="#" class="ref-item">
-          <span class="ref-item-label label-coming">Thu 16 Apr</span>
-          Weekly call: Jesse, Alex, Gunnar
-          <span class="ref-item-meta">6:00PM</span>
-        </a></div>
-    </div>
-
+    <!-- REFERENCE -->
     <div class="section-label">Reference</div>
-
     <div class="ref-card">
       <div class="ref-head">BGV Intelligence</div>
       <div class="ref-list">
@@ -767,7 +598,6 @@
         <a href="../scout-feed-2026-04-02.html" class="ref-item">Scout Feed<span class="ref-item-meta">2 Apr</span></a>
       </div>
     </div>
-
     <div class="ref-card">
       <div class="ref-head">Amazon / DTC</div>
       <div class="ref-list">
@@ -775,10 +605,8 @@
         <a href="../openclaw-amazon-ai-brief-2026-03-31.html" class="ref-item">Amazon AI Brief<span class="ref-item-meta">31 Mar</span></a>
       </div>
     </div>
-
     <div class="ref-card">
       <div class="ref-head">Quick Links</div>
-      
       <div class="ref-list">
         <a href="email.html" class="ref-item" style="color:var(--terracotta);font-weight:800;">📬 Email Dashboard<span class="ref-item-meta">Live inbox</span></a>
         <a href="https://sisterdirectory.co.uk" target="_blank" class="ref-item">sisterdirectory.co.uk ↗<span class="ref-item-meta">Site</span></a>
@@ -787,45 +615,252 @@
     </div>
 
   </div>
+</div>
 
+<!-- MEETING MODAL -->
+<div class="modal-overlay" id="meeting-modal" onclick="closeMeetingModal(event)">
+  <div class="modal" id="modal-content">
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-meta" id="modal-meta"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions">
+      <a class="btn btn-primary" id="modal-brief-btn" href="#" target="_blank">📋 Open Brief</a>
+      <button class="btn btn-ghost" onclick="closeMeetingModal()">Close</button>
+    </div>
+  </div>
 </div>
 
 <script>
-// Toggle decision card open/closed
+const API = 'https://especially-eco-joseph-regardless.trycloudflare.com';
+const BOT = 'bgv_junior_bot';
+
+// MEETING BRIEFS — pre-defined context for known upcoming meetings
+const MEETING_BRIEFS = {
+  'BGV catch up': {
+    brief: 'Weekly team sync with CJ Cardenas (MD) and Raemy Singh (CFO). Agenda: Modern Savage launch timeline, Wildernests equity docs, Alfred proposal status, any legal updates on BecomingX/Organised.',
+    link: null,
+    tgPrompt: 'Please generate a briefing for the BGV catch up meeting on Wed 15 Apr at 2pm with CJ and Raemy'
+  },
+  'Bear Grylls Financial Model': {
+    brief: 'Review of Bear Grylls Financial Model v1 with CJ Cardenas and Zain Qazi (mytwyn.com, 20 North Audley Street, Mayfair). This is a financial modelling session — likely reviewing income streams, forecasts, and asset valuations across BGV portfolio.',
+    link: null,
+    tgPrompt: 'Please generate a briefing for the Bear Grylls Financial Model v1 meeting on Thu 16 Apr at 4pm with CJ and Zain Qazi'
+  },
+  'Weekly call': {
+    brief: 'Regular weekly call with Jesse, Alex and Gunnar. Standing operational check-in.',
+    link: null,
+    tgPrompt: 'Please generate a briefing for the weekly call with Jesse, Alex, Gunnar on Thu 16 Apr at 6pm'
+  },
+  'Jumper': {
+    brief: 'Meeting at The Shed Hotel. Jumper partnership / pitch discussion.',
+    link: null,
+    tgPrompt: 'Please generate a briefing for the Jumper meeting today at 4pm at The Shed Hotel'
+  }
+};
+
+function getMeetingBrief(subject) {
+  for (const [key, val] of Object.entries(MEETING_BRIEFS)) {
+    if (subject.toLowerCase().includes(key.toLowerCase())) return val;
+  }
+  return null;
+}
+
+function openMeetingModal(ev) {
+  ev.preventDefault();
+  const id = ev.currentTarget.dataset.id;
+  const subject = ev.currentTarget.dataset.subject;
+  const time = ev.currentTarget.dataset.time;
+  const date = ev.currentTarget.dataset.date;
+  const loc = ev.currentTarget.dataset.loc || '';
+
+  document.getElementById('modal-title').textContent = subject;
+  document.getElementById('modal-meta').textContent = date + ' · ' + time + (loc ? ' · ' + loc : '');
+
+  const brief = getMeetingBrief(subject);
+  const bodyEl = document.getElementById('modal-body');
+  if (brief) {
+    bodyEl.innerHTML = `<p>${escH(brief.brief)}</p>`;
+    const tgLink = document.getElementById('modal-brief-btn');
+    if (brief.tgPrompt) {
+      tgLink.href = 'https://t.me/' + BOT + '?text=' + encodeURIComponent(brief.tgPrompt);
+      tgLink.textContent = '📋 Get Junior to brief me';
+      tgLink.style.display = '';
+    } else if (brief.link) {
+      tgLink.href = brief.link;
+      tgLink.textContent = '📋 Open Brief';
+      tgLink.style.display = '';
+    } else {
+      tgLink.style.display = 'none';
+    }
+  } else {
+    bodyEl.innerHTML = `<p style="color:var(--ink-light);font-style:italic;">No brief available yet. Ask Junior to prepare one.</p>`;
+    const tgLink = document.getElementById('modal-brief-btn');
+    tgLink.href = 'https://t.me/' + BOT + '?text=' + encodeURIComponent('Please prepare a meeting brief for: ' + subject + ' on ' + date + ' at ' + time);
+    tgLink.textContent = '📋 Ask Junior for a Brief';
+    tgLink.style.display = '';
+  }
+  document.getElementById('meeting-modal').classList.add('open');
+}
+
+function closeMeetingModal(ev) {
+  if (!ev || ev.target === document.getElementById('meeting-modal')) {
+    document.getElementById('meeting-modal').classList.remove('open');
+  }
+}
+
+function escH(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// LIVE CLOCK
+function updateClock() {
+  const now = new Date();
+  const t = now.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit',timeZone:'Europe/London'});
+  const d = now.toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Europe/London'});
+  document.getElementById('live-time').textContent = t;
+  document.getElementById('live-date').textContent = d;
+}
+updateClock();
+setInterval(updateClock, 30000);
+
+// DECISIONS
 function toggleDi(id) {
   const el = document.getElementById(id);
   if (el.classList.contains('resolved')) return;
   el.classList.toggle('open');
 }
-
-// Mark a decision as resolved (persisted in localStorage)
-function resolveDi(id) {
+function resolveDi(ev, id) {
+  ev.stopPropagation();
   const el = document.getElementById(id);
   el.classList.remove('open');
   el.classList.add('resolved');
   const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
   if (!resolved.includes(id)) resolved.push(id);
   localStorage.setItem('resolved_decisions', JSON.stringify(resolved));
-  updateCount();
+  updateDecisionsCount();
 }
-
-// Update the open items count badge
-function updateCount() {
+function updateDecisionsCount() {
   const all = document.querySelectorAll('.di');
   const open = [...all].filter(el => !el.classList.contains('resolved')).length;
-  const badge = document.getElementById('decisions-count');
-  if (badge) badge.textContent = open;
+  document.getElementById('decisions-count').textContent = open;
 }
-
-// On load: restore resolved state
-(function init() {
+(function restoreDecisions() {
   const resolved = JSON.parse(localStorage.getItem('resolved_decisions') || '[]');
   resolved.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add('resolved');
   });
-  updateCount();
+  updateDecisionsCount();
 })();
+
+// LOAD CALENDAR FROM API
+async function loadCalendar() {
+  try {
+    const res = await fetch(API + '/calendar', {cache:'no-store'});
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const events = await res.json();
+
+    // Today strip
+    const today = events.filter(e => e.date_label === 'Today');
+    const todayEl = document.getElementById('today-events');
+    if (today.length === 0) {
+      todayEl.innerHTML = '<div class="no-events">No meetings today</div>';
+    } else {
+      todayEl.innerHTML = today.map(e => `
+        <div class="today-event">
+          <span class="today-time-badge">${escH(e.time)}</span>
+          <span class="today-dot"></span>
+          <span>${escH(e.subject)}${e.location ? ' · ' + escH(e.location) : ''}</span>
+        </div>`).join('');
+    }
+
+    // Upcoming meetings
+    const upcoming = events.filter(e => e.date_label !== 'Today');
+    const meetingsList = document.getElementById('meetings-list');
+    const todayMeetings = today;
+    const allMeetings = [...todayMeetings, ...upcoming];
+
+    if (allMeetings.length === 0) {
+      meetingsList.innerHTML = '<div style="padding:14px 16px;font-size:13px;color:var(--ink-light);font-style:italic;">No upcoming meetings</div>';
+    } else {
+      meetingsList.innerHTML = allMeetings.map(e => {
+        const isToday = e.date_label === 'Today';
+        return `<div class="meeting-item"
+          data-id="${escH(e.id)}"
+          data-subject="${escH(e.subject)}"
+          data-time="${escH(e.time)}"
+          data-date="${escH(e.date_label)}"
+          data-loc="${escH(e.location||'')}"
+          onclick="openMeetingModal(event)">
+          <div class="meeting-item-top">
+            <span class="meeting-date-badge ${isToday?'badge-today':'badge-soon'}">${escH(e.date_label)}</span>
+            <span class="meeting-time">${escH(e.time)}</span>
+          </div>
+          <div class="meeting-title">${escH(e.subject)}</div>
+          ${e.location ? `<div class="meeting-loc">${escH(e.location)}</div>` : ''}
+        </div>`;
+      }).join('');
+
+      // Add event listeners
+      document.querySelectorAll('.meeting-item').forEach(el => {
+        el.addEventListener('click', openMeetingModal);
+      });
+    }
+
+    document.getElementById('meetings-head-label').textContent = 'Next 2 weeks';
+    document.getElementById('meetings-live-dot').textContent = '● Live';
+    document.getElementById('meetings-live-dot').style.color = 'var(--green)';
+  } catch(e) {
+    // Fallback to static data
+    document.getElementById('today-events').innerHTML = '<div class="no-events" style="color:var(--terracotta)">Calendar offline</div>';
+    document.getElementById('meetings-list').innerHTML = `
+      <div class="meeting-item" onclick="openMeetingModal(event)"
+        data-subject="BGV catch up Zoom Meeting" data-time="2:00pm" data-date="Wed 15 Apr" data-loc="Zoom">
+        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Wed 15 Apr</span><span class="meeting-time">2:00pm</span></div>
+        <div class="meeting-title">BGV catch up Zoom Meeting</div>
+      </div>
+      <div class="meeting-item" onclick="openMeetingModal(event)"
+        data-subject="Bear Grylls Financial Model v1" data-time="4:00pm" data-date="Thu 16 Apr" data-loc="">
+        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">4:00pm</span></div>
+        <div class="meeting-title">Bear Grylls Financial Model v1</div>
+      </div>
+      <div class="meeting-item" onclick="openMeetingModal(event)"
+        data-subject="Weekly call: Jesse, Alex, Gunnar" data-time="6:00pm" data-date="Thu 16 Apr" data-loc="">
+        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">6:00pm</span></div>
+        <div class="meeting-title">Weekly call: Jesse, Alex, Gunnar</div>
+      </div>`;
+  }
+}
+
+// LOAD EMAIL COUNT
+async function loadEmailBadge() {
+  try {
+    const res = await fetch(API + '/emails?count=20', {cache:'no-store'});
+    if (!res.ok) return;
+    const emails = await res.json();
+    const unread = emails.filter(e => !e.is_read).length;
+    const badge = document.getElementById('inbox-badge');
+    if (unread > 0) {
+      badge.textContent = unread;
+      badge.style.display = '';
+    } else {
+      badge.style.display = 'none';
+    }
+    const now = new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('status-refresh').innerHTML =
+      `Last synced ${now} · <a href="javascript:void(0)" onclick="init()">Refresh now</a>`;
+  } catch(e) {}
+}
+
+async function init() {
+  await Promise.all([loadCalendar(), loadEmailBadge()]);
+}
+
+init();
+// Refresh every 5 minutes
+setInterval(init, 300000);
 </script>
 </body>
 </html>
