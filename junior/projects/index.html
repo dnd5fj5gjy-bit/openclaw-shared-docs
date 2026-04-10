@@ -612,40 +612,113 @@
   <!-- RIGHT SIDEBAR -->
   <div>
 
-    <!-- DECISIONS NEEDED -->
+    <!-- DECISIONS NEEDED — interactive -->
     <div class="section-label">Decisions Needed</div>
-    <div class="decisions-card">
-      <div class="decisions-card-head">⚡ Open items</div>
+    <div class="decisions-card" id="decisions-card">
+      <div class="decisions-card-head">
+        <div class="decisions-card-head-left">⚡ Open items</div>
+        <span class="decisions-count" id="decisions-count">4</span>
+      </div>
 
-      <div class="decision-item">
-        <span class="decision-urgency urgency-now">Today</span>
-        <div>
-          <div class="decision-text">Modern Savage — ACF Pharma pricing</div>
-          <div class="decision-sub">Drew sent updated Survivor Blend pricing. Confirm or negotiate?</div>
+      <!-- DECISION 1: Modern Savage pricing -->
+      <div class="di" id="di-1">
+        <div class="di-header" onclick="toggleDi('di-1')">
+          <span class="di-urgency urgency-now">Today</span>
+          <div class="di-body">
+            <div class="di-title">Modern Savage — ACF Pharma pricing</div>
+            <div class="di-sub">Drew sent updated Survivor Blend pricing. Confirm or negotiate?</div>
+          </div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">Drew Kouvel (ACF Pharma) sent updated Survivor Blend pricing on Apr 9. Adult: ~$27 COGS at 2,500 units → $79 retail = 64% gross margin. Kids: ~$22 COGS → $69 retail. Cash to launch ~$95-130K. Lineage Provisions charges $80/bag (competitor). Tap an option and send the pre-filled Telegram message — Junior will draft the email.</div>
+          <div class="di-options">
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+A%3A+Confirm+Drew%27s+pricing+as+quoted+and+move+forward">
+              <span class="di-option-letter">A</span>Confirm pricing and move forward
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+B%3A+Push+back+on+pricing%2C+negotiate+better+rates+before+committing">
+              <span class="di-option-letter">B</span>Push back — negotiate better rates first
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Modern+Savage+ACF+Pricing+%3E+C%3A+Request+an+official+detailed+quote+and+breakdown+before+deciding">
+              <span class="di-option-letter">C</span>Request official detailed quote first
+            </a>
+          </div>
+          <button class="di-resolve" onclick="resolveDi('di-1')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <div class="decision-item">
-        <span class="decision-urgency urgency-week">This week</span>
-        <div>
-          <div class="decision-text">Alfred proposal — send to Alfred team?</div>
-          <div class="decision-sub">Proposal reviewed 8/10, fully sense-checked. Ready.</div>
+      <!-- DECISION 2: Alfred proposal -->
+      <div class="di" id="di-2">
+        <div class="di-header" onclick="toggleDi('di-2')">
+          <span class="di-urgency urgency-week">This week</span>
+          <div class="di-body">
+            <div class="di-title">Alfred proposal — ready to send?</div>
+            <div class="di-sub">bearwitness-x-alfred.netlify.app — reviewed 8/10, sense-checked.</div>
+          </div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">The Bear Witness x Alfred proposal has been reviewed twice (8/10), Alice placeholder removed, Costco brand comparison removed, all critical issues resolved. The proposal is at bearwitness-x-alfred.netlify.app. Choose how to proceed:</div>
+          <div class="di-options">
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+A%3A+Send+it+now%2C+draft+a+covering+email+to+the+Alfred+team">
+              <span class="di-option-letter">A</span>Send it now — draft covering email to Alfred
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Alfred+Proposal+%3E+B%3A+Hold+for+now%2C+I%27ll+let+you+know+when+to+send">
+              <span class="di-option-letter">B</span>Hold — I'll let you know when to send
+            </a>
+          </div>
+          <button class="di-resolve" onclick="resolveDi('di-2')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <div class="decision-item">
-        <span class="decision-urgency urgency-week">This week</span>
-        <div>
-          <div class="decision-text">Family constitution — John Winstanley</div>
-          <div class="decision-sub">Draft reply in your inbox. John reviewing 92-page doc.</div>
+      <!-- DECISION 3: Family constitution -->
+      <div class="di" id="di-3">
+        <div class="di-header" onclick="toggleDi('di-3')">
+          <span class="di-urgency urgency-week">This week</span>
+          <div class="di-body">
+            <div class="di-title">Family constitution — John Winstanley</div>
+            <div class="di-sub">Draft follow-up in your Drafts folder. John reviewing 92-page doc.</div>
+          </div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">Jesse sent the 92-page Grylls Family Constitution to John Winstanley (Clarion Wealth) on Mar 6. No reply since. A follow-up draft is in your Drafts folder (threaded, to John + Bear + Alistair Cartwright). Steven Appleton (solicitor) is also involved.</div>
+          <div class="di-options">
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+A%3A+Draft+in+inbox+looks+good%2C+confirm+I%27ve+sent+it">
+              <span class="di-option-letter">A</span>I've sent the draft — mark this done
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Family+Constitution+%3E+B%3A+Revise+the+draft+before+sending%2C+here%27s+what+to+change%3A+">
+              <span class="di-option-letter">B</span>Revise the draft — tell Junior what to change
+            </a>
+          </div>
+          <button class="di-resolve" onclick="resolveDi('di-3')">✓ Mark as resolved</button>
         </div>
       </div>
 
-      <div class="decision-item">
-        <span class="decision-urgency urgency-ready">When ready</span>
-        <div>
-          <div class="decision-text">Mettle — passive hold or lean in?</div>
-          <div class="decision-sub">Neil keen on a call. £6k MRR, peer group angle interesting.</div>
+      <!-- DECISION 4: Mettle -->
+      <div class="di" id="di-4">
+        <div class="di-header" onclick="toggleDi('di-4')">
+          <span class="di-urgency urgency-ready">When ready</span>
+          <div class="di-body">
+            <div class="di-title">Mettle — passive hold or take a call?</div>
+            <div class="di-sub">Neil replied Apr 7. £6k MRR. Peer group retention is the signal.</div>
+          </div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">Neil Smith (Founder/CEO) replied April 7. Honest: ~£6k MRR consumer, £3k enterprise one-off from ClearScore. Strongest signal: 300+ day streaks when used in peer groups vs standalone. He asked for a call. Jesse replied warmly but non-committally. BGV rule: don't offer free help or BG assets without clear benefit back.</div>
+          <div class="di-options">
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+A%3A+Stay+passive%2C+no+action+needed+right+now">
+              <span class="di-option-letter">A</span>Stay passive — no action needed
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+B%3A+Accept+Neil%27s+call+offer%2C+draft+a+reply+confirming">
+              <span class="di-option-letter">B</span>Accept the call — draft a reply to Neil
+            </a>
+            <a class="di-option" href="https://t.me/bgv_junior_bot?text=DECISION%3A+Mettle+%3E+C%3A+Write+up+an+investment+decision+brief+for+me+to+review">
+              <span class="di-option-letter">C</span>Build an investment decision brief first
+            </a>
+          </div>
+          <button class="di-resolve" onclick="resolveDi('di-4')">✓ Mark as resolved</button>
         </div>
       </div>
 
