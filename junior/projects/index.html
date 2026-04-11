@@ -319,23 +319,28 @@ details summary:hover { color: var(--ink-mid); background: var(--cream-deep); }
 .meeting-loc { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
 
 /* MODAL */
-.modal-overlay { position: fixed; inset: 0; background: rgba(38,32,15,0.5); z-index: 100;
-  display: none; align-items: center; justify-content: center; padding: 20px; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--card); border-radius: 16px; max-width: 480px; width: 100%;
-  box-shadow: 0 8px 40px rgba(38,32,15,0.2); overflow: hidden; }
-.modal-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--rule); }
-.modal-title { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(25,15,5,0.45); z-index: 100;
+  display: none; align-items: center; justify-content: center; padding: 20px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.modal-overlay.open { display: flex; animation: fadeIn 0.2s var(--ease); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal { background: var(--card); border-radius: 18px; max-width: 480px; width: 100%;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(38,32,15,0.06); overflow: hidden;
+  animation: slideUp 0.28s var(--ease); }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+.modal-head { padding: 20px 22px 15px; border-bottom: 1px solid var(--rule); }
+.modal-title { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.3px; }
 .modal-meta  { font-size: 12px; color: var(--ink-light); }
-.modal-body  { padding: 16px 20px; }
-.modal-body p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 10px; }
-.modal-footer { padding: 12px 20px 16px; display: flex; gap: 8px; border-top: 1px solid var(--rule); }
-.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer;
-  text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; transition: all 0.15s; }
+.modal-body  { padding: 16px 22px; }
+.modal-body p { font-size: 13.5px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 10px; }
+.modal-footer { padding: 13px 22px 17px; display: flex; gap: 8px; border-top: 1px solid var(--rule); background: var(--cream-deep); }
+.btn { padding: 9px 17px; border-radius: 9px; font-size: 13px; font-weight: 700; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent;
+  transition: all 0.2s var(--ease); }
 .btn-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
-.btn-primary:hover { background: #9E4222; }
+.btn-primary:hover { background: #9E4222; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(173,75,39,0.3); }
 .btn-ghost { background: none; color: var(--ink-light); border-color: var(--card-border); }
-.btn-ghost:hover { color: var(--ink); }
+.btn-ghost:hover { color: var(--ink); background: var(--cream); }
 
 /* REF CARDS */
 .ref-card { background: var(--card); border: 1px solid var(--card-border);
