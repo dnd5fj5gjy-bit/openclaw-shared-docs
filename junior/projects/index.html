@@ -1028,39 +1028,70 @@ function renderPastDecisions(history) {
 }
 
 // ── PENDING ACTIONS ──────────────────────────────────────────────────────────────
+let pastActionsOpen = false;
+
+function togglePastActions() {
+  pastActionsOpen = !pastActionsOpen;
+  const list = document.getElementById('past-actions-list');
+  const btn = document.getElementById('past-actions-toggle');
+  list.classList.toggle('open', pastActionsOpen);
+  const n = document.getElementById('past-actions-count').textContent;
+  btn.innerHTML = (pastActionsOpen ? '▾ ' : '▸ ') + n + ' past task' + (n==='1' ? '' : 's');
+}
+
 function renderPendingActions(actions) {
   const list = document.getElementById('actions-list');
   const count = document.getElementById('actions-count');
-  const pending = (actions||[]).filter(a=>a.status!=='done');
-  const done    = (actions||[]).filter(a=>a.status==='done').slice(0,3);
-  count.textContent = pending.filter(a=>a.status!=='done').length;
+  const pastList = document.getElementById('past-actions-list');
+  const pastBtn = document.getElementById('past-actions-toggle');
+  const pastCount = document.getElementById('past-actions-count');
+
+  const active = (actions||[]).filter(a => a.status !== 'done');
+  const done   = (actions||[]).filter(a => a.status === 'done');
+
+  count.textContent = active.length;
 
   const typeIcons = {email:'📧', research:'🔍', document:'📄', call:'📞', task:'🎯', draft:'✏️'};
   const statusLabels = {processing:'Working...', ready:'Ready to send', done:'Done', error:'Error', pending:'Pending'};
 
-  if (!actions || !actions.length) {
-    list.innerHTML = '<div class="actions-empty">No actions yet — choose a decision option above.</div>';
-    return;
+  // Active items
+  if (!active.length) {
+    list.innerHTML = '<div class="actions-empty">No active tasks.</div>';
+  } else {
+    list.innerHTML = active.map(a => {
+      const icon = typeIcons[a.type] || '🎯';
+      const timeStr = a.created_at ? new Date(a.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) : '';
+      const statusClass = a.status==='ready' ? 'color:var(--green)' : a.status==='processing' ? 'color:var(--amber)' : '';
+      return `<div class="action-item">
+        <div class="action-icon">${icon}</div>
+        <div class="action-body">
+          <div class="action-desc">${escH(a.description)}</div>
+          <div class="action-meta" style="${statusClass}">${statusLabels[a.status]||a.status} · ${timeStr}</div>
+        </div>
+        <button class="action-done-btn" onclick="markActionDone('${a.id}')">✓</button>
+      </div>`;
+    }).join('');
   }
 
-  list.innerHTML = [...pending, ...done].map(a => {
-    const icon = typeIcons[a.type] || '🎯';
-    const timeStr = a.created_at ? new Date(a.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) : '';
-    const statusClass = a.status === 'ready' ? 'color:var(--green)' : a.status === 'processing' ? 'color:var(--amber)' : '';
-
-    // For ready actions from decision panels, show an "Open in decisions" hint instead of duplicating
-    const fromDi = a.from_decision && a.from_decision.startsWith('pa-di-');
-    const diRef = a.from_decision ? a.from_decision.replace('pa-','') : '';
-
-    return `<div class="action-item ${a.status==='done'?'done':''}">
-      <div class="action-icon">${icon}</div>
-      <div class="action-body">
-        <div class="action-desc">${escH(a.description)}</div>
-        <div class="action-meta" style="${statusClass}">${statusLabels[a.status]||a.status} · ${timeStr}</div>
-      </div>
-      ${a.status==='done' ? '' : `<button class="action-done-btn" onclick="markActionDone('${a.id}')">✓</button>`}
-    </div>`;
-  }).join('');
+  // Past (done) items — collapsed drawer
+  if (done.length) {
+    pastBtn.style.display = '';
+    pastCount.textContent = done.length;
+    pastBtn.innerHTML = (pastActionsOpen ? '▾ ' : '▸ ') + done.length + ' past task' + (done.length===1?'':'s');
+    pastList.innerHTML = done.map(a => {
+      const icon = typeIcons[a.type] || '🎯';
+      const timeStr = a.created_at ? new Date(a.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) : '';
+      return `<div class="past-di">
+        <div class="past-di-check">${icon}</div>
+        <div class="past-di-body">
+          <div class="past-di-title">${escH(a.description)}</div>
+          <div class="past-di-time">Done · ${timeStr}</div>
+        </div>
+      </div>`;
+    }).join('');
+  } else {
+    pastBtn.style.display = 'none';
+  }
 }
 
 async function markActionDone(id) {
