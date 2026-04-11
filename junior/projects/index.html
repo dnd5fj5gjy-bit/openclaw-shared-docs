@@ -1350,7 +1350,12 @@ async function chooseDi(diId, option, btnEl) {
   let polls = 0;
   const pollInterval = setInterval(async () => {
     polls++;
-    if (polls > 24) { clearInterval(pollInterval); return; } // give up after 2 min
+    if (polls > 24) {
+      clearInterval(pollInterval);
+      const workElT = document.getElementById(diId + '-work');
+      if (workElT) workElT.innerHTML = `<div class="work-panel"><div class="work-panel-head"><div class="work-status-dot error"></div>Timed out — Junior is still working. <a href="javascript:void(0)" onclick="chooseDi('${diId}','${opt.label||''}',null)" style="color:var(--blue)">Retry</a></div></div>`;
+      return;
+    } // give up after 2 min
     try {
       const s = await fetch(API+'/state', {cache:'no-store'}).then(r=>r.json());
       const action = (s.pending_actions||[]).find(a=>a.id===actionId);
