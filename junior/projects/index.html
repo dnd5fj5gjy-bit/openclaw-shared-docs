@@ -1190,6 +1190,230 @@ async function loadEmailBadge() {
   } catch(e) {}
 }
 
+// ── DECISION METADATA ──────────────────────────────────────────────────────────
+const DECISIONS = {
+  'di-1': {
+    title: 'Modern Savage — ACF Pharma pricing',
+    context: 'Drew Kouvel (ACF Pharma) sent updated Survivor Blend pricing. Adult: ~$27 COGS at 2,500 units → $79 retail = 64% gross margin. Kids: ~$22 COGS → $69 retail. Cash to launch ~$95-130K.',
+    options: {
+      'A': { label: 'Confirm pricing and move forward', type: 'email',
+             to_addr: 'drew@acfpharma.com', to_name: 'Drew', subject: 'Modern Savage — Confirming Pricing',
+             prompt: `You are Junior, drafting a short email on behalf of Jesse Grylls. Jesse wants to confirm pricing with Drew Kouvel at ACF Pharma / Lightning Nutra and move forward with the Survivor Blend organ supplement.
+Context: Adult unit COGS ~$27 at 2,500 units, retail $79 = 64% gross margin. Kids unit COGS ~$22, retail $69. Jesse wants to proceed.
+Write a short, direct email (3-5 sentences, Jesse's voice — warm but no fluff). Opening "Hi Drew," — do not include subject line. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'B': { label: 'Push back — negotiate better rates', type: 'email',
+             to_addr: 'drew@acfpharma.com', to_name: 'Drew', subject: 'Modern Savage — Revisiting Pricing',
+             prompt: `You are Junior, drafting a short email on behalf of Jesse Grylls. Jesse wants to push back on ACF Pharma pricing for the Survivor Blend organ supplement and negotiate better rates.
+Context: Adult COGS ~$27 at 2,500 units. Jesse feels there's room to negotiate, especially if volumes scale to 5,000+ units.
+Write a polite but firm email (3-5 sentences). Opening "Hi Drew,". Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'C': { label: 'Request official quote first', type: 'email',
+             to_addr: 'drew@acfpharma.com', to_name: 'Drew', subject: 'Modern Savage — Quote Request',
+             prompt: `You are Junior, drafting a short email on behalf of Jesse Grylls. Jesse wants to request an official formal quote document from ACF Pharma before committing to the Survivor Blend pricing.
+Write a short, direct email (2-3 sentences). Opening "Hi Drew,". Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+    }
+  },
+  'di-2': {
+    title: 'Alfred proposal — ready to send?',
+    context: 'Bear Witness x Alfred digital media partnership proposal reviewed twice (8/10). Ready to send to Alfred team.',
+    options: {
+      'A': { label: 'Send it now — draft covering email', type: 'email',
+             to_addr: 'tom@alfred.co.uk', to_name: 'Tom', subject: 'Bear Witness x Alfred — Partnership Proposal',
+             prompt: `You are Junior, drafting a short covering email on behalf of Jesse Grylls to Tom Inskip (Founder, Alfred). Jesse is sending a digital media partnership proposal for Bear Witness to manage Alfred's full marketing stack.
+Alfred is a UK membership service (£20/month) launching waitlist June 2026, public November 2026. Bear Witness would handle brand, social, content, ads, SEO, email.
+Write a warm, confident covering email (4-5 sentences). Opening "Hi Tom,". Reference the proposal link: bearwitness-x-alfred.netlify.app. Jesse's tone: direct, founder-to-founder. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'B': { label: 'Hold — mark for later', type: 'resolve', prompt: null },
+    }
+  },
+  'di-3': {
+    title: 'Family constitution — John Winstanley',
+    context: '92-page Grylls Family Constitution sent to John Winstanley (Clarion Wealth). John on leave until Apr 13.',
+    options: {
+      'A': { label: "I've sent it — mark done", type: 'resolve', prompt: null },
+      'B': { label: 'Draft follow-up for 13 Apr return', type: 'email',
+             to_addr: 'jwinstanley@clarionwealth.co.uk', to_name: 'John', subject: 'Family Constitution — Following Up',
+             prompt: `You are Junior, drafting a short follow-up email on behalf of Jesse Grylls to John Winstanley at Clarion Wealth. Jesse sent a 92-page Grylls Family Constitution document for John's review. John was on leave until 13 April and Jesse is following up now that he's back.
+Write a short, friendly follow-up (2-3 sentences). Opening "Hi John,". Warm but direct. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+    }
+  },
+  'di-4': {
+    title: 'Mettle — passive hold or take a call?',
+    context: 'Neil Smith (CEO, Mettle) replied April 7. ~£6k MRR. Strongest signal: 300+ day streaks in peer group use. Asked for a call.',
+    options: {
+      'A': { label: 'Stay passive — no action', type: 'resolve', prompt: null },
+      'B': { label: 'Accept the call — draft a reply', type: 'email',
+             to_addr: 'neil@bemettle.com', to_name: 'Neil', subject: 'Re: Mettle Update',
+             prompt: `You are Junior, drafting a short email reply on behalf of Jesse Grylls to Neil Smith (CEO, Mettle health app). Jesse wants to accept Neil's offer of a call to discuss Mettle's progress.
+Context: Mettle has ~£6k MRR, strongest metric is 300+ day streaks in peer groups. Jesse is a potential investor but keeping it warm/passive.
+Write a brief reply (2-3 sentences). Warm but non-committal on investment. Suggest a call next week. Sign off "Best, Jesse Grylls". Output ONLY the email body. Do NOT offer the Bear Grylls brand, community, or network.` },
+      'C': { label: 'Build investment brief first', type: 'research',
+             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse wants a concise investment decision brief on Mettle before deciding whether to take a call or invest.
+Mettle facts: men's health/fitness app. ~£6k MRR (consumer) + £3k enterprise (ClearScore one-off). Strongest signal: 300+ day streaks in peer group use. Founded by Neil Smith. BGV is existing warm contact. Runway to summer 2026. Needs investment.
+Write a structured 1-page investment brief covering: What is it, Current traction, Key risks, Key opportunity, Recommended action for Jesse. Be direct and analytical. Output as clean plain text with section headers.` },
+    }
+  },
+};
+
+// ── CHOOSE DECISION ──────────────────────────────────────────────────────────────
+async function chooseDi(diId, option, btnEl) {
+  const dec = DECISIONS[diId];
+  if (!dec) return;
+  const opt = dec.options[option];
+  if (!opt) return;
+
+  // Highlight chosen option, disable others
+  const container = document.getElementById(diId + '-options');
+  if (container) {
+    container.querySelectorAll('.di-option').forEach(b => {
+      b.style.opacity = b === btnEl ? '1' : '0.4';
+      b.disabled = true;
+    });
+    btnEl.style.background = 'var(--terracotta-bg)';
+    btnEl.style.borderColor = 'var(--terracotta)';
+    btnEl.style.color = 'var(--terracotta)';
+  }
+
+  const actionId = `pa-${diId}-${option}`;
+
+  // Record decision
+  await fetch(API+'/decision', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      decision_id: diId,
+      title: dec.title,
+      chosen_option: option,
+      chosen_label: opt.label,
+      action: opt.type === 'resolve' ? 'Marked resolved' : `Working on: ${opt.label}`,
+    })
+  }).catch(()=>{});
+
+  if (opt.type === 'resolve' || !opt.prompt) {
+    resolveDiSilent(diId);
+    toast('Decision recorded', true);
+    return;
+  }
+
+  // Show work panel immediately in loading state
+  const workEl = document.getElementById(diId + '-work');
+  if (workEl) {
+    workEl.innerHTML = `<div class="work-panel">
+      <div class="work-panel-head"><div class="work-status-dot" id="dot-${actionId}"></div>Junior is working on this...</div>
+      <div style="padding:12px 14px;font-size:12px;color:var(--ink-light);font-style:italic;">Drafting — usually takes 15-30 seconds...</div>
+    </div>`;
+  }
+
+  // Fire background process
+  try {
+    await fetch(API+'/process', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        action_id: actionId,
+        decision_id: diId,
+        description: opt.label,
+        action_type: opt.type,
+        to_addr: opt.to_addr || '',
+        to_name: opt.to_name || '',
+        subject: opt.subject || '',
+        prompt: opt.prompt,
+      })
+    });
+  } catch(e) {}
+
+  // Poll for result every 5s, update work panel inline
+  let polls = 0;
+  const pollInterval = setInterval(async () => {
+    polls++;
+    if (polls > 24) { clearInterval(pollInterval); return; } // give up after 2 min
+    try {
+      const s = await fetch(API+'/state', {cache:'no-store'}).then(r=>r.json());
+      const action = (s.pending_actions||[]).find(a=>a.id===actionId);
+      if (action && action.status === 'ready' && action.result) {
+        clearInterval(pollInterval);
+        renderActionInline(diId, action, opt);
+        renderPendingActions(s.pending_actions || []);
+      } else if (action && action.status === 'error') {
+        clearInterval(pollInterval);
+        const workEl2 = document.getElementById(diId + '-work');
+        if (workEl2) workEl2.innerHTML = `<div class="work-panel"><div class="work-panel-head"><div class="work-status-dot error"></div>Error processing — try again</div></div>`;
+      }
+    } catch(e) {}
+  }, 5000);
+}
+
+function renderActionInline(diId, action, opt) {
+  const workEl = document.getElementById(diId + '-work');
+  if (!workEl) return;
+
+  if (opt.type === 'email') {
+    workEl.innerHTML = `<div class="work-panel">
+      <div class="work-panel-head"><div class="work-status-dot ready"></div>Draft ready — review and send</div>
+      ${opt.to_addr ? `<div class="work-fields">
+        <div class="work-field"><label>To</label><input type="text" id="wp-to-${diId}" value="${escH(opt.to_addr)}"></div>
+        <div class="work-field"><label>Subject</label><input type="text" id="wp-subj-${diId}" value="${escH(opt.subject||'')}"></div>
+      </div>` : ''}
+      <textarea class="work-draft" id="wp-body-${diId}">${escH(action.result)}</textarea>
+      <div class="work-actions">
+        <button class="btn-send" onclick="sendFromPanel('${diId}','${action.id}')">Send Email</button>
+        <button class="btn-discard" onclick="discardPanel('${diId}')">Discard</button>
+      </div>
+    </div>`;
+  } else {
+    // Research / doc — show inline text
+    workEl.innerHTML = `<div class="work-panel">
+      <div class="work-panel-head"><div class="work-status-dot ready"></div>Result ready</div>
+      <div style="padding:12px 14px;font-size:13px;color:var(--ink-mid);white-space:pre-wrap;line-height:1.7;max-height:300px;overflow-y:auto;">${escH(action.result)}</div>
+      <div class="work-actions">
+        <button class="btn-send" onclick="markActionDone('${action.id}')">✓ Done with this</button>
+        <button class="btn-discard" onclick="discardPanel('${diId}')">Close</button>
+      </div>
+    </div>`;
+  }
+}
+
+async function sendFromPanel(diId, actionId) {
+  const toEl   = document.getElementById('wp-to-' + diId);
+  const subjEl = document.getElementById('wp-subj-' + diId);
+  const bodyEl = document.getElementById('wp-body-' + diId);
+  if (!bodyEl) return;
+  const to_addr = toEl ? toEl.value.trim() : '';
+  const subject = subjEl ? subjEl.value.trim() : '';
+  const body    = bodyEl.value.trim();
+  if (!body) { toast('Draft is empty'); return; }
+
+  const sendBtn = bodyEl.closest('.work-panel').querySelector('.btn-send');
+  sendBtn.disabled = true;
+  sendBtn.textContent = 'Sending...';
+
+  try {
+    const r = await fetch(API+'/send-new', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({to_addr, subject, body})
+    });
+    if (!r.ok) throw new Error((await r.json()).error || 'Send failed');
+    await markActionDone(actionId);
+    discardPanel(diId);
+    resolveDiSilent(diId);
+    toast('Email sent', true);
+  } catch(e) {
+    sendBtn.disabled = false;
+    sendBtn.textContent = 'Send Email';
+    toast('Send failed: ' + e.message);
+  }
+}
+
+function discardPanel(diId) {
+  const workEl = document.getElementById(diId + '-work');
+  if (workEl) workEl.innerHTML = '';
+}
+
+function resolveDiSilent(diId) {
+  const el = document.getElementById(diId);
+  if (el) { el.classList.remove('open'); el.classList.add('resolved'); }
+  updateDecisionsCount();
+}
+
 // ── DEAL VELOCITY ──────────────────────────────────────────────────────────────
 async function loadDeals() {
   try {
