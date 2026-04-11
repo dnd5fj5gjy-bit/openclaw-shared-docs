@@ -1202,7 +1202,8 @@ async function syncAll() {
 
 // ── BOOT ──────────────────────────────────────────────────────────────────────
 loadState().then(syncAll);
-setInterval(syncAll, 300000); // every 5 min
+setInterval(syncAll, 60000);    // full data refresh every 60s
+setInterval(loadState, 30000);  // state-only refresh every 30s (catches decisions from Telegram fast)
 </script>
 </body>
 </html>
