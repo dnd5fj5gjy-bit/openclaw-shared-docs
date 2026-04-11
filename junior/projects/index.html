@@ -1087,6 +1087,21 @@ async function markActionDone(id) {
 function updateDecisionsCount() {
   const open = [...document.querySelectorAll('.di')].filter(e=>!e.classList.contains('resolved')).length;
   document.getElementById('decisions-count').textContent = open;
+  const card = document.querySelector('.decisions-card');
+  if (card) {
+    const empty = card.querySelector('.decisions-empty');
+    if (open === 0) {
+      if (!empty) {
+        const el = document.createElement('div');
+        el.className = 'decisions-empty';
+        el.style.cssText = 'padding:14px 16px;font-size:12px;color:var(--ink-light);font-style:italic;';
+        el.textContent = 'All clear — no open decisions.';
+        card.appendChild(el);
+      }
+    } else {
+      if (empty) empty.remove();
+    }
+  }
 }
 
 // ── REVENUE PULSE ──────────────────────────────────────────────────────────────
