@@ -1115,14 +1115,22 @@ async function loadRevenue() {
     const totalUSD = streams.filter(s=>s.status==='live'&&s.currency==='USD').reduce((a,s)=>a+s.amount,0);
     const totalGBP = streams.filter(s=>s.status==='live'&&s.currency==='GBP').reduce((a,s)=>a+s.amount,0);
     const totalLabel = (totalUSD?'$'+totalUSD.toLocaleString()+'/mo ':'') + (totalGBP?'£'+totalGBP.toLocaleString()+'/mo':'');
-    document.getElementById('revenue-total').textContent = totalLabel;
+    document.getElementById('revenue-total').textContent = totalLabel || '—';
     document.getElementById('revenue-streams').innerHTML = streams.map(s => {
-      const color = s.status==='live'?'var(--green)':s.status==='pre-launch'?'var(--ink-light)':'var(--amber)';
-      const amt = s.amount>0 ? (s.currency==='USD'?'$':'£')+s.amount.toLocaleString()+'/mo' : s.status==='pre-launch'?'Pre-launch':'TBC';
+      const color = s.status==='live' ? 'var(--green)'
+        : s.status==='loss'      ? 'var(--terracotta)'
+        : s.status==='pre-launch'? 'var(--ink-light)'
+        : 'var(--amber)';
+      const sym = s.currency==='USD'?'$':'£';
+      const amt = s.status==='loss'
+        ? `<span style="color:var(--terracotta);font-weight:700;">${sym}${s.amount.toLocaleString()}/mo · Loss</span>`
+        : s.amount>0 ? `${sym}${s.amount.toLocaleString()}/mo`
+        : s.status==='pre-launch' ? 'Pre-launch' : 'TBC';
+      const note = s.note ? `<div class="revenue-status" title="${escH(s.note)}">${escH(s.note)}</div>` : '';
       return `<div class="revenue-stream">
         <div class="revenue-dot" style="background:${color}"></div>
-        <div class="revenue-name">${escH(s.name)}</div>
-        <div class="revenue-amount">${escH(amt)}</div>
+        <div class="revenue-name" style="flex:1">${escH(s.name)}<br>${note}</div>
+        <div class="revenue-amount" style="white-space:nowrap">${typeof amt==='string'&&amt.startsWith('<')?amt:escH(amt)}</div>
       </div>`;
     }).join('');
   } catch(e) {
