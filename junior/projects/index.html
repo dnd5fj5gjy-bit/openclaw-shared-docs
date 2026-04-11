@@ -889,9 +889,91 @@ function resolveDi(ev, id) {
   el.classList.remove('open');
   el.classList.add('resolved');
   const resolved = [...new Set([...(serverState.resolved_decisions||[]), id])];
-  saveState({resolved_decisions: resolved});
+
+  // Record to decision_history with timestamp
+  const titleEl = el.querySelector('.di-title');
+  const title = titleEl ? titleEl.textContent : id;
+  const history = [...(serverState.decision_history||[])];
+  if (!history.find(h=>h.id===id)) {
+    history.unshift({id, title, chosen_option:'manual', chosen_label:'Marked resolved from dashboard', resolved_at: new Date().toISOString(), action:''});
+  }
+
+  saveState({resolved_decisions: resolved, decision_history: history});
+  renderPastDecisions(history);
   updateDecisionsCount();
-  toast('Decision marked resolved', true);
+  toast('Decision resolved', true);
+}
+
+// ── PAST DECISIONS ──────────────────────────────────────────────────────────────
+let pastDecisionsOpen = false;
+function togglePastDecisions() {
+  pastDecisionsOpen = !pastDecisionsOpen;
+  const list = document.getElementById('past-decisions-list');
+  const btn = document.getElementById('past-di-toggle');
+  list.classList.toggle('open', pastDecisionsOpen);
+  const count = document.getElementById('past-di-count').textContent;
+  btn.innerHTML = (pastDecisionsOpen ? '▾ ' : '▸ ') + count + ' past decisions';
+}
+
+function renderPastDecisions(history) {
+  const list = document.getElementById('past-decisions-list');
+  const btn = document.getElementById('past-di-toggle');
+  const count = document.getElementById('past-di-count');
+  if (!history || !history.length) { btn.style.display='none'; return; }
+  btn.style.display = '';
+  count.textContent = history.length;
+  btn.innerHTML = (pastDecisionsOpen?'▾ ':'▸ ') + history.length + ' past decision' + (history.length>1?'s':'');
+  list.innerHTML = history.slice(0,10).map(h => {
+    const timeStr = h.resolved_at ? new Date(h.resolved_at).toLocaleDateString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+    const chosenLabel = h.chosen_label && h.chosen_label !== 'Marked resolved from dashboard'
+      ? (h.chosen_option && h.chosen_option !== 'manual' ? h.chosen_option+': ' : '') + h.chosen_label
+      : 'Resolved';
+    return `<div class="past-di">
+      <div class="past-di-check">✓</div>
+      <div class="past-di-body">
+        <div class="past-di-title">${escH(h.title)}</div>
+        <div class="past-di-chosen">${escH(chosenLabel)}</div>
+        ${h.action ? `<div class="past-di-time">${escH(h.action)}</div>` : ''}
+        <div class="past-di-time">${timeStr}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── PENDING ACTIONS ──────────────────────────────────────────────────────────────
+function renderPendingActions(actions) {
+  const list = document.getElementById('actions-list');
+  const count = document.getElementById('actions-count');
+  const pending = (actions||[]).filter(a=>a.status!=='done');
+  const done = (actions||[]).filter(a=>a.status==='done');
+  count.textContent = pending.length;
+
+  const typeIcons = {email:'📧', research:'🔍', document:'📄', call:'📞', task:'🎯', draft:'✏️'};
+
+  if (!actions || !actions.length) {
+    list.innerHTML = '<div class="actions-empty">No pending actions — make a decision to get started.</div>';
+    return;
+  }
+  list.innerHTML = [...pending, ...done].map(a => {
+    const icon = typeIcons[a.type] || '🎯';
+    const timeStr = a.created_at ? new Date(a.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) : '';
+    return `<div class="action-item ${a.status==='done'?'done':''}">
+      <div class="action-icon">${icon}</div>
+      <div class="action-body">
+        <div class="action-desc">${escH(a.description)}</div>
+        <div class="action-meta">${a.from_decision ? 'From decision · ' : ''}${timeStr}${a.status==='done' ? ' · Done' : ''}</div>
+      </div>
+      ${a.status!=='done' ? `<button class="action-done-btn" onclick="markActionDone('${a.id}')">✓ Done</button>` : ''}
+    </div>`;
+  }).join('');
+}
+
+async function markActionDone(id) {
+  try {
+    await fetch(API+'/action', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id, status:'done'})});
+    await loadState();
+    toast('Action marked done', true);
+  } catch(e) { toast('Could not update'); }
 }
 
 function updateDecisionsCount() {
