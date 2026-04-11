@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildernests — May Launch Playbook</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #e8e8e8; line-height: 1.6; }
+
+  .hero { background: linear-gradient(135deg, #0d1f12 0%, #143020 60%, #1a3d28 100%); padding: 56px 40px 48px; border-bottom: 1px solid #2a4a35; }
+  .hero-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #5aaa7a; margin-bottom: 16px; }
+  .hero h1 { font-size: 36px; font-weight: 700; color: #f0f0f0; margin-bottom: 12px; }
+  .hero-sub { font-size: 17px; color: #9abe9a; max-width: 640px; }
+  .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+  .hero-stat { }
+  .hero-stat .val { font-size: 22px; font-weight: 700; color: #6dcc90; }
+  .hero-stat .lbl { font-size: 12px; color: #7a9a7a; margin-top: 2px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5aaa7a; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a; }
+
+  .phase-block { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+  .phase-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: #1f1f1f; }
+  .phase-num { width: 36px; height: 36px; border-radius: 50%; background: #1a3d28; border: 2px solid #5aaa7a; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: #6dcc90; flex-shrink: 0; }
+  .phase-title { font-size: 16px; font-weight: 600; color: #f0f0f0; }
+  .phase-dates { font-size: 12px; color: #5aaa7a; background: #143020; padding: 3px 10px; border-radius: 20px; margin-left: auto; }
+  .phase-body { padding: 20px 24px; }
+
+  .checklist { list-style: none; }
+  .checklist li { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid #222; font-size: 14px; color: #d0d0d0; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: "→"; color: #5aaa7a; flex-shrink: 0; }
+  .checklist li strong { color: #f0f0f0; }
+
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .channel-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px; }
+  .channel-card .ch-name { font-size: 14px; font-weight: 700; color: #f0f0f0; margin-bottom: 4px; }
+  .channel-card .ch-reach { font-size: 12px; color: #5aaa7a; margin-bottom: 12px; }
+  .channel-card .ch-role { font-size: 13px; color: #b0b0b0; margin-bottom: 12px; }
+  .channel-card .ch-posts { font-size: 12px; color: #888; }
+  .ch-tag { display: inline-block; background: #143020; color: #6dcc90; border-radius: 4px; padding: 2px 8px; font-size: 11px; margin-top: 8px; }
+
+  .week-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .week-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; }
+  .week-card .wk-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #5aaa7a; margin-bottom: 8px; }
+  .week-card .wk-theme { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 8px; }
+  .week-card .wk-items { font-size: 12px; color: #999; line-height: 1.7; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .kpi-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; text-align: center; }
+  .kpi-card .kpi-val { font-size: 24px; font-weight: 700; color: #6dcc90; }
+  .kpi-card .kpi-lbl { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi-card .kpi-period { font-size: 11px; color: #5aaa7a; margin-top: 2px; }
+
+  .post-list { display: flex; flex-direction: column; gap: 12px; }
+  .post-item { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px 20px; }
+  .post-item .post-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .post-type { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .type-reel { background: #1a2a3a; color: #6ab0e8; }
+  .type-static { background: #2a2a1a; color: #d4b060; }
+  .type-story { background: #2a1a2a; color: #c080e0; }
+  .post-item .post-account { font-size: 12px; color: #5aaa7a; }
+  .post-item .post-hook { font-size: 14px; color: #f0f0f0; font-weight: 500; margin-bottom: 4px; }
+  .post-item .post-caption { font-size: 13px; color: #999; font-style: italic; }
+
+  .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .partner-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; }
+  .partner-card .p-name { font-size: 14px; font-weight: 600; color: #f0f0f0; }
+  .partner-card .p-type { font-size: 11px; color: #5aaa7a; margin-bottom: 8px; }
+  .partner-card .p-angle { font-size: 13px; color: #b0b0b0; }
+
+  .risk-block { background: #1a1a1a; border: 1px solid #2a2a2a; border-left: 3px solid #e57373; border-radius: 8px; padding: 16px 20px; margin-bottom: 10px; }
+  .risk-block .r-label { font-size: 12px; font-weight: 700; color: #e57373; margin-bottom: 4px; }
+  .risk-block .r-mitigation { font-size: 13px; color: #b0b0b0; }
+  .risk-block .r-mitigation span { color: #6dcc90; font-weight: 500; }
+
+  .alert-box { background: #1a2a1a; border: 1px solid #3a5a3a; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .alert-box p { font-size: 14px; color: #9abe9a; }
+  .alert-box strong { color: #6dcc90; }
+
+  .action-box { background: #143020; border: 1px solid #3a6a4a; border-radius: 10px; padding: 24px; margin-top: 32px; }
+  .action-box h3 { font-size: 16px; font-weight: 700; color: #6dcc90; margin-bottom: 16px; }
+  .action-items { list-style: none; }
+  .action-items li { padding: 8px 0; border-bottom: 1px solid #2a4a35; font-size: 14px; color: #c0c0c0; display: flex; gap: 10px; }
+  .action-items li:last-child { border-bottom: none; }
+  .action-items li::before { content: "▸"; color: #6dcc90; flex-shrink: 0; }
+  .action-items li strong { color: #f0f0f0; }
+
+  .footnote { text-align: center; font-size: 12px; color: #444; margin-top: 48px; padding-top: 24px; border-top: 1px solid #222; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Bear Witness x Wildernests</div>
+  <h1>May Launch Playbook</h1>
+  <div class="hero-sub">Full operational launch plan — content, channels, partners, KPIs, and week-by-week execution for the homes launch in May 2026.</div>
+  <div class="hero-meta">
+    <div class="hero-stat"><div class="val">May 2026</div><div class="lbl">Homes Launch</div></div>
+    <div class="hero-stat"><div class="val">$15K/mo</div><div class="lbl">BW Retainer</div></div>
+    <div class="hero-stat"><div class="val">0.5%</div><div class="lbl">Equity (OSC)</div></div>
+    <div class="hero-stat"><div class="val">~100M</div><div class="lbl">BG Monthly Impressions</div></div>
+    <div class="hero-stat"><div class="val">3 weeks</div><div class="lbl">To Launch</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="alert-box">
+    <p><strong>Strategic position:</strong> Wildernests is entering the most credibility-rich moment in the off-grid/modular housing conversation — energy prices elevated, planning rules tightening, remote work permanent. Bear Grylls is the most authentic voice in this space globally. The May launch should feel like an event, not a product release.</p>
+  </div>
+
+  <!-- PHASE PLAN -->
+  <div class="section">
+    <div class="section-title">Launch Phases</div>
+
+    <div class="phase-block">
+      <div class="phase-header">
+        <div class="phase-num">1</div>
+        <div>
+          <div class="phase-title">Pre-Launch — Build the Room</div>
+          <div style="font-size:13px;color:#888;margin-top:2px;">Create anticipation. Grow the Wildernests account. Seed content with Bear.</div>
+        </div>
+        <div class="phase-dates">Now — Apr 30</div>
+      </div>
+      <div class="phase-body">
+        <ul class="checklist">
+          <li><strong>Bear IG post #1:</strong> Teaser reel — "Something I've wanted to exist for years. Coming soon. @wildernests"</li>
+          <li><strong>Wildernests account:</strong> Post 2-3 renders/teaser content daily. Establish the aesthetic before launch week.</li>
+          <li><strong>Press seeding:</strong> Send embargoed brief to 3-5 architecture/lifestyle journalists. Embargo lifts May 1.</li>
+          <li><strong>Email list build:</strong> Drive a waitlist landing page. Target 1,000 signups before launch.</li>
+          <li><strong>Creator seeding:</strong> Identify 5-10 outdoor/architecture creators. Send early access brief, offer to feature their land/project.</li>
+          <li><strong>Confirm filming window:</strong> One shoot day with Bear on/near a Wildernests structure before April 30.</li>
+          <li><strong>Website:</strong> Confirm wildernests.com is launch-ready — homes listing, inquiry form, visual quality. Alex to confirm.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-header">
+        <div class="phase-num">2</div>
+        <div>
+          <div class="phase-title">Launch Week — Maximum Surface Area</div>
+          <div style="font-size:13px;color:#888;margin-top:2px;">Every channel fires. Make it feel like a cultural moment, not a product drop.</div>
+        </div>
+        <div class="phase-dates">May 1–7</div>
+      </div>
+      <div class="phase-body">
+        <ul class="checklist">
+          <li><strong>Day 1 (May 1):</strong> Bear IG reel — direct to camera, full endorsement. "I backed this because..." Wildernests goes live same hour.</li>
+          <li><strong>Day 1:</strong> Jesse IG story — behind the scenes of the launch, shares Wildernests account.</li>
+          <li><strong>Day 2:</strong> Wildernests posts — founder story reel (Alex). "Why I built this."</li>
+          <li><strong>Day 3:</strong> Bear IG carousel — 5 images. Bear + wilderness + Wildernests structure. One per environment (mountain, coast, forest, desert, farmland).</li>
+          <li><strong>Day 4:</strong> Creator content drops — pre-seeded partners post simultaneously. Manufactured momentum.</li>
+          <li><strong>Day 5:</strong> Press coverage publishes (embargo lifts). Architecture Digest, Dezeen, Evening Standard ideally.</li>
+          <li><strong>Day 6:</strong> Jesse IG post — "The week this launched. Here's what I saw in it from day one."</li>
+          <li><strong>Day 7:</strong> Bear IG story — swipe-up to wildernests.com. Week recap. First homes claimed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-header">
+        <div class="phase-num">3</div>
+        <div>
+          <div class="phase-title">Post-Launch — Convert and Sustain</div>
+          <div style="font-size:13px;color:#888;margin-top:2px;">Turn attention into action. Feed the algorithm. Qualify serious buyers.</div>
+        </div>
+        <div class="phase-dates">May 8 onwards</div>
+      </div>
+      <div class="phase-body">
+        <ul class="checklist">
+          <li><strong>Weekly Wildernests content:</strong> One long-form video per week — site visits, build process, buyer stories.</li>
+          <li><strong>Bear IG:</strong> Monthly mention — integrate naturally into existing content (morning walk, outdoor cooking, etc.).</li>
+          <li><strong>Email:</strong> Weekly newsletter to waitlist. Feature one home, one land story, one buyer.</li>
+          <li><strong>Retargeting:</strong> Run paid social to anyone who visited wildernests.com in launch week.</li>
+          <li><strong>Press follow-up:</strong> Pitch long-form feature to FT Weekend, Sunday Times, Condé Nast Traveller.</li>
+          <li><strong>Jesse review:</strong> Monthly metrics review with Alex/Gunnar. Report: traffic, inquiries, homes claimed, conversion rate.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL BREAKDOWN -->
+  <div class="section">
+    <div class="section-title">Channel Strategy</div>
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="ch-name">@beargrylls Instagram</div>
+        <div class="ch-reach">~15M followers — outdoor adventure audience</div>
+        <div class="ch-role">Primary amplification channel. Bear's endorsement is the biggest single driver of launch awareness. Use sparingly — one reel, one carousel, one story in launch week. No more.</div>
+        <div class="ch-posts">3 posts launch week, 1/month thereafter</div>
+        <div class="ch-tag">Top of funnel</div>
+      </div>
+      <div class="channel-card">
+        <div class="ch-name">@jesse_grylls Instagram</div>
+        <div class="ch-reach">Personal reach + credibility anchor</div>
+        <div class="ch-role">Jesse's involvement as investor/strategist gives Wildernests a "smart money" signal. Post launch story + one personal take. More authentic than Bear — targets the founder/investor segment.</div>
+        <div class="ch-posts">1 post + stories launch week</div>
+        <div class="ch-tag">Credibility signal</div>
+      </div>
+      <div class="channel-card">
+        <div class="ch-name">@wildernests Instagram</div>
+        <div class="ch-reach">Owned account — needs rapid follower growth</div>
+        <div class="ch-role">The permanent home of the brand narrative. Daily posting Apr 15-30 to build the account before Bear sends traffic to it. All Bear/Jesse posts should tag and drive to this account.</div>
+        <div class="ch-posts">Daily Apr 15-30, 5x/week May+</div>
+        <div class="ch-tag">Owned media</div>
+      </div>
+      <div class="channel-card">
+        <div class="ch-name">YouTube</div>
+        <div class="ch-reach">Bear Grylls channel — long-form documentary potential</div>
+        <div class="ch-role">Post-launch: one 8-12 min documentary about the Wildernests build process and Bear's connection to it. High-retention, evergreen content. Pitch this to Gunnar as a June/July deliverable.</div>
+        <div class="ch-posts">1 documentary piece — June/July</div>
+        <div class="ch-tag">Long-form conversion</div>
+      </div>
+      <div class="channel-card">
+        <div class="ch-name">Press & Editorial</div>
+        <div class="ch-reach">Architecture Digest, Dezeen, FT Weekend, Sunday Times</div>
+        <div class="ch-role">Embargo brief goes out April 28. Target architecture/lifestyle desks. Bear Grylls involvement is the hook — lead with "adventure icon backs British off-grid homes startup." Dezeen is the priority for international reach.</div>
+        <div class="ch-posts">Embargo Apr 28, publishes May 5</div>
+        <div class="ch-tag">Authority / SEO</div>
+      </div>
+      <div class="channel-card">
+        <div class="ch-name">Email / Waitlist</div>
+        <div class="ch-reach">Warm leads — highest conversion intent</div>
+        <div class="ch-role">Anyone who signed up to the waitlist is a serious buyer. Launch week email: personal note from Alex, direct link to homes, first-come-first-served framing. Follow with weekly content drip.</div>
+        <div class="ch-posts">Day 1 launch email + weekly</div>
+        <div class="ch-tag">Bottom of funnel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAUNCH WEEK CONTENT PLAN -->
+  <div class="section">
+    <div class="section-title">Launch Week — Post-by-Post</div>
+    <div class="post-list">
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-reel">REEL</span>
+          <span class="post-account">@beargrylls — Day 1, 8am BST</span>
+        </div>
+        <div class="post-hook">The best homes I've ever slept in weren't built — they were placed.</div>
+        <div class="post-caption">Bear to camera, outdoors. 30 seconds. Ends on Wildernests logo and "Link in bio." This is the detonator — everything else follows.</div>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-story">STORY</span>
+          <span class="post-account">@jesse_grylls — Day 1, same hour</span>
+        </div>
+        <div class="post-hook">Today's the day. @wildernests is live.</div>
+        <div class="post-caption">Jesse posts a behind-the-scenes story — photo of the Wildernests structure, swipe-up to wildernests.com. Reinforces and amplifies Bear's post.</div>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-reel">REEL</span>
+          <span class="post-account">@wildernests — Day 2</span>
+        </div>
+        <div class="post-hook">I got sick of how long it took to build something worth living in.</div>
+        <div class="post-caption">Alex Aboshiha founder story. Raw, honest. One take if possible. This is the human behind the product — essential for trust-building with high-ticket buyers.</div>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-static">CAROUSEL</span>
+          <span class="post-account">@beargrylls — Day 3</span>
+        </div>
+        <div class="post-hook">Same home. Five landscapes. One week to build.</div>
+        <div class="post-caption">5 renders: mountain, coast, forest, desert, farmland. Minimal captions. Bear adds personal context in the caption ("I've woken up in all five of these environments. Now you can too."). Tags @wildernests throughout.</div>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-reel">REEL</span>
+          <span class="post-account">Creator seeding — Day 4</span>
+        </div>
+        <div class="post-hook">Multiple creators post simultaneously</div>
+        <div class="post-caption">5-10 pre-briefed outdoor/architecture creators post their Wildernests content on Day 4. Creates the appearance of organic buzz. All tag @wildernests. Jesse to approve creator list and briefs in advance.</div>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-type type-static">POST</span>
+          <span class="post-account">@jesse_grylls — Day 6</span>
+        </div>
+        <div class="post-hook">Why I backed this.</div>
+        <div class="post-caption">Jesse's personal take on the investment — authentic, brief, confident. Not a pitch. Talks about land, autonomy, and why this model makes financial sense. Targets the investor/aspirational audience.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CREATOR TARGETS -->
+  <div class="section">
+    <div class="section-title">Creator Seeding Targets</div>
+    <div class="partner-grid">
+      <div class="partner-card">
+        <div class="p-name">Outdoor / Adventure Creators</div>
+        <div class="p-type">Primary niche — Bear's audience overlap</div>
+        <div class="p-angle">Hiking, wild camping, van life, survival. These are Wildernests' natural buyers and advocates. Offer them a stay in a structure in exchange for content.</div>
+      </div>
+      <div class="partner-card">
+        <div class="p-name">Architecture / Design Creators</div>
+        <div class="p-type">Secondary — aesthetic credibility</div>
+        <div class="p-angle">UK architecture influencers (Dezeen audience, Instagram). Wildernests needs to look aspirational, not campervan. These creators provide that signal.</div>
+      </div>
+      <div class="partner-card">
+        <div class="p-name">Financial Independence / Land Investing Creators</div>
+        <div class="p-type">Purchase intent — highest conversion</div>
+        <div class="p-angle">FI/FIRE community, land banking creators, property investors. Angle: modular development on rural land is the most overlooked asset class in the UK right now.</div>
+      </div>
+      <div class="partner-card">
+        <div class="p-name">Wellness / Biohacking Creators</div>
+        <div class="p-type">Emerging — lifestyle alignment</div>
+        <div class="p-angle">Off-grid living as health lifestyle choice. Cold exposure, sleep, nature immersion. Strong overlap with Bear audience. Pitch: "Your biohacking protocol needs a better environment."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="section">
+    <div class="section-title">Launch KPIs — 30 Days</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">500K+</div>
+        <div class="kpi-lbl">Reach — Bear posts</div>
+        <div class="kpi-period">Launch week</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">10K</div>
+        <div class="kpi-lbl">Wildernests followers</div>
+        <div class="kpi-period">By May 31</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">1,000+</div>
+        <div class="kpi-lbl">Waitlist signups</div>
+        <div class="kpi-period">Before launch day</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">200+</div>
+        <div class="kpi-lbl">Serious inquiries</div>
+        <div class="kpi-period">First 30 days</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">5+</div>
+        <div class="kpi-lbl">Press placements</div>
+        <div class="kpi-period">May 1-15</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">3+</div>
+        <div class="kpi-lbl">Homes claimed</div>
+        <div class="kpi-period">Launch month</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISKS -->
+  <div class="section">
+    <div class="section-title">Risk Register</div>
+
+    <div class="risk-block">
+      <div class="r-label">Website not ready on May 1</div>
+      <div class="r-mitigation">Mitigation: <span>Confirm wildernests.com launch-readiness with Alex by April 20. If needed, a simple landing page with inquiry form is enough for Day 1 — don't delay the launch for a perfect website.</span></div>
+    </div>
+
+    <div class="risk-block">
+      <div class="r-label">Bear filming not locked in before April 30</div>
+      <div class="r-mitigation">Mitigation: <span>Batch shoot day in the next 2 weeks. Even a remote outdoor shoot works — Bear doesn't need to be physically at a Wildernests structure for the teaser and endorsement content.</span></div>
+    </div>
+
+    <div class="risk-block">
+      <div class="r-label">Algorithm suppresses organic launch content</div>
+      <div class="r-mitigation">Mitigation: <span>Back the launch week with a small paid boost ($500-1K) on Bear's top-performing reel. Targets outdoor/adventure audience in UK and US. Wildernests to confirm budget.</span></div>
+    </div>
+
+    <div class="risk-block">
+      <div class="r-label">No press coverage despite outreach</div>
+      <div class="r-mitigation">Mitigation: <span>Bear Grylls name alone is enough for a news hook. If Dezeen/AD don't bite, The Times and Evening Standard will — human interest angle on UK off-grid housing. Backup: Substack feature from Jesse.</span></div>
+    </div>
+
+    <div class="risk-block">
+      <div class="r-label">Product-market fit questions surface publicly</div>
+      <div class="r-mitigation">Mitigation: <span>Have Alex's FAQ ready for the comments. Key objections: planning permission (Wildernests handles it), price (comparable to a caravan, fraction of bricks and mortar), off-grid viability (fully self-sufficient systems built in).</span></div>
+    </div>
+  </div>
+
+  <!-- ACTION ITEMS FOR THURSDAY -->
+  <div class="action-box">
+    <h3>Thursday Call Agenda Items (Apr 16 — Jesse, Alex, Gunnar)</h3>
+    <ul class="action-items">
+      <li><strong>Website:</strong> Is wildernests.com launch-ready? What's missing? Hard deadline April 28.</li>
+      <li><strong>Bear shoot:</strong> Lock a filming date in the next 2 weeks. What location? What do we need from Alex?</li>
+      <li><strong>Waitlist:</strong> Does a waitlist landing page exist? If not, KU Creatives can build one in 48 hours.</li>
+      <li><strong>Press strategy:</strong> Does Wildernests have a PR contact? If not, Bear Witness can lead the press outreach.</li>
+      <li><strong>Creator brief:</strong> Who is building the creator list and brief? Confirm ownership.</li>
+      <li><strong>Launch date:</strong> Confirm exact May 1 vs a specific date in May. Everything else is downstream of this.</li>
+      <li><strong>Retainer formalisation:</strong> Agreement still needs to be signed. Raise this if not already done.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footnote">Wildernests May Launch Playbook — prepared by Junior for Jesse Grylls — 11 Apr 2026</div>
+
+</body>
+</html>
