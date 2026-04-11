@@ -1156,21 +1156,11 @@ async function loadCalendar() {
     document.getElementById('meetings-live').innerHTML = '● Live';
     document.getElementById('meetings-live').style.color = 'var(--green)';
   } catch(e) {
-    // Static fallback
+    setApiStatus(false);
     document.getElementById('today-events').innerHTML = '<span style="font-size:13px;color:var(--ink-light);">Calendar offline</span>';
-    document.getElementById('meetings-list').innerHTML = `
-      <div class="meeting-item" onclick="openMeetingModal('','BGV catch up Zoom Meeting','2:00pm','Wed 15 Apr','Zoom')">
-        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Wed 15 Apr</span><span class="meeting-time">2:00pm</span></div>
-        <div class="meeting-title">BGV catch up Zoom Meeting</div>
-      </div>
-      <div class="meeting-item" onclick="openMeetingModal('','Bear Grylls Financial Model v1','4:00pm','Thu 16 Apr','')">
-        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">4:00pm</span></div>
-        <div class="meeting-title">Bear Grylls Financial Model v1</div>
-      </div>
-      <div class="meeting-item" onclick="openMeetingModal('','Weekly call: Jesse, Alex, Gunnar','6:00pm','Thu 16 Apr','')">
-        <div class="meeting-item-top"><span class="meeting-date-badge badge-soon">Thu 16 Apr</span><span class="meeting-time">6:00pm</span></div>
-        <div class="meeting-title">Weekly call: Jesse, Alex, Gunnar</div>
-      </div>`;
+    document.getElementById('meetings-list').innerHTML = '<div style="padding:14px 16px;font-size:12px;color:var(--ink-light);font-style:italic;">Could not load calendar — API offline</div>';
+    document.getElementById('meetings-live').innerHTML = '● Offline';
+    document.getElementById('meetings-live').style.color = 'var(--terracotta)';
   }
 }
 
