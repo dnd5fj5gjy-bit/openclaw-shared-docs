@@ -1137,17 +1137,17 @@ async function loadRevenue() {
       const sym = s.currency === 'USD' ? '$' : '£';
       let dotColor, amtHtml;
       if (s.status === 'live') {
-        dotColor = 'var(--green)';
-        amtHtml = `<span style="color:var(--green);font-weight:700;">${sym}${s.amount.toLocaleString()}/mo</span>`;
+        dotColor = '#2B6B3C';
+        amtHtml = `<span style="color:#2B6B3C;font-weight:700;">${sym}${s.amount.toLocaleString()}/mo</span>`;
       } else if (s.status === 'loss') {
-        dotColor = 'var(--terracotta)';
-        amtHtml = `<span style="color:var(--terracotta);font-weight:700;">-${sym}${s.amount.toLocaleString()}/mo</span>`;
+        dotColor = '#AD4B27';
+        amtHtml = `<span style="color:#AD4B27;font-weight:700;">-${sym}${s.amount.toLocaleString()}/mo</span>`;
       } else if (s.status === 'pre-launch') {
-        dotColor = 'var(--ink-light)';
-        amtHtml = `<span style="color:var(--ink-light);">Pre-launch</span>`;
+        dotColor = '#9C8A74';
+        amtHtml = `<span style="color:#9C8A74;">Pre-launch</span>`;
       } else {
-        dotColor = 'var(--amber)';
-        amtHtml = `<span style="color:var(--amber);">TBC</span>`;
+        dotColor = '#A87318';
+        amtHtml = `<span style="color:#A87318;">TBC</span>`;
       }
       return `<div class="revenue-stream">
         <div class="revenue-dot" style="background:${dotColor}"></div>
