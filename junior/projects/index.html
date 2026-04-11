@@ -843,14 +843,16 @@ function updateClock() {
 updateClock(); setInterval(updateClock, 30000);
 
 // ── SERVER-SIDE STATE ──────────────────────────────────────────────────────────
-let serverState = {resolved_decisions: [], handled_emails: []};
+let serverState = {resolved_decisions: [], handled_emails: [], decision_history: [], pending_actions: []};
 
 async function loadState() {
   try {
     const r = await fetch(API+'/state', {cache:'no-store'});
     if (r.ok) {
       serverState = await r.json();
-      applyResolvedDecisions(serverState.resolved_decisions);
+      applyResolvedDecisions(serverState.resolved_decisions || []);
+      renderPastDecisions(serverState.decision_history || []);
+      renderPendingActions(serverState.pending_actions || []);
     }
   } catch(e) {}
 }
