@@ -1015,6 +1015,26 @@ async function loadEmailBadge() {
   } catch(e) {}
 }
 
+// ── DEAL VELOCITY ──────────────────────────────────────────────────────────────
+async function loadDeals() {
+  try {
+    const r = await fetch(API+'/deals', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    const deals = data.deals||[];
+    // Update velocity dots for each deal row by data-deal attribute
+    deals.forEach(d => {
+      const els = document.querySelectorAll(`[data-deal="${d.id}"] .deal-velocity`);
+      els.forEach(el => {
+        const color = d.health === 'green' ? 'var(--green)' : d.health === 'red' ? 'var(--terracotta)' : 'var(--amber)';
+        el.style.background = color;
+        const days = d.days_since_contact || '?';
+        el.title = `Last contact: ${days}d ago${d.next_action?' · '+d.next_action:''}`;
+      });
+    });
+  } catch(e) {} // Silent fail — static fallback dots remain
+}
+
 // ── QUICK CAPTURE ──────────────────────────────────────────────────────────────
 async function sendCapture() {
   const input = document.getElementById('capture-input');
