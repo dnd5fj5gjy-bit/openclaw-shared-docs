@@ -1105,7 +1105,7 @@ async function loadRelationships() {
 }
 
 // ── MORNING BRIEF ──────────────────────────────────────────────────────────────
-let briefExpanded = false;
+let briefExpanded = localStorage.getItem('briefExpanded') === '1';
 async function loadBrief() {
   try {
     const r = await fetch(API+'/brief', {cache:'no-store'});
@@ -1117,12 +1117,15 @@ async function loadBrief() {
     const preview = lines.slice(0,2).join(' ').slice(0,150) + (data.brief.length>150?'...':'');
     document.getElementById('brief-preview').textContent = preview;
     document.getElementById('brief-full').textContent = data.brief;
-    document.getElementById('brief-toggle').textContent = 'Show full brief ▾';
+    // Restore previous expanded state
+    document.getElementById('brief-full').classList.toggle('expanded', briefExpanded);
+    document.getElementById('brief-toggle').textContent = briefExpanded ? 'Hide ▴' : 'Show full brief ▾';
   } catch(e) {}
 }
 
 function toggleBrief() {
   briefExpanded = !briefExpanded;
+  localStorage.setItem('briefExpanded', briefExpanded ? '1' : '0');
   document.getElementById('brief-full').classList.toggle('expanded', briefExpanded);
   document.getElementById('brief-toggle').textContent = briefExpanded ? 'Hide ▴' : 'Show full brief ▾';
 }
