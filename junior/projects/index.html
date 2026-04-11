@@ -1183,7 +1183,13 @@ async function loadCalendar() {
 
 function openMeetingModal(id, subject, time, date, loc) {
   document.getElementById('modal-title').textContent = subject;
-  document.getElementById('modal-meta').textContent = date + ' · ' + time + (loc?' · '+loc:'');
+  // Detect Zoom/Meet/Teams links in location
+  const urlMatch = (loc||'').match(/https?:\/\/[^\s]+/);
+  const isVideoLink = urlMatch && /zoom\.us|meet\.google|teams\.microsoft/i.test(urlMatch[0]);
+  const locHtml = isVideoLink
+    ? ` · <a href="${urlMatch[0]}" target="_blank" style="color:var(--blue);font-weight:700;">Join call ↗</a>`
+    : (loc ? ' · ' + escH(loc) : '');
+  document.getElementById('modal-meta').innerHTML = escH(date + ' · ' + time) + locHtml;
   const ctx = getMeetingContext(subject);
   const body = ctx ? `<p>${escH(ctx.brief)}</p>` : `<p style="color:var(--ink-light);font-style:italic">No pre-loaded brief. Ask Junior to prepare one.</p>`;
   document.getElementById('modal-body').innerHTML = body;
