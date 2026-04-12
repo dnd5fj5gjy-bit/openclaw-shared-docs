@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — US Launch Marketing Playbook</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+.container { max-width: 960px; margin: 0 auto; padding: 40px 30px; }
+
+.header { border-bottom: 3px solid #c8a96e; padding-bottom: 30px; margin-bottom: 40px; }
+.brand { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c8a96e; margin-bottom: 8px; }
+h1 { font-size: 32px; font-weight: bold; color: #ffffff; margin-bottom: 6px; }
+.subtitle { font-size: 14px; color: #888; }
+.doc-meta { font-size: 12px; color: #555; margin-top: 10px; }
+
+h2 { font-size: 18px; font-weight: bold; color: #c8a96e; margin: 40px 0 16px 0;
+  text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #222; padding-bottom: 8px; }
+h3 { font-size: 14px; font-weight: bold; color: #aaa; text-transform: uppercase;
+  letter-spacing: 1px; margin: 20px 0 10px; }
+
+.callout { background: #141414; border-left: 3px solid #c8a96e; padding: 16px 20px; margin-bottom: 20px; }
+.callout-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #c8a96e; margin-bottom: 6px; }
+.callout p { font-size: 14px; color: #ccc; line-height: 1.7; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat { background: #141414; border: 1px solid #222; padding: 18px; }
+.stat-label { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.stat-value { font-size: 22px; font-weight: bold; color: #fff; }
+.stat-value.gold { color: #c8a96e; }
+.stat-value.green { color: #4caf7d; }
+.stat-value.red { color: #e05555; }
+.stat-sub { font-size: 11px; color: #555; margin-top: 4px; }
+
+table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }
+th { background: #1a1a1a; color: #c8a96e; text-align: left; padding: 10px 14px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #c8a96e; }
+td { padding: 10px 14px; border-bottom: 1px solid #1e1e1e; color: #ccc; vertical-align: top; }
+tr:hover td { background: #161616; }
+td.gold { color: #c8a96e; font-weight: bold; }
+td.green { color: #4caf7d; font-weight: bold; }
+td.red { color: #e05555; }
+td.white { color: #fff; font-weight: bold; }
+td.muted { color: #666; font-size: 12px; }
+tr.section-header td { background: #1a1a1a; color: #c8a96e; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 1px; padding: 8px 14px; }
+
+.phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+.phase { background: #141414; border: 1px solid #222; padding: 20px; }
+.phase.active { border-color: #c8a96e; }
+.phase-num { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #555; margin-bottom: 4px; }
+.phase-num.gold { color: #c8a96e; }
+.phase-title { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+.phase-date { font-size: 11px; color: #555; margin-bottom: 12px; }
+.phase-item { font-size: 12.5px; color: #999; padding: 4px 0; border-bottom: 1px solid #1e1e1e; }
+.phase-item:last-child { border-bottom: none; }
+.phase-item strong { color: #ddd; }
+
+.channel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.channel { background: #141414; border: 1px solid #222; padding: 18px; }
+.channel-name { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+.channel-role { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #c8a96e; margin-bottom: 10px; }
+.channel-detail { font-size: 12.5px; color: #888; line-height: 1.7; }
+
+.comp-table td:first-child { color: #fff; font-weight: bold; }
+
+ul { padding-left: 20px; margin-bottom: 16px; }
+li { color: #999; font-size: 13px; padding: 3px 0; }
+li strong { color: #ddd; }
+
+.insight { background: #111; border: 1px solid #2a2a2a; padding: 14px 18px; margin-bottom: 12px; }
+.insight-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #c8a96e; margin-bottom: 5px; }
+.insight p { font-size: 13px; color: #999; line-height: 1.65; }
+
+.priority-tag { display: inline-block; font-size: 10px; font-weight: bold; padding: 2px 8px;
+  text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; }
+.tag-now { background: #e05555; color: #fff; }
+.tag-soon { background: #c8a96e; color: #0a0a0a; }
+.tag-later { background: #333; color: #888; }
+
+p { color: #999; font-size: 13px; line-height: 1.7; margin-bottom: 12px; }
+.section-intro { font-size: 14px; color: #bbb; line-height: 1.75; margin-bottom: 20px; border-bottom: 1px solid #1e1e1e; padding-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="brand">Modern Savage</div>
+    <h1>US Launch Marketing Playbook</h1>
+    <div class="subtitle">Brand Strategy, Channel Plan, and 90-Day Execution Roadmap</div>
+    <div class="doc-meta">Prepared by Junior — 12 April 2026 &nbsp;|&nbsp; Confidential</div>
+  </div>
+
+  <!-- MARKET CONTEXT -->
+  <h2>Market Opportunity</h2>
+  <p class="section-intro">The beef organ supplement market is one of the fastest-growing niches in US health. $512M in 2024, projected to reach $1.23B. The category has one dominant case study — Heart & Soil built $50M in 3 years off Paul Saladino's personal brand. Modern Savage has a bigger weapon.</p>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-label">Market Size (2024)</div>
+      <div class="stat-value gold">$512M</div>
+      <div class="stat-sub">Grass-fed organ supplements US</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Projected 2030</div>
+      <div class="stat-value">$1.23B</div>
+      <div class="stat-sub">~15% CAGR</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Heart & Soil Revenue</div>
+      <div class="stat-value green">$50M</div>
+      <div class="stat-sub">Year 3 — Paul Saladino brand</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Bear Grylls Reach</div>
+      <div class="stat-value gold">100M</div>
+      <div class="stat-sub">Monthly impressions across channels</div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE LANDSCAPE -->
+  <h2>Competitive Landscape</h2>
+  <p class="section-intro">Two real players, one gap Modern Savage can own.</p>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Founder/Face</th>
+        <th>Est. Revenue</th>
+        <th>Positioning</th>
+        <th>Weakness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Heart & Soil</td>
+        <td>Paul Saladino</td>
+        <td class="green">$50M/yr</td>
+        <td>Carnivore doctor. Clinical, educational. "Ancestral nutrition science."</td>
+        <td class="muted">Academic/niche audience. No mass-market appeal. US-only brand identity. No adventure/lifestyle angle.</td>
+      </tr>
+      <tr>
+        <td>Ancestral Supplements</td>
+        <td>Brian Johnson</td>
+        <td class="muted">$3M/yr</td>
+        <td>Purist. Single-organ capsules. "Like eats like."</td>
+        <td class="muted">No brand story. Commoditised. Amazon-dependent. No lifestyle hook.</td>
+      </tr>
+      <tr>
+        <td>Liver King</td>
+        <td>Brian Johnson (brand)</td>
+        <td class="muted">Disrupted</td>
+        <td>Extreme ancestral living. Viral but damaged by steroid scandal 2022.</td>
+        <td class="red">Brand trust destroyed. Category left open for authentic replacement.</td>
+      </tr>
+      <tr>
+        <td class="gold">Modern Savage</td>
+        <td class="gold">Bear Grylls / Jesse</td>
+        <td class="gold">TBC — launch Jul 2026</td>
+        <td class="gold">Authentic adventure-backed primal nutrition. Real proof. Global reach.</td>
+        <td class="muted">New entrant. Needs fast social proof and retail bridgehead.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The Opportunity</div>
+    <p>Liver King's collapse in 2022 left a credibility vacuum in the "extreme ancestral" space. Heart & Soil filled the science gap. Nobody has filled the authenticity + adventure gap. Bear Grylls is the most credible person on earth to say "I eat organs because I survive on what nature gives me." That story is untakeable.</p>
+  </div>
+
+  <!-- POSITIONING -->
+  <h2>Brand Positioning</h2>
+
+  <div class="stat-grid-3">
+    <div class="stat">
+      <div class="stat-label">Who we are</div>
+      <div class="stat-value" style="font-size:15px;line-height:1.4;">"Nutrition built for people who don't make excuses"</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Who we're NOT</div>
+      <div class="stat-value" style="font-size:15px;line-height:1.4;">Another supplement brand trying to look extreme</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">The difference</div>
+      <div class="stat-value" style="font-size:15px;line-height:1.4;">Bear Grylls actually lives this — every survival situation demands it</div>
+    </div>
+  </div>
+
+  <h3>Brand Pillars</h3>
+  <table>
+    <thead><tr><th>Pillar</th><th>What it means</th><th>How to show it</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gold">Authentic proof</td>
+        <td>Bear doesn't endorse things he doesn't use. He's eaten organs in the wild for 30 years.</td>
+        <td>Raw, unscripted BG content. Behind-the-scenes. Real usage.</td>
+      </tr>
+      <tr>
+        <td class="gold">Primal simplicity</td>
+        <td>No synthetic stacks. No lab jargon. Just concentrated ancestral nutrition in a capsule.</td>
+        <td>Clean product design. Minimalist messaging. "Just what your body recognises."</td>
+      </tr>
+      <tr>
+        <td class="gold">Earned, not bought</td>
+        <td>The results come from doing hard things. The supplement supports that mission.</td>
+        <td>User-generated content from outdoor/adventure communities. Real people, real challenges.</td>
+      </tr>
+      <tr>
+        <td class="gold">Global credibility</td>
+        <td>Bear's face works in the US, UK, Australia, everywhere simultaneously.</td>
+        <td>Launch US-first but design for global rollout from day one.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Target Customer</h3>
+  <div class="channel-grid">
+    <div class="channel">
+      <div class="channel-name">Primary: The Functional Man, 28-45</div>
+      <div class="channel-role">Core buyer — 70% of revenue</div>
+      <div class="channel-detail">
+        Works hard, trains seriously, wants to optimise. Familiar with carnivore/biohacking content. Follows Joe Rogan, Huberman, Rogan. Probably already takes protein and creatine. Sees organ supplements as the "advanced" move.<br><br>
+        <strong>Where he lives:</strong> Instagram, TikTok, Spotify podcasts, YouTube.<br>
+        <strong>Why he buys:</strong> He trusts Bear Grylls. Bear isn't a supplement influencer — he's the real thing.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">Secondary: Adventure/Outdoor Community, 25-50</div>
+      <div class="channel-role">Brand amplifiers — word of mouth engine</div>
+      <div class="channel-detail">
+        Hikers, runners, climbers, military community. Already in Bear's universe. These people are natural evangelists — they share what they use because their community trusts them.<br><br>
+        <strong>Where he lives:</strong> Reddit (r/hiking, r/ultrarunning), Instagram, YouTube gear reviews.<br>
+        <strong>Why he buys:</strong> Performance edge + authentic brand story. Not a "bro supplement."
+      </div>
+    </div>
+  </div>
+
+  <!-- THE BEAR WEAPON -->
+  <h2>The Bear Grylls Advantage</h2>
+  <p class="section-intro">This is the biggest unfair advantage in the supplement industry. Use it correctly.</p>
+
+  <div class="callout">
+    <div class="callout-label">The Core Insight</div>
+    <p>Heart & Soil built $50M off Paul Saladino — a carnivore doctor with a niche following. Bear Grylls has 100M monthly impressions across a mainstream adventure audience who already believe in his physicality and survival instinct. If Bear says "I've been eating liver in the wild for 30 years, and now it's in a capsule" — that is not a celebrity endorsement. That is direct product proof.</p>
+  </div>
+
+  <h3>How to Deploy the Bear Asset</h3>
+  <table>
+    <thead><tr><th>Content Type</th><th>Platform</th><th>Cadence</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gold">Bear "in the wild" origin story</td>
+        <td>YouTube (long), Instagram/TikTok (cut-down)</td>
+        <td>Launch week hero asset</td>
+        <td>The 3-min video that explains why Modern Savage exists. Bear, raw footage, authentic voiceover. This is the ad that doesn't feel like an ad.</td>
+      </tr>
+      <tr>
+        <td>Running Wild S9 integration</td>
+        <td>Fox broadcast + social clips</td>
+        <td>Alongside show air dates</td>
+        <td>Bear takes Modern Savage on camera in survival conditions. $0 media cost — massive earned reach. Negotiate this now with EBG/Propagate.</td>
+      </tr>
+      <tr>
+        <td>Morning routine content</td>
+        <td>Instagram, TikTok</td>
+        <td>2-3x per week</td>
+        <td>Bear's actual regimen. 30-60 second clips. "This is what I take before a 20-mile day." Authentic, non-scripted.</td>
+      </tr>
+      <tr>
+        <td>Adventure Garage integration</td>
+        <td>YouTube, social</td>
+        <td>Per episode</td>
+        <td>Nutrition segment within existing show. Natural product placement.</td>
+      </tr>
+      <tr>
+        <td>Jesse as the "co-builder" voice</td>
+        <td>Substack, TikTok, Instagram</td>
+        <td>Weekly</td>
+        <td>Jesse documents building the brand. Behind-the-scenes, formula decisions, supplier visits. Builds cult following before launch. Gen Z trust mechanism.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CHANNEL STRATEGY -->
+  <h2>Channel Strategy</h2>
+
+  <div class="channel-grid">
+    <div class="channel">
+      <div class="channel-name">Instagram</div>
+      <div class="channel-role">Primary — Brand & Social Proof</div>
+      <div class="channel-detail">
+        @modernsavage handle. Aesthetic: dark, raw, outdoor. Bear content + user UGC + product shots in the field.<br><br>
+        <strong>KPI:</strong> 50K followers by end of launch month. 3-5% engagement rate.<br>
+        <strong>Paid:</strong> Retargeting only — don't buy followers. Let organic do the work first.<br>
+        <strong>Key move:</strong> Bear reposts to his @beargrylls (20M+ followers) on launch day.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">TikTok</div>
+      <div class="channel-role">Growth engine — discovery & virality</div>
+      <div class="channel-detail">
+        Short-form. Lead with "does it work?" not "here's our brand story." Hooks: "I tried eating only organs for 30 days," "The supplement Bear Grylls actually takes," survival nutrition content.<br><br>
+        <strong>KPI:</strong> 1 video per day launch week. One video breaks 1M views.<br>
+        <strong>Key move:</strong> Seed 20 TikTok creators in adventure/biohacking space 4 weeks pre-launch. No paid partnership — gift product, let them post organically.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">YouTube</div>
+      <div class="channel-role">Long-form trust builder</div>
+      <div class="channel-detail">
+        Dedicated channel or integrated with Bear's existing YouTube. 10-20 minute deep dives: organ nutrition science, sourcing story (grass-fed NZ/AU), survival nutrition explainers.<br><br>
+        <strong>KPI:</strong> Launch video hits 500K views in month 1 via Bear channel amplification.<br>
+        <strong>Key move:</strong> Get onto Huberman Lab, Joe Rogan, or equivalent in months 2-3.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">Podcast / Audio</div>
+      <div class="channel-role">Consideration — converts serious buyers</div>
+      <div class="channel-detail">
+        Target: survival/outdoor podcasts, biohacking shows, carnivore community. Bear as guest, not ad-read. Guest spots convert far better than pre-roll ads.<br><br>
+        <strong>KPI:</strong> 5 significant podcast appearances in first 90 days.<br>
+        <strong>Key move:</strong> Rogan appearance is the "nuclear option." Pitch via EBG connection. One Rogan appearance = 6-figure revenue day.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">DTC Website (Shopify)</div>
+      <div class="channel-role">Revenue engine — own the customer</div>
+      <div class="channel-detail">
+        Subscription-first. Default to subscribe & save on checkout (30% off). Email/SMS capture before launch via waitlist — target 10K sign-ups. Launch day email to waitlist converts at 8-15%.<br><br>
+        <strong>KPI:</strong> 40%+ subscribers by month 3. AOV $65+.<br>
+        <strong>Key move:</strong> Launch waitlist NOW. Every day without one is a day of lost emails.
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-name">Amazon</div>
+      <div class="channel-role">Secondary — credibility & discovery</div>
+      <div class="channel-detail">
+        List on Amazon from day 1 but don't optimise for it early. Amazon reviews will build naturally. Position premium above Ancestral Supplements. Do NOT race them on price.<br><br>
+        <strong>KPI:</strong> 4.5+ star rating. 100 reviews by month 3.<br>
+        <strong>Key move:</strong> Email DTC customers to leave Amazon reviews. Drives algorithm ranking fast.
+      </div>
+    </div>
+  </div>
+
+  <!-- INFLUENCER STRATEGY -->
+  <h2>Influencer Seeding Strategy</h2>
+  <p class="section-intro">Don't pay for posts. Gift product to the right 50 people and let their audiences discover it. Authenticity > reach.</p>
+
+  <table>
+    <thead><tr><th>Tier</th><th>Who</th><th>How to approach</th><th>Goal</th></tr></thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">Tier 1 — Strategic Partners (5-10 people)</td></tr>
+      <tr>
+        <td class="gold">Biohacking / performance</td>
+        <td>Andrew Huberman, Bryan Johnson, Peter Attia, Rhonda Patrick</td>
+        <td>Via EBG connections or Bear direct outreach. Position as "collaborative research" not sponsorship.</td>
+        <td>One mention = 500K+ reach. Long-term association with science-backed messaging.</td>
+      </tr>
+      <tr>
+        <td class="gold">Survival / military</td>
+        <td>SAS/SEAL veteran YouTubers, GORUCK community, UK military influencers</td>
+        <td>Product gift + authentic story. "The supplement special forces guys actually use."</td>
+        <td>Credibility transfer. These audiences spend heavily on gear and supplements.</td>
+      </tr>
+      <tr class="section-header"><td colspan="4">Tier 2 — Organic Seeders (30-50 people)</td></tr>
+      <tr>
+        <td>Carnivore / ancestral diet TikTok</td>
+        <td>200K-2M follower carnivore creators. Anya Fernald, Frank Tufano tier.</td>
+        <td>DM + product box. No brief, no requirements. Just let them try it.</td>
+        <td>Category validation. TikTok algorithm picks up the content cluster.</td>
+      </tr>
+      <tr>
+        <td>Adventure / outdoor</td>
+        <td>Ultrarunners, mountaineers, long-distance hikers with 50K-500K followers</td>
+        <td>Same approach — product gift only. These people only post what they actually use.</td>
+        <td>Word of mouth in high-trust communities. Reddit threads, trail community endorsement.</td>
+      </tr>
+      <tr class="section-header"><td colspan="4">Tier 3 — Waitlist Community (1,000+ day-1 advocates)</td></tr>
+      <tr>
+        <td>Early access buyers</td>
+        <td>Email waitlist + Jesse/Bear Substack readers</td>
+        <td>Give them first access + 20% discount. Ask them to share their first week results.</td>
+        <td>UGC tsunami on launch week. Organic social proof that money can't buy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- LAUNCH TIMELINE -->
+  <h2>Launch Timeline</h2>
+
+  <div class="phase-grid">
+    <div class="phase">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-title">Pre-Launch</div>
+      <div class="phase-date">Now — 30 June 2026</div>
+      <div class="phase-item"><strong>Build the waitlist.</strong> Launch a simple landing page — email capture only. No product detail needed yet. Target: 10,000 sign-ups.</div>
+      <div class="phase-item"><strong>Jesse's build-in-public.</strong> Start posting the journey on Substack + TikTok. Formula decisions, supplier visits, "why we're doing this." Cult following before launch.</div>
+      <div class="phase-item"><strong>Seed influencers.</strong> Send product boxes to 50 people 6 weeks before launch. No ask. Just let them post naturally.</div>
+      <div class="phase-item"><strong>Negotiate TV integration.</strong> Confirm with EBG: Running Wild S9 + Adventure Garage product placement. This is $0 media spend for network-scale reach.</div>
+      <div class="phase-item"><strong>Set up Shopify + subscription.</strong> Default subscribe & save. Email/SMS flows ready. Launch-day abandoned cart sequence.</div>
+    </div>
+    <div class="phase active">
+      <div class="phase-num gold">Phase 2</div>
+      <div class="phase-title">Launch Week</div>
+      <div class="phase-date">July 2026 (exact date TBC)</div>
+      <div class="phase-item"><strong>Bear origin video drops.</strong> YouTube + Instagram + TikTok simultaneously. The hero asset. This is the moment the brand is born.</div>
+      <div class="phase-item"><strong>Waitlist opens.</strong> Email blast to 10K+ sign-ups. 8-12% conversion = 800-1,200 first orders. Day 1 revenue target: $60-90K.</div>
+      <div class="phase-item"><strong>Bear reposts from @beargrylls.</strong> 20M+ followers see the product for the first time. This is the air strike.</div>
+      <div class="phase-item"><strong>TikTok seeded content goes live.</strong> Influencers post their first reactions. No coordination — genuine timing.</div>
+      <div class="phase-item"><strong>PR push.</strong> Pitch Men's Health, Outside, GQ, Men's Fitness. Bear Grylls launches a supplement brand is a story. Use it.</div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-title">90-Day Consolidation</div>
+      <div class="phase-date">Aug — Oct 2026</div>
+      <div class="phase-item"><strong>Podcast tour.</strong> Bear + Jesse on 5-10 shows. Target Rogan, Huberman, Lex Fridman. Even one Rogan appearance = step-change revenue.</div>
+      <div class="phase-item"><strong>Amazon listing.</strong> List week 2 after DTC launch. Drive early DTC customers to leave reviews. Hit 4.5 stars fast.</div>
+      <div class="phase-item"><strong>Subscription rate optimisation.</strong> Target 40% of orders on subscription by month 3. LTV turns positive at month 4.</div>
+      <div class="phase-item"><strong>Second SKU decision.</strong> If base blend hits 1,000 subscribers, add either: performance add-on or women's blend. Decision point: 30 Sept.</div>
+      <div class="phase-item"><strong>Retail conversation.</strong> Approach Whole Foods, REI, and GNC at the 90-day mark with DTC data. Never enter retail at a loss.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PILLARS -->
+  <h2>Content Pillars — Weekly Cadence</h2>
+
+  <table>
+    <thead><tr><th>Day</th><th>Platform</th><th>Content Type</th><th>Angle</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gold">Monday</td>
+        <td>Instagram + TikTok</td>
+        <td>Bear in the field</td>
+        <td>"What I actually ate on [survival location]. Here's what I learned." Product mentioned naturally.</td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td>Substack + Instagram Stories</td>
+        <td>Jesse build-in-public</td>
+        <td>Behind the brand. Formula updates, supplier visits, honest reflections on building a product company.</td>
+      </tr>
+      <tr>
+        <td class="gold">Wednesday</td>
+        <td>TikTok + YouTube Shorts</td>
+        <td>Science drop</td>
+        <td>60-second organ nutrition fact. No jargon. "Why your great-grandfather ate liver 3x per week." Shareable.</td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>Instagram</td>
+        <td>UGC / community</td>
+        <td>Repost customer results, adventure community using the product. Social proof engine.</td>
+      </tr>
+      <tr>
+        <td class="gold">Friday</td>
+        <td>YouTube</td>
+        <td>Long-form content</td>
+        <td>Deep dive: sourcing story, survival nutrition, Bear interview, adventure film. Drives SEO and trust.</td>
+      </tr>
+      <tr>
+        <td>Weekend</td>
+        <td>All platforms</td>
+        <td>Raw / unpolished</td>
+        <td>iPhone footage. No production. Bear at home, in the wild, training. This is where the authenticity lives.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MESSAGING -->
+  <h2>Core Messaging — What to Say and How</h2>
+
+  <div class="insight">
+    <div class="insight-label">Headline</div>
+    <p>"Nutrition your body actually recognises."</p>
+  </div>
+  <div class="insight">
+    <div class="insight-label">One-liner</div>
+    <p>"Modern Savage packs what your ancestors ate daily — liver, heart, kidney — into one capsule. No synthetics. No shortcuts. Just concentrated nutrition from grass-fed animals."</p>
+  </div>
+  <div class="insight">
+    <div class="insight-label">Bear's voice (first person)</div>
+    <p>"I've eaten organs in the wild on every continent. Not because I had to — because I know what real fuel feels like. Modern Savage is that, simplified."</p>
+  </div>
+  <div class="insight">
+    <div class="insight-label">What to avoid</div>
+    <p>Avoid clinical language (bioavailability, mitochondrial, peptide chains). Your competitor Heart & Soil already owns that angle — and it limits mass appeal. Own the instinct angle, not the science angle. "Your body knows what this is" beats "clinical dose of CoQ10."</p>
+  </div>
+
+  <!-- DECISION POINTS -->
+  <h2>5 Decisions Jesse Needs to Make Now</h2>
+
+  <table>
+    <thead><tr><th>#</th><th>Decision</th><th>Why it matters</th><th>Deadline</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gold">1</td>
+        <td><strong>Launch the waitlist landing page.</strong> A simple single-page site — email + "I want in." No product detail needed yet.</td>
+        <td>Every day without one is a day of lost email addresses. 10,000 sign-ups by July = $60-90K revenue day 1.</td>
+        <td class="red">This week</td>
+      </tr>
+      <tr>
+        <td class="gold">2</td>
+        <td><strong>Confirm Running Wild S9 product integration with EBG.</strong> Get Bear + Modern Savage on camera in a survival context.</td>
+        <td>Fox distribution is worth millions in media value. This window closes when filming wraps.</td>
+        <td class="red">April 2026</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Get the Bear origin video made.</strong> Raw, unscripted, 3-minute film. Bear explains why Modern Savage exists. This is the brand's most important asset.</td>
+        <td>This video does all the heavy lifting for launch. Without it, you're just another supplement brand.</td>
+        <td class="gold">May 2026</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Decide on Jesse's public role.</strong> Build-in-public strategy requires Jesse to commit to posting weekly about the brand journey. Substack is already set up.</td>
+        <td>Jesse's voice as co-builder gives Modern Savage a Gen Z credibility layer that Bear alone doesn't have.</td>
+        <td class="gold">May 2026</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Influencer seeding list.</strong> Identify 50 people to receive product boxes 6 weeks before launch. No asks, no contracts.</td>
+        <td>Organic influencer content in the first 48 hours makes the launch look like a movement, not a product drop.</td>
+        <td class="gold">June 2026</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- KPIs -->
+  <h2>Success Metrics — First 90 Days</h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-label">Waitlist by launch</div>
+      <div class="stat-value gold">10K</div>
+      <div class="stat-sub">Email sign-ups pre-launch</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Day 1 revenue</div>
+      <div class="stat-value green">$60-90K</div>
+      <div class="stat-sub">8-12% waitlist conversion</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Month 1 subscribers</div>
+      <div class="stat-value">500+</div>
+      <div class="stat-sub">Recurring $32K+/month</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Month 3 run rate</div>
+      <div class="stat-value gold">$150K</div>
+      <div class="stat-sub">Base scenario (financial model)</div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Metric</th><th>Month 1</th><th>Month 3</th><th>Month 6</th></tr></thead>
+    <tbody>
+      <tr><td>Monthly revenue</td><td>$60-90K</td><td class="gold">$120-200K</td><td class="green">$300K+</td></tr>
+      <tr><td>Subscriber base</td><td>300-500</td><td>1,000+</td><td class="gold">2,500+</td></tr>
+      <tr><td>Instagram followers</td><td>20K</td><td>50K</td><td>100K+</td></tr>
+      <tr><td>Amazon reviews</td><td>50+</td><td>200+</td><td class="gold">500+</td></tr>
+      <tr><td>Subscription % of revenue</td><td>25%</td><td class="gold">40%</td><td>55%</td></tr>
+      <tr><td>Return rate</td><td>&lt;3%</td><td>&lt;2.5%</td><td class="green">&lt;2%</td></tr>
+    </tbody>
+  </table>
+
+  <!-- THE ONE THING -->
+  <h2>The Single Most Important Action</h2>
+
+  <div class="callout">
+    <div class="callout-label">Bottom Line</div>
+    <p>Everything else in this document depends on one thing: Bear Grylls making an authentic, unscripted video about why he eats organs. Not a product ad. Not a voiceover. Bear, in context — after a climb, before a survival exercise, in the mountains — explaining in 3 minutes why he built this product. That video is the brand. Once it exists, everything else falls into place.</p>
+  </div>
+
+  <br>
+  <p style="font-size:12px;color:#444;border-top:1px solid #1e1e1e;padding-top:16px;">
+    Prepared by Junior — Jesse Grylls' personal AI agent — 12 April 2026.<br>
+    Financial model: modern-savage-launch-model-2026-04-10.html<br>
+    Web: https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/junior/modern-savage-marketing-playbook-2026-04-12.html
+  </p>
+
+</div>
+</body>
+</html>
