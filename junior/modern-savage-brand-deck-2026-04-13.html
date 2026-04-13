@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Brand Information Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #8B2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; font-weight: 300; color: var(--charcoal); background: var(--cream); line-height: 1.7; }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(30,54,48,0.97); backdrop-filter: blur(8px);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-brand { color: var(--cream); font-family: 'DM Serif Display', serif; font-size: 1.1rem; letter-spacing: 0.05em; }
+  .nav-sub { color: var(--earth); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: rgba(245,240,234,0.7); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--earth); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(160deg, var(--forest-deep) 0%, #162C26 50%, #0E1F1B 100%);
+    padding: 120px 2rem 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(192,122,69,0.12) 0%, transparent 60%);
+  }
+  .hero-tag { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--earth); margin-bottom: 1.5rem; font-weight: 600; }
+  .hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); color: var(--cream); line-height: 1.05; margin-bottom: 1.5rem; }
+  .hero h1 em { color: var(--earth); font-style: italic; }
+  .hero-sub { font-size: 1.1rem; color: rgba(245,240,234,0.65); max-width: 600px; margin: 0 auto 2.5rem; font-weight: 300; }
+  .hero-meta { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-item .val { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--earth); }
+  .hero-meta-item .lbl { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,234,0.5); margin-top: 0.25rem; }
+
+  /* SECTIONS */
+  section { padding: 7rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--earth); margin-bottom: 1rem; font-weight: 600; }
+  .section-heading { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; line-height: 1.1; }
+
+  .bg-white { background: var(--white); }
+  .bg-cream { background: var(--cream); }
+  .bg-forest { background: var(--forest-deep); color: var(--cream); }
+  .bg-forest .section-heading { color: var(--cream); }
+  .bg-forest .section-tag { color: var(--earth); }
+  .bg-forest p { color: rgba(245,240,234,0.75); }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero-meta { flex-wrap: wrap; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+
+  /* CARDS */
+  .card { background: var(--cream); border-radius: 4px; padding: 1.75rem; border: 1px solid var(--sand); }
+  .card-forest { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1.75rem; }
+  .card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+  .card-forest h3 { color: var(--cream); }
+  .card p, .card li { font-size: 0.9rem; color: var(--charcoal-light); line-height: 1.6; }
+  .card-forest p, .card-forest li { color: rgba(245,240,234,0.7); }
+  .card ul, .card-forest ul { padding-left: 1.25rem; }
+  .card li { margin-bottom: 0.35rem; }
+  .card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+  /* SKU CARDS */
+  .sku-card { background: var(--white); border-radius: 4px; padding: 2rem; border: 1px solid var(--sand); }
+  .sku-badge { display: inline-block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 2px; margin-bottom: 1rem; }
+  .badge-adult { background: var(--forest); color: var(--cream); }
+  .badge-kids { background: var(--earth); color: var(--white); }
+  .badge-stack { background: var(--charcoal); color: var(--cream); }
+  .badge-tbd { background: var(--sand); color: var(--charcoal); }
+  .sku-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--charcoal); }
+  .sku-price { font-size: 1.1rem; color: var(--earth); font-weight: 600; margin-bottom: 1rem; }
+  .sku-desc { font-size: 0.875rem; color: var(--charcoal-light); margin-bottom: 1.25rem; line-height: 1.6; }
+  .ingredient-list { list-style: none; padding: 0; }
+  .ingredient-list li { font-size: 0.8rem; padding: 0.4rem 0; border-bottom: 1px solid var(--cream-dark); color: var(--charcoal-light); display: flex; justify-content: space-between; align-items: center; }
+  .ingredient-list li:last-child { border-bottom: none; }
+  .ingredient-dose { font-weight: 600; color: var(--charcoal); }
+  .ingredient-section-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--earth); font-weight: 700; padding: 0.6rem 0 0.2rem; }
+
+  /* NARRATIVE PILLARS */
+  .pillar { background: var(--cream); border-left: 3px solid var(--earth); padding: 1.25rem 1.5rem; border-radius: 0 4px 4px 0; margin-bottom: 1rem; }
+  .pillar-name { font-weight: 700; font-size: 0.85rem; color: var(--charcoal); margin-bottom: 0.35rem; letter-spacing: 0.03em; }
+  .pillar-theme { font-size: 0.85rem; color: var(--charcoal-light); margin-bottom: 0.5rem; font-style: italic; }
+  .pillar-desc { font-size: 0.82rem; color: var(--charcoal-light); line-height: 1.5; }
+  .pillar-primary { border-left-color: var(--forest); }
+  .pillar-primary .pillar-name::after { content: ' — PRIMARY'; font-size: 0.65rem; color: var(--forest); font-style: normal; }
+
+  /* COMPETITOR TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { background: var(--forest-deep); color: var(--cream); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.05em; }
+  td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--cream-dark); color: var(--charcoal-light); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .us { color: var(--forest); font-weight: 600; }
+  td.highlight { color: var(--earth); font-weight: 600; }
+
+  /* QUOTE */
+  .pull-quote { font-family: 'DM Serif Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.4; color: var(--cream); font-style: italic; border-left: 3px solid var(--earth); padding-left: 2rem; max-width: 800px; margin: 2rem 0; }
+
+  /* KEY MESSAGES */
+  .message-item { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .message-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--earth); line-height: 1; min-width: 2.5rem; }
+  .message-text { font-size: 0.95rem; color: var(--charcoal-light); padding-top: 0.5rem; line-height: 1.5; }
+
+  /* TIMELINE */
+  .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .timeline-date { font-weight: 700; font-size: 0.8rem; color: var(--earth); min-width: 80px; padding-top: 0.15rem; }
+  .timeline-content h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--charcoal); }
+  .timeline-content p { font-size: 0.85rem; color: var(--charcoal-light); }
+
+  /* VOICE BOXES */
+  .voice-example { background: var(--cream); border: 1px solid var(--sand); border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .voice-example p { font-size: 0.9rem; color: var(--charcoal); font-style: italic; }
+  .voice-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--earth); font-weight: 700; margin-bottom: 0.35rem; font-style: normal; }
+
+  /* DO/DON'T */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .do-list, .dont-list { }
+  .do-list h4 { color: var(--forest); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+  .dont-list h4 { color: var(--red); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+  .do-list li, .dont-list li { font-size: 0.875rem; color: var(--charcoal-light); margin-bottom: 0.5rem; list-style: none; padding-left: 1.25rem; position: relative; line-height: 1.5; }
+  .do-list li::before { content: '✓'; position: absolute; left: 0; color: var(--forest); font-weight: 700; }
+  .dont-list li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+  /* FOOTER */
+  footer { background: var(--forest-deep); color: rgba(245,240,234,0.4); padding: 2.5rem; text-align: center; font-size: 0.8rem; }
+  footer strong { color: var(--earth); }
+
+  /* DIVIDER */
+  .divider { width: 60px; height: 2px; background: var(--earth); margin: 1.25rem 0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="nav-brand">Modern Savage</div>
+    <div class="nav-sub">Brand Information Deck</div>
+  </div>
+  <div class="nav-links">
+    <a href="#brand">Brand</a>
+    <a href="#products">Products</a>
+    <a href="#audience">Audience</a>
+    <a href="#voice">Voice</a>
+    <a href="#narratives">Narratives</a>
+    <a href="#competitive">Competitive</a>
+    <a href="#launch">Launch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div>
+    <div class="hero-tag">Brand Information Deck — April 2026</div>
+    <h1>Modern<br><em>Savage</em></h1>
+    <p class="hero-sub">A primal nutrition brand built around the conviction that the most powerful supplements are the ones humans evolved to eat. For Olly Westmacott — social strategy brief.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="val">3</div>
+        <div class="lbl">SKUs at launch</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="val">Jul '26</div>
+        <div class="lbl">Launch date</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="val">UK + US</div>
+        <div class="lbl">Simultaneous</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="val">100%</div>
+        <div class="lbl">Grylls-owned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND OVERVIEW -->
+<section class="bg-white" id="brand">
+  <div class="container">
+    <div class="section-tag">The Brand</div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-heading">What Modern Savage is</h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:1.25rem;">Modern Savage is a primal nutrition brand built around the conviction that the most powerful supplements are not synthetic — they are the ones humans have eaten for centuries. Our organ blend powders put liver, heart, spleen, kidney and lung back into the modern diet, alongside a prebiotic and probiotic complex and a superfood antioxidant stack.</p>
+        <p style="margin-bottom:1.25rem;">100% owned by the Grylls family. Backed by Bear Grylls as a genuine user, not a paid face. Manufactured by ACF Pharma. Launching simultaneously in the UK and US in July 2026.</p>
+        <p>The brand operates at the intersection of ancestral health and modern performance. It is not a wellness brand. It is not a bro supplement brand. It is the real thing.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1rem;">
+          <div class="section-tag">One-line description</div>
+          <p style="font-family:'DM Serif Display',serif; font-size:1.15rem; color:var(--charcoal); line-height:1.4;">"The supplement brand Bear Grylls actually uses. Whole-animal organ blends in a single daily powder, built on the nutrition our bodies evolved to run on."</p>
+        </div>
+        <div class="card">
+          <div class="section-tag">Business facts</div>
+          <ul style="list-style:none;padding:0;">
+            <li style="padding:0.4rem 0;border-bottom:1px solid var(--cream-dark);font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Ownership:</strong> 100% Grylls family (Bear Grylls Ventures)</li>
+            <li style="padding:0.4rem 0;border-bottom:1px solid var(--cream-dark);font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Manufacturer:</strong> ACF Pharma / Lightning Nutra (US)</li>
+            <li style="padding:0.4rem 0;border-bottom:1px solid var(--cream-dark);font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Form:</strong> Powder (not capsules)</li>
+            <li style="padding:0.4rem 0;border-bottom:1px solid var(--cream-dark);font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Launch markets:</strong> UK + US simultaneously, July 2026</li>
+            <li style="padding:0.4rem 0;border-bottom:1px solid var(--cream-dark);font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Retail price:</strong> ~$79 USD / ~£62 GBP per bag (28 servings)</li>
+            <li style="padding:0.4rem 0;font-size:0.875rem;color:var(--charcoal-light);"><strong style="color:var(--charcoal);">Route to market:</strong> DTC first, retail second</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="bg-cream" id="products">
+  <div class="container">
+    <div class="section-tag">Product Lineup</div>
+    <h2 class="section-heading">3 SKUs at Launch</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom:3rem;color:var(--charcoal-light);max-width:700px;">Three products, one philosophy. Each serves a different customer need. The Adult Blend is the hero product. The Kids Blend extends the mission into family nutrition. The Add-On Stack is the upsell for the committed customer.</p>
+
+    <div class="grid-3">
+      <!-- Adult Blend -->
+      <div class="sku-card">
+        <span class="sku-badge badge-adult">Hero SKU</span>
+        <div class="sku-name">Adult Blend</div>
+        <div class="sku-price">~$79 / £62 per bag</div>
+        <div class="sku-desc">28 servings. 21g scoop. Approx 70 calories. The core daily nutrition stack for the health-conscious adult. No creatine.</div>
+
+        <ul class="ingredient-list">
+          <li class="ingredient-section-label" style="border:none;">Protein</li>
+          <li><span>Primal Protein Blend</span><span class="ingredient-dose">10,000mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Grass-fed Bovine Collagen Peptides + Beef Protein Isolate</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Gut Health</li>
+          <li><span>Prebiotic / Probiotic Blend</span><span class="ingredient-dose">3,500mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Agave Inulin, Organic Baobab, LactoSpore 2 Billion CFU</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">The Core — Organ Blend</li>
+          <li><span>Primal Organ Blend</span><span class="ingredient-dose">2,500mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Grass-fed Bovine Liver, Heart, Spleen, Kidney, Lung + Bison Liver</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Micronutrients</li>
+          <li><span>Essential Nutrient Superfood Blend</span><span class="ingredient-dose">1,275mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Marine Algae, Acerola Cherry, Pink Salt, Broccoli, Spinach, Kale, Pumpkin Seed, Sweet Potato, Sunflower Seed, Cranberry, Chlorella, Maitake + Shiitake Mushroom, Fermented Vitamin K2 MK-7</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Antioxidants</li>
+          <li><span>Superfruit Antioxidant Blend</span><span class="ingredient-dose">1,000mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Organic Date, Goji, Acai, Maqui, Blueberry, Blackberry, Strawberry, Raspberry, Acerola Cherry</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Flavour</li>
+          <li style="font-size:0.75rem;"><span>Organic Honey Powder or Maple Powder, Organic Vanilla Bean, Bamboo Extract</span></li>
+        </ul>
+
+        <div style="margin-top:1.25rem;padding:0.75rem;background:var(--cream);border-radius:4px;">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest);font-weight:700;margin-bottom:0.25rem;">Unit Economics</div>
+          <div style="font-size:0.8rem;color:var(--charcoal-light);">COG: ~$24.45 @ 2,500 units / ~$22 @ 10,000 units<br>DTC margin: ~64-67% at $79 retail</div>
+        </div>
+      </div>
+
+      <!-- Kids Blend -->
+      <div class="sku-card">
+        <span class="sku-badge badge-kids">Family SKU</span>
+        <div class="sku-name">Kids Blend</div>
+        <div class="sku-price">~$69 / £55 per bag (est.)</div>
+        <div class="sku-desc">28 servings. 20g scoop. Same philosophy as the Adult Blend, reformulated for children. Smaller organ dose, colostrum added, lower vitamin thresholds.</div>
+
+        <ul class="ingredient-list">
+          <li class="ingredient-section-label" style="border:none;">Protein</li>
+          <li><span>Savage Kids Primal Protein Blend</span><span class="ingredient-dose">10,000mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Grass-fed Bovine Collagen Peptides + Beef Protein Isolate</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Gut Health</li>
+          <li><span>Prebiotic / Probiotic Blend</span><span class="ingredient-dose">3,500mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>1 Billion CFU (half adult dose)</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">The Core — Organ + Colostrum</li>
+          <li><span>Savage Kids Primal Organ Blend</span><span class="ingredient-dose">1,250mg</span></li>
+          <li style="padding-left:0.75rem;font-size:0.75rem;"><span>Grass-fed Bovine Liver, Heart, Spleen, Kidney, Lung + Grass-fed Bovine Colostrum</span></li>
+
+          <li class="ingredient-section-label" style="border:none;">Key Differences vs Adult</li>
+          <li><span>Organ blend dose</span><span class="ingredient-dose">Half (1,250mg)</span></li>
+          <li><span>Vitamin D</span><span class="ingredient-dose">25mcg (vs 40mcg)</span></li>
+          <li><span>Vitamin K</span><span class="ingredient-dose">60mcg (vs 90mcg)</span></li>
+          <li><span>Creatine</span><span class="ingredient-dose">None</span></li>
+        </ul>
+
+        <div style="margin-top:1.25rem;padding:0.75rem;background:#FFF3F3;border-radius:4px;border:1px solid #FFCCCC;">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:0.25rem;">Allergen</div>
+          <div style="font-size:0.8rem;color:var(--charcoal-light);">Contains Milk (Colostrum). Must be declared on label and in all marketing.</div>
+        </div>
+
+        <div style="margin-top:0.75rem;padding:0.75rem;background:var(--cream);border-radius:4px;">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest);font-weight:700;margin-bottom:0.25rem;">Unit Economics</div>
+          <div style="font-size:0.8rem;color:var(--charcoal-light);">COG: ~$22.28 @ 2,500 units / ~$20 @ 10,000 units</div>
+        </div>
+      </div>
+
+      <!-- Add-On Stack -->
+      <div class="sku-card" style="border:2px dashed var(--sand);">
+        <span class="sku-badge badge-stack">Upsell SKU</span>
+        <div class="sku-name">Add-On Stack</div>
+        <div class="sku-price">Pricing TBD</div>
+        <div class="sku-desc">The performance upsell for the committed customer. Designed to sit on top of the Adult Blend for those who want the full optimisation stack. Formulation is in development.</div>
+
+        <div style="background:var(--cream);border-radius:4px;padding:1.25rem;margin-top:1rem;">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);font-weight:700;margin-bottom:0.75rem;">What we know</div>
+          <ul style="list-style:none;padding:0;">
+            <li style="font-size:0.85rem;color:var(--charcoal-light);margin-bottom:0.5rem;">- Designed to stack with Adult Blend</li>
+            <li style="font-size:0.85rem;color:var(--charcoal-light);margin-bottom:0.5rem;">- Likely to include CreaVitalis creatine (3g, German-sourced, EU-ready)</li>
+            <li style="font-size:0.85rem;color:var(--charcoal-light);margin-bottom:0.5rem;">- Targets the performance-focused biohacker segment</li>
+            <li style="font-size:0.85rem;color:var(--charcoal-light);">- Formulation currently being finalised</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:1rem;padding:0.75rem;background:var(--cream-dark);border-radius:4px;">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);font-weight:700;margin-bottom:0.25rem;">For Social Strategy</div>
+          <div style="font-size:0.8rem;color:var(--charcoal-light);">Position as the "go further" option for those already on the Adult Blend. Creates a natural upgrade path and increases LTV.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="bg-forest" id="audience">
+  <div class="container">
+    <div class="section-tag">Target Audience</div>
+    <h2 class="section-heading" style="color:var(--cream);">Who we're speaking to</h2>
+    <div class="divider"></div>
+
+    <div class="grid-3" style="margin-top:2.5rem;">
+      <div class="card-forest">
+        <div class="card-icon">💪</div>
+        <h3>The Primary Buyer — Adult Blend</h3>
+        <p style="margin-bottom:0.75rem;">Male, 28-45. Health-conscious but not trend-driven. Drawn to ancestral health, clean eating, evidence-based biohacking. Influenced by Huberman, Saladino, Goggins. Wants real results, not branding.</p>
+        <ul>
+          <li>Eats clean — paleo, carnivore, or low-processed</li>
+          <li>Already uses protein powder or creatine</li>
+          <li>Sceptical of synthetic supplements</li>
+          <li>Bears Grylls is a credible reference, not just a celebrity</li>
+          <li>Willing to pay premium for real ingredients</li>
+          <li>Values self-reliance and personal responsibility</li>
+        </ul>
+      </div>
+      <div class="card-forest">
+        <div class="card-icon">👨‍👩‍👧</div>
+        <h3>The Kids Blend Buyer</h3>
+        <p style="margin-bottom:0.75rem;">Parent (25-42, often mother purchasing, father brand-aware). Values food quality above convenience. Nutrition-educated. Disillusioned with gummy vitamins and synthetic supplements for kids.</p>
+        <ul>
+          <li>Reads labels, questions ingredients</li>
+          <li>Trusts whole-food nutrition over synthetic vitamins</li>
+          <li>Influenced by same ancestral health community</li>
+          <li>Bears Grylls = credibility for a parent</li>
+          <li>Will pay more if the product is genuinely clean</li>
+          <li>Note: must declare milk allergen (colostrum)</li>
+        </ul>
+      </div>
+      <div class="card-forest">
+        <div class="card-icon">🔬</div>
+        <h3>The Add-On Stack Buyer</h3>
+        <p style="margin-bottom:0.75rem;">Already on the Adult Blend. Wants to go further. Performance-focused, biohacker mentality. Likely male, 30-45. Follows longevity research, tracks biomarkers, pays attention to creatine studies.</p>
+        <ul>
+          <li>Highest LTV segment</li>
+          <li>Will evangelize the brand if results are real</li>
+          <li>Likely influenced by Peter Attia, Rhonda Patrick, Bryan Johnson</li>
+          <li>Wants the stack, not just the basics</li>
+          <li>Price-insensitive if quality is validated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      "Your ancestors didn't take supplements. They ate the whole animal. That's where the nutrition was."
+    </div>
+  </div>
+</section>
+
+<!-- BRAND VOICE -->
+<section class="bg-white" id="voice">
+  <div class="container">
+    <div class="section-tag">Brand Voice</div>
+    <h2 class="section-heading">How Modern Savage sounds</h2>
+    <div class="divider"></div>
+
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <p style="margin-bottom:1.5rem;color:var(--charcoal-light);">Modern Savage has a distinct voice that cuts through supplement category noise. The product is the argument. The formula is genuinely impressive. The voice lets it speak.</p>
+
+        <div class="card" style="margin-bottom:1.25rem;">
+          <h3 style="margin-bottom:0.75rem;">Tone in one sentence</h3>
+          <p>Direct. Conviction-led. Quietly intense. Like a man who has done the research and moved on.</p>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-list">
+            <h4>We sound like</h4>
+            <ul>
+              <li>Lead with substance</li>
+              <li>State facts and let them land</li>
+              <li>Ancestral credibility without gatekeeping</li>
+              <li>Bear as proof of concept, not endorser</li>
+              <li>Conviction without aggression</li>
+              <li>Quiet confidence</li>
+            </ul>
+          </div>
+          <div class="dont-list">
+            <h4>We never sound like</h4>
+            <ul>
+              <li>Supplement bro energy</li>
+              <li>"Unlock your potential"</li>
+              <li>Hashtag wellness fluff</li>
+              <li>Vague ingredient claims</li>
+              <li>Fear-based marketing</li>
+              <li>Celebrity hype</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="margin-bottom:0.5rem;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--charcoal-light);font-weight:700;">Adult Blend — Example Posts</div>
+        <div class="voice-example">
+          <p>"Your gut needs bacteria it can use. Your cells need organs they recognise. That's the whole formula."</p>
+        </div>
+        <div class="voice-example">
+          <p>"Most supplements are molecules isolated from nature. This one is nature. Liver. Heart. Spleen. Kidney. Lung."</p>
+        </div>
+        <div class="voice-example">
+          <p>"Bear didn't build 30 years of endurance on protein powder. This is what actually works."</p>
+        </div>
+        <div class="voice-example">
+          <p>"The ancestral diet wasn't a fad. It was the baseline. We just made it easy."</p>
+        </div>
+
+        <div style="margin-top:1.5rem;margin-bottom:0.5rem;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--charcoal-light);font-weight:700;">Kids Blend — Example Posts</div>
+        <div class="voice-example">
+          <p>"Kids don't need gummy vitamins. They need the same nutrition they'd get from a well-fed family in the 1800s. That's what this is."</p>
+        </div>
+        <div class="voice-example">
+          <p>"Colostrum, organ blend, probiotics. The whole stack. One scoop."</p>
+        </div>
+        <div class="voice-example">
+          <p>"You put effort into what they eat. This is what the research says they're missing."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY MESSAGES -->
+<section class="bg-cream">
+  <div class="container">
+    <div class="section-tag">Key Messages</div>
+    <h2 class="section-heading">What the brand keeps coming back to</h2>
+    <div class="divider"></div>
+
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <div class="message-item">
+          <div class="message-num">1</div>
+          <div class="message-text"><strong>Ancestral nutrition, made accessible.</strong> Your ancestors ate the whole animal. Liver, heart, spleen, kidney, lung — that's where the nutrition was. We put it in a scoop.</div>
+        </div>
+        <div class="message-item">
+          <div class="message-num">2</div>
+          <div class="message-text"><strong>Every organ has a function.</strong> Liver for micronutrients. Heart for CoQ10. Kidney for B12. This isn't random — there's a reason humans ate all of it.</div>
+        </div>
+        <div class="message-item">
+          <div class="message-num">3</div>
+          <div class="message-text"><strong>No synthetics. No fillers.</strong> A prebiotic, a probiotic, and a superfood antioxidant stack — all built around the organ blend. Nothing artificial.</div>
+        </div>
+        <div class="message-item">
+          <div class="message-num">4</div>
+          <div class="message-text"><strong>Bear lives this.</strong> This is not a celebrity licence deal. Bear has been eating like this in the field for 30 years. Modern Savage is what he actually uses.</div>
+        </div>
+        <div class="message-item">
+          <div class="message-num">5</div>
+          <div class="message-text"><strong>For the whole family.</strong> Same philosophy in the Kids Blend — organ nutrition from childhood, not just adulthood. One brand, one mission, for everyone who wants to eat like they were designed to.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="section-tag">Unifying Brand Thread</div>
+          <p style="font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.4;color:var(--charcoal);margin-bottom:1rem;">"Everything we build is in service of giving the body what it was designed to run on."</p>
+          <p style="font-size:0.85rem;color:var(--charcoal-light);">This is the internal through-line — not a marketing tagline, but the test every piece of content should pass. If it doesn't connect back to primal nutrition and what the body genuinely needs, it doesn't belong in the brand.</p>
+        </div>
+
+        <div class="card" style="margin-top:1rem;">
+          <div class="section-tag">Brand Goals</div>
+          <ul>
+            <li style="font-size:0.875rem;color:var(--charcoal-light);margin-bottom:0.6rem;list-style:disc;margin-left:1.25rem;line-height:1.5;"><strong style="color:var(--charcoal);">Year one:</strong> Establish Modern Savage as the credible primal nutrition brand in the UK and US. Not niche — category leader.</li>
+            <li style="font-size:0.875rem;color:var(--charcoal-light);margin-bottom:0.6rem;list-style:disc;margin-left:1.25rem;line-height:1.5;"><strong style="color:var(--charcoal);">Year two:</strong> Outsell Heart and Soil in comparable markets.</li>
+            <li style="font-size:0.875rem;color:var(--charcoal-light);list-style:disc;margin-left:1.25rem;line-height:1.5;"><strong style="color:var(--charcoal);">Long term:</strong> Make whole-animal nutrition normal. Adult Blend and Kids Blend on every health-conscious family's counter — the way a multivitamin used to be, but one that actually works.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NARRATIVE TERRITORIES -->
+<section class="bg-white" id="narratives">
+  <div class="container">
+    <div class="section-tag">Narrative Territories</div>
+    <h2 class="section-heading">Mission narratives for social strategy</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom:2.5rem;color:var(--charcoal-light);max-width:700px;">These are the narrative territories Modern Savage can authentically operate in. Each one represents a distinct problem that the product solves for a specific audience. Social strategy should build content pillars from these — each pillar educates on the problem, positions Modern Savage as the natural solution.</p>
+
+    <div class="grid-2">
+      <div>
+        <div class="pillar pillar-primary">
+          <div class="pillar-name">Primal and Ancestral Living</div>
+          <div class="pillar-theme">"Your body was built for this. Modern food forgot it."</div>
+          <div class="pillar-desc">The case for eating the whole animal. Organs as the original superfood. What happened when humans stopped eating like this. The ancestral baseline vs the modern synthetic default. This is the core territory — it sits at the brand's heart and should carry the most content weight.</div>
+        </div>
+        <div class="pillar pillar-primary">
+          <div class="pillar-name">Health and Wellness</div>
+          <div class="pillar-theme">"Vitality isn't a supplement category. It's what happens when you give your body real nutrition."</div>
+          <div class="pillar-desc">Micronutrient density of organs vs vegetables. Bioavailability of animal-sourced nutrients. Gut health (prebiotic + probiotic stack). Energy, strength, sleep, mental clarity. Evidence-based content that takes the science seriously without being dry.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-name">Provide and Protect</div>
+          <div class="pillar-theme">"Feed your family the way you were supposed to."</div>
+          <div class="pillar-desc">The duty to give children real nutrition from the start. The Kids Blend as an act of parental responsibility. "You wouldn't feed them synthetic vitamins if you knew there was a better option." Strongest angle for the Kids Blend specifically.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-name">Self-Reliance and Independence</div>
+          <div class="pillar-theme">"You don't need the pharmaceutical supply chain to be healthy."</div>
+          <div class="pillar-desc">Reclaiming nutrition from the synthetic supplement industry. Whole foods over manufactured compounds. The idea that the healthiest humans in history never needed a lab to tell them what to eat. Bear's field nutrition as proof.</div>
+        </div>
+      </div>
+      <div>
+        <div class="pillar">
+          <div class="pillar-name">Control and Autonomy</div>
+          <div class="pillar-theme">"You get to decide what goes in your body. Make it count."</div>
+          <div class="pillar-desc">Agency over your own nutrition. Rejecting the default modern diet. Reading labels and understanding what's actually in supplements. The informed consumer who refuses synthetic shortcuts. Connects strongly with the biohacker / health-optimiser segment.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-name">Family, Faith and Legacy</div>
+          <div class="pillar-theme">"What you feed your family is a statement about what you believe."</div>
+          <div class="pillar-desc">Values-driven nutrition. Building family health over generations. The Kids Blend as legacy thinking. Connects with the faith-adjacent, conservative-values audience that follows Bear — who is openly Christian and known for family-first values.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-name">Freedom from Broken Systems</div>
+          <div class="pillar-theme">"The supplement industry is broken. This is the alternative."</div>
+          <div class="pillar-desc">The case against synthetic vitamins. What the standard supplement industry doesn't tell you. Processed food as a system failure. The relief of finding something that is genuinely what it claims to be. Connects with the sceptic who has tried everything.</div>
+        </div>
+        <div class="card" style="margin-top:0.5rem;background:var(--cream);">
+          <div class="section-tag">Note for Social Strategy</div>
+          <p style="font-size:0.85rem;color:var(--charcoal-light);">These are not all equally weighted. <strong style="color:var(--charcoal);">Primal/ancestral</strong> and <strong style="color:var(--charcoal);">health/wellness</strong> are primary. The others are supporting angles that open the brand to different audience entry points. The strategy should never feel like it is selling the product — it should educate on the problems each territory addresses and let Modern Savage be the obvious solution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<section class="bg-cream" id="competitive">
+  <div class="container">
+    <div class="section-tag">Competitive Landscape</div>
+    <h2 class="section-heading">Where we sit in the market</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom:2rem;color:var(--charcoal-light);max-width:700px;">The ancestral health supplement market is growing fast — US market moving from $512M to $1.23B+ by 2030. The primary benchmark is Heart and Soil (Paul Saladino). Our opportunity: the same product quality, with Bear Grylls' reach behind it.</p>
+
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Founder</th>
+            <th>Price</th>
+            <th>Form</th>
+            <th>Reach</th>
+            <th>Revenue est.</th>
+            <th>Our edge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(43,74,63,0.04);">
+            <td class="highlight">Modern Savage</td>
+            <td>Bear + Jesse Grylls</td>
+            <td class="highlight">~$79</td>
+            <td>Powder</td>
+            <td>100M+ impressions/mo (Bear's social)</td>
+            <td>Launch Jul 2026</td>
+            <td class="highlight">Bear's authentic use + global reach + Kids SKU</td>
+          </tr>
+          <tr>
+            <td><strong>Heart and Soil</strong></td>
+            <td>Paul Saladino MD</td>
+            <td>$80/bag</td>
+            <td>Capsules</td>
+            <td>Carnivore community (large, loyal)</td>
+            <td>~$50M/yr</td>
+            <td>Our benchmark. Target: outsell in year 2.</td>
+          </tr>
+          <tr>
+            <td><strong>Lineage Provisions</strong></td>
+            <td>Paul Saladino</td>
+            <td>$80/bag</td>
+            <td>Powder</td>
+            <td>Saladino audience</td>
+            <td>Growing</td>
+            <td>We compete directly on form (powder vs powder)</td>
+          </tr>
+          <tr>
+            <td><strong>Ancestral Supplements</strong></td>
+            <td>Brian Johnson</td>
+            <td>~$45-65</td>
+            <td>Capsules</td>
+            <td>Strong US ancestral health following</td>
+            <td>Multi-million</td>
+            <td>Capsule vs powder — different experience</td>
+          </tr>
+          <tr>
+            <td><strong>Numan / Manual</strong></td>
+            <td>Various</td>
+            <td>Varies</td>
+            <td>Various</td>
+            <td>UK consumer health</td>
+            <td>Large</td>
+            <td>Not ancestral health — different category entirely</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:2rem;" class="grid-3">
+      <div class="card">
+        <h3>Our unfair advantage</h3>
+        <p>Bear Grylls has 100M+ impressions per month across social channels. No ancestral health brand has that kind of distribution. Heart and Soil built to $50M primarily through Saladino's podcast audience. Bear's reach is 10x larger across mainstream channels.</p>
+      </div>
+      <div class="card">
+        <h3>Our positioning gap</h3>
+        <p>The ancestral health market currently skews male, US, carnivore-adjacent. Modern Savage has a chance to make organ nutrition mainstream and family-friendly through the Kids Blend — something no competitor has done at scale.</p>
+      </div>
+      <div class="card">
+        <h3>What to avoid</h3>
+        <p>Do not position against Numan, Manual, or men's health clinic brands. That is a different category. Our competition is Heart and Soil, Lineage, and Ancestral Supplements. The category is ancestral/primal nutrition, not general wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH PLAN -->
+<section class="bg-forest" id="launch">
+  <div class="container">
+    <div class="section-tag">Launch Details</div>
+    <h2 class="section-heading" style="color:var(--cream);">July 2026 — UK and US simultaneously</h2>
+    <div class="divider"></div>
+
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <div class="timeline-item">
+          <div class="timeline-date" style="color:var(--earth);">Now–Jun</div>
+          <div class="timeline-content">
+            <h4 style="color:var(--cream);">Pre-launch build</h4>
+            <p>Social presence established. Influencer seeding underway. Brand voice locked. Content pipeline built. Community forming around ancestral nutrition content.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date" style="color:var(--earth);">Jul 2026</div>
+          <div class="timeline-content">
+            <h4 style="color:var(--cream);">Launch — UK + US simultaneous</h4>
+            <p>DTC website live in both markets. Bear posts. Seeded influencers post. PR push. Paid social activates. Goal: first 1,000 customers in launch window.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date" style="color:var(--earth);">Aug–Dec</div>
+          <div class="timeline-content">
+            <h4 style="color:var(--cream);">Scale and retention</h4>
+            <p>Autoship conversion focus. Creator programme expanding. Retail conversations begin (if DTC metrics warrant). Add-On Stack released if formulation finalised.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date" style="color:var(--earth);">2027</div>
+          <div class="timeline-content">
+            <h4 style="color:var(--cream);">Category leadership</h4>
+            <p>Outsell Heart and Soil in comparable markets. Brand recognised as the definitive primal nutrition brand. Family SKU (Kids Blend) driving household adoption.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-forest">
+          <div class="section-tag">Key launch facts</div>
+          <ul style="list-style:none;padding:0;">
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Launch markets:</strong> <span style="color:rgba(245,240,234,0.7);">UK and US simultaneously</span></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Launch month:</strong> <span style="color:rgba(245,240,234,0.7);">July 2026</span></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Route to market:</strong> <span style="color:rgba(245,240,234,0.7);">DTC first (own website)</span></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Primary channel:</strong> <span style="color:rgba(245,240,234,0.7);">Bear's social (Instagram, TikTok, YouTube)</span></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Influencer seeding:</strong> <span style="color:rgba(245,240,234,0.7);">50 curated names (list built)</span></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.875rem;"><strong style="color:var(--cream);">Cash to launch:</strong> <span style="color:rgba(245,240,234,0.7);">~$95-130K estimated</span></li>
+            <li style="padding:0.5rem 0;font-size:0.875rem;"><strong style="color:var(--cream);">SKUs at launch:</strong> <span style="color:rgba(245,240,234,0.7);">Adult Blend, Kids Blend, Add-On Stack (TBC)</span></li>
+          </ul>
+        </div>
+
+        <div class="card-forest" style="margin-top:1rem;">
+          <div class="section-tag">Influencer seeding priorities (Tier 1)</div>
+          <p style="font-size:0.85rem;margin-bottom:0.75rem;">These names have been pre-identified as highest-priority targets for pre-launch seeding. Full list of 50 available separately.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Andrew Huberman</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Joe Rogan</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Paul Saladino</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">David Goggins</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Jocko Willink</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Peter Attia</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Thomas DeLauer</span>
+            <span style="background:rgba(255,255,255,0.1);color:var(--cream);padding:0.25rem 0.6rem;border-radius:2px;font-size:0.75rem;">Lex Fridman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK REFERENCE -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-tag">Quick Reference</div>
+    <h2 class="section-heading">Everything in one place</h2>
+    <div class="divider"></div>
+
+    <div class="grid-4" style="margin-top:2rem;">
+      <div class="card">
+        <div class="section-tag">The product</div>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Primal organ blend powder</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">6 organs: Liver, Heart, Spleen, Kidney, Lung, Bison Liver</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Prebiotic + Probiotic blend</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Superfood + antioxidant stacks</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);">No synthetics, no fillers</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-tag">The audience</div>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Men 28-45 (primary)</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Health-conscious, ancestral health</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Parents (Kids Blend)</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Biohackers (Add-On Stack)</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);">Sceptical of synthetic supps</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-tag">The voice</div>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Direct and conviction-led</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Never sell — educate</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Fact-led, not hype-led</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Bear = proof, not endorser</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);">No wellness fluff</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-tag">The benchmark</div>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Heart and Soil ($50M/yr)</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Market: $512M growing to $1.23B</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Our advantage: Bear's reach</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.35rem;">Our gap: Family SKU (Kids)</li>
+          <li style="font-size:0.82rem;color:var(--charcoal-light);">Goal: outsell H&S year 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Modern Savage</strong> — Brand Information Deck for Social Strategy</p>
+  <p style="margin-top:0.5rem;">Prepared by Junior (BGV AI) — April 13, 2026 — Confidential. For Olly Westmacott / BGV internal use.</p>
+</footer>
+
+</body>
+</html>
