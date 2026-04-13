@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGV Activation Brief — Never Give Up Tour + Running Wild Launch Week</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0c0c14; color: #dde0e8; line-height: 1.6; }
+
+  .hero { background: linear-gradient(135deg, #0f0a02 0%, #2a1800 50%, #1a0f02 100%); padding: 56px 40px 48px; border-bottom: 2px solid #3a2200; }
+  .hero-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .hero h1 { font-size: 28px; font-weight: 900; color: #fff; line-height: 1.2; max-width: 560px; }
+  .hero h1 span { color: #ff9922; }
+  .hero-sub { font-size: 15px; color: #aa7733; margin-top: 12px; max-width: 560px; }
+  .urgency { background: #3a1a00; border: 1px solid #aa5500; border-radius: 8px; padding: 14px 18px; text-align: right; min-width: 160px; }
+  .urgency-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #aa6633; }
+  .urgency-days { font-size: 42px; font-weight: 900; color: #ff7722; line-height: 1; }
+  .urgency-text { font-size: 12px; color: #cc8844; margin-top: 2px; }
+
+  .timeline-strip { background: #1a1000; border-bottom: 1px solid #2a1800; padding: 16px 40px; display: flex; gap: 0; overflow-x: auto; }
+  .tl-event { display: flex; align-items: center; gap: 0; }
+  .tl-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .tl-dot.tour { background: #3a2200; border: 2px solid #ff9922; }
+  .tl-dot.premiere { background: #002a1a; border: 2px solid #44cc88; }
+  .tl-dot.today { background: #1a1a3a; border: 2px solid #5588ff; }
+  .tl-line { height: 2px; width: 60px; flex-shrink: 0; }
+  .tl-line.orange { background: linear-gradient(90deg, #ff9922, #ff9922); }
+  .tl-line.green { background: linear-gradient(90deg, #ff9922, #44cc88); }
+  .tl-info { position: relative; }
+  .tl-date { font-size: 11px; font-weight: 700; color: #888; }
+  .tl-label { font-size: 12px; font-weight: 700; color: #fff; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  .alert-box { background: #1a0f00; border: 1px solid #aa5500; border-left: 4px solid #ff7722; border-radius: 0 10px 10px 0; padding: 18px 20px; margin-bottom: 32px; }
+  .alert-box strong { color: #ff9922; }
+  .alert-box p { font-size: 14px; color: #cc9966; line-height: 1.6; }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #664422; margin-bottom: 8px; }
+  .section h2 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 18px; }
+
+  .event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .event-card { background: #141008; border: 1px solid #2a1800; border-radius: 10px; padding: 18px; }
+  .event-card .date { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ff9922; margin-bottom: 6px; }
+  .event-card .venue { font-size: 15px; font-weight: 700; color: #fff; }
+  .event-card .city { font-size: 13px; color: #886644; margin-top: 2px; }
+  .event-card .capacity { font-size: 12px; color: #665544; margin-top: 6px; }
+
+  .opportunity { background: #0f1a10; border: 1px solid #1e3020; border-radius: 10px; padding: 20px; margin-bottom: 14px; position: relative; }
+  .opp-priority { position: absolute; top: 12px; right: 14px; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 10px; }
+  .opp-priority.high { background: #3a1a00; color: #ff9922; }
+  .opp-priority.medium { background: #1a2a1a; color: #88cc44; }
+  .opp-priority.low { background: #1a1a2a; color: #7788aa; }
+  .opp-brand { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #44aa66; margin-bottom: 6px; }
+  .opportunity h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; padding-right: 80px; }
+  .opportunity p { font-size: 13px; color: #7a9a7a; line-height: 1.55; }
+  .opp-action { margin-top: 10px; font-size: 12px; color: #44aa66; font-weight: 600; }
+  .opp-action::before { content: "→ "; }
+
+  .content-ideas { list-style: none; }
+  .content-ideas li { padding: 10px 0; border-bottom: 1px solid #1a1a10; font-size: 13px; color: #8898aa; display: flex; gap: 10px; align-items: flex-start; }
+  .content-ideas li:last-child { border-bottom: none; }
+  .ci-platform { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 2px 7px; border-radius: 8px; flex-shrink: 0; margin-top: 2px; }
+  .ci-platform.ig { background: #2a1020; color: #cc44aa; }
+  .ci-platform.tw { background: #0a1a2a; color: #4488cc; }
+  .ci-platform.pr { background: #1a2a0a; color: #88cc44; }
+  .ci-platform.em { background: #2a1a0a; color: #cc8844; }
+
+  .window-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .window-table th { text-align: left; padding: 10px 12px; background: #141008; color: #886644; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a1800; }
+  .window-table td { padding: 12px; border-bottom: 1px solid #1a1000; vertical-align: top; }
+  .window-table tr:last-child td { border-bottom: none; }
+  .window-table .day-col { color: #ff9922; font-weight: 700; white-space: nowrap; }
+  .window-table .event-col { color: #fff; font-weight: 600; }
+  .window-table .action-col { color: #7a9a7a; }
+  .window-table .brand-col { font-size: 11px; color: #44aa66; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .stat { background: #141008; border: 1px solid #2a1800; border-radius: 10px; padding: 18px; text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 900; color: #ff9922; line-height: 1; }
+  .stat-label { font-size: 11px; color: #665544; margin-top: 4px; }
+
+  .bottom-line { background: linear-gradient(135deg, #0f1a0f 0%, #0f1520 100%); border: 1px solid #2a3a2a; border-radius: 12px; padding: 28px; margin-top: 40px; }
+  .bottom-line h3 { color: #66cc88; font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+  .bottom-line p { font-size: 14px; color: #7a9a7a; line-height: 1.65; }
+  .bottom-line ul { margin-top: 14px; list-style: none; }
+  .bottom-line ul li { padding: 5px 0; font-size: 13px; color: #8898aa; }
+  .bottom-line ul li::before { content: "✓ "; color: #44cc88; font-weight: 700; }
+
+  .footer { text-align: center; padding: 28px; font-size: 12px; color: #333; border-top: 1px solid #1a1010; }
+
+  @media (max-width: 600px) {
+    .hero-top { flex-direction: column; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 36px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-top">
+    <div>
+      <h1>BGV Activation Brief<br><span>Never Give Up Tour + Running Wild Launch</span></h1>
+      <div class="hero-sub">The biggest Bear Grylls media moment of 2026 Q2 is happening in the next 8 days. Two live events. A FOX premiere. One activation window. Here's how BGV captures it.</div>
+    </div>
+    <div class="urgency">
+      <div class="urgency-label">Days to Tour</div>
+      <div class="urgency-days">5</div>
+      <div class="urgency-text">Apr 18 — Glasgow</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-strip">
+  <div class="tl-event">
+    <div>
+      <div class="tl-date">TODAY</div>
+      <div class="tl-label" style="color:#5588ff">Apr 13</div>
+    </div>
+    <div class="tl-line orange" style="margin: 0 16px;"></div>
+    <div>
+      <div class="tl-date">TOUR NIGHT 1</div>
+      <div class="tl-label" style="color:#ff9922">Apr 18 · Glasgow</div>
+    </div>
+    <div class="tl-line orange" style="margin: 0 16px;"></div>
+    <div>
+      <div class="tl-date">TOUR NIGHT 2</div>
+      <div class="tl-label" style="color:#ff9922">Apr 19 · Aylesbury + Bath</div>
+    </div>
+    <div class="tl-line green" style="margin: 0 16px;"></div>
+    <div>
+      <div class="tl-date">FOX PREMIERE</div>
+      <div class="tl-label" style="color:#44cc88">Apr 21 · Running Wild S9</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="alert-box">
+    <p><strong>Why this week matters:</strong> The Never Give Up live tour (Apr 18-19) and Running Wild S9 FOX premiere (Apr 21) are happening within 72 hours of each other. Bear Grylls will be at peak public visibility — UK live audiences + US television simultaneously. This is a coordinated media moment that BGV has not had since the show-tour combination was announced. The activation window opens now and closes April 28.</p>
+  </div>
+
+  <!-- SCALE -->
+  <div class="section">
+    <div class="section-label">Event Scale</div>
+    <h2>What We're Working With</h2>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">~6K</div>
+        <div class="stat-label">Live audience<br>Apr 18-19</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8M+</div>
+        <div class="stat-label">Bear's Instagram<br>followers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Days between<br>tour & FOX premiere</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">A-list celebrity<br>guests on S9</div>
+      </div>
+    </div>
+
+    <div class="event-grid">
+      <div class="event-card">
+        <div class="date">Apr 18 · Night 1</div>
+        <div class="venue">SEC Armadillo</div>
+        <div class="city">Glasgow, Scotland</div>
+        <div class="capacity">3,000 seats</div>
+      </div>
+      <div class="event-card">
+        <div class="date">Apr 19 · Night 2</div>
+        <div class="venue">Waterside Theatre</div>
+        <div class="city">Aylesbury, England</div>
+        <div class="capacity">~1,200 seats · 2pm show</div>
+      </div>
+      <div class="event-card">
+        <div class="date">Apr 19 · Night 2</div>
+        <div class="venue">The Forum Bath</div>
+        <div class="city">Bath, Somerset</div>
+        <div class="capacity">1,640 seats</div>
+      </div>
+      <div class="event-card">
+        <div class="date">Apr 21 · FOX Premiere</div>
+        <div class="venue">Running Wild S9</div>
+        <div class="city">FOX (US) · 9pm ET/PT</div>
+        <div class="capacity">Matthew McConaughey, Uma Thurman + 6 more</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:#665544;">Show format: 1hr 50min live theatrical experience. Family audience 8+. Tickets £41-72. Storytelling, unseen footage, SAS/Everest/survival narrative. Tour runs broader UK through May — these are the upcoming London-area dates.</p>
+  </div>
+
+  <!-- OPPORTUNITIES -->
+  <div class="section">
+    <div class="section-label">Activation Playbook</div>
+    <h2>What BGV Should Do This Week</h2>
+
+    <div class="opportunity">
+      <div class="opp-priority high">High · Do Now</div>
+      <div class="opp-brand">Modern Savage</div>
+      <h4>Launch a "Never Give Up" product moment on social</h4>
+      <p>Bear is literally on stage this week telling his survival story. Modern Savage (bison organ supplements, "built for the wild") is perfectly positioned. A 3-post content series timed Apr 17-21: the story behind the brand + Bear's message + "fuel the adventure" CTA. This is the authentic alignment moment the brand was designed for.</p>
+      <div class="opp-action">Bear Witness or Jesse's team creates 3 posts. Go live Apr 17 (day before tour). Link to Modern Savage product page.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority high">High · Do Now</div>
+      <div class="opp-brand">BGV / Bear Brand</div>
+      <h4>Cross-promote tour → FOX premiere in Bear's social</h4>
+      <p>Bear's 8M Instagram followers. The tour wraps Apr 19. Running Wild premieres Apr 21. A single post from Bear's account — "came off stage in Glasgow and now the show hits FOX" — is a natural authentic moment that links both events and drives US viewers. The timing writes itself.</p>
+      <div class="opp-action">Draft the Instagram caption for Bear's team now. Needs 48hrs lead time for approval. Simple: tour photo + premiere date + FOX link.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority high">High · This Week</div>
+      <div class="opp-brand">Running Wild / FOX</div>
+      <h4>UK press angle: Bear tours UK, premieres on FOX days later</h4>
+      <p>No UK outlet has picked up the tour + FOX premiere double story yet. The angle: "Bear Grylls brings Never Give Up to UK stages this weekend, then takes it to FOX America on Monday." This is a genuine dual-market story — UK tour audience + US TV premiere. The Guardian, Daily Mail, Evening Standard are all natural targets.</p>
+      <div class="opp-action">One-paragraph press note to UK entertainment desks. Embargoed for Apr 19 (post-tour). Junior drafts, CJ approves, send Monday Apr 14.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority medium">Medium · Apr 17-21</div>
+      <div class="opp-brand">Modern Savage</div>
+      <h4>Run a "Never Give Up" limited offer</h4>
+      <p>Time-limited discount or bundle tied to the week: "The week Bear takes the stage — 15% off your first order." No new products needed, just a promo code. Drives first-time conversion from the social spike. Tour audiences and FOX premiere viewers are high-intent buyers of performance supplements.</p>
+      <div class="opp-action">Promo code NGU2026, 15% off, Apr 17-24. One email to Modern Savage list. One Instagram story.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority medium">Medium · Apr 18-19</div>
+      <div class="opp-brand">Bear Witness</div>
+      <h4>Live social coverage of tour nights</h4>
+      <p>Someone is at the shows (or can be). Instagram stories and a post-show reel are the minimum. The content doesn't need to be polished — raw backstage/crowd/reaction footage performs better. Bear Witness runs BGV's social — they should own this live content moment and feed it across all brand channels.</p>
+      <div class="opp-action">Olly + Bear Witness team to confirm on-the-ground coverage plan for Glasgow Apr 18. Content brief: 5 stories + 1 reel per night.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority medium">Medium · Apr 21</div>
+      <div class="opp-brand">Ted's Health</div>
+      <h4>Running Wild premiere push for TRT audience</h4>
+      <p>Running Wild S9 FOX audience skews male 30-55 — exactly Ted's Health's target demographic. A premiere-week push ("Bear's back on FOX — are you performing at his level?") with a Ted's Health CTA is well-timed. Matt McConaughey as a guest is a bonus amplifier for the US audience.</p>
+      <div class="opp-action">One email or SMS to Ted's Health list Apr 21. One paid social ad targeting FOX viewers demographic (male 30-55, US + UK). Olly to approve copy.</div>
+    </div>
+
+    <div class="opportunity">
+      <div class="opp-priority low">Monitor · Apr 21-28</div>
+      <div class="opp-brand">All Brands</div>
+      <h4>Track and react to premiere audience response</h4>
+      <p>The brand monitor will flag if Running Wild S9 gets strong ratings or viral moments (Matt McConaughey or Uma Thurman clips tend to spread). If the premiere gets strong press, doubling down with brand content in days 2-4 of the premiere week captures the second wave.</p>
+      <div class="opp-action">Brand monitor running daily. HAL alerts CJ. Nexus alerts Felix. React within 24hrs of any viral moment.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT IDEAS -->
+  <div class="section">
+    <div class="section-label">Content Calendar</div>
+    <h2>Post-by-Post: Apr 14-21</h2>
+    <ul class="content-ideas">
+      <li>
+        <span class="ci-platform em">EMAIL</span>
+        <div><strong style="color:#fff;">Apr 14 — UK press note</strong><br>Junior drafts one-paragraph double story to UK entertainment desks: tour + FOX premiere. Bear Grylls' biggest week of the year. Embargo Apr 19.</div>
+      </li>
+      <li>
+        <span class="ci-platform ig">IG</span>
+        <div><strong style="color:#fff;">Apr 17 — Modern Savage organic post</strong><br>"Built for this. This week Bear takes the stage. We fuel the story." Product shot. Never Give Up promo code in bio.</div>
+      </li>
+      <li>
+        <span class="ci-platform ig">IG</span>
+        <div><strong style="color:#fff;">Apr 18 — Tour Night 1 live stories (Glasgow)</strong><br>Bear Witness team. 5 stories: pre-show, crowd, one Bear clip if available, atmosphere, post-show crowd energy.</div>
+      </li>
+      <li>
+        <span class="ci-platform ig">IG</span>
+        <div><strong style="color:#fff;">Apr 19 — Tour recap reel</strong><br>30-60 second reel: best moments from Glasgow. Post before Aylesbury/Bath shows go live. Feeds momentum.</div>
+      </li>
+      <li>
+        <span class="ci-platform ig">IG</span>
+        <div><strong style="color:#fff;">Apr 20 (Sunday) — Bear's FOX teaser post</strong><br>"Just came off stage in Glasgow. Running Wild hits FOX tomorrow." This is the link post. Bear's account. 8M reach.</div>
+      </li>
+      <li>
+        <span class="ci-platform tw">FOX</span>
+        <div><strong style="color:#fff;">Apr 21 — Running Wild S9 premiere day</strong><br>Ted's Health email blast to UK list. Modern Savage story. All agents monitoring for press and social buzz.</div>
+      </li>
+      <li>
+        <span class="ci-platform em">EMAIL</span>
+        <div><strong style="color:#fff;">Apr 22 — Day-after debrief email to BGV team</strong><br>HAL sends CJ a quick brief: premiere ratings (if available), social buzz score, what landed, what to amplify.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- DAY-BY-DAY TABLE -->
+  <div class="section">
+    <div class="section-label">Execution Timeline</div>
+    <h2>Day-by-Day Actions</h2>
+    <table class="window-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Action</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-col">Apr 13 (today)</td>
+          <td class="event-col">Brief shared</td>
+          <td class="action-col">Share this brief with Jesse and CJ. Assign owners. Confirm Bear Witness attendance at Glasgow.</td>
+          <td class="brand-col">Felix / Jesse</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 14 (Mon)</td>
+          <td class="event-col">Press outreach</td>
+          <td class="action-col">Junior drafts tour + FOX premiere press note. Send to UK entertainment desks with Apr 19 embargo.</td>
+          <td class="brand-col">Junior / CJ</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 15-16</td>
+          <td class="event-col">Content prep</td>
+          <td class="action-col">Modern Savage "Never Give Up" post series drafted. Ted's Health premiere push drafted. Promo codes set up.</td>
+          <td class="brand-col">Bear Witness / Olly</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 17 (Thu)</td>
+          <td class="event-col">Launch window opens</td>
+          <td class="action-col">Modern Savage IG post #1. NGU2026 promo code goes live. Bear team briefed on Apr 20 post.</td>
+          <td class="brand-col">Bear Witness</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 18 (Fri)</td>
+          <td class="event-col">Tour Night 1 — Glasgow</td>
+          <td class="action-col">Live stories coverage. Modern Savage post #2. Brand monitor flagging any press pickup.</td>
+          <td class="brand-col">Bear Witness / HAL</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 19 (Sat)</td>
+          <td class="event-col">Tour Night 2 — Aylesbury/Bath</td>
+          <td class="action-col">Tour recap reel posted. Press note embargo lifts. Modern Savage post #3.</td>
+          <td class="brand-col">Bear Witness</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 20 (Sun)</td>
+          <td class="event-col">Pre-premiere</td>
+          <td class="action-col">Bear's "tour → FOX" post on Instagram. Ted's Health email scheduled for 9am ET Monday.</td>
+          <td class="brand-col">Jesse / Olly</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 21 (Mon)</td>
+          <td class="event-col">Running Wild S9 Premiere — FOX 9pm ET</td>
+          <td class="action-col">Ted's Health blast. All agents monitoring buzz. HAL morning brief includes premiere intel.</td>
+          <td class="brand-col">All agents</td>
+        </tr>
+        <tr>
+          <td class="day-col">Apr 22-28</td>
+          <td class="event-col">Premiere week</td>
+          <td class="action-col">React to ratings/viral moments within 24hrs. Second-wave content if any clip goes viral.</td>
+          <td class="brand-col">HAL / Nexus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="bottom-line">
+    <h3>The opportunity in plain terms</h3>
+    <p>Bear Grylls will be in front of ~6,000 live UK audience members and millions of US FOX viewers within 72 hours of each other. The BGV portfolio has three brands that are directly relevant: Modern Savage (the adventure supplement brand), Ted's Health (targeting the Running Wild male demographic), and Bear Witness (who should own the live content). This alignment happens once — the window closes April 28.</p>
+    <ul>
+      <li>This brief was built by Nexus overnight — not requested, because no one had connected these dots yet</li>
+      <li>Most of the content ideas above are 1-2 hours of work, not weeks</li>
+      <li>The press angle (tour + FOX double story) is genuinely novel and likely to get pickup</li>
+      <li>HAL and the brand monitor will track outcomes automatically all week</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">Built by Nexus 🔗 overnight · BGV Internal · April 13, 2026 · Not requested — spotted as an unactivated window</div>
+
+</body>
+</html>
