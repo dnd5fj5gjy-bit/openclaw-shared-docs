@@ -103,33 +103,34 @@
 
 ## Modern Savage
 
-**Core mission:** Give your body what it was built to run on. Real organs. Real nutrients. No filler, no pretence.
+**Core mission:** Everything your family needs in one scoop. Whole-animal organ nutrition — no synthetics, no guesswork, nothing invented in a lab.
 
-**Business description:** Modern Savage is a primal nutrition brand built around the conviction that the most powerful supplements aren't synthetic — they're the ones humans have eaten for centuries. Our organ blend powders put liver, heart, spleen, kidney and lung back into the modern diet, alongside a prebiotic/probiotic complex and a superfood antioxidant stack. Backed by Bear Grylls. Made for people who take their health seriously without turning it into a performance.
+**Business description:** Modern Savage is a whole-food nutrition brand built around a simple conviction: real food outperforms synthetic supplements every time. Our organ blend powders give families everything they need in one daily scoop - the nutrition humans ate for thousands of years before the supplement industry invented a synthetic substitute. This is family nutrition done properly. Not a niche brand for biohackers. Not a male performance product. One product that replaces the shelf of synthetic supplements most families are guessing at. Backed by Bear Grylls as a genuine daily user. Made for people who want to eat properly without turning it into a full-time job.
 
-**Audience:** Men 25-45. Health-conscious but not trend-driven. Drawn to ancestral health, clean eating, and evidence-based biohacking. Trained by Huberman, Saladino, Goggins. Want real results, not branding. Parents buying the Kids Blend value quality over convenience.
+**Audience:** Families and health-conscious adults who want whole-food nutrition without the complexity. The primary buyer is anyone — any gender, 25-50 — who is fed up with synthetic supplements and wants one clean, real-food product that covers the bases. Parents buying the Kids Blend value clean ingredients and whole-food sourcing over gummy vitamins and synthetic fillers.
 
-**Tone:** Direct. Conviction-led. Quietly intense. No hype, no wellness fluff. The product is the argument — just state the facts and let them land. Not aggressive. Not preachy. Like a man who's done the research and moved on.
+**Tone:** Direct. Conviction-led. Warmly grounded. No hype, no wellness fluff. The product is the argument — state the facts and let them land. Not aggressive. Not preachy. Like someone who's done the research, made the change, and isn't going back.
 
-**What we never sound like:** Supplement brand bro energy. "Unlock your potential." Hashtag wellness. Vague ingredient claims. Fear-based marketing.
+**What we never sound like:** Supplement bro energy. Biohacker tribe speak. "Unlock your potential." Hashtag wellness. Vague ingredient claims. Fear-based marketing. Male-only framing.
 
 **Brand voice principles:**
 - Lead with substance. The formula is genuinely impressive — let it speak.
-- Ancestral credibility without tribal gatekeeping. This is for everyone who wants to eat better.
+- Whole-food credibility without tribal gatekeeping. This is for every family that wants to eat better.
 - Bear Grylls is proof of concept, not a celebrity endorsement. He lives this.
+- The "all in one" convenience angle is a genuine point of difference — lean into it.
 - Kids Blend: same conviction, warmer tone. Parents want reassurance and clean ingredients — give them both.
 
 **Key messages:**
-1. Your ancestors didn't take supplements. They ate the whole animal. That's where the nutrition was.
-2. Liver, heart, spleen, kidney, lung — every organ in this blend has a specific function for your body. We put them all in one scoop.
-3. No synthetics. No fillers. A prebiotic, a probiotic, and a superfood stack — built around the organs.
+1. Everything your family needs in one scoop. Stop guessing. One daily powder covers more ground than a shelf of synthetic supplements.
+2. Whole food, not chemistry. Liver, heart, spleen, kidney, lung — real organs from real animals, not synthetic vitamins manufactured in a lab. Your body knows the difference.
+3. No synthetics. No fillers. A prebiotic, a probiotic, and a superfood antioxidant stack — all built around the organ blend. Nothing artificial.
 4. Bear's been doing this for 30 years in the wild. Modern Savage is what he actually eats.
-5. The Kids Blend is the same philosophy — organ nutrition from birth, not just for adults.
+5. The Kids Blend is the same philosophy — organ nutrition for children, built for families who want one honest product that covers the whole household.
 
 **3 example posts (Adult):**
-1. "Your gut needs bacteria it can use. Your cells need organs they recognise. That's the whole formula."
+1. "Most families have 8 different supplements on the counter and gaps in all of them. One scoop of whole-animal nutrition covers more ground than all of them combined."
 2. "Most supplements are molecules isolated from nature. This one is nature. Liver. Heart. Spleen. Kidney. Lung."
-3. "Bear didn't build 30 years of endurance on protein powder. This is what actually works."
+3. "Your great-grandparents didn't have a supplement shelf. They had a whole animal. That's where the nutrition was."
 
 **3 example posts (Kids):**
 1. "Kids don't need gummy vitamins. They need the same nutrition they'd get from a well-fed family in the 1800s. That's what this is."
