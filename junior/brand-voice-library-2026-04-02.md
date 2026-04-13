@@ -142,3 +142,4 @@
 - It should be treated as a working reference before writing for these brands.
 - Jesse should correct anything that feels off, overcooked, or too generic.
 - Modern Savage brand voice added Apr 13 2026 — updated with confirmed ACF Pharma formula (organ blend, prebiotic/probiotic, superfood stack, Kids colostrum).
+- Modern Savage audience CORRECTED Apr 13 2026 — Jesse: not male/biohacker/performance. Repositioned as family nutrition, whole-food for everyone, "all your supplements in one."
