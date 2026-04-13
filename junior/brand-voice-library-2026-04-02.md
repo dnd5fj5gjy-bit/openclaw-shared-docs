@@ -101,7 +101,43 @@
 2. "Time is precious. Admin shouldn't take the wheel."
 3. "Keep the moving parts moving."
 
+## Modern Savage
+
+**Core mission:** Give your body what it was built to run on. Real organs. Real nutrients. No filler, no pretence.
+
+**Business description:** Modern Savage is a primal nutrition brand built around the conviction that the most powerful supplements aren't synthetic — they're the ones humans have eaten for centuries. Our organ blend powders put liver, heart, spleen, kidney and lung back into the modern diet, alongside a prebiotic/probiotic complex and a superfood antioxidant stack. Backed by Bear Grylls. Made for people who take their health seriously without turning it into a performance.
+
+**Audience:** Men 25-45. Health-conscious but not trend-driven. Drawn to ancestral health, clean eating, and evidence-based biohacking. Trained by Huberman, Saladino, Goggins. Want real results, not branding. Parents buying the Kids Blend value quality over convenience.
+
+**Tone:** Direct. Conviction-led. Quietly intense. No hype, no wellness fluff. The product is the argument — just state the facts and let them land. Not aggressive. Not preachy. Like a man who's done the research and moved on.
+
+**What we never sound like:** Supplement brand bro energy. "Unlock your potential." Hashtag wellness. Vague ingredient claims. Fear-based marketing.
+
+**Brand voice principles:**
+- Lead with substance. The formula is genuinely impressive — let it speak.
+- Ancestral credibility without tribal gatekeeping. This is for everyone who wants to eat better.
+- Bear Grylls is proof of concept, not a celebrity endorsement. He lives this.
+- Kids Blend: same conviction, warmer tone. Parents want reassurance and clean ingredients — give them both.
+
+**Key messages:**
+1. Your ancestors didn't take supplements. They ate the whole animal. That's where the nutrition was.
+2. Liver, heart, spleen, kidney, lung — every organ in this blend has a specific function for your body. We put them all in one scoop.
+3. No synthetics. No fillers. A prebiotic, a probiotic, and a superfood stack — built around the organs.
+4. Bear's been doing this for 30 years in the wild. Modern Savage is what he actually eats.
+5. The Kids Blend is the same philosophy — organ nutrition from birth, not just for adults.
+
+**3 example posts (Adult):**
+1. "Your gut needs bacteria it can use. Your cells need organs they recognise. That's the whole formula."
+2. "Most supplements are molecules isolated from nature. This one is nature. Liver. Heart. Spleen. Kidney. Lung."
+3. "Bear didn't build 30 years of endurance on protein powder. This is what actually works."
+
+**3 example posts (Kids):**
+1. "Kids don't need gummy vitamins. They need the same nutrition they'd get from a well-fed family in the 1800s. That's what this is."
+2. "Colostrum, organ blend, probiotics. The whole stack. One scoop."
+3. "You put effort into what they eat. This is what the research says they're missing."
+
 ## Notes
 - This is a first-pass draft built from accessible mailbox context and known brand themes.
 - It should be treated as a working reference before writing for these brands.
 - Jesse should correct anything that feels off, overcooked, or too generic.
+- Modern Savage brand voice added Apr 13 2026 — updated with confirmed ACF Pharma formula (organ blend, prebiotic/probiotic, superfood stack, Kids colostrum).
