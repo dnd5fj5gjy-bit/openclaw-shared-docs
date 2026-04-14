@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Buzzbassador Bulk Affiliate Link Generator</title>
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; padding: 32px; max-width: 860px; color: #222; line-height: 1.6; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  h3 { font-size: 14px; margin-top: 20px; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 12px; margin-bottom: 28px; }
+  .highlight { background: #f0f7ff; border-left: 4px solid #2980b9; padding: 12px 16px; margin: 16px 0; border-radius: 2px; }
+  .warn { background: #fff8e1; border-left: 4px solid #f39c12; padding: 12px 16px; margin: 16px 0; border-radius: 2px; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 12px; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 12px; line-height: 1.5; }
+  pre .comment { color: #6a9955; }
+  pre .str { color: #ce9178; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #f0f0f0; padding: 8px 10px; text-align: left; font-size: 12px; border: 1px solid #ddd; }
+  td { padding: 7px 10px; border: 1px solid #eee; font-size: 12px; vertical-align: top; }
+  tr:nth-child(even) { background: #fafafa; }
+  .tag { display: inline-block; background: #e8f5e9; color: #2e7d32; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.time { background: #e3f2fd; color: #1565c0; }
+  .tag.note { background: #fce4ec; color: #880e4f; }
+  .speed { font-size: 28px; font-weight: bold; color: #2e7d32; }
+  .vs { font-size: 13px; color: #888; margin: 0 8px; }
+  .slow { font-size: 20px; color: #c62828; }
+  .cmd-line { font-family: monospace; background: #1e1e1e; color: #d4d4d4; padding: 10px 14px; border-radius: 4px; font-size: 12px; display: block; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>Buzzbassador Bulk Affiliate Link Generator</h1>
+<p class="subtitle">Built by Nexus · April 2026 · Tool: <code>workspace/tools/buzzbassador_gen.js</code></p>
+
+<div class="highlight">
+  <strong>What this does:</strong> Turns any list of product URLs into affiliate links — in seconds, not minutes.
+  One browser login to extract your account token, then all links are built locally without clicking through the UI per product.
+</div>
+
+<h2>The Problem It Solves</h2>
+
+<p>The Buzzbassador Direct Product Link Generator is a one-at-a-time UI tool. For 79 Fat and the Moon products, that meant:</p>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th>Time (79 products)</th>
+    <th>Error risk</th>
+  </tr>
+  <tr>
+    <td>Manual UI (paste → generate → copy, repeat)</td>
+    <td class="slow">~8–12 minutes</td>
+    <td>High — easy to miss one or copy wrong</td>
+  </tr>
+  <tr>
+    <td><strong>This tool (bulk)</strong></td>
+    <td><strong class="speed">~20 seconds</strong></td>
+    <td>Zero — deterministic from URL list</td>
+  </tr>
+</table>
+
+<p>More importantly: the next time Sister Directory onboards a new brand with 50+ products, this is already done.</p>
+
+<h2>How It Works</h2>
+
+<p>The affiliate link format is deterministic once you know three account-specific values:</p>
+<ul>
+  <li><strong>Shopify domain</strong> — e.g. <code>fat-the-moon.myshopify.com</code></li>
+  <li><strong>Discount code</strong> — e.g. <code>SISTER</code></li>
+  <li><strong>buzz_ref token</strong> — e.g. <code>50361849673VztU</code> (tied to your member account)</li>
+</ul>
+
+<p>The tool extracts these by logging in once and generating a single test link. After that, all 79+ links are constructed locally:</p>
+
+<pre>https://{shopify_domain}/discount/{CODE}?buzz_ref={TOKEN}&amp;redirect={product_path}</pre>
+
+<p>Variant parameters (e.g. <code>?variant=39591943143459</code>) are automatically stripped — same behaviour as the UI generator.</p>
+
+<h2>Quick Start</h2>
+
+<h3>Step 1 — Prepare your URL list</h3>
+<p>Create a plain text file with one URL per line. Names are optional but nice:</p>
+<pre>Acid Base https://www.fatandthemoon.com/collections/first-aid-1/products/acid-base
+All Cream https://www.fatandthemoon.com/collections/masks-of-the-god-dess/products/all-cream
+Deodorant Cream https://www.fatandthemoon.com/collections/deo/products/deodorant-cream?variant=19566024515</pre>
+
+<h3>Step 2 — Run (first time — logs in, caches token)</h3>
+<span class="cmd-line">node ~/agents/nexus/workspace/tools/buzzbassador_gen.js --email EMAIL --password PW --urls-file urls.txt --format csv &gt; output.csv</span>
+
+<h3>Step 3 — Run again (no login needed — uses cached token)</h3>
+<span class="cmd-line">node ~/agents/nexus/workspace/tools/buzzbassador_gen.js --email EMAIL --password PW --use-cached-token --urls-file urls.txt --format csv &gt; output.csv</span>
+
+<h2>Output Formats</h2>
+
+<table>
+  <tr><th>Format</th><th>Flag</th><th>Best for</th></tr>
+  <tr><td>Tab-separated (default)</td><td><code>--format text</code></td><td>Quick terminal view, piping</td></tr>
+  <tr><td>CSV</td><td><code>--format csv</code></td><td>Paste into Google Sheets / Excel</td></tr>
+  <tr><td>JSON</td><td><code>--format json</code></td><td>Programmatic use, other tools</td></tr>
+</table>
+
+<h2>All Options</h2>
+
+<table>
+  <tr><th>Flag</th><th>Description</th></tr>
+  <tr><td><code>--email EMAIL</code></td><td>Buzzbassador member email (required)</td></tr>
+  <tr><td><code>--password PW</code></td><td>Buzzbassador password (required)</td></tr>
+  <tr><td><code>--urls-file FILE</code></td><td>Text file with URLs (or pipe via stdin)</td></tr>
+  <tr><td><code>--format text|csv|json</code></td><td>Output format (default: text)</td></tr>
+  <tr><td><code>--use-cached-token</code></td><td>Skip login, use saved token — faster on repeat runs</td></tr>
+  <tr><td><code>--no-cache</code></td><td>Don't read or write the token cache</td></tr>
+  <tr><td><code>--test-url URL</code></td><td>Product URL used for token extraction (any valid URL for the brand works)</td></tr>
+</table>
+
+<p>Token cache stored at: <code>~/.buzzbassador_token_cache.json</code></p>
+
+<h2>Fat &amp; Moon — Saved Credentials</h2>
+
+<div class="warn">
+  <strong>Token already cached</strong> for the Sister Directory / Ruby account (<code>Ruby@sisterdirectory.com</code>).
+  For future Fat and the Moon runs, use <code>--use-cached-token</code> to skip the browser entirely.
+</div>
+
+<table>
+  <tr><th>Field</th><th>Value</th></tr>
+  <tr><td>Account email</td><td>Ruby@sisterdirectory.com</td></tr>
+  <tr><td>Discount code</td><td>SISTER</td></tr>
+  <tr><td>Shopify domain</td><td>fat-the-moon.myshopify.com</td></tr>
+  <tr><td>buzz_ref token</td><td>50361849673VztU</td></tr>
+  <tr><td>Cache file</td><td><code>~/.buzzbassador_token_cache.json</code></td></tr>
+</table>
+
+<h2>Using With a New Brand</h2>
+
+<p>Each Buzzbassador member account has its own <code>buzz_ref</code> token and discount code. To onboard a new brand:</p>
+<ol>
+  <li>Get the brand's Buzzbassador member login credentials</li>
+  <li>Use <code>--no-cache</code> (or delete the cache file) so it logs in fresh</li>
+  <li>Provide a <code>--test-url</code> that's a valid product URL for that brand's store</li>
+  <li>The tool extracts the new account's token and generates all links</li>
+</ol>
+
+<span class="cmd-line">node ~/agents/nexus/workspace/tools/buzzbassador_gen.js --email newbrand@email.com --password PW --no-cache --test-url https://newbrand.com/products/any-product --urls-file newbrand_urls.txt --format csv</span>
+
+<h2>Nexus Can Run This</h2>
+
+<p>Just send Nexus:</p>
+<ul>
+  <li>The Buzzbassador login for the brand</li>
+  <li>A list of product URLs (copy-paste from Shopify, a spreadsheet, or the brand's site)</li>
+</ul>
+<p>Nexus will run the tool and send back a PDF + CSV with all affiliate links. No clicking required.</p>
+
+<hr style="margin: 32px 0; border: none; border-top: 1px solid #eee;">
+<p style="color: #999; font-size: 11px;">Generated by Nexus · workspace/tools/buzzbassador_gen.js · Playwright (Chromium headless)</p>
+
+</body>
+</html>
