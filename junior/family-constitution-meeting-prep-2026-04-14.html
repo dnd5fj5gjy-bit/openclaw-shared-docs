@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Constitution — Meeting Prep | Jesse Grylls</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1410;
+    --ink-mid: #4A3F35;
+    --ink-light: #7A6E65;
+    --cream: #F8F4EE;
+    --cream-dark: #EDE5D8;
+    --sand: #D9CFC0;
+    --gold: #8B6914;
+    --gold-light: #C49A28;
+    --gold-bg: #FAF3E0;
+    --forest: #2B4A3F;
+    --forest-bg: #E8F0ED;
+    --red: #8B2020;
+    --red-bg: #FAE8E8;
+    --white: #FDFAF6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1A0E06 0%, #2D1A0A 50%, #3D2410 100%);
+    padding: 48px 48px 40px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(140,105,20,0.15) 0%, transparent 60%);
+  }
+  .header-tag {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-light); font-weight: 600; margin-bottom: 1rem; position: relative;
+  }
+  .header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem); color: var(--cream);
+    line-height: 1.1; margin-bottom: 0.75rem; position: relative;
+  }
+  .header h1 em { color: var(--gold-light); font-style: italic; }
+  .header-sub {
+    font-size: 0.95rem; color: rgba(248,244,238,0.55);
+    max-width: 600px; position: relative;
+  }
+  .header-meta {
+    display: flex; gap: 2.5rem; margin-top: 2rem;
+    position: relative; flex-wrap: wrap;
+  }
+  .meta-item { }
+  .meta-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,244,238,0.35); margin-bottom: 0.2rem; }
+  .meta-val { font-size: 0.9rem; color: rgba(248,244,238,0.75); font-weight: 500; }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--cream-dark); }
+  section:last-child { border-bottom: none; }
+
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 0.75rem;
+  }
+  .section-heading {
+    font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1rem; line-height: 1.15;
+  }
+  .divider { width: 48px; height: 2px; background: var(--gold); margin: 1rem 0 1.75rem; }
+
+  /* GRIDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .header { padding: 32px 24px; }
+    .container { padding: 0 20px; }
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--white); border-radius: 6px;
+    padding: 1.5rem; border: 1px solid var(--sand);
+  }
+  .card h3 { font-size: 1rem; margin-bottom: 0.6rem; color: var(--ink); }
+  .card p, .card li { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.65; }
+  .card ul { padding-left: 1.1rem; }
+  .card li { margin-bottom: 0.35rem; }
+
+  .card-gold { background: var(--gold-bg); border-color: rgba(140,105,20,0.2); }
+  .card-forest { background: var(--forest-bg); border-color: rgba(43,74,63,0.2); }
+  .card-alert { background: var(--red-bg); border-color: rgba(139,32,32,0.2); }
+
+  /* QUESTION BLOCKS */
+  .q-block {
+    border-left: 3px solid var(--gold); padding: 1rem 1.25rem;
+    background: var(--white); border-radius: 0 6px 6px 0;
+    margin-bottom: 0.85rem;
+  }
+  .q-block strong { font-size: 0.875rem; color: var(--ink); display: block; margin-bottom: 0.25rem; font-weight: 600; }
+  .q-block p { font-size: 0.825rem; color: var(--ink-mid); line-height: 1.55; }
+
+  .q-block-forest { border-left-color: var(--forest); }
+  .q-block-red { border-left-color: var(--red); }
+
+  /* SECTION ITEMS */
+  .topic-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--cream-dark);
+  }
+  .topic-item:last-child { border-bottom: none; }
+  .topic-num {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: var(--gold); min-width: 2rem; line-height: 1;
+    padding-top: 0.15rem;
+  }
+  .topic-body h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; font-family: 'Outfit', sans-serif; }
+  .topic-body p { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.55; }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    line-height: 1.45; color: var(--ink); font-style: italic;
+    border-left: 3px solid var(--gold); padding-left: 1.5rem;
+    max-width: 750px; margin: 2rem 0;
+  }
+
+  /* STATUS PILLS */
+  .pill {
+    display: inline-block; font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem;
+    border-radius: 3px; margin-left: 0.5rem; vertical-align: middle;
+  }
+  .pill-open { background: var(--gold-bg); color: var(--gold); }
+  .pill-review { background: var(--forest-bg); color: var(--forest); }
+  .pill-pending { background: var(--red-bg); color: var(--red); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); color: rgba(248,244,238,0.4);
+    padding: 2rem 2rem; text-align: center; font-size: 0.78rem;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* AGENDA TABLE */
+  .agenda { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .agenda th { background: var(--ink); color: var(--cream); padding: 0.65rem 1rem; text-align: left; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.05em; }
+  .agenda td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--cream-dark); color: var(--ink-mid); vertical-align: top; }
+  .agenda tr:last-child td { border-bottom: none; }
+  .agenda .time { font-weight: 600; color: var(--ink); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="header-tag">Meeting Prep — Confidential</div>
+    <h1>Family <em>Constitution</em></h1>
+    <p class="header-sub">Prep brief for the call with John Winstanley (Clarion Wealth) — Wednesday 14 April, 1pm.</p>
+    <div class="header-meta">
+      <div class="meta-item">
+        <div class="meta-label">Meeting</div>
+        <div class="meta-val">JW x Jesse</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">When</div>
+        <div class="meta-val">Wed 15 Apr · 1:00pm BST</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Duration</div>
+        <div class="meta-val">1 hour</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Format</div>
+        <div class="meta-val">In-person · Downstairs Meeting Room</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--white);">
+<div class="container">
+
+<!-- CONTEXT -->
+<section>
+  <div class="section-tag">Context</div>
+  <h2 class="section-heading">What this meeting is</h2>
+  <div class="divider"></div>
+  <div class="grid-2">
+    <div>
+      <p style="margin-bottom:1rem;color:var(--ink-mid);">This is a review meeting with John Winstanley at Clarion Wealth. Jesse has already drafted a 92-page Family Constitution. John is reviewing it. This call is likely to cover John's initial feedback, key areas needing refinement, and how the document sits alongside the broader Grylls estate and wealth structure.</p>
+      <p style="color:var(--ink-mid);">A Family Constitution is not just a governance document — it is the legal and philosophical framework that determines how the Grylls family's wealth, businesses, and legacy are managed across generations. Getting it right before Bear's media contracts evolve or businesses change hands is important.</p>
+    </div>
+    <div>
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <div class="section-tag">John Winstanley</div>
+        <h3>Clarion Wealth</h3>
+        <p>Family wealth advisor. Jesse's primary contact for the constitution review. Email: jwinstanley@clarionwealth.co.uk. Phone: +44 7944 183113.</p>
+      </div>
+      <div class="card card-forest">
+        <div class="section-tag">Related ongoing work</div>
+        <ul>
+          <li>Wills: Bear and Shara redrafting (Steven Appleton, solicitor)</li>
+          <li>UBS Switzerland: Christine Oakman — account open, assets >900K CHF</li>
+          <li>BGV Global Ltd: Jesse was employed here until March 2026</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A FAMILY CONSTITUTION COVERS -->
+<section>
+  <div class="section-tag">Framework</div>
+  <h2 class="section-heading">What a Family Constitution typically governs</h2>
+  <div class="divider"></div>
+  <p style="color:var(--ink-mid);margin-bottom:2rem;max-width:700px;">Understanding the full scope helps Jesse go into the meeting knowing which sections he is confident on and which need more thought.</p>
+
+  <div class="topic-item">
+    <div class="topic-num">1</div>
+    <div class="topic-body">
+      <h4>Family Values and Mission <span class="pill pill-review">Core</span></h4>
+      <p>A statement of what the family stands for — the principles, values, and beliefs that guide all decisions. For the Grylls family, this likely includes faith, adventure, service, family loyalty, and stewardship of the Bear Grylls brand. This section sets the tone for everything else.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">2</div>
+    <div class="topic-body">
+      <h4>Wealth Governance — Who Controls What <span class="pill pill-open">Key discussion point</span></h4>
+      <p>How family assets are held, managed, and distributed. This covers trusts, ownership structures, investment mandates, and who has authority over which decisions. With BGV as a family office, assets across the UK and Switzerland, and Jesse managing day-to-day operations, the governance structure needs to be clear and legally sound.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">3</div>
+    <div class="topic-body">
+      <h4>Business Succession and Ownership <span class="pill pill-open">Key discussion point</span></h4>
+      <p>What happens to the businesses if Bear steps back, if Jesse wants to exit BGV, or in the event of death or incapacity? Modern Savage is 100% Jesse's — how does that sit within the family structure? Who inherits equity in Ted's Health, Wildernests, EBG retainer contracts? These decisions need documenting before they become disputes.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">4</div>
+    <div class="topic-body">
+      <h4>Brand and IP Management</h4>
+      <p>The Bear Grylls name and brand is the family's most valuable asset. The constitution should address: who controls the BG brand long-term, what happens to existing licensing deals (Luminox, Running Wild), how new deals get approved, and whether Jesse or other family members have authority to make brand decisions. This intersects directly with Bear's will.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">5</div>
+    <div class="topic-body">
+      <h4>Decision-Making and Family Council</h4>
+      <p>How major decisions get made. Does a family council vote? Who has veto rights? What requires consensus vs unilateral authority? For a family where Bear is the public face but Jesse runs the commercial operations, the delineation of authority is critical to avoid future conflict.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">6</div>
+    <div class="topic-body">
+      <h4>Next Generation — Education, Opportunity, Responsibility</h4>
+      <p>What obligations does the family have to the next generation? Are Bear and Shara's children (Jesse and siblings) entitled to income from BGV businesses? At what age and under what conditions? What are the expectations in return — involvement in the business, use of the brand, behaviour standards?</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">7</div>
+    <div class="topic-body">
+      <h4>Philanthropy and Giving</h4>
+      <p>The family's approach to charitable giving. Does BGV have a formal philanthropy mandate? Are there causes Bear or Jesse support that should be embedded in the constitution? This is often linked to the brand — Bear's outdoor/youth work is both personal and commercial.</p>
+    </div>
+  </div>
+
+  <div class="topic-item">
+    <div class="topic-num">8</div>
+    <div class="topic-body">
+      <h4>Dispute Resolution</h4>
+      <p>What happens when family members disagree? A good constitution pre-empts conflict by establishing mediation processes, escalation paths, and binding arbitration clauses before they are needed. With multiple businesses and significant assets, this is not optional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY QUESTIONS FOR THE MEETING -->
+<section>
+  <div class="section-tag">Agenda</div>
+  <h2 class="section-heading">Questions worth raising with John</h2>
+  <div class="divider"></div>
+  <p style="color:var(--ink-mid);margin-bottom:2rem;max-width:700px;">These are the areas most likely to need refinement in a 92-page first draft. Go in with these in mind and see which ones John flags independently.</p>
+
+  <div class="grid-2">
+    <div>
+      <div class="q-block">
+        <strong>Is the governance structure legally enforceable?</strong>
+        <p>A family constitution is often a moral document rather than a legal one. What parts of the 92-page draft need to be backed by actual legal instruments (trusts, shareholder agreements, wills) to be binding? John should be clear on what is advisory vs what carries legal weight.</p>
+      </div>
+      <div class="q-block">
+        <strong>How does the constitution interact with the wills?</strong>
+        <p>Bear and Shara are redrafting their wills with Steven Appleton. The constitution and the wills must be consistent. Has John reviewed the will drafts? Are there any conflicts between what the constitution says and what the wills currently do?</p>
+      </div>
+      <div class="q-block">
+        <strong>What is the trust structure for the Swiss assets?</strong>
+        <p>UBS Switzerland holds over 900K CHF. Is this held personally or in a structure? Does it sit within the family constitution framework or sit outside it? What are the cross-border implications for UK estate planning?</p>
+      </div>
+      <div class="q-block q-block-forest">
+        <strong>How does Modern Savage fit?</strong>
+        <p>Modern Savage is 100% Jesse's — not a BGV family office asset. If Jesse builds this to significant value, does the constitution make any claim on it, or is it explicitly carved out? This needs to be clear before the business grows.</p>
+      </div>
+    </div>
+    <div>
+      <div class="q-block">
+        <strong>What happens to the BG brand licensing if Bear dies?</strong>
+        <p>Luminox royalties ($100K/yr from 2027), Running Wild, and any future licensing are all tied to Bear personally. The constitution should have a clear protocol for who manages and controls brand licensing in the event of Bear's death or incapacity. Jesse needs to be on this governance chain.</p>
+      </div>
+      <div class="q-block">
+        <strong>Is there a dividend / distribution policy?</strong>
+        <p>As BGV generates income (retainers, royalties, brand deals), does the constitution define how profits are distributed to family members? Is Jesse on a salary, profit share, or equity model? This matters for tax planning and for family expectations.</p>
+      </div>
+      <div class="q-block q-block-red">
+        <strong>What are the entry/exit rules for family members?</strong>
+        <p>If Jesse or another family member wants to exit BGV or step back from a role, what are the buyout terms? Does the constitution give any family member the right to force a valuation and sale? These provisions protect everyone — including Jesse — if circumstances change.</p>
+      </div>
+      <div class="q-block q-block-red">
+        <strong>Is the 92-page draft ready to share with Bear and Shara?</strong>
+        <p>A 92-page document is comprehensive but may overwhelm family members who are not document-oriented. Ask John if a shorter executive summary version would be useful for getting Bear and Shara's buy-in before finalising.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUGGESTED AGENDA -->
+<section>
+  <div class="section-tag">Suggested Agenda</div>
+  <h2 class="section-heading">How to structure the hour</h2>
+  <div class="divider"></div>
+
+  <table class="agenda">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Topic</th>
+        <th>Goal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="time">0-10 min</td>
+        <td>John's overall assessment of the 92-page draft</td>
+        <td>Understand what John thinks is strong and what needs work before diving into specifics</td>
+      </tr>
+      <tr>
+        <td class="time">10-25 min</td>
+        <td>Governance and legal enforceability</td>
+        <td>Identify which sections need backing legal instruments (trust deeds, shareholder agreements) vs which are advisory</td>
+      </tr>
+      <tr>
+        <td class="time">25-40 min</td>
+        <td>Brand IP, succession, and Jesse's position</td>
+        <td>Get clarity on BG brand governance, Modern Savage carve-out, Jesse's authority and exit provisions</td>
+      </tr>
+      <tr>
+        <td class="time">40-55 min</td>
+        <td>Interaction with wills and Swiss assets</td>
+        <td>Make sure constitution and wills are consistent; flag any cross-border issues</td>
+      </tr>
+      <tr>
+        <td class="time">55-60 min</td>
+        <td>Next steps</td>
+        <td>Agree redraft timeline, who else needs to review, when to bring Bear and Shara into the process</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- RELATED CONTEXT -->
+<section>
+  <div class="section-tag">Related Context</div>
+  <h2 class="section-heading">Other estate and wealth items to be aware of</h2>
+  <div class="divider"></div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Wills — Bear and Shara</h3>
+      <p>Being redrafted. Solicitor: Steven Appleton. The wills should be consistent with what the Family Constitution says. Any conflict between the two documents needs resolving now, not when they are needed.</p>
+    </div>
+    <div class="card">
+      <h3>UBS Switzerland</h3>
+      <p>Account open with Christine Oakman. Assets exceed 900K CHF. Held personally. UK resident with Swiss assets has specific estate planning considerations — ask John if these are adequately addressed in the constitution.</p>
+    </div>
+    <div class="card">
+      <h3>Arbuthnot Bank (UK)</h3>
+      <p>Julia Tyrrell and Marcus Rigg. UK banking relationship. This should be noted in the wealth governance section of the constitution alongside the UBS relationship and any other significant financial accounts.</p>
+    </div>
+    <div class="card">
+      <h3>Wildernests — Equity Pending</h3>
+      <p>Jesse has a live retainer ($15K/mo) and 0.5% equity deal agreed in principle. OSC equity docs not yet drafted/signed. Before the constitution is finalised, Jesse's Wildernests equity stake should be documented and referenced.</p>
+    </div>
+    <div class="card">
+      <h3>EBG Retainer</h3>
+      <p>$25K/mo retainer for Running Wild S9+10 social and Adventure Garage. This is an ongoing income stream that should sit clearly in the BGV structure — not personally with Jesse.</p>
+    </div>
+    <div class="card card-gold">
+      <h3>Modern Savage — Carve-Out</h3>
+      <p>100% Grylls family but primarily Jesse's project. The constitution should explicitly address whether this is a BGV asset or Jesse's personal venture. Getting this wrong creates tax and succession complications later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM LINE -->
+<section style="border-bottom:none;">
+  <div class="pull-quote">"The goal isn't to sign the document tomorrow. The goal is to leave the meeting knowing the three or four things that need changing before it can be finalised."</div>
+
+  <div class="grid-2" style="margin-top:1.5rem;">
+    <div class="card card-forest">
+      <div class="section-tag">What success looks like</div>
+      <h3>Leaving the meeting with:</h3>
+      <ul style="margin-top:0.5rem;">
+        <li>John's top 3-5 priority changes to the current draft</li>
+        <li>Clarity on which sections need external legal instruments to be enforceable</li>
+        <li>A clear position on Modern Savage and the BG brand succession</li>
+        <li>Agreed timeline for the next draft and who reviews it</li>
+      </ul>
+    </div>
+    <div class="card card-alert">
+      <div class="section-tag">Things to avoid</div>
+      <h3>Don't let this meeting:</h3>
+      <ul style="margin-top:0.5rem;">
+        <li>Turn into a line-by-line read of the 92 pages — stay at the strategic level</li>
+        <li>End without a clear next step and owner</li>
+        <li>Move forward without resolving the will/constitution consistency question</li>
+        <li>Finalise anything before Bear and Shara have had input</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<footer>
+  Prepared by <strong>Junior</strong> · Executive Assistant to Jesse Grylls · Confidential · 14 April 2026
+</footer>
+</body>
+</html>
