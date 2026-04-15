@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sister Directory — Affiliate Link Pipeline</title>
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; padding: 32px; max-width: 880px; color: #222; line-height: 1.6; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  h3 { font-size: 14px; margin-top: 20px; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 12px; margin-bottom: 28px; }
+  .highlight { background: #f0f7ff; border-left: 4px solid #2980b9; padding: 12px 16px; margin: 16px 0; border-radius: 2px; }
+  .success { background: #f0fff4; border-left: 4px solid #27ae60; padding: 12px 16px; margin: 16px 0; border-radius: 2px; }
+  .warn { background: #fff8e1; border-left: 4px solid #f39c12; padding: 12px 16px; margin: 16px 0; border-radius: 2px; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 12px; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 12px; line-height: 1.6; }
+  .cmd { background: #1e1e1e; color: #9cdcfe; padding: 10px 14px; border-radius: 4px; font-family: monospace; font-size: 12px; display: block; margin: 8px 0; white-space: pre-wrap; }
+  .comment { color: #6a9955; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #f0f0f0; padding: 8px 10px; text-align: left; font-size: 12px; border: 1px solid #ddd; }
+  td { padding: 7px 10px; border: 1px solid #eee; font-size: 12px; vertical-align: top; }
+  tr:nth-child(even) { background: #fafafa; }
+  .pipeline { display: flex; align-items: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .box { background: #eaf0fb; border: 1px solid #aac4f0; border-radius: 6px; padding: 10px 14px; font-size: 12px; text-align: center; min-width: 120px; }
+  .arrow { color: #888; font-size: 18px; }
+  .box strong { display: block; font-size: 13px; margin-bottom: 2px; }
+  .box span { color: #555; font-size: 11px; }
+  .time-badge { display: inline-block; background: #e8f5e9; color: #1b5e20; font-weight: bold; padding: 3px 10px; border-radius: 12px; font-size: 12px; }
+  .time-badge.slow { background: #ffebee; color: #b71c1c; }
+</style>
+</head>
+<body>
+
+<h1>Sister Directory — Affiliate Link Pipeline</h1>
+<p class="subtitle">Built by Nexus · April 2026 · Tools: <code>shopify_products.py</code> + <code>buzzbassador_gen.js</code> + <code>affiliate_pipeline.sh</code></p>
+
+<div class="success">
+  <strong>The full job — any Shopify brand → all affiliate links — now takes one command and about 30 seconds.</strong>
+  Previously: manually compile product URLs + click through Buzzbassador UI one by one.
+</div>
+
+<h2>The Pipeline</h2>
+
+<div class="pipeline">
+  <div class="box"><strong>Shopify Store</strong><span>Any brand URL</span></div>
+  <div class="arrow">→</div>
+  <div class="box"><strong>shopify_products.py</strong><span>Extract all products</span></div>
+  <div class="arrow">→</div>
+  <div class="box"><strong>buzzbassador_gen.js</strong><span>Generate affiliate URLs</span></div>
+  <div class="arrow">→</div>
+  <div class="box"><strong>CSV / PDF</strong><span>Ready to use</span></div>
+</div>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th>Time (100 products)</th>
+    <th>Steps</th>
+  </tr>
+  <tr>
+    <td>Old way — manual</td>
+    <td><span class="time-badge slow">45–90 min</span></td>
+    <td>Browse store → copy URLs → paste into spreadsheet → click Buzzbassador per URL → copy output</td>
+  </tr>
+  <tr>
+    <td><strong>New pipeline</strong></td>
+    <td><span class="time-badge">~30 seconds</span></td>
+    <td>One command</td>
+  </tr>
+</table>
+
+<h2>Quick Start — The One Command</h2>
+
+<span class="cmd">/Users/bgvai/agents/nexus/workspace/tools/affiliate_pipeline.sh \
+  --store fatandthemoon.com \
+  --email Ruby@sisterdirectory.com \
+  --password Moonfat10! \
+  --use-cached-token \
+  --format csv > fat-moon-all-links.csv</span>
+
+<p>That's it. Opens no browser. Pulls all 110 products. Generates all affiliate links. Saves to CSV.</p>
+
+<h2>Options</h2>
+
+<table>
+  <tr><th>Flag</th><th>Description</th><th>Example</th></tr>
+  <tr><td><code>--store</code></td><td>Shopify store domain (required)</td><td><code>fatandthemoon.com</code></td></tr>
+  <tr><td><code>--email</code></td><td>Buzzbassador member email (required)</td><td><code>Ruby@sisterdirectory.com</code></td></tr>
+  <tr><td><code>--password</code></td><td>Buzzbassador password (required)</td><td><code>Moonfat10!</code></td></tr>
+  <tr><td><code>--collection</code></td><td>Only products in this collection</td><td><code>first-aid-1</code></td></tr>
+  <tr><td><code>--format</code></td><td>Output format: csv, text, json</td><td><code>csv</code></td></tr>
+  <tr><td><code>--use-cached-token</code></td><td>Skip Buzzbassador login (uses saved token)</td><td></td></tr>
+  <tr><td><code>--verbose</code></td><td>Show progress in terminal</td><td></td></tr>
+</table>
+
+<h2>Common Recipes</h2>
+
+<h3>All products, CSV output</h3>
+<span class="cmd">./affiliate_pipeline.sh --store fatandthemoon.com --email Ruby@sisterdirectory.com --password Moonfat10! --use-cached-token --format csv > all-links.csv</span>
+
+<h3>One collection only</h3>
+<span class="cmd">./affiliate_pipeline.sh --store fatandthemoon.com --email Ruby@sisterdirectory.com --password Moonfat10! --use-cached-token --collection adornments --format csv > adornments-links.csv</span>
+
+<h3>New brand — first time (no cached token)</h3>
+<span class="cmd">./affiliate_pipeline.sh --store newbrand.com --email brand@email.com --password PW --format csv > newbrand-links.csv</span>
+<p>First run logs into Buzzbassador and caches the token. Subsequent runs use <code>--use-cached-token</code>.</p>
+
+<h3>Just get product URLs (no Buzzbassador)</h3>
+<span class="cmd">python3 shopify_products.py --store fatandthemoon.com --format csv</span>
+
+<h2>Working With Nexus</h2>
+
+<p>Send Nexus the brand's Buzzbassador login and the store URL. Nexus will run the pipeline and return a PDF + CSV. No manual steps for you.</p>
+
+<div class="highlight">
+  <strong>Tell Nexus:</strong><br>
+  "Run the affiliate pipeline for [brand]. Login: [email] / [password]. Store: [url]."<br><br>
+  Nexus handles the rest and sends you the file.
+</div>
+
+<h2>Fat and the Moon — Saved Config</h2>
+
+<div class="warn">Token already cached — use <code>--use-cached-token</code> to skip the browser entirely.</div>
+
+<table>
+  <tr><th>Field</th><th>Value</th></tr>
+  <tr><td>Store</td><td>fatandthemoon.com</td></tr>
+  <tr><td>Buzzbassador email</td><td>Ruby@sisterdirectory.com</td></tr>
+  <tr><td>Discount code</td><td>SISTER</td></tr>
+  <tr><td>Shopify domain</td><td>fat-the-moon.myshopify.com</td></tr>
+  <tr><td>buzz_ref token</td><td>50361849673VztU</td></tr>
+  <tr><td>Collections</td><td>adornments, bath-soaks, deo, first-aid-1, mama-babe, mane-care, masks-of-the-god-dess, oral-care-1, scents, solstice-sets, and more</td></tr>
+</table>
+
+<h2>Tools Reference</h2>
+
+<table>
+  <tr><th>File</th><th>What it does</th></tr>
+  <tr><td><code>workspace/tools/shopify_products.py</code></td><td>Extracts all product URLs from any public Shopify store. No API key needed.</td></tr>
+  <tr><td><code>workspace/tools/buzzbassador_gen.js</code></td><td>Converts product URLs to Buzzbassador affiliate links. One login, all links locally.</td></tr>
+  <tr><td><code>workspace/tools/affiliate_pipeline.sh</code></td><td>One-command wrapper: store → affiliate links.</td></tr>
+</table>
+
+<hr style="margin: 32px 0; border: none; border-top: 1px solid #eee;">
+<p style="color: #999; font-size: 11px;">Generated by Nexus · April 2026 · Shopify /products.json API + Playwright (Chromium) + Buzzbassador Direct Product Link Generator</p>
+
+</body>
+</html>
