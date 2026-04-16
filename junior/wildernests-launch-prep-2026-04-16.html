@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildernests — May Launch Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --forest-mid: #2d4a2d;
+    --moss: #4a6741;
+    --sage: #7a9e6e;
+    --earth: #8b6914;
+    --amber: #c49a2a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f3;
+    --bone: #e8e0d0;
+    --text: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+    --red: #c0392b;
+    --teal: #1a6b5a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--warm-white); color: var(--text); line-height: 1.6; }
+
+  .cover {
+    background: var(--teal);
+    color: var(--cream);
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .cover-label { font-weight: 600; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+  .cover h1 { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.1; margin-bottom: 12px; position: relative; z-index: 1; }
+  .cover h1 span { color: var(--amber); font-style: italic; }
+  .cover-sub { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; font-size: 13px; color: rgba(255,255,255,0.5); }
+  .cover-meta span strong { color: var(--cream); display: block; font-size: 15px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+
+  h2 { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--teal); margin-bottom: 16px; }
+  .section-intro { font-size: 15px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.7; max-width: 700px; }
+
+  .status-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px; margin-bottom: 48px;
+  }
+  .status-card {
+    background: white; border: 1px solid var(--bone);
+    border-radius: 10px; padding: 20px 22px;
+  }
+  .status-card.done { border-top: 3px solid var(--moss); }
+  .status-card.pending { border-top: 3px solid var(--amber); }
+  .status-card.blocked { border-top: 3px solid var(--red); }
+  .status-flag {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .status-card.done .status-flag { color: var(--moss); }
+  .status-card.pending .status-flag { color: var(--earth); }
+  .status-card.blocked .status-flag { color: var(--red); }
+  .status-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .status-body { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+  .action-section { margin-bottom: 48px; }
+  .action-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--bone);
+  }
+  .action-badge {
+    background: var(--teal); color: white;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 4px;
+  }
+  .action-badge.jesse { background: var(--earth); }
+  .action-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--forest); }
+
+  .action-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .action-item {
+    background: white; border: 1px solid var(--bone);
+    border-radius: 8px; padding: 16px 20px;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .action-item.jesse-item { border-left: 3px solid var(--amber); }
+  .action-item.urgent { border-left: 3px solid var(--red); }
+  .action-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--cream); display: flex; align-items: center;
+    justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 2px;
+  }
+  .action-content { flex: 1; }
+  .action-what { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+  .action-why { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+  .action-who { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+  .person-card {
+    background: white; border: 1px solid var(--bone);
+    border-radius: 10px; padding: 20px 24px;
+  }
+  .person-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--teal); }
+  .person-role { font-size: 12px; color: var(--text-light); margin-bottom: 10px; }
+  .person-status {
+    font-size: 13px; color: var(--text-mid); line-height: 1.5;
+    padding-top: 10px; border-top: 1px solid var(--bone);
+  }
+
+  .jesse-box {
+    background: var(--forest); color: var(--cream);
+    border-radius: 12px; padding: 36px 40px; margin: 48px 0;
+  }
+  .jesse-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--amber); margin-bottom: 20px; }
+  .jesse-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .jesse-items li {
+    font-size: 14px; color: var(--bone); padding-left: 28px;
+    position: relative; line-height: 1.5;
+  }
+  .jesse-items li::before {
+    content: attr(data-n);
+    position: absolute; left: 0;
+    width: 20px; height: 20px;
+    background: var(--amber); color: var(--forest);
+    font-weight: 700; font-size: 11px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; top: 1px;
+  }
+  .jesse-items li strong { color: white; }
+
+  .timeline-strip { margin: 40px 0; }
+  .timeline-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid var(--bone);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .tl-date {
+    min-width: 90px; font-weight: 700; font-size: 13px;
+    color: var(--teal); padding-top: 2px;
+  }
+  .tl-body { flex: 1; }
+  .tl-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .tl-detail { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+  .tl-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+    margin-left: 8px;
+  }
+  .tl-badge.now { background: var(--teal); color: white; }
+  .tl-badge.jesse { background: var(--amber); color: var(--forest); }
+
+  .footer { background: var(--teal); color: rgba(255,255,255,0.5); text-align: center; padding: 32px; font-size: 12px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">Wildernests — Investor Launch Prep</div>
+  <h1>May Launch<br><span>Readiness</span></h1>
+  <div class="cover-sub">What needs to happen before Wildernests goes live</div>
+  <div class="cover-meta">
+    <div><span><strong>Launch Target</strong>May 2026</span></div>
+    <div><span><strong>Jesse's Role</strong>Investor + social amplification</span></div>
+    <div><span><strong>CEO</strong>Alex Aboshiha</span></div>
+    <div><span><strong>Built</strong>16 April 2026</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>Current Status</h2>
+  <p class="section-intro">Wildernests is launching luxury wilderness stays in May. Retainer with BGV is live. Equity docs are pending. Alex Aboshiha (CEO) confirmed this morning he's incorporating Raemy's doc comments. Bear is actively pitching investors (Taki email today). Here's where things stand.</p>
+
+  <div class="status-grid">
+    <div class="status-card done">
+      <div class="status-flag">Done</div>
+      <div class="status-title">Retainer Agreement</div>
+      <div class="status-body">BGV retainer with Wildernests is live and active.</div>
+    </div>
+    <div class="status-card pending">
+      <div class="status-flag">Pending</div>
+      <div class="status-title">Equity Docs (0.5% OSC)</div>
+      <div class="status-body">0.5% equity agreement not yet drafted or signed. Alex reviewing Raemy's comments.</div>
+    </div>
+    <div class="status-card pending">
+      <div class="status-flag">Pending</div>
+      <div class="status-title">Jesse's Social Role</div>
+      <div class="status-body">No formal brief on what Jesse posts, when, and with what assets.</div>
+    </div>
+    <div class="status-card done">
+      <div class="status-flag">Active</div>
+      <div class="status-title">Investor Outreach</div>
+      <div class="status-body">Bear emailed Taki today pitching Wildernests. Active fundraising underway.</div>
+    </div>
+    <div class="status-card pending">
+      <div class="status-flag">Pending</div>
+      <div class="status-title">Launch Assets</div>
+      <div class="status-body">No confirmed photography, video, or content pack for launch day.</div>
+    </div>
+    <div class="status-card pending">
+      <div class="status-flag">Unknown</div>
+      <div class="status-title">Launch Date</div>
+      <div class="status-body">"May" — no confirmed date. First homes ready May per Wildernests update.</div>
+    </div>
+  </div>
+
+  <h2>Key People</h2>
+  <div class="people-grid">
+    <div class="person-card">
+      <div class="person-name">Alex Aboshiha</div>
+      <div class="person-role">CEO, Wildernests</div>
+      <div class="person-status">Confirmed today he's reviewing Raemy's doc comments. Will incorporate "in the next few days." Main operational contact. Goes via Jesse and Raemy.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Bear Grylls</div>
+      <div class="person-role">BGV investor / ambassador</div>
+      <div class="person-status">Actively pitching Wildernests to investors (Taki email today). Key amplifier for launch. "This is a huge focus for me over the next [time]" per this morning's email.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Raemy Singh</div>
+      <div class="person-role">CFO, BGV</div>
+      <div class="person-status">Sent document comments to Alex. Handling equity / contract side. No direct action needed from Jesse on this thread.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Jesse Grylls</div>
+      <div class="person-role">Investor / social lead</div>
+      <div class="person-status">Investor. Key role at launch: social amplification via @jesse_grylls and coordinating Bear's post. Should confirm equity docs before launch day.</div>
+    </div>
+  </div>
+
+  <!-- JESSE'S ACTIONS -->
+  <div class="jesse-box">
+    <h3>Jesse's Action Items Before Launch</h3>
+    <ul class="jesse-items">
+      <li data-n="1"><strong>Chase equity docs:</strong> The 0.5% OSC agreement needs to be drafted and signed before Wildernests launches publicly. Once the company starts scaling, the equity conversation gets harder. Confirm with Raemy that this is in Alex's queue.</li>
+      <li data-n="2"><strong>Get a launch date:</strong> Ask Alex directly - what is the actual launch day? "May" isn't plannable. Jesse needs a date to prepare his social posts and Bear's post.</li>
+      <li data-n="3"><strong>Request launch assets:</strong> Ask Alex for the official launch photo/video pack. Jesse needs real assets for the posts - not screenshots of the website.</li>
+      <li data-n="4"><strong>Brief Bear on his launch post:</strong> Bear should post on launch day. Jesse knows Bear's content better than anyone - draft the caption and send to Bear to approve. Don't leave it to chance.</li>
+      <li data-n="5"><strong>Olly brief:</strong> Olly handles Bear's social. Loop Olly in on the Wildernests launch so he can schedule Bear's post with proper assets. Coordinate timing.</li>
+    </ul>
+  </div>
+
+  <!-- LAUNCH TIMELINE -->
+  <h2>What a Good Launch Looks Like</h2>
+  <p class="section-intro">A 3-week sprint from now to launch day. Most of the work is coordination, not creation.</p>
+
+  <div class="timeline-strip">
+    <div class="timeline-item">
+      <div class="tl-date">Now<span class="tl-badge now">This week</span></div>
+      <div class="tl-body">
+        <div class="tl-title">Confirm launch date + chase equity docs</div>
+        <div class="tl-detail">Jesse asks Alex directly: "What's the launch date?" and confirms Raemy is tracking the 0.5% OSC agreement. These two things unlock everything else.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Apr 23<span class="tl-badge jesse">Jesse</span></div>
+      <div class="tl-body">
+        <div class="tl-title">Social brief + asset request</div>
+        <div class="tl-detail">Jesse requests launch photo/video from Alex. Briefs Olly on Bear's launch post. Drafts Jesse's own @jesse_grylls post for Alex to approve — framing himself as investor ("backed this from day one").</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Apr 30</div>
+      <div class="tl-body">
+        <div class="tl-title">Content review + equity doc signed</div>
+        <div class="tl-detail">Review all social content. Equity docs should be drafted and signed by now — Alex said "next few days" this morning. Follow up if not done by Apr 25.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">May (TBC)</div>
+      <div class="tl-body">
+        <div class="tl-title">Launch day</div>
+        <div class="tl-detail">Jesse posts on @jesse_grylls. Olly schedules Bear's post on @beargrylls. Same day, within the same hour ideally. Bear's audience is the primary amplifier — his post is what matters most for awareness.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">May + 7</div>
+      <div class="tl-body">
+        <div class="tl-title">Post-launch review</div>
+        <div class="tl-detail">How many bookings? What content performed? What press picked it up? Jesse and Alex debrief on week 1 performance and plan month 2 content cadence.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT JESSE SHOULD POST -->
+  <h2>Jesse's Launch Post — Draft</h2>
+  <p class="section-intro">A suggested angle for @jesse_grylls on launch day. Short, personal, investor voice.</p>
+
+  <div style="background: white; border: 1px solid var(--bone); border-radius: 12px; padding: 32px; margin-bottom: 48px;">
+    <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 16px;">Draft Caption — @jesse_grylls</div>
+    <div style="font-size: 15px; color: var(--text); line-height: 1.8; font-family: Georgia, serif; white-space: pre-wrap;">I backed Wildernests because I believe the future of travel is immersive, off-grid, and close to nature.
+
+Today they're live.
+
+Luxury wilderness stays that actually put you in the wild — not next to it. I've watched Alex and the team build this from scratch and I'm genuinely proud to be part of it.
+
+If you've ever wanted to wake up somewhere that changes how you see the world — this is it.
+
+Link in bio.
+
+@wildernests_</div>
+    <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--bone); font-size: 12px; color: var(--text-light);">Adjust tone to match Jesse's voice. Add location/property photo from Alex's asset pack. Tag @wildernests_ in the post.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Built by Junior — Wildernests May Launch Prep — April 16, 2026
+</div>
+
+</body>
+</html>
