@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Email Welcome Sequence</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --forest-mid: #2d4a2d;
+    --moss: #4a6741;
+    --sage: #7a9e6e;
+    --earth: #8b6914;
+    --amber: #c49a2a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f3;
+    --bone: #e8e0d0;
+    --text: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--warm-white); color: var(--text); line-height: 1.6; }
+
+  .cover {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 80px 60px;
+  }
+  .cover-label {
+    font-weight: 600; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 24px;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif; font-size: 48px; line-height: 1.1; margin-bottom: 12px;
+  }
+  .cover h1 span { color: var(--amber); font-style: italic; }
+  .cover-sub { font-size: 17px; color: var(--bone); font-weight: 300; margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; font-size: 13px; color: var(--sage); }
+  .cover-meta span strong { color: var(--cream); display: block; font-size: 15px; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+
+  .intro-block {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    border-left: 4px solid var(--moss);
+  }
+  .intro-block h2 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--forest); margin-bottom: 12px; }
+  .intro-block p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  .email-card {
+    background: white;
+    border: 1px solid var(--bone);
+    border-radius: 14px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .email-header {
+    background: var(--forest);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .email-num {
+    background: var(--amber);
+    color: var(--forest);
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .email-header-text { flex: 1; }
+  .email-timing {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--sage); margin-bottom: 4px;
+  }
+  .email-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; color: var(--cream); line-height: 1.2;
+  }
+  .email-goal {
+    background: rgba(255,255,255,0.1);
+    color: var(--bone);
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .email-meta {
+    background: var(--cream);
+    padding: 16px 32px;
+    display: flex; gap: 32px;
+    border-bottom: 1px solid var(--bone);
+    font-size: 13px;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .meta-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+  .meta-value { font-weight: 600; color: var(--forest); }
+
+  .email-body { padding: 32px; }
+  .email-body h3 { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--forest); margin-bottom: 16px; }
+
+  .subject-line {
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .subject-line span { color: var(--sage); font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+
+  .preview-text {
+    border: 1px dashed var(--bone);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .preview-text strong { color: var(--text-mid); font-style: normal; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+  .email-copy {
+    background: var(--warm-white);
+    border: 1px solid var(--bone);
+    border-radius: 10px;
+    padding: 28px 32px;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    white-space: pre-wrap;
+    font-family: Georgia, serif;
+    margin-bottom: 20px;
+  }
+
+  .cta-block {
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 20px;
+  }
+  .cta-block .cta-label { font-size: 13px; color: var(--sage); }
+  .cta-block .cta-text { font-weight: 700; font-size: 15px; color: var(--amber); }
+
+  .notes-block {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bone);
+  }
+  .notes-block h4 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+  .notes-block ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .notes-block li { font-size: 13px; color: var(--text-mid); padding-left: 16px; position: relative; }
+  .notes-block li::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 12px; }
+
+  .sequence-overview {
+    background: var(--forest);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 48px;
+    color: var(--cream);
+  }
+  .sequence-overview h2 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--amber); margin-bottom: 20px; }
+  .seq-row {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px; color: var(--bone);
+  }
+  .seq-row:last-child { border-bottom: none; }
+  .seq-day { min-width: 70px; font-weight: 700; color: var(--cream); }
+  .seq-name { flex: 1; }
+  .seq-goal { font-size: 12px; color: var(--sage); margin-left: auto; white-space: nowrap; }
+
+  .footer { background: var(--forest); color: var(--sage); text-align: center; padding: 32px; font-size: 12px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">Modern Savage — Email Marketing</div>
+  <h1>Welcome<br><span>Sequence</span></h1>
+  <div class="cover-sub">5-email flow: signup to first purchase</div>
+  <div class="cover-meta">
+    <div><span><strong>Platform</strong>Klaviyo</span></div>
+    <div><span><strong>Trigger</strong>Waitlist / site signup</span></div>
+    <div><span><strong>Duration</strong>10 days</span></div>
+    <div><span><strong>Goal</strong>Convert 15%+ to purchase</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="sequence-overview">
+    <h2>Sequence at a Glance</h2>
+    <div class="seq-row"><div class="seq-day">Day 0</div><div class="seq-name">Email 1 — Welcome + Brand Story</div><div class="seq-goal">Build trust</div></div>
+    <div class="seq-row"><div class="seq-day">Day 2</div><div class="seq-name">Email 2 — The Ingredients (Why Whole-Animal)</div><div class="seq-goal">Educate + differentiate</div></div>
+    <div class="seq-row"><div class="seq-day">Day 4</div><div class="seq-name">Email 3 — The Family Problem We're Solving</div><div class="seq-goal">Create urgency</div></div>
+    <div class="seq-row"><div class="seq-day">Day 7</div><div class="seq-name">Email 4 — Social Proof + What People Are Saying</div><div class="seq-goal">Reduce doubt</div></div>
+    <div class="seq-row"><div class="seq-day">Day 10</div><div class="seq-name">Email 5 — Your Invitation to Try It</div><div class="seq-goal">Convert to purchase</div></div>
+  </div>
+
+  <div class="intro-block">
+    <h2>How to Use This</h2>
+    <p>Set this as an automated flow in Klaviyo triggered by signup (waitlist form or site opt-in). Each email builds on the last — trust first, education second, urgency third, proof fourth, offer fifth. Do not send the offer early. The sequence earns the right to ask. Tone throughout: warmly grounded, direct, never clinical. Jesse's voice, not a brand's voice.</p>
+  </div>
+
+  <!-- EMAIL 1 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">1</div>
+      <div class="email-header-text">
+        <div class="email-timing">Day 0 — Immediate</div>
+        <div class="email-title">Welcome + Brand Story</div>
+        <div class="email-goal">Goal: Build trust and make them glad they signed up</div>
+      </div>
+    </div>
+    <div class="email-meta">
+      <div class="meta-item"><div class="meta-label">From Name</div><div class="meta-value">Jesse at Modern Savage</div></div>
+      <div class="meta-item"><div class="meta-label">Open Rate Target</div><div class="meta-value">55%+</div></div>
+      <div class="meta-item"><div class="meta-label">Click Target</div><div class="meta-value">8%+</div></div>
+    </div>
+    <div class="email-body">
+      <div class="subject-line"><span>Subject:</span> You're in. Here's why I built this.</div>
+      <div class="preview-text"><strong>Preview text:</strong> It started with a question I couldn't answer at breakfast...</div>
+
+      <div class="email-copy">Hi [First Name],
+
+Thanks for signing up. I wanted to write to you personally — not a template, not a brand voice. Just me.
+
+My name is Jesse. My dad is Bear Grylls. You probably know him as the guy who eats bugs and jumps out of helicopters. What you might not know is that our family has always been serious about food — real food, whole food, the kind of thing your great-grandmother would recognise.
+
+A couple of years ago I started thinking about what I was actually giving my body every day. I was buying five different supplements — omega-3s, liver capsules, collagen, magnesium, a greens powder. Each one claiming to be the missing piece. Each one expensive. Most of them tasted terrible.
+
+And then I asked myself: why does this have to be so complicated?
+
+Whole animals — the kind our ancestors ate nose-to-tail — contain everything. Liver for vitamins. Heart for CoQ10. Bone marrow for collagen. Organs for nutrients modern diets completely miss. But nobody was making this easy. Nobody was making it something you could give your family every morning without a production line of bottles.
+
+So we built Modern Savage.
+
+One scoop. Everything your family needs. Whole-animal nutrition, made simple.
+
+We're launching soon. I'll tell you more over the next few days — about what's in it, why it works, and what we've learned building it. But for now, thank you for being here early.
+
+Jesse
+
+P.S. Reply to this email if you have a question. I read every one.</div>
+
+      <div class="notes-block">
+        <h4>Klaviyo Setup Notes</h4>
+        <ul>
+          <li>Send immediately on signup - within 60 seconds if possible</li>
+          <li>From address: jesse@modernsavage.com (personal sender name increases open rate)</li>
+          <li>No product images in Email 1 - keep it text-first and personal</li>
+          <li>Plain text or minimal design - over-designed email 1 kills trust signal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 2 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">2</div>
+      <div class="email-header-text">
+        <div class="email-timing">Day 2</div>
+        <div class="email-title">The Ingredients — Why Whole-Animal</div>
+        <div class="email-goal">Goal: Educate and differentiate from synthetic supplements</div>
+      </div>
+    </div>
+    <div class="email-meta">
+      <div class="meta-item"><div class="meta-label">From Name</div><div class="meta-value">Jesse at Modern Savage</div></div>
+      <div class="meta-item"><div class="meta-label">Open Rate Target</div><div class="meta-value">40%+</div></div>
+      <div class="meta-item"><div class="meta-label">Click Target</div><div class="meta-value">6%+</div></div>
+    </div>
+    <div class="email-body">
+      <div class="subject-line"><span>Subject:</span> What's actually in it (and why it matters)</div>
+      <div class="preview-text"><strong>Preview text:</strong> The thing most supplements never tell you...</div>
+
+      <div class="email-copy">Hi [First Name],
+
+Yesterday I told you why I started Modern Savage. Today I want to tell you what's actually inside it — and why it's different from anything else on the shelf.
+
+Most supplements are built around isolated compounds: synthetic vitamin A, extracted B12, isolated omega-3 fatty acids. They're made in labs, not from food. And there's growing evidence that isolated nutrients don't work the same way in the body as nutrients found in their natural food matrix.
+
+Whole-animal nutrition works differently.
+
+When you eat liver, you're not just getting vitamin A. You're getting it alongside the co-factors, enzymes, and complementary nutrients that your body knows how to use. They arrive together, in the right ratios, the way they've always arrived in nature.
+
+Modern Savage is built from:
+
+Grass-fed beef liver — nature's most nutrient-dense food. Rich in B12, folate, iron, copper, and vitamin A in its most bioavailable form.
+
+Grass-fed beef heart — concentrated CoQ10, essential for cellular energy. One of the best dietary sources in existence.
+
+Grass-fed beef kidney — selenium, B12, and riboflavin. Quietly one of the most nutrient-dense organs, almost completely absent from modern diets.
+
+Collagen-rich bone — the building block for joints, skin, and gut lining. The part of the animal that gets thrown away in modern food production.
+
+No fillers. No synthetics. No flavours you can't pronounce.
+
+Just the real thing, dried and powdered so your family can have it every morning in a single scoop.
+
+More tomorrow.
+
+Jesse</div>
+
+      <div class="notes-block">
+        <h4>Klaviyo Setup Notes</h4>
+        <ul>
+          <li>Can include one product visual here - ingredient breakdown graphic or sourcing photo</li>
+          <li>Link to "Learn more about our ingredients" on the website (build this page)</li>
+          <li>A/B test subject line: "What's actually in it" vs "The four ingredients we built everything around"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 3 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">3</div>
+      <div class="email-header-text">
+        <div class="email-timing">Day 4</div>
+        <div class="email-title">The Family Problem We're Solving</div>
+        <div class="email-goal">Goal: Make the problem feel personal and the solution feel obvious</div>
+      </div>
+    </div>
+    <div class="email-meta">
+      <div class="meta-item"><div class="meta-label">From Name</div><div class="meta-value">Jesse at Modern Savage</div></div>
+      <div class="meta-item"><div class="meta-label">Open Rate Target</div><div class="meta-value">38%+</div></div>
+      <div class="meta-item"><div class="meta-label">Click Target</div><div class="meta-value">7%+</div></div>
+    </div>
+    <div class="email-body">
+      <div class="subject-line"><span>Subject:</span> The supplement problem nobody talks about</div>
+      <div class="preview-text"><strong>Preview text:</strong> We're spending more on supplements than ever. Our kids are still deficient.</div>
+
+      <div class="email-copy">Hi [First Name],
+
+Here's something that doesn't add up.
+
+Global supplement sales crossed $200 billion last year. Adults in developed countries spend more on vitamins and health products than any generation in history. And yet zinc deficiency affects 2 billion people worldwide. A third of children are vitamin A deficient. B12 deficiency in adults is rising, even among people who take multivitamins.
+
+We're spending more. Getting less.
+
+The reason, I think, is that we've been sold a version of nutrition built around pills and powders in place of food — rather than supplements that look like food, work like food, and come from food.
+
+Modern Savage is built for families. Not just athletes. Not just biohackers. Anyone who wants their kids to start the day with real nutrition, not a cartoon multivitamin made of sugar and artificial flavours.
+
+One scoop in a smoothie. Or in oat milk. Or in a glass of water if you're that way inclined.
+
+It doesn't taste of organs. It doesn't taste of anything much at all. We worked hard on that. The point is to make it easy — so easy that it becomes the habit, not the exception.
+
+That's what we set out to build. And that's what we're almost ready to share.
+
+Jesse</div>
+
+      <div class="notes-block">
+        <h4>Klaviyo Setup Notes</h4>
+        <ul>
+          <li>This email is the emotional core of the sequence - don't rush past it with a hard CTA</li>
+          <li>Soft CTA only: "We'll tell you more soon"</li>
+          <li>Consider a family photo here if Jesse has a good one - authenticity drives this email</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 4 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">4</div>
+      <div class="email-header-text">
+        <div class="email-timing">Day 7</div>
+        <div class="email-title">Social Proof + What People Are Saying</div>
+        <div class="email-goal">Goal: Reduce doubt with third-party validation</div>
+      </div>
+    </div>
+    <div class="email-meta">
+      <div class="meta-item"><div class="meta-label">From Name</div><div class="meta-value">Jesse at Modern Savage</div></div>
+      <div class="meta-item"><div class="meta-label">Open Rate Target</div><div class="meta-value">35%+</div></div>
+      <div class="meta-item"><div class="meta-label">Click Target</div><div class="meta-value">9%+</div></div>
+    </div>
+    <div class="email-body">
+      <div class="subject-line"><span>Subject:</span> Early reactions have been something</div>
+      <div class="preview-text"><strong>Preview text:</strong> We seeded this with a small group before launch. Here's what they said.</div>
+
+      <div class="email-copy">Hi [First Name],
+
+Before we launch publicly, we've been sending Modern Savage to a small group — friends, family, and a handful of people whose opinion on nutrition I trust.
+
+I want to share what they've been telling us.
+
+"I've tried every organ supplement on the market. The taste on this is the best by a distance — and I actually feel different after two weeks. More consistent energy. Less afternoon slump." — [Name, beta tester]
+
+"I give it to my kids in their morning smoothie. They don't notice it. I notice the difference in them." — [Name, parent, beta tester]
+
+"The thing I kept coming back to was: why doesn't everything work like this? Real food, properly sourced, made easy." — [Name, nutritionist, beta tester]
+
+[NOTE TO JESSE: Replace placeholder quotes above with real beta tester responses from influencer seeding — this email goes live after the Week 5 seeding wave in the countdown plan. If you have early quotes from people who've tried samples, insert here.]
+
+We're nearly ready. In a few days I'll be sending early access to this list — before we open to the public.
+
+You'll hear from me then.
+
+Jesse</div>
+
+      <div class="notes-block">
+        <h4>Klaviyo Setup Notes</h4>
+        <ul>
+          <li>IMPORTANT: Only send this email once you have real quotes from beta testers / influencer seeds</li>
+          <li>If launching before seeding feedback arrives, swap this email for a "behind the scenes" update instead</li>
+          <li>Add UGC photos or creator content here if available - social proof email performs best with images</li>
+          <li>Consider a short video from Jesse (30 seconds) as an alternative format</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 5 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">5</div>
+      <div class="email-header-text">
+        <div class="email-timing">Day 10</div>
+        <div class="email-title">Your Invitation to Try It</div>
+        <div class="email-goal">Goal: Convert to first purchase with early access offer</div>
+      </div>
+    </div>
+    <div class="email-meta">
+      <div class="meta-item"><div class="meta-label">From Name</div><div class="meta-value">Jesse at Modern Savage</div></div>
+      <div class="meta-item"><div class="meta-label">Open Rate Target</div><div class="meta-value">42%+</div></div>
+      <div class="meta-item"><div class="meta-label">Click Target</div><div class="meta-value">14%+</div></div>
+    </div>
+    <div class="email-body">
+      <div class="subject-line"><span>Subject:</span> You're first. Here's your early access.</div>
+      <div class="preview-text"><strong>Preview text:</strong> We open to the public in 48 hours. You get it now.</div>
+
+      <div class="email-copy">Hi [First Name],
+
+We open to the public in 48 hours.
+
+But you signed up early, so you get it first.
+
+Here's your exclusive early access link: [EARLY ACCESS LINK]
+
+Use code SAVAGE15 at checkout for 15% off your first order. Free shipping on orders over $60.
+
+What you're getting:
+
+Modern Savage Original Blend — 30 servings. Grass-fed beef liver, heart, kidney, and bone. One scoop per day. Mix with water, milk, or a smoothie.
+
+That's it. No subscription required (though we'll offer one). No commitment. Just try it.
+
+If it doesn't make a difference in your first 30 days, email me and I'll refund you. Personally.
+
+[BUY NOW — EARLY ACCESS]
+
+Thank you for being here from the beginning. It means more than you know.
+
+Jesse
+
+P.S. The code SAVAGE15 expires in 48 hours when we go public.</div>
+
+      <div class="cta-block">
+        <div>
+          <div class="cta-label">Primary CTA</div>
+          <div class="cta-text">BUY NOW — EARLY ACCESS</div>
+        </div>
+        <div style="text-align: right;">
+          <div class="cta-label">Offer</div>
+          <div class="cta-text">15% off + free shipping</div>
+        </div>
+      </div>
+
+      <div class="notes-block">
+        <h4>Klaviyo Setup Notes</h4>
+        <ul>
+          <li>This is the conversion email — add product images, clear CTA button, everything designed to convert</li>
+          <li>48-hour expiry on the code creates genuine scarcity without being manipulative</li>
+          <li>Send a reminder email at hour 24 and hour 47 to non-openers/non-clickers (separate Klaviyo flow)</li>
+          <li>Segment: if someone clicked any link in emails 1-4, they are high-intent — prioritise this segment</li>
+          <li>After purchase: trigger the post-purchase flow (usage guide, review request at day 14, referral at day 21)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Built by Junior — Modern Savage Email Welcome Sequence — April 16, 2026
+</div>
+
+</body>
+</html>
