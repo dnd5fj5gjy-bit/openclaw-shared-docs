@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Confirmed Pricing Model</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a; --moss: #4a6741; --sage: #7a9e6e;
+    --earth: #8b6914; --amber: #c49a2a; --cream: #f5f0e8;
+    --warm-white: #faf8f3; --bone: #e8e0d0;
+    --text: #1a1a1a; --text-mid: #4a4a4a; --text-light: #7a7a7a;
+    --green: #2e7d32; --red: #c62828;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--warm-white); color: var(--text); }
+
+  .cover { background: var(--forest); color: var(--cream); padding: 60px; }
+  .cover-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .cover h1 { font-family: 'DM Serif Display', serif; font-size: 44px; line-height: 1.1; margin-bottom: 8px; }
+  .cover h1 span { color: var(--amber); font-style: italic; }
+  .cover-sub { font-size: 15px; color: rgba(245,240,232,0.6); margin-bottom: 32px; }
+  .cover-meta { display: flex; gap: 40px; font-size: 13px; color: var(--sage); }
+  .cover-meta span strong { color: var(--cream); display: block; font-size: 15px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 48px; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--forest); margin-bottom: 8px; }
+  .section-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--moss); margin-bottom: 8px; }
+  .section { margin-bottom: 56px; }
+  .intro { font-size: 14px; color: var(--text-mid); margin-bottom: 28px; line-height: 1.7; }
+
+  /* COST CARDS */
+  .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+  .cost-card { background: white; border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; }
+  .cost-header { background: var(--forest); padding: 20px 24px; color: var(--cream); }
+  .cost-header h3 { font-family: 'DM Serif Display', serif; font-size: 20px; margin-bottom: 2px; }
+  .cost-header p { font-size: 12px; color: rgba(245,240,232,0.5); }
+  .cost-body { padding: 20px 24px; }
+  .cost-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--bone); font-size: 14px; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row .qty { color: var(--text-mid); }
+  .cost-row .price { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--forest); }
+  .cost-row .saving { font-size: 11px; color: var(--green); margin-top: 2px; }
+
+  /* MARGIN TABLE */
+  .margin-wrap { background: white; border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; margin-bottom: 40px; }
+  .margin-wrap table { width: 100%; border-collapse: collapse; }
+  .margin-wrap th { background: var(--forest); color: var(--cream); text-align: left; padding: 14px 20px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .margin-wrap td { padding: 14px 20px; border-bottom: 1px solid var(--bone); font-size: 14px; color: var(--text-mid); }
+  .margin-wrap tr:last-child td { border-bottom: none; }
+  .margin-wrap td:first-child { font-weight: 600; color: var(--text); }
+  .margin-wrap td.num { font-family: 'DM Serif Display', serif; font-size: 16px; }
+  .margin-wrap td.green { color: var(--green); font-weight: 700; }
+  .margin-wrap td.amber { color: var(--earth); font-weight: 700; }
+  .margin-wrap td.highlight { background: rgba(26,46,26,0.04); }
+  .margin-wrap tr.section-head td { background: var(--cream); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--moss); padding: 10px 20px; }
+
+  /* CASH REQ */
+  .cash-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .cash-card { background: white; border: 1px solid var(--bone); border-radius: 10px; padding: 20px 22px; text-align: center; }
+  .cash-card.recommended { border: 2px solid var(--amber); background: #fffdf4; }
+  .cash-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+  .cash-val { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--forest); margin-bottom: 4px; }
+  .cash-desc { font-size: 12px; color: var(--text-light); line-height: 1.4; }
+  .rec-badge { display: inline-block; background: var(--amber); color: var(--forest); font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 8px; }
+
+  /* DECISION BOX */
+  .decision-box { background: var(--forest); color: var(--cream); border-radius: 12px; padding: 36px 40px; margin: 40px 0; }
+  .decision-box h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--amber); margin-bottom: 16px; }
+  .decision-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .decision-list li { font-size: 14px; color: rgba(245,240,232,0.8); padding-left: 24px; position: relative; line-height: 1.6; }
+  .decision-list li::before { content: '→'; position: absolute; left: 0; color: var(--amber); }
+  .decision-list li strong { color: var(--cream); }
+
+  .footer { background: var(--forest); color: var(--sage); text-align: center; padding: 28px; font-size: 11px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">Modern Savage — Confirmed Pricing</div>
+  <h1>ACF Pharma<br><span>Pricing Model</span></h1>
+  <div class="cover-sub">Unit economics updated with confirmed quotes — April 17, 2026</div>
+  <div class="cover-meta">
+    <div><span><strong>Supplier</strong>Andrew Kouvel, ACF Pharma</span></div>
+    <div><span><strong>SKUs</strong>Adult Blend + Kids Blend</span></div>
+    <div><span><strong>Status</strong>Confirmed — pricing locked</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CONFIRMED COSTS -->
+  <div class="section">
+    <div class="section-label">Confirmed Manufacturing Cost</div>
+    <h2>What Andrew quoted</h2>
+    <p class="intro">Both SKUs confirmed. Adult blend carries a ~$2 premium over kids. At 2,500 MOQ per SKU, the combined launch inventory commitment is $116,825. Scaling to 5,000 per SKU saves ~$4,600 total but doubles the upfront cash requirement.</p>
+
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-header">
+          <h3>Adult Blend</h3>
+          <p>28-serving pouch — full organ complex</p>
+        </div>
+        <div class="cost-body">
+          <div class="cost-row">
+            <span class="qty">2,500 units</span>
+            <div><div class="price">$24.45</div></div>
+          </div>
+          <div class="cost-row">
+            <span class="qty">5,000 units</span>
+            <div>
+              <div class="price">$23.52</div>
+              <div class="saving">Save $0.93/unit vs 2,500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-header">
+          <h3>Kids Blend</h3>
+          <p>28-serving pouch — kids formulation</p>
+        </div>
+        <div class="cost-body">
+          <div class="cost-row">
+            <span class="qty">2,500 units</span>
+            <div><div class="price">$22.28</div></div>
+          </div>
+          <div class="cost-row">
+            <span class="qty">5,000 units</span>
+            <div>
+              <div class="price">$21.34</div>
+              <div class="saving">Save $0.94/unit vs 2,500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARGIN ANALYSIS -->
+  <div class="section">
+    <div class="section-label">Margin Analysis</div>
+    <h2>What the numbers mean</h2>
+    <p class="intro">At $69.99 retail for adult and $59.99 for kids (recommended pricing from the Apr 10 launch model), gross margins are strong. After fulfilment costs (shipping $7, 3PL pick/pack $2.50, payment processing ~2.9%), contribution margin per unit is the profit available before marketing.</p>
+
+    <div class="margin-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Line Item</th>
+            <th>Adult (2,500 MOQ)</th>
+            <th>Adult (5,000 MOQ)</th>
+            <th>Kids (2,500 MOQ)</th>
+            <th>Kids (5,000 MOQ)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-head"><td colspan="5">Revenue</td></tr>
+          <tr>
+            <td>Retail price (DTC)</td>
+            <td class="num">$69.99</td>
+            <td class="num">$69.99</td>
+            <td class="num">$59.99</td>
+            <td class="num">$59.99</td>
+          </tr>
+          <tr class="section-head"><td colspan="5">Cost of Goods</td></tr>
+          <tr>
+            <td>Manufacturing (ACF confirmed)</td>
+            <td class="num">$24.45</td>
+            <td class="num">$23.52</td>
+            <td class="num">$22.28</td>
+            <td class="num">$21.34</td>
+          </tr>
+          <tr>
+            <td>Gross margin $</td>
+            <td class="num green">$45.54</td>
+            <td class="num green">$46.47</td>
+            <td class="num green">$37.71</td>
+            <td class="num green">$38.65</td>
+          </tr>
+          <tr>
+            <td>Gross margin %</td>
+            <td class="num green">65.1%</td>
+            <td class="num green">66.4%</td>
+            <td class="num green">62.9%</td>
+            <td class="num green">64.4%</td>
+          </tr>
+          <tr class="section-head"><td colspan="5">Fulfilment Costs</td></tr>
+          <tr>
+            <td>Shipping (US domestic avg)</td>
+            <td class="num">$7.00</td>
+            <td class="num">$7.00</td>
+            <td class="num">$7.00</td>
+            <td class="num">$7.00</td>
+          </tr>
+          <tr>
+            <td>3PL pick/pack + storage</td>
+            <td class="num">$2.50</td>
+            <td class="num">$2.50</td>
+            <td class="num">$2.50</td>
+            <td class="num">$2.50</td>
+          </tr>
+          <tr>
+            <td>Payment processing (2.9%)</td>
+            <td class="num">$2.03</td>
+            <td class="num">$2.03</td>
+            <td class="num">$1.74</td>
+            <td class="num">$1.74</td>
+          </tr>
+          <tr>
+            <td><strong>Contribution margin $</strong></td>
+            <td class="num highlight green">$34.01</td>
+            <td class="num highlight green">$34.94</td>
+            <td class="num highlight green">$26.47</td>
+            <td class="num highlight green">$27.41</td>
+          </tr>
+          <tr>
+            <td><strong>Contribution margin %</strong></td>
+            <td class="num highlight green">48.6%</td>
+            <td class="num highlight green">49.9%</td>
+            <td class="num highlight green">44.1%</td>
+            <td class="num highlight green">45.7%</td>
+          </tr>
+          <tr class="section-head"><td colspan="5">Implied CAC Budget (break-even on first order)</td></tr>
+          <tr>
+            <td>Max CAC to break even</td>
+            <td class="num amber">$34.01</td>
+            <td class="num amber">$34.94</td>
+            <td class="num amber">$26.47</td>
+            <td class="num amber">$27.41</td>
+          </tr>
+          <tr>
+            <td>Target CAC (50% of CM)</td>
+            <td class="num green">$17.00</td>
+            <td class="num green">$17.47</td>
+            <td class="num green">$13.24</td>
+            <td class="num green">$13.71</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LAUNCH CASH -->
+  <div class="section">
+    <div class="section-label">Launch Inventory Options</div>
+    <h2>Cash required at launch</h2>
+    <p class="intro">Three options: adult only (lean), adult + kids at 2,500 each, or adult + kids at 5,000 each. Recommendation: adult-only first run, validate the market, then add kids for Month 2.</p>
+
+    <div class="cash-grid">
+      <div class="cash-card recommended">
+        <div class="rec-badge">Recommended</div>
+        <div class="cash-label">Adult Only — 2,500 units</div>
+        <div class="cash-val">$61,125</div>
+        <div class="cash-desc">2,500 × $24.45. Lean launch. Validate before committing kids inventory. 8-12 weeks supply at base case sell-through.</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Both SKUs — 2,500 each</div>
+        <div class="cash-val">$116,825</div>
+        <div class="cash-desc">Adult $61,125 + Kids $55,700. Full launch across both SKUs. Requires ~$117K upfront. Higher risk for first run.</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Both SKUs — 5,000 each</div>
+        <div class="cash-val">$223,800</div>
+        <div class="cash-desc">Adult $117,600 + Kids $106,700. Best unit economics but $224K cash commitment. Only justified with strong pre-order demand.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAK EVEN -->
+  <div class="section">
+    <div class="section-label">Break-Even Analysis</div>
+    <h2>How many units to get cash back</h2>
+    <p class="intro">Using adult blend at 2,500 MOQ, $69.99 retail, $34.01 contribution margin. Break-even on inventory investment only (excludes marketing).</p>
+
+    <div class="margin-wrap">
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>Units to Break Even</th><th>% of 2,500 MOQ</th><th>Timeline (est.)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inventory cost only ($61,125)</td>
+            <td class="num">1,797 units</td>
+            <td class="num amber">72%</td>
+            <td>Month 2-3 at base case</td>
+          </tr>
+          <tr>
+            <td>Inventory + $15K marketing</td>
+            <td class="num">2,238 units</td>
+            <td class="num amber">90%</td>
+            <td>Month 3-4 at base case</td>
+          </tr>
+          <tr>
+            <td>Inventory + $30K marketing</td>
+            <td class="num">2,679 units</td>
+            <td class="num">107%</td>
+            <td>Requires reorder before break-even</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DECISIONS -->
+  <div class="decision-box">
+    <h3>Key Decisions Now Pricing is Confirmed</h3>
+    <ul class="decision-list">
+      <li><strong>Launch with adult only or both SKUs?</strong> Recommended: adult first. Kids follows in Month 2 once you have conversion data. Simpler ops, lower cash risk.</li>
+      <li><strong>2,500 or 5,000 units?</strong> Start at 2,500 ($61K). The $0.93/unit saving at 5,000 only matters if you sell through — don't over-commit inventory on a new product.</li>
+      <li><strong>Retail price confirmation:</strong> $69.99 for adult gives 48.6% contribution margin and $34 max CAC. This is the right price. Don't go lower.</li>
+      <li><strong>Subscription pricing:</strong> $59.99/month subscription (14% discount) still gives $23.56 contribution margin at 2,500 MOQ. Worth offering from day one — LTV dramatically improves on subscribers.</li>
+      <li><strong>Production lead time:</strong> Ask Andrew how long from order confirmation to delivery. This determines whether July launch is achievable — if lead time is 10+ weeks, order must be placed by mid-May.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Modern Savage — Confirmed ACF Pharma Pricing Model — April 17, 2026 — Confidential
+</div>
+
+</body>
+</html>
