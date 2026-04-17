@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Launch Plan v2</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a; --forest-mid: #2d4a2d; --moss: #4a6741; --sage: #7a9e6e;
+    --earth: #8b6914; --amber: #c49a2a; --cream: #f5f0e8;
+    --warm-white: #faf8f3; --bone: #e8e0d0;
+    --text: #1a1a1a; --text-mid: #4a4a4a; --text-light: #7a7a7a;
+    --green: #2e7d32; --red: #c62828; --blue: #1565c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--warm-white); color: var(--text); line-height: 1.6; }
+
+  .cover { background: var(--forest); color: var(--cream); padding: 72px 64px; }
+  .cover-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
+  .cover h1 { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.05; margin-bottom: 12px; }
+  .cover h1 span { color: var(--amber); font-style: italic; }
+  .cover-sub { font-size: 16px; color: rgba(245,240,232,0.6); margin-bottom: 40px; }
+  .cover-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: var(--cream); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 20px; }
+  .pill.gold { background: var(--amber); color: var(--forest); border-color: var(--amber); }
+  .cover-meta { display: flex; gap: 48px; }
+  .cover-meta .m { display: flex; flex-direction: column; gap: 3px; }
+  .cover-meta .m strong { color: var(--cream); font-size: 15px; }
+  .cover-meta .m span { font-size: 11px; color: var(--sage); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 64px 56px; }
+  .section { margin-bottom: 64px; }
+  .section-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--moss); margin-bottom: 10px; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--forest); margin-bottom: 16px; line-height: 1.2; }
+  .intro { font-size: 14px; color: var(--text-mid); margin-bottom: 28px; line-height: 1.8; max-width: 740px; }
+  hr { border: none; border-top: 1px solid var(--bone); margin: 56px 0; }
+
+  /* PRICING TABLE */
+  .pricing-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .pricing-card { background: white; border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; }
+  .pricing-head { padding: 20px 24px; display: flex; align-items: center; gap: 10px; }
+  .pricing-head.us { background: var(--forest); }
+  .pricing-head.uk { background: #1a2e3d; }
+  .pricing-head h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--cream); }
+  .pricing-head .flag { font-size: 22px; }
+  .pricing-table { width: 100%; border-collapse: collapse; }
+  .pricing-table th { background: var(--cream); color: var(--text-light); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--bone); }
+  .pricing-table td { padding: 12px 16px; border-bottom: 1px solid var(--bone); font-size: 14px; }
+  .pricing-table tr:last-child td { border-bottom: none; }
+  .pricing-table td.price { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--forest); font-weight: 700; }
+  .pricing-table td.type { color: var(--text-mid); }
+  .pricing-table tr.bundle td { background: rgba(26,46,26,0.04); }
+  .pricing-table tr.bundle td.price { color: var(--earth); }
+
+  /* UNIT ECON TABLE */
+  .ue-wrap { background: white; border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; margin-bottom: 32px; }
+  .ue-wrap table { width: 100%; border-collapse: collapse; }
+  .ue-wrap th { background: var(--forest); color: var(--cream); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 16px; text-align: left; }
+  .ue-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--bone); font-size: 13px; color: var(--text-mid); vertical-align: top; }
+  .ue-wrap tr:last-child td { border-bottom: none; }
+  .ue-wrap td:first-child { font-weight: 600; color: var(--text); font-size: 13px; }
+  .ue-wrap td.num { font-family: 'DM Serif Display', serif; font-size: 15px; }
+  .ue-wrap td.green { color: var(--green); font-weight: 700; }
+  .ue-wrap td.amber { color: var(--earth); font-weight: 600; }
+  .ue-wrap td.red { color: var(--red); }
+  .ue-wrap tr.divider td { background: var(--cream); color: var(--moss); font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; }
+  .ue-wrap tr.total td { background: var(--forest); color: var(--cream); font-weight: 700; }
+  .ue-wrap tr.total td.green { color: var(--sage); }
+
+  /* CASH CARDS */
+  .cash-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .cash-card { background: white; border: 1px solid var(--bone); border-radius: 10px; padding: 18px 20px; text-align: center; }
+  .cash-card.highlight { border: 2px solid var(--amber); background: #fffdf4; }
+  .cash-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+  .cash-val { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--forest); line-height: 1.1; margin-bottom: 4px; }
+  .cash-sub { font-size: 11px; color: var(--text-light); line-height: 1.4; }
+
+  /* SCENARIO TABLE */
+  .scenario-wrap { background: white; border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; margin-bottom: 32px; }
+  .scenario-wrap table { width: 100%; border-collapse: collapse; }
+  .scenario-wrap th { background: var(--forest); color: var(--cream); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 18px; text-align: left; }
+  .scenario-wrap td { padding: 13px 18px; border-bottom: 1px solid var(--bone); font-size: 14px; color: var(--text-mid); }
+  .scenario-wrap tr:last-child td { border-bottom: none; }
+  .scenario-wrap td:first-child { font-weight: 600; color: var(--text); }
+  .scenario-wrap td.num { font-family: 'DM Serif Display', serif; font-size: 16px; }
+  .scenario-wrap td.green { color: var(--green); font-weight: 700; }
+  .scenario-wrap td.amber { color: var(--earth); font-weight: 700; }
+  .scenario-wrap td.red { color: var(--red); font-weight: 700; }
+  .scenario-wrap tr.section-head td { background: var(--cream); font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--moss); padding: 8px 18px; }
+
+  /* KEY DECISIONS */
+  .kd-box { background: var(--forest); color: var(--cream); border-radius: 12px; padding: 40px 44px; margin: 48px 0; }
+  .kd-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--amber); margin-bottom: 20px; }
+  .kd-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .kd-list li { font-size: 14px; color: rgba(245,240,232,0.85); padding-left: 28px; position: relative; line-height: 1.6; }
+  .kd-list li::before { content: attr(data-n); position: absolute; left: 0; width: 20px; height: 20px; background: var(--amber); color: var(--forest); font-weight: 800; font-size: 11px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 2px; }
+  .kd-list li strong { color: white; }
+
+  /* NOTE BOX */
+  .note { background: var(--cream); border-left: 4px solid var(--moss); border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 20px 0; }
+  .note strong { color: var(--forest); }
+
+  .footer { background: var(--forest); color: var(--sage); text-align: center; padding: 28px; font-size: 11px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">Modern Savage — Launch Plan v2</div>
+  <h1>Updated Launch<br><span>Financial Model</span></h1>
+  <div class="cover-sub">All confirmed pricing, COGS, and margins — US + UK simultaneous launch</div>
+  <div class="cover-pills">
+    <span class="pill gold">3 SKUs Confirmed</span>
+    <span class="pill">US + UK Simultaneous</span>
+    <span class="pill">Free Shipping on Subscriptions</span>
+    <span class="pill">COGS ex packaging &amp; shipping</span>
+  </div>
+  <div class="cover-meta">
+    <div class="m"><strong>July 2026</strong><span>Launch Target</span></div>
+    <div class="m"><strong>$164K</strong><span>Inventory at 2,500 MOQ each</span></div>
+    <div class="m"><strong>55%+</strong><span>Contribution margin on bundles</span></div>
+    <div class="m"><strong>ACF Pharma</strong><span>Andrew Kouvel — confirmed</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PRICING -->
+  <div class="section">
+    <div class="section-label">Confirmed Retail Pricing</div>
+    <h2>What customers pay</h2>
+    <p class="intro">All prices confirmed by Jesse. Free shipping applied to all subscription orders in both markets. One-time purchases pay standard shipping. Bundle subscriptions are the core value proposition — designed to drive 3-item subscriptions as the primary SKU.</p>
+
+    <div class="pricing-wrap">
+      <div class="pricing-card">
+        <div class="pricing-head us">
+          <span class="flag">🇺🇸</span>
+          <h3>United States</h3>
+        </div>
+        <table class="pricing-table">
+          <thead><tr><th>Offer</th><th>Price</th><th>Shipping</th></tr></thead>
+          <tbody>
+            <tr><td class="type">1 item — one-time</td><td class="price">$79</td><td>Customer pays</td></tr>
+            <tr><td class="type">1 item — subscribe</td><td class="price">$69</td><td>FREE</td></tr>
+            <tr class="bundle"><td class="type">2 items — subscribe</td><td class="price">$125</td><td>FREE</td></tr>
+            <tr class="bundle"><td class="type">3 items — subscribe</td><td class="price">$180</td><td>FREE</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-head uk">
+          <span class="flag">🇬🇧</span>
+          <h3>United Kingdom</h3>
+        </div>
+        <table class="pricing-table">
+          <thead><tr><th>Offer</th><th>Price</th><th>Shipping</th></tr></thead>
+          <tbody>
+            <tr><td class="type">1 item — one-time</td><td class="price">£65</td><td>Customer pays</td></tr>
+            <tr><td class="type">1 item — subscribe</td><td class="price">£55</td><td>FREE</td></tr>
+            <tr class="bundle"><td class="type">2 items — subscribe</td><td class="price">£100</td><td>FREE</td></tr>
+            <tr class="bundle"><td class="type">3 items — subscribe</td><td class="price">£140</td><td>FREE</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note"><strong>Note on COGS:</strong> Manufacturing costs below are as confirmed by ACF Pharma (Andrew Kouvel) and exclude packaging and outbound shipping. Estimated packaging at $1.20/unit and US domestic shipping at $8/unit (subscription: absorbed; one-time: customer paid) used in margin calculations below.</div>
+  </div>
+
+  <hr>
+
+  <!-- UNIT ECONOMICS -->
+  <div class="section">
+    <div class="section-label">Unit Economics — US Market</div>
+    <h2>Margin per sale (USD)</h2>
+    <p class="intro">Full P&L per unit across all pricing scenarios. Subscription orders absorb $8 shipping cost. One-time orders: customer pays shipping, so shipping is neutral to our margin. Payment processing: 2.9% + $0.30 (Stripe).</p>
+
+    <div class="ue-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Line Item</th>
+            <th>One-Time $79</th>
+            <th>Subscribe $69</th>
+            <th>2-Bundle /unit $62.50</th>
+            <th>3-Bundle /unit $60</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="divider"><td colspan="5">Adult Blend (COGS ex-pack: $24.45)</td></tr>
+          <tr><td>Revenue</td><td class="num">$79.00</td><td class="num">$69.00</td><td class="num">$62.50</td><td class="num">$60.00</td></tr>
+          <tr><td>Manufacturing (confirmed)</td><td class="num red">-$24.45</td><td class="num red">-$24.45</td><td class="num red">-$24.45</td><td class="num red">-$24.45</td></tr>
+          <tr><td>Packaging (est. $1.20)</td><td class="num red">-$1.20</td><td class="num red">-$1.20</td><td class="num red">-$1.20</td><td class="num red">-$1.20</td></tr>
+          <tr><td>Outbound shipping (sub: free/absorbed)</td><td class="num">$0.00</td><td class="num red">-$8.00</td><td class="num red">-$8.00</td><td class="num red">-$8.00</td></tr>
+          <tr><td>3PL fulfilment</td><td class="num red">-$2.50</td><td class="num red">-$2.50</td><td class="num red">-$2.50</td><td class="num red">-$2.50</td></tr>
+          <tr><td>Payment processing (2.9%+$0.30)</td><td class="num red">-$2.59</td><td class="num red">-$2.30</td><td class="num red">-$2.11</td><td class="num red">-$2.04</td></tr>
+          <tr class="total"><td>Contribution Margin</td><td class="num green">$48.26</td><td class="num green">$30.55</td><td class="num green">$24.24</td><td class="num green">$21.81</td></tr>
+          <tr class="total"><td>CM %</td><td class="num green">61.1%</td><td class="num green">44.3%</td><td class="num green">38.8%</td><td class="num green">36.3%</td></tr>
+
+          <tr class="divider"><td colspan="5">Kids Blend (COGS ex-pack: $22.28)</td></tr>
+          <tr><td>Manufacturing (confirmed)</td><td class="num red">-$22.28</td><td class="num red">-$22.28</td><td class="num red">-$22.28</td><td class="num red">-$22.28</td></tr>
+          <tr><td>Packaging + shipping/fulfilment (same)</td><td class="num red">-$3.70</td><td class="num red">-$11.70</td><td class="num red">-$11.70</td><td class="num red">-$11.70</td></tr>
+          <tr><td>Payment processing</td><td class="num red">-$2.59</td><td class="num red">-$2.30</td><td class="num red">-$2.11</td><td class="num red">-$2.04</td></tr>
+          <tr class="total"><td>Contribution Margin</td><td class="num green">$50.43</td><td class="num green">$32.72</td><td class="num green">$26.41</td><td class="num green">$23.98</td></tr>
+          <tr class="total"><td>CM %</td><td class="num green">63.8%</td><td class="num green">47.4%</td><td class="num green">42.3%</td><td class="num green">40.0%</td></tr>
+
+          <tr class="divider"><td colspan="5">BG Summit Add-On (COGS ex-pack: $18.90)</td></tr>
+          <tr><td>Manufacturing (confirmed)</td><td class="num red">-$18.90</td><td class="num red">-$18.90</td><td class="num red">-$18.90</td><td class="num red">-$18.90</td></tr>
+          <tr><td>Packaging + shipping/fulfilment (same)</td><td class="num red">-$3.70</td><td class="num red">-$11.70</td><td class="num red">-$11.70</td><td class="num red">-$11.70</td></tr>
+          <tr><td>Payment processing</td><td class="num red">-$2.59</td><td class="num red">-$2.30</td><td class="num red">-$2.11</td><td class="num red">-$2.04</td></tr>
+          <tr class="total"><td>Contribution Margin</td><td class="num green">$53.81</td><td class="num green">$36.10</td><td class="num green">$29.79</td><td class="num green">$27.36</td></tr>
+          <tr class="total"><td>CM %</td><td class="num green">68.1%</td><td class="num green">52.3%</td><td class="num green">47.7%</td><td class="num green">45.6%</td></tr>
+
+          <tr class="divider"><td colspan="5">3-Item Bundle (all 3 SKUs together)</td></tr>
+          <tr><td>Combined revenue ($180 / 3)</td><td>—</td><td>—</td><td>—</td><td class="num">$180.00</td></tr>
+          <tr><td>Combined manufacturing ($24.45+$22.28+$18.90)</td><td>—</td><td>—</td><td>—</td><td class="num red">-$65.63</td></tr>
+          <tr><td>Packaging (3 × $1.20)</td><td>—</td><td>—</td><td>—</td><td class="num red">-$3.60</td></tr>
+          <tr><td>Shipping (FREE, absorbed)</td><td>—</td><td>—</td><td>—</td><td class="num red">-$8.00</td></tr>
+          <tr><td>3PL (3 picks)</td><td>—</td><td>—</td><td>—</td><td class="num red">-$4.50</td></tr>
+          <tr><td>Payment processing (2.9%+$0.30)</td><td>—</td><td>—</td><td>—</td><td class="num red">-$5.52</td></tr>
+          <tr class="total"><td>Bundle Contribution Margin</td><td>—</td><td>—</td><td>—</td><td class="num green">$92.75</td></tr>
+          <tr class="total"><td>CM % (on $180)</td><td>—</td><td>—</td><td>—</td><td class="num green">51.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><strong>UK margins:</strong> Broadly equivalent. At £140 for 3-item bundle, COGS converts to ~£52 at current GBP/USD (0.79). UK CM on bundle approximately £62-65 (44-46%). Free shipping absorbed at ~£5/order.</div>
+  </div>
+
+  <hr>
+
+  <!-- CASH REQUIREMENTS -->
+  <div class="section">
+    <div class="section-label">Launch Inventory</div>
+    <h2>Cash required to launch</h2>
+    <p class="intro">Three SKUs at 2,500 units each. Manufacturing costs only — packaging costs additional (est. $1.20/unit = ~$9K total across all three SKUs).</p>
+
+    <div class="cash-row">
+      <div class="cash-card">
+        <div class="cash-label">Adult Blend</div>
+        <div class="cash-val">$61,125</div>
+        <div class="cash-sub">2,500 × $24.45</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Kids Blend</div>
+        <div class="cash-val">$55,700</div>
+        <div class="cash-sub">2,500 × $22.28</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Summit Add-On</div>
+        <div class="cash-val">$47,250</div>
+        <div class="cash-sub">2,500 × $18.90</div>
+      </div>
+      <div class="cash-card highlight">
+        <div class="cash-label">Total Manufacturing</div>
+        <div class="cash-val">$164,075</div>
+        <div class="cash-sub">+ ~$9K packaging est. Total: ~$173K</div>
+      </div>
+    </div>
+
+    <div class="cash-row">
+      <div class="cash-card">
+        <div class="cash-label">Break-Even (Adult)</div>
+        <div class="cash-val">1,280</div>
+        <div class="cash-sub">Units at $79 one-time to recover inventory cost only</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Break-Even (All 3)</div>
+        <div class="cash-val">1,870</div>
+        <div class="cash-sub">3-item bundle orders to recover total $173K</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Monthly Revenue Target</div>
+        <div class="cash-val">$90K</div>
+        <div class="cash-sub">500 bundle subscribers covers inventory within 2 months</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-label">Year 1 at 1,000 Subs</div>
+        <div class="cash-val">$2.16M</div>
+        <div class="cash-sub">1,000 × $180/month × 12. ~$1.1M CM after all costs</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-label">Revenue Scenarios — Year 1</div>
+    <h2>Three launch outcomes</h2>
+    <p class="intro">Based on simultaneous US + UK launch, July 2026. Assumes subscription is the primary offer pushed in ads and Bear's social. Mix assumes 60% subscribe, 40% one-time in Month 1 shifting to 70/30 by Month 6.</p>
+
+    <div class="scenario-wrap">
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Conservative</th><th>Base Case</th><th>Upside</th></tr>
+        </thead>
+        <tbody>
+          <tr class="section-head"><td colspan="4">Launch Month (July 2026)</td></tr>
+          <tr><td>Orders (US + UK)</td><td class="num">150</td><td class="num">400</td><td class="num">900</td></tr>
+          <tr><td>Mix: bundle sub % of orders</td><td>40%</td><td>55%</td><td>65%</td></tr>
+          <tr><td>Revenue (blended)</td><td class="num amber">$14K</td><td class="num amber">$52K</td><td class="num amber">$133K</td></tr>
+
+          <tr class="section-head"><td colspan="4">Month 3 (Sept 2026)</td></tr>
+          <tr><td>Active subscribers</td><td class="num">200</td><td class="num">600</td><td class="num">1,400</td></tr>
+          <tr><td>Monthly recurring revenue</td><td class="num amber">$28K</td><td class="num amber">$84K</td><td class="num amber">$196K</td></tr>
+          <tr><td>MRR contribution margin</td><td class="num green">$13K</td><td class="num green">$43K</td><td class="num green">$101K</td></tr>
+
+          <tr class="section-head"><td colspan="4">Year 1 Total</td></tr>
+          <tr><td>Total revenue</td><td class="num red">$280K</td><td class="num amber">$820K</td><td class="num green">$2.1M</td></tr>
+          <tr><td>Total contribution margin</td><td class="num red">$128K</td><td class="num amber">$415K</td><td class="num green">$1.08M</td></tr>
+          <tr><td>Marketing spend (est.)</td><td class="num">$60K</td><td class="num">$120K</td><td class="num">$250K</td></tr>
+          <tr><td>Profit after marketing</td><td class="num red">$68K</td><td class="num amber">$295K</td><td class="num green">$830K</td></tr>
+          <tr><td>Implied avg CAC</td><td>$300</td><td>$180</td><td>$120</td></tr>
+          <tr><td>LTV:CAC (3-item sub, 12mo)</td><td class="num amber">7x</td><td class="num green">12x</td><td class="num green">18x</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- UK SPECIFICS -->
+  <div class="section">
+    <div class="section-label">UK Launch Considerations</div>
+    <h2>What the UK market needs</h2>
+    <p class="intro">Simultaneous US + UK launch is ambitious but the right call — Bear's audience is global and splitting the launch would lose momentum. Key operational items to confirm before go-live.</p>
+
+    <div class="ue-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Status</th><th>Action Required</th></tr></thead>
+        <tbody>
+          <tr><td>UK pricing confirmed</td><td style="color: var(--green); font-weight:700;">✓ Done</td><td>£65 / £55 / £100 / £140</td></tr>
+          <tr><td>UK fulfilment (3PL)</td><td style="color: var(--red); font-weight:700;">Pending</td><td>Need UK-based 3PL for domestic shipping. Consider Huboo, Mintsoft, or Amazon FBA UK</td></tr>
+          <tr><td>UK import / customs</td><td style="color: var(--red); font-weight:700;">Pending</td><td>Confirm import duty classification for organ supplements (likely zero-rated as food supplement). HMRC check needed.</td></tr>
+          <tr><td>UK label compliance</td><td style="color: var(--red); font-weight:700;">Pending</td><td>UK FSA rules for food supplements post-Brexit differ from FDA. Label claims must comply with UK regs.</td></tr>
+          <tr><td>UK payment processing</td><td style="color: var(--amber); font-weight:700;">Easy</td><td>Stripe supports GBP natively. Shopify handles currency switching. Set up GBP storefront.</td></tr>
+          <tr><td>VAT registration</td><td style="color: var(--red); font-weight:700;">Pending</td><td>Need UK VAT number if selling direct to UK consumers. Register before launch. Accountant task.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- KEY DECISIONS -->
+  <div class="kd-box">
+    <h3>What Needs to Happen Now</h3>
+    <ul class="kd-list">
+      <li data-n="1"><strong>Confirm production lead time with Andrew:</strong> How long from order to delivery? If 10+ weeks, the order must be placed by mid-May to hit July launch. This is the single most important question right now.</li>
+      <li data-n="2"><strong>Packaging brief to designer this week:</strong> Packaging cost (~$1.20/unit) and design needs to be briefed immediately - lead time on custom pouches is typically 6-8 weeks.</li>
+      <li data-n="3"><strong>UK fulfilment partner:</strong> Identify and onboard a UK 3PL before launch. Can't do simultaneous UK launch without it.</li>
+      <li data-n="4"><strong>UK VAT registration:</strong> Pass to accountant (Sara Perry, David Owen) immediately. Takes 4-8 weeks.</li>
+      <li data-n="5"><strong>Shopify setup:</strong> Multi-currency store (USD + GBP), subscription integration (Recharge or Shopify's native sub), and early access landing page for waitlist.</li>
+      <li data-n="6"><strong>Lead the 3-item bundle in all ads:</strong> At $92.75 CM per order, the bundle is where the economics make sense for paid acquisition. Every ad should drive to the 3-item subscribe offer.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Modern Savage — Launch Plan v2 — Confirmed Pricing — April 17, 2026 — Confidential
+</div>
+
+</body>
+</html>
