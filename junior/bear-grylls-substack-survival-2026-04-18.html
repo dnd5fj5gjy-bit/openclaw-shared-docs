@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The World Is Getting Harder. Good. — Bear Grylls</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #f9f7f4;
+    color: #1a1a1a;
+    line-height: 1.8;
+  }
+
+  /* Substack-style layout */
+  .post-header {
+    max-width: 680px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+  }
+
+  .pub-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  .pub-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a1a, #2d5a2d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8ab88a;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .pub-info { flex: 1; }
+  .pub-name {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .pub-meta {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  .post-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .post-subtitle {
+    font-size: 20px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .post-byline {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    width: 780px;
+    height: 380px;
+    background: linear-gradient(160deg, #0d1f0d 0%, #1a3a1a 40%, #0a1510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(100,180,100,0.08) 0%, transparent 60%);
+  }
+  .hero-text-overlay {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+  }
+  .hero-text-overlay .big {
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .hero-text-overlay .caption {
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .post-body p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: #222;
+    margin-bottom: 24px;
+  }
+
+  .post-body p.lead {
+    font-size: 21px;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  .post-body strong { color: #1a1a1a; }
+
+  .pull-quote {
+    border-left: 3px solid #1a3a1a;
+    padding: 4px 0 4px 24px;
+    margin: 36px 0;
+  }
+  .pull-quote p {
+    font-size: 22px !important;
+    font-style: italic;
+    color: #1a3a1a !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+  }
+
+  .section-break {
+    text-align: center;
+    margin: 40px 0;
+    color: #ccc;
+    font-size: 20px;
+    letter-spacing: 8px;
+  }
+
+  .practical-box {
+    background: #f0ede6;
+    border: 1px solid #ddd9d0;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .practical-box h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .practical-box ul {
+    padding-left: 20px;
+  }
+  .practical-box li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .practical-box li strong { color: #1a1a1a; }
+
+  .closing-note {
+    background: #1a3a1a;
+    color: #d4e8d4;
+    padding: 32px 36px;
+    margin: 40px 0;
+  }
+  .closing-note p {
+    font-size: 17px !important;
+    color: #d4e8d4 !important;
+    margin-bottom: 12px !important;
+    line-height: 1.7 !important;
+  }
+  .closing-note p:last-child { margin-bottom: 0 !important; }
+  .closing-note strong { color: #8ab88a !important; }
+
+  .sign-off {
+    font-size: 17px;
+    color: #555;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid #e8e4dc;
+  }
+  .sign-off .name {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .sign-off .tagline {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+
+  .analysis-note {
+    background: #e8f4e8;
+    border: 1px solid #b8d8b8;
+    border-left: 4px solid #2d7a2d;
+    padding: 20px 24px;
+    margin: 0 auto 40px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: -apple-system, sans-serif;
+    font-size: 13px;
+    color: #2d5a2d;
+  }
+  .analysis-note strong { color: #1a3a1a; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .post-title { font-size: 28px; }
+    .post-body p { font-size: 17px; }
+    .pull-quote p { font-size: 19px !important; }
+    .hero-image { height: 260px; }
+    .hero-text-overlay .big { font-size: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANALYSIS NOTE — FOR JESSE/JUNIOR REFERENCE, REMOVE BEFORE PUBLISHING -->
+<div style="max-width:780px;margin:24px auto 0;padding:0 24px;">
+<div class="analysis-note">
+  <strong>Junior's note (remove before publishing):</strong> Article written in Bear's established Substack voice based on analysis of "The Fire and the Stillness," "The Weight We Carry," and "Be Still and Know." Key formula applied: opens with vulnerable subversion of expectation, uses binary tension (fear/readiness) as spine, grounds advice in Bear's lived experience (SAS, Everest, Man vs. Wild), moves from mindset to practical to spiritual, closes with "Never Give Up." ~1,100 words. Timed to current moment of geopolitical/economic anxiety — prepping is mainstream in 2025/26.
+</div>
+</div>
+
+<div class="post-header">
+  <div class="pub-bar">
+    <div class="pub-avatar">BG</div>
+    <div class="pub-info">
+      <div class="pub-name">Bear Grylls</div>
+      <div class="pub-meta">Apr 18, 2026 &nbsp;·&nbsp; 6 min read</div>
+    </div>
+  </div>
+
+  <h1 class="post-title">The World Is Getting Harder. Good.</h1>
+  <div class="post-subtitle">What the SAS taught me about surviving what's coming — and why most people are preparing for completely the wrong things.</div>
+  <div class="post-byline">BEAR GRYLLS &nbsp;·&nbsp; RESILIENCE &nbsp;·&nbsp; SURVIVAL</div>
+</div>
+
+<div style="max-width:780px;margin:0 auto;padding:0 24px;">
+<div class="hero-image">
+  <div class="hero-text-overlay">
+    <div class="big">&#127759;</div>
+    <div class="caption">Never Give Up</div>
+  </div>
+</div>
+</div>
+
+<div class="post-body">
+
+  <p class="lead">I want to be honest with you about something.</p>
+
+  <p>People assume I love chaos. That I relish the idea of a world falling apart. That somewhere in me there's a dark excitement when I see floods, power cuts, geopolitical instability, the fragility of supply chains laid bare. Like I've been quietly waiting for civilisation to falter so I can finally be useful.</p>
+
+  <p>That couldn't be further from the truth.</p>
+
+  <p>What I actually feel when I look at the world right now — the uncertainty, the volatility, the very real sense that the systems we've taken for granted are under pressure — is concern. For my family. For yours. For a generation that has never had to grow vegetables, start a fire, or navigate without a phone signal.</p>
+
+  <div class="pull-quote">
+    <p>"The question isn't whether hard times are coming. The question is whether you'll be someone who rises — or someone who folds."</p>
+  </div>
+
+  <p>But here's the thing about concern: it's only useful if it moves you to action.</p>
+
+  <p>So let's talk about what actual preparedness looks like. Not the tin-foil-hat version. Not ten years of freeze-dried meals in a bunker. The real thing. Because the SAS didn't teach me to fear the worst-case scenario. They taught me to train for it — and then get on with living.</p>
+
+  <div class="section-break">&#8901; &#8901; &#8901;</div>
+
+  <p>The biggest misconception about survival is that it's about gear.</p>
+
+  <p>People panic-buy torches and water tablets and feel prepared. They're not. I've watched extremely well-equipped people fall apart in the field, and I've watched people with almost nothing find a way through. The difference was never what they were carrying. It was what was carrying them.</p>
+
+  <p>The three real pillars of preparedness — in order of importance — are mindset, skills, and community. Gear comes last. Always.</p>
+
+  <p><strong>Mindset first.</strong> The SAS selection process is genuinely brutal. It breaks most people who attempt it. But the ones who pass — and I say this having gone through it myself — rarely do so because they're the strongest or the fastest. They pass because something inside them has made a decision that they will not quit. Full stop. No negotiation. That quality — unshakeable decision — is more valuable than any piece of kit you could buy.</p>
+
+  <p>When things get hard (and they will), most people's minds immediately go to what they don't have. The people who survive go to what they do have. It sounds simple. It isn't. It's trained. And the time to train it is now, not when the lights go out.</p>
+
+  <div class="section-break">&#8901; &#8901; &#8901;</div>
+
+  <p><strong>Skills second.</strong> I've been building fires since I was a kid on Exmoor with my father. I've navigated by stars above the Arctic Circle. I've drunk from muddy streams using my shirt as a filter when there was nothing else. None of that is heroic — it's just knowledge. And knowledge doesn't expire.</p>
+
+  <p>The real skills worth building aren't exotic. They're ancestral. The things every human being knew how to do before we outsourced survival to supermarkets and the power grid.</p>
+
+  <div class="practical-box">
+    <h3>The Five Skills Worth Your Time</h3>
+    <ul>
+      <li><strong>Water sourcing and purification.</strong> You can survive three weeks without food. Three days without water. Learn to find it, move it, and make it safe. Tablets, filtration, boiling — know all three.</li>
+      <li><strong>Fire in all conditions.</strong> Not just matches. Learn friction fire. Learn to read what burns and what doesn't. Fire is warmth, cooked food, and — critically — morale.</li>
+      <li><strong>Navigation without a phone.</strong> Map and compass. Sun position. Stars. Local landmarks. This is not complicated, but it is perishable if you don't practice it.</li>
+      <li><strong>Basic first aid and wound care.</strong> Most emergency situations involve injury before anything else. A course in field first aid is one of the highest-value things you can do for the people around you.</li>
+      <li><strong>Shelter and warmth.</strong> Hypothermia kills faster than almost anything else in the field. Learn to build, improvise, insulate. Know which materials hold heat and which drain it.</li>
+    </ul>
+  </div>
+
+  <p>None of this requires a crisis. In fact, the best time to learn these things is when there's no pressure. Take a course. Teach your kids. Go camping without the gadgets for a weekend. The knowledge will sit there, quietly, until the day you actually need it. And then it will be the most important thing you own.</p>
+
+  <div class="section-break">&#8901; &#8901; &#8901;</div>
+
+  <p><strong>Community third.</strong> And by some measures, first.</p>
+
+  <p>Every major survival situation I've studied — every disaster, every collapse, every event where some people made it and others didn't — comes back to this: <em>the people who survive do it together.</em> The lone wolf narrative is a Hollywood creation. Real survival is cooperative. It's shared fire, shared food, shared watch rotations, shared grief.</p>
+
+  <p>The question I'd ask you isn't "do you have enough supplies for your family?" It's "do you know your neighbours' names?" In a genuine emergency, that relationship is worth a thousand tins of beans.</p>
+
+  <p>Think about who around you has skills you lack. A doctor. A farmer. A carpenter. A mechanic. People laugh when I say this, but the most valuable person in your immediate community in a crisis is probably your local plumber. Know who he is.</p>
+
+  <div class="pull-quote">
+    <p>"The lone wolf narrative is a Hollywood creation. Real survival is cooperative. Always has been."</p>
+  </div>
+
+  <div class="section-break">&#8901; &#8901; &#8901;</div>
+
+  <p>I want to say something about fear before I close, because I think it's important.</p>
+
+  <p>A lot of people who get drawn into survival preparation do so from a place of anxiety. The news cycle feeds it. The doomscrolling feeds it. And there's an entire industry built on monetising your fear — selling you the bunker, the generator, the year's supply of food.</p>
+
+  <p>I'm not interested in that.</p>
+
+  <p>The reason to prepare isn't fear. The reason to prepare is love. Love of your family. Love of your community. The desire to be someone who can be leaned on when things get hard, rather than someone who panics and becomes a burden. That's a completely different psychological starting point — and it produces completely different outcomes.</p>
+
+  <p>Fear makes you hoard. Love makes you train.</p>
+
+  <div class="closing-note">
+    <p>I've spent my life in some of the harshest environments on earth. I've been cold, lost, hungry, injured, and genuinely unsure I was going to make it home. And through all of it — truly — the thing that held me together wasn't my training, wasn't my kit, wasn't even my team. It was a deep, unshakeable sense that I was not alone. That something greater than me was moving through all of it with me.</p>
+    <p>That is the real survival kit. And <strong>nobody can take it from you.</strong></p>
+    <p>Start preparing now. Not from fear. From love. From a decision that when hard times come — for your family, your street, your country — <strong>you will be ready.</strong></p>
+  </div>
+
+  <p>The world is getting harder. And I genuinely believe that's an invitation — to become the kind of person who can meet it.</p>
+
+  <p style="font-size:18px;font-weight:700;color:#1a3a1a;margin-top:8px;">Never Give Up.</p>
+
+  <div class="sign-off">
+    <div class="name">Bear Grylls</div>
+    <div class="tagline">SAS veteran &nbsp;·&nbsp; Chief Scout &nbsp;·&nbsp; Never Give Up</div>
+  </div>
+
+</div>
+
+</body>
+</html>
