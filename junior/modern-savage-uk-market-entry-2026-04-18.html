@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — UK Market Entry Brief</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0a0a0a; color: #e8e0d0; line-height: 1.7; }
+
+  .hero {
+    background: linear-gradient(135deg, #1a0a00 0%, #2d1200 50%, #1a0a00 100%);
+    border-bottom: 2px solid #8b4513;
+    padding: 60px 40px 50px;
+    text-align: center;
+  }
+  .hero-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #8b4513;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: normal;
+    color: #e8e0d0;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: #cd6b1a; }
+  .hero-sub {
+    font-size: 16px;
+    color: #a09070;
+    max-width: 580px;
+    margin: 0 auto 20px;
+  }
+  .hero-meta {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #5a4a30;
+    letter-spacing: 2px;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 30px 80px; }
+
+  .toc {
+    background: #111;
+    border: 1px solid #2a2010;
+    border-left: 3px solid #8b4513;
+    padding: 28px 32px;
+    margin: 50px 0 40px;
+  }
+  .toc-title {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8b4513;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .toc ol { padding-left: 20px; }
+  .toc li { font-size: 14px; color: #a09070; margin-bottom: 6px; }
+
+  .alert {
+    background: #1a0d00;
+    border: 1px solid #8b4513;
+    border-left: 4px solid #cd6b1a;
+    padding: 20px 24px;
+    margin: 30px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .alert-text { font-size: 14px; color: #d4b896; }
+  .alert-text strong { color: #cd6b1a; }
+
+  .section { margin: 60px 0; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #2a2010;
+  }
+  .section-num {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #8b4513;
+    letter-spacing: 2px;
+    min-width: 30px;
+  }
+  .section h2 {
+    font-size: 26px;
+    font-weight: normal;
+    color: #e8e0d0;
+  }
+
+  .card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 16px;
+    color: #cd6b1a;
+    margin-bottom: 12px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .card p { font-size: 14px; color: #c8baa8; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul { padding-left: 18px; margin-top: 8px; }
+  .card li { font-size: 14px; color: #c8baa8; margin-bottom: 6px; }
+
+  .status-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .badge {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .badge-red { background: #3a0a0a; color: #ff6b6b; border: 1px solid #ff6b6b; }
+  .badge-amber { background: #2a1a00; color: #ffa500; border: 1px solid #ffa500; }
+  .badge-green { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; }
+  .badge-blue { background: #0a1a2a; color: #64b5f6; border: 1px solid #64b5f6; }
+
+  .timeline {
+    position: relative;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #2a2010;
+  }
+  .tl-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .tl-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #8b4513;
+    background: #0a0a0a;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #8b4513;
+    z-index: 1;
+  }
+  .tl-dot.urgent { border-color: #ff6b6b; color: #ff6b6b; }
+  .tl-dot.done { border-color: #4caf50; color: #4caf50; }
+  .tl-content { padding-top: 4px; flex: 1; }
+  .tl-week {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #8b4513;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .tl-week.urgent { color: #ff6b6b; }
+  .tl-title { font-size: 15px; color: #e8e0d0; margin-bottom: 4px; }
+  .tl-desc { font-size: 13px; color: #8a7a60; }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .comp-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 24px;
+  }
+  .comp-card.recommended { border-color: #8b4513; background: #130d00; }
+  .comp-name {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #cd6b1a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .comp-card.recommended .comp-name::after {
+    content: ' ★ TOP PICK';
+    font-size: 9px;
+    color: #cd6b1a;
+    opacity: 0.7;
+  }
+  .comp-detail { font-size: 13px; color: #a09070; margin-bottom: 5px; }
+  .comp-detail strong { color: #c8baa8; }
+
+  .label-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .label-item {
+    background: #0d0d0d;
+    border: 1px solid #1a1a10;
+    padding: 14px 18px;
+  }
+  .label-item .req { font-size: 12px; color: #cd6b1a; font-family: 'Courier New', monospace; margin-bottom: 4px; }
+  .label-item .val { font-size: 13px; color: #a09070; }
+
+  .action-block {
+    background: #0d0800;
+    border: 1px solid #3a2000;
+    border-left: 4px solid #8b4513;
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  .action-num {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #8b4513;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .action-title { font-size: 16px; color: #e8e0d0; margin-bottom: 8px; }
+  .action-body { font-size: 14px; color: #a09070; }
+  .action-body strong { color: #cd6b1a; }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 30px 0;
+  }
+  .summary-item {
+    background: #111;
+    border: 1px solid #222;
+    padding: 20px;
+    text-align: center;
+  }
+  .summary-val {
+    font-size: 28px;
+    color: #cd6b1a;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 6px;
+  }
+  .summary-label { font-size: 11px; color: #6a5a40; letter-spacing: 2px; text-transform: uppercase; }
+
+  .footer {
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a10;
+    padding: 30px 40px;
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #3a3020;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Modern Savage — Confidential</div>
+  <h1>UK Market Entry <span>Brief</span></h1>
+  <div class="hero-sub">Everything needed to launch simultaneously in the UK. Regulations, labelling, VAT, 3PL, duty, trademark. Remove the unknowns before they become delays.</div>
+  <div class="hero-meta">PREPARED BY JUNIOR &nbsp;|&nbsp; APRIL 18, 2026 &nbsp;|&nbsp; BGV INTERNAL</div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li>Critical Path — What must happen and when</li>
+      <li>UK Supplement Regulations (FSA)</li>
+      <li>UK Label Requirements</li>
+      <li>Import Duty &amp; Customs Classification</li>
+      <li>VAT Registration</li>
+      <li>3PL Shortlist — UK Fulfilment Partners</li>
+      <li>UK Trademark</li>
+      <li>Action Summary</li>
+    </ol>
+  </div>
+
+  <div class="alert">
+    <div class="alert-icon">&#9888;</div>
+    <div class="alert-text">
+      <strong>Bottom line up front:</strong> The UK launch has 3 hard blockers that need to start immediately regardless of everything else. VAT registration takes up to 8 weeks. 3PL setup takes 2-4 weeks. UK trademark takes 4 months. None of these can be rushed. Start all three now.
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2>Critical Path</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot urgent">!</div>
+        <div class="tl-content">
+          <div class="tl-week urgent">THIS WEEK — CRITICAL</div>
+          <div class="tl-title">Register for UK VAT</div>
+          <div class="tl-desc">Supplements are standard-rated at 20% in the UK. You cannot legally sell without VAT registration. HMRC takes 4-8 weeks. Every week you wait is a week off your launch. Pass to Sara Perry at David Owen Accountancy today.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot urgent">!</div>
+        <div class="tl-content">
+          <div class="tl-week urgent">THIS WEEK — CRITICAL</div>
+          <div class="tl-title">File UK Trademark — Modern Savage</div>
+          <div class="tl-desc">Classes 5 (dietary supplements) and 29 (processed meat/organ products). £170 first class + £50 second class = £220 at IPO. 4-month process. Same portal used for Sister Swims. File before launch or you're exposed.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot urgent">!</div>
+        <div class="tl-content">
+          <div class="tl-week urgent">THIS WEEK</div>
+          <div class="tl-title">Select UK 3PL and begin onboarding</div>
+          <div class="tl-desc">Need a UK fulfilment partner who handles food supplements. 2-4 weeks to onboard, connect Shopify, and agree SOPs. Top pick: ShipBob UK (London). Full shortlist in Section 6.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-content">
+          <div class="tl-week">WEEK 2-3</div>
+          <div class="tl-title">Confirm HS code + import duty classification</div>
+          <div class="tl-desc">Organ supplements in capsule form classify under HS 2106.90. UK duty rate is 0% on most food preparations from the US under this heading. Confirm with a UK customs broker or HMRC's trade tariff tool before first shipment.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div class="tl-content">
+          <div class="tl-week">WEEK 3-4</div>
+          <div class="tl-title">UK label design signed off</div>
+          <div class="tl-desc">UK labels have different legal requirements to US. Net weight in metric (grams), UK business address, specific warning text for certain nutrients, no disease treatment claims. Brief designer now to avoid reprinting. Full spec in Section 3.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div class="tl-content">
+          <div class="tl-week">WEEK 5-6</div>
+          <div class="tl-title">Shopify multi-currency + UK shipping live</div>
+          <div class="tl-desc">GBP pricing set, UK tax rules configured, UK 3PL warehouse address live, UK shipping rates set (£3.99 standard, free on subscription). VAT likely registered by now.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div class="tl-content">
+          <div class="tl-week">WEEK 7-8</div>
+          <div class="tl-title">First UK inventory shipment</div>
+          <div class="tl-desc">2,000 units Adult + 1,000 Kid + 1,000 Summit Stack. Manufacturing lead time of 8 weeks means inventory order must be placed NOW for this to work. All in parallel.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot done">&#10003;</div>
+        <div class="tl-content">
+          <div class="tl-week">LAUNCH</div>
+          <div class="tl-title">Simultaneous US + UK launch with Bear</div>
+          <div class="tl-desc">Bear's 100M reach spans both markets. One campaign, two storefronts. GBP and USD checkout. Free shipping on subscriptions both markets.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2>UK Supplement Regulations (FSA)</h2>
+    </div>
+
+    <div class="card">
+      <h3>What category is Modern Savage?</h3>
+      <p>Organ and gland supplements in capsule or powder form are classified as <strong>food supplements</strong> under UK law. They are governed by the Food Standards Agency (FSA) and sit under the Food Supplements (England) Regulations 2003, as amended post-Brexit.</p>
+      <p>This is distinct from medicines. You do not need a medicines licence. You do not need to register with the MHRA. You do not need pre-market approval from the FSA.</p>
+      <p>However, you are fully legally responsible for the safety and composition of any supplement you import and sell in the UK. The FSA can and does take action against non-compliant products.</p>
+    </div>
+
+    <div class="card">
+      <h3>What you cannot claim</h3>
+      <p>This is where US and UK diverge. The UK maintains a list of approved nutrition and health claims under Retained Regulation (EC) 1924/2006 (the UK version, post-Brexit).</p>
+      <ul>
+        <li><strong>Forbidden:</strong> Any claim that a product treats, prevents, or cures a disease or medical condition. "Supports testosterone" is borderline — "boosts testosterone" is not permitted.</li>
+        <li><strong>Permitted with caution:</strong> "Contributes to normal immune function" is on the approved UK register. "Supports energy metabolism" is permitted for certain vitamins.</li>
+        <li><strong>Safest framing:</strong> Ancestral/ancestral nutrition language and lifestyle framing (the Modern Savage brand voice) sits outside the regulated health claims regime — this is an advantage. Focus on how humans ate, not what the product does medicinally.</li>
+        <li><strong>Organ-specific:</strong> There are no specific restrictions on selling organ supplements per se. The restriction is on what you claim they do.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Country of origin + traceability</h3>
+      <p>Grass-fed beef organ supplements need to declare country of origin. If sourced from ACF Pharma in the US, the label should state "Manufactured in USA from US-sourced ingredients" (or confirm sourcing with ACF). UK FSA does not prohibit US-origin animal products in supplements — the BSE concern that historically applied to European beef does not apply to US-origin product.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2>UK Label Requirements</h2>
+    </div>
+
+    <div class="alert">
+      <div class="alert-icon">&#9432;</div>
+      <div class="alert-text">
+        <strong>Important:</strong> UK label requirements differ from FDA requirements. If you're using one label design for both markets, you will be non-compliant in the UK. Two label versions are needed, or a combined label that satisfies both.
+      </div>
+    </div>
+
+    <div class="label-grid">
+      <div class="label-item">
+        <div class="req">Product Name</div>
+        <div class="val">Must include the word "Supplement" or clearly indicate it's a food supplement. "Modern Savage Adult Blend — Food Supplement" is correct.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Net Quantity</div>
+        <div class="val">Must be declared in metric units (grams, milligrams). UK law requires metric — oz/lbs cannot be the primary unit. Can include both.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Business Address</div>
+        <div class="val">Must include a UK or EU address for the "food business operator" responsible for placing on the market. You need a UK registered address — BGV London office (3 The Boiler House, Battersea Power Station) works.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Ingredients List</div>
+        <div class="val">All ingredients listed in descending order by weight. Allergens must be emphasised (bold or capitals). Standard UK food law applies.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Recommended Daily Dose</div>
+        <div class="val">Must state the recommended portion size and a statement "Do not exceed the stated recommended daily dose." This is mandatory for all supplements.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Warning Statement</div>
+        <div class="val">Must include: "Food supplements should not be used as a substitute for a varied diet." Keep out of reach of children if applicable. No disease treatment claims.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Best Before / Lot Number</div>
+        <div class="val">Minimum durability date (BB or use-by) and lot/batch number. Both mandatory under UK food labelling law.</div>
+      </div>
+      <div class="label-item">
+        <div class="req">Storage Conditions</div>
+        <div class="val">Storage instructions if required for safety or quality. "Store in a cool, dry place below 25°C" is standard for supplements.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Nutrition Declaration</h3>
+      <p>UK food law requires a formal Nutrition Declaration table per 100g AND per serving. Format is standardised: Energy (kJ and kcal), Fat, Saturates, Carbohydrate, Sugars, Protein, Salt. For organ supplements with minimal carbohydrates, most entries will be trace or zero.</p>
+      <p>Micronutrient contributions (e.g., Vitamin A from liver) should be expressed as % of Nutrient Reference Values (NRVs). These are equivalent to the US Daily Values but with UK-specific figures.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2>Import Duty &amp; Customs Classification</h2>
+    </div>
+
+    <div class="card">
+      <h3>HS Commodity Code</h3>
+      <p>Organ supplements in capsule or tablet form are classified under <strong>HS 2106.90</strong> (Food preparations not elsewhere specified or included). This is confirmed by HMRC's own classification guidance for "vitamins, supplements and herbal medicines."</p>
+      <p>Full UK commodity code: <strong>2106 90 98 00</strong> (other food preparations).</p>
+    </div>
+
+    <div class="card">
+      <h3>UK Import Duty Rate (US Origin)</h3>
+      <p>Under the UK Global Tariff, food preparations under 2106.90 are subject to varying rates. Many food supplement preparations attract <strong>0% duty</strong> under the standard third-country rate. However, some sub-classifications attract 6-12%.</p>
+      <p>Post-Brexit, there is no UK-US preferential trade agreement. The US is treated as a standard third country. The UK's Most Favoured Nation (MFN) rate applies.</p>
+      <p><strong>Action required:</strong> Confirm the exact rate via HMRC's UK Trade Tariff tool (trade-tariff.service.gov.uk) using commodity code 2106 90 98. Input: "food supplement capsules, animal organ origin, US." A UK customs broker (takes 30 minutes) can confirm this definitively before first shipment.</p>
+    </div>
+
+    <div class="card">
+      <h3>UK VAT on Import</h3>
+      <p>Import VAT at 20% is charged on all goods entering the UK above the £135 threshold (per consignment). This is reclaimed by the business on the VAT return — it is not a net cost if you are VAT-registered. However, you must be VAT-registered before importing commercially or you cannot reclaim.</p>
+      <p>For shipments from US manufacturer direct to UK 3PL warehouse: the 3PL will typically act as the importer of record. Agree this with the 3PL during setup.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2>VAT Registration</h2>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="summary-val">20%</div>
+        <div class="summary-label">Standard rate on supplements</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-val">£90K</div>
+        <div class="summary-label">Registration threshold</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-val">4-8 wks</div>
+        <div class="summary-label">HMRC processing time</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-val">£0</div>
+        <div class="summary-label">Cost to register</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Key Points</h3>
+      <ul>
+        <li>Food supplements are <strong>standard-rated at 20% VAT</strong>. Unlike basic foods, there is no zero-rating exemption. This applies to all three SKUs.</li>
+        <li>You must register before you make your first UK sale, or immediately if you expect to exceed £90K within 30 days. A simultaneous US/UK launch with Bear's reach will almost certainly exceed this in the first month.</li>
+        <li>Register under the legal entity that will trade in the UK. Options: (a) BGV Global Ltd, (b) a new UK entity for Modern Savage, (c) Bear Witness Ltd (IoM — not ideal, may complicate UK VAT position). Discuss with Sara Perry.</li>
+        <li>UK VAT number must appear on all invoices and the Shopify store checkout.</li>
+        <li>VAT collected from UK customers is paid to HMRC quarterly. VAT on purchases (3PL fees, import VAT, packaging) is reclaimed. Net VAT burden on UK revenue is approximately 20% of margin, not 20% of revenue.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Who to instruct</h3>
+      <p><strong>Sara Perry, David Owen Accountancy</strong> — sara_perry@davidowen.co.uk | +44 1380 722211</p>
+      <p>She already handles Jesse's UK tax. Pass her: (1) the legal entity name, (2) expected first UK sale date, (3) estimated UK revenue Year 1. She can file in a day; HMRC will take 4-8 weeks to issue the VAT number.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2>3PL Shortlist — UK Fulfilment</h2>
+    </div>
+
+    <div class="comparison">
+      <div class="comp-card recommended">
+        <div class="comp-name">ShipBob UK</div>
+        <div class="comp-detail"><strong>Location:</strong> London (Stratford)</div>
+        <div class="comp-detail"><strong>Supplement experience:</strong> Yes, multiple supplement brands</div>
+        <div class="comp-detail"><strong>Shopify integration:</strong> Native, 2-click connect</div>
+        <div class="comp-detail"><strong>Pricing:</strong> ~£2-4 pick + pack per order, no minimum order volume</div>
+        <div class="comp-detail"><strong>Why top pick:</strong> Same tech stack as US ShipBob (used widely for DTC supplements). Shopify + subscription-ready. Can act as importer of record. UK + Europe shipping network. Onboarding is fast.</div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-name">PackPro Fulfilment</div>
+        <div class="comp-detail"><strong>Location:</strong> West Midlands, UK</div>
+        <div class="comp-detail"><strong>Supplement experience:</strong> Specialist supplement 3PL</div>
+        <div class="comp-detail"><strong>Shopify integration:</strong> Yes</div>
+        <div class="comp-detail"><strong>Pricing:</strong> Quote-based, typically £1.80-3.50 per order</div>
+        <div class="comp-detail"><strong>Why consider:</strong> UK-native, supplement-specialist. Good for brands that want a more hands-on partner. Handles custom packaging insert fulfilment well.</div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-name">3PLWOW</div>
+        <div class="comp-detail"><strong>Location:</strong> UK (multiple)</div>
+        <div class="comp-detail"><strong>Supplement experience:</strong> Yes, positioned as supplement specialist</div>
+        <div class="comp-detail"><strong>Shopify integration:</strong> Yes</div>
+        <div class="comp-detail"><strong>Pricing:</strong> Quote-based</div>
+        <div class="comp-detail"><strong>Why consider:</strong> Same-day cut-off claims. Supplement-specific focus. Worth a call for pricing comparison.</div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-name">Huboo</div>
+        <div class="comp-detail"><strong>Location:</strong> Bristol + Europe</div>
+        <div class="comp-detail"><strong>Supplement experience:</strong> Health and beauty focus</div>
+        <div class="comp-detail"><strong>Shopify integration:</strong> Yes</div>
+        <div class="comp-detail"><strong>Pricing:</strong> Tiered, accessible for early-stage brands</div>
+        <div class="comp-detail"><strong>Why consider:</strong> Good for brands that want UK + EU fulfilment from one partner. Tech-led, good dashboard visibility.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>What to ask each 3PL</h3>
+      <ul>
+        <li>Can you act as importer of record for US-origin supplements? (Saves significant admin)</li>
+        <li>Do you handle food supplement compliance checks on inbound stock?</li>
+        <li>What is your Shopify + subscription app integration (ReCharge/Ordergroove)?</li>
+        <li>Same-day dispatch cut-off time?</li>
+        <li>Can you handle subscription order management vs one-off order management separately?</li>
+        <li>What is your minimum stock requirement and storage pricing model?</li>
+        <li>Return handling process for UK consumer returns?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2>UK Trademark</h2>
+    </div>
+
+    <div class="card">
+      <h3>Classes to file</h3>
+      <ul>
+        <li><strong>Class 5:</strong> Dietary supplements; nutritional supplements; food supplements in capsule or powder form. This is the primary class for Modern Savage.</li>
+        <li><strong>Class 29:</strong> Processed meat products; prepared animal organs for food; protein supplements derived from animal sources. Covers the organ-based positioning explicitly.</li>
+        <li><strong>Class 35:</strong> Online retail services in relation to dietary supplements (optional but recommended to protect the brand's commercial presence).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Filing details</h3>
+      <ul>
+        <li><strong>Registry:</strong> UKIPO (ipo.gov.uk) — same portal used for Sister Swims (Class 25) in April 2026.</li>
+        <li><strong>Cost:</strong> £170 first class + £50 each additional class online. Classes 5 + 29 + 35 = £270 total.</li>
+        <li><strong>Timeline:</strong> ~2 months to publication, then 2-month opposition period. Total 4 months to full registration.</li>
+        <li><strong>Search first:</strong> Run a quick clearance search on the UKIPO trademark register for "Modern Savage" in Classes 5 and 29. Given the distinctive name, conflicts are unlikely but worth confirming before filing.</li>
+        <li><strong>Bear Grylls brand tie:</strong> If the brand ever becomes "Bear Grylls Modern Savage" consider whether BG name needs to be on the trademark or as a separate mark.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2>Action Summary</h2>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 01 — DO TODAY</div>
+      <div class="action-title">Email Sara Perry at David Owen Accountancy</div>
+      <div class="action-body">Instruct her to begin UK VAT registration for the trading entity. Give her: entity name, expected first UK sale date, Year 1 UK revenue estimate. This is the longest lead-time item and cannot be rushed once submitted to HMRC. <strong>sara_perry@davidowen.co.uk</strong></div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 02 — DO THIS WEEK</div>
+      <div class="action-title">File UK trademark for Modern Savage (Classes 5 + 29)</div>
+      <div class="action-body">Go to ipo.gov.uk, run a clearance search, then file online. Classes 5 (dietary supplements) and 29 (processed animal organ products). £220 total. 4-month registration — every week delayed is a week of exposure at launch.</div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 03 — DO THIS WEEK</div>
+      <div class="action-title">Contact ShipBob UK to begin onboarding</div>
+      <div class="action-body">Request a quote and onboarding call with ShipBob UK (shipbob.com/uk). Ask the 7 questions listed in Section 6. Compare with PackPro and 3PLWOW if needed. 3PL setup takes 2-4 weeks — start now. <strong>The UK launch cannot happen without a UK warehouse address.</strong></div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 04 — WEEK 2</div>
+      <div class="action-title">Confirm HS code + duty rate via customs broker</div>
+      <div class="action-body">30-minute call with a UK customs broker to confirm: commodity code (likely 2106.90.98), import duty rate on US-origin organ supplement capsules, and whether the 3PL can act as importer of record. Avoids surprises on first shipment.</div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 05 — WEEK 2-3</div>
+      <div class="action-title">UK label brief to packaging designer</div>
+      <div class="action-body">Brief the packaging designer on the UK-specific label requirements from Section 3. Key differences vs US: metric net weight, UK business address, mandatory warning statement, UK Nutrient Reference Values, no FDA disclaimer. Revisit the label before approving final artwork.</div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-num">ACTION 06 — ONGOING</div>
+      <div class="action-title">Review all UK marketing copy for health claims</div>
+      <div class="action-body">Before any UK ads, landing pages, or social content go live, review all health-related language against the FSA approved claims register. The ancestral nutrition / "how humans ate" brand voice largely sidesteps this — but any specific functional claims (e.g., "supports testosterone") need to be on the UK approved register or cut.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+MODERN SAVAGE &nbsp;|&nbsp; UK MARKET ENTRY BRIEF &nbsp;|&nbsp; APRIL 18, 2026 &nbsp;|&nbsp; CONFIDENTIAL &nbsp;|&nbsp; PREPARED BY JUNIOR
+</div>
+
+</body>
+</html>
