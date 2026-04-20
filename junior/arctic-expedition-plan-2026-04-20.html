@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Expedition Plan 2026 — Jesse Grylls</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #0a0f1a; color: #e8eaf0; line-height: 1.7; }
+  .header { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 50%, #0d1b2a 100%); padding: 60px 40px 50px; text-align: center; border-bottom: 2px solid #1e4d7a; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e4d7a' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+  .header-inner { position: relative; z-index: 1; }
+  .route-tag { display: inline-block; background: #1e4d7a; color: #7ecbf5; padding: 4px 16px; border-radius: 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-size: 38px; font-weight: 700; color: #ffffff; letter-spacing: -1px; margin-bottom: 8px; }
+  .subtitle { font-size: 17px; color: #7ecbf5; margin-bottom: 6px; }
+  .meta { font-size: 13px; color: #6a8ba8; margin-top: 12px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 30px; }
+  .section { margin-bottom: 44px; }
+  h2 { font-size: 22px; color: #7ecbf5; border-bottom: 1px solid #1e4d7a; padding-bottom: 10px; margin-bottom: 24px; letter-spacing: 0.5px; }
+  h3 { font-size: 16px; color: #b8d4e8; margin: 22px 0 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  p { color: #c8d8e8; margin-bottom: 12px; font-size: 15px; }
+  .route-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .leg-card { background: #0f1e30; border: 1px solid #1e4d7a; border-radius: 10px; padding: 20px; }
+  .leg-number { font-size: 10px; color: #4a7a9b; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .leg-title { font-size: 15px; color: #ffffff; font-weight: 700; margin-bottom: 12px; }
+  .leg-stat { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .leg-stat-label { font-size: 12px; color: #4a7a9b; }
+  .leg-stat-value { font-size: 12px; color: #7ecbf5; font-weight: 600; }
+  .leg-window { margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a3450; font-size: 12px; color: #6a9ab8; }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-left: 6px; }
+  .pill-green { background: #0d3320; color: #4dd68c; }
+  .pill-amber { background: #332200; color: #f0a500; }
+  .pill-red { background: #330d0d; color: #f05050; }
+  .pill-blue { background: #0d1e33; color: #7ecbf5; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th { background: #0f1e30; color: #7ecbf5; padding: 10px 14px; text-align: left; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 2px solid #1e4d7a; }
+  td { padding: 10px 14px; border-bottom: 1px solid #111e2e; font-size: 14px; color: #c8d8e8; vertical-align: top; }
+  tr:hover td { background: #0d1a28; }
+  .alert { background: #0f1e30; border-left: 3px solid #f0a500; padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .alert-red { border-left-color: #f05050; }
+  .alert-green { border-left-color: #4dd68c; }
+  .alert-blue { border-left-color: #7ecbf5; }
+  .alert strong { color: #f0a500; font-size: 13px; display: block; margin-bottom: 4px; }
+  .alert-red strong { color: #f05050; }
+  .alert-green strong { color: #4dd68c; }
+  .alert-blue strong { color: #7ecbf5; }
+  .alert p { margin: 0; font-size: 13px; color: #b8c8d8; }
+  .checklist { list-style: none; }
+  .checklist li { padding: 7px 0; border-bottom: 1px solid #111e2e; font-size: 14px; color: #c8d8e8; display: flex; align-items: flex-start; gap: 10px; }
+  .checklist li::before { content: '□'; color: #1e4d7a; font-size: 16px; flex-shrink: 0; margin-top: -1px; }
+  .checklist li span.tag { display: inline-block; font-size: 10px; padding: 1px 8px; border-radius: 10px; background: #1a3450; color: #4a7a9b; margin-left: auto; flex-shrink: 0; }
+  .checklist li span.tag-red { background: #330d0d; color: #f05050; }
+  .checklist li span.tag-amber { background: #332200; color: #f0a500; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .route-grid { grid-template-columns: 1fr; } }
+  .contact-card { background: #0f1e30; border: 1px solid #1e4d7a; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .contact-name { font-size: 14px; color: #ffffff; font-weight: 700; }
+  .contact-role { font-size: 12px; color: #4a7a9b; margin: 2px 0 6px; }
+  .contact-detail { font-size: 12px; color: #7ecbf5; }
+  .total-row td { background: #0f1e30; color: #ffffff; font-weight: 700; border-top: 2px solid #1e4d7a; }
+  .footer { text-align: center; padding: 30px; color: #2a4a6a; font-size: 12px; border-top: 1px solid #111e2e; margin-top: 20px; }
+  .sar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .sar-card { background: #330d0d; border: 1px solid #5a1a1a; border-radius: 8px; padding: 14px; text-align: center; }
+  .sar-country { font-size: 11px; color: #f05050; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .sar-number { font-size: 15px; color: #ffffff; font-weight: 700; }
+  .highlight-box { background: #091525; border: 1px solid #1e4d7a; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="route-tag">Summer 2026 Expedition</div>
+    <h1>Arctic Passage</h1>
+    <div class="subtitle">UK / Norway &rarr; Faroe Islands &rarr; Iceland &rarr; Greenland</div>
+    <div class="meta">40ft Steel Yacht &bull; May 2026 Departure &bull; Jesse Grylls &bull; Prepared 20 April 2026</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>Route Overview</h2>
+    <div class="highlight-box">
+      <p>Total passage approximately <strong style="color:#7ecbf5">2,850 nautical miles</strong> from UK to West Greenland, typically 25-35 days of sailing spread across 6-10 weeks depending on weather holds, exploration time, and how long you want in each place. The Viking Route (UK/Bergen - Faroe - Iceland - Greenland) is well-documented and manageable on a well-found 40ft steel yacht.</p>
+      <p style="margin:0">Steel hull is a significant advantage: ice contact resistance, structural robustness, and the psychological confidence to push through conditions a fibreglass owner wouldn't. Keep a sharp eye on the hull through-hulls and seacocks before departure - steel boats and saltwater have a long history together.</p>
+    </div>
+
+    <div class="route-grid">
+      <div class="leg-card">
+        <div class="leg-number">Leg 1</div>
+        <div class="leg-title">UK to Bergen (or Lerwick)</div>
+        <div class="leg-stat"><span class="leg-stat-label">Distance</span><span class="leg-stat-value">~550nm (to Lerwick, Shetland)</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Est. passage</span><span class="leg-stat-value">4-5 days</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Difficulty</span><span class="leg-stat-value"><span class="pill pill-green">Moderate</span></span></div>
+        <div class="leg-window">Best window: May onwards. North Sea passage - aim for settled high pressure. Lerwick is an excellent staging point with good fuel and provisioning.</div>
+      </div>
+      <div class="leg-card">
+        <div class="leg-number">Leg 2</div>
+        <div class="leg-title">Lerwick / Bergen to Faroe Islands</div>
+        <div class="leg-stat"><span class="leg-stat-label">Distance</span><span class="leg-stat-value">~340nm (from Lerwick)</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Est. passage</span><span class="leg-stat-value">2.5-3 days</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Difficulty</span><span class="leg-stat-value"><span class="pill pill-green">Moderate</span></span></div>
+        <div class="leg-window">Torshavn is excellent. No cruising permit needed. Dramatic scenery. Call customs +298 44 73 05 24 hours before arrival. Good provisioning stop.</div>
+      </div>
+      <div class="leg-card">
+        <div class="leg-number">Leg 3</div>
+        <div class="leg-title">Faroe Islands to Iceland</div>
+        <div class="leg-stat"><span class="leg-stat-label">Distance</span><span class="leg-stat-value">~450nm to Reykjavik</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Est. passage</span><span class="leg-stat-value">3-4 days</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Difficulty</span><span class="leg-stat-value"><span class="pill pill-amber">Challenging</span></span></div>
+        <div class="leg-window">Can get rough. Iceland Customs: call +354 442 1754, email skipavakt@skatturinn.is 24h before. Also notify coast guard: sar@lhg.is. Reykjavik or Vestmannaeyjar as entry port.</div>
+      </div>
+      <div class="leg-card">
+        <div class="leg-number">Leg 4</div>
+        <div class="leg-title">Iceland to West Greenland</div>
+        <div class="leg-stat"><span class="leg-stat-label">Distance</span><span class="leg-stat-value">~900nm to Narsarsuaq</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Est. passage</span><span class="leg-stat-value">6-8 days</span></div>
+        <div class="leg-stat"><span class="leg-stat-label">Difficulty</span><span class="leg-stat-value"><span class="pill pill-red">Arctic</span></span></div>
+        <div class="leg-window">Crosses the Denmark Strait. Ice-dependent. June/July best. Aim for Narsarsuaq or Qaqortoq as first Greenland port. Must register for GREENPOS 6-hourly position reports before departure.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Leg</th><th>From</th><th>To</th><th>NM</th><th>Days sailing</th><th>Best window</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>UK (Southampton/Dartmouth)</td><td>Lerwick, Shetland</td><td>~550</td><td>4-5</td><td>May</td></tr>
+        <tr><td>1b</td><td>Lerwick</td><td>Bergen, Norway (optional)</td><td>~220</td><td>1.5-2</td><td>May</td></tr>
+        <tr><td>2</td><td>Lerwick / Bergen</td><td>Torshavn, Faroe Islands</td><td>~340</td><td>2.5-3</td><td>May-Jun</td></tr>
+        <tr><td>3</td><td>Torshavn</td><td>Reykjavik, Iceland</td><td>~450</td><td>3-4</td><td>May-Jun</td></tr>
+        <tr><td>4</td><td>Reykjavik</td><td>Narsarsuaq, Greenland</td><td>~900</td><td>6-8</td><td>Jun-Jul</td></tr>
+        <tr class="total-row"><td colspan="3">Total (UK to West Greenland)</td><td>~2,460</td><td>17-22 sailing days</td><td>May-Jul 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WEATHER WINDOWS -->
+  <div class="section">
+    <h2>Weather Windows</h2>
+    <div class="two-col">
+      <div>
+        <h3>North Sea / Faroe Leg</h3>
+        <div class="alert alert-green">
+          <strong>May-June: Ideal</strong>
+          <p>Long days, stable high pressure possible, depressions less severe than winter. Aim to leave on a 5+ day settled window. North Sea can still produce force 7-8 in spring but passages are short enough to be weather-routable.</p>
+        </div>
+        <h3>Faroe to Iceland</h3>
+        <div class="alert">
+          <strong>Late May - June: Good</strong>
+          <p>North Atlantic depressions track further north in summer. Pick your weather window carefully - minimum 4-day clear window. The stretch between Faroe and Iceland can produce steep uncomfortable seas in SW winds.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Denmark Strait (Iceland to Greenland)</h3>
+        <div class="alert alert-red">
+          <strong>June-July: Best window. Critical timing.</strong>
+          <p>This is the crux of the trip. The Denmark Strait has sea ice retreating June-July. Check DMI ice charts daily (iskort@dmi.dk). The East Greenland current carries ice southward - approach from the northwest, not directly west. July is safest; June possible but monitor ice. Do NOT attempt May without ice pilot advice.</p>
+        </div>
+        <h3>West Greenland Cruising</h3>
+        <div class="alert alert-green">
+          <strong>July-August: Prime Season</strong>
+          <p>Stable conditions, near-24hr daylight, spectacular fjord cruising. Icebergs (calved from ice cap) persist throughout - navigate around them, never between iceberg and shore. Water temperature 2-6 C.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-blue">
+      <strong>Ice Information Sources - Set These Up Now</strong>
+      <p>1. DMI daily ice charts: email iskort@dmi.dk to subscribe. 2. NASA WorldView (worldview.earthdata.nasa.gov) - near real-time satellite ice imagery. 3. Copernicus Marine Service: marine.copernicus.eu. 4. Canadian Ice Service: ice.ec.gc.ca. Subscribe to all of these before you leave - ice conditions change fast in Denmark Strait.</p>
+    </div>
+  </div>
+
+  <!-- ENTRY REQUIREMENTS -->
+  <div class="section">
+    <h2>Customs and Entry Requirements</h2>
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Permit</th><th>Notice</th><th>Contact</th><th>Key requirement</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Faroe Islands</strong></td>
+          <td><span class="pill pill-green">None</span></td>
+          <td>24 hours</td>
+          <td>+298 44 73 05 | customs@taks.fo</td>
+          <td>Police visit for passport scan. Notify before departure.</td>
+        </tr>
+        <tr>
+          <td><strong>Iceland</strong></td>
+          <td><span class="pill pill-green">None</span></td>
+          <td>24 hours</td>
+          <td>+354 442 1754 | skipavakt@skatturinn.is</td>
+          <td>Also notify coast guard: sar@lhg.is. Complete forms T01/T03/T05/T06/T09 before arrival. 6hr notice before departure.</td>
+        </tr>
+        <tr>
+          <td><strong>Greenland</strong></td>
+          <td><span class="pill pill-amber">GREENPOS + KYSTKONTROL</span></td>
+          <td>24 hours to port</td>
+          <td>+299 364 000 | jrcc@jrcc.gl</td>
+          <td>Register for GREENPOS self-service portal BEFORE leaving Iceland. Must submit 6-hourly position reports. Contact port on VHF 12 or 16. Entry through designated port (Narsarsuaq, Qaqortoq, Nuuk recommended).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert">
+      <strong>GREENPOS Registration - Do Before Leaving Iceland</strong>
+      <p>Greenland's GREENPOS system requires pre-registration and mandatory 6-hourly position reports via email (jrcc@jrcc.gl) or HF radio while in Greenlandic waters. Missing a report triggers SAR response. Set up a schedule alarm. If you have Garmin inReach, it can be configured to auto-send position reports on a schedule - discuss this with Amy Parker at Garmin when ordering the kit.</p>
+    </div>
+
+    <div class="alert alert-blue">
+      <strong>Jesse's Passports - Greenland Entry</strong>
+      <p>UK and Irish citizens are visa-free for Greenland. Jesse has both Irish and UK passports - either works. Greenland is Danish territory but NOT part of the EU/Schengen, so a separate entry is required from Iceland (which IS Schengen). Confirm crew passports are valid at least 6 months beyond expected return date.</p>
+    </div>
+  </div>
+
+  <!-- GARMIN KIT -->
+  <div class="section">
+    <h2>Electronics and Communications</h2>
+    <p>Amy Parker at Garmin (amy.parker@garmin.com, 07350 449779) is your contact for the marine kit - worth a call soon given May departure. The recommended build-out for an Arctic passage on a 40ft steel boat:</p>
+
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Purpose</th><th>Priority</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Garmin GPSMAP 923xsv</strong> or 1022xsv</td>
+          <td>Primary chart plotter, fish finder, sounder</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>Download offline Arctic/Iceland/Greenland charts before departure. Navionics or C-MAP for Greenland waters.</td>
+        </tr>
+        <tr>
+          <td><strong>Garmin inReach Mini 2</strong></td>
+          <td>Satellite two-way messaging, SOS, tracking</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>Works everywhere including Iceland/Greenland. Pairs with chartplotter. Can auto-send position reports for GREENPOS. Monthly plan needed - get the Expedition plan for continuous tracking. Ask Amy about marine mounting options.</td>
+        </tr>
+        <tr>
+          <td><strong>VHF Radio (fixed mount)</strong></td>
+          <td>Channel 16 watch, port comms, DSC distress</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>Must have DSC (Digital Selective Calling) for offshore. Register MMSI before departure with OFCOM (UK). Also get handheld waterproof backup.</td>
+        </tr>
+        <tr>
+          <td><strong>AIS Transponder (Class B)</strong></td>
+          <td>Vessel identification, collision avoidance</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>Steel hull has good radar cross-section but AIS makes you visible to shipping in fog. Integrated with chartplotter preferred.</td>
+        </tr>
+        <tr>
+          <td><strong>EPIRB 406MHz (Cat I)</strong></td>
+          <td>Distress beacon, SAR activation</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>Must be registered with OFCOM/MCA. Cat I float-free preferred (auto-activates if boat sinks). Check battery expiry. Test annually. Register the vessel and crew count.</td>
+        </tr>
+        <tr>
+          <td><strong>Personal PLBs (x crew)</strong></td>
+          <td>Man-overboard distress signalling</td>
+          <td><span class="pill pill-red">Critical</span></td>
+          <td>One per crew member. Activate in water if separated from vessel. Also register with OFCOM. Garmin inReach personal devices can double as PLBs.</td>
+        </tr>
+        <tr>
+          <td><strong>SSB / HF Radio</strong></td>
+          <td>Long-range weather, position reports, NorTech net</td>
+          <td><span class="pill pill-amber">Recommended</span></td>
+          <td>Useful for Greenland GREENPOS reports and weather fax. Requires installation. Alternative: Iridium satellite phone covers all of this. Pick one.</td>
+        </tr>
+        <tr>
+          <td><strong>Iridium Satellite Phone</strong></td>
+          <td>Voice comms, data, weather files</td>
+          <td><span class="pill pill-amber">Recommended</span></td>
+          <td>Covers the whole Arctic. Iridium GO! connects to smartphone. Predictwind or SailDocs for GRIB weather files over Iridium. More practical than SSB for small crew.</td>
+        </tr>
+        <tr>
+          <td><strong>Radar</strong></td>
+          <td>Ice detection, fog navigation</td>
+          <td><span class="pill pill-amber">Highly Recommended</span></td>
+          <td>Critical in Denmark Strait for ice detection. Garmin Fantom radar integrates with GPSMAP. Note: radar does NOT reliably detect growlers (low flat ice chunks) - slow down in ice fields regardless.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-red">
+      <strong>Steel Hull and Compass Deviation</strong>
+      <p>A 40ft steel boat will have significant compass deviation error - the steel hull deflects the magnetic field. Have the compass professionally swung (deviation card created) before departure. At high latitudes, magnetic variation also increases significantly (15-20 degrees west in Greenlandic waters). Add this to GPS-based navigation where possible. A properly calibrated fluxgate compass (for autopilot) is worth the investment.</p>
+    </div>
+  </div>
+
+  <!-- SAILS AND REFIT -->
+  <div class="section">
+    <h2>Sails and Refit</h2>
+    <p>Paul Lees at Crusader Sails (info@crusadersails.com, 07591 952445) is your sail contact. For an Arctic passage on a 40ft steel boat, the key priorities:</p>
+
+    <div class="two-col">
+      <div>
+        <h3>Sail Inventory for Arctic Passage</h3>
+        <ul class="checklist">
+          <li>Working headsail (105-110%) - workhorse<span class="tag tag-red">PRIORITY</span></li>
+          <li>Storm jib (smallest - for force 8+)<span class="tag tag-red">PRIORITY</span></li>
+          <li>Storm trysail or heavily reefed main<span class="tag tag-red">PRIORITY</span></li>
+          <li>Mainsail with 3 reefs minimum<span class="tag tag-amber">IMPORTANT</span></li>
+          <li>Downwind sail (spinnaker/code zero for light airs)<span class="tag">NICE TO HAVE</span></li>
+        </ul>
+        <p style="margin-top:12px; font-size:13px; color:#6a8ba8">Arctic weather is bimodal - either nothing (frustrating light airs) or a lot (rapid development). The storm kit is non-negotiable. Discuss this specifically with Paul at Crusader - they should know what's already on the boat and what needs replacing/adding.</p>
+      </div>
+      <div>
+        <h3>Key Refit Items (Below £5K Budget)</h3>
+        <ul class="checklist">
+          <li>Through-hull fittings inspection and service<span class="tag tag-red">SAFETY</span></li>
+          <li>Seacocks - open/close test, service/replace<span class="tag tag-red">SAFETY</span></li>
+          <li>Engine raw water impeller replacement<span class="tag tag-red">SAFETY</span></li>
+          <li>Stuffing box / stern gland inspection<span class="tag tag-red">SAFETY</span></li>
+          <li>Standing rigging check (replace if 10+ years old)<span class="tag tag-amber">CRITICAL</span></li>
+          <li>Running rigging - halyards, sheets (replace worn)<span class="tag tag-amber">CRITICAL</span></li>
+          <li>Bilge pump (manual and electric) - test<span class="tag tag-red">SAFETY</span></li>
+          <li>Safety harnesses and tethers (1 per crew)<span class="tag tag-red">SAFETY</span></li>
+          <li>Jacklines - full length port and starboard<span class="tag tag-red">SAFETY</span></li>
+          <li>Liferaft (serviced, &lt;3 years old ideally)<span class="tag tag-red">SAFETY</span></li>
+          <li>Antifouling bottom paint (fresh coat)<span class="tag">RECOMMENDED</span></li>
+          <li>Diesel tanks and fuel filter check<span class="tag tag-amber">CRITICAL</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-red">
+      <strong>Cold Water Immersion - The Arctic Risk</strong>
+      <p>Water temperature in the Denmark Strait and around Greenland is 2-6 degrees C. Immersion without a drysuit is survivable for approximately 15-30 minutes before incapacitation. Everyone on deck in open water offshore should wear: harness + tether (clipped to jackline), inflatable lifejacket with crotch strap. A horseshoe lifebuoy, throw line, and MOB pole with light/drogue should be mounted and ready. Henri-Lloyd are a partnership - get Henri-Lloyd offshore drysuits or full ocean oilskins for the crew, and Arctic thermal base layers.</p>
+    </div>
+  </div>
+
+  <!-- PROVISIONING -->
+  <div class="section">
+    <h2>Provisioning</h2>
+    <p>Estimated for 2-3 crew, 60-day voyage (UK departure to return), accounting for both passages and time at anchor in Greenland. Restock in Lerwick, Torshavn, and Reykjavik. Greenland supply is expensive and limited - arrive with 3+ weeks of food from Iceland.</p>
+
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Quantity (2 crew)</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Water (tank + jerricans)</td><td>200 litres minimum at sea</td><td>Typical consumption 4-6L/person/day. Greenland fjords have clean meltwater - can be collected but needs treatment (Lifestraw or UV filter).</td></tr>
+        <tr><td>Diesel fuel</td><td>Full tank + 100L jerricans</td><td>Motoring in calm, harbour entry, battery charging. Fuel available Lerwick, Torshavn, Reykjavik, Nuuk. Limited elsewhere in Greenland.</td></tr>
+        <tr><td>Freeze-dried meals</td><td>30-40 packs</td><td>For rough passages when cooking is impossible. Modern Savage-style provision. Backpacker/expedition brands.</td></tr>
+        <tr><td>Tinned provisions</td><td>60+ main meals</td><td>Basis of provisioning - tinned fish, meat, pulses, tomatoes. Steel boat = no damp/rot worries.</td></tr>
+        <tr><td>Carbohydrates</td><td>10kg pasta/rice, 5kg oats</td><td>High calorie density, easy storage, morale booster.</td></tr>
+        <tr><td>Protein (tinned/dried)</td><td>Tinned fish x 30, jerky, nuts</td><td>Refrigeration unreliable offshore. Rely on non-perishables at sea.</td></tr>
+        <tr><td>Fresh food</td><td>For first 5-7 days each leg</td><td>Load fresh in Reykjavik before Greenland crossing. Eggs keep 3-4 weeks unrefrigerated.</td></tr>
+        <tr><td>Coffee / tea</td><td>Very generous amounts</td><td>The single most important morale provision on cold passages. Do not underestimate.</td></tr>
+        <tr><td>Alcohol</td><td>Limited (duty-free from Iceland)</td><td>Greenland and Faroe Islands have alcohol import limits. Check current allowances. Alcohol prohibited offshore on night watches.</td></tr>
+        <tr><td>Medical kit</td><td>Full offshore kit</td><td>See safety section. Distance from medical care in Greenland is extreme.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SAFETY CHECKLIST -->
+  <div class="section">
+    <h2>Pre-Departure Safety Checklist</h2>
+    <div class="two-col">
+      <div>
+        <h3>Safety Equipment</h3>
+        <ul class="checklist">
+          <li>EPIRB 406MHz Cat I - registered, battery valid<span class="tag tag-red">CRITICAL</span></li>
+          <li>Personal PLBs x all crew - registered<span class="tag tag-red">CRITICAL</span></li>
+          <li>Liferaft - serviced, hydrostatic release fitted<span class="tag tag-red">CRITICAL</span></li>
+          <li>Safety harnesses + tethers x all crew<span class="tag tag-red">CRITICAL</span></li>
+          <li>Jacklines - full length, load tested<span class="tag tag-red">CRITICAL</span></li>
+          <li>Inflatable lifejackets with crotch straps - all crew<span class="tag tag-red">CRITICAL</span></li>
+          <li>MOB pole, horseshoe buoy, throw rope<span class="tag tag-red">CRITICAL</span></li>
+          <li>Fire extinguishers (galley + engine room)<span class="tag tag-red">CRITICAL</span></li>
+          <li>Flares - parachute, handheld red, orange smoke<span class="tag tag-red">CRITICAL</span></li>
+          <li>Manual bilge pump - operable from cockpit<span class="tag tag-red">CRITICAL</span></li>
+          <li>Storm sails (trysail + storm jib) aboard<span class="tag tag-red">CRITICAL</span></li>
+          <li>Sea anchor / drogue<span class="tag tag-amber">RECOMMENDED</span></li>
+          <li>Bolt croppers (for shroud cutting in dismasting)<span class="tag tag-amber">RECOMMENDED</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Documentation and Admin</h3>
+        <ul class="checklist">
+          <li>Ship's registration papers aboard<span class="tag tag-red">REQUIRED</span></li>
+          <li>VHF radio operator licence<span class="tag tag-red">REQUIRED</span></li>
+          <li>MMSI registered (OFCOM)<span class="tag tag-red">REQUIRED</span></li>
+          <li>EPIRB registered with OFCOM/MCA<span class="tag tag-red">REQUIRED</span></li>
+          <li>Marine insurance (offshore - check Arctic exclusions)<span class="tag tag-red">REQUIRED</span></li>
+          <li>Passports - valid 6 months beyond return<span class="tag tag-red">REQUIRED</span></li>
+          <li>Crew list with next of kin contacts<span class="tag tag-red">REQUIRED</span></li>
+          <li>Float plan left with shore contact<span class="tag tag-red">REQUIRED</span></li>
+          <li>GREENPOS self-service registration<span class="tag tag-red">REQUIRED FOR GREENLAND</span></li>
+          <li>Offshore medical certificate (RYA/MCA)<span class="tag tag-amber">RECOMMENDED</span></li>
+          <li>First Aid training - at least one crew<span class="tag tag-amber">RECOMMENDED</span></li>
+          <li>Offshore medical kit (prescription antibiotics, etc.)<span class="tag tag-amber">RECOMMENDED</span></li>
+        </ul>
+
+        <div class="alert" style="margin-top:16px">
+          <strong>Insurance Check - Arctic Coverage</strong>
+          <p>Many standard marine policies exclude waters north of 60° or 65°N - which includes most of Iceland and all of Greenland. Check now. Specialist offshore policies (Pantaenius, Osprey, Craftinsure offshore) cover Arctic. Budget £600-£1,500/year for offshore Arctic coverage on a 40ft boat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDICAL -->
+  <div class="section">
+    <h2>Medical and Offshore Health</h2>
+    <div class="alert alert-red">
+      <strong>Distance from Care in Greenland is Extreme</strong>
+      <p>Nuuk (population 18,000) has a hospital. Smaller settlements have a nurse. Everything else requires helicopter medevac or sailing days to reach care. One crew member should complete an Offshore Medical course (RYA Level 2 or equivalent) before departure. Consider a pre-expedition consultation at OJay Health (Ollie Matthews, ollie@ojayhealth.com) - Jesse's health contact - to discuss expedition medicine kit, prescription antibiotics, altitude/cold adaptation.</p>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Prescription antibiotics</td><td>Amoxicillin/flucloxacillin for infection; ciprofloxacin for GI. Needs GP prescription before departure.</td></tr>
+        <tr><td>Strong analgesics</td><td>Tramadol or similar - prescription required. For serious injury management during days-long passage to care.</td></tr>
+        <tr><td>Dental kit</td><td>Dental cement (Cavit/Dentemp) for lost fillings. Weeks from a dentist.</td></tr>
+        <tr><td>Sea sickness medication</td><td>Scopolamine patches most effective for offshore. Cinnarizine (Stugeron) as backup. Start before departure.</td></tr>
+        <tr><td>Hypothermia treatment</td><td>Warm IV fluids if available; space blankets; dry thermal layers accessible immediately. Carbon monoxide detector in cabin (dangerous to use stove for heating).</td></tr>
+        <tr><td>Wound closure</td><td>Steri-strips, suture kit, wound glue. Fishing cuts and line injuries are common.</td></tr>
+        <tr><td>Eye protection</td><td>UV-protection sunglasses essential - glare off ice/water at high latitudes causes snow blindness. Wraparound style.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SAR CONTACTS -->
+  <div class="section">
+    <h2>Emergency SAR Contacts</h2>
+    <div class="sar-grid">
+      <div class="sar-card">
+        <div class="sar-country">UK</div>
+        <div class="sar-number">+44 344 382 0025</div>
+        <div style="font-size:11px; color:#9a3030; margin-top:4px">HMCG MRCC</div>
+      </div>
+      <div class="sar-card">
+        <div class="sar-country">Faroe Islands</div>
+        <div class="sar-number">+298 351 300</div>
+        <div style="font-size:11px; color:#9a3030; margin-top:4px">Faroese SAR</div>
+      </div>
+      <div class="sar-card">
+        <div class="sar-country">Iceland</div>
+        <div class="sar-number">+354 511 333</div>
+        <div style="font-size:11px; color:#9a3030; margin-top:4px">ICG-SAR / Landsbjörg</div>
+      </div>
+      <div class="sar-card">
+        <div class="sar-country">Greenland</div>
+        <div class="sar-number">+299 364 000</div>
+        <div style="font-size:11px; color:#9a3030; margin-top:4px">JRCC Greenland / jrcc@jrcc.gl</div>
+      </div>
+    </div>
+    <p style="margin-top:16px; font-size:13px; color:#4a7a9b">VHF Ch16 is the international distress/calling channel - maintain a continuous watch at sea. In Greenland waters, local ports monitor VHF 12 and 16. Your inReach SOS connects directly to GEOS International Emergency Response Centre which coordinates with local SAR. Know how to activate your EPIRB manually before you need to.</p>
+  </div>
+
+  <!-- KEY CONTACTS -->
+  <div class="section">
+    <h2>Key Contacts</h2>
+    <div class="two-col">
+      <div>
+        <div class="contact-card">
+          <div class="contact-name">Paul Lees</div>
+          <div class="contact-role">Crusader Sails - Sails</div>
+          <div class="contact-detail">info@crusadersails.com</div>
+          <div class="contact-detail">07591 952445</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Amy Parker</div>
+          <div class="contact-role">Garmin Marine - Electronics</div>
+          <div class="contact-detail">amy.parker@garmin.com</div>
+          <div class="contact-detail">07350 449779</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Henri-Lloyd</div>
+          <div class="contact-role">Sailing Gear Partner</div>
+          <div class="contact-detail">Get Arctic offshore oilskins for crew + drysuits</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Ollie Matthews</div>
+          <div class="contact-role">OJay Health - Pre-expedition medicine</div>
+          <div class="contact-detail">ollie@ojayhealth.com</div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-card">
+          <div class="contact-name">Iceland Customs</div>
+          <div class="contact-role">Pre-arrival notification</div>
+          <div class="contact-detail">+354 442 1754 | skipavakt@skatturinn.is</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Iceland Coast Guard (SAR)</div>
+          <div class="contact-role">Simultaneous notification with customs</div>
+          <div class="contact-detail">sar@lhg.is</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">JRCC Greenland</div>
+          <div class="contact-role">GREENPOS, SAR, pre-arrival</div>
+          <div class="contact-detail">+299 364 000 | jrcc@jrcc.gl</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">DMI Ice Service</div>
+          <div class="contact-role">Daily Denmark Strait ice charts</div>
+          <div class="contact-detail">iskort@dmi.dk (subscribe now)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED BOOKS -->
+  <div class="section">
+    <h2>Essential References</h2>
+    <table>
+      <thead><tr><th>Title</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Arctic and Northern Waters Pilot</strong> - RCC Pilotage Foundation</td><td>The definitive cruising guide covering Iceland, Greenland, Faroe and Arctic routes. Non-negotiable.</td></tr>
+        <tr><td><strong>High Latitude Sailing</strong> - Amtrup &amp; Shepton</td><td>Practical offshore Arctic sailing knowledge. Ice, weather, seamanship, equipment.</td></tr>
+        <tr><td><strong>The Viking Route</strong> - various passage reports</td><td>Norway-Faroe-Iceland-Greenland route notes from recent sailors. Search 59north.com and YBW forums for current reports.</td></tr>
+        <tr><td><strong>Navionics / C-MAP charts for Greenland</strong></td><td>Download offline before departure from Iceland. Greenlandic waters have limited chart detail in places - navigate conservatively in uncharted fjords.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NEXT ACTIONS -->
+  <div class="section">
+    <h2>Immediate Next Actions</h2>
+    <table>
+      <thead><tr><th>Action</th><th>Who</th><th>Deadline</th></tr></thead>
+      <tbody>
+        <tr><td>Call Amy Parker at Garmin - discuss chartplotter, inReach, AIS, radar package</td><td>Jesse</td><td>This week</td></tr>
+        <tr><td>Call Paul Lees at Crusader Sails - review storm sail inventory, order anything missing</td><td>Jesse</td><td>This week</td></tr>
+        <tr><td>Check marine insurance policy - confirm Arctic coverage (above 60°N)</td><td>Jesse</td><td>This week</td></tr>
+        <tr><td>Email iskort@dmi.dk to subscribe to Denmark Strait ice charts</td><td>Jesse/Junior</td><td>This week</td></tr>
+        <tr><td>Register EPIRB with OFCOM/MCA and MMSI (if not done)</td><td>Jesse</td><td>Before departure</td></tr>
+        <tr><td>Register for GREENPOS self-service portal</td><td>Jesse</td><td>Before Iceland - Greenland leg</td></tr>
+        <tr><td>Book offshore medical course for crew (RYA Level 2)</td><td>Jesse</td><td>May</td></tr>
+        <tr><td>Book compass swing / deviation card with local yard</td><td>Jesse</td><td>Before departure</td></tr>
+        <tr><td>Arrange Henri-Lloyd Arctic gear for crew</td><td>Jesse</td><td>Before departure</td></tr>
+        <tr><td>Contact OJay Health for offshore medical kit / prescriptions</td><td>Jesse</td><td>Before departure</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  Prepared by Junior &bull; 20 April 2026 &bull; Confidential - Jesse Grylls
+</div>
+
+</body>
+</html>
