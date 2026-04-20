@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Product Page Copy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #e5e5e5; line-height: 1.6; }
+
+  .page-header { background: linear-gradient(135deg, #0f0f0f 0%, #1a0a00 60%, #2d1200 100%); padding: 48px 40px; border-bottom: 1px solid #2a1500; }
+  .page-header .eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: #92400e; margin-bottom: 12px; }
+  .page-header h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .page-header .desc { color: #9ca3af; font-size: 0.95rem; max-width: 680px; line-height: 1.6; }
+  .page-header .meta { margin-top: 16px; font-size: 0.78rem; color: #4b5563; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+
+  .nav-pills { display: flex; gap: 12px; margin-bottom: 48px; flex-wrap: wrap; }
+  .nav-pill { padding: 8px 20px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .pill-1 { background: #1c1008; color: #fb923c; border: 1px solid #7c2d12; }
+  .pill-2 { background: #0a1a0a; color: #4ade80; border: 1px solid #14532d; }
+  .pill-3 { background: #0a0f1e; color: #818cf8; border: 1px solid #1e3a8a; }
+
+  .product-block { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid #1a1a1a; }
+  .product-block:last-of-type { border-bottom: none; }
+
+  .product-badge { display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; padding: 4px 12px; border-radius: 12px; margin-bottom: 16px; }
+  .badge-adult { background: #1c1008; color: #fb923c; border: 1px solid #7c2d12; }
+  .badge-kids { background: #0a1a0a; color: #4ade80; border: 1px solid #14532d; }
+  .badge-perf { background: #0a0f1e; color: #818cf8; border: 1px solid #1e3a8a; }
+
+  .hero-headline { font-size: 2.4rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.03em; }
+  .hero-sub { font-size: 1.05rem; color: #9ca3af; margin-bottom: 8px; max-width: 600px; }
+  .hero-kicker { font-size: 0.88rem; color: #6b7280; font-style: italic; margin-bottom: 32px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+
+  .section-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2px; color: #4b5563; margin-bottom: 14px; margin-top: 32px; }
+
+  .copy-block { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 10px; padding: 24px; }
+  .copy-block p { color: #c9d1d9; font-size: 0.92rem; margin-bottom: 14px; line-height: 1.75; }
+  .copy-block p:last-child { margin-bottom: 0; }
+  .copy-block .standout { color: #fff; font-weight: 600; font-size: 0.95rem; }
+
+  .ingredients-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ingredient-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; padding: 16px; }
+  .ingredient-name { font-weight: 700; color: #fff; font-size: 0.88rem; margin-bottom: 4px; }
+  .ingredient-desc { color: #6b7280; font-size: 0.82rem; line-height: 1.5; }
+
+  .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .proof-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; padding: 16px; }
+  .proof-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: #4b5563; margin-bottom: 6px; }
+  .proof-headline { font-weight: 700; color: #fff; font-size: 0.9rem; margin-bottom: 4px; }
+  .proof-body { color: #6b7280; font-size: 0.8rem; line-height: 1.5; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; padding: 18px 20px; }
+  .faq-q { font-weight: 700; color: #e5e5e5; font-size: 0.9rem; margin-bottom: 8px; }
+  .faq-a { color: #9ca3af; font-size: 0.87rem; line-height: 1.6; }
+
+  .divider { height: 1px; background: #1a1a1a; margin: 28px 0; }
+
+  .usage-block { background: #0f1a0f; border: 1px solid #14532d; border-radius: 8px; padding: 20px 24px; }
+  .usage-block .usage-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: #4ade80; margin-bottom: 10px; }
+  .usage-block p { color: #9ca3af; font-size: 0.88rem; line-height: 1.6; }
+
+  .footer { background: #0a0a0a; border-top: 1px solid #1a1a1a; padding: 24px 40px; text-align: center; color: #374151; font-size: 0.78rem; }
+
+  @media (max-width: 640px) {
+    .two-col, .ingredients-grid, .proof-grid { grid-template-columns: 1fr; }
+    .hero-headline { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div style="max-width:960px;margin:0 auto;">
+    <div class="eyebrow">Modern Savage · Product Page Copy</div>
+    <h1>Ready-to-Publish Product Copy</h1>
+    <div class="desc">Complete DTC product page copy for all three Modern Savage products. Written in Bear's voice, built using competitor VOC intelligence. Hero, description, ingredients, proof, FAQ — all three products, launch-ready.</div>
+    <div class="meta">Built by Nexus · April 20, 2026 · Informed by AG1 + Ancestral Supplements VOC analysis · Consistent with email sequence brand voice</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="nav-pills">
+    <a class="nav-pill pill-1" href="#modern-savage">Modern Savage (Adult)</a>
+    <a class="nav-pill pill-2" href="#mini-savage">Mini Savage (Kids)</a>
+    <a class="nav-pill pill-3" href="#summit-stack">BG Summit Stack (Performance)</a>
+  </div>
+
+
+  <!-- ===================== PRODUCT 1 ===================== -->
+  <div class="product-block" id="modern-savage">
+
+    <span class="product-badge badge-adult">Product 01 — Adult Daily Blend</span>
+
+    <div class="hero-headline">Real food.<br>In a scoop.</div>
+    <div class="hero-sub">Grass-fed organs, nine real berries, whole-food vitamins, gut-friendly protein. One daily blend. Nothing hidden.</div>
+    <div class="hero-kicker">$79 one-off · $69/month subscribed · 28 servings · Made in the USA</div>
+
+    <div class="section-label">Product Description</div>
+    <div class="copy-block">
+      <p>Most supplement brands will tell you what's in their product. What they won't tell you is how much of it, where it came from, or why they used synthetic versions when whole-food sources exist.</p>
+      <p>Modern Savage does not work that way. Every ingredient is listed. Every amount is disclosed. The sourcing is grass-fed and pasture-raised. Third-party tested. Made in the USA. If you can't explain an ingredient to your kid, it doesn't go in the formula.</p>
+      <p class="standout">This is not a celebrity partnership. Bear Grylls and his family built this from scratch because they wanted something they were certain about — certain enough to give to their children every morning.</p>
+      <p>The formula combines grass-fed organs (liver, heart, kidney) with nine real berries and gut-friendly protein. Not because it sounds good in a marketing brief — because organs are the most nutrient-dense food on the planet, and whole-berries deliver polyphenols alongside the co-factors that make them work. The gut-friendly protein means it sits easier than pure-organ alternatives. It's a complete daily foundation, not a collection of isolated extracts.</p>
+      <p>You won't feel a buzz on day one. This is nutrition, not a stimulant. Give it thirty days and look for the subtle things: how you start the morning, how you finish the afternoon, how you sleep. That's what shifts first.</p>
+    </div>
+
+    <div class="section-label">Key Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card">
+        <div class="ingredient-name">Grass-Fed Beef Liver</div>
+        <div class="ingredient-desc">Nature's multivitamin. B12, iron, folate, CoQ10 and retinol in their natural whole-food forms — with the co-factors that make them absorb the way food does, not a lab supplement.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Grass-Fed Beef Heart</div>
+        <div class="ingredient-desc">The richest natural source of CoQ10. Supports cardiovascular function and cellular energy production. Eating heart has been a staple of traditional diets for thousands of years for a reason.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Grass-Fed Beef Kidney</div>
+        <div class="ingredient-desc">High in B12, selenium, and riboflavin. Detoxification support at the nutritional level — the way it's been done before supplements existed.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">9 Real Berries</div>
+        <div class="ingredient-desc">Not "berry extract powder." Nine actual berries — blueberry, acai, pomegranate, and six more — delivering antioxidants and polyphenols in the form your body recognises.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Whole-Food Vitamins</div>
+        <div class="ingredient-desc">Sourced from food, not synthesised in a lab. Co-factors intact. The difference is how they absorb — whole-food vitamins work the way eating nutrient-dense food works.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Gut-Friendly Protein</div>
+        <div class="ingredient-desc">Supports digestion and gut lining, not just muscle. This is why Modern Savage sits easier than pure-organ supplements — the formula is built to be complete, not just dense.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Why This Is Different</div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-label">Transparency</div>
+        <div class="proof-headline">Every ingredient. Every dose. On the label.</div>
+        <div class="proof-body">No proprietary blends. No "organ complex" that hides how much liver is actually in there. The full formula is disclosed — always.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Sourcing</div>
+        <div class="proof-headline">Grass-fed, pasture-raised. Third-party tested.</div>
+        <div class="proof-body">The organs are sourced from grass-fed cattle. Every batch is independently tested for quality. Not a marketing promise — a verifiable standard.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Ownership</div>
+        <div class="proof-headline">Not a partnership. Not a deal. Ours.</div>
+        <div class="proof-body">Modern Savage is 100% family-owned. Bear Grylls did not put his name on someone else's formula. This is the product his family actually uses, built by his team.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Made in the USA</div>
+        <div class="proof-headline">Manufactured to US standards. Full stop.</div>
+        <div class="proof-body">Formulated and produced in the United States. No offshore shortcuts on the manufacturing side of the quality equation.</div>
+      </div>
+    </div>
+
+    <div class="section-label">How to Take It</div>
+    <div class="usage-block">
+      <div class="usage-label">Daily Use</div>
+      <p>One scoop mixed with cold water, juice, or a smoothie. Morning works best — this is a daily foundation, not a pre-workout. Consistency matters more than perfect timing. If your stomach is sensitive to organ supplements, start with half a scoop for the first few days. It's normal for the body to adjust to whole-food nutrition it hasn't been getting.</p>
+    </div>
+
+    <div class="section-label">Common Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">I've tried supplements before and never felt any difference. Why would this be different?</div>
+        <div class="faq-a">It probably won't feel different on day one either. Modern Savage is whole-food nutrition, not a stimulant. The difference is what's in it and how it absorbs. Grass-fed organs contain nutrients in their natural whole-food forms, with the co-factors that help your body actually use them — which is how food works, not how synthetic vitamins work. The changes are typically cumulative: energy patterns, sleep quality, digestion. Most people notice them in week two or three. If you've been taking synthetic supplements and noticing nothing, the problem is likely absorption, not effort.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why does it cost $79? I can get a multivitamin for $10.</div>
+        <div class="faq-a">You can. That multivitamin will contain synthetic versions of nutrients that your body absorbs poorly, in a single-isolated-nutrient form that ignores the co-factors that make them work. Modern Savage uses grass-fed organ meats — which are expensive to source, process, and test properly — alongside nine real berries and gut protein. The ingredient cost is real. If the $10 multivitamin was working for you, you wouldn't be here.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is the organ taste going to be a problem?</div>
+        <div class="faq-a">In capsule form, you taste nothing. In powder form (which Modern Savage is), the organ content is present but the berry blend significantly offsets it — this is part of why the formula includes nine berries. It's not unpleasant. It's not the same as eating liver. Most people describe it as earthy. If you mix it into a smoothie, you won't notice it at all.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ===================== PRODUCT 2 ===================== -->
+  <div class="product-block" id="mini-savage">
+
+    <span class="product-badge badge-kids">Product 02 — Children's Blend</span>
+
+    <div class="hero-headline">Built for kids.<br>From the ground up.</div>
+    <div class="hero-sub">The only organ-based supplement specifically formulated for children. Same family-first sourcing standards. Dosed for small bodies. Not a scaled-down adult product.</div>
+    <div class="hero-kicker">$69/month subscribed · 28 servings · Made in the USA</div>
+
+    <div class="section-label">Product Description</div>
+    <div class="copy-block">
+      <p>The children's supplement market is almost entirely marketing. Most products are adult formulas with lower doses, acceptable flavours, and child-friendly packaging. The underlying formula isn't designed for children — it's designed for adults who will also give it to their children.</p>
+      <p>Mini Savage does not work that way. It was built because Bear Grylls wanted whole-food nutrition for his own sons and found nothing on the market he was comfortable with. The formula was developed from scratch for growing bodies — not adapted from the adult blend, not scaled down, not reformulated after the fact.</p>
+      <p class="standout">The addition of grass-fed colostrum is specific to Mini Savage. It supports immune function and gut lining development in ways that matter more in growing children than in adults. It's in the formula because it belongs there, not because it sounds good on the label.</p>
+      <p>Same sourcing standards as Modern Savage: grass-fed, pasture-raised, third-party tested, made in the USA. Every ingredient disclosed. No fillers, no synthetic vitamins, no unnecessary additives. The standard Bear applies to his own family is the standard Mini Savage is held to.</p>
+    </div>
+
+    <div class="section-label">Key Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card">
+        <div class="ingredient-name">Grass-Fed Colostrum</div>
+        <div class="ingredient-desc">The first milk produced after birth — naturally rich in immunoglobulins, growth factors, and lactoferrin. Supports immune development and gut lining integrity in growing children. Not in the adult blend. Specific to Mini Savage.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Grass-Fed Organs (Child Dose)</div>
+        <div class="ingredient-desc">The same liver, heart, kidney sourcing as Modern Savage — dosed specifically for children's body weight and nutritional requirements. Not a fraction of the adult dose. A proper paediatric formulation.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Real Berries</div>
+        <div class="ingredient-desc">Whole-food antioxidants and polyphenols — the same real berry blend as the adult formula. No artificial flavouring added to compensate for cheaper ingredients.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Whole-Food Vitamins</div>
+        <div class="ingredient-desc">Sourced from food, not a lab. The co-factors that help children's bodies absorb and use nutrients the way a balanced diet would — not the isolated synthetic vitamins in every children's gummy on the market.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Why This Is Different</div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-label">Purpose-Built</div>
+        <div class="proof-headline">The only organ supplement designed for children.</div>
+        <div class="proof-body">No other brand in this category has a children's formula. Mini Savage was built because it didn't exist — not because it was an obvious market opportunity.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Sourcing</div>
+        <div class="proof-headline">Grass-fed, third-party tested. Same standard as the adult blend.</div>
+        <div class="proof-body">The sourcing standard doesn't drop for children's products. Same grass-fed cattle, same testing, same manufacturing facility.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Personal</div>
+        <div class="proof-headline">Bear's sons take this.</div>
+        <div class="proof-body">This isn't an extension product added to fill out a range. It's what prompted the brand to exist — Bear wanted this for his family and couldn't find it anywhere.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Transparent</div>
+        <div class="proof-headline">Every ingredient disclosed. No hidden additives.</div>
+        <div class="proof-body">Full formula transparency, applied to a children's product. No exceptions made for child-friendly flavouring or filler ingredients.</div>
+      </div>
+    </div>
+
+    <div class="section-label">How to Take It</div>
+    <div class="usage-block">
+      <div class="usage-label">Daily Use</div>
+      <p>Follow the dosing on the label — it's calibrated for children's body weight, not adult portions. Start with half a scoop for the first week if your child is new to organ-based nutrition. Mix with juice, a smoothie, or yoghurt. Most children don't notice the taste when it's mixed with something they already enjoy.</p>
+    </div>
+
+    <div class="section-label">Common Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is this safe for children? What age is it appropriate for?</div>
+        <div class="faq-a">Mini Savage is formulated for children from age 4 upwards. The dosing is calibrated for growing bodies, not adults. Every ingredient is third-party tested and the formula was developed with paediatric nutritional requirements in mind. If your child has a specific health condition or is on medication, check with your doctor first — as you would with any supplement.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why organ supplements for kids — isn't that unnecessary?</div>
+        <div class="faq-a">Modern children's diets are largely organ-free. Liver, heart, and kidney were regular parts of traditional diets for good reason — they're more nutrient-dense per gram than muscle meat. The average child eating a modern Western diet is missing those nutrients entirely. Mini Savage fills that gap in a form that doesn't require convincing a child to eat offal.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can my child take this alongside Modern Savage if they're older and want the adult formula?</div>
+        <div class="faq-a">Mini Savage is the right product for children up to early teenage years. Once a child is in their mid-teens and their body weight and nutritional needs are closer to adult levels, transitioning to Modern Savage is appropriate. Don't give a child both simultaneously — Mini Savage is the complete children's formula.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ===================== PRODUCT 3 ===================== -->
+  <div class="product-block" id="summit-stack">
+
+    <span class="product-badge badge-perf">Product 03 — Performance Layer</span>
+
+    <div class="hero-headline">The layer on top.</div>
+    <div class="hero-sub">Creatine, electrolytes, NMN, PQQ, trans-resveratrol, plant D3+K2. The performance and longevity stack, clean. Taken alongside Modern Savage — not instead of it.</div>
+    <div class="hero-kicker">$69/month subscribed · 28 servings · Made in the USA</div>
+
+    <div class="section-label">Product Description</div>
+    <div class="copy-block">
+      <p>Modern Savage is the foundation. The Summit Stack is what you add when the foundation isn't enough on its own — when you're training hard, when you want to push longevity harder, when you want the performance and cellular health stack in one clean product without managing six separate supplements.</p>
+      <p>The ingredients were chosen because the research on each of them is solid. Creatine is the most studied performance supplement on the planet. NMN and PQQ are the legitimate longevity stack — not because they're fashionable, but because the mechanistic evidence for cellular energy and mitochondrial support is compelling. Trans-resveratrol activates sirtuin pathways. D3 and K2 belong together — K2 directs calcium to bone and away from arteries, which is what D3 supplementation is missing when it comes solo.</p>
+      <p class="standout">This is not the supplement for someone who wants to feel something on day one. It's the supplement for someone who understands what they're building over months and years.</p>
+      <p>Full disclosure on every ingredient and dose. No proprietary blends. Third-party tested. Made in the USA. Taken daily alongside Modern Savage — one scoop of each gives you the complete Modern Savage stack.</p>
+    </div>
+
+    <div class="section-label">Key Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card">
+        <div class="ingredient-name">Creatine Monohydrate</div>
+        <div class="ingredient-desc">The most researched supplement in existence. Muscle strength, power output, and — increasingly important — cognitive function and brain health. Not a trend. A compound with decades of safety and efficacy data.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">NMN (Nicotinamide Mononucleotide)</div>
+        <div class="ingredient-desc">A precursor to NAD+, which drives cellular energy production and declines with age. The David Sinclair / Peter Attia longevity stack includes this for a reason. NMN + PQQ together is the serious cellular health combination.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">PQQ (Pyrroloquinoline Quinone)</div>
+        <div class="ingredient-desc">Supports mitochondrial biogenesis — the production of new mitochondria. Works alongside NMN on the cellular energy side. The combination is greater than either alone.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Trans-Resveratrol</div>
+        <div class="ingredient-desc">The active form of resveratrol — the compound that activates sirtuin longevity pathways. Anti-inflammatory. Cardiovascular support. Trans- matters: the cis- form in cheaper products has minimal bioavailability.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Plant D3 + K2</div>
+        <div class="ingredient-desc">D3 without K2 is incomplete. K2 (MK-7 form) directs calcium to bone and teeth rather than arteries. Plant-derived D3 from lichen — not lanolin, for those who care. The pair that should always be taken together.</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-name">Electrolytes</div>
+        <div class="ingredient-desc">Sodium, potassium, magnesium — the trio that governs hydration, nerve function, and muscle contraction. Not an afterthought. Most people are deficient in at least one, especially if they train regularly or eat low-carb.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Why This Is Different</div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-label">No Blends</div>
+        <div class="proof-headline">Every dose disclosed. Including the longevity compounds.</div>
+        <div class="proof-body">NMN and trans-resveratrol are frequently underdosed in products that list them for marketing purposes. The Summit Stack discloses every amount. If the dose isn't therapeutic, it's not in the formula.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Purpose</div>
+        <div class="proof-headline">Performance and longevity. Not pump and energy.</div>
+        <div class="proof-body">No stimulants. No pre-workout buzz. This is the stack for people thinking about how they perform and feel in ten years, not in the next hour.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Tested</div>
+        <div class="proof-headline">Third-party tested. Made in the USA.</div>
+        <div class="proof-body">Same quality standard as the rest of the Modern Savage range. No manufacturing shortcuts on the performance products.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-label">Designed As a Layer</div>
+        <div class="proof-headline">Works with Modern Savage — not as a replacement.</div>
+        <div class="proof-body">The Summit Stack assumes you're already taking Modern Savage as the nutritional foundation. It adds the performance and longevity layer on top of that — it's not a standalone product.</div>
+      </div>
+    </div>
+
+    <div class="section-label">How to Take It</div>
+    <div class="usage-block">
+      <div class="usage-label">Daily Use</div>
+      <p>One scoop daily, alongside Modern Savage. Can be mixed together in the same drink. Morning is optimal for NMN absorption (though the evidence on timing is not definitive). Creatine requires consistency over days and weeks to saturate muscle stores — missing a day occasionally isn't significant, but daily use matters for the longevity compounds.</p>
+    </div>
+
+    <div class="section-label">Common Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do I need to be an athlete to benefit from this?</div>
+        <div class="faq-a">No. Creatine benefits cognitive function as much as muscle performance — the research on brain health is significant. NMN and PQQ are relevant to anyone interested in cellular health as they age. D3+K2 deficiency is widespread regardless of fitness level. The Summit Stack is for people interested in longevity and performance — those aren't the same thing as being an athlete.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the difference between NMN and NR (nicotinamide riboside)?</div>
+        <div class="faq-a">Both are NAD+ precursors. NMN is one step closer to NAD+ in the biosynthetic pathway. The research comparing them directly is still developing — both have legitimate mechanistic support. Modern Savage uses NMN. If you're currently taking NR and seeing results, there's no strong reason to switch — but NMN is the current preference in the longevity research community, which is why it's in the Summit Stack.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I take this without Modern Savage?</div>
+        <div class="faq-a">Yes — technically. The Summit Stack is a complete product. But it was designed to layer on top of Modern Savage's whole-food nutritional foundation. The performance and longevity compounds work better when the underlying nutritional base is solid. Taking creatine and NMN on top of a poor diet is less effective than taking them alongside a complete whole-food stack. The Modern Savage bundle is the right way to run it.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">Nexus · BGV Intelligence · April 20, 2026 · Modern Savage product copy · Ready for Shopify/site integration · Consistent with email sequence voice</div>
+</body>
+</html>
