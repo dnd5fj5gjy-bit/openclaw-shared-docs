@@ -1379,43 +1379,102 @@ Write a polite but firm email (3-5 sentences). Opening "Hi Drew,". Sign off "Bes
 Write a short, direct email (2-3 sentences). Opening "Hi Drew,". Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
     }
   },
-  'di-2': {
-    title: 'Alfred proposal — ready to send?',
-    context: 'Bear Witness x Alfred digital media partnership proposal reviewed twice (8/10). Ready to send to Alfred team.',
+  'di-1': {
+    title: 'Modern Savage — ACF Pharma pricing go/no-go',
+    context: 'Andrew Kouvel (ACF Pharma) sent updated Survivor Blend pricing Apr 9. Adult no creatine $24.45/unit at 2,500 units. Adult creatine $27.03. Kids $22.28. No reply sent yet.',
     options: {
-      'A': { label: 'Send it now — draft covering email', type: 'email',
-             to_addr: 'tom@alfred.co.uk', to_name: 'Tom', subject: 'Bear Witness x Alfred — Partnership Proposal',
-             prompt: `You are Junior, drafting a short covering email on behalf of Jesse Grylls to Tom Inskip (Founder, Alfred). Jesse is sending a digital media partnership proposal for Bear Witness to manage Alfred's full marketing stack.
-Alfred is a UK membership service (£20/month) launching waitlist June 2026, public November 2026. Bear Witness would handle brand, social, content, ads, SEO, email.
-Write a warm, confident covering email (4-5 sentences). Opening "Hi Tom,". Reference the proposal link: bearwitness-x-alfred.netlify.app. Jesse's tone: direct, founder-to-founder. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
-      'B': { label: 'Hold — mark for later', type: 'resolve', prompt: null },
+      'A': { label: 'Numbers work — request official quote', type: 'email',
+             to_addr: 'drew@acfpharma.com', to_name: 'Drew', subject: 'Modern Savage — Requesting Official Quote',
+             prompt: `You are Junior, drafting a short email on behalf of Jesse Grylls to Andrew Kouvel at ACF Pharma / Lightning Nutra. Jesse is happy with the Survivor Blend pricing and wants to request an official quote to move forward.
+Context: Adult no creatine ~$24.45/unit at 2,500 units, Adult with creatine ~$27.03, Kids ~$22.28. Jesse wants to lock in the formula and proceed to production planning.
+Write a short direct email (3-4 sentences). Opening "Hi Drew,". Jesse's voice: warm, decisive, no fluff. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'B': { label: 'Push back — negotiate better rates', type: 'email',
+             to_addr: 'drew@acfpharma.com', to_name: 'Drew', subject: 'Modern Savage — Revisiting Pricing',
+             prompt: `You are Junior, drafting a short email on behalf of Jesse Grylls to Andrew Kouvel at ACF Pharma. Jesse wants to push back on pricing and negotiate better rates, particularly if volumes scale.
+Context: Adult COGS ~$24-27/unit at 2,500 units. Jesse wants to understand what 5,000-unit pricing looks like and whether there's flexibility.
+Write a polite but firm email (3-4 sentences). Opening "Hi Drew,". Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'C': { label: '⚔ Ask the Council first', type: 'research',
+             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse is deciding whether to proceed with ACF Pharma's pricing for Modern Savage organ supplement blend.
+
+Run the full adversarial Council analysis. For each advisor, be genuinely critical and specific:
+
+💀 THE KILLER — assume this fails. What 3 things kill it? End with: the single most dangerous assumption Jesse is making about this pricing.
+
+👁 THE STRANGER — you know nothing about Jesse/BGV. What 3 things does an outsider notice that insiders miss? End with: one uncomfortable question.
+
+⚙️ THE OPERATOR — forget strategy, focus on execution. What breaks first when production actually starts? List 3 execution risks. End with: the one thing to lock down before anything else.
+
+💰 THE CFO — follow the money. What are the hidden costs? What does the worst-case margin look like at $79 retail? End with: the one number Jesse needs to know.
+
+🪑 THE CHAIR — one verdict (proceed/don't/proceed with change), the core risk in one sentence, and one concrete action in the next 48 hours.
+
+Context: Adult no creatine $24.45/unit at 2,500 units (sub $22 at 10K). Adult creatine $27.03. Kids $22.28. Packaging adds $0.50-$1.50/unit. Retail target ~$79. Launch budget ~$95-130K. Brand: Bear Grylls + Jesse. Manufacturer: ACF Pharma / Lightning Nutra. No sales yet.
+
+Output as clean plain text with the advisor headers.` },
+    }
+  },
+  'di-2': {
+    title: 'Luminox 2nd amendment — push CJ to respond?',
+    context: 'CJ sent 2nd amendment markup to Luminox (Mondaine) Mar 4. Luminox sent back redline Apr 2. Maria Valenzuela chased again Apr 14. No reply from CJ visible.',
+    options: {
+      'A': { label: 'Nudge CJ — draft a chase message', type: 'email',
+             to_addr: 'CJ@beargryllsventures.com', to_name: 'CJ', subject: 'Luminox — 2nd Amendment Follow-up',
+             prompt: `You are Junior, drafting a short internal message from Jesse Grylls to CJ Cardenas (MD, Bear Grylls Ventures). Jesse wants to nudge CJ to respond to Luminox (Maria Valenzuela, Mondaine) on the 2nd amendment redline they sent back April 2. Maria has chased once already (Apr 14).
+Write a very short, direct message (2-3 sentences). Casual founder-to-MD tone. No formality. Sign off "Jesse". Output ONLY the message body.` },
+      'B': { label: 'Deprioritise — mark for next week', type: 'resolve', prompt: null },
+      'C': { label: '⚔ Ask the Council first', type: 'research',
+             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse is deciding whether to push CJ to respond to the Luminox 2nd amendment redline, or deprioritise it.
+
+Run the full adversarial Council analysis:
+
+💀 THE KILLER — what happens if this stays stalled? What's the worst-case outcome of continued delay on this deal?
+
+👁 THE STRANGER — you know nothing about Luminox or this deal. What does the silence pattern tell you? What obvious thing is being missed?
+
+⚙️ THE OPERATOR — if CJ replies this week, what actually needs to happen to close this amendment? What are the execution risks?
+
+💰 THE CFO — what's the financial cost of delay vs. the cost of a bad amendment? What's this deal actually worth to BGV?
+
+🪑 THE CHAIR — one verdict, core risk, next action in 48 hours.
+
+Context: Luminox is a watch brand (Mondaine Group). Bear Grylls has an existing license agreement. 2nd amendment negotiation ongoing since Mar 2026. CJ is MD handling it. Maria Valenzuela (Mondaine) has been waiting 18 days for a response.
+
+Output as clean plain text with advisor headers.` },
     }
   },
   'di-3': {
-    title: 'Family constitution — John Winstanley',
-    context: '92-page Grylls Family Constitution sent to John Winstanley (Clarion Wealth). John on leave until Apr 13.',
+    title: 'Modern Savage — US entity structure',
+    context: 'CJ recommends US subsidiary for Modern Savage US sales (21% corp tax vs 30% withholding on UK entity). Raemy/CJ meeting tomorrow Apr 21.',
     options: {
-      'A': { label: "I've sent it — mark done", type: 'resolve', prompt: null },
-      'B': { label: 'Draft follow-up for 13 Apr return', type: 'email',
-             to_addr: 'jwinstanley@clarionwealth.co.uk', to_name: 'John', subject: 'Family Constitution — Following Up',
-             prompt: `You are Junior, drafting a short follow-up email on behalf of Jesse Grylls to John Winstanley at Clarion Wealth. Jesse sent a 92-page Grylls Family Constitution document for John's review. John was on leave until 13 April and Jesse is following up now that he's back.
-Write a short, friendly follow-up (2-3 sentences). Opening "Hi John,". Warm but direct. Sign off "Best, Jesse Grylls". Output ONLY the email body.` },
+      'A': { label: 'Back CJ — proceed with US subsidiary', type: 'resolve', prompt: null },
+      'B': { label: '⚔ Ask the Council first', type: 'research',
+             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse is deciding whether to form a US subsidiary for Modern Savage (primal organ supplement, pre-launch) to handle US sales tax efficiently.
+
+Run the full adversarial Council analysis:
+
+💀 THE KILLER — what kills the US subsidiary idea? What 3 things go wrong with this structure?
+
+👁 THE STRANGER — you know nothing about the business. What does an outsider see about this decision that the insiders are missing?
+
+⚙️ THE OPERATOR — if a US subsidiary is formed, what actually needs to happen? What breaks first in execution?
+
+💰 THE CFO — does the 21% vs 30% difference actually justify the cost and complexity of a US entity at pre-launch stage? Run the numbers.
+
+🪑 THE CHAIR — one verdict, core risk, next action before the Raemy meeting tomorrow.
+
+Context: Modern Savage is pre-launch, no revenue yet. ACF Pharma (US manufacturer) handles production. Target market: US. Jesse and Bear are UK-based. CJ recommends US subsidiary to avoid 30% withholding tax on UK entity profits. Raemy meeting tomorrow Apr 21.
+
+Output as clean plain text with advisor headers.` },
+      'C': { label: 'Hold — wait for Raemy\'s advice tomorrow', type: 'resolve', prompt: null },
     }
   },
   'di-4': {
-    title: 'Mettle — passive hold or take a call?',
-    context: 'Neil Smith (CEO, Mettle) replied April 7. ~£6k MRR. Strongest signal: 300+ day streaks in peer group use. Asked for a call.',
+    title: 'US Trademark — MODERN SAVAGE filing',
+    context: 'USPTO account live, TOTP enrolled. Jesse hit ID.me verification page Apr 20. Two ID.me emails asking for Trusted Referee video call. Once done, Junior files TEAS ($700).',
     options: {
-      'A': { label: 'Stay passive — no action', type: 'resolve', prompt: null },
-      'B': { label: 'Accept the call — draft a reply', type: 'email',
-             to_addr: 'neil@bemettle.com', to_name: 'Neil', subject: 'Re: Mettle Update',
-             prompt: `You are Junior, drafting a short email reply on behalf of Jesse Grylls to Neil Smith (CEO, Mettle health app). Jesse wants to accept Neil's offer of a call to discuss Mettle's progress.
-Context: Mettle has ~£6k MRR, strongest metric is 300+ day streaks in peer groups. Jesse is a potential investor but keeping it warm/passive.
-Write a brief reply (2-3 sentences). Warm but non-committal on investment. Suggest a call next week. Sign off "Best, Jesse Grylls". Output ONLY the email body. Do NOT offer the Bear Grylls brand, community, or network.` },
-      'C': { label: 'Build investment brief first', type: 'research',
-             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse wants a concise investment decision brief on Mettle before deciding whether to take a call or invest.
-Mettle facts: men's health/fitness app. ~£6k MRR (consumer) + £3k enterprise (ClearScore one-off). Strongest signal: 300+ day streaks in peer group use. Founded by Neil Smith. BGV is existing warm contact. Runway to summer 2026. Needs investment.
-Write a structured 1-page investment brief covering: What is it, Current traction, Key risks, Key opportunity, Recommended action for Jesse. Be direct and analytical. Output as clean plain text with section headers.` },
+      'A': { label: "I've completed ID.me — file it now", type: 'research',
+             prompt: `You are Junior, Jesse Grylls' AI agent. Jesse has completed ID.me verification on the USPTO Trademark Center. Please confirm to Jesse that you will now run the TEAS Standard filing script for MODERN SAVAGE (Classes 5+29, Section 1b Intent to Use, $700 fee) and ask him to confirm he is ready and has his payment card handy. Output a short confirmation message only.` },
+      'B': { label: 'Remind me tomorrow', type: 'resolve', prompt: null },
     }
   },
 };
