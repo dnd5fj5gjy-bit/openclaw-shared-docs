@@ -1002,7 +1002,74 @@ async function saveState(patch) {
   } catch(e) {}
 }
 
-// ── DECISIONS ──────────────────────────────────────────────────────────────────
+// ── DECISIONS — DYNAMIC LOADER ──────────────────────────────────────────────────
+async function loadDecisions() {
+  try {
+    const r = await fetch(API+'/decisions', {cache:'no-store'});
+    if (!r.ok) return;
+    const data = await r.json();
+    const decisions = data.decisions || [];
+    if (!decisions.length) return;
+
+    // Update DECISIONS metadata object for chooseDi()
+    decisions.forEach(d => {
+      const opts = {};
+      (d.options||[]).forEach(o => {
+        opts[o.key] = {
+          label: o.label,
+          type: o.type || 'resolve',
+          to_addr: o.to_addr || '',
+          to_name: o.to_name || '',
+          subject: o.subject || '',
+          prompt: o.prompt || null,
+        };
+      });
+      DECISIONS[d.id] = { title: d.title, context: d.context, options: opts };
+    });
+
+    // Render cards into the container (preserving past decisions drawer)
+    const container = document.querySelector('.decisions-card');
+    if (!container) return;
+
+    // Remove old .di cards
+    container.querySelectorAll('.di').forEach(el => el.remove());
+
+    // Build new cards
+    const fragment = document.createDocumentFragment();
+    decisions.forEach(d => {
+      const urgencyClass = d.urgency === 'now' ? 'urgency-now' : d.urgency === 'week' ? 'urgency-week' : 'urgency-ready';
+      const optionsHtml = (d.options||[]).map(o =>
+        `<button class="di-option" onclick="chooseDi('${escH(d.id)}','${escH(o.key)}',this)"><span class="di-option-letter">${escH(o.key)}</span>${escH(o.label)}</button>`
+      ).join('');
+      const div = document.createElement('div');
+      div.className = 'di';
+      div.id = d.id;
+      div.innerHTML = `
+        <div class="di-header" onclick="toggleDi('${escH(d.id)}')">
+          <span class="di-urgency ${urgencyClass}">${escH(d.urgency_label||'')}</span>
+          <div class="di-body"><div class="di-title">${escH(d.title)}</div><div class="di-sub">${escH(d.subtitle||'')}</div></div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">${escH(d.context||'')}</div>
+          <div class="di-options" id="${escH(d.id)}-options">${optionsHtml}</div>
+          <div id="${escH(d.id)}-work"></div>
+          <button class="di-resolve" onclick="resolveDi(event,'${escH(d.id)}')">✓ Mark as resolved</button>
+        </div>`;
+      fragment.appendChild(div);
+    });
+
+    // Insert before the past-decisions-toggle
+    const pastBtn = container.querySelector('.past-decisions-toggle');
+    if (pastBtn) container.insertBefore(fragment, pastBtn);
+    else container.appendChild(fragment);
+
+    // Re-apply resolved state and update count
+    applyResolvedDecisions(serverState.resolved_decisions || []);
+
+  } catch(e) {}
+}
+
 function applyResolvedDecisions(ids) {
   (ids||[]).forEach(id => {
     const el = document.getElementById(id);
