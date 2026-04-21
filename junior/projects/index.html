@@ -726,19 +726,37 @@ details summary:hover { color: var(--ink-mid); background: var(--cream-deep); }
     <div class="decisions-card">
       <div class="decisions-head">
         <span>⚡ Open items</span>
-        <span class="decisions-count" id="decisions-count">3</span>
+        <span class="decisions-count" id="decisions-count">4</span>
       </div>
-      <div class="di" id="di-2">
-        <div class="di-header" onclick="toggleDi('di-2')">
-          <span class="di-urgency urgency-week">This week</span>
-          <div class="di-body"><div class="di-title">Alfred proposal — ready to send?</div><div class="di-sub">bearwitness-x-alfred.netlify.app — reviewed 8/10.</div></div>
+      <div class="di" id="di-1">
+        <div class="di-header" onclick="toggleDi('di-1')">
+          <span class="di-urgency urgency-now">Action needed</span>
+          <div class="di-body"><div class="di-title">Modern Savage — ACF Pharma pricing go/no-go</div><div class="di-sub">Drew sent quotes Apr 9. Adult $24.45, creatine $27.03, Kids $22.28 at 2,500 units. No reply sent.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Bear Witness x Alfred proposal reviewed twice (8/10). All critical issues resolved. Proposal at bearwitness-x-alfred.netlify.app.</div>
+          <div class="di-context">Andrew Kouvel (ACF Pharma) sent updated Survivor Blend pricing Apr 9. Adult no creatine: $24.45/unit at 2,500 (sub $22 at 10K). Adult with creatine: $27.03. Kids: $22.28. Packaging adds $0.50–$1.50/unit. Jesse forwarded to Tom Apr 13. No reply to Andrew yet. Official quotes not yet requested.</div>
+          <div class="di-options" id="di-1-options">
+            <button class="di-option" onclick="chooseDi('di-1','A',this)"><span class="di-option-letter">A</span>Numbers work — request official quote</button>
+            <button class="di-option" onclick="chooseDi('di-1','B',this)"><span class="di-option-letter">B</span>Push back — negotiate better rates</button>
+            <button class="di-option" onclick="chooseDi('di-1','C',this)"><span class="di-option-letter">C</span>⚔ Ask the Council first</button>
+          </div>
+          <div id="di-1-work"></div>
+          <button class="di-resolve" onclick="resolveDi(event,'di-1')">✓ Mark as resolved</button>
+        </div>
+      </div>
+      <div class="di" id="di-2">
+        <div class="di-header" onclick="toggleDi('di-2')">
+          <span class="di-urgency urgency-now">Stalled</span>
+          <div class="di-body"><div class="di-title">Luminox 2nd amendment — push CJ to respond?</div><div class="di-sub">Luminox sent redline Apr 2. Chased Apr 14. CJ hasn't replied.</div></div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          <div class="di-context">CJ sent markup of proposed 2nd amendment to Luminox (Maria Valenzuela, Mondaine) Mar 4. Luminox reviewed with legal, sent back tracked changes Apr 2. Maria chased again Apr 14 — no reply from CJ visible. Deal is stalled waiting on CJ.</div>
           <div class="di-options" id="di-2-options">
-            <button class="di-option" onclick="chooseDi('di-2','A',this)"><span class="di-option-letter">A</span>Send it now — draft covering email</button>
-            <button class="di-option" onclick="chooseDi('di-2','B',this)"><span class="di-option-letter">B</span>Hold — I'll decide when to send</button>
+            <button class="di-option" onclick="chooseDi('di-2','A',this)"><span class="di-option-letter">A</span>Nudge CJ — draft a chase message</button>
+            <button class="di-option" onclick="chooseDi('di-2','B',this)"><span class="di-option-letter">B</span>Deprioritise — mark for next week</button>
+            <button class="di-option" onclick="chooseDi('di-2','C',this)"><span class="di-option-letter">C</span>⚔ Ask the Council first</button>
           </div>
           <div id="di-2-work"></div>
           <button class="di-resolve" onclick="resolveDi(event,'di-2')">✓ Mark as resolved</button>
@@ -747,14 +765,15 @@ details summary:hover { color: var(--ink-mid); background: var(--cream-deep); }
       <div class="di" id="di-3">
         <div class="di-header" onclick="toggleDi('di-3')">
           <span class="di-urgency urgency-week">This week</span>
-          <div class="di-body"><div class="di-title">Family constitution — John Winstanley</div><div class="di-sub">John on leave until 13 Apr. Follow up when he returns.</div></div>
+          <div class="di-body"><div class="di-title">Modern Savage — US entity structure</div><div class="di-sub">CJ recommends US subsidiary (21% vs 30% withholding). Raemy meeting tomorrow.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">92-page Grylls Family Constitution sent to John Winstanley (Clarion Wealth). John on leave until Apr 13. Follow-up drafted in Drafts folder.</div>
+          <div class="di-context">Apr 20: Raemy and CJ discussing tax structure for Modern Savage US sales. CJ recommends forming a US subsidiary (21% corporate tax vs 30% withholding on UK entity). Jesse replied "Yes lots to discuss. Need guidance." Raemy/CJ meeting tomorrow. Decision needed before legal structure is locked.</div>
           <div class="di-options" id="di-3-options">
-            <button class="di-option" onclick="chooseDi('di-3','A',this)"><span class="di-option-letter">A</span>I've sent it — mark done</button>
-            <button class="di-option" onclick="chooseDi('di-3','B',this)"><span class="di-option-letter">B</span>Draft follow-up for 13 Apr return</button>
+            <button class="di-option" onclick="chooseDi('di-3','A',this)"><span class="di-option-letter">A</span>Back CJ's call — US subsidiary</button>
+            <button class="di-option" onclick="chooseDi('di-3','B',this)"><span class="di-option-letter">B</span>⚔ Ask the Council first</button>
+            <button class="di-option" onclick="chooseDi('di-3','C',this)"><span class="di-option-letter">C</span>Hold — wait for Raemy's advice</button>
           </div>
           <div id="di-3-work"></div>
           <button class="di-resolve" onclick="resolveDi(event,'di-3')">✓ Mark as resolved</button>
@@ -762,16 +781,15 @@ details summary:hover { color: var(--ink-mid); background: var(--cream-deep); }
       </div>
       <div class="di" id="di-4">
         <div class="di-header" onclick="toggleDi('di-4')">
-          <span class="di-urgency urgency-ready">When ready</span>
-          <div class="di-body"><div class="di-title">Mettle — passive hold or take a call?</div><div class="di-sub">Neil replied Apr 7. £6k MRR. Strong retention signal.</div></div>
+          <span class="di-urgency urgency-week">This week</span>
+          <div class="di-body"><div class="di-title">US Trademark — MODERN SAVAGE filing</div><div class="di-sub">ID.me verification in progress. One step away from TEAS filing.</div></div>
           <span class="di-chevron">›</span>
         </div>
         <div class="di-expanded">
-          <div class="di-context">Neil Smith replied April 7. ~£6k MRR. Strongest signal: 300+ day streaks in peer group use. He asked for a call.</div>
+          <div class="di-context">USPTO account live, TOTP enrolled. Jesse hit ID.me verification page Apr 20. Two emails from ID.me asking Jesse to do a Trusted Referee video call (show passport to live agent). Once complete, Junior files TEAS Standard: MODERN SAVAGE, Classes 5+29, Section 1(b) Intent to Use, $700 fee.</div>
           <div class="di-options" id="di-4-options">
-            <button class="di-option" onclick="chooseDi('di-4','A',this)"><span class="di-option-letter">A</span>Stay passive — no action needed</button>
-            <button class="di-option" onclick="chooseDi('di-4','B',this)"><span class="di-option-letter">B</span>Accept the call — draft a reply</button>
-            <button class="di-option" onclick="chooseDi('di-4','C',this)"><span class="di-option-letter">C</span>Build investment brief first</button>
+            <button class="di-option" onclick="chooseDi('di-4','A',this)"><span class="di-option-letter">A</span>I've completed ID.me — file it now</button>
+            <button class="di-option" onclick="chooseDi('di-4','B',this)"><span class="di-option-letter">B</span>Remind me tomorrow</button>
           </div>
           <div id="di-4-work"></div>
           <button class="di-resolve" onclick="resolveDi(event,'di-4')">✓ Mark as resolved</button>
