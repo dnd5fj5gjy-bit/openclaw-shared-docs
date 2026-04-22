@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — 90-Day Customer Acquisition Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #C0392B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--charcoal); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(30,54,48,0.97); backdrop-filter: blur(8px);
+    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+  }
+  nav .logo { font-family: 'DM Serif Display', serif; color: var(--earth-light); font-size: 1.2rem; letter-spacing: 0.05em; }
+  nav .meta { color: var(--sand); font-size: 0.8rem; font-weight: 300; }
+
+  .hero {
+    background: var(--forest-deep); color: var(--white); padding: 9rem 2rem 7rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(192,122,69,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(43,74,63,0.4) 0%, transparent 50%);
+  }
+  .hero-label { color: var(--earth-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.15; margin-bottom: 1.5rem; position: relative; }
+  .hero h1 span { color: var(--earth-light); }
+  .hero .subtitle { font-size: 1.15rem; color: var(--sand); max-width: 620px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.7; position: relative; }
+  .hero-stats { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; position: relative; margin-top: 2rem; }
+  .hero-stat .num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--earth-light); }
+  .hero-stat .lab { font-size: 0.75rem; color: var(--sand); text-transform: uppercase; letter-spacing: 0.15em; }
+
+  section { padding: 7rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { color: var(--earth); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 1.5rem; }
+  h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+  p { line-height: 1.75; color: #3a3a3a; }
+
+  .alert-box {
+    background: linear-gradient(135deg, var(--earth), var(--earth-light));
+    color: white; border-radius: 12px; padding: 2rem 2.5rem; margin-bottom: 4rem;
+  }
+  .alert-box h3 { color: white; font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .alert-box p { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+
+  .phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .phase-card {
+    background: var(--white); border-radius: 12px; padding: 2rem;
+    border-left: 4px solid var(--earth); box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+  .phase-card:hover { transform: translateY(-3px); }
+  .phase-num { font-size: 0.7rem; font-weight: 700; color: var(--earth); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .phase-card h3 { color: var(--forest-deep); margin-bottom: 1rem; }
+  .phase-card ul { list-style: none; }
+  .phase-card ul li { padding: 0.4rem 0; font-size: 0.9rem; color: #444; border-bottom: 1px solid var(--cream-dark); }
+  .phase-card ul li:last-child { border-bottom: none; }
+  .phase-card ul li::before { content: '→ '; color: var(--earth); font-weight: 600; }
+  .phase-target { margin-top: 1.25rem; background: var(--cream); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--forest); }
+
+  .dark-section { background: var(--forest-deep); color: var(--white); }
+  .dark-section h2 { color: var(--white); }
+  .dark-section .section-label { color: var(--earth-light); }
+  .dark-section p { color: var(--sand); }
+
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .channel-card {
+    background: rgba(255,255,255,0.07); border-radius: 10px; padding: 1.75rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .channel-card .channel-name { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 0.5rem; }
+  .channel-card h3 { color: white; font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .channel-card p { color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; }
+  .channel-cac { margin-top: 1rem; font-size: 0.8rem; font-weight: 600; color: var(--earth-light); }
+
+  .timeline { margin-top: 3rem; }
+  .week-row { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; margin-bottom: 2rem; align-items: start; }
+  .week-label { background: var(--earth); color: white; border-radius: 8px; padding: 0.5rem 0.75rem; font-size: 0.8rem; font-weight: 700; text-align: center; }
+  .week-content { background: var(--white); border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .week-content h4 { font-family: 'DM Serif Display', serif; color: var(--forest-deep); margin-bottom: 0.75rem; font-size: 1.1rem; }
+  .week-content ul { list-style: none; }
+  .week-content ul li { font-size: 0.88rem; color: #444; padding: 0.3rem 0; }
+  .week-content ul li::before { content: '• '; color: var(--earth); }
+  .week-target { display: inline-block; margin-top: 0.75rem; background: var(--cream); color: var(--forest); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 20px; }
+
+  .email-sequence { margin-top: 2.5rem; }
+  .email-card { background: var(--white); border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 1rem; border-left: 3px solid var(--forest); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .email-day { font-size: 0.7rem; font-weight: 700; color: var(--earth); letter-spacing: 0.2em; text-transform: uppercase; }
+  .email-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--forest-deep); margin: 0.3rem 0 0.5rem; }
+  .email-card p { font-size: 0.88rem; color: #555; }
+  .email-hook { font-style: italic; color: var(--forest); font-size: 0.88rem; margin-top: 0.5rem; }
+
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .metric-card { background: var(--white); border-radius: 10px; padding: 1.75rem; text-align: center; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  .metric-val { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--forest-deep); }
+  .metric-label { font-size: 0.78rem; color: #666; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.3rem; }
+  .metric-context { font-size: 0.82rem; color: var(--earth); margin-top: 0.5rem; font-weight: 500; }
+
+  .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .action-card { background: var(--white); border-radius: 10px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  .action-priority { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 12px; display: inline-block; margin-bottom: 0.75rem; }
+  .p-now { background: #fde8e8; color: var(--red); }
+  .p-week { background: #fef3e2; color: #b45309; }
+  .p-month { background: #e8f5e9; color: #2e7d32; }
+  .action-card h4 { font-family: 'DM Serif Display', serif; color: var(--forest-deep); margin-bottom: 0.5rem; }
+  .action-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+  .action-owner { margin-top: 0.75rem; font-size: 0.78rem; color: var(--earth); font-weight: 600; }
+
+  .big-number-row { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem; justify-content: center; }
+  .big-num { text-align: center; }
+  .big-num .n { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--earth-light); }
+  .big-num .l { font-size: 0.75rem; color: var(--sand); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.25rem; }
+
+  footer { background: var(--charcoal); color: var(--sand); text-align: center; padding: 2.5rem; font-size: 0.82rem; }
+  footer span { color: var(--earth-light); }
+
+  @media (max-width: 640px) {
+    .hero-stats { gap: 1.5rem; }
+    .week-row { grid-template-columns: 1fr; }
+    .week-label { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MODERN SAVAGE</div>
+  <div class="meta">90-Day Acquisition Playbook — 22 Apr 2026</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Built by Junior · Bear Grylls Ventures</div>
+  <h1>From 170 Signups<br>to <span>5,000 Customers</span></h1>
+  <p class="subtitle">The complete customer acquisition playbook for Modern Savage's first 90 days. Channel strategy, email sequences, week-by-week targets, and the one timing window you cannot afford to miss.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">170</div><div class="lab">Signups Today</div></div>
+    <div class="hero-stat"><div class="num">5,000</div><div class="lab">Month 1 Target</div></div>
+    <div class="hero-stat"><div class="num">8.2M</div><div class="lab">Bear's IG Followers</div></div>
+    <div class="hero-stat"><div class="num">£55</div><div class="lab">Sub Price (UK)</div></div>
+  </div>
+</div>
+
+<!-- TIMING ALERT -->
+<section style="padding: 4rem 2rem 2rem; background: var(--white);">
+  <div class="container">
+    <div class="alert-box">
+      <h3>The Window Is Open Right Now — Running Wild S9 premieres this week on FOX</h3>
+      <p>Bear Grylls is on Times Square billboards, Live with Kelly and Mark, and the front page of Fox's promotional push. McConaughey, Tiffany Haddish, MGK. The biggest single-week media moment Bear has had in years — and Modern Savage launched the same week. This is not coincidence. This is the window. Every day this week that passes without capitalising on it is lost momentum you cannot buy back.</p>
+    </div>
+
+    <div class="section-label">The Core Problem</div>
+    <h2>170 signups is a list. 5,000 subscribers is a business.</h2>
+    <p style="max-width: 700px; margin-top: 1rem;">The gap between where Modern Savage is today and where it needs to be in 30 days is not a product problem or a price problem. The formula is right. The branding is right. The founder is one of the most recognised adventure figures on earth. The gap is activation — turning a launch moment into a conversion machine before the media window closes.</p>
+  </div>
+</section>
+
+<!-- THREE PHASES -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-label">The Playbook</div>
+    <h2>Three phases. 90 days. One goal.</h2>
+    <p>Each phase has a different job. Phase 1 captures the surge. Phase 2 builds the engine. Phase 3 compounds it.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-num">Phase 1 — Days 1-14</div>
+        <h3>Capture the Wave</h3>
+        <ul>
+          <li>Ride Running Wild FOX premiere momentum</li>
+          <li>Bear posts 2x MS content this week on IG</li>
+          <li>Email the 170 signups — convert founding tribe</li>
+          <li>Launch Facebook, Twitter/X, TikTok accounts</li>
+          <li>ManyChat: scale "SAVAGE" comment trigger</li>
+          <li>Ollie Matthews UGC live (nutritionist credibility)</li>
+          <li>Co-promotion with Running Wild accounts</li>
+        </ul>
+        <div class="phase-target">Target: 500 paying customers</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">Phase 2 — Days 15-45</div>
+        <h3>Build the Engine</h3>
+        <ul>
+          <li>Paid ads live on Meta (FB + IG) — £50/day test</li>
+          <li>UGC campaign: 5 micro-influencers, organ meat niche</li>
+          <li>Podcast circuit — Bear on 3 US health podcasts</li>
+          <li>Email nurture sequence (7-part post-purchase series)</li>
+          <li>Referral loop: "Give £10, Get £10" founding tribe offer</li>
+          <li>Bear LinkedIn content (30k+ followers, underused for MS)</li>
+          <li>TikTok organic — Bear survival-to-nutrition bridge content</li>
+        </ul>
+        <div class="phase-target">Target: 2,000 paying customers</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">Phase 3 — Days 46-90</div>
+        <h3>Compound and Convert</h3>
+        <ul>
+          <li>Subscription retention: personal "from Bear" month 2 email</li>
+          <li>Adventure Garage integration (new FOX show in production)</li>
+          <li>Del Shoopman + Running Wild cast UGC</li>
+          <li>Liberty University partnership activation (BG audience)</li>
+          <li>First reorder cycle — target 70% sub retention</li>
+          <li>UK launch prep (post-VAT reg, Henri Lloyd cross-promo)</li>
+          <li>Press: WSJ, Men's Journal, Field &amp; Stream, Outdoor Life</li>
+        </ul>
+        <div class="phase-target">Target: 5,000 paying customers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNEL STRATEGY -->
+<section class="dark-section">
+  <div class="container">
+    <div class="section-label">Channel Strategy</div>
+    <h2>Where the customers come from</h2>
+    <p>Six channels, ranked by expected ROI in the first 90 days. Bear's organic IG is the primary driver. Everything else amplifies it.</p>
+
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="channel-name">Channel 1 — Primary</div>
+        <h3>Bear's Instagram (8.2M)</h3>
+        <p>2 MS posts per week during launch window. Product + story. Avoid hard selling — use the primal health narrative. Survival-to-nutrition bridge. Each post should drive to link in bio.</p>
+        <div class="channel-cac">Est. CAC: £3-8 per customer</div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-name">Channel 2 — Conversion</div>
+        <h3>Email Sequence</h3>
+        <p>170 signups = warm audience who opted in during launch week. These are your highest-intent buyers. Hit them within 24 hours with the founding tribe offer. 7-email sequence. Details below.</p>
+        <div class="channel-cac">Est. conversion: 25-40%</div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-name">Channel 3 — Amplifier</div>
+        <h3>Running Wild Coattail</h3>
+        <p>McConaughey premiere this week. Tiffany and MGK to follow. Each episode is a news cycle. Bear + cast social moments. Running Wild accounts posting MS-adjacent content during premiere period.</p>
+        <div class="channel-cac">Est. reach: 50M+ impressions</div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-name">Channel 4 — Scale</div>
+        <h3>Meta Paid Ads</h3>
+        <p>Start at £50/day. Test 3 creative angles: primal health, family nutrition, survival science. Target: men 28-50, outdoors/fitness interest, US + UK. Scale what works. Kill what doesn't by week 3.</p>
+        <div class="channel-cac">Target CAC: under £20</div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-name">Channel 5 — Credibility</div>
+        <h3>UGC + Influencers</h3>
+        <p>Ollie Matthews (nutritionist, already on board). Target 4 more: carnivore/ancestral diet creators with 50K-500K followers. Organ meat niche is small but high-intent. Micro beats macro here.</p>
+        <div class="channel-cac">Target CAC: £12-18</div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-name">Channel 6 — Compound</div>
+        <h3>Referral Loop</h3>
+        <p>"Give a friend £10 off, you get £10 credit" — activate for founding tribe subscribers after first purchase. High-intent customers refer high-intent friends. Keeps CAC low as base grows.</p>
+        <div class="channel-cac">Target viral coeff: 1.2x</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK BY WEEK -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">Week-by-Week</div>
+    <h2>What happens when</h2>
+    <p>Sequenced to front-load the launch window momentum and not waste the Running Wild media wave.</p>
+
+    <div class="timeline" style="margin-top: 2.5rem;">
+      <div class="week-row">
+        <div class="week-label">WEEK 1<br>Apr 22-28</div>
+        <div class="week-content">
+          <h4>The Launch Surge — Running Wild Premiere Week</h4>
+          <ul>
+            <li>Email all 170 signups within 24 hours — founding tribe offer (10% off first order)</li>
+            <li>Bear: 2 IG posts this week referencing MS (primal nutrition angle, not hard sell)</li>
+            <li>ManyChat: ensure "SAVAGE" comment trigger is live and tested on all new posts</li>
+            <li>Set up Facebook, Twitter/X, TikTok business accounts (Calvin's team)</li>
+            <li>Ollie Matthews first UGC video live on both accounts</li>
+            <li>Bear posts on LinkedIn about Modern Savage founding story (30k audience)</li>
+            <li>Get Calvin to brief the Running Wild social accounts on co-posting this week</li>
+          </ul>
+          <span class="week-target">Target: 200 email conversions, 100 paying customers</span>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label">WEEK 2<br>Apr 29-May 5</div>
+        <div class="week-content">
+          <h4>Tiffany Haddish Episode — Second Surge</h4>
+          <ul>
+            <li>Running Wild S9 Ep 2 (Tiffany Haddish) airs — ride the new news cycle</li>
+            <li>Bear: 2 more IG posts — pivot to "family nutrition" narrative (Mini-Savage angle)</li>
+            <li>Launch Meta paid ads — £50/day, 3 creative angles, 2-week test</li>
+            <li>Email sequence: Day 3 follow-up to non-openers. Day 7 to non-purchasers.</li>
+            <li>First UGC creator content drops (Ollie + 1-2 others if sourced)</li>
+            <li>Target 3 podcast pitches: Joe Rogan (JRE), Paul Saladino, Sean Ryan Show</li>
+          </ul>
+          <span class="week-target">Target: 250 new customers, 350 cumulative</span>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label">WEEK 3<br>May 6-12</div>
+        <div class="week-content">
+          <h4>Sailing Trip Starts — Behind-the-Scenes Content Gold</h4>
+          <ul>
+            <li>Jesse departs on La Vie En Rose May 7 — pre-schedule MS content before leaving</li>
+            <li>Sailing trip content: "What I'm eating on a 5-day ocean crossing" = perfect MS angle</li>
+            <li>Meta ads: kill under-performers, 2x budget on winning creative</li>
+            <li>MGK episode (Ep 3) airs — third news cycle, third traffic spike</li>
+            <li>Referral program goes live for all week 1-2 purchasers</li>
+            <li>Email: "How's your first week going?" check-in to new subscribers</li>
+          </ul>
+          <span class="week-target">Target: 300 new customers, 650 cumulative</span>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label">WEEKS 4-8<br>May 13-Jun 9</div>
+        <div class="week-content">
+          <h4>Engine Running — Paid + Organic Compounding</h4>
+          <ul>
+            <li>Manufacturing order placed (12-week lead) — target Jun/Jul stock delivery</li>
+            <li>Meta ads scaled to £100-200/day if CAC is below £20</li>
+            <li>Bear podcast appearances (Paul Saladino, Sean Ryan are the A-tier targets)</li>
+            <li>Adventure Garage: if any episodes air, massive MS cross-promotion opportunity</li>
+            <li>Apple WWDC Jun 7-9 — Bear + Jesse at Apple Park, Silicon Valley tech press moment</li>
+            <li>Month 2 retention email ("Still going? Here's what your body's adapting to")</li>
+            <li>UK launch prep: VAT reg (Sara Perry, 4-8 weeks), Henri Lloyd co-promo planned</li>
+          </ul>
+          <span class="week-target">Target: 3,500 cumulative customers by Jun 9</span>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label">WEEKS 9-13<br>Jun 10-Jul 13</div>
+        <div class="week-content">
+          <h4>5,000 — First Reorder Cycle + UK Launch</h4>
+          <ul>
+            <li>Manufacturing arrives — second batch order placed immediately</li>
+            <li>UK Stripe launch (post-VAT reg): target 500 UK customers in first month</li>
+            <li>Henri Lloyd ambassador cross-promo — sailing + nutrition brand alignment</li>
+            <li>Month 2 subscription renewal — 70%+ retention target</li>
+            <li>Round the Island Race Jul 11 — Will Usher flagged La Vie En Rose entry (content + MS opportunity)</li>
+            <li>Press push: men's health press with 90 days of results data</li>
+          </ul>
+          <span class="week-target">Target: 5,000 paying customers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SEQUENCE -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-label">Email Sequence</div>
+    <h2>The 170 signups are your hottest leads. Here's how to convert them.</h2>
+    <p>Send these from a personal Bear address. Not a brand address. Personal email converts 3-5x better for a founder-led brand.</p>
+
+    <div class="email-sequence">
+      <div class="email-card">
+        <div class="email-day">Email 1 — Send today (within 24 hours of signup)</div>
+        <h4>"You're in. Here's what we built."</h4>
+        <p>From Bear personally. Tell the founding story in 3 paragraphs. Why he made this. What it's not (processed, fake, cheap). What it is. Founding tribe discount: 10% off first order. One clear CTA: "Try your first month."</p>
+        <div class="email-hook">Hook: "When I was on Everest, I wasn't thinking about protein shakes. I was thinking about food. Real food. That's what we've tried to make."</div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-day">Email 2 — Day 3 (non-openers)</div>
+        <h4>"One question, honestly."</h4>
+        <p>Short. 4 sentences. "Did this land in spam? We're new, so it might have. I wanted to make sure you saw this because I think you'll want to." Resend founding tribe offer with a different subject line.</p>
+        <div class="email-hook">Subject: "I think this landed in your spam"</div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-day">Email 3 — Day 7 (openers who haven't purchased)</div>
+        <h4>"This is what's in it. Exactly."</h4>
+        <p>Full ingredient transparency email. Every ingredient, why it's there, where it comes from. Bison organs from North American grass-fed herd. No filler. No binders. This is what separates MS from the £25 protein tub at Holland &amp; Barrett. Founding tribe offer expires in 48 hours.</p>
+        <div class="email-hook">Hook: "Most supplement companies won't show you the full label. Here's ours."</div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-day">Email 4 — Day 14 (still not purchased)</div>
+        <h4>"What are you waiting for? (Genuinely asking)"</h4>
+        <p>Direct. Honest. "If the price is the issue, I get it. If you're not sure it'll work for you, here's what I'd say." Address the top 3 objections. Final founding tribe offer — this is the last email at this discount. Move them to a standard nurture after this.</p>
+        <div class="email-hook">Hook: "I'm not going to pretend this is cheap. Here's why it isn't."</div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-day">Email 5 — Day 30 (purchasers)</div>
+        <h4>"One month in. What's changed?"</h4>
+        <p>Post-purchase retention email. Ask customers to reply with how they're feeling. Collect testimonials. Remind them of what the 30-day arc looks like biologically. Plant the seed for month 2 renewal.</p>
+        <div class="email-hook">Hook: "Your gut biome takes 21 days to start shifting. You're almost there."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">The Numbers</div>
+    <h2>What success looks like, month by month</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">500</div>
+        <div class="metric-label">Month 1 conservative</div>
+        <div class="metric-context">If only email list + Bear organic converts</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">2,000</div>
+        <div class="metric-label">Month 1 target</div>
+        <div class="metric-context">Email + organic + light paid + UGC</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">5,000</div>
+        <div class="metric-label">Month 1 stretch</div>
+        <div class="metric-context">Full Running Wild cross-promo + paid scaling</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">£55</div>
+        <div class="metric-label">Subscription price (UK)</div>
+        <div class="metric-context">$65 US — 63.9% gross margin</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">70%</div>
+        <div class="metric-label">Target month 2 retention</div>
+        <div class="metric-context">Industry avg is 65% — aim higher with great email</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">£20</div>
+        <div class="metric-label">Max acceptable CAC</div>
+        <div class="metric-context">LTV of 6-month sub = £330 — CAC:LTV = 1:16</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; background: var(--cream); border-radius: 12px; padding: 2rem 2.5rem;">
+      <h3 style="font-family: 'DM Serif Display', serif; color: var(--forest-deep); margin-bottom: 1rem;">The Unit Economics Reminder</h3>
+      <p style="font-size: 0.9rem; line-height: 1.8;">At 5,000 subscribers paying £55/month: <strong>£275,000/month gross revenue.</strong> At 63.9% gross margin: <strong>£175,725/month gross profit.</strong> After CAC (assume £20 average across all channels): customer payback in 0.36 months. By subscriber month 2, every customer is profitable. The question is not whether this business works — it is how fast you can fill the funnel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIONS -->
+<section class="dark-section">
+  <div class="container">
+    <div class="section-label">Actions Required</div>
+    <h2>What needs to happen and who does it</h2>
+
+    <div class="action-grid">
+      <div class="action-card">
+        <span class="action-priority p-now">This Week</span>
+        <h4>Email the 170 signups</h4>
+        <p>Draft the founding tribe email (Email 1 above). Send from Bear's personal address or an MS address that sounds personal. Do not use a Mailchimp template — plain text converts better.</p>
+        <div class="action-owner">Owner: Jesse + Calvin</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-now">This Week</span>
+        <h4>Bear: 2 IG Posts on MS</h4>
+        <p>Both posts this week reference Modern Savage. One primal health angle (bison, organs, ancestral eating). One family angle (feeding your kids real food). Not a hard sell — a lifestyle post with a link in bio.</p>
+        <div class="action-owner">Owner: Bear + Jesse</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-now">This Week</span>
+        <h4>Launch FB / TikTok / Twitter</h4>
+        <p>Three new social accounts. Use the MS brand assets already created. Calvin's team to set up and cross-post IG content immediately. Don't wait for perfect content — launch with what's there.</p>
+        <div class="action-owner">Owner: Calvin (KU Creatives)</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-week">This Month</span>
+        <h4>Meta Paid Ads — £50/day test</h4>
+        <p>Three ad sets. Three audiences. One creative per set. Survival-to-nutrition angle. Family health angle. Organ meat ancestral living angle. Let the data decide. Kill the losers by day 14.</p>
+        <div class="action-owner">Owner: Calvin or specialist</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-week">This Month</span>
+        <h4>Podcast Pitch: Paul Saladino</h4>
+        <p>Paul Saladino (Carnivore MD) is the single highest-value podcast target for Modern Savage. His audience is exactly the MS customer: carnivore-curious, organ meat open, ancestral health believers. Bear as guest.</p>
+        <div class="action-owner">Owner: Calvin to pitch, CJ to approve</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-week">This Month</span>
+        <h4>Confirm Manufacturing Order</h4>
+        <p>Andy Kouvel (ACF Pharma) — place the first order once entity and payments are resolved. 12-week lead time means if you order today, stock arrives mid-July. Every week of delay = a week of backorder risk at 5K subscribers.</p>
+        <div class="action-owner">Owner: Jesse + Raemy</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-month">30-60 Days</span>
+        <h4>UK Stripe Launch</h4>
+        <p>VAT registration with Sara Perry at David Owen Accountancy (4-8 weeks from instruction). Once VAT live, switch UK payments to Stripe. Henri Lloyd ambassador cross-promo for UK launch.</p>
+        <div class="action-owner">Owner: Jesse + Sara Perry</div>
+      </div>
+
+      <div class="action-card">
+        <span class="action-priority p-month">30-60 Days</span>
+        <h4>Competitor Trademark: modernsavage.life</h4>
+        <p>Will Gardenswartz flagged this. They have the same brand name with a different TLD and different product. UK trademark (Classes 5+29) is in progress — Jesse needs to pay £265 to complete. US trademark also needed urgently.</p>
+        <div class="action-owner">Owner: Jesse (UKIPO) + CJ (US trademark)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section style="background: var(--forest-deep); padding: 6rem 2rem; text-align: center;">
+  <div class="container">
+    <div class="section-label" style="color: var(--earth-light);">Bottom Line</div>
+    <h2 style="color: white; max-width: 700px; margin: 0 auto 2rem;">"20,000 email subscribers and we have a business that is viable forever."</h2>
+    <p style="color: var(--sand); max-width: 600px; margin: 0 auto 3rem;">Bear said it. The maths backs it up. You have the founder, the product, the timing, and a live media moment. The only missing ingredient is execution speed. The window is open. Get in it.</p>
+
+    <div class="big-number-row">
+      <div class="big-num">
+        <div class="n">170</div>
+        <div class="l">signups today</div>
+      </div>
+      <div class="big-num">
+        <div class="n">→</div>
+        <div class="l">&nbsp;</div>
+      </div>
+      <div class="big-num">
+        <div class="n">5,000</div>
+        <div class="l">month 1 target</div>
+      </div>
+      <div class="big-num">
+        <div class="n">→</div>
+        <div class="l">&nbsp;</div>
+      </div>
+      <div class="big-num">
+        <div class="n">20,000</div>
+        <div class="l">viable forever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by <span>Junior</span> — Bear Grylls Ventures AI · 22 April 2026<br>
+  <span style="color: #888; font-size: 0.75rem;">For internal use only — Modern Savage Nutrition</span>
+</footer>
+
+</body>
+</html>
