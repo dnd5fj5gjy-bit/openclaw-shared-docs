@@ -989,12 +989,15 @@ function selectAnswer(chosen) {
     fb.innerHTML = `<strong>Correct!</strong> ${q.exp}`;
     state.totalScore++;
     state.totalPossible++;
+    state.quizCorrect++;
+    state.quizTotal++;
   } else {
     opts[chosen].classList.add('wrong');
     opts[correct].classList.add('reveal-correct');
     fb.className = 'feedback-box wrong-fb';
     fb.innerHTML = `<strong>Not quite.</strong> ${q.exp}`;
     state.totalPossible++;
+    state.quizTotal++;
   }
   fb.style.display = 'block';
   updateScoreBadge();
