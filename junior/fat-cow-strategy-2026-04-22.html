@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fat Cow x BG — Strategic Brief</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #e8e8e8; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1a1a 0%, #2d1200 100%); padding: 48px 40px; border-bottom: 2px solid #8B4513; }
+  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .header .sub { color: #aaa; font-size: 1rem; }
+  .header .stamp { display: inline-block; background: #8B4513; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-top: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  .section { margin-bottom: 40px; }
+  .section h2 { font-size: 1.1rem; font-weight: 700; color: #8B4513; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+  .card { background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .card p { color: #bbb; font-size: 0.95rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 20px; text-align: center; }
+  .stat-card .value { font-size: 1.8rem; font-weight: 700; color: #8B4513; }
+  .stat-card .label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .advisor { background: #141414; border-left: 4px solid #444; border-radius: 0 8px 8px 0; padding: 20px 24px; margin-bottom: 16px; }
+  .advisor.killer { border-left-color: #cc2222; }
+  .advisor.stranger { border-left-color: #6633cc; }
+  .advisor.operator { border-left-color: #888; }
+  .advisor.cfo { border-left-color: #22aa55; }
+  .advisor.chair { border-left-color: #8B4513; background: #1c1005; }
+  .advisor .name { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .advisor.killer .name { color: #cc2222; }
+  .advisor.stranger .name { color: #9966ee; }
+  .advisor.operator .name { color: #aaa; }
+  .advisor.cfo .name { color: #22aa55; }
+  .advisor.chair .name { color: #8B4513; }
+  .advisor p { color: #bbb; font-size: 0.93rem; margin-bottom: 8px; }
+  .advisor p:last-child { margin-bottom: 0; }
+  .phase { background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 24px; margin-bottom: 16px; position: relative; overflow: hidden; }
+  .phase::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #8B4513; }
+  .phase-label { font-size: 0.75rem; font-weight: 700; color: #8B4513; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .phase h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .phase ul { list-style: none; padding: 0; }
+  .phase ul li { color: #bbb; font-size: 0.93rem; padding: 4px 0 4px 16px; position: relative; }
+  .phase ul li::before { content: '→'; position: absolute; left: 0; color: #8B4513; }
+  .gem { background: linear-gradient(135deg, #0f1f0f 0%, #141414 100%); border: 1px solid #1a3a1a; border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+  .gem h3 { color: #22aa55; margin-bottom: 12px; font-size: 1rem; }
+  .gem p { color: #bbb; font-size: 0.93rem; margin-bottom: 8px; }
+  .asks { background: #141414; border-radius: 8px; padding: 24px; }
+  .asks h3 { color: #fff; font-size: 1rem; margin-bottom: 16px; }
+  .ask-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .ask-num { background: #8B4513; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+  .ask-text { color: #bbb; font-size: 0.93rem; }
+  .verdict { background: linear-gradient(135deg, #1c1005 0%, #0a0a0a 100%); border: 2px solid #8B4513; border-radius: 8px; padding: 28px; text-align: center; }
+  .verdict h3 { color: #8B4513; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .verdict .verdict-text { color: #e8e8e8; font-size: 1.05rem; line-height: 1.7; }
+  .tag { display: inline-block; background: #2a1a00; color: #8B4513; padding: 2px 8px; border-radius: 3px; font-size: 0.8rem; font-weight: 600; margin: 2px; }
+  .tag.green { background: #0a2010; color: #22aa55; }
+  .tag.red { background: #200a0a; color: #cc4444; }
+  .footer { text-align: center; padding: 40px; color: #444; font-size: 0.85rem; border-top: 1px solid #1a1a1a; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Fat Cow x Bear Grylls</h1>
+  <div class="sub">Strategic Brief — Prepared by Junior | Confidential</div>
+  <div class="stamp">Awaiting Jesse's approval before any reply is drafted</div>
+</div>
+
+<div class="container">
+
+  <!-- THE DECK IN BRIEF -->
+  <div class="section">
+    <h2>The Deck — What Ryan is Proposing</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="value">80K+</div>
+        <div class="label">Orders to date</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">40K+</div>
+        <div class="label">UK customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">80-100%</div>
+        <div class="label">YoY growth</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">£34K</div>
+        <div class="label">Revenue/week</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">~100</div>
+        <div class="label">Orders/day</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">£25K</div>
+        <div class="label">Monthly ad spend</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>The Business</h3>
+      <p>Fat Cow Skincare. Beef tallow-based skincare, made in-house in Northumberland. Products: Body Cream (tallow + jojoba), Balm (tallow + beeswax + shea), Natural Deodorant (no tallow), SPF in development. Selling on own website, Amazon UK, Whole Foods, Healf. Ryan is founder-led, obsessive about quality — "I'll never step away from production."</p>
+    </div>
+
+    <div class="card">
+      <h3>Ryan's Three-Tier Roadmap</h3>
+      <p><strong>Tier 1 — Content:</strong> Documentary-style long-form video with Bear + Ryan. Revenue share on content + expenses covered.<br><br>
+      <strong>Tier 2 — Co-Created Products:</strong> Co-branded product lines. Bear's advisory role + network. Equity stake + product revenue share. Structured like Bear's water filter deal.<br><br>
+      <strong>Tier 3 — Business Partnership:</strong> Bear invests capital. International expansion together. Larger equity stake + capital + ongoing revenue share.</p>
+    </div>
+
+    <div class="card">
+      <h3>Hidden Gem — Page 14 of the Deck</h3>
+      <p>Fat Cow owns <strong>bigfarmer.com</strong> and holds a registered trademark for supplements in both the UK and EU. Tagline: "The only Big Pharma to trust is Big Farmer." This is buried in the deck but is the most strategically interesting asset for Jesse/Modern Savage.</p>
+    </div>
+  </div>
+
+  <!-- COUNCIL -->
+  <div class="section">
+    <h2>The Council</h2>
+
+    <div class="advisor killer">
+      <div class="name">💀 The Killer — What Goes Wrong</div>
+      <p>Ryan's three-tier structure is designed to benefit Fat Cow. Bear provides credibility and content (Tier 1) FOR FREE, then builds a product that makes Fat Cow more valuable (Tier 2), then finally invests his own capital (Tier 3). By the time real money flows to BG, Bear has already done all the heavy lifting.</p>
+      <p>Risk 2: Content comes first, product comes later. That means months of Bear's face attached to a brand before any revenue share agreement is locked. The content creates value for Fat Cow immediately. Bear sees nothing from it except a small revenue share on the content itself.</p>
+      <p>Risk 3: If this doesn't go to Tier 2, Bear gets stuck as a content creator for a skincare brand. No product. No equity. No income. The deal must be structured so product comes simultaneously with content, not after it.</p>
+    </div>
+
+    <div class="advisor stranger">
+      <div class="name">👁 The Stranger — What Everyone's Missing</div>
+      <p>Jesse attended the April 9th call, not Bear. Ryan is pitching through Jesse as the gatekeeper. This means Ryan's deck was written for Bear's level — big investment, capital injection, equity. But Jesse's actual ask is faster income, possibly via Modern Savage alignment. These are different conversations.</p>
+      <p>The supplement trademark (bigfarmer.com) is a throwaway slide. Ryan mentions it in one paragraph. But for Jesse, this could be the most important line in the deck — it's the UK infrastructure for a supplement play that Bear Grylls Ventures doesn't currently have.</p>
+      <p>Fat Cow's ad spend (£25K/month) means they're already profitable but margin-dependent on paid traffic. They're not a grassroots brand — they're a performance marketing business. When Bear's organic audience hits, the LTV economics change dramatically. Ryan knows this. Bear's endorsement is worth more than capital to Ryan right now.</p>
+    </div>
+
+    <div class="advisor operator">
+      <div class="name">⚙️ The Operator — Execution Reality</div>
+      <p>Fastest path to a physical BG product: Fat Cow already has 2,000 sq ft production, in-house team, proven formulas. A BG-edition tallow balm or cream could be formulated, packaged, and launched in 60-90 days. Not 6-12 months. This is the leverage Jesse has — Fat Cow wants Bear's name urgently. Jesse can use that urgency to compress the roadmap.</p>
+      <p>Modern Savage parallel: same customer (ancestral health, animal-based, back to basics), different product category. Tallow cream is external. Organ supplement is internal. Bundle "outside + inside" as a concept. Both sell to the same person. Cross-sell rate should be very high if the brand story is cohesive.</p>
+      <p>Key operational question: who handles fulfillment for a co-branded product? Fat Cow does its own UK fulfillment. Modern Savage is US via ACF Pharma/ShipsAlot. A BG-branded tallow product sold in the US would need US fulfillment — Fat Cow currently has zero US presence. That's Jesse's contribution to the international play.</p>
+    </div>
+
+    <div class="advisor cfo">
+      <div class="name">💰 The CFO — The Numbers</div>
+      <p>Fat Cow revenue: ~£1.77M annualised (£34K/week). Ad spend: £300K/year. Skincare gross margins typically 70-80%. Estimated net after ads: £900K-£1.1M before overhead. Healthy, growing business.</p>
+      <p>A BG-edition product at 20% premium pricing: if it does £500K in year 1, and BG gets 20% revenue share, that's £100K to BGV. At 30%, £150K. These are real, near-term numbers if launch is done right.</p>
+      <p>The bigfarmer.com supplement trademark: if Jesse wants UK/EU distribution for Modern Savage or a BG supplement line, Fat Cow's existing trademark infrastructure could save £20K+ in legal/filing costs and 12+ months of registration time. The question is whether Ryan licenses it or folds it into a broader partnership deal.</p>
+      <p>Jesse's ASAP income priority: Tier 1 (content) generates tiny revenue share. Real cash starts at Tier 2 product revenue share. Push to compress Tier 1 and 2 to happen simultaneously.</p>
+    </div>
+
+    <div class="advisor chair">
+      <div class="name">🛡 The Chair — Verdict</div>
+      <p>This is a real business with real alignment and real potential. Ryan has built something legitimate. The philosophy match is genuine — Bear has been talking about beef tallow for years.</p>
+      <p><strong>Core risk:</strong> Ryan's three-tier structure is paced for Fat Cow's benefit, not Bear's. Jesse cannot let content come before product or income will be 12+ months away.</p>
+      <p><strong>Next action in 48 hours:</strong> Reply to Ryan expressing genuine enthusiasm but proposing a modified two-phase structure — content and first co-branded product launch happen together, not sequentially. Specifically ask about bigfarmer.com supplement angle and US expansion mechanics. Do not commit to Tier 3 capital investment at this stage.</p>
+    </div>
+  </div>
+
+  <!-- STRATEGIC RECOMMENDATION -->
+  <div class="section">
+    <h2>Recommended Strategy</h2>
+
+    <div class="phase">
+      <div class="phase-label">Phase A — 0 to 90 Days</div>
+      <h3>Content + First Product Simultaneously</h3>
+      <ul>
+        <li>Don't follow Ryan's Tier 1 then Tier 2 sequence. Insist content creation and first co-branded product happen together.</li>
+        <li>Propose: Bear Grylls x Fat Cow limited edition tallow balm or cream. Fat Cow produces it. BG provides name, packaging direction, content. Revenue share from day 1.</li>
+        <li>Launch the product the same week the first video drops. Content drives sales. Income starts immediately.</li>
+        <li>Negotiate 20-30% revenue share on the co-branded product line before any content is created.</li>
+        <li>Modern Savage cross-sell: both brands announced together. "Inside + outside ancestral health." Modern Savage for the gut. Fat Cow for the skin. Same audience, two products.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase B — 3 to 12 Months</div>
+      <h3>US Launch + Supplement Play</h3>
+      <ul>
+        <li>Fat Cow goes international — Jesse/BGV provides US distribution infrastructure (ShipsAlot already introduced by Drew).</li>
+        <li>Bigfarmer.com supplement brand: explore whether Ryan licenses this to BG or develops it as a joint venture. Could be the UK vehicle for Modern Savage or a separate BG supplement line.</li>
+        <li>Equity stake in Fat Cow (Tier 2/3 equivalent) negotiated now, not after Tier 1 proves out. Bear's involvement is the risk they're asking Bear to take — equity must reflect that from day 1.</li>
+        <li>Possible long-form content: Bear + Ryan documentary about ancestral health, farming, British farming crisis, going back to nature. Could be Bear's biggest content play in health space.</li>
+      </ul>
+    </div>
+
+    <div class="gem">
+      <h3>Hidden Opportunity — bigfarmer.com</h3>
+      <p>Fat Cow owns bigfarmer.com and has registered supplement trademarks in UK and EU. This is buried in their deck but it's extraordinarily relevant to Jesse's situation.</p>
+      <p>Modern Savage is launching in the US. Bear Grylls Ventures has no UK supplement vehicle. bigfarmer.com could be that vehicle — either licensed to BGV or built as a joint venture with Fat Cow supplying production/brand expertise and BG supplying name, audience, and distribution.</p>
+      <p>The "Big Farmer" brand concept is brilliant and brand-safe for Bear. It's got edge without controversy. Jesse should probe this hard in the follow-up call.</p>
+    </div>
+  </div>
+
+  <!-- ASKS FOR RYAN -->
+  <div class="section">
+    <h2>What to Ask Ryan on the Call</h2>
+    <div class="asks">
+      <div class="ask-item">
+        <div class="ask-num">1</div>
+        <div class="ask-text">Would you co-create a first BG-edition product in 60 days alongside the first content, rather than sequentially after Tier 1 proves out? What would that look like on your side?</div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">2</div>
+        <div class="ask-text">What's the plan for bigfarmer.com and the supplement trademark? Is that on the table as part of a partnership, or is that a separate business?</div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">3</div>
+        <div class="ask-text">If we bring US distribution to the table (we have relationships in place), how does that change the equity conversation for international expansion?</div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">4</div>
+        <div class="ask-text">What revenue share are you proposing on co-branded products, and how do you value the business for equity purposes?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERDICT BOX -->
+  <div class="verdict">
+    <h3>Junior's Read</h3>
+    <div class="verdict-text">
+      This is a genuine opportunity. Ryan has built a real business and the philosophy alignment with Bear is authentic — not manufactured. The risk is letting Ryan's three-tier roadmap dictate the pace. Jesse should go in enthusiastic but commercially sharp: compress content and product into one simultaneous Phase A, lock revenue share before a single piece of content is made, and probe the bigfarmer.com supplement angle hard. The fastest path to income is a co-branded BG tallow product launching alongside the first video. The long game is US expansion and possibly the supplement vehicle Jesse doesn't have for Modern Savage in the UK.
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Prepared by Junior — Confidential | Fat Cow x Bear Grylls | April 2026</div>
+</body>
+</html>
