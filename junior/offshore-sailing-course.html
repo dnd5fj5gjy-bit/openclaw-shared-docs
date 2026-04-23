@@ -1220,11 +1220,12 @@ function showModuleResult() {
   const circumference = 364;
   const offset = circumference - (circumference * pct / 100);
 
+  const moduleNames = ['Sailing Terms','Wind & Points of Sail','Sails & Trim','Lines & Ropes','VHF Radio','Safety at Sea'];
   document.getElementById('result-pct').textContent = pct + '%';
   document.getElementById('result-title').textContent = pct >= 80 ? 'Well done!' : pct >= 60 ? 'Good work!' : 'Keep going!';
   document.getElementById('result-sub').textContent =
-    `Module ${mod}: ${got} of ${total} correct. ` +
-    (pct >= 80 ? 'Strong pass. On to the next.' : pct >= 60 ? 'Good effort. Keep going.' : 'Review the module if you need to, then continue.');
+    `Module ${mod + 1}: ${moduleNames[mod]} — ${got} of ${total} correct. ` +
+    (pct >= 80 ? 'Strong pass. On to the next.' : pct >= 60 ? 'Good effort. Keep going.' : 'Review the module if needed, then continue.');
 
   const moduleNames = ['Sailing Terms','Wind & Points of Sail','Sails & Trim','Lines & Ropes','VHF Radio','Safety at Sea'];
   const actions = document.getElementById('result-actions');
