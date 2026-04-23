@@ -1223,9 +1223,10 @@ function showModuleResult() {
     `Module ${mod}: ${got} of ${total} correct. ` +
     (pct >= 80 ? 'Strong pass. On to the next.' : pct >= 60 ? 'Good effort. Keep going.' : 'Review the module if you need to, then continue.');
 
+  const moduleNames = ['Sailing Terms','Wind & Points of Sail','Sails & Trim','Lines & Ropes','VHF Radio','Safety at Sea'];
   const actions = document.getElementById('result-actions');
   if (hasMore) {
-    actions.innerHTML = `<button class="btn" onclick="goToLearn(${nextMod})">Continue to Module ${nextMod} →</button>`;
+    actions.innerHTML = `<button class="btn" onclick="goToLearn(${nextMod})">Continue: Module ${nextMod + 1} — ${moduleNames[nextMod]} →</button>`;
   } else {
     actions.innerHTML = `<button class="btn" onclick="startFinalExam()">Take the Final Exam →</button>`;
   }
