@@ -1015,23 +1015,26 @@ function nextQuestion() {
 
 function showModuleResult() {
   const mod = state.currentQuizModule;
-  const got = state.currentQuestions.filter((_,i) => {
-    // can't easily track per-module here, so just show next module prompt
-    return true;
-  }).length;
+  const got = state.quizCorrect;
+  const total = state.quizTotal;
+
+  // Save module score
+  state.moduleScores[mod] = { got, total };
 
   // Show result with next action
   const nextMod = mod + 1;
   const hasMore = nextMod <= 5;
 
-  // Score ring animation
-  const pct = Math.round((state.totalScore / Math.max(state.totalPossible,1)) * 100);
+  // Score ring animation — use THIS module's score
+  const pct = Math.round((got / Math.max(total, 1)) * 100);
   const circumference = 364;
   const offset = circumference - (circumference * pct / 100);
 
   document.getElementById('result-pct').textContent = pct + '%';
   document.getElementById('result-title').textContent = pct >= 80 ? 'Well done!' : pct >= 60 ? 'Good work!' : 'Keep going!';
-  document.getElementById('result-sub').textContent = pct >= 80 ? `Strong performance through Module ${mod}. Keep it up.` : `Module ${mod} complete. Review the material and continue.`;
+  document.getElementById('result-sub').textContent =
+    `Module ${mod}: ${got} of ${total} correct. ` +
+    (pct >= 80 ? 'Strong pass. On to the next.' : pct >= 60 ? 'Good effort. Keep going.' : 'Review the module if you need to, then continue.');
 
   const actions = document.getElementById('result-actions');
   if (hasMore) {
