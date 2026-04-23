@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offshore Sailing Course</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0a1628;
+  --deep: #0d1f3c;
+  --mid: #152a4a;
+  --panel: #1a3258;
+  --border: #1e3f6e;
+  --gold: #c9a84c;
+  --gold-light: #e8c96d;
+  --teal: #1a8fa0;
+  --teal-light: #22b5cc;
+  --white: #f0f4f8;
+  --grey: #8fa8c8;
+  --green: #1db86a;
+  --red: #e0384a;
+  --text: #d8e8f8;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* PROGRESS BAR */
+#progress-bar-wrap {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 4px; background: var(--mid);
+}
+#progress-bar { height: 100%; background: var(--gold); transition: width 0.5s ease; width: 0%; }
+
+/* HEADER */
+#top-bar {
+  position: fixed; top: 4px; left: 0; right: 0; z-index: 99;
+  background: rgba(10,22,40,0.95); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px; font-size: 0.85rem;
+}
+#top-bar .logo { font-weight: 700; color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; }
+#top-bar .timer { color: var(--grey); font-variant-numeric: tabular-nums; }
+#top-bar .score-badge {
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px; color: var(--gold); font-weight: 600;
+}
+
+/* MAIN LAYOUT */
+.page { display: none; min-height: 100vh; padding: 80px 20px 40px; }
+.page.active { display: flex; flex-direction: column; align-items: center; }
+
+/* WELCOME SCREEN */
+#welcome {
+  justify-content: center; text-align: center;
+  background: radial-gradient(ellipse at 50% 30%, #0d2a50 0%, var(--navy) 70%);
+}
+.welcome-icon { font-size: 5rem; margin-bottom: 24px; }
+#welcome h1 { font-size: 2.4rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+#welcome .tagline { color: var(--gold); font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+#welcome p { color: var(--grey); max-width: 560px; margin: 0 auto 32px; font-size: 1rem; }
+.module-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 36px; max-width: 600px; }
+.module-pill {
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: var(--grey);
+}
+.module-pill .num { color: var(--gold); font-weight: 700; }
+.btn {
+  background: var(--gold); color: var(--navy);
+  font-size: 1.05rem; font-weight: 700; padding: 14px 36px;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.2s; letter-spacing: 0.5px;
+}
+.btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--gold);
+  border: 2px solid var(--gold); font-size: 0.95rem; font-weight: 600;
+  padding: 10px 28px; border-radius: 8px; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: rgba(201,168,76,0.1); }
+.btn-teal {
+  background: var(--teal); color: #fff;
+  font-size: 1rem; font-weight: 700; padding: 12px 32px;
+  border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+}
+.btn-teal:hover { background: var(--teal-light); }
+
+/* MODULE LEARNING PAGE */
+.learn-page { max-width: 780px; width: 100%; }
+.module-header { text-align: center; margin-bottom: 36px; }
+.module-number { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.module-header h2 { font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.module-header .desc { color: var(--grey); font-size: 1rem; }
+
+.section-card {
+  background: var(--deep); border: 1px solid var(--border);
+  border-radius: 12px; margin-bottom: 20px; overflow: hidden;
+}
+.section-card .section-title {
+  background: var(--panel); padding: 14px 20px;
+  font-weight: 700; color: var(--white); font-size: 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-card .section-title .icon { font-size: 1.2rem; }
+.section-body { padding: 20px; }
+.section-body p { color: var(--grey); margin-bottom: 12px; font-size: 0.95rem; }
+.section-body p:last-child { margin-bottom: 0; }
+.section-body strong { color: var(--white); }
+
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+.info-box {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; text-align: center;
+}
+.info-box .label { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.info-box .value { color: var(--white); font-size: 0.95rem; font-weight: 600; }
+.info-box .sub { color: var(--grey); font-size: 0.8rem; margin-top: 4px; }
+
+.diagram {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 8px; padding: 20px; margin: 16px 0;
+  font-family: 'Courier New', monospace; font-size: 0.85rem;
+  color: var(--teal-light); white-space: pre; overflow-x: auto;
+  line-height: 1.4;
+}
+
+.key-point {
+  border-left: 3px solid var(--gold); background: rgba(201,168,76,0.06);
+  padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0;
+  color: var(--white); font-size: 0.93rem;
+}
+.warning-point {
+  border-left: 3px solid var(--red); background: rgba(224,56,74,0.06);
+  padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0;
+  color: #ffc0c0; font-size: 0.93rem;
+}
+.tip-point {
+  border-left: 3px solid var(--teal); background: rgba(26,143,160,0.08);
+  padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0;
+  color: #a8dce8; font-size: 0.93rem;
+}
+
+.knot-card {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; margin-bottom: 12px;
+}
+.knot-card h4 { color: var(--gold); font-size: 0.95rem; margin-bottom: 6px; }
+.knot-card p { color: var(--grey); font-size: 0.88rem; }
+
+.mayday-box {
+  background: rgba(224,56,74,0.1); border: 2px solid var(--red);
+  border-radius: 10px; padding: 20px; margin: 16px 0;
+}
+.mayday-box h4 { color: var(--red); font-size: 1rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.mayday-step { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+.mayday-step .num { background: var(--red); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.mayday-step .text { color: #ffc0c0; font-size: 0.9rem; }
+.mayday-step .text strong { color: #fff; }
+
+.channel-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.channel-table th { background: var(--panel); color: var(--gold); padding: 10px 12px; text-align: left; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; }
+.channel-table td { padding: 9px 12px; color: var(--grey); font-size: 0.88rem; border-bottom: 1px solid var(--border); }
+.channel-table td strong { color: var(--white); }
+.channel-table tr:last-child td { border-bottom: none; }
+
+.module-nav { display: flex; gap: 12px; margin-top: 32px; justify-content: center; }
+
+/* QUIZ PAGE */
+.quiz-page { max-width: 680px; width: 100%; }
+.quiz-header { text-align: center; margin-bottom: 28px; }
+.quiz-header .badge { background: var(--panel); border: 1px solid var(--gold); color: var(--gold); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px; }
+.quiz-header h2 { font-size: 1.8rem; font-weight: 800; color: var(--white); }
+
+.q-counter { color: var(--grey); font-size: 0.88rem; margin-bottom: 4px; text-align: right; }
+.q-progress { height: 3px; background: var(--panel); border-radius: 2px; margin-bottom: 24px; }
+.q-progress-fill { height: 100%; background: var(--teal); border-radius: 2px; transition: width 0.3s; }
+
+.question-card {
+  background: var(--deep); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px; margin-bottom: 16px;
+}
+.question-card .q-text { color: var(--white); font-size: 1.05rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 8px; padding: 13px 16px;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; gap: 12px; color: var(--grey); font-size: 0.95rem;
+}
+.option:hover { border-color: var(--teal); color: var(--white); background: rgba(26,143,160,0.1); }
+.option .opt-letter { background: var(--panel); color: var(--gold); font-weight: 700; font-size: 0.82rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.option.correct { background: rgba(29,184,106,0.15); border-color: var(--green); color: #a8f0c6; }
+.option.correct .opt-letter { background: var(--green); color: #fff; }
+.option.wrong { background: rgba(224,56,74,0.12); border-color: var(--red); color: #ffc0c0; }
+.option.wrong .opt-letter { background: var(--red); color: #fff; }
+.option.disabled { cursor: default; pointer-events: none; }
+.option.reveal-correct { background: rgba(29,184,106,0.08); border-color: rgba(29,184,106,0.4); color: #a8f0c6; }
+
+.feedback-box {
+  border-radius: 8px; padding: 14px 16px; margin-top: 4px; font-size: 0.9rem; display: none;
+}
+.feedback-box.correct-fb { background: rgba(29,184,106,0.1); border: 1px solid rgba(29,184,106,0.3); color: #a8f0c6; }
+.feedback-box.wrong-fb { background: rgba(224,56,74,0.08); border: 1px solid rgba(224,56,74,0.25); color: #ffc0c0; }
+.feedback-box strong { display: block; margin-bottom: 4px; }
+
+.next-btn-wrap { text-align: center; margin-top: 20px; }
+
+/* RESULTS */
+.results-page { max-width: 600px; width: 100%; text-align: center; }
+.score-ring { position: relative; display: inline-block; margin: 0 auto 28px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.score-ring .score-pct { font-size: 2.4rem; font-weight: 800; color: var(--white); line-height: 1; }
+.score-ring .score-lbl { font-size: 0.78rem; color: var(--grey); text-transform: uppercase; letter-spacing: 1px; }
+.result-title { font-size: 1.8rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.result-sub { color: var(--grey); margin-bottom: 28px; }
+.result-breakdown { background: var(--deep); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: left; margin-bottom: 24px; }
+.result-breakdown h4 { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+.mod-result { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.mod-result:last-child { border-bottom: none; }
+.mod-result .mod-name { color: var(--grey); font-size: 0.9rem; }
+.mod-result .mod-score { font-weight: 700; font-size: 0.9rem; }
+.mod-result .mod-score.pass { color: var(--green); }
+.mod-result .mod-score.fail { color: var(--red); }
+
+/* FINAL CERT */
+.cert-page { max-width: 680px; width: 100%; }
+.cert-box {
+  background: var(--deep); border: 2px solid var(--gold);
+  border-radius: 16px; padding: 40px; text-align: center; position: relative; overflow: hidden;
+}
+.cert-box::before {
+  content: '⚓';
+  position: absolute; top: -10px; right: -10px;
+  font-size: 8rem; opacity: 0.04; pointer-events: none;
+}
+.cert-box .cert-label { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 20px; }
+.cert-box h2 { font-size: 1.9rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.cert-box .cert-name { font-size: 1.4rem; color: var(--gold); font-weight: 700; margin: 20px 0 8px; padding: 12px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cert-box .cert-score { color: var(--grey); font-size: 0.95rem; margin-bottom: 20px; }
+.cert-box .cert-date { color: var(--grey); font-size: 0.82rem; }
+.cert-modules { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
+.cert-mod { background: var(--panel); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; color: var(--grey); }
+.cert-mod.pass { border-color: var(--green); color: var(--green); }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  #welcome h1 { font-size: 1.8rem; }
+  .module-header h2 { font-size: 1.6rem; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .diagram { font-size: 0.72rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<div id="top-bar">
+  <div class="logo">⚓ OFFSHORE SAILING</div>
+  <div class="timer" id="timer">00:00</div>
+  <div class="score-badge" id="score-badge">Score: 0</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- WELCOME -->
+<!-- ============================================================ -->
+<div id="welcome" class="page active">
+  <div class="welcome-icon">⛵</div>
+  <div class="tagline">Offshore Foundations</div>
+  <h1>Sailing Course</h1>
+  <p>Five essential modules covering everything you need to know before leaving the dock. Sails, wind, ropes, VHF radio, and safety at sea. Each module has a quiz to lock in what you've learned.</p>
+  <div class="module-list">
+    <div class="module-pill"><span class="num">01</span> Wind & Points of Sail</div>
+    <div class="module-pill"><span class="num">02</span> Sails & Trim</div>
+    <div class="module-pill"><span class="num">03</span> Lines & Ropes</div>
+    <div class="module-pill"><span class="num">04</span> VHF Radio</div>
+    <div class="module-pill"><span class="num">05</span> Safety at Sea</div>
+    <div class="module-pill"><span class="num">★</span> Final Exam</div>
+  </div>
+  <button class="btn" onclick="startCourse()">Start Course →</button>
+  <p style="margin-top:20px;color:var(--grey);font-size:0.85rem;">Approx. 25–35 minutes · 30 quiz questions</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 1 LEARN: WIND -->
+<!-- ============================================================ -->
+<div id="m1-learn" class="page">
+  <div class="learn-page">
+    <div class="module-header">
+      <div class="module-number">Module 01 of 05</div>
+      <h2>Wind & Points of Sail</h2>
+      <p class="desc">Understanding wind is the single most important skill in sailing. Everything else follows from it.</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌬️</span> True Wind vs Apparent Wind</div>
+      <div class="section-body">
+        <p><strong>True wind</strong> is the actual wind blowing across the water — what you feel when standing still.</p>
+        <p><strong>Apparent wind</strong> is what you feel on the boat when it's moving. It's a combination of true wind and the wind created by your forward motion. Apparent wind always comes more from ahead than true wind when sailing.</p>
+        <div class="key-point">⚡ The sails respond to apparent wind, not true wind. This is why instruments show apparent wind angle — and why you trim sails based on what the telltales tell you, not what you think the wind is doing.</div>
+        <p>As the boat speeds up, apparent wind shifts forward. As you slow down, it shifts aft. This is why a fast yacht like a skiff can "sail faster than the wind" on a broad reach — the apparent wind is nearly abeam even though the true wind is behind.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🧭</span> Points of Sail</div>
+      <div class="section-body">
+        <p>The angle between your boat's heading and the wind direction determines your "point of sail." Each requires different sail trim.</p>
+        <div class="diagram">
+              WIND ↓
+
+         Close-Hauled      Close-Hauled
+         (Port Tack)       (Starboard Tack)
+              \               /
+               \             /
+       Close    \           /    Close
+       Reach     \         /     Reach
+                  \       /
+       Beam  ------   ⛵  ------  Beam
+       Reach               Reach
+                  /       \
+       Broad     /         \    Broad
+       Reach    /           \   Reach
+               /             \
+              /               \
+           Running (downwind)</div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="label">In Irons</div>
+            <div class="value">Head to Wind</div>
+            <div class="sub">~0° — sails flap, no power. Avoid.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">Close-Hauled</div>
+            <div class="value">~30–45°</div>
+            <div class="sub">Beating to wind. Sails sheeted hard in.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">Close Reach</div>
+            <div class="value">~60°</div>
+            <div class="sub">Fast and comfortable. Sheets eased slightly.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">Beam Reach</div>
+            <div class="value">~90°</div>
+            <div class="sub">Wind directly abeam. Often fastest.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">Broad Reach</div>
+            <div class="value">~120–150°</div>
+            <div class="sub">Sails eased well out. Comfortable run.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">Running</div>
+            <div class="value">~180°</div>
+            <div class="sub">Wind dead aft. Jibe risk. Watch boom.</div>
+          </div>
+        </div>
+        <div class="key-point">📐 The "no-go zone" is roughly 45° either side of the wind direction. Point too close to the wind and you stall. To make progress upwind you must tack back and forth (zigzag).</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🔄</span> Tacking vs Jibing</div>
+      <div class="section-body">
+        <p><strong>Tacking</strong> means turning the bow through the wind. You go from close-hauled on one tack to close-hauled on the other. Relatively safe — the sail crosses from one side to the other under control.</p>
+        <p><strong>Jibing</strong> means turning the stern through the wind. The boom swings across — often fast and with force. A controlled gybe is fine. An accidental gybe can be dangerous. Never stand in the path of the boom.</p>
+        <div class="warning-point">⚠️ An uncontrolled gybe (accidental gybe) is one of the most common causes of crew injury offshore. Always know where the wind is relative to your heading. When running downwind, keep slightly to one side of dead downwind — never directly dead run for long periods.</div>
+        <p><strong>Tack:</strong> The side from which the wind is blowing. Starboard tack = wind over the starboard (right) side. Starboard tack has right of way over port tack.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌊</span> Wind & Weather Basics</div>
+      <div class="section-body">
+        <p><strong>Beaufort Scale:</strong> The standard measure of wind speed at sea. Force 0 is flat calm. Force 4 (11–16 knots) is a pleasant sail. Force 6 (22–27 knots) is strong breeze — experienced crew required. Force 8 (34–40 knots) is gale — well offshore, reef early and sail conservatively.</p>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Force 1–3</div><div class="value">Light air–Gentle breeze</div><div class="sub">Up to 10 knots. Light sailing.</div></div>
+          <div class="info-box"><div class="label">Force 4–5</div><div class="value">Moderate–Fresh</div><div class="sub">11–21 knots. Good sailing.</div></div>
+          <div class="info-box"><div class="label">Force 6–7</div><div class="value">Strong–Near Gale</div><div class="sub">22–33 knots. Reef in time.</div></div>
+          <div class="info-box"><div class="label">Force 8+</div><div class="value">Gale and above</div><div class="sub">34+ knots. Offshore experience needed.</div></div>
+        </div>
+        <div class="tip-point">💡 Reef early, shake out late. It is always easier to add sail than to reef in a rising wind. If you're thinking about reefing, do it now.</div>
+        <p><strong>Veering</strong> = wind shifting clockwise. <strong>Backing</strong> = wind shifting anticlockwise. A veering wind in the Northern Hemisphere often indicates improving weather; backing can signal a deteriorating situation.</p>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <button class="btn" onclick="goToQuiz(1)">Take Module Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 2 LEARN: SAILS -->
+<!-- ============================================================ -->
+<div id="m2-learn" class="page">
+  <div class="learn-page">
+    <div class="module-header">
+      <div class="module-number">Module 02 of 05</div>
+      <h2>Sails & Trim</h2>
+      <p class="desc">Sails are wings. Understanding how they generate power — and how to control it — is what separates a sailor from a passenger.</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🪁</span> Types of Sails</div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Mainsail</div><div class="value">The primary sail</div><div class="sub">Attached to mast and boom. Controls most of the boat's steering force.</div></div>
+          <div class="info-box"><div class="label">Jib / Genoa</div><div class="value">Headsail</div><div class="sub">Forward of the mast. Jib is smaller (within foretriangle). Genoa overlaps the mast.</div></div>
+          <div class="info-box"><div class="label">Spinnaker</div><div class="value">Downwind sail</div><div class="sub">Large, ballooning sail for broad reach and running. Symmetric or asymmetric.</div></div>
+          <div class="info-box"><div class="label">Gennaker</div><div class="value">Reaching sail</div><div class="sub">Asymmetric. Easier to handle than a spinnaker. Better for reaching angles.</div></div>
+          <div class="info-box"><div class="label">Staysail</div><div class="value">Inner headsail</div><div class="sub">Set inside the jib. Used offshore in heavy weather for balance.</div></div>
+          <div class="info-box"><div class="label">Storm Sail</div><div class="value">Heavy weather</div><div class="sub">Small, heavy-duty. Used in Force 7+ conditions. Always have one on board.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">📐</span> Parts of a Sail</div>
+      <div class="section-body">
+        <div class="diagram">
+      HEAD (top)
+        ▲
+        |  (LUFF — leading edge, attached to mast)
+        |
+        |
+TACK ——————————————————→ CLEW
+(forward   FOOT (bottom edge)   (aft corner
+ bottom                          where sheet
+ corner)                         attaches)</div>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Luff</div><div class="value">Leading edge</div><div class="sub">Runs up the mast. Must be taut.</div></div>
+          <div class="info-box"><div class="label">Leech</div><div class="value">Trailing edge</div><div class="sub">Free edge. Leech telltales show airflow.</div></div>
+          <div class="info-box"><div class="label">Foot</div><div class="value">Bottom edge</div><div class="sub">Along the boom on the mainsail.</div></div>
+          <div class="info-box"><div class="label">Clew</div><div class="value">Aft lower corner</div><div class="sub">Where the sheet (control line) attaches.</div></div>
+          <div class="info-box"><div class="label">Tack</div><div class="value">Fwd lower corner</div><div class="sub">Fixed to deck or tack fitting.</div></div>
+          <div class="info-box"><div class="label">Head</div><div class="value">Top corner</div><div class="sub">Attached to the halyard.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🎯</span> Sail Trim — How to Get It Right</div>
+      <div class="section-body">
+        <p>Sails work like aerofoils. When trimmed correctly, air accelerates over the leeward (downwind) face and creates lift — just like an aircraft wing. The boat is pulled forward and slightly sideways. The keel resists the sideways force, so you go forward.</p>
+        <p><strong>Telltales</strong> are small ribbons of wool or ribbon attached to the sail. They're your most important trimming tool.</p>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Both telltales streaming aft</div><div class="value">✓ Perfect trim</div><div class="sub">Lift is being generated. Leave it.</div></div>
+          <div class="info-box"><div class="label">Windward (top) telltale lifting</div><div class="value">Sheet in or bear away</div><div class="sub">Sail is slightly luffing — too close to wind.</div></div>
+          <div class="info-box"><div class="label">Leeward (bottom) lifting</div><div class="value">Ease sheet or head up</div><div class="sub">Sail is over-trimmed or stalled.</div></div>
+          <div class="info-box"><div class="label">Luff (flutter at leading edge)</div><div class="value">Sheet in</div><div class="sub">Classic sign: sail not pulled in enough.</div></div>
+        </div>
+        <div class="key-point">🔑 The basic rule: ease the sheet until the sail just starts to luff (flutter at the front), then sheet in slightly until it stops. That's the sweet spot.</div>
+
+        <p style="margin-top:12px;"><strong>Upwind trim:</strong> Sails sheeted in hard. Aim to have the sail as flat as possible while maintaining flow. Traveller centred or slightly to leeward.</p>
+        <p><strong>Downwind trim:</strong> Sails eased right out — close to 90° from centreline on a run. Boom should be out as far as possible without pressing against the shrouds.</p>
+        <div class="tip-point">💡 When in doubt, let it out. Easing the sail slightly and finding the luff point costs nothing. Over-sheeted sails (pulled in too tight) are a very common beginner mistake and significantly slow the boat.</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌀</span> Reefing</div>
+      <div class="section-body">
+        <p><strong>Reefing</strong> means reducing the sail area when the wind increases. The golden rule offshore: reef early. A reefed boat is more comfortable, safer, and often not significantly slower.</p>
+        <p><strong>When to reef the mainsail:</strong> When you're consistently heeling more than 25–30°, when the helm is heavy and fighting you, or when the forecast shows wind building beyond Force 5.</p>
+        <div class="warning-point">⚠️ A heavily heeled boat is not faster — it's less efficient. Excessive heel increases leeway (sideways drift), makes the helm heavy, and exhausts the crew. Reef and sail comfortably.</div>
+        <p><strong>Slab reefing:</strong> The most common system. A reef line pulls the boom down and reduces the mainsail by pulling the clew aft and down to the boom. First reef typically reduces sail area by about 25%.</p>
+        <p><strong>Rolling away the jib:</strong> Most modern boats have a roller-furling headsail. Ease the sheet, pull the furling line — the sail rolls around the forestay. Simple and fast.</p>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <button class="btn-outline" onclick="goToLearn(1)">← Back</button>
+      <button class="btn" onclick="goToQuiz(2)">Take Module Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 3 LEARN: ROPES & LINES -->
+<!-- ============================================================ -->
+<div id="m3-learn" class="page">
+  <div class="learn-page">
+    <div class="module-header">
+      <div class="module-number">Module 03 of 05</div>
+      <h2>Lines & Ropes</h2>
+      <p class="desc">On a boat, ropes are called lines. Knowing their names, what they do, and how to use them safely is fundamental.</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🪢</span> Rope Terminology at Sea</div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Sheets</div><div class="value">Control sail angle</div><div class="sub">Mainsheet, jib sheet. You trim these to set the sail angle.</div></div>
+          <div class="info-box"><div class="label">Halyards</div><div class="value">Raise the sails</div><div class="sub">Main halyard, jib halyard. Named from "haul yards" — the spars they pull up.</div></div>
+          <div class="info-box"><div class="label">Topping Lift</div><div class="value">Holds boom up</div><div class="sub">Supports the boom when the mainsail is lowered. Don't forget to ease it when sailing.</div></div>
+          <div class="info-box"><div class="label">Kicker / Vang</div><div class="value">Controls boom angle</div><div class="sub">Pulls the boom down to flatten the mainsail and prevent it rising.</div></div>
+          <div class="info-box"><div class="label">Backstay</div><div class="value">Supports the mast aft</div><div class="sub">Often adjustable — tighter backstay flattens the mast and sail for upwind work.</div></div>
+          <div class="info-box"><div class="label">Forestay</div><div class="value">Supports mast forward</div><div class="sub">The jib or genoa is attached here. Critical — if this goes, the mast goes.</div></div>
+          <div class="info-box"><div class="label">Shrouds</div><div class="value">Support mast sideways</div><div class="sub">Cap shrouds (top) and lower shrouds. Check tension regularly — loose is dangerous.</div></div>
+          <div class="info-box"><div class="label">Mooring Lines</div><div class="value">Docking lines</div><div class="sub">Bow line, stern line, springs (prevent fore/aft movement).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">⚓</span> Essential Knots</div>
+      <div class="section-body">
+        <div class="knot-card">
+          <h4>🔵 Bowline — The King of Knots</h4>
+          <p><strong>Use:</strong> Making a fixed loop that won't slip. Attaching sheets to sails, tying fenders, securing a line to a ring or cleat where the loop won't tighten under load. The most useful knot in sailing.</p>
+          <p><strong>Method:</strong> "The rabbit comes out of the hole, around the tree, and back down the hole." Make a small loop (the hole), pass the working end up through it, around the standing part (the tree), and back down through the loop. Pull tight.</p>
+          <p><strong>Key feature:</strong> Will not jam under load. Will not slip or loosen. Can always be untied even after heavy loading.</p>
+        </div>
+        <div class="knot-card">
+          <h4>🟡 Figure-Eight — The Stopper Knot</h4>
+          <p><strong>Use:</strong> Preventing a line running through a block, clutch, or fairlead. Tie one at the end of every sheet and halyard to stop them disappearing aloft or through the deck.</p>
+          <p><strong>Method:</strong> Make a loop, pass the working end over the standing part, back under, then through the original loop. It looks like a figure 8.</p>
+          <p><strong>Key feature:</strong> Simple, reliable, never jams. Every sheet and halyard end should have one.</p>
+        </div>
+        <div class="knot-card">
+          <h4>🟢 Round Turn & Two Half Hitches</h4>
+          <p><strong>Use:</strong> Tying a line to a post, ring, cleat, or any fixed point where it must hold under load but needs to be released. Good for tying fenders to rails, mooring to posts.</p>
+          <p><strong>Method:</strong> Take a full round turn around the object (two wraps), then make two half hitches around the standing part.</p>
+          <p><strong>Key feature:</strong> The round turn takes the load while you complete the hitches. Secure and adjustable.</p>
+        </div>
+        <div class="knot-card">
+          <h4>🔴 Cleat Hitch</h4>
+          <p><strong>Use:</strong> Securing any line to a cleat — halyards, docking lines, sheets. The cleat hitch is used dozens of times every day on any boat.</p>
+          <p><strong>Method:</strong> Take a full turn around the base of the cleat (the horns). Figure-eight across both horns. Finish with a locking hitch — twist the working end under itself before laying it across. Tug firmly.</p>
+          <div class="warning-point">⚠️ Never add more than one locking hitch. Too many turns and the line jams and cannot be released quickly in an emergency. One full turn, one figure-eight, one locking hitch. That's it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🎛️</span> Using Winches Safely</div>
+      <div class="section-body">
+        <p>Winches multiply your pulling power. They are essential for hauling in sheets and halyards under load — but they are also one of the most common sources of injury on boats.</p>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Clockwise wraps</div><div class="value">Always clockwise</div><div class="sub">Line wraps clockwise around a winch drum. Always. Wrong direction = line slips or overrides.</div></div>
+          <div class="info-box"><div class="label">Minimum wraps</div><div class="value">3 turns</div><div class="sub">Three wraps is enough for most loads. Add a 4th for very heavy loads.</div></div>
+        </div>
+        <div class="warning-point">⚠️ NEVER wrap a line around your hand, wrist, or body when it is on a winch. If the load surges, the winch will take your hand with it. Always tail (hold) the line but never wrap it around any part of your body.</div>
+        <p><strong>Ovride:</strong> When a loaded line wraps on top of itself on the drum, jamming. To clear: use a loop of spare line to take the load, then free the override. Don't panic — stay calm and systematic.</p>
+        <p><strong>Easing a loaded sheet:</strong> Keep wraps on the drum. Use the friction of the drum to ease the line slowly. Never just release it — it will fly out uncontrolled.</p>
+        <p><strong>Self-tailing winches:</strong> Have a built-in grip at the top to hold the line. Still need wraps. Still never wrap round your hand.</p>
+
+        <div class="tip-point">💡 Coil your lines neatly and stow them. A coiled line runs free cleanly when needed. A tangled line (called a "spaghetti") can jam at exactly the wrong moment — during a tack, gybe, or emergency.</div>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <button class="btn-outline" onclick="goToLearn(2)">← Back</button>
+      <button class="btn" onclick="goToQuiz(3)">Take Module Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 4 LEARN: VHF -->
+<!-- ============================================================ -->
+<div id="m4-learn" class="page">
+  <div class="learn-page">
+    <div class="module-header">
+      <div class="module-number">Module 04 of 05</div>
+      <h2>VHF Radio</h2>
+      <p class="desc">Your VHF radio is your lifeline offshore. Knowing how to use it correctly — and in an emergency — can save lives.</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">📻</span> VHF Basics</div>
+      <div class="section-body">
+        <p>VHF (Very High Frequency) radio operates line-of-sight. Range is typically 20–50 nautical miles ship-to-ship, more ship-to-shore. It is the primary means of distress communication in coastal and offshore sailing.</p>
+        <div class="key-point">📡 Channel 16 is the international distress, safety, and calling channel. It must be monitored at all times at sea. All boats fitted with a VHF must monitor Ch 16. Think of it as the emergency frequency — never have music or anything else playing instead of it.</div>
+        <p><strong>DSC (Digital Selective Calling):</strong> Modern VHF radios have a dedicated DSC controller. Press and hold the red distress button for 5 seconds and it automatically transmits your MMSI number (your vessel's ID), your GPS position (if connected), and a distress signal on Ch 70 — the digital distress channel. Coast guard receives it automatically. This is faster and more effective than a voice Mayday in many cases.</p>
+        <p>Your <strong>MMSI number</strong> (Maritime Mobile Service Identity) must be registered before you use the radio. It is the VHF equivalent of a phone number — unique to your vessel.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">📡</span> Channel Guide</div>
+      <div class="section-body">
+        <table class="channel-table">
+          <tr><th>Channel</th><th>Purpose</th></tr>
+          <tr><td><strong>16</strong></td><td>Distress, safety, and calling — monitor at ALL times</td></tr>
+          <tr><td><strong>70</strong></td><td>DSC digital distress — do NOT use for voice</td></tr>
+          <tr><td><strong>67</strong></td><td>UK Coastguard working channel (after initial call on 16)</td></tr>
+          <tr><td><strong>08</strong></td><td>Vessel-to-vessel communication (international working)</td></tr>
+          <tr><td><strong>72</strong></td><td>Vessel-to-vessel (UK and international)</td></tr>
+          <tr><td><strong>M / M2</strong></td><td>Marina channels — check locally</td></tr>
+          <tr><td><strong>80</strong></td><td>Marinas (UK primary marina channel)</td></tr>
+          <tr><td><strong>Weather</strong></td><td>Check local forecasts (often 62, 63, 64 in UK)</td></tr>
+        </table>
+        <div class="tip-point">💡 When you want to speak to another vessel or marina: call them on 16 first. Agree a working channel. Both switch to that channel. Clear channel 16 for emergencies.</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🆘</span> Distress Calls</div>
+      <div class="section-body">
+        <div class="mayday-box">
+          <h4>🔴 MAYDAY — Grave and Imminent Danger</h4>
+          <div class="mayday-step"><div class="num">1</div><div class="text"><strong>MAYDAY MAYDAY MAYDAY</strong><br>Say it three times.</div></div>
+          <div class="mayday-step"><div class="num">2</div><div class="text"><strong>"THIS IS [vessel name] [vessel name] [vessel name]"</strong><br>Say your vessel name three times.</div></div>
+          <div class="mayday-step"><div class="num">3</div><div class="text"><strong>"MAYDAY [vessel name]"</strong><br>Once more.</div></div>
+          <div class="mayday-step"><div class="num">4</div><div class="text"><strong>POSITION</strong> — GPS coordinates or bearing/distance from a known landmark. "Position: 50 degrees 12 minutes North, 001 degrees 45 minutes West" or "3 miles south of Portland Bill"</div></div>
+          <div class="mayday-step"><div class="num">5</div><div class="text"><strong>NATURE OF DISTRESS</strong> — Sinking, fire, man overboard, etc.</div></div>
+          <div class="mayday-step"><div class="num">6</div><div class="text"><strong>SOULS ON BOARD</strong> — How many people.</div></div>
+          <div class="mayday-step"><div class="num">7</div><div class="text"><strong>OTHER INFORMATION</strong> — Vessel type, colour, flares available, life raft deployed.</div></div>
+          <div class="mayday-step"><div class="num">8</div><div class="text"><strong>"OVER"</strong> — Listen for response on Ch 16.</div></div>
+        </div>
+
+        <div class="info-grid" style="margin-top:16px;">
+          <div class="info-box">
+            <div class="label">MAYDAY</div>
+            <div class="value">Grave &amp; imminent danger</div>
+            <div class="sub">Risk to life. Sinking, fire, medical emergency. Use this.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">PAN-PAN</div>
+            <div class="value">Urgency</div>
+            <div class="sub">Urgent situation but not immediately life-threatening. Person overboard (if recovered), engine failure near rocks.</div>
+          </div>
+          <div class="info-box">
+            <div class="label">SECURITE</div>
+            <div class="value">Safety / Navigation</div>
+            <div class="sub">Warning to other vessels. Hazard to navigation, weather warning, debris in shipping lane.</div>
+          </div>
+        </div>
+
+        <div class="warning-point">⚠️ Never transmit a false Mayday. It is a criminal offence, diverts rescue resources, and puts rescuers at risk. However — if you are in genuine danger, transmit without hesitation. Rescue services would always rather respond to a false alarm than miss a real one.</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🏖️</span> Calling a Marina</div>
+      <div class="section-body">
+        <p>To call a marina on VHF: switch to Ch 80 (or the marina's specified channel). Press transmit and say:</p>
+        <p style="background:var(--mid);padding:12px;border-radius:6px;font-style:italic;color:var(--white);">"[Marina name], [Marina name], this is yacht [your vessel name], on channel 80, over."</p>
+        <p>Wait for response. They will ask your vessel name, where you're coming from, number of people, arrival time, and length of vessel. Have this information ready.</p>
+        <div class="tip-point">💡 Call the marina 30–60 minutes before arrival to book a berth and get navigation information. Don't wait until you're at the entrance.</div>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <button class="btn-outline" onclick="goToLearn(3)">← Back</button>
+      <button class="btn" onclick="goToQuiz(4)">Take Module Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 5 LEARN: SAFETY -->
+<!-- ============================================================ -->
+<div id="m5-learn" class="page">
+  <div class="learn-page">
+    <div class="module-header">
+      <div class="module-number">Module 05 of 05</div>
+      <h2>Safety at Sea</h2>
+      <p class="desc">Safety is not optional offshore. Understanding the equipment, procedures, and mindset that keeps a crew safe is the most important thing you'll learn.</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🦺</span> Lifejackets & Harnesses</div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="info-box"><div class="label">150N Lifejacket</div><div class="value">Offshore standard</div><div class="sub">Auto-inflate on water entry. Will turn unconscious person face-up. Required offshore.</div></div>
+          <div class="info-box"><div class="label">100N Lifejacket</div><div class="value">Inshore</div><div class="sub">Will keep conscious person afloat. Not offshore standard.</div></div>
+          <div class="info-box"><div class="label">Harness</div><div class="value">Clip to the boat</div><div class="sub">Tether attaches here. Keeps you on the boat — better than being in the water.</div></div>
+          <div class="info-box"><div class="label">Combined</div><div class="value">Lifejacket + harness</div><div class="sub">Most modern offshore jackets combine both. Check yours has a harness attachment point.</div></div>
+        </div>
+        <div class="key-point">🦺 Wear your lifejacket. The most common reason people drown offshore is they weren't wearing one when they went in. There is no second chance. Clip on before going on deck in rough weather, at night, or any time you'd be in trouble alone in the water.</div>
+        <p>Check your lifejacket: the gas cylinder should be secure and the green indicator showing armed. Check the oral inflation tube is accessible. Rearm after inflation with the correct gas cylinder size.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🪝</span> Jacklines & Tethers</div>
+      <div class="section-body">
+        <p><strong>Jacklines</strong> are webbing or wire lines rigged along the deck, from bow to stern. You clip your tether to them so you can move around the deck without falling overboard.</p>
+        <p><strong>Tethers</strong> attach from your harness to the jackline. Most good tethers have two clips and two lengths — a short (1m) and a long (2m). The short keeps you close to the boat; the long gives more movement.</p>
+        <div class="key-point">🔗 The golden rule: one clip on before the other clip off. When moving from one jackline to another, always clip the second tether before unclipping the first. You should never be unclipped and moving on deck offshore at night or in rough weather.</div>
+        <div class="warning-point">⚠️ Position your jackline attachment point carefully. If you fall overboard on a tether that's too long, you can end up dragging in the water alongside the hull — which is dangerous in itself. Short tether when working on deck. Clip to strong points.</div>
+        <p>Strong points for tether clips: the mast base, cockpit strongpoints (often u-bolts), through-deck fittings. Never clip to stanchions, guard rails, or anything that can bend or fail under bodyweight load.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌊</span> Man Overboard (MOB)</div>
+      <div class="section-body">
+        <p>MOB is one of the most critical emergencies at sea. Speed and organisation are everything. Practice this before you need it.</p>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">1. Alert</div><div class="value">"MAN OVERBOARD"</div><div class="sub">Shout it immediately. Keep eyes on the person in the water — never look away.</div></div>
+          <div class="info-box"><div class="label">2. Act instantly</div><div class="value">Throw buoy NOW</div><div class="sub">Throw the horseshoe buoy and any floating equipment immediately. Don't wait.</div></div>
+          <div class="info-box"><div class="label">3. Press MOB</div><div class="value">GPS / VHF</div><div class="sub">Hit MOB button on chartplotter — marks position. Also hit DSC distress if needed.</div></div>
+          <div class="info-box"><div class="label">4. Designate</div><div class="value">Eyes on person</div><div class="sub">One crew member's ONLY job is to point at the person in the water. Never take eyes off them.</div></div>
+          <div class="info-box"><div class="label">5. Return</div><div class="value">Controlled approach</div><div class="sub">Figure-8 or reach-and-tack. Approach upwind, come alongside. Engine on.</div></div>
+          <div class="info-box"><div class="label">6. Recover</div><div class="value">Get them aboard</div><div class="sub">Use the boarding ladder, or a loop of line. A person in cold water may be unable to help themselves.</div></div>
+        </div>
+        <div class="warning-point">⚠️ A conscious person in cold water (below 15°C) may become incapacitated in 30 minutes or less. Cold water shock can cause cardiac arrest in seconds upon immersion. Speed of recovery is critical.</div>
+        <p><strong>After recovery:</strong> Treat for hypothermia — insulate, remove wet clothes, warm the core (not the limbs first). Seek medical advice via VHF.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🔦</span> Safety Equipment on Board</div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="info-box"><div class="label">EPIRB</div><div class="value">Emergency Position Indicating Radio Beacon</div><div class="sub">Satellite distress beacon. Activates manually or automatically on water contact. Sends GPS position to MRCC. Register it.</div></div>
+          <div class="info-box"><div class="label">PLB</div><div class="value">Personal Locator Beacon</div><div class="sub">Personal EPIRB. Worn by individual crew. Activates if they go overboard. Highly recommended offshore.</div></div>
+          <div class="info-box"><div class="label">Flares</div><div class="value">Visual distress signals</div><div class="sub">Red handheld (within 3nm), red parachute (night, distance), orange smoke (day, air rescue). Check expiry dates.</div></div>
+          <div class="info-box"><div class="label">Life Raft</div><div class="value">Last resort</div><div class="sub">Only abandon ship when sinking is certain and imminent. Stay with the boat as long as possible — it's easier to see than a raft.</div></div>
+          <div class="info-box"><div class="label">Fire Extinguishers</div><div class="value">At least two</div><div class="sub">One in galley, one at engine access. Dry powder or CO2. Know how to use them.</div></div>
+          <div class="info-box"><div class="label">Bilge Pump</div><div class="value">Manual & electric</div><div class="sub">Know where the manual bilge pump is and how to use it. Electric pumps can fail. Manual doesn't.</div></div>
+        </div>
+        <div class="key-point">📋 Safety briefing: Before every offshore passage, brief ALL crew on: where flares are, where the EPIRB is, MOB procedure, VHF use, fire extinguisher locations, and how to issue a Mayday. Even experienced sailors need briefing on an unfamiliar boat.</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌙</span> Night Sailing</div>
+      <div class="section-body">
+        <p>Offshore passages often involve night sailing. The rules don't change — the vigilance required increases.</p>
+        <div class="info-grid">
+          <div class="info-box"><div class="label">Navigation Lights</div><div class="value">On at dusk</div><div class="sub">Red (port/left), Green (starboard/right), White (stern + masthead). Know what you're seeing on other vessels.</div></div>
+          <div class="info-box"><div class="label">Watch system</div><div class="value">3 hours on, 3 off</div><div class="sub">Keep a proper watch rota. Fatigue kills. Never sail offshore without a watch system.</div></div>
+        </div>
+        <p><strong>Reading lights on other vessels:</strong> Red on left, Green on right — you're seeing them head-on. Green only on your left side — they're crossing right to left, they have priority. Red only — they're crossing left to right, you have priority.</p>
+        <div class="tip-point">💡 Give yourself 20 minutes to adapt to darkness before going on watch. Don't use white light — it destroys night vision. Red light torches preserve it. Keep your eyes moving — a stationary target at night is easy to miss.</div>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <button class="btn-outline" onclick="goToLearn(4)">← Back</button>
+      <button class="btn" onclick="goToQuiz(5)">Take Module Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- QUIZ PAGES (generated by JS) -->
+<!-- ============================================================ -->
+<div id="quiz-page" class="page">
+  <div class="quiz-page">
+    <div class="quiz-header">
+      <div class="badge" id="quiz-badge">Module Quiz</div>
+      <h2 id="quiz-title">Quiz</h2>
+    </div>
+    <div class="q-counter" id="q-counter">Question 1 of 6</div>
+    <div class="q-progress"><div class="q-progress-fill" id="q-progress-fill"></div></div>
+    <div id="question-area"></div>
+    <div class="next-btn-wrap">
+      <button class="btn" id="next-btn" style="display:none" onclick="nextQuestion()">Next Question →</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ RESULT -->
+<div id="quiz-result" class="page">
+  <div class="quiz-page" style="text-align:center">
+    <div class="score-ring">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="58" fill="none" stroke="#1e3f6e" stroke-width="12"/>
+        <circle id="score-circle" cx="70" cy="70" r="58" fill="none" stroke="#c9a84c" stroke-width="12" stroke-dasharray="364" stroke-dashoffset="364" stroke-linecap="round" style="transition:stroke-dashoffset 1s ease;"/>
+      </svg>
+      <div class="score-text">
+        <div class="score-pct" id="result-pct">0%</div>
+        <div class="score-lbl">Score</div>
+      </div>
+    </div>
+    <div class="result-title" id="result-title">Nice work!</div>
+    <div class="result-sub" id="result-sub"></div>
+    <div class="next-btn-wrap" id="result-actions"></div>
+  </div>
+</div>
+
+<!-- FINAL EXAM -->
+<div id="final-exam" class="page">
+  <div class="quiz-page">
+    <div class="quiz-header">
+      <div class="badge" style="background:rgba(201,168,76,0.15);border-color:var(--gold);">Final Exam</div>
+      <h2>All Modules — Final Test</h2>
+    </div>
+    <div class="q-counter" id="fq-counter">Question 1 of 10</div>
+    <div class="q-progress"><div class="q-progress-fill" id="fq-progress-fill"></div></div>
+    <div id="final-question-area"></div>
+    <div class="next-btn-wrap">
+      <button class="btn" id="final-next-btn" style="display:none" onclick="nextFinalQuestion()">Next Question →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE -->
+<div id="certificate" class="page">
+  <div class="cert-page">
+    <div class="cert-box">
+      <div class="cert-label">Certificate of Completion</div>
+      <h2>Offshore Sailing — Foundations</h2>
+      <p style="color:var(--grey);font-size:0.9rem;margin-top:8px;">This certifies that</p>
+      <div class="cert-name" id="cert-name">The Sailor</div>
+      <div class="cert-score" id="cert-score"></div>
+      <div class="cert-modules" id="cert-modules"></div>
+      <div class="cert-date" id="cert-date"></div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <button class="btn" onclick="restartCourse()">Retake Course</button>
+      <p style="color:var(--grey);font-size:0.85rem;margin-top:12px;">Print this page or take a screenshot to save your certificate.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+// ── STATE ──────────────────────────────────────────────────────
+const state = {
+  timerSecs: 0,
+  timerInterval: null,
+  totalScore: 0,
+  totalPossible: 0,
+  moduleScores: {},   // { 1: {got:4,total:6}, ... }
+  currentModule: 0,
+  currentQuizModule: 0,
+  currentQIndex: 0,
+  currentQuestions: [],
+  finalQuestions: [],
+  finalQIndex: 0,
+  finalScore: 0,
+};
+
+// ── QUESTIONS ──────────────────────────────────────────────────
+const questions = {
+  1: [
+    { q: "What is 'apparent wind'?", opts: ["The wind felt on the boat when it is moving, combining true wind and boat-generated wind","The exact same as true wind but measured from the bow","The wind direction shown on a weather forecast","The wind at the top of the mast only"], ans: 0, exp: "Apparent wind is the combination of true wind and the wind created by the boat's forward motion. Sails respond to apparent wind, not true wind." },
+    { q: "When sailing close-hauled, approximately what angle is the wind to the bow?", opts: ["90 degrees — directly abeam","180 degrees — dead astern","30–45 degrees — almost head-to-wind","0 degrees — exactly head-to-wind"], ans: 2, exp: "Close-hauled is sailing as close to the wind as possible — typically 30–45° from the wind direction. Any closer and you enter the no-go zone." },
+    { q: "What is the 'no-go zone'?", opts: ["A restricted area near shipping lanes","The area roughly 45° either side of the wind where sails cannot generate power","The angle at which the spinnaker must be gybed","Any area where anchoring is prohibited"], ans: 1, exp: "The no-go zone is approximately 45° either side of the true wind direction. Sailing into this zone causes sails to luff and lose power — the boat stalls." },
+    { q: "What is the difference between tacking and jibing?", opts: ["Tacking turns the bow through the wind; jibing turns the stern through the wind","Tacking is for downwind sailing; jibing is for upwind","They are the same manoeuvre, just different names","Tacking uses the spinnaker; jibing uses the mainsail only"], ans: 0, exp: "Tacking: bow passes through the wind (upwind manoeuvre). Jibing: stern passes through the wind (downwind manoeuvre). An uncontrolled gybe is dangerous due to the boom swinging fast." },
+    { q: "Which Beaufort Force indicates a strong breeze requiring experienced crew?", opts: ["Force 2","Force 4","Force 6","Force 10"], ans: 2, exp: "Force 6 (22–27 knots) is a strong breeze where reefing is advisable. Force 4 is a comfortable moderate breeze. Force 10 is a severe storm." },
+    { q: "When is it best to reef the sails?", opts: ["Only when the boat is heeling more than 45 degrees","After the weather has already peaked","Early — when you first think about it, before conditions worsen","Only in port before departure"], ans: 3, exp: "Reef early. It is always easier to add sail in lighter wind than to reef in a rising wind. If you're thinking about it, do it now." },
+  ],
+  2: [
+    { q: "What part of a sail does the sheet attach to?", opts: ["The head (top corner)","The tack (forward lower corner)","The clew (aft lower corner)","The luff (leading edge)"], ans: 2, exp: "The sheet controls the sail angle and is attached to the clew — the aft lower corner of the sail. Pulling the sheet in tightens the sail; easing it out loosens the sail." },
+    { q: "Both telltales on a sail are streaming aft cleanly. What does this mean?", opts: ["The sail needs to be eased immediately","The sail is perfectly trimmed — leave it","The boat is heading too far downwind","The halyard is too loose"], ans: 1, exp: "Both telltales streaming aft indicates perfect airflow on both sides of the sail — the sail is generating maximum lift. No adjustment needed." },
+    { q: "What is a genoa?", opts: ["A type of rope used to secure the boom","A headsail that overlaps the mast, larger than a jib","A downwind ballooning sail","The bottom section of the mainsail"], ans: 1, exp: "A genoa is a large headsail that extends aft of the mast — it overlaps. A jib stays within the foretriangle (doesn't overlap the mast). Genoas are powerful upwind sails." },
+    { q: "The leeward telltale is lifting and stalling. What do you do?", opts: ["Head up into the wind and sheet in more","Ease the sheet slightly or bear away","Pull the halyard tighter","Do nothing — it self-corrects"], ans: 1, exp: "A lifting leeward telltale means the sail is over-trimmed (sheeted in too hard) or stalled. Ease the sheet slightly until both telltales flow cleanly." },
+    { q: "Why should you reef early rather than wait?", opts: ["Reefing improves boat speed in all conditions","It is easier to add sail in lighter wind than reef in a rising wind, and a reefed boat is safer","Reefing is required by law above Force 4","A full mainsail is dangerous at any wind strength"], ans: 1, exp: "Reefing early is always safer and more comfortable. A heavily heeled boat is inefficient. You can always shake out a reef if the wind eases." },
+    { q: "Which part of the sail runs along the boom on the mainsail?", opts: ["The luff","The leech","The foot","The tack"], ans: 2, exp: "The foot is the bottom edge of the sail, running along the boom on the mainsail. The luff is the leading edge (up the mast), the leech is the trailing edge." },
+  ],
+  3: [
+    { q: "On a sailing boat, what is a 'sheet'?", opts: ["The flat surface you sleep on below deck","A line that controls the angle of a sail","A line used to raise the sails","The wire supporting the mast sideways"], ans: 1, exp: "Sheets control sail angle — mainsheet controls the mainsail, jib sheets control the headsail. Halyards raise sails; shrouds support the mast." },
+    { q: "What is the primary use of a bowline knot?", opts: ["Stopping a line running through a block","Securing a line to a cleat","Creating a fixed loop that will not slip or jam under load","Joining two ropes of different sizes"], ans: 2, exp: "The bowline creates a fixed, non-slipping loop. It's the most useful knot in sailing — attaching sheets to sails, securing fenders, tying to rings. It can always be untied even after heavy loading." },
+    { q: "Which knot should be tied at the end of every sheet and halyard?", opts: ["Bowline","Round turn and two half hitches","Figure-eight stopper knot","Cleat hitch"], ans: 2, exp: "A figure-eight stopper knot prevents the line running through a block or clutch. Without it, sheets and halyards can disappear aloft or through the deck." },
+    { q: "When using a winch, which direction must the line be wrapped?", opts: ["Anticlockwise, looking from above","Either direction — it self-adjusts","Clockwise, looking from above","It depends on which side of the boat the winch is on"], ans: 2, exp: "Always wrap clockwise around a winch drum. Wrapping anticlockwise will cause the line to slip or override. This is the same on all standard sailing winches." },
+    { q: "What is the critical safety rule when tailing a line on a winch?", opts: ["Always use both hands on the handle","Never wrap the line around your hand, wrist, or body","Keep at least 5 wraps on the drum at all times","Always wear gloves when winching"], ans: 1, exp: "Never wrap a line around your hand or any part of your body when it is on a winch. If the load surges, the winch will take your hand with it — potentially catastrophic injury." },
+    { q: "What is the correct way to cleat a line?", opts: ["Three figure-eights and two locking hitches","One full turn around the cleat base, one figure-eight, one locking hitch","As many wraps as possible to make it secure","Tie a bowline around both cleat horns"], ans: 1, exp: "Correct cleat hitch: one full turn around the base, figure-eight across both horns, one locking hitch. Too many turns jams the line and it cannot be released quickly in an emergency." },
+  ],
+  4: [
+    { q: "Which VHF channel must always be monitored when at sea?", opts: ["Channel 8","Channel 67","Channel 16","Channel 80"], ans: 2, exp: "Channel 16 is the international distress, safety, and calling channel. It must be monitored at all times. All VHF-fitted vessels are required to monitor it." },
+    { q: "What does DSC stand for and what does it do?", opts: ["Digital Signal Control — adjusts transmit power","Dynamic Sea Communication — connects to satellite","Digital Selective Calling — sends automatic digital distress with vessel ID and GPS position","Directed Selective Channel — routes calls to coast guard"], ans: 2, exp: "DSC (Digital Selective Calling) automatically transmits your MMSI number, GPS position, and distress signal on Ch 70 when activated. Press and hold the distress button for 5 seconds." },
+    { q: "You see another vessel in distress. They are sinking. Which call do you make?", opts: ["Pan-Pan, as it's not your emergency","Securite, to warn other vessels","Mayday Relay on behalf of the vessel in distress","Call the marina on Ch 80"], ans: 2, exp: "You transmit a Mayday Relay on Ch 16 on behalf of the vessel in distress. 'Mayday Relay, Mayday Relay, Mayday Relay — this is [your vessel], we have observed a vessel in distress at [position]...'" },
+    { q: "What is the correct order of information in a Mayday call?", opts: ["Position, vessel name, distress nature, souls aboard","Mayday x3, vessel name x3, Mayday + vessel name, position, nature of distress, souls aboard","Vessel name, MMSI number, Mayday x3, souls aboard","Mayday, position, vessel name, distress type"], ans: 1, exp: "The correct Mayday format: MAYDAY MAYDAY MAYDAY, vessel name x3, MAYDAY + vessel name, position, nature of distress, number of persons on board, other relevant info, OVER." },
+    { q: "What is a Pan-Pan call used for?", opts: ["Exactly the same as a Mayday — life-threatening emergency","Navigational hazard warnings only","An urgent situation that is not immediately life-threatening","Calling another vessel on a working channel"], ans: 2, exp: "Pan-Pan indicates an urgent situation where assistance may be needed but there is no immediate threat to life. Example: engine failure near a lee shore, a crew injury, or a person overboard who has been recovered." },
+    { q: "You want to speak to the marina. What is the correct procedure?", opts: ["Transmit your full message on Ch 16 and wait","Call the marina on Ch 16, both switch to a working channel like Ch 80","Call directly on Ch 80 or their specified channel","Call on Ch 67 — that is exclusively for marina communication"], ans: 1, exp: "Initial call on Ch 16, agree a working channel, both switch. However, many marinas now allow direct initial calls on Ch 80. Ch 67 is a UK Coastguard working channel, not marina." },
+  ],
+  5: [
+    { q: "What is the minimum lifejacket rating for offshore sailing?", opts: ["50N — basic flotation only","100N — inshore standard","150N — offshore standard, auto-inflating, face-up capable","200N — extreme offshore only"], ans: 2, exp: "150N is the offshore standard. It will auto-inflate on water contact and, critically, will turn an unconscious person face-up to keep their airway clear." },
+    { q: "What is the golden rule when moving between jacklines on deck at sea?", opts: ["Move quickly and clip to the new line before you stop moving","One clip on before the other clip off — never be unclipped","Unclip completely, cross the deck, reclip on the other side","Only move between jacklines in daylight and calm conditions"], ans: 1, exp: "Always clip on before clipping off. You should never be unclipped and moving on deck in rough weather or at night. One tether clipped at all times, even briefly." },
+    { q: "In a Man Overboard situation, what is the first thing to do?", opts: ["Start the engine immediately","Go below and call the coastguard on VHF","Shout 'Man Overboard', keep eyes on the person, and throw the horseshoe buoy immediately","Tack the boat and return to the position immediately"], ans: 2, exp: "Immediate: shout 'Man Overboard', designate someone to keep eyes ONLY on the person in the water (never look away), throw the horseshoe buoy. Then hit MOB on GPS, start engine, begin controlled return." },
+    { q: "What does an EPIRB do?", opts: ["Automatically inflates the life raft when submerged","Transmits a distress signal via satellite including your GPS position to rescue coordination centres","Inflates your lifejacket if you go overboard","Transmits a VHF Mayday call automatically"], ans: 1, exp: "EPIRB (Emergency Position Indicating Radio Beacon) sends a distress signal via satellite to MRCC, including your registered vessel details and GPS position. It activates manually or on water immersion." },
+    { q: "Which flare type is most effective for signalling to a rescue helicopter during daytime?", opts: ["Red parachute flare","Orange smoke","White handheld flare","Green star flare"], ans: 1, exp: "Orange smoke is the most visible signal to aircraft and helicopters in daylight. Red parachute flares are better for nighttime and long-range signalling. White flares are not distress signals — they illuminate." },
+    { q: "When should you abandon ship and get into the life raft?", opts: ["As soon as any flooding is detected below","When the bilge pump cannot keep up","Only when sinking is certain and imminent — stay with the boat as long as possible","When the wind exceeds Force 7"], ans: 3, exp: "Stay with the boat as long as possible. A yacht — even swamped — is far easier to spot from the air than a life raft. Only abandon ship when sinking is certain and imminent." },
+  ],
+};
+
+const finalQuestionBank = [
+  { q: "What is the 'no-go zone' in sailing?", opts: ["A restricted shipping area","The 45° arc each side of the wind where sails cannot generate power","The area ahead of the bow at any wind angle","Any zone without VHF coverage"], ans: 1, exp: "The no-go zone is approximately 45° either side of the wind. Sail into it and you stall." },
+  { q: "Both telltales on the jib are streaming aft. What should you do?", opts: ["Ease the sheet immediately","Head up into the wind","Nothing — the sail is perfectly trimmed","Sheet in harder to gain speed"], ans: 2, exp: "Both telltales streaming aft = perfect trim. Leave it alone." },
+  { q: "What is the correct first action in a Man Overboard situation?", opts: ["Start the engine","Call Mayday on VHF Ch 16","Shout 'Man Overboard', keep visual, throw horseshoe buoy","Tack immediately and return"], ans: 2, exp: "Immediate priority: eyes on the person in water, shout MOB, throw buoy. Do not look away from the person in the water." },
+  { q: "Channel 16 VHF is for:", opts: ["Marina bookings only","Vessel-to-vessel working channel","Distress, safety, and calling — monitored at all times","Weather forecasts only"], ans: 2, exp: "Ch 16 is the international distress and calling channel. It must be monitored at all times at sea." },
+  { q: "What does a bowline knot create?", opts: ["A sliding loop that tightens under load","A fixed loop that will not slip or jam, and can always be untied","A stopper knot to prevent a line running through a block","Two ropes joined end to end"], ans: 1, exp: "The bowline creates a fixed, secure loop that won't slip under load and can always be untied — even after heavy loading." },
+  { q: "You should never wrap a tailing line around your hand at a winch because:", opts: ["It slows down the winching process","If the load surges, the winch can take your hand with it","It causes the line to override on the drum","It is illegal under maritime law"], ans: 1, exp: "A surge in load can pull your hand into the winch drum with crushing force. Always tail freely — never wrap around any part of your body." },
+  { q: "At what Beaufort Force should you consider reefing on an offshore passage?", opts: ["Force 8 or above only","When the boat heels more than 50 degrees","From Force 5 upwards — reef early before conditions worsen","Reefing is only for racing yachts"], ans: 2, exp: "Reef early. At Force 5 (17–21 knots) you should be considering a reef. If you're thinking about it, do it." },
+  { q: "What is the minimum lifejacket rating required for offshore sailing?", opts: ["50N","100N","150N","200N"], ans: 2, exp: "150N is the offshore standard — auto-inflating and capable of turning an unconscious person face-up." },
+  { q: "What does a figure-eight knot do?", opts: ["Creates a fixed loop at the end of a line","Acts as a stopper knot to prevent line running through a block","Joins two ropes of equal diameter","Secures a line to a cleat"], ans: 1, exp: "The figure-eight is a stopper knot. Tie one at the end of every sheet and halyard so they cannot run through a block or clutch." },
+  { q: "When jibing, what specific danger must be avoided?", opts: ["The forestay collapsing under load","An uncontrolled boom swing across the cockpit","Losing steerage as the bow crosses the wind","The mainsail luffing violently"], ans: 1, exp: "During a jibe (stern passes through the wind), the boom swings across — fast and with significant force. An uncontrolled gybe (accidental) is one of the most common causes of serious crew injury offshore." },
+];
+
+// ── NAVIGATION ─────────────────────────────────────────────────
+const pages = ['welcome','m1-learn','m2-learn','m3-learn','m4-learn','m5-learn','quiz-page','quiz-result','final-exam','certificate'];
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  const order = ['welcome','m1-learn','m2-learn','m3-learn','m4-learn','m5-learn','final-exam','certificate'];
+  const active = document.querySelector('.page.active');
+  const idx = order.indexOf(active ? active.id : 'welcome');
+  const pct = Math.max(0, Math.min(100, (idx / (order.length-1)) * 100));
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function updateScoreBadge() {
+  document.getElementById('score-badge').textContent = `Score: ${state.totalScore}/${state.totalPossible}`;
+}
+
+// ── TIMER ──────────────────────────────────────────────────────
+function startTimer() {
+  state.timerInterval = setInterval(() => {
+    state.timerSecs++;
+    const m = String(Math.floor(state.timerSecs/60)).padStart(2,'0');
+    const s = String(state.timerSecs%60).padStart(2,'0');
+    document.getElementById('timer').textContent = m+':'+s;
+  }, 1000);
+}
+
+// ── COURSE FLOW ────────────────────────────────────────────────
+function startCourse() {
+  startTimer();
+  showPage('m1-learn');
+}
+
+function goToLearn(mod) { showPage(`m${mod}-learn`); }
+
+function goToQuiz(mod) {
+  state.currentQuizModule = mod;
+  state.currentQIndex = 0;
+  state.currentQuestions = [...questions[mod]].sort(() => Math.random()-0.5);
+  renderQuestion();
+  showPage('quiz-page');
+  document.getElementById('quiz-badge').textContent = `Module ${mod} Quiz`;
+  document.getElementById('quiz-title').textContent = ['','Wind & Points of Sail','Sails & Trim','Lines & Ropes','VHF Radio','Safety at Sea'][mod] + ' — Quiz';
+}
+
+// ── QUIZ RENDERING ─────────────────────────────────────────────
+function renderQuestion() {
+  const total = state.currentQuestions.length;
+  const idx = state.currentQIndex;
+  const q = state.currentQuestions[idx];
+
+  document.getElementById('q-counter').textContent = `Question ${idx+1} of ${total}`;
+  document.getElementById('q-progress-fill').style.width = ((idx/total)*100)+'%';
+  document.getElementById('next-btn').style.display = 'none';
+
+  const area = document.getElementById('question-area');
+  area.innerHTML = `
+    <div class="question-card">
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="opts">
+        ${q.opts.map((o,i) => `
+          <div class="option" id="opt-${i}" onclick="selectAnswer(${i})">
+            <div class="opt-letter">${['A','B','C','D'][i]}</div>
+            <span>${o}</span>
+          </div>`).join('')}
+      </div>
+      <div class="feedback-box" id="feedback"></div>
+    </div>`;
+}
+
+function selectAnswer(chosen) {
+  const q = state.currentQuestions[state.currentQIndex];
+  const correct = q.ans;
+  const opts = document.querySelectorAll('.option');
+  opts.forEach(o => o.classList.add('disabled'));
+
+  const fb = document.getElementById('feedback');
+  if (chosen === correct) {
+    opts[chosen].classList.add('correct');
+    fb.className = 'feedback-box correct-fb';
+    fb.innerHTML = `<strong>Correct!</strong> ${q.exp}`;
+    state.totalScore++;
+    state.totalPossible++;
+  } else {
+    opts[chosen].classList.add('wrong');
+    opts[correct].classList.add('reveal-correct');
+    fb.className = 'feedback-box wrong-fb';
+    fb.innerHTML = `<strong>Not quite.</strong> ${q.exp}`;
+    state.totalPossible++;
+  }
+  fb.style.display = 'block';
+  updateScoreBadge();
+  document.getElementById('next-btn').style.display = 'inline-block';
+}
+
+function nextQuestion() {
+  state.currentQIndex++;
+  if (state.currentQIndex >= state.currentQuestions.length) {
+    showModuleResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showModuleResult() {
+  const mod = state.currentQuizModule;
+  const got = state.currentQuestions.filter((_,i) => {
+    // can't easily track per-module here, so just show next module prompt
+    return true;
+  }).length;
+
+  // Show result with next action
+  const nextMod = mod + 1;
+  const hasMore = nextMod <= 5;
+
+  // Score ring animation
+  const pct = Math.round((state.totalScore / Math.max(state.totalPossible,1)) * 100);
+  const circumference = 364;
+  const offset = circumference - (circumference * pct / 100);
+
+  document.getElementById('result-pct').textContent = pct + '%';
+  document.getElementById('result-title').textContent = pct >= 80 ? 'Well done!' : pct >= 60 ? 'Good work!' : 'Keep going!';
+  document.getElementById('result-sub').textContent = pct >= 80 ? `Strong performance through Module ${mod}. Keep it up.` : `Module ${mod} complete. Review the material and continue.`;
+
+  const actions = document.getElementById('result-actions');
+  if (hasMore) {
+    actions.innerHTML = `<button class="btn" onclick="goToLearn(${nextMod})">Continue to Module ${nextMod} →</button>`;
+  } else {
+    actions.innerHTML = `<button class="btn" onclick="startFinalExam()">Take the Final Exam →</button>`;
+  }
+
+  showPage('quiz-result');
+  setTimeout(() => {
+    document.getElementById('score-circle').style.strokeDashoffset = offset;
+  }, 200);
+}
+
+// ── FINAL EXAM ─────────────────────────────────────────────────
+function startFinalExam() {
+  state.finalQuestions = [...finalQuestionBank].sort(() => Math.random()-0.5).slice(0,10);
+  state.finalQIndex = 0;
+  state.finalScore = 0;
+  renderFinalQuestion();
+  showPage('final-exam');
+}
+
+function renderFinalQuestion() {
+  const total = state.finalQuestions.length;
+  const idx = state.finalQIndex;
+  const q = state.finalQuestions[idx];
+
+  document.getElementById('fq-counter').textContent = `Question ${idx+1} of ${total}`;
+  document.getElementById('fq-progress-fill').style.width = ((idx/total)*100)+'%';
+  document.getElementById('final-next-btn').style.display = 'none';
+
+  const area = document.getElementById('final-question-area');
+  area.innerHTML = `
+    <div class="question-card">
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o,i) => `
+          <div class="option" id="fo-${i}" onclick="selectFinalAnswer(${i})">
+            <div class="opt-letter">${['A','B','C','D'][i]}</div>
+            <span>${o}</span>
+          </div>`).join('')}
+      </div>
+      <div class="feedback-box" id="f-feedback"></div>
+    </div>`;
+}
+
+function selectFinalAnswer(chosen) {
+  const q = state.finalQuestions[state.finalQIndex];
+  const correct = q.ans;
+  document.querySelectorAll('#final-question-area .option').forEach(o => o.classList.add('disabled'));
+
+  const fb = document.getElementById('f-feedback');
+  if (chosen === correct) {
+    document.getElementById(`fo-${chosen}`).classList.add('correct');
+    fb.className = 'feedback-box correct-fb';
+    fb.innerHTML = `<strong>Correct!</strong> ${q.exp}`;
+    state.finalScore++;
+  } else {
+    document.getElementById(`fo-${chosen}`).classList.add('wrong');
+    document.getElementById(`fo-${correct}`).classList.add('reveal-correct');
+    fb.className = 'feedback-box wrong-fb';
+    fb.innerHTML = `<strong>Not quite.</strong> ${q.exp}`;
+  }
+  fb.style.display = 'block';
+  document.getElementById('final-next-btn').style.display = 'inline-block';
+}
+
+function nextFinalQuestion() {
+  state.finalQIndex++;
+  if (state.finalQIndex >= state.finalQuestions.length) {
+    showCertificate();
+  } else {
+    renderFinalQuestion();
+  }
+}
+
+// ── CERTIFICATE ────────────────────────────────────────────────
+function showCertificate() {
+  const finalPct = Math.round((state.finalScore / state.finalQuestions.length) * 100);
+  const totalPct = Math.round((state.totalScore / Math.max(state.totalPossible,1)) * 100);
+  const grade = finalPct >= 90 ? 'Distinction' : finalPct >= 75 ? 'Merit' : finalPct >= 60 ? 'Pass' : 'Completed';
+
+  const mins = Math.floor(state.timerSecs / 60);
+  const secs = state.timerSecs % 60;
+
+  document.getElementById('cert-name').textContent = 'Offshore Foundations Graduate';
+  document.getElementById('cert-score').textContent =
+    `Final Exam: ${state.finalScore}/${state.finalQuestions.length} (${finalPct}%) · Grade: ${grade} · Time: ${mins}m ${secs}s`;
+
+  const moduleNames = ['Wind & Points of Sail','Sails & Trim','Lines & Ropes','VHF Radio','Safety at Sea'];
+  document.getElementById('cert-modules').innerHTML = moduleNames.map((n,i) =>
+    `<span class="cert-mod pass">✓ ${n}</span>`).join('');
+
+  document.getElementById('cert-date').textContent =
+    `Completed: ${new Date().toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'})}`;
+
+  showPage('certificate');
+  clearInterval(state.timerInterval);
+}
+
+function restartCourse() {
+  clearInterval(state.timerInterval);
+  state.timerSecs = 0;
+  state.totalScore = 0;
+  state.totalPossible = 0;
+  state.currentQIndex = 0;
+  document.getElementById('timer').textContent = '00:00';
+  updateScoreBadge();
+  showPage('welcome');
+}
+
+// Init
+updateProgressBar();
+</script>
+</body>
+</html>
