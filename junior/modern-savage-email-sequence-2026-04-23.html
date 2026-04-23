@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — 8-Email Nurture Sequence</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0d0d0d; color: #e8e0d5; }
+  .page { max-width: 820px; margin: 0 auto; padding: 48px 32px; }
+
+  .hero { border-bottom: 1px solid #333; padding-bottom: 40px; margin-bottom: 48px; }
+  .brand { font-family: 'Arial Black', sans-serif; font-size: 11px; letter-spacing: 4px; color: #8b6914; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-size: 36px; font-weight: normal; line-height: 1.2; color: #f0e8d8; margin-bottom: 16px; }
+  .subtitle { font-size: 15px; color: #888; line-height: 1.6; }
+
+  .meta-row { display: flex; gap: 40px; margin: 32px 0; flex-wrap: wrap; }
+  .meta-item { }
+  .meta-label { font-size: 10px; letter-spacing: 2px; color: #8b6914; text-transform: uppercase; margin-bottom: 4px; font-family: Arial, sans-serif; }
+  .meta-value { font-size: 14px; color: #c8bfb0; }
+
+  .strategy-box { background: #1a1610; border: 1px solid #3a2e1a; border-left: 3px solid #8b6914; padding: 20px 24px; margin: 32px 0; border-radius: 2px; }
+  .strategy-box p { font-size: 14px; line-height: 1.7; color: #c8bfb0; }
+
+  .email-card { background: #111; border: 1px solid #2a2520; border-radius: 4px; margin-bottom: 48px; overflow: hidden; }
+  .email-header { background: #1a1610; border-bottom: 1px solid #2a2520; padding: 20px 28px; display: flex; align-items: flex-start; gap: 20px; }
+  .email-num { font-family: 'Arial Black', sans-serif; font-size: 28px; color: #3a2e1a; line-height: 1; min-width: 36px; }
+  .email-meta { flex: 1; }
+  .email-timing { font-size: 10px; letter-spacing: 2px; color: #8b6914; text-transform: uppercase; font-family: Arial, sans-serif; margin-bottom: 6px; }
+  .email-subject-line { font-size: 17px; color: #f0e8d8; font-weight: bold; margin-bottom: 4px; }
+  .email-purpose { font-size: 12px; color: #666; font-style: italic; }
+
+  .email-body { padding: 28px; }
+  .field-label { font-size: 10px; letter-spacing: 2px; color: #555; text-transform: uppercase; font-family: Arial, sans-serif; margin-bottom: 6px; margin-top: 20px; }
+  .field-label:first-child { margin-top: 0; }
+  .field-value { font-size: 13px; color: #888; margin-bottom: 4px; }
+
+  .email-copy { margin-top: 20px; background: #0d0d0d; border: 1px solid #222; border-radius: 3px; padding: 24px 28px; }
+  .copy-line { font-size: 15px; line-height: 1.85; color: #d8d0c4; margin-bottom: 14px; }
+  .copy-line:last-child { margin-bottom: 0; }
+  .copy-cta { display: inline-block; margin-top: 8px; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #8b6914; border: 1px solid #8b6914; padding: 10px 22px; border-radius: 2px; }
+  .copy-sig { color: #666; font-style: italic; font-size: 14px; }
+  .copy-ps { color: #666; font-size: 13px; font-style: italic; }
+  .copy-divider { border: none; border-top: 1px solid #222; margin: 16px 0; }
+
+  .notes-box { background: #0d1a0d; border: 1px solid #1a3a1a; padding: 14px 18px; border-radius: 3px; margin-top: 16px; }
+  .notes-box p { font-size: 12px; color: #5a8a5a; line-height: 1.6; font-family: Arial, sans-serif; }
+  .notes-box strong { color: #7ab07a; }
+
+  .sequence-overview { background: #1a1610; border: 1px solid #2a2520; border-radius: 4px; padding: 28px; margin-bottom: 48px; }
+  .sequence-overview h2 { font-size: 14px; letter-spacing: 2px; color: #8b6914; text-transform: uppercase; font-family: Arial, sans-serif; margin-bottom: 20px; }
+  .seq-row { display: flex; gap: 16px; margin-bottom: 12px; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #222; }
+  .seq-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .seq-num { font-family: Arial, sans-serif; font-size: 11px; color: #555; min-width: 20px; }
+  .seq-when { font-family: Arial, sans-serif; font-size: 11px; color: #8b6914; min-width: 80px; }
+  .seq-subj { font-size: 13px; color: #c8bfb0; flex: 1; }
+  .seq-goal { font-size: 11px; color: #555; font-style: italic; }
+
+  .action-box { background: #0d1515; border: 1px solid #1a3535; border-left: 3px solid #2a8080; padding: 20px 24px; margin: 40px 0; border-radius: 2px; }
+  .action-box h3 { font-size: 11px; letter-spacing: 2px; color: #2a8080; text-transform: uppercase; font-family: Arial, sans-serif; margin-bottom: 14px; }
+  .action-item { font-size: 13px; color: #c8bfb0; margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.5; }
+  .action-item::before { content: "→"; position: absolute; left: 0; color: #2a8080; }
+
+  .footer { border-top: 1px solid #222; margin-top: 48px; padding-top: 24px; font-size: 11px; color: #444; font-family: Arial, sans-serif; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="brand">Modern Savage — Email Nurture Sequence</div>
+    <h1>8 Emails.<br>12 Weeks.<br>10,000 Converts.</h1>
+    <p class="subtitle">Full copy, ready to load into Klaviyo. Written for the founding tribe waitlist — 170 signups now, target 10,000 by July 15 launch.</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-label">Built</div>
+        <div class="meta-value">April 23, 2026</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Send to</div>
+        <div class="meta-value">Waitlist signups (170 now)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Platform</div>
+        <div class="meta-value">Klaviyo / Mailchimp</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Launch date</div>
+        <div class="meta-value">~July 15, 2026</div>
+      </div>
+    </div>
+
+    <div class="strategy-box">
+      <p><strong style="color:#c8bfb0;">Strategy:</strong> These are not sales emails. They build belief. Each email gives something — a story, a fact, a behind-the-scenes moment — and asks for nothing back until launch day. By email 8, the reader feels like they've been on the journey. They buy because they're already invested, not because they were sold to.</p>
+    </div>
+  </div>
+
+  <!-- SEQUENCE OVERVIEW -->
+  <div class="sequence-overview">
+    <h2>Sequence at a Glance</h2>
+    <div class="seq-row">
+      <div class="seq-num">1</div>
+      <div class="seq-when">Day 1</div>
+      <div class="seq-subj">You're in.</div>
+      <div class="seq-goal">Welcome + set expectations</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">2</div>
+      <div class="seq-when">Week 2</div>
+      <div class="seq-subj">Most supplements are dressed-up sawdust. Here's why ours isn't.</div>
+      <div class="seq-goal">Ingredient credibility</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">3</div>
+      <div class="seq-when">Week 3</div>
+      <div class="seq-subj">I didn't believe in supplements either.</div>
+      <div class="seq-goal">Personal story / trust-building</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">4</div>
+      <div class="seq-when">Week 5</div>
+      <div class="seq-subj">We visited the factory. Here's what we saw.</div>
+      <div class="seq-goal">Manufacturing BTS / quality proof</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">5</div>
+      <div class="seq-when">Week 7</div>
+      <div class="seq-subj">A nutritionist reviewed our formula. Her exact words.</div>
+      <div class="seq-goal">Third-party credibility</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">6</div>
+      <div class="seq-when">Week 8</div>
+      <div class="seq-subj">If you believe in this, there's one thing I'd ask of you.</div>
+      <div class="seq-goal">Referral activation</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">7</div>
+      <div class="seq-when">Week 11</div>
+      <div class="seq-subj">Two weeks.</div>
+      <div class="seq-goal">Launch countdown / urgency</div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-num">8</div>
+      <div class="seq-when">Week 12</div>
+      <div class="seq-subj">It's here. Founding tribe pricing ends tonight.</div>
+      <div class="seq-goal">Launch day / conversion</div>
+    </div>
+  </div>
+
+  <!-- EMAIL 1 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">01</div>
+      <div class="email-meta">
+        <div class="email-timing">Day 1 — Send this week to the 170</div>
+        <div class="email-subject-line">You're in.</div>
+        <div class="email-purpose">Welcome email — set the tone, deliver on the promise, tell them what's coming</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">You're one of the first. Here's what that means.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">You signed up for something that doesn't exist yet.</p>
+        <p class="copy-line">That tells me something about you.</p>
+        <p class="copy-line">Modern Savage is a supplement built on one idea: the people who thrived longest on this earth didn't eat protein powder. They ate everything. Organ to bone. Nothing wasted. And their bodies were extraordinary for it.</p>
+        <p class="copy-line">We're bringing that back — in a form that fits the way you actually live.</p>
+        <p class="copy-line">The product is being manufactured right now. It'll be in your hands by mid-July.</p>
+        <p class="copy-line">Between now and then, I'm going to bring you inside the process — the ingredients, the sourcing, the factory, the formula. No marketing gloss. Just what it actually is and why it works.</p>
+        <p class="copy-line">When launch day comes, you'll have already decided. The email will just be a formality.</p>
+        <p class="copy-line">One more thing: you're part of the founding tribe. That means you get first access and founding-member pricing before we open to the public. I'll remind you closer to launch.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse Grylls<br>Co-Founder, Modern Savage</p>
+        <p class="copy-ps" style="margin-top:12px;">P.S. If you know someone who should be on this list — someone who takes their health seriously and doesn't need another green powder — forward this to them. The tribe starts here.</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> Set as automated welcome email triggered on signup. Also send manually to the current 170-person list this week — do not wait. Subject line "You're in." performs well on mobile (high curiosity open rate). From name should be "Jesse Grylls, Modern Savage" not just brand name.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 2 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">02</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 2 — ~April 30</div>
+        <div class="email-subject-line">Most supplements are dressed-up sawdust. Here's why ours isn't.</div>
+        <div class="email-purpose">Ingredient transparency — build credibility through specificity, not claims</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">What's actually in the blend — and why it matters.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">I want to tell you exactly what's in Modern Savage.</p>
+        <p class="copy-line">Not because I have to. Because if I were on your side of this email, it's the first thing I'd want to know.</p>
+        <p class="copy-line">The blend is built around grass-fed bovine organs: liver, heart, kidney, and bone marrow. Sourced from New Zealand and Australia — the last major regions where cattle still graze on open pasture year-round.</p>
+        <p class="copy-line">Why those organs specifically? Because liver is the most nutrient-dense food on earth. Heart is the richest natural source of CoQ10. Kidney is loaded with B12. Bone marrow is how our ancestors fueled long hunts — dense, slow-burning, essential.</p>
+        <p class="copy-line">No fillers. No proprietary blends that hide the actual amounts. No ingredients you can't pronounce.</p>
+        <p class="copy-line">Three SKUs at launch: capsules, a raw powder blend, and a collagen-plus variant. We'll tell you more about each one as we get closer.</p>
+        <p class="copy-line">The supplement industry runs on mystery and marketing. We're running on transparency.</p>
+        <p class="copy-line">More from the factory floor next week.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> Confirm exact organ sources and SKU names with Jesse before sending. If third-party testing results are available by this date, add one line: "Third-party tested for heavy metals and contaminants — results available on the website." Specificity is the point of this email — do not genericise the copy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 3 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">03</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 3 — ~May 7</div>
+        <div class="email-subject-line">I didn't believe in supplements either.</div>
+        <div class="email-purpose">Personal story — lower defensiveness, make Jesse/Bear the proof point</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">What changed my mind — and why I'd still be skeptical of most brands.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">If someone had pitched me a supplement three years ago, I'd have ignored it.</p>
+        <p class="copy-line">I grew up watching my dad eat raw bison heart on a mountain in Montana. He didn't need capsules. He needed real food. And he was right.</p>
+        <p class="copy-line">The problem is most of us don't have access to a freshly hunted elk. We have a fridge, a schedule, and bodies that are running on less than they should be.</p>
+        <p class="copy-line">What changed my mind wasn't a study. It was watching what happened when people started eating nose-to-tail — when they actually gave their bodies the micronutrients that modern diets have stripped out. Clearer thinking. Better recovery. Energy that didn't spike and crash.</p>
+        <p class="copy-line">Modern Savage is the closest thing to that way of eating that fits inside a normal life. It's not a shortcut. It's the missing piece.</p>
+        <p class="copy-line">I wouldn't put my family's name on something I didn't believe in.</p>
+        <p class="copy-line">I hope you can feel the difference between that and a brand that hired a celebrity.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+        <p class="copy-ps" style="margin-top:12px;">P.S. My dad has been eating organ meat for thirty years. He'll be sixty in October. Draw your own conclusions.</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> This is the highest-trust email in the sequence — do not add product links or CTAs. The goal is purely belief-building. Jesse should review the "watching my dad eat raw bison heart" line to confirm it's a real story or adjust to something equally vivid and true. The P.S. about Bear's age is the most shareable line in the sequence.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 4 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">04</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 5 — ~May 20</div>
+        <div class="email-subject-line">We visited the factory. Here's what we saw.</div>
+        <div class="email-purpose">Manufacturing BTS — prove quality controls exist, make them feel invested in the process</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">Most supplement brands have never seen their own factory.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">We spent a day at ACF Pharma last week.</p>
+        <p class="copy-line">Most supplement brands don't know what their factory looks like. They brief a contract manufacturer, approve a label, and that's it. We did the opposite.</p>
+        <p class="copy-line">What impressed me: they run cold processing throughout. Organ meat is temperature-sensitive — heat destroys the enzymes and cofactors that make it valuable. Getting this right isn't common. Most brands don't bother because it costs more.</p>
+        <p class="copy-line">We also saw the sourcing documentation. Every batch is traceable to the farm of origin. That's not standard — we asked for it specifically.</p>
+        <p class="copy-line">The first production run starts in the coming weeks. 2,500 units per SKU. No more than that until we know what you think.</p>
+        <p class="copy-line">Production is on track for mid-July. We'll send photos from the floor as soon as we have them.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> If Jesse/Andy Kouvel at ACF Pharma can supply even one factory photo, attach it here — this email performs significantly better with a single real image over branded graphics. Confirm cold processing claim is accurate before sending. Do not mention "2,500 units" if it reads as a scarcity number — only include if it's framed as "this is the deliberate founding batch size."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 5 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">05</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 7 — ~June 3</div>
+        <div class="email-subject-line">A nutritionist reviewed our formula. Her exact words.</div>
+        <div class="email-purpose">Third-party credibility — let someone else sell it</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">We didn't brief her. We just sent her the formula.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">We sent our formula to [Nutritionist Name], a registered nutritionist who specialises in ancestral health and micronutrient density.</p>
+        <p class="copy-line">We didn't brief her on what to say. We sent her the ingredients, the sourcing documentation, and the processing method. Then we asked for her honest assessment.</p>
+        <p class="copy-line">Her words, not ours:</p>
+        <p class="copy-line" style="border-left: 2px solid #8b6914; padding-left: 16px; margin-left: 8px; color: #c0b8a8; font-style: italic;">"[Insert actual quote here — request from nutritionist reviewer before send date. Should cover: bioavailability of organ-based nutrients vs. synthetic supplements; quality of sourcing; anything notable about the formula. 3-5 sentences.]"</p>
+        <p class="copy-line">We're sharing this because we believe the formula is strong enough to withstand scrutiny. If it wasn't, we wouldn't have asked.</p>
+        <p class="copy-line">Six weeks until launch.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> <strong>This email needs a real nutritionist review before it can be sent.</strong> Book this now — 6 weeks lead time. The quote is the entire email. It does not work without a genuine, named endorsement. If no review is ready by June 3, swap in a customer testimonial from a beta tester instead. Do not fabricate or paraphrase a quote.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 6 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">06</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 8 — ~June 10</div>
+        <div class="email-subject-line">If you believe in this, there's one thing I'd ask of you.</div>
+        <div class="email-purpose">Referral activation — turn 170 warm signups into 340+</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">You've been with us since the beginning. There's one way to help.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">You've been on this list for eight weeks.</p>
+        <p class="copy-line">You've read about what's in it, how it's made, and why I believe in it. You've stayed. That means something.</p>
+        <p class="copy-line">We're building this without a marketing budget. No paid influencer campaign. No celebrity deal. Just the product, the story, and people who believe in it enough to share it.</p>
+        <p class="copy-line">If you know one person — someone who trains hard, eats intentionally, or has been trying to fix the gaps in their diet — forward them this email, or send them to modernsavage.co to join the list.</p>
+        <p class="copy-line">When you refer someone who signs up before launch, you'll both get founding-member pricing on day one. We'll share the details on how this works in the next email.</p>
+        <p class="copy-line">We're not asking everyone. We're asking you.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+        <div style="margin-top:20px;">
+          <span class="copy-cta">Share the link → modernsavage.co</span>
+        </div>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> This email needs a referral tracking mechanism before send — a simple "?ref=FIRSTNAME" parameter on the signup URL is sufficient at this stage. The mutual founding-member discount is the incentive. If referral tracking isn't built by Week 8, simplify to "forward this email and tell them to sign up" — the ask still works without tracking, just can't measure it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 7 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">07</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 11 — ~July 1</div>
+        <div class="email-subject-line">Two weeks.</div>
+        <div class="email-purpose">Countdown — rebuild urgency, remind them why they signed up</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">The founding tribe window closes on launch day.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">Two weeks from today, Modern Savage goes live.</p>
+        <p class="copy-line">The first batch is manufactured. It's been tested. It's ready.</p>
+        <p class="copy-line">As a member of the founding tribe, you have access before the public and at a price that doesn't go live on the site. That window closes when the cart opens — we're not running a long sale.</p>
+        <p class="copy-line">Watch for an email from me on July 15.</p>
+        <p class="copy-line">If you've been on the fence: the formula hasn't changed, the sourcing hasn't changed, and my belief in this hasn't changed. The only thing that changes on launch day is the price.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+        <p class="copy-ps" style="margin-top:12px;">P.S. If you forwarded this to someone earlier, remind them. Launch day comes once.</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> Confirm exact launch date before sending — adjust "July 15" if the production timeline shifts. This email intentionally does not include a product link or price — save the reveal for Email 8. Curiosity gap is the mechanism here. Open rate on "Two weeks." subject lines historically outperforms descriptive subjects by 20-30%.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 8 -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">08</div>
+      <div class="email-meta">
+        <div class="email-timing">Week 12 — July 15 Launch Day</div>
+        <div class="email-subject-line">It's here. Founding tribe pricing ends tonight.</div>
+        <div class="email-purpose">Launch day — convert belief into purchase</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <div class="field-label">From name</div>
+      <div class="field-value">Jesse Grylls, Modern Savage</div>
+      <div class="field-label">Preview text</div>
+      <div class="field-value">12 weeks in the making. Now it's yours.</div>
+
+      <div class="email-copy">
+        <p class="copy-line">Today is the day.</p>
+        <p class="copy-line">Modern Savage is live. The founding tribe window — the one you've been on this list for — is open for the next 24 hours.</p>
+        <p class="copy-line">Here's what's available at launch:</p>
+        <p class="copy-line" style="padding-left:16px; border-left: 2px solid #3a3030; color: #c0b8a8;">
+          <strong style="color:#e8e0d5;">The Daily Blend (Capsules)</strong> — Liver, heart, kidney, bone marrow. 120 capsules / 30-day supply.<br>
+          <em>Founding tribe price: £[XX] (RRP £[XX])</em>
+        </p>
+        <p class="copy-line" style="padding-left:16px; border-left: 2px solid #3a3030; color: #c0b8a8;">
+          <strong style="color:#e8e0d5;">Raw Blend (Powder)</strong> — For those who want it unflavoured, unsweetened, uncompromised.<br>
+          <em>Founding tribe price: £[XX] (RRP £[XX])</em>
+        </p>
+        <p class="copy-line" style="padding-left:16px; border-left: 2px solid #3a3030; color: #c0b8a8;">
+          <strong style="color:#e8e0d5;">The Savage Stack (Collagen+)</strong> — Organ blend plus marine collagen. Joint and connective tissue support.<br>
+          <em>Founding tribe price: £[XX] (RRP £[XX])</em>
+        </p>
+        <p class="copy-line">You've spent 12 weeks learning exactly what this is. You know the sourcing, the processing, the formula, and the people behind it.</p>
+        <p class="copy-line">This is the buy now.</p>
+        <div style="margin-top:20px; margin-bottom:8px;">
+          <span class="copy-cta">Shop founding tribe pricing → modernsavage.co</span>
+        </div>
+        <p class="copy-line" style="font-size:13px; color:#666; margin-top:16px;">Founding tribe pricing ends at midnight tonight. After that, the site goes to standard pricing.</p>
+        <hr class="copy-divider">
+        <p class="copy-sig">Jesse</p>
+        <p class="copy-ps" style="margin-top:12px;">P.S. If you're not ready to buy today — no pressure. The product will still be there. But the founding price won't be. Just being honest with you.</p>
+      </div>
+
+      <div class="notes-box">
+        <p><strong>Calvin note:</strong> Fill in actual prices before send. Send at 7am UK / 7am EST to catch both audiences (Jesse is often in US). Plan a follow-up "last chance" email at 6pm same day to the non-openers. This is the only email in the sequence with a hard sell — it earns it because of the 11 emails that preceded it. Do not tone this down.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="action-box">
+    <h3>Immediate Actions</h3>
+    <div class="action-item">Send Email 1 to the current 170-person list <strong>this week</strong> — do not wait for the full Klaviyo flow to be built.</div>
+    <div class="action-item">Set up Klaviyo automated welcome flow for new signups (Email 1 fires on signup).</div>
+    <div class="action-item">Schedule Emails 2-6 in Klaviyo now, with placeholder dates — easier to shift than to build last-minute.</div>
+    <div class="action-item">Book nutritionist review for Email 5 <strong>immediately</strong> — 6-week lead time needed.</div>
+    <div class="action-item">Build referral tracking before Email 6 (simple ?ref= parameter on signup URL is sufficient).</div>
+    <div class="action-item">Confirm ACF Pharma launch date to lock Email 7 and Email 8 dates.</div>
+    <div class="action-item">Fill in actual founding tribe prices in Email 8 before scheduling.</div>
+  </div>
+
+  <div class="footer">
+    Built by Junior — April 23, 2026. Modern Savage pre-launch sequence, 12-week nurture to July 15 launch.
+  </div>
+
+</div>
+</body>
+</html>
