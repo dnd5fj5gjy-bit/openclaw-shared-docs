@@ -942,6 +942,8 @@ function goToLearn(mod) { showPage(`m${mod}-learn`); }
 function goToQuiz(mod) {
   state.currentQuizModule = mod;
   state.currentQIndex = 0;
+  state.quizCorrect = 0;
+  state.quizTotal = 0;
   state.currentQuestions = [...questions[mod]].sort(() => Math.random()-0.5);
   renderQuestion();
   showPage('quiz-page');
