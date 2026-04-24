@@ -30,7 +30,9 @@ Bear sent Jesse the insert card text he wants tonight via WhatsApp. Use this, no
 >
 > Thank you.
 >
-> With love & respect"
+> With love & respect
+>
+> Bear, Shara, Jesse, Marmaduke and Huckleberry Grylls."
 
 **Brand signal from Bear's copy:**
 - Family-first, not survival-first ("sat around our kitchen table")
