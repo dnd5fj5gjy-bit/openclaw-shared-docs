@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — US Launch Brief</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d0d0d; color: #e0e0e0; line-height: 1.65; }
+.header { background: linear-gradient(135deg, #1a0a00 0%, #0d0d0d 70%); padding: 48px 40px; border-bottom: 2px solid #8B2500; }
+.header .kicker { color: #c94c0a; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.header h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.header .sub { color: #888; font-size: 0.95rem; }
+.header .date-badge { display: inline-block; background: #8B2500; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.78rem; font-weight: 700; margin-top: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+h2 { font-size: 0.85rem; font-weight: 700; color: #c94c0a; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+.call-card { background: #141414; border: 1px solid #222; border-radius: 12px; margin-bottom: 28px; overflow: hidden; }
+.call-header { padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+.call-time { background: #8B2500; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+.call-who { flex: 1; }
+.call-who .name { color: #fff; font-weight: 700; font-size: 1rem; }
+.call-who .title { color: #888; font-size: 0.83rem; }
+.call-body { padding: 20px; border-top: 1px solid #1e1e1e; }
+.call-body p { color: #aaa; font-size: 0.93rem; margin-bottom: 12px; }
+.call-body strong { color: #e0e0e0; }
+.q-list { list-style: none; padding: 0; }
+.q-list li { color: #aaa; font-size: 0.9rem; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid #1a1a1a; }
+.q-list li:last-child { border-bottom: none; }
+.q-list li::before { content: '→'; position: absolute; left: 0; color: #c94c0a; }
+.section { margin-bottom: 40px; }
+.info-card { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+.info-card h3 { color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
+.info-card p { color: #aaa; font-size: 0.9rem; margin-bottom: 8px; }
+.info-card p:last-child { margin-bottom: 0; }
+.key-point { border-left: 3px solid #c94c0a; background: rgba(201,76,10,0.07); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; color: #e0e0e0; font-size: 0.9rem; }
+.warn-point { border-left: 3px solid #e03030; background: rgba(224,48,48,0.07); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; color: #ffc0c0; font-size: 0.9rem; }
+.green-point { border-left: 3px solid #1db86a; background: rgba(29,184,106,0.07); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; color: #a8f0c6; font-size: 0.9rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+.stat { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 16px; text-align: center; }
+.stat .val { font-size: 1.6rem; font-weight: 800; color: #c94c0a; }
+.stat .lbl { font-size: 0.78rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.roadmap { list-style: none; padding: 0; }
+.roadmap li { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+.roadmap li .dot { width: 28px; height: 28px; border-radius: 50%; background: #8B2500; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.roadmap li .content .week { color: #c94c0a; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.roadmap li .content p { color: #aaa; font-size: 0.9rem; }
+.roadmap li .content strong { color: #e0e0e0; }
+.alt-table { width: 100%; border-collapse: collapse; }
+.alt-table th { background: #1e1e1e; color: #c94c0a; padding: 10px 14px; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.alt-table td { padding: 10px 14px; color: #aaa; font-size: 0.88rem; border-bottom: 1px solid #1a1a1a; vertical-align: top; }
+.alt-table td strong { color: #e0e0e0; }
+.alt-table tr:last-child td { border-bottom: none; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.badge.green { background: rgba(29,184,106,0.15); color: #1db86a; }
+.badge.amber { background: rgba(201,168,76,0.15); color: #c9a84c; }
+.badge.red { background: rgba(224,48,48,0.12); color: #e06060; }
+.footer { text-align: center; padding: 40px; color: #333; font-size: 0.82rem; border-top: 1px solid #1a1a1a; }
+@media (max-width: 600px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .header { padding: 32px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="kicker">Prepared by Junior — Confidential</div>
+  <h1>Modern Savage — US Launch Brief</h1>
+  <div class="sub">Two calls today + full US operations roadmap. Read before 4pm.</div>
+  <div class="date-badge">Friday 24 April 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- SNAPSHOT -->
+  <div class="section">
+    <h2>Where We Are</h2>
+    <div class="grid-3">
+      <div class="stat"><div class="val">170</div><div class="lbl">Email signups</div></div>
+      <div class="stat"><div class="val">3</div><div class="lbl">SKUs ready</div></div>
+      <div class="stat"><div class="val">0</div><div class="lbl">US orders (pre-launch)</div></div>
+    </div>
+    <div class="warn-point">Airwallex KYC rejected — payment processing is the single biggest blocker. No payments = no sales. This needs to be solved in parallel with everything else today.</div>
+    <div class="key-point">Two calls today are the most important meetings for the US launch so far. Get the legal structure and fulfillment locked — then marketing and sales can flow.</div>
+  </div>
+
+  <!-- CALL 1: KYLEE -->
+  <div class="section">
+    <h2>Call 1 — 4:00pm</h2>
+    <div class="call-card">
+      <div class="call-header">
+        <div class="call-time">4:00pm UK / 9:00am LA</div>
+        <div class="call-who">
+          <div class="name">Kylee MacArthur</div>
+          <div class="title">Weinberg Gonser LLP — Los Angeles entertainment &amp; business law</div>
+        </div>
+      </div>
+      <div class="call-body">
+        <p><strong>Who she is:</strong> Kylee is at Weinberg Gonser, an LA law firm that handles entertainment, brand licensing, IP, and business law. She reached out about Modern Savage specifically. Given her firm's profile, she likely handles celebrity/influencer brand work — supplements, licensing deals, brand partnerships, content rights.</p>
+        <p><strong>Why she matters:</strong> Modern Savage needs a US lawyer for: entity setup, supplement compliance (FDA/FTC labeling), trademark protection, influencer contracts, and eventually distribution/retail agreements. If she's the right fit, this could solve several outstanding legal gaps at once.</p>
+        <p><strong>What she probably wants:</strong> Either to offer legal services, or she represents someone (retailer, investor, partner) with interest in the brand. Worth finding out which within the first 2 minutes.</p>
+
+        <div class="key-point">Open question: "What prompted your email — are you looking to work with us, or are you representing someone who's interested in Modern Savage?"</div>
+
+        <p style="margin-top:16px;"><strong>Questions to ask if she's offering legal services:</strong></p>
+        <ul class="q-list">
+          <li>What supplement brands have you worked with? Any experience with organ-based or ancestral health products?</li>
+          <li>We need a US entity sorted quickly — what structure do you recommend and what's your typical timeline?</li>
+          <li>Can you review our FDA/FTC supplement labeling and claims? We need to make sure the website copy is compliant before US launch.</li>
+          <li>We're in the middle of a USPTO trademark filing for MODERN SAVAGE (Classes 5+29) — can you take that over and push it through?</li>
+          <li>What are your fees? Do you work on retainer or project basis?</li>
+        </ul>
+
+        <p style="margin-top:16px;"><strong>If she represents a third party (retailer/investor):</strong></p>
+        <ul class="q-list">
+          <li>Who do you represent and what are they proposing?</li>
+          <li>Are they looking to invest, distribute, or license the brand?</li>
+          <li>What's their timeline and what do they need from us to move forward?</li>
+        </ul>
+
+        <div class="warn-point">Do NOT commit to anything on this call. Get the information, say you'll discuss with the team, and follow up. Every agreement needs to go through CJ and legal review.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALL 2: SHIPSALOT -->
+  <div class="section">
+    <h2>Call 2 — 5:00pm</h2>
+    <div class="call-card">
+      <div class="call-header">
+        <div class="call-time">5:00pm UK / 9:00am PST</div>
+        <div class="call-who">
+          <div class="name">Susan U — VP Business Operations</div>
+          <div class="title">Ships A Lot (shipsalot.com) — US 3PL / ecommerce fulfillment — Intro by Drew (ACF Pharma)</div>
+        </div>
+      </div>
+      <div class="call-body">
+        <p><strong>Who they are:</strong> Ships A Lot is a US 3PL (third-party logistics) company focused on premium ecommerce fulfillment. Drew at ACF Pharma made the intro — Drew already knows their capabilities since he'll be manufacturing the product. Susan is VP Business Operations — the right person to negotiate commercial terms with.</p>
+
+        <p><strong>What you need from this call:</strong></p>
+        <ul class="q-list">
+          <li>Do they handle supplement fulfillment? Any GMP-adjacent storage requirements? Temperature-sensitive?</li>
+          <li>What's their minimum order volume? Are they set up for a launch-stage brand (low initial volume, scaling fast)?</li>
+          <li>Where are their warehouses? Single vs multi-location? Can they do 2-day shipping across the continental US?</li>
+          <li>What's their per-unit fulfillment cost? Setup fee? Receiving fee per pallet?</li>
+          <li>Do they integrate with Shopify? What's the tech stack for inventory management?</li>
+          <li>Can they handle subscription orders and recurring shipments?</li>
+          <li>What's the inbound process from ACF Pharma (Waycross, GA) to their warehouse?</li>
+          <li>What are their SLAs? Cutoff for same-day processing? Returns handling?</li>
+        </ul>
+
+        <div class="key-point">Since Drew introduced Susan, ACF Pharma and Ships A Lot may already have a working relationship — ask if they've worked together before. Could simplify inbound logistics significantly.</div>
+
+        <p style="margin-top:16px;"><strong>Benchmark numbers to know going in:</strong></p>
+        <div class="grid-2">
+          <div class="info-card">
+            <h3>Typical 3PL Costs (supplement brands)</h3>
+            <p>Pick &amp; pack: $2–4/order</p>
+            <p>Storage: $20–40/pallet/month</p>
+            <p>Receiving: $25–40/pallet</p>
+            <p>Shipping (USPS Ground): $7–12 for 1lb package</p>
+          </div>
+          <div class="info-card">
+            <h3>What Good Looks Like</h3>
+            <p>Shopify native integration</p>
+            <p>2-day delivery to 80%+ of US</p>
+            <p>No volume minimums in year 1</p>
+            <p>Month-to-month contract initially</p>
+          </div>
+        </div>
+
+        <p><strong>What to negotiate:</strong></p>
+        <ul class="q-list">
+          <li>Month-to-month initially with no long-term lock-in until volume is proven</li>
+          <li>Waived setup fee in exchange for growth commitment</li>
+          <li>Volume discount tiers built into the contract from day 1</li>
+          <li>SLA penalties if they miss processing windows (protects you at launch)</li>
+        </ul>
+
+        <div class="green-point">Ideal outcome: Get a quote by Monday, agree in principle on terms, sign a heads of agreement or short-form contract within 2 weeks. Target to have first inbound shipment from ACF ready 6–8 weeks after signing.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT PROCESSING BLOCKER -->
+  <div class="section">
+    <h2>Critical Blocker — Payment Processing</h2>
+    <div class="info-card">
+      <h3>Airwallex rejected — alternatives ranked</h3>
+      <p>Airwallex's KYC rejection is the biggest blocker to taking US orders. Felix is working on it but here are the best alternatives if Airwallex stays blocked:</p>
+    </div>
+    <table class="alt-table">
+      <tr>
+        <th>Provider</th>
+        <th>Why Consider It</th>
+        <th>Supplement-Friendly?</th>
+        <th>Setup Time</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td><strong>Stripe</strong></td>
+        <td>Bear Witness (UK entity) can use Stripe immediately. Shopify-native. Jesse was already considering this route.</td>
+        <td>Yes — standard supplements fine. May need docs for organ-based.</td>
+        <td>24–48 hours</td>
+        <td><span class="badge green">Recommended</span></td>
+      </tr>
+      <tr>
+        <td><strong>Shopify Payments</strong></td>
+        <td>Built-in, zero-friction, no additional integration needed if you're on Shopify.</td>
+        <td>Yes — if compliant labeling. Check FTC claims.</td>
+        <td>Same day</td>
+        <td><span class="badge green">Try first</span></td>
+      </tr>
+      <tr>
+        <td><strong>PayPal / Braintree</strong></td>
+        <td>Global, trusted by customers. Braintree is PayPal's merchant arm — more control.</td>
+        <td>Generally yes — some nutraceutical restrictions.</td>
+        <td>1–3 days</td>
+        <td><span class="badge amber">Backup</span></td>
+      </tr>
+      <tr>
+        <td><strong>NMI / Authorize.net</strong></td>
+        <td>Specialist merchant accounts — more expensive but take "high risk" categories including supplements.</td>
+        <td>Yes — built for it.</td>
+        <td>1–2 weeks</td>
+        <td><span class="badge amber">If others fail</span></td>
+      </tr>
+      <tr>
+        <td><strong>Reapply Airwallex</strong></td>
+        <td>Felix has a contact (Rahul) pursuing resolution. May still come through.</td>
+        <td>Yes, if KYC clears.</td>
+        <td>Unknown</td>
+        <td><span class="badge red">In progress</span></td>
+      </tr>
+    </table>
+    <div class="key-point" style="margin-top:16px;">Recommendation: Don't wait for Airwallex. Set up Stripe on Bear Witness entity today. It takes 48 hours max. You can switch to a US entity processor once that's incorporated — Stripe handles the transition cleanly. Every day without payments is a day the 170 signups are waiting with no way to buy.</div>
+  </div>
+
+  <!-- 90-DAY US ROADMAP -->
+  <div class="section">
+    <h2>90-Day US Launch Roadmap</h2>
+    <ul class="roadmap">
+      <li>
+        <div class="dot">1</div>
+        <div class="content">
+          <div class="week">Week 1–2 (Now)</div>
+          <p><strong>Unlock payments:</strong> Set up Stripe on Bear Witness. Enable Shopify Payments. Take first US orders immediately. Begin shipping from UK as interim while US fulfillment is set up.</p>
+          <p><strong>Legal:</strong> Engage Kylee (if suitable) to review FTC/FDA website claims and begin US entity paperwork.</p>
+          <p><strong>Fulfillment:</strong> Lock ShipsAlot terms. Get first inbound shipment from ACF Pharma planned.</p>
+        </div>
+      </li>
+      <li>
+        <div class="dot">2</div>
+        <div class="content">
+          <div class="week">Week 3–4</div>
+          <p><strong>Trademark:</strong> Complete USPTO ID.me verification. File TEAS Standard for MODERN SAVAGE Classes 5+29 ($700). Pay UKIPO £265 to complete UK filing.</p>
+          <p><strong>US entity:</strong> Incorporate US subsidiary (Delaware LLC or Wyoming). Open US bank account. Switch payments to US processor.</p>
+          <p><strong>Fulfillment:</strong> Sign ShipsAlot contract. Schedule first inbound delivery from ACF Pharma warehouse to ShipsAlot.</p>
+        </div>
+      </li>
+      <li>
+        <div class="dot">3</div>
+        <div class="content">
+          <div class="week">Week 5–8</div>
+          <p><strong>Launch email sequence:</strong> Send Email 1 to 170 signups immediately. Weekly cadence building to launch day. Goal: 1,000 subscribers by week 8.</p>
+          <p><strong>Social launch:</strong> Calvin's team: Facebook, TikTok, Twitter/X accounts live. Product imagery on all platforms. Run founder content heavy — Bear talking to camera.</p>
+          <p><strong>First paid media:</strong> $5K test budget on Meta — ancestral health audience, carnivore community, military/adventure interest targeting.</p>
+          <p><strong>ShipsAlot live:</strong> First US orders fulfilling from American warehouse. 2-day delivery nationwide.</p>
+        </div>
+      </li>
+      <li>
+        <div class="dot">4</div>
+        <div class="content">
+          <div class="week">Week 9–12 (Manufacturing complete)</div>
+          <p><strong>Hard launch:</strong> Full campaign with first batch of product. Bear Grylls content push. Press/podcast outreach. Founding tribe offer to email list.</p>
+          <p><strong>Target:</strong> 1,000 orders in first month. 2,500 email subscribers. First subscription cohort established.</p>
+          <p><strong>Review:</strong> LTV, CAC, churn on first cohort. Adjust pricing, bundles, and subscription mechanics.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FTC/FDA QUICK CHECKS -->
+  <div class="section">
+    <h2>Compliance — Things to Check Before US Launch</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>FDA (Supplement Labeling)</h3>
+        <p>Supplements sold in the US must comply with DSHEA (Dietary Supplement Health and Education Act). Key requirements:</p>
+        <p>- Supplement Facts panel (not Nutrition Facts)</p>
+        <p>- Disclaimer: "This statement has not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."</p>
+        <p>- Country of origin statement</p>
+        <p>- Manufacturer/distributor name and address (US address needed)</p>
+      </div>
+      <div class="info-card">
+        <h3>FTC (Marketing Claims)</h3>
+        <p>FTC polices supplement advertising claims aggressively. Watch:</p>
+        <p>- No unsubstantiated health claims ("cures", "prevents", "treats")</p>
+        <p>- Testimonials must reflect typical results (or disclose they don't)</p>
+        <p>- Celebrity/influencer posts must disclose paid relationship (#ad, #sponsored)</p>
+        <p>- Bear's content counts as advertising — needs to be honest and substantiated</p>
+      </div>
+    </div>
+    <div class="warn-point">Review the modernsavage.co website copy before taking US orders. Any claim like "boosts testosterone" or "improves immunity" without supporting evidence is an FTC risk. Kylee (or another US attorney) should sign off on US-facing copy before the hard launch.</div>
+  </div>
+
+  <!-- PRIORITY LIST -->
+  <div class="section">
+    <h2>Jesse's Priority List After Today's Calls</h2>
+    <ul class="q-list" style="background:#141414;border:1px solid #222;border-radius:8px;padding:20px;">
+      <li>Set up Stripe on Bear Witness — takes 48 hours, unblocks everything</li>
+      <li>Pay UKIPO £265 (Savage2026!) — trademark is dormant until paid</li>
+      <li>Complete ID.me video call (USPTO) — US trademark needs this to file</li>
+      <li>Send Email 1 to the 170 signups — they signed up weeks ago, don't let them go cold</li>
+      <li>Confirm Calvin sends Email 1 this week — Calvin has the sequence</li>
+      <li>Lock ShipsAlot — get a quote and contract draft by Monday</li>
+      <li>Follow up with Kylee on FTC/FDA legal review scope and fees</li>
+    </ul>
+  </div>
+
+</div>
+<div class="footer">Prepared by Junior — Confidential | Modern Savage US Launch Brief | 24 April 2026</div>
+</body>
+</html>
