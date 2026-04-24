@@ -29,7 +29,7 @@ The US organs supplement category has no dominant UK brand. Heart & Soil is Amer
 | Competitor presence | Heart & Soil, Liver King legacy | Essentially none |
 | Cross-sell opportunity | None direct | Ted's Health patient base (UK men's health) |
 
-*VAT status of organ capsule supplements needs confirmation from a UK tax advisor — this could significantly affect pricing and margin.
+**VAT CONFIRMED (Apr 25):** Organ supplement capsules/tablets are standard-rated at 20% VAT under HMRC VFOOD2040 — capsule/tablet form is not classified as "food" regardless of ingredient origin. This is material: at £55/month retail, VAT-inclusive pricing means ~£45.83 net to the business. Factor this into margin calculations. Jesse/Raemy should confirm with a UK tax advisor before launch, but assume 20% VAT in all UK financial models.
 
 ---
 
