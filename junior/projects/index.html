@@ -696,108 +696,100 @@ async function loadDecisions() {
     const stateData = await stateRes.json();
     const serverResolved = new Set(stateData.resolved_decisions || []);
     const allResolved = new Set([...resolvedLocally, ...serverResolved]);
-
     decisions = (decData.decisions || []).filter(d => !allResolved.has(d.id));
     renderNeeds();
-    renderDecisions();
   } catch(e) {
     document.getElementById('needs-body').innerHTML = '<div class="needs-empty">All clear.</div>';
   }
 }
 
 function renderNeeds() {
-  const nowItems = decisions.filter(d => d.urgency === 'now').slice(0, 3);
   const body = document.getElementById('needs-body');
-  const count = document.getElementById('needs-count');
-  count.textContent = decisions.length;
+  const cnt = document.getElementById('needs-count');
+  const inline = document.getElementById('decisions-inline');
 
   if (decisions.length === 0) {
+    cnt.style.display = 'none';
     body.innerHTML = '<div class="needs-empty">Nothing needs you right now.</div>';
+    if (inline) inline.innerHTML = '';
     return;
   }
 
-  const toShow = nowItems.length > 0 ? nowItems : decisions.slice(0, 2);
+  cnt.style.display = 'inline';
+  cnt.textContent = decisions.length;
+
+  // Top items (urgent, with quick action buttons)
+  const urgent = decisions.filter(d => d.urgency === 'now');
+  const rest = decisions.filter(d => d.urgency !== 'now');
+  const toShow = urgent.length > 0 ? urgent : decisions.slice(0, 3);
+
   body.innerHTML = toShow.map(d => `
-    <div class="need-item" onclick="expandDecision('${d.id}')">
+    <div class="need-item">
       <div class="need-urgency ${d.urgency === 'now' ? 'urg-now' : 'urg-soon'}">${d.urgency === 'now' ? 'Now' : 'This week'}</div>
       <div class="need-title">${escHtml(d.title)}</div>
       <div class="need-sub">${escHtml(d.context || d.subtitle || '')}</div>
       ${(d.options || []).length > 0 ? `
       <div class="need-actions">
-        ${d.options.slice(0, 2).map((opt, i) => `
+        ${d.options.map((opt, i) => `
           <button class="btn-need ${i === 0 ? 'btn-need-primary' : 'btn-need-ghost'}"
-            onclick="event.stopPropagation(); resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">${escHtml(opt.label)}</button>
+            onclick="resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">${escHtml(opt.label)}</button>
         `).join('')}
-      </div>` : ''}
+        <button class="btn-need btn-need-ghost" onclick="resolveDecision('${d.id}', 'dismissed', 'Dismissed')">Dismiss</button>
+      </div>` : `
+      <div class="need-actions">
+        <button class="btn-need btn-need-ghost" onclick="resolveDecision('${d.id}', 'dismissed', 'Done')">Mark done</button>
+      </div>`}
     </div>
   `).join('');
-}
 
-function renderDecisions() {
-  const section = document.getElementById('decisions-section');
-  const body = document.getElementById('decisions-body');
-  const cnt = document.getElementById('decisions-count');
-
-  if (decisions.length === 0) {
-    section.style.display = 'none';
-    return;
+  // Remaining items as compact expandable list
+  const remaining = decisions.filter(d => !toShow.includes(d));
+  if (inline && remaining.length > 0) {
+    inline.innerHTML = `<div style="border-top: 1px solid var(--card-border);">` +
+      remaining.map(d => `
+      <div class="di" id="di-${d.id}">
+        <div class="di-row" onclick="toggleDi('${d.id}')">
+          <span class="di-urgency urg-di-week">Week</span>
+          <div class="di-content">
+            <div class="di-title">${escHtml(d.title)}</div>
+            ${d.subtitle ? `<div class="di-sub">${escHtml(d.subtitle)}</div>` : ''}
+          </div>
+          <span class="di-chevron">›</span>
+        </div>
+        <div class="di-expanded">
+          ${d.context ? `<div class="di-context">${escHtml(d.context)}</div>` : ''}
+          <div class="di-options">
+            ${(d.options || []).map((opt, i) => `
+              <button class="di-option" onclick="resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">
+                <span class="di-letter">${String.fromCharCode(65+i)}</span>${escHtml(opt.label)}
+              </button>
+            `).join('')}
+          </div>
+          <button class="di-dismiss" onclick="resolveDecision('${d.id}', 'dismissed', 'Dismissed')">Dismiss</button>
+        </div>
+      </div>`).join('') + `</div>`;
+  } else if (inline) {
+    inline.innerHTML = '';
   }
-  section.style.display = 'block';
-  cnt.textContent = decisions.length;
-  body.innerHTML = decisions.map(d => `
-    <div class="di" id="di-${d.id}">
-      <div class="di-row" onclick="toggleDi('${d.id}')">
-        <span class="di-urgency ${d.urgency === 'now' ? 'urg-di-now' : 'urg-di-week'}">${d.urgency === 'now' ? 'Now' : 'Week'}</span>
-        <div class="di-content">
-          <div class="di-title">${escHtml(d.title)}</div>
-          ${d.subtitle ? `<div class="di-sub">${escHtml(d.subtitle)}</div>` : ''}
-        </div>
-        <span class="di-chevron">›</span>
-      </div>
-      <div class="di-expanded">
-        ${d.context ? `<div class="di-context">${escHtml(d.context)}</div>` : ''}
-        <div class="di-options">
-          ${(d.options || []).map((opt, i) => `
-            <button class="di-option" onclick="resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">
-              <span class="di-letter">${String.fromCharCode(65+i)}</span>${escHtml(opt.label)}
-            </button>
-          `).join('')}
-        </div>
-        <button class="di-dismiss" onclick="resolveDecision('${d.id}', 'dismissed', 'Dismissed')">Dismiss</button>
-      </div>
-    </div>
-  `).join('');
 }
 
 function toggleDi(id) {
   const el = document.getElementById('di-' + id);
   if (el) el.classList.toggle('open');
 }
-function expandDecision(id) {
-  // Scroll to decision in sidebar and open it
-  const el = document.getElementById('di-' + id);
-  if (el) {
-    const section = document.getElementById('decisions-section');
-    section.style.display = 'block';
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    el.classList.add('open');
-  }
-}
+
 async function resolveDecision(decId, optId, optLabel) {
   resolvedLocally.add(decId);
   localStorage.setItem('resolved_decisions', JSON.stringify([...resolvedLocally]));
-  // Update server state
   try {
     await fetch('/decision', {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ decision_id: decId, title: '', chosen_option: optId, chosen_label: optLabel })
     });
   } catch(e) {}
-  // Remove from active list and re-render
   decisions = decisions.filter(d => d.id !== decId);
   renderNeeds();
-  renderDecisions();
-  toast(`Decision recorded: ${optLabel}`, 'ok');
+  toast(`Done: ${optLabel}`, 'ok');
 }
 
 // ─── INBOX ──────────────────────────────────────────
