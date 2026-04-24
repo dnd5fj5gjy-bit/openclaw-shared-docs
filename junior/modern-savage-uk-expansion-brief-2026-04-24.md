@@ -24,7 +24,7 @@ The US organs supplement category has no dominant UK brand. Heart & Soil is Amer
 | Currency | $65/month | ~£50-55/month |
 | Fulfillment | Ships A Lot (US) | Needs UK 3PL |
 | Postage | USPS/Ground, zones 1-9 | Royal Mail / Evri, flat UK rates |
-| VAT | Sales tax (state-by-state) | Zero-rated if qualifies as food supplement* |
+| VAT | Sales tax (state-by-state) | **Standard-rated 20% (capsule/tablet form)** |
 | Returns | FTC standards | UK Distance Selling: 14-day cooling-off |
 | Competitor presence | Heart & Soil, Liver King legacy | Essentially none |
 | Cross-sell opportunity | None direct | Ted's Health patient base (UK men's health) |
