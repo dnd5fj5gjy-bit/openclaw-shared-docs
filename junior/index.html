@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junior — Working Space</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F6F0E6; --cream-deep: #EDE5D5; --card: #FDFAF5;
+  --card-border: #E4DAC5; --ink: #231D0C; --ink-mid: #6B5C48;
+  --ink-light: #9C8A74; --sage: #5A7256; --sage-bg: #E6EFE4;
+  --amber: #A87318; --amber-bg: #FAF0DC;
+  --terracotta: #AD4B27; --terracotta-bg: #FAE6DE;
+  --blue: #345A8A; --blue-bg: #E2EDF8;
+  --green: #2B6B3C; --green-bg: #E3F1E7;
+  --rule: #DAD0BA;
+  --shadow: 0 1px 3px rgba(38,32,15,0.05), 0 3px 12px rgba(38,32,15,0.06);
+  --shadow-md: 0 4px 12px rgba(38,32,15,0.1), 0 8px 28px rgba(38,32,15,0.07);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 14px;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  background-image: radial-gradient(ellipse 80% 50% at 15% 0%, rgba(255,238,210,0.6) 0%, transparent 55%);
+  background-attachment: fixed;
+  color: var(--ink); font-size: 14px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HEADER ─────────────────────────────────────────── */
+.header {
+  background: linear-gradient(145deg, #1C0E06 0%, #2D1608 40%, #3A1E0E 70%, #421808 100%);
+  padding: 14px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 100;
+}
+.header::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 50% 80% at 50% -20%, rgba(180,100,30,0.15) 0%, transparent 60%);
+}
+.header-left { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.header-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, #C05028, #D09020);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 13px; font-weight: 800;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.3);
+}
+.header-title { font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+.header-sub { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 1px; }
+.header-right { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+.header-time { font-size: 22px; font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; letter-spacing: -0.5px; }
+.header-date { font-size: 11px; color: rgba(255,255,255,0.35); text-align: right; margin-top: 1px; }
+.status-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7);
+  transition: all 0.3s;
+}
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #4CAF50;
+  animation: pulse 2.5s infinite; flex-shrink: 0;
+}
+.status-dot.loading { background: var(--amber); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ─── MAIN LAYOUT ─────────────────────────────────────── */
+.layout {
+  max-width: 1120px; margin: 0 auto;
+  padding: 24px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ─── TALK TO JUNIOR ─────────────────────────────────── */
+.talk-box {
+  grid-column: 1 / -1;
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.talk-box:focus-within {
+  border-color: rgba(52,90,138,0.45);
+  box-shadow: var(--shadow-md), 0 0 0 3px rgba(52,90,138,0.06);
+}
+.talk-top {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 14px 16px 0;
+}
+.talk-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, #C05028, #D09020);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 2px;
+}
+.talk-input {
+  flex: 1; border: none; background: transparent;
+  font-family: inherit; font-size: 14px; color: var(--ink);
+  resize: none; outline: none; line-height: 1.6;
+  min-height: 44px; max-height: 200px;
+  padding-top: 4px;
+}
+.talk-input::placeholder { color: var(--ink-light); }
+.talk-bottom {
+  padding: 8px 16px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.talk-hint { font-size: 11px; color: var(--ink-light); }
+.talk-send {
+  background: var(--ink); color: #fff; border: none;
+  border-radius: 8px; padding: 8px 18px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.talk-send:hover { background: var(--terracotta); transform: translateY(-1px); }
+.talk-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.talk-sent-msg {
+  font-size: 12px; color: var(--sage); font-weight: 600;
+  display: none; padding: 8px 16px 12px; text-align: right;
+}
+
+/* ─── JUNIOR'S FEED ───────────────────────────────────── */
+.feed-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.feed-header {
+  padding: 13px 16px 11px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, rgba(26,13,3,0.03), transparent);
+}
+.feed-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, #C05028, #D09020);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 9px; font-weight: 800; flex-shrink: 0;
+}
+.feed-label { font-size: 12px; font-weight: 700; color: var(--ink); }
+.feed-sublabel { font-size: 11px; color: var(--ink-light); margin-left: auto; }
+.feed-item {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--card-border);
+  position: relative;
+}
+.feed-item:last-child { border-bottom: none; }
+.feed-item-type {
+  display: inline-block;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; margin-bottom: 5px;
+}
+.type-status { background: var(--blue-bg); color: var(--blue); }
+.type-insight { background: var(--amber-bg); color: var(--amber); }
+.type-brief { background: var(--sage-bg); color: var(--sage); }
+.type-message { background: var(--cream-deep); color: var(--ink-light); }
+.feed-item-text {
+  font-size: 13px; color: var(--ink-mid); line-height: 1.65;
+}
+.feed-item-text strong { color: var(--ink); font-weight: 700; }
+.feed-item-time { font-size: 10px; color: var(--ink-light); margin-top: 5px; }
+.feed-empty { padding: 24px 16px; font-size: 13px; color: var(--ink-light); font-style: italic; text-align: center; }
+.feed-loading { padding: 20px 16px; text-align: center; }
+.feed-spinner {
+  display: inline-block; width: 18px; height: 18px;
+  border: 2px solid var(--card-border); border-top-color: var(--ink-mid);
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── NEEDS YOU ──────────────────────────────────────── */
+.needs-card {
+  background: linear-gradient(135deg, #FDF6EE 0%, var(--card) 100%);
+  border: 1.5px solid #E8CFA8;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.needs-header {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid #E8CFA8;
+  display: flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, rgba(168,115,24,0.07), transparent);
+}
+.needs-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--amber); }
+.needs-count {
+  margin-left: auto;
+  font-size: 10px; font-weight: 800;
+  background: var(--amber); color: #fff;
+  border-radius: 10px; padding: 1px 7px;
+}
+.need-item {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--card-border);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.need-item:last-child { border-bottom: none; }
+.need-item:hover { background: var(--cream-deep); }
+.need-urgency {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.6px; padding: 2px 6px; border-radius: 3px; margin-bottom: 5px;
+  display: inline-block;
+}
+.urg-now { background: var(--terracotta); color: #fff; }
+.urg-soon { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(168,115,24,0.2); }
+.need-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.need-sub { font-size: 12px; color: var(--ink-mid); margin-top: 3px; line-height: 1.5; }
+.need-actions { display: flex; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
+.btn-need {
+  padding: 6px 12px; border-radius: 7px; font-size: 11.5px; font-weight: 700;
+  cursor: pointer; border: 1px solid transparent; font-family: inherit;
+  transition: all 0.15s;
+}
+.btn-need-primary { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+.btn-need-primary:hover { background: #9E4222; }
+.btn-need-ghost { background: transparent; color: var(--ink-light); border-color: var(--card-border); }
+.btn-need-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+.needs-empty { padding: 18px 16px; font-size: 12.5px; color: var(--sage); display: flex; align-items: center; gap: 8px; }
+.needs-empty::before { content: '✓'; font-weight: 800; }
+
+/* ─── EMAIL INBOX ─────────────────────────────────────── */
+.inbox-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.inbox-header {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 8px;
+}
+.inbox-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ink-mid); }
+.inbox-unread {
+  font-size: 10px; font-weight: 800;
+  background: var(--terracotta); color: #fff;
+  border-radius: 10px; padding: 1px 6px; display: none;
+}
+.inbox-refresh {
+  margin-left: auto; background: none; border: none; cursor: pointer;
+  font-size: 14px; color: var(--ink-light); padding: 2px 6px;
+  border-radius: 6px; transition: color 0.15s, background 0.15s;
+}
+.inbox-refresh:hover { color: var(--ink); background: var(--cream-deep); }
+.email-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.12s;
+}
+.email-item:last-child { border-bottom: none; }
+.email-item.unread .email-subject { font-weight: 800; }
+.email-item-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 5px; }
+.email-from-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--cream-deep); border: 1px solid var(--card-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: var(--ink-mid);
+  flex-shrink: 0; text-transform: uppercase;
+}
+.email-from-avatar.priority { background: var(--terracotta-bg); color: var(--terracotta); }
+.email-item-meta { flex: 1; }
+.email-from { font-size: 12px; font-weight: 700; color: var(--ink); }
+.email-time { font-size: 11px; color: var(--ink-light); }
+.email-subject { font-size: 13px; color: var(--ink); line-height: 1.4; margin-bottom: 3px; }
+.email-preview { font-size: 12px; color: var(--ink-light); line-height: 1.5; }
+.email-cat {
+  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
+}
+.cat-priority { background: var(--terracotta-bg); color: var(--terracotta); }
+.cat-reply   { background: var(--amber-bg); color: var(--amber); }
+.cat-updates { background: var(--cream-deep); color: var(--ink-light); }
+
+/* Email expand/synopsis */
+.email-expand-toggle {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-size: 11.5px; font-weight: 600; color: var(--blue);
+  font-family: inherit; margin-top: 5px; transition: opacity 0.15s;
+}
+.email-expand-toggle:hover { opacity: 0.7; }
+.email-synopsis {
+  display: none; margin-top: 10px;
+  background: linear-gradient(135deg, var(--blue-bg), rgba(226,237,248,0.4));
+  border: 1px solid rgba(52,90,138,0.15); border-radius: 9px;
+  padding: 11px 13px;
+}
+.email-synopsis.open { display: block; }
+.synopsis-summary { font-size: 12.5px; color: var(--ink); line-height: 1.65; margin-bottom: 8px; }
+.synopsis-actions { font-size: 11.5px; color: var(--ink-mid); margin-bottom: 8px; }
+.synopsis-actions li { margin-left: 14px; margin-bottom: 2px; }
+.synopsis-drafts { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+.draft-option {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 7px; padding: 8px 11px;
+  font-size: 12px; color: var(--ink); line-height: 1.55; white-space: pre-wrap;
+  cursor: pointer; transition: border-color 0.15s, background 0.15s;
+}
+.draft-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); }
+.synopsis-loading { font-size: 12px; color: var(--ink-light); font-style: italic; text-align: center; padding: 8px; }
+
+/* ─── CALENDAR ────────────────────────────────────────── */
+.calendar-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.calendar-header {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--card-border);
+}
+.calendar-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ink-mid); }
+.cal-item {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.12s;
+}
+.cal-item:last-child { border-bottom: none; }
+.cal-item:hover { background: var(--cream-deep); }
+.cal-date-badge {
+  display: inline-block; font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 2px 7px; border-radius: 3px; margin-bottom: 4px;
+}
+.cal-today { background: var(--terracotta); color: #fff; }
+.cal-tomorrow { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(168,115,24,0.2); }
+.cal-future { background: var(--cream-deep); color: var(--ink-light); }
+.cal-title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+.cal-time { font-size: 11.5px; color: var(--ink-light); margin-top: 2px; }
+.cal-empty { padding: 18px 16px; font-size: 12.5px; color: var(--ink-light); font-style: italic; }
+
+/* ─── PROJECTS PULSE ─────────────────────────────────── */
+.projects-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.projects-header {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--card-border);
+}
+.projects-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ink-mid); }
+.proj-item {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 11px;
+  text-decoration: none; color: inherit;
+  transition: background 0.12s;
+}
+.proj-item:last-child { border-bottom: none; }
+.proj-item:hover { background: var(--cream-deep); }
+.proj-icon {
+  width: 30px; height: 30px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.proj-body { flex: 1; min-width: 0; }
+.proj-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+.proj-status { font-size: 11px; color: var(--ink-mid); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proj-badge {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.4px; padding: 3px 8px; border-radius: 4px; flex-shrink: 0;
+}
+.icon-ms  { background: linear-gradient(135deg, #EAF3FF, #D5E8FF); }
+.icon-wn  { background: var(--sage-bg); }
+.icon-th  { background: var(--terracotta-bg); }
+.icon-ebg { background: var(--amber-bg); }
+
+/* ─── DECISIONS ──────────────────────────────────────── */
+.decisions-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.decisions-header {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex; align-items: center; gap: 8px;
+}
+.decisions-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--terracotta); }
+.decisions-count {
+  font-size: 10px; font-weight: 800;
+  background: var(--terracotta); color: #fff;
+  border-radius: 10px; padding: 1px 6px;
+}
+.di {
+  border-bottom: 1px solid var(--card-border);
+  overflow: hidden;
+  transition: opacity 0.25s;
+}
+.di:last-child { border-bottom: none; }
+.di.resolved { opacity: 0; max-height: 0; pointer-events: none; transition: opacity 0.25s, max-height 0.35s var(--ease); }
+.di-row { padding: 11px 16px; cursor: pointer; transition: background 0.1s; display: flex; align-items: flex-start; gap: 9px; }
+.di-row:hover { background: var(--cream-deep); }
+.di-urgency {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  padding: 2px 5px; border-radius: 3px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.4px;
+}
+.urg-di-now { background: var(--terracotta); color: #fff; }
+.urg-di-week { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(168,115,24,0.15); }
+.di-content { flex: 1; }
+.di-title { font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.di-sub { font-size: 11.5px; color: var(--ink-mid); margin-top: 2px; }
+.di-chevron { font-size: 12px; color: var(--ink-light); flex-shrink: 0; margin-top: 3px; transition: transform 0.2s; }
+.di.open .di-chevron { transform: rotate(90deg); }
+.di-expanded {
+  max-height: 0; overflow: hidden;
+  background: var(--cream);
+  border-top: 1px solid transparent;
+  padding: 0 16px;
+  transition: max-height 0.3s var(--ease), padding 0.2s, border-color 0.2s;
+}
+.di.open .di-expanded { max-height: 500px; padding: 10px 16px 14px; border-top-color: var(--card-border); }
+.di-context { font-size: 12px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 10px; }
+.di-options { display: flex; flex-direction: column; gap: 5px; }
+.di-option {
+  display: block; width: 100%; background: var(--card);
+  border: 1px solid var(--card-border); border-radius: 7px;
+  padding: 8px 11px; font-size: 12px; font-weight: 600; color: var(--ink);
+  text-align: left; cursor: pointer; font-family: inherit; outline: none;
+  transition: all 0.15s;
+}
+.di-option:hover { border-color: var(--terracotta); background: var(--terracotta-bg); color: var(--terracotta); }
+.di-letter {
+  display: inline-block; width: 17px; height: 17px; background: var(--cream-deep);
+  border-radius: 3px; text-align: center; line-height: 17px; font-size: 10px; font-weight: 800; margin-right: 7px;
+}
+.di-dismiss {
+  margin-top: 8px; display: block; width: 100%; background: none;
+  border: 1px dashed var(--card-border); border-radius: 7px;
+  padding: 6px; font-size: 11px; font-weight: 600; color: var(--ink-light);
+  cursor: pointer; text-align: center; transition: all 0.15s; font-family: inherit;
+}
+.di-dismiss:hover { border-color: var(--sage); color: var(--sage); }
+.di-empty { padding: 16px; font-size: 12.5px; color: var(--ink-light); font-style: italic; }
+
+/* ─── BADGES ─────────────────────────────────────────── */
+.badge {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.3px; padding: 3px 8px; border-radius: 10px;
+}
+.badge-green { background: var(--sage-bg); color: var(--sage); }
+.badge-amber { background: var(--amber-bg); color: var(--amber); }
+.badge-red   { background: var(--terracotta-bg); color: var(--terracotta); }
+.badge-blue  { background: var(--blue-bg); color: var(--blue); }
+.badge-grey  { background: var(--cream-deep); color: var(--ink-light); }
+
+/* ─── TOAST ──────────────────────────────────────────── */
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--ink); color: #fff;
+  padding: 10px 18px; border-radius: 12px;
+  font-size: 12.5px; font-weight: 600;
+  opacity: 0; transform: translateY(10px);
+  transition: all 0.3s var(--ease);
+  pointer-events: none; z-index: 300;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.ok { background: var(--green); }
+.toast.err { background: var(--terracotta); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; padding: 16px 14px 60px; }
+  .header { padding: 12px 16px; }
+  .header-time { font-size: 18px; }
+  .header-date { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-avatar">J</div>
+    <div>
+      <div class="header-title">Junior</div>
+      <div class="header-sub" id="header-sub">Jesse's working space</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="status-pill">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">live</span>
+    </div>
+    <div>
+      <div class="header-time" id="clock">--:--</div>
+      <div class="header-date" id="date-line">--</div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- TALK TO JUNIOR - full width -->
+  <div class="talk-box" style="grid-column: 1 / -1;">
+    <div class="talk-top">
+      <div class="talk-avatar">J</div>
+      <textarea class="talk-input" id="talk-input" rows="2"
+        placeholder="Tell Junior something, ask a question, assign a task..."></textarea>
+    </div>
+    <div class="talk-bottom">
+      <span class="talk-hint" id="talk-hint">Message Junior — appears directly in my active session</span>
+      <button class="talk-send" id="talk-send">Send &rarr;</button>
+    </div>
+    <div class="talk-sent-msg" id="talk-sent">Got it — on it.</div>
+  </div>
+
+  <!-- LEFT COLUMN -->
+  <div style="display: flex; flex-direction: column; gap: 20px;">
+
+    <!-- NEEDS YOU -->
+    <div class="needs-card" id="needs-section">
+      <div class="needs-header">
+        <span class="needs-label">Needs you</span>
+        <span class="needs-count" id="needs-count">--</span>
+      </div>
+      <div id="needs-body">
+        <div style="padding: 18px 16px; text-align: center;">
+          <div class="feed-spinner"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUNIOR'S FEED -->
+    <div class="feed-card">
+      <div class="feed-header">
+        <div class="feed-avatar">J</div>
+        <span class="feed-label">What I've been doing</span>
+        <span class="feed-sublabel" id="feed-updated">loading...</span>
+      </div>
+      <div id="feed-body">
+        <div class="feed-loading"><div class="feed-spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- EMAIL INBOX -->
+    <div class="inbox-card">
+      <div class="inbox-header">
+        <span class="inbox-label">Jesse's inbox</span>
+        <span class="inbox-unread" id="inbox-unread-badge">0</span>
+        <button class="inbox-refresh" id="inbox-refresh" title="Refresh">&#8635;</button>
+      </div>
+      <div id="inbox-body">
+        <div style="padding: 18px 16px; text-align: center;"><div class="feed-spinner"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /left column -->
+
+  <!-- RIGHT COLUMN -->
+  <div style="display: flex; flex-direction: column; gap: 20px;">
+
+    <!-- CALENDAR -->
+    <div class="calendar-card">
+      <div class="calendar-header">
+        <div class="calendar-label">Coming up</div>
+      </div>
+      <div id="calendar-body">
+        <div style="padding: 16px; text-align: center;"><div class="feed-spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- DECISIONS -->
+    <div class="decisions-card" id="decisions-section" style="display:none;">
+      <div class="decisions-header">
+        <span class="decisions-label">Decisions</span>
+        <span class="decisions-count" id="decisions-count">0</span>
+      </div>
+      <div id="decisions-body"></div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="projects-card">
+      <div class="projects-header">
+        <div class="projects-label">Projects</div>
+      </div>
+      <div id="projects-body">
+        <a class="proj-item" href="modern-savage.html">
+          <div class="proj-icon icon-ms">🧬</div>
+          <div class="proj-body">
+            <div class="proj-name">Modern Savage</div>
+            <div class="proj-status" id="proj-ms">US supplement launch</div>
+          </div>
+          <span class="badge badge-amber">pre-launch</span>
+        </a>
+        <a class="proj-item" href="wildernests.html">
+          <div class="proj-icon icon-wn">🌲</div>
+          <div class="proj-body">
+            <div class="proj-name">Wildernests</div>
+            <div class="proj-status">Modular homes, May launch</div>
+          </div>
+          <span class="badge badge-green">active</span>
+        </a>
+        <a class="proj-item" href="teds-health.html">
+          <div class="proj-icon icon-th">⚕️</div>
+          <div class="proj-body">
+            <div class="proj-name">Ted's Health</div>
+            <div class="proj-status">B2B pivot in progress</div>
+          </div>
+          <span class="badge badge-red">at risk</span>
+        </a>
+        <a class="proj-item" href="ebg-bear-witness.html">
+          <div class="proj-icon icon-ebg">🎬</div>
+          <div class="proj-body">
+            <div class="proj-name">EBG / Bear Grylls</div>
+            <div class="proj-status">Brand, Fox show, content</div>
+          </div>
+          <span class="badge badge-blue">ongoing</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /right column -->
+
+</div><!-- /layout -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = '';  // same origin via tunnel
+let emailData = [];
+let synopsisCache = {};
+
+// ─── CLOCK ───────────────────────────────────────────
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+  document.getElementById('date-line').textContent =
+    now.toLocaleDateString('en-GB', {weekday: 'short', day: 'numeric', month: 'short'});
+}
+updateClock();
+setInterval(updateClock, 5000);
+
+// ─── TOAST ───────────────────────────────────────────
+function toast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast show ${type}`;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.className = 'toast'; }, 3000);
+}
+
+// ─── RELATIVE TIME ────────────────────────────────────
+function relTime(ts) {
+  const diff = Date.now() - ts;
+  if (diff < 60000) return 'just now';
+  if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
+  if (diff < 86400000) return Math.floor(diff/3600000) + 'h ago';
+  return Math.floor(diff/86400000) + 'd ago';
+}
+
+// ─── FEED ────────────────────────────────────────────
+async function loadFeed() {
+  try {
+    const res = await fetch('/feed');
+    const items = await res.json();
+    const body = document.getElementById('feed-body');
+    if (!items || items.length === 0) {
+      body.innerHTML = '<div class="feed-empty">No recent activity logged.</div>';
+      return;
+    }
+    document.getElementById('feed-updated').textContent = relTime(items[0].timestamp || Date.now());
+    body.innerHTML = items.slice(0, 8).map(item => {
+      const typeLabel = item.type || 'status';
+      const cls = typeLabel === 'insight' ? 'type-insight' :
+                  typeLabel === 'brief' ? 'type-brief' : 'type-status';
+      const msg = item.message || '';
+      // Bold the first sentence/phrase if it ends with a period or colon
+      const formatted = msg.replace(/^([^:.\n]+[:.])/, '<strong>$1</strong>');
+      return `<div class="feed-item">
+        <div class="feed-item-type ${cls}">${typeLabel}</div>
+        <div class="feed-item-text">${formatted}</div>
+        <div class="feed-item-time">${relTime(item.timestamp || Date.now())}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('feed-body').innerHTML = '<div class="feed-empty">Could not load feed.</div>';
+  }
+}
+
+// ─── DECISIONS / NEEDS YOU ────────────────────────────
+let decisions = [];
+let resolvedLocally = new Set(
+  JSON.parse(localStorage.getItem('resolved_decisions') || '[]')
+);
+
+async function loadDecisions() {
+  try {
+    const [decRes, stateRes] = await Promise.all([
+      fetch('/decisions'),
+      fetch('/state')
+    ]);
+    const decData = await decRes.json();
+    const stateData = await stateRes.json();
+    const serverResolved = new Set(stateData.resolved_decisions || []);
+    const allResolved = new Set([...resolvedLocally, ...serverResolved]);
+
+    decisions = (decData.decisions || []).filter(d => !allResolved.has(d.id));
+    renderNeeds();
+    renderDecisions();
+  } catch(e) {
+    document.getElementById('needs-body').innerHTML = '<div class="needs-empty">All clear.</div>';
+  }
+}
+
+function renderNeeds() {
+  const nowItems = decisions.filter(d => d.urgency === 'now').slice(0, 3);
+  const body = document.getElementById('needs-body');
+  const count = document.getElementById('needs-count');
+  count.textContent = decisions.length;
+
+  if (decisions.length === 0) {
+    body.innerHTML = '<div class="needs-empty">Nothing needs you right now.</div>';
+    return;
+  }
+
+  const toShow = nowItems.length > 0 ? nowItems : decisions.slice(0, 2);
+  body.innerHTML = toShow.map(d => `
+    <div class="need-item" onclick="expandDecision('${d.id}')">
+      <div class="need-urgency ${d.urgency === 'now' ? 'urg-now' : 'urg-soon'}">${d.urgency === 'now' ? 'Now' : 'This week'}</div>
+      <div class="need-title">${escHtml(d.title)}</div>
+      <div class="need-sub">${escHtml(d.context || d.subtitle || '')}</div>
+      ${(d.options || []).length > 0 ? `
+      <div class="need-actions">
+        ${d.options.slice(0, 2).map((opt, i) => `
+          <button class="btn-need ${i === 0 ? 'btn-need-primary' : 'btn-need-ghost'}"
+            onclick="event.stopPropagation(); resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">${escHtml(opt.label)}</button>
+        `).join('')}
+      </div>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderDecisions() {
+  const section = document.getElementById('decisions-section');
+  const body = document.getElementById('decisions-body');
+  const cnt = document.getElementById('decisions-count');
+
+  if (decisions.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  cnt.textContent = decisions.length;
+  body.innerHTML = decisions.map(d => `
+    <div class="di" id="di-${d.id}">
+      <div class="di-row" onclick="toggleDi('${d.id}')">
+        <span class="di-urgency ${d.urgency === 'now' ? 'urg-di-now' : 'urg-di-week'}">${d.urgency === 'now' ? 'Now' : 'Week'}</span>
+        <div class="di-content">
+          <div class="di-title">${escHtml(d.title)}</div>
+          ${d.subtitle ? `<div class="di-sub">${escHtml(d.subtitle)}</div>` : ''}
+        </div>
+        <span class="di-chevron">›</span>
+      </div>
+      <div class="di-expanded">
+        ${d.context ? `<div class="di-context">${escHtml(d.context)}</div>` : ''}
+        <div class="di-options">
+          ${(d.options || []).map((opt, i) => `
+            <button class="di-option" onclick="resolveDecision('${d.id}', '${opt.id || i}', '${escAttr(opt.label)}')">
+              <span class="di-letter">${String.fromCharCode(65+i)}</span>${escHtml(opt.label)}
+            </button>
+          `).join('')}
+        </div>
+        <button class="di-dismiss" onclick="resolveDecision('${d.id}', 'dismissed', 'Dismissed')">Dismiss</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleDi(id) {
+  const el = document.getElementById('di-' + id);
+  if (el) el.classList.toggle('open');
+}
+function expandDecision(id) {
+  // Scroll to decision in sidebar and open it
+  const el = document.getElementById('di-' + id);
+  if (el) {
+    const section = document.getElementById('decisions-section');
+    section.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    el.classList.add('open');
+  }
+}
+async function resolveDecision(decId, optId, optLabel) {
+  resolvedLocally.add(decId);
+  localStorage.setItem('resolved_decisions', JSON.stringify([...resolvedLocally]));
+  // Update server state
+  try {
+    await fetch('/decision', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ decision_id: decId, title: '', chosen_option: optId, chosen_label: optLabel })
+    });
+  } catch(e) {}
+  // Remove from active list and re-render
+  decisions = decisions.filter(d => d.id !== decId);
+  renderNeeds();
+  renderDecisions();
+  toast(`Decision recorded: ${optLabel}`, 'ok');
+}
+
+// ─── INBOX ──────────────────────────────────────────
+async function loadInbox(showSpinner = false) {
+  if (showSpinner) {
+    document.getElementById('inbox-body').innerHTML = '<div style="padding: 18px 16px; text-align: center;"><div class="feed-spinner"></div></div>';
+  }
+  try {
+    const res = await fetch('/emails?count=20');
+    emailData = await res.json();
+    renderInbox();
+  } catch(e) {
+    document.getElementById('inbox-body').innerHTML = '<div style="padding: 14px 16px; font-size: 12px; color: var(--terracotta);">Could not load inbox.</div>';
+  }
+}
+
+function renderInbox() {
+  const body = document.getElementById('inbox-body');
+  const unread = emailData.filter(e => !e.is_read).length;
+  const badge = document.getElementById('inbox-unread-badge');
+  if (unread > 0) { badge.style.display = 'inline'; badge.textContent = unread; }
+  else { badge.style.display = 'none'; }
+
+  // State: handled emails
+  const stateKey = 'handled_emails';
+  const handled = new Set(JSON.parse(localStorage.getItem(stateKey) || '[]'));
+
+  const visible = emailData.filter(e => !handled.has(e.id)).slice(0, 12);
+  if (visible.length === 0) {
+    body.innerHTML = '<div style="padding: 18px 16px; font-size: 12.5px; color: var(--ink-light); font-style: italic;">Inbox is clear.</div>';
+    return;
+  }
+
+  body.innerHTML = visible.map(e => {
+    const initials = (e.from_name || e.from_addr || '?').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+    const catCls = `cat-${e.category}`;
+    return `
+    <div class="email-item ${e.is_read ? '' : 'unread'}" id="email-${e.id}">
+      <div class="email-item-top">
+        <div class="email-from-avatar ${e.category === 'priority' ? 'priority' : ''}">${initials}</div>
+        <div class="email-item-meta" style="flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span class="email-from">${escHtml(e.from_name || e.from_addr)}</span>
+            <span class="email-time">${e.time_display}</span>
+          </div>
+          <div class="email-subject">${escHtml(e.subject || '(no subject)')}</div>
+          <div class="email-preview">${escHtml((e.preview || '').substring(0, 100))}</div>
+        </div>
+        <span class="email-cat ${catCls}">${e.category}</span>
+      </div>
+      <div style="padding-left: 38px;">
+        <button class="email-expand-toggle" onclick="toggleSynopsis('${e.id}')">Ask Junior to analyse &darr;</button>
+        <div class="email-synopsis" id="synopsis-${e.id}"></div>
+      </div>
+    </div>
+  `}).join('');
+}
+
+async function toggleSynopsis(emailId) {
+  const panel = document.getElementById('synopsis-' + emailId);
+  if (!panel) return;
+
+  if (panel.classList.contains('open')) {
+    panel.classList.remove('open');
+    return;
+  }
+  panel.classList.add('open');
+
+  if (synopsisCache[emailId]) {
+    renderSynopsis(emailId, synopsisCache[emailId]);
+    return;
+  }
+  panel.innerHTML = '<div class="synopsis-loading">Junior is reading this email...</div>';
+
+  try {
+    const res = await fetch(`/synopsis?id=${encodeURIComponent(emailId)}`);
+    const data = await res.json();
+    synopsisCache[emailId] = data;
+    renderSynopsis(emailId, data);
+  } catch(e) {
+    panel.innerHTML = '<div class="synopsis-loading" style="color: var(--terracotta);">Error loading analysis.</div>';
+  }
+}
+
+function renderSynopsis(emailId, data) {
+  const panel = document.getElementById('synopsis-' + emailId);
+  if (!panel) return;
+
+  if (data.error) {
+    panel.innerHTML = `<div class="synopsis-loading" style="color: var(--terracotta);">${escHtml(data.error)}</div>`;
+    return;
+  }
+
+  const email = emailData.find(e => e.id === emailId);
+  const toName = email ? (email.from_name || email.from_addr) : '';
+  const subject = email ? (email.subject || '') : '';
+
+  let html = '';
+  if (data.summary) html += `<div class="synopsis-summary">${escHtml(data.summary)}</div>`;
+  if (data.actions && data.actions.length > 0) {
+    html += `<div class="synopsis-actions"><strong>Actions:</strong><ul>${data.actions.map(a => `<li>${escHtml(a)}</li>`).join('')}</ul></div>`;
+  }
+  if (data.drafts && data.drafts.length > 0) {
+    html += `<div style="font-size:11px; font-weight: 700; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px;">Junior's draft replies:</div>`;
+    html += `<div class="synopsis-drafts">${data.drafts.map((d, i) => `
+      <div class="draft-option" onclick="copyDraft(this, '${emailId}', ${i})" title="Click to copy">${escHtml(d)}</div>
+    `).join('')}</div>`;
+  }
+  panel.innerHTML = html;
+}
+
+function copyDraft(el, emailId, idx) {
+  const text = el.textContent;
+  navigator.clipboard.writeText(text).then(() => toast('Draft copied to clipboard', 'ok'));
+}
+
+document.getElementById('inbox-refresh').addEventListener('click', () => loadInbox(true));
+
+// ─── CALENDAR ────────────────────────────────────────
+async function loadCalendar() {
+  try {
+    const res = await fetch('/calendar');
+    const events = await res.json();
+    const body = document.getElementById('calendar-body');
+
+    if (!events || events.length === 0) {
+      body.innerHTML = '<div class="cal-empty">No upcoming events.</div>';
+      return;
+    }
+    body.innerHTML = events.slice(0, 6).map(ev => {
+      const dateCls = ev.date_label === 'Today' ? 'cal-today' :
+                      ev.date_label === 'Tomorrow' ? 'cal-tomorrow' : 'cal-future';
+      return `<div class="cal-item">
+        <div class="cal-date-badge ${dateCls}">${escHtml(ev.date_label)}</div>
+        <div class="cal-title">${escHtml(ev.subject)}</div>
+        <div class="cal-time">${ev.time}${ev.location ? ' · ' + ev.location : ''}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('calendar-body').innerHTML = '<div class="cal-empty">Could not load calendar.</div>';
+  }
+}
+
+// ─── TALK TO JUNIOR ──────────────────────────────────
+const talkInput = document.getElementById('talk-input');
+const talkSend = document.getElementById('talk-send');
+
+talkInput.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 180) + 'px';
+});
+talkInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendToJunior();
+  }
+});
+talkSend.addEventListener('click', sendToJunior);
+
+async function sendToJunior() {
+  const text = talkInput.value.trim();
+  if (!text) return;
+
+  talkSend.disabled = true;
+  talkSend.textContent = 'Sending...';
+
+  try {
+    const res = await fetch('/junior-task', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+    const data = await res.json();
+    if (data.status === 'delivered') {
+      talkInput.value = '';
+      talkInput.style.height = '';
+      const sentMsg = document.getElementById('talk-sent');
+      sentMsg.textContent = 'Got it.';
+      sentMsg.style.display = 'block';
+      setTimeout(() => { sentMsg.style.display = 'none'; }, 3000);
+      toast('Message sent to Junior', 'ok');
+    } else {
+      toast('Could not reach Junior: ' + (data.error || 'unknown'), 'err');
+    }
+  } catch(e) {
+    toast('Could not send: ' + e.message, 'err');
+  }
+  talkSend.disabled = false;
+  talkSend.textContent = 'Send →';
+}
+
+// ─── UTILS ───────────────────────────────────────────
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return String(s || '').replace(/'/g,"\\'").replace(/"/g,"&quot;");
+}
+
+// ─── LOAD ALL ─────────────────────────────────────────
+async function loadAll() {
+  document.getElementById('status-dot').className = 'status-dot loading';
+  document.getElementById('status-text').textContent = 'loading';
+
+  await Promise.all([
+    loadFeed(),
+    loadDecisions(),
+    loadInbox(),
+    loadCalendar(),
+  ]);
+
+  document.getElementById('status-dot').className = 'status-dot';
+  document.getElementById('status-text').textContent = 'live';
+  document.getElementById('header-sub').textContent = 'Updated ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+}
+
+loadAll();
+// Auto-refresh every 90 seconds
+setInterval(loadAll, 90000);
+</script>
+</body>
+</html>
