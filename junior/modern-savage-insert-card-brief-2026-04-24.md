@@ -16,6 +16,32 @@
 
 ---
 
+## IMPORTANT UPDATE — Bear's Actual Copy (Apr 24, 22:25)
+
+Bear sent Jesse the insert card text he wants tonight via WhatsApp. Use this, not the draft below:
+
+> "As a family, we created Modern Savage together, sat around our kitchen table. We made it because knowing how to keep you and your family healthy and strong isn't easy in the modern world.
+>
+> But we are proud to bring you a true, total nutrition solution, so you have all you need to soar!
+>
+> Let us know how you get on, and check out the recipes on our website. Feel free to email us and suggest some of your own too.
+>
+> We are super proud & grateful to have you in the MODERN SAVAGE family…
+>
+> Thank you.
+>
+> With love & respect"
+
+**Brand signal from Bear's copy:**
+- Family-first, not survival-first ("sat around our kitchen table")
+- Warm and inclusive ("MODERN SAVAGE family")
+- Mentions recipes — the website needs a recipe section if it doesn't have one
+- Signs off with love — very different from the aspirational-tough register I was building toward
+
+This changes the OB-3 email (Bear's story) too. The kitchen table story IS that email. Calvin should ask Bear to write OB-3 himself or expand on this insert text. It's already in his voice.
+
+---
+
 ## Card Dimensions and Format
 
 Standard insert: 4"×6" (10×15cm). Double-sided. Card stock, not paper — feels premium without adding cost.
