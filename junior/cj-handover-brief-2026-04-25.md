@@ -102,31 +102,11 @@ Bear's resignation from Becoming X is pending. CJ to confirm this has been forma
 
 ---
 
-## 9. Running Wild S9 — CJ as Approval Authority from May 7
+## 9. Running Wild S9 — Olly Is Approval Authority from May 7
 
-Jesse approves all Bear social content. From May 7 (when he sails), CJ approves in his place.
+**Note: Content approvals are Olly's job, not CJ's.** This section is here for awareness only.
 
-**Upcoming episodes and what Calvin needs approved:**
-
-| Episode | Guest | Air Date | CJ needs to approve |
-|---------|-------|----------|---------------------|
-| Ep 3 | MGK (Machine Gun Kelly) | May 5 | Pre-episode tease + air day post. Jesse should approve before sailing — Calvin to send drafts by May 3. |
-| Ep 4/5 | Colman Domingo | May 12 or 19 (Calvin to verify) | Same — pre-tease + air day post |
-| Ep 5/6 | Uma Thurman | ~May 19 or 26 | CJ approves |
-| Ep 6/7 | Elizabeth Banks / Michelle Monaghan | Late May / Early Jun | CJ approves |
-| Ep 8 | Rhys Darby | ~Jun 9 | CJ approves |
-
-**Episode briefs for all guests:**
-- MGK: `workspace/docs/running-wild-mgk-episode-brief-2026-04-27.md` — avoid Megan Fox entirely, lean into sobriety/vulnerability narrative
-- Colman Domingo: `workspace/docs/running-wild-colman-domingo-brief-2026-04-27.md` — "radical love" framing, avoid Michael Jackson biopic controversy
-- Uma Thurman: `workspace/docs/running-wild-uma-thurman-brief-2026-04-27.md` — Buddhist upbringing is the lead angle, not Kill Bill
-- Elizabeth Banks + Michelle Monaghan: `workspace/docs/running-wild-elizabeth-banks-michelle-monaghan-brief-2026-04-28.md` — Banks: avoid Charlie's Angels entirely. Monaghan: Iowa roots is the angle.
-- Rhys Darby: `workspace/docs/running-wild-rhys-darby-brief-2026-04-28.md` — NZ Army veteran + Cryptid Factor podcast. Don't make him a punchline.
-- Full playbook for all episodes: `workspace/docs/running-wild-s9-social-playbook-2026-04-25.md`
-
-**CJ's job:** When Calvin submits posts for review (via Metricool), approve if they match the brief tone. If something feels off — too glib, misses the guest's narrative, or touches a sensitive area — ask Calvin to redraft before approving.
-
-Calvin submits via Metricool (notifications go to Jesse's email). CJ should ask Calvin to copy CJ@beargryllsventures.com on Metricool review requests from May 7.
+Jesse approves Bear social content until May 7. From May 7, Olly approves in his place. Calvin submits via Metricool — Olly needs to be copied on those requests. Episode briefs for all guests are built (see Olly's brief). CJ does not need to be in this workflow unless Calvin raises a commercial/contractual issue.
 
 ---
 
