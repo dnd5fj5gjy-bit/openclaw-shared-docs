@@ -18,12 +18,11 @@ Susan U has been waiting. It's the easiest task. Get it done before you open any
 
 ---
 
-### 2. UKIPO — 10 minutes
-Pay the £265 MODERN SAVAGE trademark fee.
-- Go to: https://www.ipo.gov.uk/
-- Login: **Savage2026!**
-- Find the pending MODERN SAVAGE application and pay £265
-- Screenshot the confirmation. Send to CJ for records.
+### 2. UKIPO — DONE, no action needed
+Both trademark applications are paid and in progress.
+- **SISTER SWIMS** (UK00004372256, Class 25): Accepted for publication April 24. Now in 2-month opposition period. No action needed.
+- **MODERN SAVAGE** (UK00004375735, Classes 5+29): Standard examination in progress, filed April 20. No report yet.
+Remove this from your list.
 
 ---
 
