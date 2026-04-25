@@ -23,8 +23,13 @@ This is normally a CJ/Em Lovell routine catch-up. Jesse should be on this one be
 
 ### Thread 1: FOX/Bear Creator Network Economics Dispute (CJ is managing, Bear watching)
 
-**What the Creator Network is:**
-The FOX/Bear Creator Network is a digital content network built around Bear Grylls' IP and audience. Annual gross media value: $35-81M (UTA IQ estimate range). Structure: Bear + EBG + possibly Fox involvement in distribution.
+**What the Creator Network actually is (confirmed April 26):**
+FOX is building a multi-pillar creator network — each pillar has a named "head." Known pillar heads: Gordon Ramsay (Food), Martha Stewart (Home), Tom Segura (Comedy). Bear Grylls is the Outdoors/Adventure pillar head. This intel came directly from Delbert in a March 26 email. The Bear pillar may be called "LFG Network" — an email with that name was forwarded by Delbert from Source Media Group on April 20.
+
+**Who is actually building it:**
+Source Media Group (Santino Stoner, EVP Studio; Owen Leimbach) is the production/studio partner. Delbert (The Natural Studios) is the connector and co-EP. EBG has zero operational role in building the network. They only manage Bear's social handles.
+
+Annual gross media value: $35-81M (UTA IQ estimate range).
 
 **What EBG is claiming:**
 EBG believes they are entitled to a share of revenue from the network — beyond what the consulting agreement covers.
