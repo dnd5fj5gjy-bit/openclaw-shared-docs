@@ -110,6 +110,18 @@ The show is trading raw viewer volume for a more concentrated A18-49 audience �
 
 ---
 
+## The UTA Relationship — EBG Had No Part in This
+
+On April 1, Jesse (with Delbert) had a call with **Andrew Lear and Ty Flynn at UTA** (United Talent Agency, Beverly Hills). Ty Flynn is in UTA's digital/creator division. Stephanie Smith on that call said "Really excited to be working together." This is Bear's YouTube/digital strategy being handled by UTA agents.
+
+Ty Flynn followed up April 13 checking in on "everything YouTube." Delbert told Ty on April 17: "I have a few things coming your way. Can we schedule a call the week of April 27?" — that call has now happened (or is in progress now). Delbert is packaging opportunities for Bear's YouTube expansion and presenting them to UTA.
+
+**What this means for May 4:** EBG had zero role in establishing or building Bear's UTA relationship. The entire digital strategy — YouTube (UTA), FOX Creator Network (Source Media Group), and whatever the LFG Network becomes — was built by Delbert and Jesse working with specialist partners. EBG's consulting agreement covers social media posting, not talent representation or deal origination.
+
+If EBG argues they "drove the value" that made the Creator Network possible: the agents who built it are Ty Flynn and Andrew Lear (UTA). The production partner is Source Media Group. The connector is Delbert. EBG's name appears nowhere in that architecture.
+
+---
+
 ## The Analogy Jesse Can Use (If Needed)
 
 The FOX Creator Network has multiple pillar heads — Gordon Ramsay (Food), Martha Stewart (Home), Tom Segura (Comedy), Bear (Outdoors). Gordon Ramsay almost certainly has a social media management firm. That firm doesn't get a share of Gordon's FOX Food Network revenue. EBG is Bear's social media manager. Same logic applies.
