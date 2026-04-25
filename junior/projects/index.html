@@ -615,9 +615,15 @@ body {
 
     <!-- RECENT DOCS -->
     <div class="projects-card" id="docs-panel">
-      <div class="projects-header">
-        <div class="projects-label">Recent docs</div>
-        <span class="feed-sublabel" id="docs-count" style="font-size:11px; color: var(--ink-light);"></span>
+      <div class="projects-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <div class="projects-label">Docs</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span id="docs-new-badge" style="display:none;background:var(--terracotta);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;"></span>
+          <span class="feed-sublabel" id="docs-count" style="font-size:11px; color: var(--ink-light);"></span>
+        </div>
+      </div>
+      <div style="padding: 8px 14px 4px; display:flex; gap:6px; flex-wrap:wrap;" id="docs-filter-bar">
+        <button onclick="filterDocs('all')" class="docs-filter-btn active" data-cat="all">All</button>
       </div>
       <div id="docs-body">
         <div style="padding: 16px; text-align: center;"><div class="feed-spinner"></div></div>
