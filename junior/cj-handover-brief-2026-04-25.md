@@ -158,11 +158,12 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 
 ## CJ's Priority Order (business decisions only)
 
-1. **Calvin contracts — chase daily until signed. Hold new paid work if not signed by May 7.**
-2. **modernsavage.com domain — initiate acquisition this week (budget up to £2K)**
-3. **BPS Hub — email Sam Cotton this week, have exploratory call if response comes**
-4. **Flag Raemy on Modern Savage legal entity (Stripe)**
-5. **Becoming X — confirm Bear resignation formally submitted**
+1. **ACF Pharma ship date — email Chris Liming (chris@lightningnutra.com) within 24 hours. Confirm expected ship date for all three products. If after June 25, escalate to Jesse immediately.**
+2. **Calvin contracts — chase daily until signed. Hold new paid work if not signed by May 7.**
+3. **modernsavage.com domain — initiate acquisition this week (budget up to £2K)**
+4. **BPS Hub — email Sam Cotton this week, have exploratory call if response comes**
+5. **Flag Raemy on Modern Savage legal entity (Stripe)**
+6. **Becoming X — confirm Bear resignation formally submitted**
 6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — routine biweekly)
 7. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
 8. **April 30 Wildernests/BCG call — email Gunnar that Jesse is off until May 21** (before April 28)
