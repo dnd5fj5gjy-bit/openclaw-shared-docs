@@ -128,6 +128,26 @@ Calvin submits via Metricool (notifications go to Jesse's email). CJ should ask 
 
 ---
 
+## 10. Bear Monthly Catch-up — Missed April 27
+
+The monthly Bear/BGV catch-up with Caroline Michel (PFD — Peters Fraser & Dunlop, Bear's literary/talent agent) was scheduled April 27 at 2pm. Jesse was on set in Georgia and missed it.
+
+**CJ's action:** Send a brief apology to Caroline Michel at cmichel@pfd.co.uk: "Jesse was filming and missed the April 27 catch-up. He'll be back briefly May 5-6, then sailing May 7-21. Happy to reschedule for late May when he's back. Apologies for any inconvenience."
+
+Other attendees: Em Lovell (BGV), Raemy, Silvia Molteni.
+
+---
+
+## 11. BEAR Logo NIL Agreement — Bear's Signature Needed
+
+CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BEAR logo Trademark Assignment ("NIL Agreement"). Em sent the document to CJ on April 23. Raemy is handling the invoice side when it comes.
+
+**Status as of April 23:** Document with CJ, awaiting Bear's signature.
+
+**CJ's action:** Confirm this has been signed by Bear before Jesse sails. If not, chase Bear directly to sign. This is a legal document and should not sit unsigned indefinitely.
+
+---
+
 ## What Doesn't Need CJ
 
 - Mettle: keep warm, non-committal, no action
