@@ -185,6 +185,10 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 2. Alternatively: list on Sedo.com as a buyer enquiry
 3. Budget authorisation: Raemy should approve up to £2,000 without Jesse sign-off. Above that, call Jesse.
 
-No public asking price is visible. The domain was registered in 2004 so the holder isn't a targeted squatter — likely just a generic registration that BGV needs to buy out. Most dormant domains trade for £500-3,000.
+**UPDATED April 25 — active owner confirmed:** modernsavage.com serves a custom-built "coming soon" HTML page (not a GoDaddy default parking template). The owner is actively maintaining the domain and will almost certainly renew on June 24. Do NOT wait for the domain to drop — it won't.
 
-**Deadline:** Acquisition initiated before June 24. Ideally confirmed before Jesse returns May 5.
+Opening offer recommendation: £1,500 (not £500 — the custom page signals the owner is engaged). Maximum authorisation without Jesse: £2,000. If counter comes back above £2,000, call Jesse before responding. Do NOT reveal the buyer is Bear Grylls when using the broker — anonymous approach only.
+
+Full intelligence brief at: docs/modernsavage-domain-brief-2026-04-25.pdf
+
+**Deadline:** Broker enquiry initiated this week (April 25-28). Confirmed acquisition by June 17 at the latest. If not progressing by May 7, email junior@beargryllsventures.com so monitoring continues while Jesse is sailing.
