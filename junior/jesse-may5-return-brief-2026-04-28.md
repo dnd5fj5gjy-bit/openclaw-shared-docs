@@ -62,6 +62,9 @@ CJ managed Apr 29 - May 4. Here's what to check when you land:
 **Ted's Health BCG engagement (Gunnar Trommer + Alex Aboshiha):**
 Gunnar Trommer (Managing Director, BCG X — their medtech/digital health unit) and Alex Aboshiha (BCG Partner, California) have been running weekly Zoom calls with you. **The May 7 weekly call is at 5pm — your sailing day.** Decide before then: dial in from the boat, ask them to reschedule for May 5 or 6, or skip and reconnect when back. Don't just miss it without a heads-up. Alex left a note April 16 asking Gunnar for "a fresh external proposal on what you think would be the very best solution" — there may be a BCG proposal waiting for you.
 
+**EBG / Benjamin Simon — Modern Savage Collaboration:**
+Benjamin Simon (CEO, Everest Brand Group — your Running Wild S9 co-EP partner) emailed you April 14 asking about "how we might support and add value to the Modern Savage project." You had a Zoom on April 16 at 9:30 EST. No follow-up email after the Zoom. You know what was discussed — I don't. Before sailing, either progress this or send Benjamin a holding note: "Ben — picked up again after filming. Let's pick up the Modern Savage conversation when I'm back May 21." EBG contact: ben@everestbrandgroupinc.com.
+
 **Fat Cow / Ryan Porter:**
 Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it and replied April 24: "I want to keep our first move simple." You organized a follow-up Zoom with Ryan for April 27 noon — but you were on set in Georgia. That Zoom almost certainly didn't happen. Ryan has been waiting since April 27. Send him a quick message before sailing: "Ryan — apologies, was on set. Let's reconnect when I'm back May 5/6."
 
