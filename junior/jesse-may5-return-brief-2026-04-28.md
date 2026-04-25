@@ -110,7 +110,7 @@ In priority order:
 3. **Modern Savage Stripe** — confirm with Raemy entity is set up; if not, action it now
 4. **CJ debrief** — 15-minute call: what happened while you were off, what needs Jesse before sailing
 5. **Alice/Tom coffee** — briefed above, go in knowing the Henri-Lloyd kit deal status
-6. **MGK Running Wild posts** — approve before sailing; CJ handles from May 7
+6. **MGK Running Wild posts** — approve before sailing; Olly handles from May 7
 
 **Things that can wait:** Water2 follow-up (email from CJ holding warm), BPS Hub (CJ sent the email), Alfred formal pitch (May 5 is prep, not close), Wildernests equity docs (CJ monitoring).
 
