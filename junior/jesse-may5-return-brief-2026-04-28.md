@@ -28,11 +28,11 @@ You've been meeting with Alice and Tom since February 2026:
 
 The context: you sent Tom an email on April 9 ("A plan") saying "when I wrote to you about how Alfred needs to position itself, I felt like something clicked. I know how to bu[ild this]..." — you're pitching Bear Witness as Alfred's digital media partner, with Tom as the connector.
 
-**Henri-Lloyd is also live.** In February, Emilia Renshaw from Henri-Lloyd sent a Heads of Agreement and kit selection request. You confirmed you were "all good with those terms" and were waiting to do 2x ocean pro kit and 2x elite kit. You may be doing a kit/sponsorship deal with Henri-Lloyd ahead of your sailing trip.
+**Henri-Lloyd is already signed and active.** Not pending — done. Kit was delivered March 2026. Emilia Renshaw (Henri-Lloyd) sent Instagram post briefs in March. On April 23 (the day before you flew to Georgia), you wrote your own ambassador bio for Henri-Lloyd's website: "I'm Jesse Grylls. Adventure has been in the family for as lo[ng as I can remember]..." The ambassador page is being built right now. Alice organized the original intro and is Henri-Lloyd's PR. She'll likely want to discuss how the ambassador content is landing.
 
-**What to expect May 5:** Alice and Tom will likely want to hear your plan for Alfred. Jesse may be close to landing this as a client. Alice, as the PR veteran, may be evaluating whether Bear Witness's approach is credible. Tom is the social connector.
+**What to expect May 5:** This meeting is probably both Alfred and Henri-Lloyd. Alice manages Henri-Lloyd's PR and was the connector. Tom is the Alfred link. You may get updates on both. If the Henri-Lloyd ambassador page is live by May 5, go prepared to discuss content direction.
 
-**The pitch:** Bear Witness manages Alfred's digital presence — social, content, community narrative. Tom knows Alfred's people. Alice validates the PR credentials. You bring the brand distribution.
+**The pitch (Alfred side):** Bear Witness manages Alfred's digital presence — social, content, community narrative. Tom knows Alfred's people. Alice validates the PR credentials. You bring the brand distribution.
 
 ---
 
