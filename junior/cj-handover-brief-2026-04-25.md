@@ -100,9 +100,33 @@ Bear's resignation from Becoming X is pending. CJ to confirm this has been forma
 
 ---
 
+## 9. Running Wild S9 — CJ as Approval Authority from May 7
+
+Jesse approves all Bear social content. From May 7 (when he sails), CJ approves in his place.
+
+**Upcoming episodes and what Calvin needs approved:**
+
+| Episode | Guest | Air Date | CJ needs to approve |
+|---------|-------|----------|---------------------|
+| Ep 3 | MGK (Machine Gun Kelly) | May 5 | Pre-episode tease + air day post. Jesse should approve before sailing — Calvin to send drafts by May 3. |
+| Ep 4/5 | Colman Domingo | May 12 or 19 (Calvin to verify) | Same — pre-tease + air day post |
+| Ep 5/6 | Uma Thurman | ~May 19 or 26 | CJ approves |
+| Ep 6/7 | Elizabeth Banks / Michelle Monaghan | Late May / Early Jun | CJ approves |
+| Ep 8 | Rhys Darby | ~Jun 9 | CJ approves |
+
+**Episode briefs for the complex guests:**
+- MGK: `workspace/docs/running-wild-mgk-episode-brief-2026-04-27.md` — avoid Megan Fox entirely, lean into sobriety/vulnerability narrative
+- Colman Domingo: `workspace/docs/running-wild-colman-domingo-brief-2026-04-27.md` — "radical love" framing, avoid Michael Jackson biopic controversy
+- Full playbook for all episodes: `workspace/docs/running-wild-s9-social-playbook-2026-04-25.md`
+
+**CJ's job:** When Calvin submits posts for review (via Metricool), approve if they match the brief tone. If something feels off — too glib, misses the guest's narrative, or touches a sensitive area — ask Calvin to redraft before approving.
+
+Calvin submits via Metricool (notifications go to Jesse's email). CJ should ask Calvin to copy CJ@beargryllsventures.com on Metricool review requests from May 7.
+
+---
+
 ## What Doesn't Need CJ
 
-- Running Wild social cadence: Calvin is managing, Metricool posts queued for Apr 26-28, Bear repost Sunday 10am (Tiffany Haddish episode Apr 28)
 - Mettle: keep warm, non-committal, no action
 - Alfred/Bear Witness pitch: Olly managing
 - Luminox: no action until 2027 minimums kick in
@@ -117,3 +141,18 @@ Bear's resignation from Becoming X is pending. CJ to confirm this has been forma
 4. **Flag Raemy on Modern Savage legal entity (Stripe)**
 5. **Becoming X — Bear resignation confirmed**
 6. **Water2 — hold warm if Jesse's call doesn't happen**
+
+---
+
+## 8. modernsavage.com Domain — URGENT THIS WEEK
+
+**The problem:** modernsavage.com is owned by a third party (registered 2004, GoDaddy privacy-protected) and expires **June 24, 2026** — one week before the Modern Savage July 1 launch. If BGV doesn't acquire it, the holder renews it or it drops to squatters exactly when launch press generates traffic to the wrong site.
+
+**CJ's action this week:**
+1. Go to GoDaddy.com → search modernsavage.com → use the "Make Offer" or broker enquiry option
+2. Alternatively: list on Sedo.com as a buyer enquiry
+3. Budget authorisation: Raemy should approve up to £2,000 without Jesse sign-off. Above that, call Jesse.
+
+No public asking price is visible. The domain was registered in 2004 so the holder isn't a targeted squatter — likely just a generic registration that BGV needs to buy out. Most dormant domains trade for £500-3,000.
+
+**Deadline:** Acquisition initiated before June 24. Ideally confirmed before Jesse returns May 5.
