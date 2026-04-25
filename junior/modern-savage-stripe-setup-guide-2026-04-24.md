@@ -98,7 +98,7 @@ This is where the subscription is defined. Do this carefully — it sets the bil
 2. Name: **Modern Savage Adult Blend**
 3. Description: 28-serving monthly supply
 4. Pricing model: **Recurring**
-5. Price: **$65.00 USD** per month
+5. Price: **$69.00 USD** per month (confirmed on modernsavage.co)
 6. Billing period: Monthly
 7. Save
 
