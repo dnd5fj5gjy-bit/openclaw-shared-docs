@@ -61,7 +61,9 @@ Let Charles propose something first. If he says equity warrants, great. If he sa
 
 > "What's your ARR today, and what's the 12-month trajectory?"
 
-That number does two things: tells you what the equity is worth, and tells you whether Water2 has the revenue to justify any deal structure at all. If ARR is under £500K, the business is very early and warrants are more reasonable than anything cash-based. If ARR is over £1M, the equity conversation has real weight.
+**Context going in:** Based on their public claim of 180,000 homes and £99/year refills, the math points to £12-18M ARR. If Charles quotes a number in that range, you know the equity is real and worth protecting. If he quotes something much lower, either retention is a problem or the customer count is marketing.
+
+The follow-up question if he gives you a number: "And what's the retention rate looking like?" That tells you whether the £99/year refills are actually recurring.
 
 ---
 
