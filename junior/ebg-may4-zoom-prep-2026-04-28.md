@@ -1,0 +1,114 @@
+# EBG/BGV Zoom — May 4 Call Prep
+**Date:** Sunday May 4, 3pm UK (10am EST)
+**Format:** Biweekly catch-up with Em Lovell (BGV internal), EBG team
+**For:** Jesse Grylls
+**Prepared:** April 28, 2026
+**Author:** Junior
+
+---
+
+## Why Jesse Should Attend This One Personally
+
+This is normally a CJ/Em Lovell routine catch-up. Jesse should be on this one because:
+
+1. **Live commercial dispute in the room.** EBG is claiming a revenue participation share from the FOX/Bear Creator Network — a business estimated at $35-81M annual gross media value. CJ is pushing back (position: consulting agreement covers EBG's compensation, doesn't extend to network revenue). This is not CJ's call to make unilaterally. Bear wants Jesse involved before BGV takes a position.
+
+2. **Jesse returns from set April 28.** He can attend. The original note in the sailing brief marked this as "May 18" — that was an error. It's May 4.
+
+3. **If CJ attends alone and EBG pushes on network economics, CJ may say something that creates a precedent.** Having Jesse present protects BGV's negotiating position.
+
+---
+
+## Two Live EBG Threads — Keep Them Separate
+
+### Thread 1: FOX/Bear Creator Network Economics Dispute (CJ is managing, Bear watching)
+
+**What the Creator Network is:**
+The FOX/Bear Creator Network is a digital content network built around Bear Grylls' IP and audience. Annual gross media value: $35-81M (UTA IQ estimate range). Structure: Bear + EBG + possibly Fox involvement in distribution.
+
+**What EBG is claiming:**
+EBG believes they are entitled to a share of revenue from the network — beyond what the consulting agreement covers.
+
+**BGV's position:**
+The EBG_BWM_Consulting_Agreement_Final (signed April 3 via DocuSign, $25K/month processed through Cavendish Trust/Rick Landman) is the full extent of EBG's commercial relationship. Network revenue is NOT covered.
+
+**Bear's view:**
+Bear wants Jesse and him to align before BGV responds to EBG's claim. This is not resolved.
+
+**Jesse's job on this call:**
+- Listen to what EBG raises. Note it. Acknowledge it.
+- Do NOT engage on specifics of network economics.
+- Stock phrase if it comes up: *"Bear and I are looking at this together. We'll come back to you properly — I want to give it the attention it deserves."*
+- The moment you respond to specific numbers or structures, you're in negotiation.
+
+### Thread 2: Modern Savage Investment Pitch (Jesse owns this)
+
+Benjamin Simon (EBG CEO) emailed Jesse April 14, cc'ing Bear and Will Gardenswartz, about Sovereign's Capital Everest Fund I potentially investing in Modern Savage. A Zoom happened April 16 at 9:30 EST. No follow-up email found. Open thread.
+
+**This is entirely separate from the consulting agreement and the network economics dispute.** Do not conflate them.
+
+**Jesse's job on this call:**
+- Do NOT raise the Modern Savage investment thread on this call.
+- If EBG raises it: "Yes, I've been thinking about that. Bear and I need to align first — let's schedule a dedicated call for that conversation."
+- A decision on EBG as an investor in Modern Savage should happen after:
+  (a) Jesse and Bear align
+  (b) September MRR data exists (don't negotiate equity pre-launch without data)
+
+---
+
+## The People on the Call
+
+**BGV side:**
+- Jesse Grylls
+- Em Lovell (em@beargryllsventures.com) — BGV internal, manages EBG relationship
+- Possibly CJ Cardenas
+
+**EBG side (typical):**
+- Benjamin Simon — CEO, Everest Brand Group (Charlotte, NC), co-EP Running Wild S9
+- Delbert Shoopman (del@thenaturalstudios.com) — The Natural Studios, co-EP, connector
+- Will Gardenswartz (will@everestbrandgroup.com) — EBG partner
+
+---
+
+## What EBG Might Raise (and How to Handle It)
+
+| Topic | Likely EBG angle | Jesse's response |
+|-------|-----------------|-----------------|
+| FOX Network economics | "We've been driving a lot of value here, need to discuss revenue participation" | "Bear and I are looking at this together. We'll come back with a proper position." |
+| Modern Savage investment | "Has there been any more thought on the Sovereign's Capital interest?" | "Yes, Bear and I need to align first. Let's schedule a dedicated call." |
+| Running Wild S9 progress | Episode updates, content performance | Engage freely — this is routine |
+| Next season / future projects | Speculative partnership ideas | Listen, be positive, no commitments |
+
+---
+
+## What to Listen For
+
+- Any specific dollar figures or percentage claims on network revenue — note them exactly
+- Any timeline pressure ("we need to resolve this by X") — that's a negotiating tactic
+- Any mention of legal action or formal dispute — flag to CJ immediately after the call
+- Any new intelligence on what Delbert is bringing to UTA (Ty Flynn call, week of April 27) — Delbert said "a few things coming your way"
+
+---
+
+## Consulting Agreement Status
+
+- $25K/month fee: April payment processed April 17 via Cavendish Trust (Rick Landman)
+- May invoice: due ~May 15. Raemy to raise; Rick processes.
+- Jesse's personal invoice: still needs 30-second callback to Rick Landman (+447624277888) before sailing May 7. Rick has payment ready but needs bank account verification.
+
+---
+
+## One Week Before This Call
+
+Brief Bear directly (WhatsApp). Short message:
+> "May 4 EBG catch-up coming up. Want to align on the Creator Network economics before the call — 10 mins on the phone before Sunday?"
+
+Bear wants to be involved. Give him the chance.
+
+---
+
+## After the Call
+
+- Write down what EBG raised, word for word.
+- Share with Bear before responding to anything.
+- No solo moves on network economics.
