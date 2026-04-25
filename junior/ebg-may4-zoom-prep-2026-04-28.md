@@ -81,12 +81,33 @@ Benjamin Simon (EBG CEO) emailed Jesse April 14, cc'ing Bear and Will Gardenswar
 
 ---
 
+## Running Wild S9 Premiere — Know These Numbers
+
+Delbert shared the official premiere performance data with Jesse on April 24 (Jesse's WhatsApp). Jesse should know these cold before May 4 — EBG will almost certainly cite them.
+
+**Episode 1 (April 21, 2026 — FOX):**
+- 1.3M Total Viewers, 0.18 Adults 18-49 rating (Live+SD)
+- +20% demo increase from first to last quarter-hour (strong retention signal)
+- +23% A18-49 lift vs. the prior 4-week time slot average
+- Competitive in 9-10PM against NBA Playoffs; ranked 3rd in timeslot among non-sports
+- 4x surge in Wikipedia pageviews post-premiere — highest single-day Bear Grylls Wikipedia interest of 2026
+- Ranked 5th in key demo among 8 non-sports broadcast telecasts that night
+- #13 among FOX's 17 unscripted premieres this season (mid-table, but with a strong demo trade-off)
+
+**What this tells you:**
+The show is trading raw viewer volume for a more concentrated A18-49 audience — which is exactly what premium advertisers want. EBG will likely cite these numbers as validation that the Creator Network has real economic value (they're right on that). Jesse should agree the show is performing well, then redirect: "Which is exactly why Bear's terms in any economic arrangement need to reflect that."
+
+**Hulu/Disney+ streaming:** Delbert also shared a Disney+ link on April 22, suggesting Running Wild S9 has a streaming deal with Hulu (Disney-owned). This significantly increases total reach beyond the 1.3M broadcast number. If EBG cites the broadcast number only, ask about total streaming viewers.
+
+---
+
 ## What to Listen For
 
 - Any specific dollar figures or percentage claims on network revenue — note them exactly
 - Any timeline pressure ("we need to resolve this by X") — that's a negotiating tactic
 - Any mention of legal action or formal dispute — flag to CJ immediately after the call
 - Any new intelligence on what Delbert is bringing to UTA (Ty Flynn call, week of April 27) — Delbert said "a few things coming your way"
+- Whether EBG cites the premiere numbers — they will, and Jesse should already know them
 
 ---
 
