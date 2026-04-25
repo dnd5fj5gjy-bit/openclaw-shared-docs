@@ -185,18 +185,21 @@ Calvin does NOT need admin access to Stripe. Payment link URLs are enough to lau
 - Stripe Tax: $0.50 per transaction (optional but recommended)
 - Payout: free to bank accounts
 
-At $65/transaction: Stripe takes $2.19 (US) or £1.11 (UK). Already factored into the contribution margin model.
+At $69/transaction: Stripe takes ~$2.30 (US) or ~£1.17 (UK). Already factored into the contribution margin model.
 
 ---
 
-## The 90-Minute Version
+## The 90-Minute Version (Tuesday)
 
-If Jesse has 90 minutes before sailing:
-1. Register the account and verify the business — 30 min
-2. Add bank account — 10 min
-3. Create the Adult Blend subscription product — 10 min
-4. Generate a Payment Link — 5 min
-5. Send the Payment Link URL to Calvin — 1 min
-6. Modern Savage can take payments
+**Prerequisite — do Monday, not Tuesday:** Confirm UK entity with Raemy. WhatsApp her: "For Modern Savage Stripe, I need a UK entity. Options: (a) incorporate Modern Savage Ltd today ~£100, or (b) use BGV Global temporarily. Which?" If no reply by noon Monday, go with option (a) — 1stformations.co.uk, takes 15 minutes, same-day certificate.
+
+If Jesse has 90 minutes Tuesday and UK entity is ready:
+1. Have UK company number and certificate ready — 0 min (done Monday)
+2. Register Stripe account under UK entity + verify business — 30 min
+3. Add bank account — 10 min
+4. Create the Adult Blend subscription at $69/month — 10 min
+5. Generate a Payment Link — 5 min
+6. Send Payment Link URL to Calvin — 1 min
+7. Modern Savage can take payments
 
 Everything else (portal, tax, Kids Blend product) can follow. The Adult Blend Payment Link is all that's needed to convert the 170 waitlist.
