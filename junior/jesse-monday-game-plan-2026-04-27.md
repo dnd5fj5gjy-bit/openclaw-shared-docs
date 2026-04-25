@@ -52,7 +52,7 @@ Don't commit to specific warrant percentages on the call. Get the number. Put a 
 ### 5. Stripe — 90 minutes
 No Stripe = no Modern Savage sales. This is the biggest time block.
 - Full guide: `workspace/docs/modern-savage-stripe-setup-guide-2026-04-24.md`
-- 90-minute version: register + verify business + create Adult Blend subscription at $65/month + generate Payment Link
+- 90-minute version: register + verify business + create Adult Blend subscription at $69/month + generate Payment Link
 - Entity to use: confirm with Raemy (she's back Monday) — Bear Witness Ltd or a new entity?
 - One WhatsApp to Raemy before you start: "Which entity should I register Modern Savage Stripe under?"
 
@@ -74,6 +74,7 @@ Key things CJ must own while you're off:
 - Join Ships A Lot Slack (#modern-savage) as point of contact
 - Flag Raemy on Modern Savage legal entity for Stripe/finances
 - Confirm Bear's Becoming X resignation has been submitted
+- **modernsavage.com domain** — expires June 24, one week before launch. CJ to start acquisition via GoDaddy broker or Sedo this week. Budget up to £2,000 without calling Jesse.
 
 ---
 
