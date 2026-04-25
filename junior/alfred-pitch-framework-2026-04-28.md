@@ -31,7 +31,7 @@ Alice is NOT Alfred's marketing director. This is a placeholder that was never u
 In the "Real Numbers" content pillar. Alfred's brand voice explicitly rules out lazy retail comparisons. This line should be deleted entirely.
 
 ### Before May 5 — Also confirm:
-- Is **250 million monthly impressions** accurate for Bear's channels? The original figure was 100M. Tom could fact-check this.
+- **250 million monthly impressions is wrong.** Verified via social media audit: Bear's actual channels deliver 4-9 million monthly impressions (Instagram 8.3M followers, TikTok 360K, YouTube 570K, Facebook 12M). The 250M figure is 35-50x inflated. Tom can fact-check this in 30 seconds. Replace with: "20M+ followers across platforms" or "5-8 million monthly impressions." This needs fixing before May 5 or the whole proposal loses credibility.
 - Equity structure: the proposal mentions equity twice but never says what Bear Witness is asking for. Tom's natural next question is "what are you asking for?" One framing sentence would close that loop.
 - Referral programme in Phase 5: contradicts the brand voice section ("no gamification or referral code energy"). Reframe as "member advocacy programme."
 
