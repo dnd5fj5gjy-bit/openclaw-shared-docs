@@ -78,13 +78,28 @@ Key things CJ must own while you're off:
 
 ---
 
+## Three More Items — 15 minutes total
+
+These emerged after the original plan was built. Add them to Monday.
+
+**Wildernests — 3D feedback to Calvin (5 mins)**
+The 3D rotation deliverable is likely being used in the Tattarang investor pitch (Bear introduced Wildernests to Twiggy Forrest's family office on April 23). Your feedback isn't just social content polish — it may be the first thing a $20B investor sees. WhatsApp Calvin with your thoughts.
+
+**Wildernests — Tatti follow-up check (2 mins)**
+Ask CJ: "Has anyone followed up with Taki Dermedgoglou at Tattarang since Bear's April 23 email?" If the answer is no, CJ should send a brief note to Taki confirming Bear's intro and offering to share more materials.
+
+**Wildernests equity docs — status check (5 mins)**
+Ask Raemy: "Where are we on the Bear Witness equity docs for Wildernests?" Raemy introduced Alex Aboshiha to Cavendish Trust (IOM) on April 20. These need to be formalised before any investor due diligence.
+
+---
+
 ## What You Do NOT Need to Do Monday
 
 - Modern Savage strategy, content, or briefs — all built
 - Water2 background research — built
 - Diary of a CEO pitch — built (pitch goes out June, not now)
 - BPS Hub email — CJ's job
-- Organised Nutrition / TC Group — CJ managing, do not touch
+- Domain acquisition (modernsavage.com) — CJ's job
 
 ---
 
