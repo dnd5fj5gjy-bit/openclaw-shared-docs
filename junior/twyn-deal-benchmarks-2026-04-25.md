@@ -117,7 +117,7 @@ CJ should take the first read of Tim's draft and flag anything below the benchma
 
 | Component | Minimum | Target | Red Flag Below |
 |---|---|---|---|
-| Upfront advance | £150K | £350K | £50K |
+| Upfront advance | £50K (Twyn likely cash-constrained at $1.25M raised) | £150K | £0 with no equity |
 | Revenue share | 25% | 40% | 20% |
 | Equity | 2% | 4% | 1% |
 | Exclusivity window | 18 months | 24 months | 36 months without clawback |
