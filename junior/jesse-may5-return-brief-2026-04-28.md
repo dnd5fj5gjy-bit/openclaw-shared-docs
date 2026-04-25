@@ -59,8 +59,8 @@ CJ managed Apr 29 - May 4. Here's what to check when you land:
 
 ## What's Moving Without You
 
-**Ted's Health BCG engagement (Gunnar Trommer + Alex Aboshiha):**
-Gunnar Trommer (Managing Director, BCG X — their medtech/digital health unit) and Alex Aboshiha (BCG Partner, California) have been running weekly Zoom calls with you. **The May 7 weekly call is at 5pm — your sailing day.** Decide before then: dial in from the boat, ask them to reschedule for May 5 or 6, or skip and reconnect when back. Don't just miss it without a heads-up. Alex left a note April 16 asking Gunnar for "a fresh external proposal on what you think would be the very best solution" — there may be a BCG proposal waiting for you.
+**Wildernests BCG engagement (Gunnar Trommer + Alex Aboshiha):**
+CORRECTED: this is a WILDERNESTS engagement, not Ted's Health. Gunnar Trommer leads BCG X's North America Healthcare practice (based Hermosa Beach, CA). Alex Aboshiha is the Wildernests CEO. They've been running weekly calls with Jesse since at least April 9. Gunnar sent Revit architectural renderings April 6. A fourth person "(Joe)" joined from April 22. **The May 7 weekly call is at 5pm — your sailing day.** Decide before then: dial in from the boat, ask them to reschedule for May 5 or 6, or skip and reconnect when back. Don't just miss it without a heads-up. Alex left a note April 16 asking Gunnar for "a fresh external proposal on what you think would be the very best solution" — a BCG strategy proposal for Wildernests may be waiting when you return May 21.
 
 **EBG / Benjamin Simon — Modern Savage Collaboration:**
 Benjamin Simon (CEO, Everest Brand Group — your Running Wild S9 co-EP partner) emailed you April 14 asking about "how we might support and add value to the Modern Savage project." You had a Zoom on April 16 at 9:30 EST. No follow-up email after the Zoom. You know what was discussed — I don't. Before sailing, either progress this or send Benjamin a holding note: "Ben — picked up again after filming. Let's pick up the Modern Savage conversation when I'm back May 21." EBG contact: ben@everestbrandgroupinc.com.
