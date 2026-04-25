@@ -129,7 +129,7 @@ Two Exhibit 3 entries are worth Jesse knowing about for context:
 
 **Hallow** (meditation app) — exclusive, worldwide. Bear is in an active exclusive ambassador deal for faith-based meditation/prayer apps. This would block any competing arrangement in that space.
 
-**Mettle** (wellness apps, consultancy) — exclusive, worldwide. Bear holds shares (equity deal) and is exclusive for "focused wellness apps (including physical fitness) and any business which can be deemed similar." This is broad. Anyone pitching Bear on a wellness/fitness app play needs to check Mettle first.
+**Mettle** (wellness apps, consultancy) — exclusive, worldwide. Bear is a CO-FOUNDER, not just an ambassador. Mettle is a men's mental fitness app (meditation, breathwork, hypnosis), backed by Imperial College London, pre-seed £2.5M raised, Series A planned. App is ACTIVE through early 2026 with regular updates. The exclusivity covers "focused wellness apps (including physical fitness) and any business deemed similar or in any way competitive" — that is very broad. Any wellness, fitness, or mental health app pitch to Bear must be checked against Mettle first. This is live and Bear has real equity in it.
 
 **Luminox** appears correctly — exclusive, worldwide, renewed through Dec 2029.
 
