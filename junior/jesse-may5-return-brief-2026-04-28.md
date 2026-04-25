@@ -132,7 +132,7 @@ In priority order:
 
 **Henri-Lloyd deal status:** The February Heads of Agreement said you were "all good with the terms" — is this signed? Emilia Renshaw is the Henri-Lloyd contact (emilia from Henri-Lloyd). With Alice at the May 5 meeting, this may come up. Worth knowing where it stands.
 
-**Alfred founder/CEO identity:** I couldn't find who actually runs Alfred or what stage the company is at. Tom knows. Ask him at the coffee.
+**Alfred stage and traction:** Tom Inskip IS the Alfred founder. What's less clear is how far into build they are — pre-launch or soft launch. Ask Tom at the coffee where they are in the product roadmap. That shapes how urgent the digital media engagement is for them.
 
 **Wildernests Tattarang follow-up:** I couldn't confirm if CJ reached out to Taki Dermedgoglou. Check with CJ.
 
