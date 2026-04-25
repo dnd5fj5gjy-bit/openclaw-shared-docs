@@ -106,7 +106,7 @@ Key things CJ must own while you're off:
 These emerged after the original plan was built. Add them to Monday.
 
 **Wildernests — 3D feedback to Calvin (5 mins)**
-The 3D rotation deliverable is likely being used in the Tattarang investor pitch (Bear introduced Wildernests to Twiggy Forrest's family office on April 23). Your feedback isn't just social content polish — it may be the first thing a $20B investor sees. WhatsApp Calvin with your thoughts.
+Context: Wildernests' go-to-market is direct outreach to 500 UHNWIs. The 3D rotation is the "new house video proof of concept" you were supposed to share with Alex and Gunnar by April 17. It connects directly to the ~2min UHNWI teaser video Gunnar is storyboarding. Your feedback isn't social content polish — it feeds the UHNWI pitch and may be the first thing Tattarang ($20B family office) sees. WhatsApp Calvin with your thoughts on the 3D rotation, then forward to Alex if it's ready.
 
 **Wildernests — Tatti follow-up check (2 mins)**
 Ask CJ: "Has anyone followed up with Taki Dermedgoglou at Tattarang since Bear's April 23 email?" If the answer is no, CJ should send a brief note to Taki confirming Bear's intro and offering to share more materials.
