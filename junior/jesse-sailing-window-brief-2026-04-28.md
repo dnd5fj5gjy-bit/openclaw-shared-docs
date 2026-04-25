@@ -95,13 +95,17 @@ Jesse sails May 7. He is at sea until approximately May 21. For up to two weeks,
 
 ---
 
-### Ted's Health / BCG Engagement
+### Wildernests / BCG Engagement (Gunnar Trommer + Alex Aboshiha)
 
-**Gunnar Trommer + Alex Aboshiha (BCG X)** are running weekly calls. The May 7 5pm call falls on Jesse's sailing day — Jesse needs to decide before then whether to dial in, reschedule, or send apologies.
+CORRECTED: this is a Wildernests engagement, not Ted's Health. Gunnar Trommer (BCG X, North America Healthcare lead, Hermosa Beach CA) is providing strategy/architecture work for Wildernests alongside Alex Aboshiha (Wildernests CEO). Weekly calls since April 9. Gunnar sent Revit architectural renderings April 6. A fourth person "(Joe)" joined April 22.
 
-**During sailing:** BCG can continue their strategy work. Alex and Gunnar likely don't need Jesse weekly. CJ or Jesse to communicate: "Jesse is sailing May 7-21. Calls will resume from May 21."
+The May 7 5pm call falls on Jesse's sailing day. Jesse needs to decide before then: dial in, reschedule to May 5/6, or send apologies. Given the Tattarang investor pitch is live, missing this call without notice would be poor form.
 
-**Note:** Alex Aboshiha is also the Wildernests equity contact (Raemy introduced him to Cavendish Trust April 20). Two hats.
+Alex asked Gunnar April 16 for "a fresh external proposal on what you think would be the very best solution." A BCG strategy proposal for Wildernests may arrive during the sailing window.
+
+**During sailing:** Alex and Gunnar can continue strategy work without Jesse weekly. CJ to communicate: "Jesse is sailing May 7-21. Calls resume May 21."
+
+**Note:** Alex Aboshiha wears two hats: Wildernests CEO + equity docs in motion via Cavendish Trust (Raemy introduced him April 20).
 
 ---
 
