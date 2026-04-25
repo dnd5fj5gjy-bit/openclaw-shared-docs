@@ -153,7 +153,7 @@ Note: this is the US filing. UKIPO (Step 2 above) is the UK filing. Both need to
 ## If You Run Out of Time
 
 Priority order if something has to slip:
-1. Must happen Tuesday: Qwilr signature, Calvin WhatsApps, UKIPO, Kylee reply (all under 5 min each)
+1. Must happen Monday: Qwilr signature, Calvin WhatsApps, Kylee reply, Tattarang WhatsApp to Alex (all under 5 min each)
 2. Should happen Tuesday: Water2 call, Stripe (once entity confirmed)
 3. Can slip to CJ if needed: BGV approval for Calvin, Wildernests equity check
 
