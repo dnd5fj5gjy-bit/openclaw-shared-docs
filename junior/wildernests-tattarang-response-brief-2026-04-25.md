@@ -52,17 +52,19 @@ Taki listed specific competitors. He's done research. Don't give a generic answe
 
 **Competitive positions:**
 
-| Competitor | Their Strength | Wildernests Difference |
-|---|---|---|
-| haus.me | US glamping market, modular | Architecture-grade permanence, not glamping |
-| Modscape | Australian, premium modular | UK/EU market focus + Bear brand = global UHNWI reach |
-| CABN | Eco-off-grid stays, experiential | Wildernests is ownership, not hospitality |
-| Dvele | Smart home tech, US | Wildernests = adventure-positioned, not smart-home tech play |
+| Competitor | HQ / Market | Funding | Price Point | Target Buyer | Key Weakness vs Wildernests |
+|---|---|---|---|---|---|
+| haus.me | US, global | $4.27M Series A (2022) | $35K-$299K/unit | ADU, vacation rental, short-term rental investors | Mass-market price point. No UHNWI positioning. Not architecturally premium. |
+| Modscape | Australia | Private, no VC | A$1M-$2M+ | Residential, developers, aged care, institutional | Primarily institutional/residential. Australian market. No adventure/wilderness identity. |
+| CABN | Canada | ~$3M raise (Active Impact et al) | CAD$139K-$239K/unit | Homeowners, developers, affordable housing, municipalities | Affordable housing mission - opposite buyer profile to Wildernests. No premium positioning. |
+| Dvele | USA (Arizona) | $41.5M Series B (2021) | $1.3M-$1.5M/unit | Health-conscious homebuyers, US developers | Smart home / health tech focus. US-only. Lifestyle tech product, not adventure destination. |
 
 **The core distinction Taki needs to hear:**  
-Wildernests is selling private, architecturally-considered homes to UHNWI buyers who want a permanent wild place of their own — not a hotel stay, not a smart home, not a glamping unit. The buyer profile (private clients, 30-500 acre estates) doesn't overlap with any of those competitors.
+None of these four companies are targeting Wildernests' actual buyer — a UHNWI owner of a private wilderness estate who wants a permanent, architect-designed retreat. haus.me and CABN are mass-market. Modscape is institutional. Dvele is health tech / smart home. Wildernests is the only company in this category positioned specifically as a luxury wilderness ownership product for private estates, anchored by a globally recognised adventure identity.
 
-**Bear's role is the competitive moat** — no glamping or modular competitor has a $12B family office's attention and a global survival/adventure icon co-presenting. That combination of credibility is unique.
+**Bear's role is the competitive moat** — no modular competitor has a $12B family office's attention and a global survival/adventure icon co-presenting. That combination of credibility cannot be replicated by a tech startup or an Australian construction firm.
+
+**The investment angle for Tattarang:** At $1M-$1.5M per unit (comparable to Dvele), Wildernests' gross margin per unit far exceeds the mass-market players. The UHNWI buyer does not comparison-shop. The moat is brand and exclusivity, not engineering — which makes this a marketing-driven business, not a manufacturing risk.
 
 ---
 
