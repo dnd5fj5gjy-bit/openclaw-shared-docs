@@ -178,17 +178,18 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 
 ## 8. modernsavage.com Domain — URGENT THIS WEEK
 
-**The problem:** modernsavage.com is owned by a third party (registered 2004, GoDaddy privacy-protected) and expires **June 24, 2026** — one week before the Modern Savage July 1 launch. If BGV doesn't acquire it, the holder renews it or it drops to squatters exactly when launch press generates traffic to the wrong site.
+**The problem:** modernsavage.com is owned by a third party (registered 2004, GoDaddy privacy-protected) and expires **June 24, 2026** — one week before the Modern Savage July 1 launch. The owner is actively maintaining a custom landing page. They will renew. Do NOT wait for the drop.
+
+**DO NOT use GoDaddy "Make Offer" or Sedo.** Both expose BGV's interest to the owner and inflate price. The right approach is a stealth acquisition via a professional broker.
 
 **CJ's action this week:**
-1. Go to GoDaddy.com → search modernsavage.com → use the "Make Offer" or broker enquiry option
-2. Alternatively: list on Sedo.com as a buyer enquiry
-3. Budget authorisation: Raemy should approve up to £2,000 without Jesse sign-off. Above that, call Jesse.
+1. Go to **mediaoptions.com** and submit a domain acquisition request for modernsavage.com
+2. Tell them: budget is flexible, timeline is 4-6 weeks. Do NOT mention the June expiry, July launch, Bear Grylls, or Modern Savage brand. Anonymous buyer only.
+3. MediaOptions will approach the owner without revealing the buyer — this is how you protect price
+4. Budget: Raemy has authorised up to £2,000. Above that, call Jesse.
 
-**UPDATED April 25 — active owner confirmed:** modernsavage.com serves a custom-built "coming soon" HTML page (not a GoDaddy default parking template). The owner is actively maintaining the domain and will almost certainly renew on June 24. Do NOT wait for the domain to drop — it won't.
+Opening offer: let MediaOptions lead. If owner comes back above £2,000, call Jesse before responding. This is one of three scenarios that warrants interrupting sailing.
 
-Opening offer recommendation: £1,500 (not £500 — the custom page signals the owner is engaged). Maximum authorisation without Jesse: £2,000. If counter comes back above £2,000, call Jesse before responding. Do NOT reveal the buyer is Bear Grylls when using the broker — anonymous approach only.
+Full acquisition brief (with negotiation rules and fallback options) at: `docs/modernsavage-domain-acquisition-brief-2026-04-25.pdf`
 
-Full intelligence brief at: docs/modernsavage-domain-brief-2026-04-25.pdf
-
-**Deadline:** Broker enquiry initiated this week (April 25-28). Confirmed acquisition by June 17 at the latest. If not progressing by May 7, email junior@beargryllsventures.com so monitoring continues while Jesse is sailing.
+**Deadline:** MediaOptions enquiry submitted this week (April 25-28). Acquisition complete by June 1 at the latest. If not progressing by May 7, email junior@beargryllsventures.com so monitoring continues while Jesse is sailing.
