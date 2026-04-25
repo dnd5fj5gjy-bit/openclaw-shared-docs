@@ -1007,30 +1007,73 @@ function escAttr(s) {
 }
 
 // ─── DOCS ────────────────────────────────────────────
+let allDocs = [];
+let activeDocCat = 'all';
+
 async function loadDocs() {
   try {
     const res = await fetch('/docs');
-    const docs = await res.json();
-    const body = document.getElementById('docs-body');
-    if (!docs || docs.length === 0) {
-      body.innerHTML = '<div style="padding: 14px 16px; color: var(--ink-light); font-size: 13px;">No docs yet.</div>';
-      return;
+    allDocs = await res.json();
+    renderDocs();
+    // Build category filter buttons
+    const cats = ['all', ...new Set(allDocs.map(d => d.category))];
+    const bar = document.getElementById('docs-filter-bar');
+    bar.innerHTML = cats.map(c =>
+      `<button onclick="filterDocs('${escAttr(c)}')" class="docs-filter-btn${c===activeDocCat?' active':''}" data-cat="${escAttr(c)}">${escHtml(c==='all'?'All':c)}</button>`
+    ).join('');
+    const newCount = allDocs.filter(d => d.is_new && !d.reviewed).length;
+    const badge = document.getElementById('docs-new-badge');
+    if (newCount > 0) {
+      badge.textContent = newCount + ' new';
+      badge.style.display = '';
+    } else {
+      badge.style.display = 'none';
     }
-    document.getElementById('docs-count').textContent = docs.length + ' files';
-    body.innerHTML = docs.slice(0, 15).map(d => {
-      const date = new Date(d.modified * 1000);
-      const dateStr = date.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'});
-      return `<a class="proj-item" href="/doc/${escAttr(d.filename)}" target="_blank" style="text-decoration:none;">
-        <div class="proj-icon" style="background: var(--blue-bg); color: var(--blue); font-size: 14px;">📄</div>
-        <div class="proj-body">
-          <div class="proj-name" style="font-size: 13px;">${escHtml(d.title)}</div>
-          <div class="proj-status">${dateStr} &middot; ${d.size_kb} KB</div>
-        </div>
-      </a>`;
-    }).join('');
   } catch(e) {
     document.getElementById('docs-body').innerHTML = '<div style="padding: 14px 16px; color: var(--terracotta); font-size: 13px;">Could not load docs.</div>';
   }
+}
+
+function filterDocs(cat) {
+  activeDocCat = cat;
+  document.querySelectorAll('.docs-filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === cat);
+  });
+  renderDocs();
+}
+
+function renderDocs() {
+  const body = document.getElementById('docs-body');
+  const filtered = activeDocCat === 'all' ? allDocs : allDocs.filter(d => d.category === activeDocCat);
+  if (!filtered.length) {
+    body.innerHTML = '<div style="padding: 14px 16px; color: var(--ink-light); font-size: 13px;">No docs.</div>';
+    return;
+  }
+  document.getElementById('docs-count').textContent = filtered.length + ' / ' + allDocs.length;
+  body.innerHTML = filtered.slice(0, 20).map(d => {
+    const date = new Date(d.modified * 1000);
+    const dateStr = date.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'});
+    const newTag = (d.is_new && !d.reviewed) ? `<span style="background:var(--terracotta);color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:8px;margin-left:5px;">NEW</span>` : '';
+    const revStyle = d.reviewed ? 'opacity:0.45;' : '';
+    const revBtn = `<button onclick="toggleReviewed(event,'${escAttr(d.filename)}',${d.reviewed})" style="flex-shrink:0;border:none;background:${d.reviewed?'var(--sage-bg)':'var(--cream-deep)'};color:${d.reviewed?'var(--sage)':'var(--ink-light)'};font-size:10px;font-weight:700;padding:3px 7px;border-radius:8px;cursor:pointer;margin-left:6px;" title="${d.reviewed?'Mark unreviewed':'Mark reviewed'}">${d.reviewed?'✓ read':'mark read'}</button>`;
+    return `<div class="proj-item" style="${revStyle}display:flex;align-items:center;">
+      <a href="/doc/${escAttr(d.filename)}" target="_blank" style="display:flex;align-items:center;flex:1;gap:10px;text-decoration:none;color:inherit;min-width:0;">
+        <div class="proj-icon" style="background:var(--blue-bg);color:var(--blue);font-size:13px;flex-shrink:0;">📄</div>
+        <div class="proj-body" style="min-width:0;">
+          <div class="proj-name" style="font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escHtml(d.title)}${newTag}</div>
+          <div class="proj-status">${escHtml(d.category)} &middot; ${dateStr}</div>
+        </div>
+      </a>
+      ${revBtn}
+    </div>`;
+  }).join('');
+}
+
+async function toggleReviewed(e, filename, currentlyReviewed) {
+  e.preventDefault(); e.stopPropagation();
+  const newState = !currentlyReviewed;
+  await fetch('/doc-reviewed', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({filename, reviewed: newState})});
+  await loadDocs();
 }
 
 // ─── LOAD ALL ─────────────────────────────────────────
