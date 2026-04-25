@@ -110,6 +110,16 @@ The show is trading raw viewer volume for a more concentrated A18-49 audience �
 
 ---
 
+## The Analogy Jesse Can Use (If Needed)
+
+The FOX Creator Network has multiple pillar heads — Gordon Ramsay (Food), Martha Stewart (Home), Tom Segura (Comedy), Bear (Outdoors). Gordon Ramsay almost certainly has a social media management firm. That firm doesn't get a share of Gordon's FOX Food Network revenue. EBG is Bear's social media manager. Same logic applies.
+
+EBG's argument that they "drive value" to the network is true in a soft sense — Bear's social profile (which EBG helps manage) does support the network's credibility. But "driving value" through social management is what the $25K/month fee is for. That's what they're paid to do.
+
+If EBG pushes the "we built this" argument: ask them specifically what work EBG performed on the Creator Network deal — meetings, introductions, deal structuring. The answer will be: none. Delbert and Source Media Group built it.
+
+---
+
 ## What to Listen For
 
 - Any specific dollar figures or percentage claims on network revenue — note them exactly
@@ -117,6 +127,7 @@ The show is trading raw viewer volume for a more concentrated A18-49 audience �
 - Any mention of legal action or formal dispute — flag to CJ immediately after the call
 - Any new intelligence on what Delbert is bringing to UTA (Ty Flynn call, week of April 27) — Delbert said "a few things coming your way"
 - Whether EBG cites the premiere numbers — they will, and Jesse should already know them
+- Whether EBG claims they introduced Bear to FOX or to Source Media Group — Delbert did that, not EBG
 
 ---
 
