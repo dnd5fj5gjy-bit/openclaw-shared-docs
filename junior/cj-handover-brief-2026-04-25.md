@@ -136,11 +136,14 @@ Calvin submits via Metricool (notifications go to Jesse's email). CJ should ask 
 ## CJ's Priority Order
 
 1. **Calvin contracts — chase daily until signed**
-2. **BPS Hub — email Sam Cotton this week**
-3. **Ships A Lot Slack — join and be point of contact**
-4. **Flag Raemy on Modern Savage legal entity (Stripe)**
-5. **Becoming X — Bear resignation confirmed**
-6. **Water2 — hold warm if Jesse's call doesn't happen**
+2. **modernsavage.com domain — initiate acquisition this week**
+3. **BPS Hub — email Sam Cotton this week**
+4. **Running Wild — ask Calvin to copy CJ on Metricool review requests from May 7**
+5. **Ships A Lot Slack — join and be point of contact**
+6. **Flag Raemy on Modern Savage legal entity (Stripe)**
+7. **Becoming X — Bear resignation confirmed**
+8. **Wildernests/Tattarang — follow up with Taki Dermedgoglou if no contact since Bear's Apr 23 intro**
+9. **Water2 — hold warm if Jesse's call doesn't happen**
 
 ---
 
