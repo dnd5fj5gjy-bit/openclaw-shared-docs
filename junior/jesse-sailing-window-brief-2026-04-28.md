@@ -190,7 +190,7 @@ CJ has been negotiating a 2nd amendment to the Luminox licensing agreement with 
 
 | Date | Event | Action needed |
 |------|-------|---------------|
-| May 7, 5pm | Weekly call: Jesse, Alex, Gunnar (BCG) | Jesse to notify Alex/Gunnar before sailing |
+| May 7, 5pm | Weekly call: Jesse, Alex Aboshiha, Gunnar Trommer (Wildernests/BCG) | Jesse to notify Alex/Gunnar before sailing |
 | May 18, 3pm | EBG/BGV catch-up Zoom (Em Lovell) | CJ or Olly to attend on BGV's behalf |
 
 ---
