@@ -107,11 +107,17 @@ These emerged after the original plan was built. Add them to Monday.
 **Wildernests — 3D feedback to Calvin (5 mins)**
 Context: Wildernests' go-to-market is direct outreach to 500 UHNWIs. The 3D rotation is the "new house video proof of concept" you were supposed to share with Alex and Gunnar by April 17. It connects directly to the ~2min UHNWI teaser video Gunnar is storyboarding. Your feedback isn't social content polish — it feeds the UHNWI pitch and may be the first thing Tattarang ($20B family office) sees. WhatsApp Calvin with your thoughts on the 3D rotation, then forward to Alex if it's ready.
 
-**Wildernests — Tatti follow-up check (2 mins)**
-Ask CJ: "Has anyone followed up with Taki Dermedgoglou at Tattarang since Bear's April 23 email?" If the answer is no, CJ should send a brief note to Taki confirming Bear's intro and offering to share more materials.
+**Wildernests — Tattarang URGENT (5 mins)**
+Taki responded to Bear's April 23 intro on the same day with 6 serious investor due diligence questions. Elliot Goldstone (Tattarang investment team) is now cc'd — they've moved this to internal review. The questions have been sitting 2+ days without a reply. Alex needs to respond within 48 hours.
 
-**Wildernests equity docs — status check (5 mins)**
-Ask Raemy: "Where are we on the Bear Witness equity docs for Wildernests?" Raemy introduced Alex Aboshiha to Cavendish Trust (IOM) on April 20. These need to be formalised before any investor due diligence.
+**WhatsApp Alex now:** "Alex — Taki sent 6 diligence questions April 23 and cc'd his investment team. Reply within 48 hours. I'll follow up with Taki once your response is out."
+
+**WhatsApp Bear (optional):** "Bear — could you WhatsApp Taki to say Alex is pulling together the detailed numbers and we'll be back to him shortly? Just keeps the warmth alive while Alex prepares."
+
+Full brief with suggested answers to all 6 questions: docs/wildernests-tattarang-response-brief-2026-04-25.pdf
+
+**Wildernests equity docs — DONE (no action)**
+Both agreements signed and completed April 22: (1) Wnests LLC Equity Services Agreement (via Docusign/Alex Aboshiha), (2) DM Wnest LLC Services Agreement (via Adobe Sign/Cavendish Trust). Remove from list.
 
 ---
 
