@@ -12,26 +12,59 @@ Without Stripe, Modern Savage cannot accept a single payment. No launch. No wait
 
 ---
 
+## CRITICAL — ENTITY DECISION (READ BEFORE ANYTHING ELSE)
+
+**Bear Witness Limited (Isle of Man) CANNOT set up a Stripe account.**
+
+Stripe explicitly does not support Isle of Man registered companies. The Isle of Man is a Crown Dependency, not part of the UK, and is not on Stripe's supported countries list. If you try to register Stripe under Bear Witness Ltd (IoM), it will be rejected.
+
+**The solution: use a UK Ltd company.**
+
+Three options, in order of speed:
+
+### Option A — Incorporate a new UK Ltd today (RECOMMENDED)
+- Cost: ~£100-150 via a formation agent (e.g. 1stformations.co.uk, Rapid Formations)
+- Time: same-day if submitted before noon, next-day otherwise
+- Name options: "Modern Savage Ltd", "Bear Witness UK Ltd", or "Bear Witness Digital Ltd"
+- Jesse can do this from his phone in 15 minutes: go to 1stformations.co.uk, fill in name + director details, pay £100
+- Certificate of Incorporation arrives same day → Stripe setup Tuesday with a clean UK entity
+
+### Option B — Use BGV Global Ltd (already exists as UK company)
+- No incorporation needed, available immediately
+- Risk: conflates Jesse's personal brand business with BGV Global (Bear's corporate entity)
+- Only suitable as a temporary measure while a proper entity is set up
+
+### Option C — Use Braintree (PayPal subsidiary) as interim
+- Braintree does support Isle of Man companies
+- Higher fees (~2.9% + 30¢ vs Stripe's 1.4% + 20p for UK cards)
+- Gets you live faster but suboptimal long-term
+
+**Recommended path:** WhatsApp Raemy Monday morning: "Quick question — for Modern Savage Stripe, I need a UK entity. Easiest options: (a) incorporate a new Modern Savage Ltd today for ~£100, or (b) use BGV Global temporarily. Which do you prefer?" If no response before noon, go with Option A — incorporate Modern Savage Ltd. It's £100 and the right structure anyway.
+
+**VAT note:** IOM and UK are treated as a single VAT area (1979 agreement). IoM VAT registration covers UK sales. No separate UK VAT number needed. Stripe Tax handles this automatically once configured.
+
+---
+
 ## Before You Start — What You'll Need
 
-- Bear Witness Ltd company number and registered address (Isle of Man)
-- Business bank account details (sort code + account number, or IBAN)
+- **UK Ltd company** (Modern Savage Ltd or BGV Global Ltd) — company number and registered address
+- Business bank account details — Equals Money (Bear Witness) or BGV Global account
 - Jesse's ID (passport) — Stripe requires identity verification for the account owner
-- Tax ID / company registration number
-- The website domain (modernsavage.com or equivalent)
+- UK company registration number (Companies House)
+- The website domain (modernsavage.co)
 
 ---
 
 ## Step 1 — Create the Stripe Account
 
 1. Go to stripe.com/register
-2. Email: use jesse@beargryllsventures.com or create a dedicated modern-savage@beargryllsventures.com
+2. Email: use modern-savage@beargryllsventures.com (or jesse@beargryllsventures.com if no separate address exists)
 3. Password: use a strong unique password, save to 1Password or equivalent
 4. Business type: select **Company**
-5. Country: **Isle of Man** (if operating through Bear Witness Ltd) or **United Kingdom** if using a UK entity
-6. Business name: **Modern Savage** (or Bear Witness Ltd — depends on what entity takes the revenue)
+5. Country: **United Kingdom** (must be UK entity — NOT Isle of Man)
+6. Business name: **Modern Savage** (trading name of whichever UK entity you're using)
 
-**Note on entity:** Confirm with Raemy which legal entity processes Modern Savage revenue. If Bear Witness Ltd (Isle of Man), select Isle of Man as country. If a UK entity, select United Kingdom. This affects tax treatment and currency defaults.
+**Note on entity:** Use the UK Ltd company confirmed with Raemy. Do NOT use Bear Witness Ltd (Isle of Man) — Stripe will reject it.
 
 ---
 
