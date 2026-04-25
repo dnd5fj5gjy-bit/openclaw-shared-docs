@@ -49,7 +49,7 @@ CJ managed Apr 29 - May 4. Here's what to check when you land:
 ### Needs your eye on return
 **Calvin contracts** — if still unsigned, this becomes your first WhatsApp home. Do not let this drift another week. You sail May 7.
 
-**Modern Savage Stripe** — Raemy needed to confirm UK entity (Modern Savage Ltd or BGV Global Ltd). If this isn't resolved, the Modern Savage launch is blocked. 5-minute check with Raemy.
+**Modern Savage Stripe + US entity** — The entity question is more complex than a simple UK Ltd. On April 20, you, CJ, Bear, and Raemy were discussing a US C-corp structure (Bear Witness wholly-owned subsidiary), with funding via BGV LLP's Citizens Bank account. This was not resolved. Also: THREE ranges are launching on the same SuperHero platform (Modern Savage, BG Summit, and a third "Min" range). Raemy needs to confirm entity for all three before any Stripe setup. If this wasn't resolved on Tuesday April 28, it needs to happen before May 21 launch prep resumes.
 
 **Rick Landman callback** — Your April invoice at Cavendish Trust is held pending a 30-second call from you to verify bank account details. Rick's mobile: **+447624277888**. Do this before the Alice/Tom coffee. It takes literally 30 seconds and releases your April pay.
 
