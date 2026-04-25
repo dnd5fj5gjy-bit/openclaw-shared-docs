@@ -14,6 +14,25 @@ Bear's contribution to Twyn is not optional-extra talent. Bear IS the product. T
 
 ---
 
+## Who Tim Levy Actually Is — Updated April 26
+
+**Background:** Tim Levy is a serial entrepreneur with 22 founding credits and deep entertainment industry credibility. He structured $10+ billion in film financing between 2000-2014, with credits on Pirates of the Caribbean, Jurassic World, Iron Man 2. He understands complex deal structures better than most founders. The agreement he drafts will be sophisticated — CJ should read it carefully, not skim it.
+
+**Capital position (critical):** Twyn has raised only $1.25M total (seed round from JIIF and ah! Ventures, 2023). There is no public evidence of subsequent fundraising. This is the most important number in this doc.
+
+**What $1.25M means for the deal:**
+- A £250K-£500K upfront advance would represent 20-40% of Twyn's entire raised capital. They almost certainly cannot pay it in cash without raising more.
+- The deal Tim brings will likely be equity-heavy and cash-light by necessity, not by preference.
+- Bear's leverage is real but must be exercised thoughtfully: pushing too hard on cash upfront may simply kill the deal rather than improve it.
+
+**Revised approach:** Treat the cash advance as a negotiating floor, not an opening ask. The equity and reversion rights are where the real value protection lives.
+
+**Zain Qazi:** Oxford/Imperial educated, 10+ years fintech/VC-backed experience (ROLI). Credible CFO. His Year 1/2/3 model will be optimistic (as all early-stage models are) — look at the assumptions, not the headline numbers.
+
+**One flag:** 22 founding credits is unusual. Depth of focus vs. pattern of starting-and-moving-on is a legitimate question. Ask CJ: what is Tim's longest single venture to date?
+
+---
+
 ## Comparable Deals — What the Market Pays
 
 ### MasterClass
