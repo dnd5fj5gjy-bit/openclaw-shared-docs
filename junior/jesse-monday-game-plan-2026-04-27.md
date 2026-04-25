@@ -52,9 +52,17 @@ Don't commit to specific warrant percentages on the call. Get the number. Put a 
 ### 5. Stripe — 90 minutes
 No Stripe = no Modern Savage sales. This is the biggest time block.
 - Full guide: `workspace/docs/modern-savage-stripe-setup-guide-2026-04-24.md`
-- 90-minute version: register + verify business + create Adult Blend subscription at $69/month + generate Payment Link
-- Entity to use: confirm with Raemy (she's back Monday) — Bear Witness Ltd or a new entity?
-- One WhatsApp to Raemy before you start: "Which entity should I register Modern Savage Stripe under?"
+
+**CRITICAL — read this before starting:**
+Bear Witness Limited (Isle of Man) CANNOT set up a Stripe account. Stripe does not support Isle of Man registered companies. You need a UK entity.
+
+**Do this Monday evening or first thing Tuesday morning:**
+WhatsApp Raemy: "For Modern Savage Stripe setup, Bear Witness Ltd (IOM) won't work — Stripe doesn't support IoM. Two options: (a) incorporate a new Modern Savage Ltd today ~£100 from 1stformations.co.uk, takes 15 mins, or (b) use BGV Global Ltd as a temporary entity. Which do you prefer?"
+
+If Raemy says option (a): go to 1stformations.co.uk now — name, director details, £100, same-day certificate.
+If no reply by noon: default to option (a). It's the right structure anyway.
+
+Then Tuesday: register Stripe under the UK entity + create Adult Blend subscription at $69/month + generate Payment Link.
 
 ---
 
