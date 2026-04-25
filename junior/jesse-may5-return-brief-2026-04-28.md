@@ -87,17 +87,17 @@ Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it
 
 ## What Alfred Actually Needs
 
-**What Alfred is (confirmed):** A premium members-only dating and social networking app. Exclusive community for "elevated" people — curated, application-only, waitlist. Incorporated in Delaware 2021, operating in London. App is live on iOS and Android. Think "The League" but more private. The brand deliberately keeps its leadership off the internet.
+**What Alfred is:** A UK utility switching and management platform. Tagline: "More life, less admin." It helps UK consumers manage household admin — switching energy providers, comparing deals, reducing the friction of domestic life. Pre-launch / early stage. No significant digital presence — which is exactly the gap Bear Witness is pitching to fill.
 
-**Tom Inskip's role:** Connector and likely advisor/investor. He's a well-connected London social figure — this is exactly his world. He's not running Alfred day-to-day.
+**Tom Inskip's role:** Founder of Alfred. Also former CCO at Afiniti (AI/enterprise tech company) — he has a serious commercial background, not just a social one. Alice Driscoll made the original introduction.
 
-**Jesse's pitch:** Bear Witness manages Alfred's digital presence. For a dating/social app, this means: brand voice, content that conveys exclusivity, social proof from members, narrative that makes people want to be part of it. Not just posts — it's community storytelling.
+**Jesse's pitch:** Bear Witness runs Alfred's entire digital media operation — social strategy, content, SEO, paid acquisition, email, CRO — on a monthly retainer covering costs plus equity for alignment. Your April 9 pitch letter to Tom said "this is founder-level work" and asked for equity alongside the retainer. The angle: own every energy switching keyword in the UK within 18 months. SEO + content is the moat for a utility comparison product.
 
-**Your edge:** Bear's audience is exactly Alfred's demographic. You understand how to build a community around identity ("the kind of person who does this") which is exactly what a premium dating app needs. The pitch: "Your members are people who follow Bear. I know how they think."
+**Your edge:** You understand how to build a brand audience around identity ("the kind of person who has their life sorted"). That's Alfred's category. Plus you can bring Bear's credibility and reach to Alfred's brand-building conversation — down the line, not as a hard sell on day one.
 
-**What Alice brings:** PR validation + Henri-Lloyd connection. She likely vouched for Jesse's quality before Tom circled this back. With Henri-Lloyd live and active, she can point to a real working relationship.
+**What Alice brings:** PR credibility + the original introduction. Henri-Lloyd is live and active — she can point to your working relationship as evidence of execution quality.
 
-**Who you still haven't met:** Alfred's founder/CEO. Their name is not publicly disclosed anywhere — consistent with the brand's intentional privacy. May 5 may be Alice and Tom aligning before they make that introduction. Be patient — this is a relationship sale.
+**What to discuss May 5:** Status of the engagement. Has Tom had internal conversations about it? What's the next step toward a formal agreement? Don't over-pitch — this meeting is relationship maintenance, not close. Jesse knows Tom through Alice; the trust is building incrementally.
 
 ---
 
