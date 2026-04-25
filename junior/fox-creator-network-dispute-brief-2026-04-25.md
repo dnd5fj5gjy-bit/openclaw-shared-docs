@@ -82,10 +82,17 @@ If Ben pushes on the NIL argument:
 If asked for a timeline:
 > "Bear and I are looking at this together. He specifically asked me to be in this conversation before BGV takes any position. We'll come back to you with our joint view after May 21."
 
+**Confirmed attendees (checked April 25 from calendar):**
+- BGV: Jesse (accepted), CJ (accepted), Raemy (accepted), Em Lovell, Olly Westmacott
+- EBG: Benjamin Simon, Will Gardenswartz (accepted)
+- Third party: **Delbert Shoopman** (Del@thenaturalstudios.com) — confirmed invited
+
+**Bear is not on the call.** Jesse represents Bear's interest.
+
 **What Jesse should listen for:**
 - Does Ben cite a specific contract clause? If yes, get the exact language before responding.
 - Does he distinguish between the Everest Fund's economics and EBG's consulting economics? If not, he's conflating them.
-- Is Delbert in the room? Delbert's role is mediator — if he's on the call, he may be trying to find a middle ground. Read his tone.
+- **Delbert is confirmed in the room.** His role is mediator — he will try to find middle ground. Read his tone carefully. One thing Jesse knows that Delbert probably doesn't know Jesse knows: Delbert is also the person who connected CJ with Source Group (the independent outdoors network pitch). Delbert is deeply embedded in both the EBG relationship AND the alternative path. Jesse should not reveal this — just note it. If the EBG conversation gets difficult, the fact that Bear has a viable independent alternative changes the negotiating dynamics, and Delbert is the thread connecting both sides.
 
 ---
 
