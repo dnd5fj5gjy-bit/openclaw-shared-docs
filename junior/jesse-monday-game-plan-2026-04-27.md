@@ -63,7 +63,7 @@ The April 20 email chain (you, CJ, Bear, Raemy) shows three options being consid
 
 This was not resolved before you left for Georgia. Before setting up Stripe, WhatsApp Raemy: "What entity are we using for Modern Savage Stripe — did we resolve the US structure question?"
 
-Note: this covers THREE ranges (Modern Savage, BG Summit, and a third "Min" range) — all being launched on the same SuperHero platform. Raemy needs to confirm entity for all three.
+Note: this covers THREE ranges (Modern Savage adult blend, BG Summit with creatine, and Min kids blend) — "SuperHero Add On" is ACF Pharma's order code for the manufacturing run, not the brand platform. Raemy needs to confirm entity for all three.
 
 Then: register Stripe under the confirmed entity + create Adult Blend subscription at $69/month + generate Payment Link.
 
