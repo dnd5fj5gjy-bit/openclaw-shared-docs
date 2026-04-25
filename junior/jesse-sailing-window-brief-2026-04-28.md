@@ -223,7 +223,7 @@ At sea, connectivity is intermittent. For genuinely urgent items, Telegram messa
 ## Jesse Returns ~May 21
 
 When he's back, the priority order:
-1. BCG proposal review (Gunnar has been working on a fresh external recommendation)
+1. Wildernests/BCG proposal review (Gunnar Trommer has been working on a fresh external recommendation for Wildernests strategy)
 2. Calvin contract status + any held work
 3. Alfred follow-up (if Tom Inskip has progressed anything)
 4. Wildernests equity docs + Tattarang status
