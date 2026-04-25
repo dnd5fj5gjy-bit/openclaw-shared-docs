@@ -77,7 +77,7 @@ What this is: a dedicated outdoors/adventure content network branded around Bear
 **Fat Cow / Ryan Porter:**
 Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it and replied April 24: "I want to keep our first move simple." You organized a follow-up Zoom with Ryan for April 27 noon — but you were on set in Georgia. That Zoom almost certainly didn't happen. Ryan has been waiting since April 27. Send him a quick message before sailing: "Ryan — apologies, was on set. Let's reconnect when I'm back May 5/6."
 
-**Running Wild S9:** CJ is approving content from May 7 onwards. All episode briefs are built and in the CJ handover. MGK episode (May 5) needs Jesse approval — Calvin should have sent you draft posts by May 3. Check your email for Metricool review requests from Calvin.
+**Running Wild S9:** Olly is approving content from May 7 onwards. All episode briefs are built and in the handover. MGK episode (May 5) needs Jesse approval — Calvin should have sent you draft posts by May 3. Check your email for Metricool review requests from Calvin.
 
 **Water2:** If the Charles Robinson call didn't happen before April 28, CJ should have sent a holding email. Check email from CJ for update.
 
