@@ -94,15 +94,52 @@ Jesse should be prepared for EBG to conflate the valid social revenue share clai
 
 ---
 
-## The Exhibit 3 Issue
+## The Exhibit 3 Issue — RESOLVED
 
-Exhibit 3 lists "Excluded Sponsors" — brands whose revenue is exempt from the EBG revenue share. The pages couldn't be fully read from the PDF scan. Jesse should know what's on that list. If FOX or any Fox-adjacent brand is on it, that strengthens the position further. If not, it's neutral — FOX still isn't a social advertising deal.
+Exhibit 3 is the "BG Partner List as of March 2026" — two pages listing Bear's active commercial deals across four categories:
+
+**Brand Ambassador:** Pigler College (education, Europe), Aldar Development (eco real estate, UAE), Alfred (utility software, global), GEMS Education (schools, global excl. Europe), Hallow (meditation app, exclusive worldwide), Mettle (wellness apps/consultancy, exclusive worldwide)
+
+**Licensing:** BGSA (survival academy, exclusive, worldwide), Black Swan Group (outdoor gear, USA/Canada/Europe), Henley Commerce (insect repellent, USA/Canada/Europe), Luminox/Mondaine (watches, exclusive worldwide), PPHK China (outdoor theme parks, China)
+
+**Licensing with Ownership Component:** Multiple brands including equity/brand hybrid deals
+
+**Ownership Only and Other:** Various equity-only investments
+
+**What is NOT on Exhibit 3:** FOX. No media company, TV network, or streaming platform appears anywhere on this list.
+
+**What this means for May 4:**
+
+The Exhibit 3 finding is neutral-to-positive for BGV's position, but more subtle than I originally hoped. Here's why:
+
+Exhibit 3 is the list of deals excluded from EBG's revenue share. All of them are commercial product/brand partnerships — licensing deals, brand ambassador arrangements, equity-linked brand deals. They are excluded because they predate or operate outside EBG's social management scope.
+
+FOX is not on the list. This does NOT mean FOX is subject to EBG's revenue share. It means FOX was never a social advertising deal to begin with, so it never needed to be excluded. The Clause 3.5 revenue share only covers "advertising and sponsorship activities via any social handles managed by Consultant." FOX is a network TV and streaming media deal — it's in a different category entirely.
+
+**If Benjamin raises Exhibit 3 specifically:**
+> "Exhibit 3 is a list of existing brand partnerships — licensing deals, ambassador arrangements, equity deals. The FOX Creator Network isn't a brand partnership and it isn't a social sponsorship. It doesn't appear on that list because it's not in the same category of arrangement. Your clause 3.5 covers social advertising revenue. FOX is a media distribution deal. They're different things."
+
+**The stronger argument remains Clause 3.5's own language** — it limits EBG's revenue share to advertising and sponsorship on social handles. FOX needs no exemption because it never fell within that scope.
+
+---
+
+## Active Partners Worth Noting
+
+Two Exhibit 3 entries are worth Jesse knowing about for context:
+
+**Hallow** (meditation app) — exclusive, worldwide. Bear is in an active exclusive ambassador deal for faith-based meditation/prayer apps. This would block any competing arrangement in that space.
+
+**Mettle** (wellness apps, consultancy) — exclusive, worldwide. Bear holds shares (equity deal) and is exclusive for "focused wellness apps (including physical fitness) and any business which can be deemed similar." This is broad. Anyone pitching Bear on a wellness/fitness app play needs to check Mettle first.
+
+**Luminox** appears correctly — exclusive, worldwide, renewed through Dec 2029.
 
 ---
 
 ## Summary for Jesse
 
 The agreement is clean. It is fee-for-service with a narrow social media advertising revenue share. It explicitly does not give EBG rights to Bear's NIL. It explicitly supersedes all prior representations including investor decks. The FOX Creator Network, as a media deal rather than a social sponsorship, sits entirely outside the revenue share clause.
+
+**Exhibit 3 update:** FOX is not listed (expected — it's a media deal, not a brand sponsorship). The list confirms EBG's revenue share was always scoped to commercial brand partnerships, not media deals. This is consistent with and supports BGV's position.
 
 Jesse walks in knowing the document. That changes the dynamic completely. Benjamin will have read it too — but Jesse asking "which clause" from a position of having read it is very different from asking it without having read it.
 
