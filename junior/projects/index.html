@@ -1000,6 +1000,33 @@ function escAttr(s) {
   return String(s || '').replace(/'/g,"\\'").replace(/"/g,"&quot;");
 }
 
+// ─── DOCS ────────────────────────────────────────────
+async function loadDocs() {
+  try {
+    const res = await fetch('/docs');
+    const docs = await res.json();
+    const body = document.getElementById('docs-body');
+    if (!docs || docs.length === 0) {
+      body.innerHTML = '<div style="padding: 14px 16px; color: var(--ink-light); font-size: 13px;">No docs yet.</div>';
+      return;
+    }
+    document.getElementById('docs-count').textContent = docs.length + ' files';
+    body.innerHTML = docs.slice(0, 15).map(d => {
+      const date = new Date(d.modified * 1000);
+      const dateStr = date.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'});
+      return `<a class="proj-item" href="/doc/${escAttr(d.filename)}" target="_blank" style="text-decoration:none;">
+        <div class="proj-icon" style="background: var(--blue-bg); color: var(--blue); font-size: 14px;">📄</div>
+        <div class="proj-body">
+          <div class="proj-name" style="font-size: 13px;">${escHtml(d.title)}</div>
+          <div class="proj-status">${dateStr} &middot; ${d.size_kb} KB</div>
+        </div>
+      </a>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('docs-body').innerHTML = '<div style="padding: 14px 16px; color: var(--terracotta); font-size: 13px;">Could not load docs.</div>';
+  }
+}
+
 // ─── LOAD ALL ─────────────────────────────────────────
 async function loadAll() {
   document.getElementById('status-dot').className = 'status-dot loading';
