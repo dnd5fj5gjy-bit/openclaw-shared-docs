@@ -67,6 +67,13 @@ More significant than it first appeared. Benjamin Simon (CEO, Everest Brand Grou
 
 Zoom happened April 16 at 9:30 EST. No follow-up email. You know what was discussed. Before sailing, send Benjamin a holding note either way: ben@everestbrandgroup.com. Will Gardenswartz is the EBG contact cc'd: will@everestbrandgroup.com.
 
+**LFG / Outdoors Network — NEW: Jesse Not in This Thread:**
+While you were on set, Source Group (Owen Leimbach, owen@source-grp.com) pitched CJ on building an independent Bear-anchored outdoors content network. Connector was Delbert Shoopman (The Natural Studios, del@thenaturalstudios.com) — same person co-EP on Running Wild S9. CJ's reaction: "most productive 10 min I've had in weeks." You have not seen this proposal. CJ has.
+
+What this is: a dedicated outdoors/adventure content network branded around Bear, positioned as the non-Fox home for all Bear content IP — "like LFG but for outdoors." The ambition is creator network scale, not just one show. Jesse and Bear would need to align on whether this competes with or complements the Fox relationship.
+
+**Action on return:** Ask CJ to walk you through the Source Group conversation in full. Get Bear's read before responding to Owen. This is early-stage but CJ is already excited — don't let it advance without you in the room.
+
 **Fat Cow / Ryan Porter:**
 Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it and replied April 24: "I want to keep our first move simple." You organized a follow-up Zoom with Ryan for April 27 noon — but you were on set in Georgia. That Zoom almost certainly didn't happen. Ryan has been waiting since April 27. Send him a quick message before sailing: "Ryan — apologies, was on set. Let's reconnect when I'm back May 5/6."
 
@@ -80,13 +87,17 @@ Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it
 
 ## What Alfred Actually Needs
 
-Based on what I've found, Alfred is a premium members' network with a strong social/in-person community. Tom Inskip has been circling a commercial relationship where Bear Witness provides the digital media layer — social strategy, content, brand narrative.
+**What Alfred is (confirmed):** A premium members-only dating and social networking app. Exclusive community for "elevated" people — curated, application-only, waitlist. Incorporated in Delaware 2021, operating in London. App is live on iOS and Android. Think "The League" but more private. The brand deliberately keeps its leadership off the internet.
 
-**Your edge:** You've helped Bear build social infrastructure across multiple brands. Alfred is trying to grow a community of the type of people who follow Bear. The pitch isn't "we make posts" — it's "we understand how your members think and we know how to build the digital community that makes Alfred the thing they talk about."
+**Tom Inskip's role:** Connector and likely advisor/investor. He's a well-connected London social figure — this is exactly his world. He's not running Alfred day-to-day.
 
-**What Alice brings:** PR and marketing validation. She's not the decision-maker for Alfred's operations — she's likely either advising Alfred, advising Tom, or evaluating whether Bear Witness is the right fit before Tom introduces you to Alfred's founder/CEO.
+**Jesse's pitch:** Bear Witness manages Alfred's digital presence. For a dating/social app, this means: brand voice, content that conveys exclusivity, social proof from members, narrative that makes people want to be part of it. Not just posts — it's community storytelling.
 
-**Who you haven't met yet:** Alfred's actual founder/leadership. May 5 may be Alice and Tom aligning before they make that introduction. Be patient — this is a relationship sale.
+**Your edge:** Bear's audience is exactly Alfred's demographic. You understand how to build a community around identity ("the kind of person who does this") which is exactly what a premium dating app needs. The pitch: "Your members are people who follow Bear. I know how they think."
+
+**What Alice brings:** PR validation + Henri-Lloyd connection. She likely vouched for Jesse's quality before Tom circled this back. With Henri-Lloyd live and active, she can point to a real working relationship.
+
+**Who you still haven't met:** Alfred's founder/CEO. Their name is not publicly disclosed anywhere — consistent with the brand's intentional privacy. May 5 may be Alice and Tom aligning before they make that introduction. Be patient — this is a relationship sale.
 
 ---
 
