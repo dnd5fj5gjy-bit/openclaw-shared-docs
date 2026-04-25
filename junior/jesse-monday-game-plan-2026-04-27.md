@@ -133,8 +133,8 @@ Note: this is the US filing. UKIPO (Step 2 above) is the UK filing. Both need to
 ## If You Run Out of Time
 
 Priority order if something has to slip:
-1. Must happen Monday: Qwilr signature, Calvin WhatsApps, UKIPO
-2. Should happen Monday: Water2 call, Stripe
-3. Can slip to CJ if needed: BGV approval for Calvin
+1. Must happen Tuesday: Qwilr signature, Calvin WhatsApps, UKIPO, Kylee reply (all under 5 min each)
+2. Should happen Tuesday: Water2 call, Stripe (once entity confirmed)
+3. Can slip to CJ if needed: BGV approval for Calvin, Wildernests equity check
 
 The Stripe setup is the highest-value Jesse-only action after UKIPO. Calvin can hold off sending Email 1 until Stripe exists — there's no point collecting customers who can't pay.
