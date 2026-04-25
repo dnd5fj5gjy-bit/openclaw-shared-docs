@@ -167,6 +167,8 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 7. **Becoming X — Bear resignation confirmed**
 8. **Wildernests/Tattarang — follow up with Taki Dermedgoglou if no contact since Bear's Apr 23 intro**
 9. **Water2 — hold warm if Jesse's call doesn't happen**
+10. **Caroline Michel (PFD) — apology email for missed April 27 catch-up** (cmichel@pfd.co.uk)
+11. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
 
 ---
 
