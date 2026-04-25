@@ -56,13 +56,17 @@ No Stripe = no Modern Savage sales. This is the biggest time block.
 **CRITICAL — read this before starting:**
 Bear Witness Limited (Isle of Man) CANNOT set up a Stripe account. Stripe does not support Isle of Man registered companies. You need a UK entity.
 
-**Do this Monday evening or first thing Tuesday morning:**
-WhatsApp Raemy: "For Modern Savage Stripe setup, Bear Witness Ltd (IOM) won't work — Stripe doesn't support IoM. Two options: (a) incorporate a new Modern Savage Ltd today ~£100 from 1stformations.co.uk, takes 15 mins, or (b) use BGV Global Ltd as a temporary entity. Which do you prefer?"
+**UPDATED — entity question is more complex than previously briefed:**
+The April 20 email chain (you, CJ, Bear, Raemy) shows three options being considered for the US entity:
+- (A) Bear Witness wholly-owned US C-corp (CJ's preferred, but needs funding via loan)
+- (B) BGV LLP's existing Citizens Bank account as the loaning entity
+- (C) BGV Global Ltd as temporary
 
-If Raemy says option (a): go to 1stformations.co.uk now — name, director details, £100, same-day certificate.
-If no reply by noon: default to option (a). It's the right structure anyway.
+This was not resolved before you left for Georgia. Before setting up Stripe, WhatsApp Raemy: "What entity are we using for Modern Savage Stripe — did we resolve the US structure question?"
 
-Then Tuesday: register Stripe under the UK entity + create Adult Blend subscription at $69/month + generate Payment Link.
+Note: this covers THREE ranges (Modern Savage, BG Summit, and a third "Min" range) — all being launched on the same SuperHero platform. Raemy needs to confirm entity for all three.
+
+Then: register Stripe under the confirmed entity + create Adult Blend subscription at $69/month + generate Payment Link.
 
 ---
 
