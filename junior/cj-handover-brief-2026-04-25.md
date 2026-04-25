@@ -37,8 +37,8 @@ Jesse has a hard stop April 28. He sails May 7. There are 4-5 open business situ
 **What remains for CJ to manage during Jesse's break:**
 
 - **Email 1:** Jesse will instruct Calvin to send Email 1 to the 170-person waitlist. If Calvin hasn't sent it by May 1, CJ to chase. The email is built (`workspace/docs/modern-savage-email-1-2026-04-24.md`) — Calvin just needs to send it.
-- **Ships A Lot Slack:** CJ should join the #modern-savage Slack workspace (Susan U from Ships A Lot invited Jesse April 24). CJ should be the point of contact while Jesse is off.
-- **ACF Pharma (Drew Kouvel):** No action needed unless Drew raises a formula or shipping question. CJ can respond or hold for Jesse.
+- **Ships A Lot Slack:** Olly should join the #modern-savage Slack (Susan U invited Jesse April 24) and be the routine comms contact. If a commercial or fulfilment decision arises, escalate to CJ.
+- **ACF Pharma (Drew Kouvel):** No action needed unless Drew raises a formula or shipping question. If raised, CJ to decide or hold for Jesse.
 - **Raemy / Finance:** Modern Savage needs a UK entity or Bear Witness Ltd to be set up as the Stripe account owner. Raemy (back Monday) should confirm which legal entity to use. This doesn't need to be resolved in the next 4 days but CJ should flag it to Raemy before Jesse goes.
 
 **Do NOT:** Make any public commitments about launch dates, pricing, or product claims without Jesse's sign-off.
