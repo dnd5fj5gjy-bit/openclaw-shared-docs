@@ -101,6 +101,25 @@ Ask Raemy: "Where are we on the Bear Witness equity docs for Wildernests?" Raemy
 
 ---
 
+---
+
+### 12. Reply to Kylee MacArthur — US Trademark — 2 minutes
+
+Kylee at Weinberg Gonser LLP sent a quote on April 24 (unread in your inbox). She's waiting for a green light.
+
+**The quote:**
+- USPTO MODERN SAVAGE trademark: ~$2,500 all-in (filing + Doug's IP work managing the process)
+- Doug's assessment: "the office should not likely take issue" — mark looks clean
+
+**Your reply (forward to her email, subject "Re: Modern Savage"):**
+> "Kylee — please proceed. Send me the engagement letter. Thank you."
+
+That's it. She handles everything from there.
+
+Note: this is the US filing. UKIPO (Step 2 above) is the UK filing. Both need to happen before launch press hits.
+
+---
+
 ## What You Do NOT Need to Do Monday
 
 - Modern Savage strategy, content, or briefs — all built
