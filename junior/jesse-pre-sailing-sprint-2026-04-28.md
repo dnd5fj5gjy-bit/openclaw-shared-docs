@@ -87,8 +87,14 @@ Full prep: docs/ebg-may4-zoom-prep-2026-04-28.pdf
 **Coffee: Jesse with Tom Inskip + Alice Driscoll**
 Jesse handling this himself. Tom is Alfred's founder. This is the relationship build after the pitch letter. No agenda required — Jesse knows what he's doing here.
 
-**If Taki Dermedgoglou (Tattarang) responds to Bear's April 23 intro:**
-Don't engage on deal terms. Standard holding reply via Olly. Taki gets warm acknowledgment and a "Jesse back May 21" note.
+**Tattarang — URGENT before you leave:**
+Taki responded April 23 (same day Bear pitched) with 6 serious investor diligence questions. Elliot Goldstone (Tattarang investment team) is now cc'd — they've moved to internal due diligence. Questions have been sitting unanswered for 2+ days as of April 25.
+
+What Jesse must do before sailing: **WhatsApp Alex.** Message: "Alex — Taki's questions from Thursday are urgent. Taki cc'd his investment team. Reply within 48 hours. I'll follow up with Taki directly once your response is out."
+
+Bear can send Taki a warm WhatsApp to hold the relationship while Alex prepares the response: "Taki — Alex is pulling together the detailed numbers for you. Happy to jump on a quick call too — let me know."
+
+Full Tattarang brief with suggested answers to all 6 questions: docs/wildernests-tattarang-response-brief-2026-04-25.pdf
 
 ---
 
