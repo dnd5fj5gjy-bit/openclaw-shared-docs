@@ -114,9 +114,12 @@ Jesse approves all Bear social content. From May 7 (when he sails), CJ approves 
 | Ep 6/7 | Elizabeth Banks / Michelle Monaghan | Late May / Early Jun | CJ approves |
 | Ep 8 | Rhys Darby | ~Jun 9 | CJ approves |
 
-**Episode briefs for the complex guests:**
+**Episode briefs for all guests:**
 - MGK: `workspace/docs/running-wild-mgk-episode-brief-2026-04-27.md` — avoid Megan Fox entirely, lean into sobriety/vulnerability narrative
 - Colman Domingo: `workspace/docs/running-wild-colman-domingo-brief-2026-04-27.md` — "radical love" framing, avoid Michael Jackson biopic controversy
+- Uma Thurman: `workspace/docs/running-wild-uma-thurman-brief-2026-04-27.md` — Buddhist upbringing is the lead angle, not Kill Bill
+- Elizabeth Banks + Michelle Monaghan: `workspace/docs/running-wild-elizabeth-banks-michelle-monaghan-brief-2026-04-28.md` — Banks: avoid Charlie's Angels entirely. Monaghan: Iowa roots is the angle.
+- Rhys Darby: `workspace/docs/running-wild-rhys-darby-brief-2026-04-28.md` — NZ Army veteran + Cryptid Factor podcast. Don't make him a punchline.
 - Full playbook for all episodes: `workspace/docs/running-wild-s9-social-playbook-2026-04-25.md`
 
 **CJ's job:** When Calvin submits posts for review (via Metricool), approve if they match the brief tone. If something feels off — too glib, misses the guest's narrative, or touches a sensitive area — ask Calvin to redraft before approving.
