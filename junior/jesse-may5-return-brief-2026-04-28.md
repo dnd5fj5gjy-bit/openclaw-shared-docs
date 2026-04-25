@@ -63,7 +63,7 @@ CJ managed Apr 29 - May 4. Here's what to check when you land:
 Gunnar Trommer (Managing Director, BCG X — their medtech/digital health unit) and Alex Aboshiha (BCG Partner, California) have been running weekly Zoom calls with you. **The May 7 weekly call is at 5pm — your sailing day.** Decide before then: dial in from the boat, ask them to reschedule for May 5 or 6, or skip and reconnect when back. Don't just miss it without a heads-up. Alex left a note April 16 asking Gunnar for "a fresh external proposal on what you think would be the very best solution" — there may be a BCG proposal waiting for you.
 
 **Fat Cow / Ryan Porter:**
-Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it and replied April 24: "I want to keep our first move simple." You organized a follow-up Zoom with Ryan on April 24. This is an active deal in early stages. No action needed May 5 unless Ryan has followed up — but worth a quick check before sailing so he's not left waiting three weeks.
+Ryan Porter (Director, Fat Cow) submitted a pitch deck April 15. You reviewed it and replied April 24: "I want to keep our first move simple." You organized a follow-up Zoom with Ryan for April 27 noon — but you were on set in Georgia. That Zoom almost certainly didn't happen. Ryan has been waiting since April 27. Send him a quick message before sailing: "Ryan — apologies, was on set. Let's reconnect when I'm back May 5/6."
 
 **Running Wild S9:** CJ is approving content from May 7 onwards. All episode briefs are built and in the CJ handover. MGK episode (May 5) needs Jesse approval — Calvin should have sent you draft posts by May 3. Check your email for Metricool review requests from Calvin.
 
