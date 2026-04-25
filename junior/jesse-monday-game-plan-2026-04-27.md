@@ -32,8 +32,8 @@ Two separate messages. Keep them short.
 **Message 1 (contracts):**
 > "Mate — contracts for Wildernests, Ted's and Modern Savage were due Thursday. I'm off from tomorrow. What's the hold up?"
 
-**Message 2 (Email 1 + Sunday repost):**
-> "Email 1 to the 170 waitlist needs to go this week. And queue the Bear repost of the Fox Reality Club carousel at 10am Sunday if you haven't already."
+**Message 2 (Email 1 + Sunday repost + YouTube handle):**
+> "Email 1 to the 170 waitlist needs to go this week. And queue the Bear repost of the Fox Reality Club carousel at 10am Sunday if you haven't already. One more thing — can you create the Modern Savage YouTube channel and set the handle to @modernsavagenutrition? Free, takes 5 mins. Needs to be done before launch so no one squats it."
 
 ---
 
