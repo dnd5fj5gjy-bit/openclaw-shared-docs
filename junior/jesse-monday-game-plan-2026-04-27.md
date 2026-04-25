@@ -66,7 +66,18 @@ Then Tuesday: register Stripe under the UK entity + create Adult Blend subscript
 
 ---
 
-### 6. BGV Approval — Calvin $3k/month — 1 WhatsApp, 2 minutes
+### 6. Call Rick Landman — 2 minutes (unblocks your April invoice)
+
+Your April invoice to Bear Witness is sitting at Cavendish Trust, payment ready to go. Rick just needs a 30-second callback to verify your bank account details before they can release it. He tried calling April 24 while you were on set.
+
+**Call Rick on his mobile: +447624277888**
+He only needs 30 seconds. Tell him the account details for wherever Jesse's invoice should be paid to.
+
+Also: Raemy's email flagged that Bear Witness needs to invoice Wildernests for **$15K next week**. Cavendish Trust will prepare the draft — just flag to Raemy to confirm timing with them.
+
+---
+
+### 7. BGV Approval — Calvin $3k/month — 1 WhatsApp, 2 minutes
 You said "let me get approved" on April 24. Chase this before you go off.
 - WhatsApp CJ or Raemy: "Have we approved Calvin's £3k/month for Modern Savage?"
 
