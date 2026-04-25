@@ -7,9 +7,21 @@
 
 ## Who You're Calling
 
-**Charles Robinson** — Water2 founder. Dropped out of university, worked with academics to build Pod 2.0. Entrepreneurial early-stage founder type. The kind of person who moves fast on relationships and slow on documents — similar to you.
+**Charles Robinson** — Water2 founder. Dropped out of university (UCL connection), built Pod 2.0 with academics. Zero VC funding - entirely bootstrapped to 8-figure revenue. Entrepreneurial founder type who moves fast on relationships and slow on documents — similar to you.
 
-Water2 is a real business: they're on Amazon UK, they have genuine reviews, T3 magazine reviewed them positively, and they have "fastest growing water filter brand in the world" in their marketing language (which means they have growth numbers to show). Bear's name is front and centre in all their marketing.
+**What Water2 actually is right now (Apr 2026 research):**
+- 180,000+ UK homes using their filters
+- Self-described "eight-figure" business (£10M+ revenue)
+- ARR estimate: £12.5M-£17.8M (180K customers × £99/year refill subscription × 70-100% retention)
+- Distribution: Amazon UK (ASINs B0G5RL23PN, B0FSKW7G97), Costco UK (active, confirmed)
+- Boots: NO presence yet — untapped channel worth £millions
+- New product: filtered showerhead at £99, co-developed with Bear, launched 2025
+- 20,000+ customer reviews on-site; 4,835 Trustpilot reviews, positive
+- No other ambassadors — Bear is the only one
+
+This is a real, growing, bootstrapped business. Charles has retained significant equity by avoiding VC. The "fastest growing water filter brand" claim is directionally real — 180K homes in ~2 years is genuinely fast.
+
+**What this means for the call:** Bear's equity in a £12-18M ARR business is worth something. Don't treat this like a small startup favour. Approach it as a meaningful equity position in a scaling consumer brand.
 
 ---
 
