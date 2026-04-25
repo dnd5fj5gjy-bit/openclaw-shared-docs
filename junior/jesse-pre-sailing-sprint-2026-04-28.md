@@ -12,7 +12,7 @@ These are Jesse-only. Cannot be delegated. Do in this order.
 | # | Task | Time | Notes |
 |---|------|------|-------|
 | 1 | **Qwilr — Ships A Lot** | 5 min | Susan has been waiting since Apr 24. Sign it first, nothing else. shipsalot.qwilr.com/Modern-Savage-aHwI1CSkQd6q |
-| 2 | **UKIPO £265** | 10 min | ipo.gov.uk / Login: Savage2026! / Pay MODERN SAVAGE application |
+| 2 | **UKIPO — DONE, no action** | 0 min | Both applications paid. SISTER SWIMS (UK00004372256) accepted April 24, entering opposition period. MODERN SAVAGE (UK00004375735) in standard examination. Remove from list. |
 | 3 | **Kylee MacArthur reply** | 2 min | "Kylee - please proceed. Send me the engagement letter." (Re: USPTO MODERN SAVAGE, ~$2,500) |
 | 4 | **WhatsApp Calvin x2** | 3 min | (1) "Mate — contracts for Wildernests, Ted's and Modern Savage were due Thursday. I'm off from tomorrow. What's the hold up?" / (2) "Email 1 to the 170 waitlist needs to go this week." |
 | 5 | **Call Rick Landman** | 2 min | +447624277888. 30 seconds. Releases your April invoice. He called Apr 24 while you were on set. |
