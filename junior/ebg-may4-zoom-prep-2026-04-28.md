@@ -37,8 +37,12 @@ EBG believes they are entitled to a share of revenue from the network — beyond
 **BGV's position:**
 The EBG_BWM_Consulting_Agreement_Final (signed April 3 via DocuSign, $25K/month processed through Cavendish Trust/Rick Landman) is the full extent of EBG's commercial relationship. Network revenue is NOT covered.
 
-**Bear's view:**
-Bear wants Jesse and him to align before BGV responds to EBG's claim. This is not resolved.
+**Bear's view (critical — read carefully):**
+On April 2, Bear wrote: "I really would like Jesse involved in these discussions with them too. I hear their argument but I'm not sure it's entirely [clear]." Bear is NOT instinctively aligned with CJ's hard-line rejection. He has empathy for EBG's position.
+
+One day later (April 3), CJ laid out the legal argument in the thread. Bear replied: "Agreed." So Bear endorsed CJ's analysis when presented with the contract logic — but his starting instinct was more open.
+
+**What this means for Jesse:** Do not walk into May 4 as CJ's proxy. Jesse's posture — "Bear and I are looking at this together" — is exactly right, because they genuinely haven't aligned yet. Jesse should hear EBG out, bring Bear the specific claims, and let Bear and Jesse set the joint position. CJ's legal read may be correct, but Bear deciding he wants to be more generous to EBG than the strict contractual position would also be valid. That's Bear's call to make.
 
 **Jesse's job on this call:**
 - Listen to what EBG raises. Note it. Acknowledge it.
