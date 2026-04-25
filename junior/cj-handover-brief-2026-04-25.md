@@ -1,8 +1,10 @@
 # CJ Handover Brief — Jesse Off Apr 29 to May 4
-**Prepared:** April 25, 2026
+**Prepared:** April 25, 2026 (role correction April 25)
 **Author:** Junior
 **For:** Jesse to send to CJ before Apr 28
-**Purpose:** Jesse is off Apr 29 - May 4, then sails May 7. This is everything CJ needs to hold the fort and keep things moving.
+**Purpose:** Jesse is off Apr 29 - May 4, then sails May 7. CJ covers BUSINESS DECISIONS only. Olly covers coordination, comms, and scheduling — there is a separate Olly brief.
+
+**CJ's lane: commercial decisions, contract enforcement, legal standing, negotiations. If someone needs a reply or a meeting rescheduled, that's Olly.**
 
 ---
 
@@ -128,6 +130,24 @@ Calvin submits via Metricool (notifications go to Jesse's email). CJ should ask 
 
 ---
 
+## 8a. April 29-30 Scheduled Calls — Jesse Is Off, CJ Handles
+
+Jesse accepted three calls during his "off" week (Apr 29 - May 4) before declaring that window closed. CJ needs to cover or send apologies.
+
+**April 29, 9:00-9:45am — Ted's Health Catchup**
+Organizer: Thomas Filmer (thomas@tedshealth.com) — Ted's Health internal operator, runs supplement ops, 3PL, competitive intel. Google Meet.
+**CJ's action:** Attend or send apologies on Jesse's behalf. Thomas has been working on supplement designs (option 2: dark top/teal bottom approved by Jesse and Olly) and 3PL fulfillment quotes from 5 providers. CJ can attend and take notes for Jesse.
+
+**April 29, 1:00-2:00pm — BGV catch-up Zoom Meeting**
+Organizer: Em Lovell (em@beargryllsventures.com) — this is the biweekly EBG/BGV operational Zoom.
+**CJ's action:** Attend in Jesse's place. Routine EBG/BGV check-in.
+
+**April 30, 5:00-5:45pm — Weekly Wildernests/BCG call: Jesse, Alex, Gunnar, (Joe)**
+Organizer: Gunnar Trommer (BCG X). Attendees: Alex Aboshiha (Wildernests CEO), Gunnar, "(Joe)" (unidentified, added April 22).
+**CJ's action:** Email Gunnar (gunnar.trommer@bcg.com or similar) before April 28: "Jesse is off this week and sailing May 7-21. He'll reconnect from May 21. Please continue working with Alex in the meantime."
+
+---
+
 ## 10. Bear Monthly Catch-up — Missed April 27
 
 The monthly Bear/BGV catch-up with Caroline Michel (PFD — Peters Fraser & Dunlop, Bear's literary/talent agent) was scheduled April 27 at 2pm. Jesse was on set in Georgia and missed it.
@@ -167,8 +187,11 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 7. **Becoming X — Bear resignation confirmed**
 8. **Wildernests/Tattarang — follow up with Taki Dermedgoglou if no contact since Bear's Apr 23 intro**
 9. **Water2 — hold warm if Jesse's call doesn't happen**
-10. **Caroline Michel (PFD) — apology email for missed April 27 catch-up** (cmichel@pfd.co.uk)
-11. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
+10. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
+11. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer)
+12. **April 30 Wildernests/BCG call — notify Gunnar Jesse is off** (email before April 28)
+13. **Caroline Michel (PFD) — apology email for missed April 27 catch-up** (cmichel@pfd.co.uk)
+14. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
 
 ---
 
