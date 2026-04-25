@@ -38,7 +38,7 @@ Jesse has a hard stop April 28. He sails May 7. There are 4-5 open business situ
 
 - **Email 1:** Jesse will instruct Calvin to send Email 1 to the 170-person waitlist. If Calvin hasn't sent it by May 1, CJ to chase. The email is built (`workspace/docs/modern-savage-email-1-2026-04-24.md`) — Calvin just needs to send it.
 - **Ships A Lot Slack:** Olly should join the #modern-savage Slack (Susan U invited Jesse April 24) and be the routine comms contact. If a commercial or fulfilment decision arises, escalate to CJ.
-- **ACF Pharma (Drew Kouvel):** No action needed unless Drew raises a formula or shipping question. If raised, CJ to decide or hold for Jesse.
+- **ACF Pharma — CONFIRM SHIP DATE (urgent):** The $82K manufacturing deposit was sent April 23-24. Three products in production: Modern Savage (adult, no creatine), BG Summit (adult, with creatine), Min (kids blend). Standard supplement lead time is 8-12 weeks. At 10 weeks from deposit, product arrives July 2 — one day AFTER the July 1 launch. CJ must email Chris Liming (chris@lightningnutra.com) this week: "Can you confirm the expected ship date for the SuperHero Add On order?" If the answer is after June 25, Jesse needs to know immediately — either the launch date slips or expedited production is negotiated.
 - **Raemy / Finance:** Modern Savage needs a UK entity or Bear Witness Ltd to be set up as the Stripe account owner. Raemy (back Monday) should confirm which legal entity to use. This doesn't need to be resolved in the next 4 days but CJ should flag it to Raemy before Jesse goes.
 
 **Do NOT:** Make any public commitments about launch dates, pricing, or product claims without Jesse's sign-off.
