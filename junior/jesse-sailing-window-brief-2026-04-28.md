@@ -224,5 +224,6 @@ When he's back, the priority order:
 3. Alfred follow-up (if Tom Inskip has progressed anything)
 4. Wildernests equity docs + Tattarang status
 5. Modern Savage launch timeline check (June 24 domain deadline, July 1 launch)
-6. Ryan Porter / Fat Cow reconnect
-7. Water2 follow-up with Charles Robinson
+6. Benjamin Simon / EBG - Modern Savage collaboration (Zoom happened April 16, no follow-up; Jesse has the context)
+7. Ryan Porter / Fat Cow reconnect
+8. Water2 follow-up with Charles Robinson
