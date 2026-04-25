@@ -1,0 +1,97 @@
+# Jesse's Monday — Game Plan
+**For:** Monday April 28 (or Sunday evening if you want a head start)
+**Read time:** 2 minutes
+**Purpose:** You have one working day before you go off. This is the order of operations.
+
+---
+
+## The Non-Negotiables (Jesse-only, cannot delegate)
+
+Do these in this order. Total time: ~2.5 hours.
+
+---
+
+### 1. Ships A Lot Qwilr — 5 minutes (do this first)
+Susan U has been waiting. It's the easiest task. Get it done before you open anything else.
+- Check Jesse's email: subject "Shipsalot" or search "Susan" for the Qwilr link
+- Sign it. Done.
+
+---
+
+### 2. UKIPO — 10 minutes
+Pay the £265 MODERN SAVAGE trademark fee.
+- Go to: https://www.ipo.gov.uk/
+- Login: **Savage2026!**
+- Find the pending MODERN SAVAGE application and pay £265
+- Screenshot the confirmation. Send to CJ for records.
+
+---
+
+### 3. Calvin — 2 WhatsApps, 3 minutes
+Two separate messages. Keep them short.
+
+**Message 1 (contracts):**
+> "Mate — contracts for Wildernests, Ted's and Modern Savage were due Thursday. I'm off from tomorrow. What's the hold up?"
+
+**Message 2 (Email 1 + Sunday repost):**
+> "Email 1 to the 170 waitlist needs to go this week. And queue the Bear repost of the Fox Reality Club carousel at 10am Sunday if you haven't already."
+
+---
+
+### 4. Call Charles Robinson (Water2) — 30 minutes
+Read the call prep at `workspace/docs/water2-call-prep-2026-04-25.md` first (5 mins).
+
+Opening: "Bear is proud of what you've built. The investment stands. We want to make sure the ongoing brand relationship has proper structure as you scale. What does that look like from your side?"
+
+**The one question you must ask:** "What's your ARR today?"
+
+Don't commit to specific warrant percentages on the call. Get the number. Put a follow-up in writing.
+
+---
+
+### 5. Stripe — 90 minutes
+No Stripe = no Modern Savage sales. This is the biggest time block.
+- Full guide: `workspace/docs/modern-savage-stripe-setup-guide-2026-04-24.md`
+- 90-minute version: register + verify business + create Adult Blend subscription at $65/month + generate Payment Link
+- Entity to use: confirm with Raemy (she's back Monday) — Bear Witness Ltd or a new entity?
+- One WhatsApp to Raemy before you start: "Which entity should I register Modern Savage Stripe under?"
+
+---
+
+### 6. BGV Approval — Calvin $3k/month — 1 WhatsApp, 2 minutes
+You said "let me get approved" on April 24. Chase this before you go off.
+- WhatsApp CJ or Raemy: "Have we approved Calvin's £3k/month for Modern Savage?"
+
+---
+
+## Hand to CJ Before You Go
+
+Forward the CJ handover brief (`workspace/docs/cj-handover-brief-2026-04-25.md`) to CJ before Tuesday.
+
+Key things CJ must own while you're off:
+- Chase Calvin on contracts daily until signed
+- Email Sam Cotton at leasing@bpsdc.co.uk re BPS Hub (NOT George Musgrave — wrong contact)
+- Join Ships A Lot Slack (#modern-savage) as point of contact
+- Flag Raemy on Modern Savage legal entity for Stripe/finances
+- Confirm Bear's Becoming X resignation has been submitted
+
+---
+
+## What You Do NOT Need to Do Monday
+
+- Modern Savage strategy, content, or briefs — all built
+- Water2 background research — built
+- Diary of a CEO pitch — built (pitch goes out June, not now)
+- BPS Hub email — CJ's job
+- Organised Nutrition / TC Group — CJ managing, do not touch
+
+---
+
+## If You Run Out of Time
+
+Priority order if something has to slip:
+1. Must happen Monday: Qwilr signature, Calvin WhatsApps, UKIPO
+2. Should happen Monday: Water2 call, Stripe
+3. Can slip to CJ if needed: BGV approval for Calvin
+
+The Stripe setup is the highest-value Jesse-only action after UKIPO. Calvin can hold off sending Email 1 until Stripe exists — there's no point collecting customers who can't pay.
