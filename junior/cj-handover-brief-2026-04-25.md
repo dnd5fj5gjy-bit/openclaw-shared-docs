@@ -156,22 +156,22 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 
 ---
 
-## CJ's Priority Order
+## CJ's Priority Order (business decisions only)
 
-1. **Calvin contracts — chase daily until signed**
-2. **modernsavage.com domain — initiate acquisition this week**
-3. **BPS Hub — email Sam Cotton this week**
-4. **Running Wild — ask Calvin to copy CJ on Metricool review requests from May 7**
-5. **Ships A Lot Slack — join and be point of contact**
-6. **Flag Raemy on Modern Savage legal entity (Stripe)**
-7. **Becoming X — Bear resignation confirmed**
-8. **Wildernests/Tattarang — follow up with Taki Dermedgoglou if no contact since Bear's Apr 23 intro**
-9. **Water2 — hold warm if Jesse's call doesn't happen**
-10. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
-11. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer)
-12. **April 30 Wildernests/BCG call — notify Gunnar Jesse is off** (email before April 28)
-13. **Caroline Michel (PFD) — apology email for missed April 27 catch-up** (cmichel@pfd.co.uk)
-14. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
+1. **Calvin contracts — chase daily until signed. Hold new paid work if not signed by May 7.**
+2. **modernsavage.com domain — initiate acquisition this week (budget up to £2K)**
+3. **BPS Hub — email Sam Cotton this week, have exploratory call if response comes**
+4. **Flag Raemy on Modern Savage legal entity (Stripe)**
+5. **Becoming X — confirm Bear resignation formally submitted**
+6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — routine biweekly)
+7. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
+8. **April 30 Wildernests/BCG call — email Gunnar that Jesse is off until May 21** (before April 28)
+9. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
+10. **Luminox 2nd amendment — respond to Maria Valenzuela, continue review**
+11. **FOX Creator Network economics dispute — hold BGV position, do not engage on substance**
+12. **Source Group / LFG Network — hold, no discussions without Jesse and Bear aligned**
+
+*Note: apology to Caroline Michel, Tattarang follow-up, Water2 holding email, Running Wild Metricool approvals, and all "Jesse is sailing" replies → these are Olly's tasks, not on this list.*
 
 ---
 
