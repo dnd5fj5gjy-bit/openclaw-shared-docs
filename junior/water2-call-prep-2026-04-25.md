@@ -67,6 +67,22 @@ The follow-up question if he gives you a number: "And what's the retention rate 
 
 ---
 
+## What Bear's Equity Is Actually Worth
+
+Rough math based on public intelligence:
+
+| Scenario | ARR | Revenue Multiple | Company Value | Bear's 5% stake |
+|----------|-----|-----------------|---------------|-----------------|
+| Conservative | £10M | 2x | £20M | £1M |
+| Mid | £14M | 3x | £42M | £2.1M |
+| Strong | £18M | 4x | £72M | £3.6M |
+
+Water2 is bootstrapped (no VC, no dilution). Charles retained full equity to this point. A consumer subscription brand at 180K customers + Costco + Amazon is a credible acquisition target for a Unilever, Reckitt, or private equity roll-up.
+
+**Before the call:** Ask Kylee or Raemy what percentage Bear actually holds from the 2024 investment. Go in knowing the number.
+
+---
+
 ## What NOT to Do on This Call
 
 - Don't renegotiate the 2024 investment equity downward
