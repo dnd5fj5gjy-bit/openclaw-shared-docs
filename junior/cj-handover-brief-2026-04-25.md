@@ -124,7 +124,26 @@ Organizer: Thomas Filmer (thomas@tedshealth.com) — Ted's Health internal opera
 
 **April 29, 1:00-2:00pm — BGV catch-up Zoom Meeting**
 Organizer: Em Lovell (em@beargryllsventures.com) — this is the biweekly EBG/BGV operational Zoom.
-**CJ's action:** Attend in Jesse's place. Routine EBG/BGV check-in.
+**CJ's action:** Attend in Jesse's place. THIS IS NOT A ROUTINE CHECK-IN.
+
+**CRITICAL — Read before this call:**
+
+Everest Brand Group (EBG / Benjamin Simon) is running two separate arguments about FOX Creator Network economics:
+
+1. **Moral argument:** EBG co-executive produced Running Wild S9 — the FOX relationship the Creator Network is built on. They claim $25K/month doesn't cover their role in making the network possible.
+
+2. **Structural/contractual argument (the dangerous one):** Everest Fund (Sovereign's Capital — Benjamin Simon's investment fund) is a **confirmed production capital partner in the Running Wild S9 FOX renewal**. This is publicly on record (Variety, Deadline, February 2026). This means EBG may have an actual investment stake in the production — separate from the consulting agreement — that could entitle them to economics from derivative deals like the Creator Network.
+
+**BGV's current position** (from the signed consulting agreement): EBG is compensated $25K/month. Network revenue is not covered. CJ's legal read is correct on the consulting agreement. But the Everest Fund production investment is a separate document that may tell a different story.
+
+**CJ's standing orders for this call:**
+- Do NOT engage on the substance of network economics. Any specific number or structure CJ responds to creates a precedent.
+- If EBG raises the FOX Creator Network: *"Jesse and Bear are looking at this together. Jesse will come back to you with a proper position."*
+- If EBG pushes: *"I'm not in a position to discuss specifics on Jesse's behalf — he'll be in touch directly."*
+- Note down exactly what EBG says. Report word for word to Jesse after the call.
+- Do NOT mention that you're aware of the Everest Fund investment angle — that's Jesse's card to play on May 4.
+
+**Before May 4:** CJ must get a legal read on the Everest Fund investment agreement — specifically whether it covers only Running Wild S9 P&L or extends to derivative FOX deals (like the Creator Network). This is the key document. Jesse needs the answer before the May 4 call.
 
 **April 30, 5:00-5:45pm — Weekly Wildernests/BCG call: Jesse, Alex, Gunnar, (Joe)**
 Organizer: Gunnar Trommer (BCG X). Attendees: Alex Aboshiha (Wildernests CEO), Gunnar, "(Joe)" (unidentified, added April 22).
