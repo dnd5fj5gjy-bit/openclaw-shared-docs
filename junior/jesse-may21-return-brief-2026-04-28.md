@@ -115,8 +115,10 @@ Read these after handling Part 2.
 | Alfred pitch | May 5 coffee with Tom Inskip and Alice happened before sailing | Ask CJ what the outcome was |
 | Rick Landman callback | +447624277888 - 30-second bank verification | Bear Witness £6,000 payment held pending this call. Check if resolved. |
 | BPS Hub (Sam Cotton) | leasing@bpsdc.co.uk | Check if CJ moved forward |
+| Ships A Lot Qwilr | Jesse said "happy to move forward" April 24, Slack #modern-savage set up same day | Still needs Qwilr signature. CJ's Q5 in the debrief. |
+| Carson Combs (Zenbuild) | CEO of Zenbuild.com (building materials e-commerce), Bear intro Feb 2026, WhatsApp April 26: "have something for you to look at" | Reply when back. Possible Wildernests angle (building materials + prefab homes). |
 | Becoming X resignation | Bear's formal resignation was due by May 6 | Confirm it's done |
-| Sister Swims trademark | UK00004372256 — opposition window ~June 24 | No action needed, awareness only |
+| Sister Swims trademark | UK00004372256 - opposition window ~June 24 | No action needed, awareness only |
 
 ---
 
