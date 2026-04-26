@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — Content Starter Pack 2026</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --light: #f5f5f3;
+    --border: #e0ddd8;
+    --accent: #1c3d2b;
+    --accent-light: #e8f0eb;
+    --warm: #8b5a2b;
+    --red: #c0392b;
+    --tag-bg: #dde8e2;
+    --tag-text: #1c3d2b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    background: #faf9f7;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 48px 32px; }
+
+  /* COVER */
+  .cover {
+    background: var(--accent);
+    color: white;
+    padding: 56px 48px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .cover .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .cover p {
+    opacity: 0.8;
+    font-size: 16px;
+    max-width: 560px;
+  }
+  .cover .meta {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    opacity: 0.65;
+  }
+
+  /* STRATEGY SECTION */
+  .section {
+    margin-bottom: 56px;
+  }
+  .section-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 26px;
+    font-weight: normal;
+    margin-bottom: 16px;
+  }
+  .section p {
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* PRIORITY TABLE */
+  .priority-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 24px 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+  }
+  .priority-grid .header {
+    background: var(--accent);
+    color: white;
+    padding: 12px 16px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .priority-grid .cell {
+    padding: 14px 16px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .priority-grid .cell:nth-child(4n+1) { background: var(--light); font-weight: 700; font-size: 18px; }
+  .intent-high { color: #1c3d2b; background: var(--accent-light) !important; border-radius: 3px; padding: 3px 8px; font-size: 12px; }
+  .intent-med  { color: #6b4e17; background: #f5ede0 !important; border-radius: 3px; padding: 3px 8px; font-size: 12px; }
+
+  /* BLOG POST CARDS */
+  .post-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .post-header {
+    background: var(--accent);
+    color: white;
+    padding: 28px 36px;
+  }
+  .post-header .post-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 10px;
+  }
+  .post-header h2 { font-size: 24px; font-weight: normal; margin-bottom: 10px; }
+  .post-meta {
+    display: flex;
+    gap: 24px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .post-meta span { display: flex; align-items: center; gap: 6px; }
+
+  .post-body {
+    padding: 32px 36px;
+    background: white;
+  }
+  .post-body .seo-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    border-radius: 0 4px 4px 0;
+  }
+  .post-body .seo-box strong { display: block; color: var(--accent); margin-bottom: 4px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .post-body .seo-box p { color: var(--muted); margin: 0; }
+
+  .article h3 { font-size: 18px; margin: 28px 0 10px; color: var(--ink); font-weight: normal; font-style: italic; }
+  .article h4 { font-size: 15px; margin: 20px 0 8px; color: var(--accent); font-family: 'Helvetica Neue', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 12px; }
+  .article p { margin-bottom: 14px; color: #333; font-size: 15px; }
+  .article ul, .article ol { margin: 12px 0 20px 20px; color: #333; font-size: 15px; }
+  .article li { margin-bottom: 8px; }
+  .article .callout {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .article .callout strong { color: var(--ink); }
+  .article .cta-block {
+    background: var(--accent);
+    color: white;
+    padding: 24px 28px;
+    border-radius: 4px;
+    margin: 32px 0 0;
+    text-align: center;
+  }
+  .article .cta-block p { color: rgba(255,255,255,0.85); margin: 0 0 16px; font-size: 14px; }
+  .article .cta-block a {
+    display: inline-block;
+    background: white;
+    color: var(--accent);
+    padding: 12px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* PUBLISHING NOTES */
+  .publish-notes {
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 24px;
+  }
+  .publish-notes strong { color: var(--ink); display: block; margin-bottom: 8px; }
+  .publish-notes ul { margin-left: 16px; }
+  .publish-notes li { margin-bottom: 6px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  .footer {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="label">Ted's Health · Content Strategy</div>
+    <h1>Content Starter Pack<br>2026</h1>
+    <p>Four publication-ready blog posts targeting the UK's highest-value TRT search terms. Written in Ted's brand voice. Each post is designed to rank, convert, and build authority.</p>
+    <div class="meta">
+      <span>4 complete articles</span>
+      <span>~3,200 words of content</span>
+      <span>Ready to publish</span>
+      <span>April 2026</span>
+    </div>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="section">
+    <div class="section-label">Strategy</div>
+    <h2>Why these four articles</h2>
+    <p>Ted's Health is at 97 active patients. Breakeven is 225. The fastest path to that number isn't paid ads — it's organic search. The UK TRT market has 2 million untreated men and under-resourced content from competitors. These four articles target the moments where men search before they decide to act.</p>
+    <p>Each post is mapped to a different point in the decision journey — from first realising something is wrong, to comparing options, to understanding costs, to overcoming fear. Together they cover the full funnel.</p>
+  </div>
+
+  <!-- PRIORITY TABLE -->
+  <div class="section">
+    <div class="section-label">Publishing Priority</div>
+
+    <div class="priority-grid">
+      <div class="header">#</div>
+      <div class="header">Title</div>
+      <div class="header">Search Intent</div>
+      <div class="header">Funnel Stage</div>
+
+      <div class="cell">1</div>
+      <div class="cell">Low Testosterone Symptoms in Men: The Complete Guide</div>
+      <div class="cell"><span class="intent-high">Informational — high volume</span></div>
+      <div class="cell">Awareness</div>
+
+      <div class="cell">2</div>
+      <div class="cell">How Much Does TRT Cost in the UK? 2026 Breakdown</div>
+      <div class="cell"><span class="intent-high">Commercial — high intent</span></div>
+      <div class="cell">Consideration</div>
+
+      <div class="cell">3</div>
+      <div class="cell">NHS vs Private TRT: Which Should You Choose?</div>
+      <div class="cell"><span class="intent-high">Decision — high intent</span></div>
+      <div class="cell">Decision</div>
+
+      <div class="cell">4</div>
+      <div class="cell">Is TRT Safe? Side Effects, Risks and the Evidence</div>
+      <div class="cell"><span class="intent-med">Objection-handling</span></div>
+      <div class="cell">Decision</div>
+    </div>
+
+    <div class="publish-notes">
+      <strong>Publishing notes for Olly / dev team</strong>
+      <ul>
+        <li>Publish Article 1 first — it drives the most traffic and links to the other three</li>
+        <li>Add internal links between all four articles once all are live</li>
+        <li>Add the URL slug and meta description from each SEO box below before publishing</li>
+        <li>Each article ends with a CTA to book a consultation at tedshealth.com — confirm the correct booking URL before publishing</li>
+        <li>Add a published date and author (e.g. "Dr. [name], Ted's Health Medical Team") for E-E-A-T signals</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ============================================================ -->
+  <!-- ARTICLE 1 -->
+  <!-- ============================================================ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-num">Article 01 · Publish first</div>
+      <h2>Low Testosterone Symptoms in Men: The Complete Guide</h2>
+      <div class="post-meta">
+        <span>📍 Top-of-funnel awareness</span>
+        <span>⏱ ~750 words</span>
+        <span>🎯 "low testosterone symptoms men"</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="seo-box">
+        <strong>SEO metadata</strong>
+        <p><strong>URL slug:</strong> /blog/low-testosterone-symptoms-men</p>
+        <p><strong>Meta description:</strong> Struggling with fatigue, low mood, or reduced drive? These could be signs of low testosterone. Learn the symptoms, when to get tested, and what your options are in the UK.</p>
+        <p><strong>Tags:</strong> <span class="tag">low testosterone</span> <span class="tag">symptoms</span> <span class="tag">men's health</span> <span class="tag">TRT</span></p>
+      </div>
+
+      <div class="article">
+        <p>If you've noticed yourself feeling consistently drained, less motivated than you used to be, or not quite yourself — it may not be stress, age, or a bad run of sleep. It may be your testosterone.</p>
+
+        <p>Low testosterone (or "low T") affects around 40% of men over 45 in the UK. Most of them don't know it. And most GPs don't test for it unless you ask directly.</p>
+
+        <h3>What does low testosterone actually feel like?</h3>
+
+        <p>The symptoms rarely arrive all at once. More often, they accumulate slowly — so gradually that men write them off as normal ageing. Here are the most common signs:</p>
+
+        <h4>Energy and physical</h4>
+        <ul>
+          <li>Persistent fatigue that sleep doesn't fix</li>
+          <li>Reduced muscle mass, even with regular exercise</li>
+          <li>Increased body fat — especially around the stomach</li>
+          <li>Weaker grip strength and slower recovery from training</li>
+          <li>Joint aches without a specific injury</li>
+        </ul>
+
+        <h4>Mental and emotional</h4>
+        <ul>
+          <li>Low mood, irritability, or a general flatness</li>
+          <li>Difficulty concentrating or "brain fog"</li>
+          <li>Loss of competitive drive or ambition</li>
+          <li>Anxiety without a clear cause</li>
+          <li>Reduced confidence in social situations</li>
+        </ul>
+
+        <h4>Sexual health</h4>
+        <ul>
+          <li>Reduced libido (interest in sex drops noticeably)</li>
+          <li>Erectile dysfunction, or less firm erections</li>
+          <li>Reduced semen volume</li>
+          <li>Difficulty achieving orgasm</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Important:</strong> These symptoms overlap with many other conditions — thyroid disorders, sleep apnoea, depression, and vitamin D deficiency among them. A blood test is the only way to confirm low testosterone. Don't self-diagnose.
+        </div>
+
+        <h3>What's the "normal" range — and why it matters</h3>
+
+        <p>NHS labs typically flag testosterone as low if it falls below 12 nmol/L. But many men feel the effects of low T at levels well above this threshold — particularly if they've had naturally higher levels for most of their adult life.</p>
+
+        <p>The reference range itself hasn't changed significantly in decades, and it's based on population averages that include older and less active men. A 42-year-old who trained regularly throughout his 30s may experience real symptoms at 15 nmol/L, yet be told his results are "normal".</p>
+
+        <p>Symptoms in context matter as much as a number on a page. That's why a specialist assessment — rather than a single NHS test — gives you a more complete picture.</p>
+
+        <h3>When do testosterone levels typically decline?</h3>
+
+        <p>Testosterone peaks in the late teens and early twenties. From around age 30, levels decline at roughly 1–2% per year. That's a gradual slide — but over a decade or two, it adds up. By 45, many men are operating at testosterone levels 20–30% lower than they were at 25.</p>
+
+        <p>Lifestyle factors can accelerate this: chronic stress elevates cortisol, which directly suppresses testosterone production. Poor sleep has a similar effect — testosterone is largely produced during deep sleep. Obesity, excessive alcohol, and lack of resistance training all compound the decline.</p>
+
+        <h3>What to do if you recognise these symptoms</h3>
+
+        <p>Start with a blood test. A comprehensive hormone panel — not just total testosterone, but also free testosterone, LH, FSH, SHBG, oestradiol, and full blood count — gives a complete picture that a standard GP test often doesn't.</p>
+
+        <p>If your results suggest low T, the next step is a clinical consultation with a specialist who can discuss your options: lifestyle changes, hormone optimisation, or testosterone replacement therapy (TRT) if appropriate.</p>
+
+        <p>TRT isn't right for everyone. But for men with genuinely deficient levels and significant symptoms, it can be genuinely life-changing — not in a dramatic way, but in a "I feel like myself again" way.</p>
+
+        <div class="cta-block">
+          <p>Concerned about your levels? A Ted's Health blood test panel gives you a complete hormone picture — reviewed by a specialist, with results in days.</p>
+          <a href="https://www.tedshealth.com">Book a Blood Test →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <!-- ARTICLE 2 -->
+  <!-- ============================================================ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-num">Article 02 · High commercial intent</div>
+      <h2>How Much Does TRT Cost in the UK? A 2026 Breakdown</h2>
+      <div class="post-meta">
+        <span>💰 Commercial intent</span>
+        <span>⏱ ~750 words</span>
+        <span>🎯 "how much does TRT cost UK"</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="seo-box">
+        <strong>SEO metadata</strong>
+        <p><strong>URL slug:</strong> /blog/trt-cost-uk-2026</p>
+        <p><strong>Meta description:</strong> TRT in the UK costs between £59 and £350 per month depending on the clinic and treatment type. Here's what you actually get for your money — and what to watch for.</p>
+        <p><strong>Tags:</strong> <span class="tag">TRT cost UK</span> <span class="tag">testosterone therapy price</span> <span class="tag">private TRT</span> <span class="tag">men's health</span></p>
+      </div>
+
+      <div class="article">
+        <p>Cost is one of the first questions men ask when they start looking into testosterone replacement therapy — and one of the least clearly answered online. Prices vary enormously between providers, and the "headline number" rarely tells the whole story.</p>
+
+        <p>Here's a straight-talking breakdown of what TRT actually costs in the UK in 2026, what's typically included, and where the hidden expenses tend to appear.</p>
+
+        <h3>The UK TRT cost range</h3>
+
+        <p>Private TRT in the UK typically runs between <strong>£59 and £350 per month</strong>, depending on the clinic, the treatment type, and what's included in the package.</p>
+
+        <p>At the lower end, you're usually looking at a basic subscription with testosterone medication alone and minimal monitoring. At the higher end, you're paying for frequent specialist consultations, bespoke dosing adjustments, and comprehensive blood work included in the cost.</p>
+
+        <div class="callout">
+          <strong>Ted's Health pricing:</strong> Ted's Health plans start from £115 per month, which includes specialist consultations, blood test monitoring, and ongoing medication. There are no hidden add-on fees for standard follow-ups.
+        </div>
+
+        <h3>What's usually included — and what isn't</h3>
+
+        <h4>Typically included</h4>
+        <ul>
+          <li>Monthly testosterone medication (gel, injection, or oral)</li>
+          <li>Initial clinical consultation</li>
+          <li>Basic blood monitoring (some providers)</li>
+        </ul>
+
+        <h4>Often charged separately</h4>
+        <ul>
+          <li>Initial blood tests before starting TRT (£100–£350 depending on the panel)</li>
+          <li>Follow-up consultations beyond a set number per year</li>
+          <li>Ancillary medications (e.g. HCG to preserve fertility, aromatase inhibitors)</li>
+          <li>Additional monitoring blood tests during dose titration</li>
+        </ul>
+
+        <p>This is where "cheap" subscriptions can become expensive. A £59/month plan that bills £150 for every blood test and £200 for every consultation may end up costing significantly more than a £115/month plan with monitoring built in.</p>
+
+        <h3>What about the NHS?</h3>
+
+        <p>If you're diagnosed with hypogonadism (clinically low testosterone) by an NHS endocrinologist, TRT via the NHS is effectively free — covered by prescription charges (£9.90 per item in England, or free if you're exempt).</p>
+
+        <p>The challenge is access. NHS referrals for TRT typically involve a wait of 9 to 18 months to see an endocrinologist. Eligibility criteria are strict: you need total testosterone below 12 nmol/L on two separate tests, with supporting evidence of symptoms.</p>
+
+        <p>Many men with levels in the 12–18 nmol/L range — low enough to cause genuine symptoms — don't qualify for NHS treatment at all.</p>
+
+        <h3>Treatment type affects cost</h3>
+
+        <p>The method of delivery matters for both cost and lifestyle fit:</p>
+
+        <ul>
+          <li><strong>Testosterone gel (e.g. Testogel):</strong> Applied daily to the skin. Typically the most prescribed form. Convenience comes at a cost — gels are usually more expensive per month than injections.</li>
+          <li><strong>Injections (e.g. Sustanon, Nebido):</strong> Administered every 1–12 weeks depending on the formulation. Lower ongoing medication cost, but may require clinic visits for injections (unless self-administered).</li>
+          <li><strong>Oral testosterone (e.g. Jatenzo):</strong> Newer option, convenient, but typically the most expensive medication type.</li>
+        </ul>
+
+        <h3>What affects how much you pay long-term</h3>
+
+        <p>The biggest variable is how quickly your levels stabilise. Some men reach a good therapeutic dose within 3 months; others need 6–12 months of adjustment. During that period, monitoring costs are highest. Once stable, ongoing costs drop considerably.</p>
+
+        <p>A realistic first-year budget for private TRT — including initial bloods, consultation, medication, and monitoring — typically ranges from <strong>£1,800 to £3,500</strong> depending on the provider and treatment type.</p>
+
+        <h3>Is it worth it?</h3>
+
+        <p>That depends entirely on how significantly low testosterone is affecting your quality of life. Men who genuinely have low T and start TRT often describe the change not as dramatic, but as a restoration — sleeping better, thinking more clearly, feeling motivated again, and having the physical energy they'd lost. For them, the cost is unremarkable against what they get back.</p>
+
+        <p>For men with borderline levels and mild symptoms, the calculation is less clear-cut. A good specialist will tell you honestly which category you're in.</p>
+
+        <div class="cta-block">
+          <p>Ted's Health plans from £115/month include specialist care, blood monitoring, and medication — no consultation fee surprises. Book a free introductory call to understand your options.</p>
+          <a href="https://www.tedshealth.com">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <!-- ARTICLE 3 -->
+  <!-- ============================================================ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-num">Article 03 · Decision-stage — Ted's wins this one</div>
+      <h2>NHS vs Private TRT: Which Should You Choose?</h2>
+      <div class="post-meta">
+        <span>⚖️ Decision intent</span>
+        <span>⏱ ~700 words</span>
+        <span>🎯 "NHS vs private TRT UK"</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="seo-box">
+        <strong>SEO metadata</strong>
+        <p><strong>URL slug:</strong> /blog/nhs-vs-private-trt-uk</p>
+        <p><strong>Meta description:</strong> NHS TRT is free but requires months of waiting and strict eligibility. Private TRT is faster and more flexible, but costs apply. Here's how to decide which route suits you.</p>
+        <p><strong>Tags:</strong> <span class="tag">NHS TRT</span> <span class="tag">private TRT UK</span> <span class="tag">testosterone therapy</span> <span class="tag">men's health UK</span></p>
+      </div>
+
+      <div class="article">
+        <p>The UK has two routes to testosterone replacement therapy: through the NHS, or through a private clinic. Both can lead to effective treatment. But the journey, timeline, and eligibility criteria are very different — and for most men asking the question, one route is clearly more practical than the other.</p>
+
+        <p>Here's an honest comparison.</p>
+
+        <h3>The NHS route</h3>
+
+        <h4>How it works</h4>
+        <p>To access TRT via the NHS, you first need a GP referral to an endocrinologist. Your GP will typically want to see two testosterone blood tests showing low levels, along with documented symptoms consistent with hypogonadism.</p>
+
+        <h4>Eligibility</h4>
+        <p>NHS guidelines typically require total testosterone below 12 nmol/L on at least two morning tests. Men with levels between 12–18 nmol/L, even with significant symptoms, usually don't meet the threshold for NHS treatment.</p>
+
+        <h4>Timeline</h4>
+        <p>From GP referral to starting treatment: typically 9–18 months on current NHS waiting lists. Urgent referrals can be faster, but are rare for low testosterone specifically.</p>
+
+        <h4>Cost</h4>
+        <p>Once diagnosed, the medication itself is essentially free — standard prescription charges apply (£9.90 per item, free if exempt). Follow-up appointments are through NHS endocrinology or your GP.</p>
+
+        <h4>Limitations</h4>
+        <p>Formulary restrictions mean the NHS may only offer a limited range of testosterone preparations. Shared decision-making about delivery method (gel vs. injections, for example) is more constrained than in private practice.</p>
+
+        <div class="callout">
+          <strong>Worth knowing:</strong> Ted's Health works alongside NHS care. If you're pursuing the NHS route, a private consultation can clarify your situation, provide comprehensive blood results, and support your case to your GP.
+        </div>
+
+        <h3>The private route</h3>
+
+        <h4>How it works</h4>
+        <p>With a private clinic, you book directly — no GP referral required in most cases. You have a blood test and an initial consultation. If TRT is clinically appropriate, you can begin treatment within weeks rather than months.</p>
+
+        <h4>Eligibility</h4>
+        <p>Private clinics use the same clinical standards as the NHS, but can consider the full picture: your symptoms, lifestyle, health history, and hormone profile — not just a single threshold number. Men who fall into the symptomatic 12–18 nmol/L grey zone often find private care is the only route available to them.</p>
+
+        <h4>Timeline</h4>
+        <p>From initial enquiry to starting treatment: typically 2–4 weeks. Blood results take a few days; a clinical consultation follows shortly after.</p>
+
+        <h4>Cost</h4>
+        <p>Private TRT costs between £115 and £350 per month depending on the provider and treatment type. See our full cost breakdown for detail.</p>
+
+        <h4>Benefits</h4>
+        <ul>
+          <li>Access without long waiting lists</li>
+          <li>Comprehensive hormone panels (not just total testosterone)</li>
+          <li>Choice of treatment method based on your lifestyle</li>
+          <li>Regular specialist monitoring and dose optimisation</li>
+          <li>Continuity of care with the same clinical team</li>
+        </ul>
+
+        <h3>Which should you choose?</h3>
+
+        <p>If your testosterone is clearly below 12 nmol/L, you're prepared to wait, and you're comfortable with the NHS formulary, the NHS route is a legitimate option — and ultimately the cheapest.</p>
+
+        <p>If you have significant symptoms, your levels are in the grey zone, or you want to understand your full hormone picture now rather than in 18 months, private care is almost certainly the more practical route.</p>
+
+        <p>The two aren't mutually exclusive. Some men start with a private clinic for speed and clarity, then transition to NHS care once formally diagnosed. A good private clinic will support that process rather than discourage it.</p>
+
+        <div class="cta-block">
+          <p>Not sure which route is right for you? Ted's Health offers a free introductory call — no commitment, no pressure. Talk to a specialist and understand your options first.</p>
+          <a href="https://www.tedshealth.com">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <!-- ARTICLE 4 -->
+  <!-- ============================================================ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-num">Article 04 · Objection handling</div>
+      <h2>Is TRT Safe? Side Effects, Risks and the Evidence</h2>
+      <div class="post-meta">
+        <span>🛡️ Trust-building</span>
+        <span>⏱ ~750 words</span>
+        <span>🎯 "is TRT safe" / "TRT side effects UK"</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="seo-box">
+        <strong>SEO metadata</strong>
+        <p><strong>URL slug:</strong> /blog/is-trt-safe-side-effects-risks</p>
+        <p><strong>Meta description:</strong> TRT has a strong safety record when properly monitored. Here's what the evidence actually says about cardiovascular risk, fertility, and common side effects — and how they're managed.</p>
+        <p><strong>Tags:</strong> <span class="tag">TRT safety</span> <span class="tag">TRT side effects</span> <span class="tag">testosterone risks</span> <span class="tag">men's health</span></p>
+      </div>
+
+      <div class="article">
+        <p>Safety is the question men ask quietly, after they've decided they want to explore TRT. The concerns are understandable — testosterone is a hormone with powerful effects, and headlines about steroid misuse in sport don't help. So let's separate the evidence from the noise.</p>
+
+        <h3>The short answer</h3>
+
+        <p>TRT, when prescribed appropriately and monitored properly, has a well-established safety profile for men with clinically low testosterone. It is not the same as anabolic steroid use in sport. The doses are physiological — designed to restore your levels to what your body should naturally produce, not to push them above normal.</p>
+
+        <h3>Common side effects — and how they're managed</h3>
+
+        <h4>Polycythaemia (thickening of the blood)</h4>
+        <p>TRT can increase red blood cell production. In some men, this raises haematocrit (the proportion of red blood cells in blood) to levels that increase clotting risk. This is why regular blood monitoring is essential — if haematocrit rises above the safe threshold, your dose can be adjusted or a short break recommended. It's manageable; it's also the reason you shouldn't start TRT without ongoing clinical oversight.</p>
+
+        <h4>Testicular shrinkage and reduced fertility</h4>
+        <p>External testosterone signals to the brain that production is sufficient, which causes the testes to produce less naturally — typically resulting in some reduction in size and sperm count. For men who don't wish to father children, this is usually acceptable. For men who do, HCG (human chorionic gonadotrophin) is often prescribed alongside TRT to maintain testicular function and fertility. This is a routine part of treatment for men who need it.</p>
+
+        <h4>Skin and acne</h4>
+        <p>Some men notice oilier skin or mild acne when starting TRT, particularly as levels stabilise. This often settles with dose adjustment. Switching delivery method (for example, from gel to injection) can also help if skin reactions are persistent.</p>
+
+        <h4>Oestrogen elevation</h4>
+        <p>Testosterone converts to oestradiol (oestrogen) in the body. For some men, this conversion is excessive — causing fluid retention, breast tenderness, or mood effects. Blood monitoring tracks oestradiol alongside testosterone, and aromatase inhibitors can be added if needed. Not every man requires them.</p>
+
+        <h4>Sleep apnoea</h4>
+        <p>TRT can worsen sleep apnoea in men who already have it. If you have known sleep apnoea or significant snoring, this should be discussed at your initial consultation. It doesn't necessarily prevent TRT — but it needs to be monitored.</p>
+
+        <h3>What about cardiovascular risk?</h3>
+
+        <p>This is the concern that gets the most attention — and the one that's changed most significantly in the research over the past decade.</p>
+
+        <p>A large 2023 trial (the TRAVERSE study, published in the <em>New England Journal of Medicine</em>) found that TRT did not increase the risk of major cardiovascular events in men with low testosterone and elevated cardiovascular risk. In fact, untreated low testosterone is itself associated with increased cardiovascular risk, metabolic syndrome, and mortality.</p>
+
+        <p>The picture isn't simple — no large medication trial ever is — but the weight of current evidence does not support the idea that appropriately dosed TRT increases heart attack or stroke risk in the populations for whom it's typically prescribed.</p>
+
+        <div class="callout">
+          <strong>The key phrase is "appropriately dosed and monitored."</strong> The risks are real for men with supraphysiological testosterone levels (above the normal range) — which is why staying within therapeutic targets and having regular blood tests are non-negotiable.
+        </div>
+
+        <h3>The risks of not treating low testosterone</h3>
+
+        <p>This part gets less attention, but it matters. Chronic low testosterone is associated with:</p>
+        <ul>
+          <li>Increased risk of type 2 diabetes and metabolic syndrome</li>
+          <li>Reduced bone density and increased fracture risk</li>
+          <li>Depression and cognitive decline</li>
+          <li>Cardiovascular disease risk factors (increased visceral fat, dyslipidaemia)</li>
+          <li>Significantly reduced quality of life</li>
+        </ul>
+
+        <p>Choosing not to treat isn't a "safe" default. It's a choice with its own risk profile.</p>
+
+        <h3>The role of monitoring</h3>
+
+        <p>The single most important safety factor in TRT isn't the drug — it's the monitoring. Blood tests every 3–6 months (more frequently when first starting) allow your clinical team to track haematocrit, PSA, testosterone levels, oestradiol, and other relevant markers. If anything shifts outside the safe range, the response is dose adjustment — not panic.</p>
+
+        <p>This is why the choice of clinic matters. A provider who prescribes TRT without structured follow-up monitoring is not providing safe care, regardless of price.</p>
+
+        <div class="cta-block">
+          <p>All Ted's Health treatment plans include regular blood monitoring and specialist review — because that's what safe TRT looks like. Book a consultation to understand whether TRT is right for you.</p>
+          <a href="https://www.tedshealth.com">Book a Consultation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- IMPLEMENTATION -->
+  <div class="section">
+    <div class="section-label">Next Steps</div>
+    <h2>What to do with this</h2>
+    <p>These four posts are ready to drop into your CMS. Here's the recommended sequence:</p>
+    <ol style="margin: 16px 0 0 20px; color: #555;">
+      <li style="margin-bottom: 10px;"><strong>Week 1:</strong> Publish Articles 1 and 2. These drive the most traffic and have the highest commercial intent. Link from Article 1 to Article 2.</li>
+      <li style="margin-bottom: 10px;"><strong>Week 2:</strong> Publish Articles 3 and 4. Add internal links across all four posts once all are live.</li>
+      <li style="margin-bottom: 10px;"><strong>Ongoing:</strong> Submit the URLs to Google Search Console after publishing to accelerate indexing. Share each post once on the Ted's Health social channels.</li>
+      <li style="margin-bottom: 10px;"><strong>3 months out:</strong> Review Google Search Console for ranking queries. Build 2–3 more articles targeting the next tier of unanswered questions (e.g. "TRT and weight loss", "TRT and sleep", "how long until TRT works").</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    Ted's Health Content Starter Pack · Built by Nexus · April 2026<br>
+    Content is accurate to the best of available evidence at time of writing. Medical claims should be reviewed by the Ted's Health clinical team before publishing.
+  </div>
+
+</div>
+</body>
+</html>
