@@ -35,6 +35,16 @@ Jesse almost certainly knows the Alfred side of this meeting well. This brief is
 **What Henri-Lloyd looks like right now:**
 Founded 1963, Manchester-based. Currently repositioning as the performance leader in offshore sailing apparel after years of dilution. Ocean Pro is their flagship offensive — 4-layer stretch fabric, 35K waterproofness rating, built for offshore survival conditions. They launched Sam Goodchild (professional offshore racer) as ambassador in July 2025. Jesse is likely their celebrity/lifestyle ambassador layer alongside Goodchild's performance/racing credentials.
 
+**Jesse's boat — what Emilia already has (from HL ambassador page, April 23):**
+- 40-foot steel hull vessel, based in Southampton
+- Jesse did a complete refit himself: "A 40-foot steel hull doesn't forgive shortcuts and doing it properly has taught me more than almost anything else."
+- This year: passage-making from Southampton in legs, working up to the Arctic
+- Jesse in his own words: "Sailing is something I've found by myself... drawn in by the independence, privacy, and the kind of quiet that you don't find anywhere else."
+- Offshore cruising/passage-making — not racing
+
+**The Robin Knox-Johnston connection:**
+In February, Bear was at an event at HMS President with Sir Robin Knox-Johnston — the first person to sail solo non-stop around the world (1968-69). Bear mentioned Jesse's Greenland plan. Robin sent Bear detailed personal sailing advice for Jesse (route tips, Tasilaq port logistics, polar bear protocol, chart warnings). Bear forwarded it: "Some good tips for you champ — From the maestro himself." Jesse is sailing to Greenland with personal advice from the most legendary British offshore sailor alive. That is NOT a casual sailing hobby.
+
 ---
 
 ## The Arctic Expedition Is the Moment
