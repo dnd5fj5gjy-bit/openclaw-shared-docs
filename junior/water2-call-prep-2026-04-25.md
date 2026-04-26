@@ -10,9 +10,9 @@
 **Charles Robinson** — Water2 founder. Dropped out of university (UCL connection), built Pod 2.0 with academics. Zero VC funding - entirely bootstrapped to 8-figure revenue. Entrepreneurial founder type who moves fast on relationships and slow on documents — similar to you.
 
 **What Water2 actually is right now (Apr 2026 research):**
-- 180,000+ UK homes using their filters
+- **200,000+ UK homes** using their filters (current homepage claim; 180K was confirmed in mid-2024 press, growth continues)
 - Self-described "eight-figure" business (£10M+ revenue)
-- ARR estimate: £12.5M-£17.8M (180K customers × £99/year refill subscription × 70-100% retention)
+- ARR estimate: £12.5M-£17.8M (180K+ customers × £99/year refill subscription × 70-100% retention)
 - Distribution: Amazon UK (ASINs B0G5RL23PN, B0FSKW7G97), Costco UK (active, confirmed)
 - Boots: NO presence yet — untapped channel worth £millions
 - New product: filtered showerhead at £99, co-developed with Bear, launched 2025
