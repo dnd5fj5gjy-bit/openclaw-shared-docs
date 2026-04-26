@@ -47,9 +47,11 @@ Jesse has a hard stop April 28. He sails May 7. There are 4-5 open business situ
 
 ## 3. BPS Hub — Change of Contact
 
-**Status:** George Musgrave (BPSDC Asset Manager) has not responded in 3 weeks despite 3 chases from Bear.
+**Status (updated April 26):** George Musgrave has actually been responding — the thread IS active. Jesse told George "it's a package deal" (all 3 units at Grosvenor Bridge Arch, or nothing). Bear emailed George directly on April 1 asking him to "try and make it work for the 3 units." George replied April 2 noting "the majority will be customer facing." Bear followed up again April 24: "Any update George? And on costs for these units…" No response from George visible yet.
 
-**The issue:** George Musgrave is an asset manager, not the leasing contact. He cannot approve new tenancies.
+**The issue:** George Musgrave is an asset manager, not the leasing contact. He cannot approve new tenancies. Bear and Jesse have been negotiating with him rather than the decision-maker.
+
+**CJ needs to know:** Bear is actively in this thread and went direct to George April 24. Do NOT approach Sam Cotton in a way that bypasses or contradicts what Bear has already said to George — coordinate with Jesse on what's been communicated first. The "package deal" condition (all 3 units) was set by Jesse in early April.
 
 **CJ's action:** Send one email to Sam Cotton, Head of Retail Leasing:
 
