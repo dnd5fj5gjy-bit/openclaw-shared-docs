@@ -84,9 +84,11 @@ Water2 background and deal structure at `workspace/docs/water2-intelligence-brie
 
 ---
 
-## 5. Wildernests — No Action Needed, One Monitor
+## 5. Wildernests — One Financial Action + Monitor
 
 **Status:** Launching homes May 2026. Calvin has the 3D rotation deliverable pending Jesse's feedback.
+
+**ACTION — Week of April 28:** Bear Witness Ltd needs to invoice Wildernests £15,000. Raemy flagged this explicitly. Ask Raemy to raise the invoice immediately — this was scheduled for the week of April 28 and shouldn't slip into sailing window.
 
 **CJ note:** If Wildernests equity docs need Jesse's review in May, flag them immediately when Jesse resurfaces. These shouldn't stall just because Jesse is sailing.
 
