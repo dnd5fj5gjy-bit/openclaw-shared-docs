@@ -149,11 +149,17 @@ This is separate from the Bear WhatsApp alignment. That still matters. But the p
 
 The brief above covers BGV's legal position. But Bear said "I'm not sure it's entirely clear" — which means EBG's argument has some weight. Here is their best case, and how to counter it.
 
-**EBG's strongest argument (the "but-for" case):**
+**EBG now has TWO separate arguments — one moral, one structural:**
 
-> "We co-executive produced Running Wild S9. Running Wild S9 is the FOX relationship that the Creator Network is built on top of. Without Running Wild, there is no Creator Network. Without us as co-EPs, Running Wild S9 doesn't exist. We are causally upstream of the deal you're now valuing at $35-81M. The $25K/month fee was scoped as management compensation — it was never positioned as consideration for our role in creating the conditions for the network deal."
+**Argument 1 — The causal chain (moral/relational):**
+> "We co-executive produced Running Wild S9. Running Wild S9 is the FOX relationship the Creator Network is built on. Without us as co-EPs, Running Wild S9 doesn't exist. The $25K/month fee was management compensation — not consideration for our role in making the Creator Network possible."
 
-This argument is not crazy. EBG can draw a direct causal line: co-EP Running Wild → established FOX relationship → FOX Creator Network. They didn't originate the network deal, but they were instrumental in creating the FOX relationship that made it possible.
+**Argument 2 — The investment stake (structural/contractual — potentially much stronger):**
+> "Everest Fund invested production capital in the Running Wild S9 FOX renewal. Our investment stake gives us economics from deals built on that platform. The Creator Network is exactly that. The consulting agreement and the production investment are two separate commercial relationships."
+
+Argument 2 is the one BGV may not have properly anticipated. If the Everest Fund investment agreement has any language covering derivative platform economics, this isn't a moral argument — it's a contractual one. This may be why Bear said "I'm not sure it's entirely clear." He may sense there are two distinct threads running at once.
+
+EBG can draw a direct causal line on both fronts: co-EP Running Wild + production capital partner → FOX Creator Network. That's harder to dismiss with a consulting agreement.
 
 **Why this argument is still wrong (BGV's counter):**
 
