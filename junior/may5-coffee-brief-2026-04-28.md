@@ -49,9 +49,13 @@ Jesse is sailing Norway-Iceland-Greenland in 2 days (May 7). He is going to exac
 
 1. **Kit is almost certainly delivered.** Emilia shipped the order mid-March (March 12 email: "your order is on the way and should be arriving next week"). That's 6+ weeks before sailing. No delivery issue has surfaced in subsequent emails. If Jesse hasn't unpacked it, now is the moment — confirm the kit is physically with him before leaving for the boat. If anything is wrong with sizing or condition, May 5 is the last chance to fix it.
 
-2. **Does he want to propose the Arctic content deal?** If yes: walk into the coffee with a simple offer: "I'm sailing to Norway-Iceland-Greenland May 7-21. I'll have Henri-Lloyd gear on for the offshore passages. I'll document it and deliver [X posts / one long-form content piece] when I'm back May 21." Alice can brief Emilia and have an answer back within the day.
+2. **The two content commitments are already known.** Emilia's March 12 email ("Instagram post briefs") detailed exactly what Henri-Lloyd wants:
+   - **Ambassador announcement** (Instagram + website): a strong sailing/adventure photo. "Ideally a photo of you sailing, on the water, or doing something adventurous."
+   - **Boat restoration story** (blog + Instagram): photos of the restoration process, before/during/transformation.
+   
+   The ambassador announcement content is still outstanding — Jesse hasn't posted it. The Arctic is the obvious answer: a photo sailing to Greenland in Henri-Lloyd kit is exactly what Emilia asked for, and it's infinitely better than a studio shoot. No new negotiation needed — Jesse can commit to delivering the announcement post when he's back May 21 using Arctic content.
 
-3. **What content commitment is in the Heads of Agreement?** If there's a specific deliverable schedule (X posts per month, etc.), Jesse should know what he's already committed to and whether the Arctic creates an opportunity to fulfill some of it spectacularly.
+3. **The Arctic proposal.** Walk in with a simple offer: "I'm sailing Norway-Iceland-Greenland May 7-21. I'll be wearing the Ocean Pro for the offshore passages. I'll shoot the ambassador announcement content on the water and deliver it when I'm back May 21." Alice briefs Emilia, Emilia gets exactly what she asked for in March, and Jesse fulfills his commitment in one go from the most dramatic possible location.
 
 ---
 
