@@ -61,7 +61,7 @@ Jesse is sailing Norway-Iceland-Greenland in 2 days (May 7). He is going to exac
 
 2. **The two content commitments are already known.** Emilia's March 12 email ("Instagram post briefs") detailed exactly what Henri-Lloyd wants:
    - **Ambassador announcement** (Instagram + website): a strong sailing/adventure photo. "Ideally a photo of you sailing, on the water, or doing something adventurous."
-   - **Boat restoration story** (blog + Instagram): photos of the restoration process, before/during/transformation.
+   - **Boat restoration story** (blog + Instagram): photos of the restoration process, before/during/transformation. The boat is a 40-foot steel hull that Jesse completely refitted himself in Southampton. Steel hulls are rare and demanding — Jesse described the refit as "the biggest undertaking" and said it taught him more than almost anything else. Emilia explicitly flagged this as the kind of story they want. Jesse told Emilia the boat details April 23 — the content just needs commissioning.
    
    The ambassador announcement content is still outstanding — Jesse hasn't posted it. The Arctic is the obvious answer: a photo sailing to Greenland in Henri-Lloyd kit is exactly what Emilia asked for, and it's infinitely better than a studio shoot. No new negotiation needed — Jesse can commit to delivering the announcement post when he's back May 21 using Arctic content.
 
