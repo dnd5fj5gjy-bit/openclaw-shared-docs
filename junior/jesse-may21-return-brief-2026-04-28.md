@@ -89,6 +89,8 @@ Draft at workspace/docs/calvin-modern-savage-sow-draft-2026-04-28.pdf. Read it, 
 ### By May 28 — Twyn model response
 After reviewing Zain's model: respond with direction. You don't need to accept or reject anything — just "we've reviewed, we have some questions, let's schedule a call for early June." Silence past May 28 risks them cooling off.
 
+Before reading the model, read the deal assessment (workspace/docs/twyn-deal-assessment-2026-04-29.pdf). It covers: what Twyn actually is, the one question Zain can't dodge (Messi monthly active users), non-negotiables (IP reversion, data rights, minimum guarantee), and the honest verdict. Read the assessment first, then the model reading guide, then Zain's numbers.
+
 ---
 
 ## PART 3 — Status Reading (no decisions, just context)
