@@ -82,6 +82,8 @@ Don't let CJ go into that call without you and Bear aligned. EBG is building the
 
 ## New Since You Left — Additional Items
 
+**Olly is in hospital and may not be back yet.** He went in April 23. On April 24 he said "still in hospital, likely won't be any updates until Monday." He was the only person reviewing the 7 Metricool posts scheduled for April 26-28 — they went out without any approval while he was down. When you're back, check those posts exist and look right (2-minute scan). More importantly: Olly is the designated content approval authority from May 7 when you sail. If he's not fully operational by then, you need a backup approval authority for Calvin's content during May 7-21. Either CJ steps in on content, or you brief Olly directly before you sail.
+
 **Running Wild Ep2 (Tiffany Haddish) airs tomorrow night (Tuesday April 28).** You're back Monday — one day of runway before it airs. Brief: `running-wild-tiffany-haddish-brief-2026-04-28.pdf`. Key action: FOX social team (Tyler Garfield) sent a social media toolkit to your inbox April 24 — Calvin needs that email and the Reality Club carousel that dropped Sunday. Patrick Rogers (Tiffany's social manager) will repost correct collabs.
 
 **Fat Cow: Ryan Porter is waiting.** You missed the April 27 Zoom (on set). WhatsApp him Monday morning to reschedule: "Hey Ryan — really sorry I missed Monday, filming ran longer than expected. Still really excited about this. Can we jump on a call this week?" Full brief: `fat-cow-brief-2026-04-28.pdf`.
