@@ -1097,9 +1097,36 @@ async function loadAll() {
   document.getElementById('header-sub').textContent = 'Updated ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
 }
 
+let _lastRefresh = 0;
+let _refreshErrors = 0;
+
+// Wrap loadAll to track timing and errors
+const _origLoadAll = loadAll;
+loadAll = async function() {
+  _refreshErrors = 0;
+  try { await _origLoadAll(); } catch(e) { _refreshErrors++; }
+  _lastRefresh = Date.now();
+};
+
+// Update header-sub with live freshness counter
+function updateFreshnessTimer() {
+  const statusEl = document.getElementById('status-dot');
+  if (!statusEl || statusEl.classList.contains('loading')) return;
+  if (_lastRefresh === 0) return;
+  const elapsed = Math.floor((Date.now() - _lastRefresh) / 1000);
+  const remaining = Math.max(0, 30 - elapsed);
+  const agoText = elapsed < 60 ? elapsed + 's ago' : Math.floor(elapsed/60) + 'm ago';
+  const subEl = document.getElementById('header-sub');
+  if (subEl) subEl.textContent = 'Updated ' + agoText + ' · next in ' + remaining + 's';
+  if (_refreshErrors > 0) {
+    statusEl.className = 'status-dot loading';
+    document.getElementById('status-text').textContent = 'offline';
+  }
+}
+
 loadAll();
-// Auto-refresh every 90 seconds
-setInterval(loadAll, 90000);
+setInterval(loadAll, 30000);
+setInterval(updateFreshnessTimer, 1000);
 </script>
 </body>
 </html>
