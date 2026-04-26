@@ -14,7 +14,9 @@ Modern Savage is on track for July 1 but two critical unknowns — ship date and
 
 ## BEFORE YOU SAILED — Did These Happen? (ask CJ first)
 
-Two things should have happened before or just after you sailed on May 7. CJ should have the answers.
+Three things should have happened before or just after you sailed on May 7. CJ should have the answers.
+
+**Olly operational?** On April 24, Olly was still in hospital awaiting surgery (3 days in, still waiting). He was supposed to be your content approval authority during the sailing window. Ask: did Olly recover and return before May 7? If not, who has been approving Bear's social content? If nobody has — Phase 1 of the IG arc may not have run.
 
 **Bear IG content arc approved?** Ten posts across four phases were staged for your approval before May 7. Olly was supposed to execute Phase 1 (May 1-21) while you sailed. If you didn't approve before leaving, ask CJ/Olly: did Phase 1 happen? Brief at workspace/docs/modern-savage-bear-ig-strategy-2026-04-28.pdf. If Phase 1 didn't run, the launch audience isn't primed — factor this into the July 1 timing assessment.
 
