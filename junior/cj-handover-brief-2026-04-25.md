@@ -152,6 +152,8 @@ Everest Brand Group (EBG / Benjamin Simon) is running two separate arguments abo
 
 2. **Structural/contractual argument (the dangerous one):** Everest Fund (Sovereign's Capital — Benjamin Simon's investment fund) is a **confirmed production capital partner in the Running Wild S9 FOX renewal**. This is publicly on record (Variety, Deadline, February 2026). This means EBG may have an actual investment stake in the production — separate from the consulting agreement — that could entitle them to economics from derivative deals like the Creator Network.
 
+**Pattern context — this is not the first attempt:** In March 2026, EBG submitted a redline to the consulting agreement that attempted to insert social revenue sharing. BGV rejected it. The Creator Network dispute is EBG's second attempt at the same thing through a different route. Ben is persistent and systematic about this — CJ should treat it as a negotiation campaign, not a one-off grievance.
+
 **BGV's current position** (from the signed consulting agreement): EBG is compensated $25K/month. Network revenue is not covered. CJ's legal read is correct on the consulting agreement. But the Everest Fund production investment is a separate document that may tell a different story.
 
 **CJ's standing orders for this call:**
