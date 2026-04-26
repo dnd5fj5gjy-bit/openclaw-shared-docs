@@ -122,6 +122,29 @@ If EBG argues they "drove the value" that made the Creator Network possible: the
 
 ---
 
+## CRITICAL INTELLIGENCE — Read Before Everything Else
+
+**Everest Fund (Sovereign's Capital / Benjamin Simon) is a confirmed production capital partner for the Running Wild S9 FOX renewal.**
+
+Source: Variety and Deadline both reported (February 2026) that Fox picked up Running Wild S9 with Everest Fund as a production capital partner. This is public, on record.
+
+This means EBG's claim to FOX network economics is NOT just about their consulting agreement or social media management. They have an actual investment stake in the production. The consulting agreement ($25K/month) and the Everest Fund production investment are two separate commercial relationships running in parallel.
+
+**What this changes:**
+
+1. The BGV position — "the consulting agreement covers EBG's compensation" — may be accurate about the consulting relationship, but EBG could separately argue the production capital stake entitles them to economics from anything built on the Running Wild FOX platform (including the Creator Network).
+
+2. The question is no longer "did EBG do enough work to deserve a share?" It may be "what does Everest Fund's production investment actually entitle them to?"
+
+3. Jesse CANNOT walk into May 4 without knowing exactly what Everest Fund's production stake covers. Is it limited to Running Wild S9 P&L? Does it extend to derivative deals? This is a legal question — CJ and possibly external counsel need to review the Everest Fund investment agreement before the call.
+
+**Immediate action for Jesse on Monday:**
+Contact CJ: "Before May 4, I need to know exactly what Everest Fund's production capital stake in the Fox/Natural Studios deal covers. Specifically: does their investment give them any claim on derivative deals like the Creator Network? Get legal to look at this."
+
+This is separate from the Bear WhatsApp alignment. That still matters. But the production investment angle is a structural question that changes the conversation.
+
+---
+
 ## Steel Man EBG — Their Strongest Argument (Read This)
 
 The brief above covers BGV's legal position. But Bear said "I'm not sure it's entirely clear" — which means EBG's argument has some weight. Here is their best case, and how to counter it.
