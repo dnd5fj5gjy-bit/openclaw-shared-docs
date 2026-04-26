@@ -28,7 +28,7 @@ This is a real, growing, bootstrapped business. Charles has retained significant
 ## What's Happened So Far
 
 - Bear invested in early 2024. He's customer #8420. He co-led the development of Pod 2.0 and sat in on product meetings.
-- **The 8420 figure matters:** When Bear joined, they had ~8,000 customers. Today they have 180,000. That is 22x growth in roughly one year. Bear's promotional work — face on every Amazon listing, every social post, every press article — is the most plausible driver of that scale jump. The profit share was agreed specifically for "promotional effort." The 22x growth is the evidence that promotional effort happened and worked.
+- **The 8420 figure matters:** When Bear joined in Feb 2024, they had ~8,000 customers. They now claim 200,000+. That is 25x growth in roughly two years — the majority of which happened in year one. Bear's promotional work — face on every Amazon listing, every social post, every press article — is the most plausible driver of that scale jump. The profit share was agreed specifically for "promotional effort." The 22x growth is the evidence that promotional effort happened and worked.
 - A royalty arrangement was discussed at some point and died. This is normal — royalties on a £55/year refill product are too small to matter right now.
 - The negotiation has stalled. The relationship is warm but the commercial structure is undefined.
 - Bear/BGV's ongoing value to Water2: Bear's name and face on their Amazon listing and website. That is their primary marketing asset. It has ongoing commercial value that hasn't been formally compensated since the 2024 investment.
