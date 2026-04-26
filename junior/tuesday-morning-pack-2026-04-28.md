@@ -86,6 +86,8 @@ Don't let CJ go into that call without you and Bear aligned. EBG is building the
 
 **Running Wild Ep2 (Tiffany Haddish) airs tomorrow night (Tuesday April 28).** You're back Monday — one day of runway before it airs. Brief: `running-wild-tiffany-haddish-brief-2026-04-28.pdf`. Key action: FOX social team (Tyler Garfield) sent a social media toolkit to your inbox April 24 — Calvin needs that email and the Reality Club carousel that dropped Sunday. Patrick Rogers (Tiffany's social manager) will repost correct collabs.
 
+**Bear has explicitly handed Modern Savage to Jesse and Calvin.** In the Social Calvin JG group on April 24-25: "You guys are now the leaders here… it's now your business!! Go forth and conquer…" This makes the Calvin contract and Email 1 timing more urgent — Bear has stepped back and is signalling Jesse leads this.
+
 **Fat Cow: Ryan Porter is waiting.** You missed the April 27 Zoom (on set). WhatsApp him Monday morning to reschedule: "Hey Ryan — really sorry I missed Monday, filming ran longer than expected. Still really excited about this. Can we jump on a call this week?" Full brief: `fat-cow-brief-2026-04-28.pdf`.
 
 **UTA are Bear's YouTube agents — and Delbert has been building something for them.** On April 1 you had a call with Andrew Lear (UTA, 310-786-4819) and Ty Flynn (UTA, Beverly Hills). Stephanie Smith said "really excited to be working together." Ty checked in on "everything YouTube" April 13. Delbert told Ty on April 17 "I have a few things coming your way" and scheduled a call for the week of April 27. That call has now happened (or is happening). This is Bear's YouTube expansion strategy — UTA handling the deals. This is relevant to EBG May 4: EBG had no role in establishing the UTA relationship.
