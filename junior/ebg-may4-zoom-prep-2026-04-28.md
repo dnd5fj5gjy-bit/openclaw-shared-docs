@@ -122,6 +122,44 @@ If EBG argues they "drove the value" that made the Creator Network possible: the
 
 ---
 
+## Steel Man EBG — Their Strongest Argument (Read This)
+
+The brief above covers BGV's legal position. But Bear said "I'm not sure it's entirely clear" — which means EBG's argument has some weight. Here is their best case, and how to counter it.
+
+**EBG's strongest argument (the "but-for" case):**
+
+> "We co-executive produced Running Wild S9. Running Wild S9 is the FOX relationship that the Creator Network is built on top of. Without Running Wild, there is no Creator Network. Without us as co-EPs, Running Wild S9 doesn't exist. We are causally upstream of the deal you're now valuing at $35-81M. The $25K/month fee was scoped as management compensation — it was never positioned as consideration for our role in creating the conditions for the network deal."
+
+This argument is not crazy. EBG can draw a direct causal line: co-EP Running Wild → established FOX relationship → FOX Creator Network. They didn't originate the network deal, but they were instrumental in creating the FOX relationship that made it possible.
+
+**Why this argument is still wrong (BGV's counter):**
+
+1. Running Wild was a pre-existing FOX relationship — Bear has filmed with FOX since long before EBG's involvement. EBG's co-EP role on S9 didn't create the FOX relationship; it leveraged one that already existed.
+
+2. The Creator Network was originated by Delbert and Source Media Group, not by the Running Wild production relationship. FOX's motivation was Bear's digital reach (100M+ followers) — not his show track record.
+
+3. The co-EP arrangement for Running Wild was separately compensated. If EBG has an uncompensated claim from that production role, it would need to be in the Running Wild deal, not the consulting agreement.
+
+4. The consulting agreement ($25K/month) was signed April 3. Both parties had a chance to define scope. EBG signed it. If they believed they had network economics rights at that point, they should have included it.
+
+**The question BGV cannot answer yet — and which matters most:**
+
+> Did Bear, at any point, indicate — verbally or informally — that EBG would share in the Creator Network economics?
+
+If Bear made any such statement (even offhand, even unintentionally), EBG's argument gains significant weight regardless of what the consulting agreement says. Promissory estoppel doesn't require a signed contract.
+
+**Jesse's job BEFORE May 4:**
+
+When Jesse calls Bear to align, he needs to ask this specific question:
+> "Did you ever say anything to Benjamin or Will — even casually — that suggested EBG would be part of the FOX network economics? I need to know before Sunday so we're aligned."
+
+If Bear says no: stick with CJ's legal position. BGV's case is strong.
+If Bear says yes, or is uncertain: Jesse needs to know that before walking into the call, because the conversation changes completely — it becomes about quantum and structure, not whether EBG has a claim at all.
+
+This is the question the whole May 4 prep hinges on. Everything else is secondary.
+
+---
+
 ## The Analogy Jesse Can Use (If Needed)
 
 The FOX Creator Network has multiple pillar heads — Gordon Ramsay (Food), Martha Stewart (Home), Tom Segura (Comedy), Bear (Outdoors). Gordon Ramsay almost certainly has a social media management firm. That firm doesn't get a share of Gordon's FOX Food Network revenue. EBG is Bear's social media manager. Same logic applies.
