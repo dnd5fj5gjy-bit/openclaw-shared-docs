@@ -96,3 +96,31 @@ The competitive analysis (Q3) is fully researched and written. Alex just needs t
 The email to send Alex: "Taki sent 6 diligence questions on Thursday — can you get back to him by Monday? Junior's done the competitive analysis (Q3) — you just need to add the financial answers for Q1, Q2, Q4, Q5, Q6. I'll share the draft."
 
 Then share this document.
+
+---
+
+## Know Your Investor — Tattarang Intelligence (Added April 27)
+
+Alex should read this before writing his financial answers. The framing matters as much as the numbers.
+
+**Who Tattarang is:**
+Tattarang is the Forrest family's private investment group (~$30B portfolio). Their property arm is called Fiveight. They are not generalist property investors — they specifically buy premium nature-connected experiences:
+- Gaia Retreat & Spa, Byron Bay ($30M) — luxury wellness retreat set in 8 hectares of natural bush. Restaurants, spa, fitness, walking tracks. Capacity: 22 guests.
+- Lizard Island ($42M) — Great Barrier Reef private island resort.
+- Ningaloo Lighthouse Resort — coastal wilderness resort.
+- Waldorf Astoria Sydney ($575M) — trophy luxury hospitality.
+
+**The pattern:** Tattarang buys premium experiences that sit inside nature, not against it. They understand off-grid operations, remote locations, high capital cost, and the premium that discerning guests pay for genuine seclusion.
+
+**The investment thesis angle for Alex's answers:**
+Wildernests is not a new concept for Tattarang — it's the scalable version of what they already own. Gaia Retreat ($30M for 22 guests) and Lizard Island are essentially bespoke one-off Wildernests. The pitch is: Tattarang knows this asset class personally, but only at custom price points. Wildernests makes that premium nature-connected experience repeatable, deployable, and investable at scale.
+
+**ESG is core, not a checkbox:**
+Andrew Forrest holds a PhD in Marine Ecology. Their ESG stance is not PR — they've signed onto IPCC science and Paris alignment. Any answer to Q2 (5-year factory/capex plan) should mention: net-zero construction process, minimal site footprint, no excavation/foundation concrete, full off-grid operation, land preservation. This will resonate with Taki's team because it maps directly to Tattarang's published ESG commitments.
+
+**Who you're talking to:**
+- **Taki Dermedgoglou** — Investments team. Background: UBS natural resources banking (Perth). Thinks in capital deployment, return profile, scale economics. He will push on Q1 (production capacity from raise) and Q6 (P&L). Be precise on numbers.
+- **Elliot Goldstone** — Chairman's Office. Background: Oliver Wyman consulting, JD. Thinks in strategy and risk. He will care about the regulatory pathway and whether the infrastructure-free claim holds up across different jurisdictions.
+
+**One framing sentence Alex can use for Q1/Q2:**
+> "The $25M raise is designed to prove the model — deploy 100+ homes, demonstrate the operational economics, and build the platform that institutional capital can step into at Series B. We are not trying to replace Gaia Retreat — we're trying to make it deployable at 1,000 sites."
