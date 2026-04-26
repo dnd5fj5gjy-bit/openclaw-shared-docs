@@ -53,6 +53,9 @@ Read: `ebg-may4-zoom-prep-2026-04-28.pdf`
 | 8 | Forward CJ handover brief to CJ | 2 min | File: `cj-handover-brief-2026-04-25.md`. He takes over April 29. |
 | 9 | Alex WhatsApp re: Tattarang | 2 min | "Taki sent 6 diligence questions — Junior's done Q3, you just need the financial answers for Q1/2/4/5/6. I'll share the doc." Then share `wildernests-tattarang-diligence-2026-04-25.pdf` |
 
+**Modern Savage site check (FYI, no action needed):**
+modernsavage.co is live as a pre-launch waitlist page. All three products are already shown: Modern Savage Adult Blend ($69/month), Mini Savage (kids), BG Summit Stack (with creatine). No checkout exists yet — everything is "Coming Soon / Join Waitlist." The site is built on custom Next.js + Vercel, not Shopify. Felix (or whoever deployed it) needs to push live Stripe keys and toggle checkout mode before Email 1 goes out.
+
 **Three items removed from Tuesday (no action needed):**
 - UKIPO: Both fees paid. Modern Savage in examination, Sister Swims accepted. No action.
 - Stripe entity decision: defer to Raemy before touching anything.
