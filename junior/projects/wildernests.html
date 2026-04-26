@@ -190,6 +190,33 @@
     </div>
   </div>
 
+  <div class="card full">
+    <h2>Recent Work from Junior</h2>
+    <div id="docs-list"><div style="color:#999;font-size:13px;">Loading docs...</div></div>
+  </div>
+
 </div>
+<script>
+const API = localStorage.getItem('junior_api_url') || '';
+function u(p) { return API ? API + p : p; }
+(async () => {
+  try {
+    const res = await fetch(u('/docs'));
+    const docs = await res.json();
+    const filtered = docs.filter(d => d.filename.toLowerCase().includes('wildernest'));
+    const el = document.getElementById('docs-list');
+    if (!filtered.length) { el.innerHTML = '<div style="color:#999;font-size:13px;">No docs found.</div>'; return; }
+    el.innerHTML = filtered.slice(0, 12).map(d => {
+      const date = new Date(d.modified * 1000).toLocaleDateString('en-GB', {day:'numeric',month:'short'});
+      const title = d.title || d.filename.replace('.pdf','').replace(/-/g,' ');
+      return `<a class="doc-link" href="${u('/doc/' + d.filename)}" target="_blank">
+        <span>📄</span><span class="doc-title">${title}</span><span class="doc-date">${date}</span>
+      </a>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('docs-list').innerHTML = '<div style="color:#c00;font-size:13px;">Could not load — open dashboard first to connect.</div>';
+  }
+})();
+</script>
 </body>
 </html>
