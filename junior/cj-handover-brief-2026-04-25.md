@@ -191,7 +191,7 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 6. **Becoming X — confirm Bear resignation formally submitted**
 6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — NOT routine. Read the critical briefing in section 8a above. Hold position, no substance on network economics, report word for word to Jesse after.)
 7. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
-8. **April 30 Wildernests/BCG call — email Gunnar that Jesse is off until May 21** (before April 28)
+8. **April 30 Wildernests/BCG call — email Gunnar (gunnar@wildernests.com) first thing April 29** (call is next day — can't wait)
 9. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
 10. **Luminox 2nd amendment — respond to Maria Valenzuela, continue review**
 11. **Everest Fund investment agreement — get legal to review before May 4. Specific question: does it cover only Running Wild S9 P&L, or does it extend to derivative FOX deals? Report to Jesse before May 4.**
