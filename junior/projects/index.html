@@ -864,7 +864,7 @@ function renderDocs() {
     const revStyle = d.reviewed ? 'opacity:0.45;' : '';
     const revBtn = `<button onclick="toggleReviewed(event,'${escAttr(d.filename)}',${d.reviewed})" style="flex-shrink:0;border:none;background:${d.reviewed?'var(--sage-bg)':'var(--cream-deep)'};color:${d.reviewed?'var(--sage)':'var(--ink-light)'};font-size:10px;font-weight:700;padding:3px 7px;border-radius:8px;cursor:pointer;margin-left:6px;" title="${d.reviewed?'Mark unreviewed':'Mark reviewed'}">${d.reviewed?'✓ read':'mark read'}</button>`;
     return `<div class="proj-item" style="${revStyle}display:flex;align-items:center;">
-      <a href="/doc/${escAttr(d.filename)}" target="_blank" style="display:flex;align-items:center;flex:1;gap:10px;text-decoration:none;color:inherit;min-width:0;">
+      <a href="${u('/doc/' + d.filename)}" target="_blank" style="display:flex;align-items:center;flex:1;gap:10px;text-decoration:none;color:inherit;min-width:0;">
         <div class="proj-icon" style="background:var(--blue-bg);color:var(--blue);font-size:13px;flex-shrink:0;">📄</div>
         <div class="proj-body" style="min-width:0;">
           <div class="proj-name" style="font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escHtml(d.title)}${newTag}</div>
