@@ -113,7 +113,7 @@ Read these after handling Part 2.
 |------|--------|------------|
 | Wildernests contracts | Both signed April 22 (services + equity agreements) | No action needed - confirmed complete |
 | Wildernests 3D model | Jesse gave revision notes April 23, team said "amending" | Check if corrected video delivered - needed for May launch |
-| Tattarang (Taki Dermedgoglou) | CJ following up from Bear's April 23 intro | Check if there's been a reply. Brief at workspace/docs/wildernests-tattarang-diligence-2026-04-25.pdf |
+| Tattarang (Taki Dermedgoglou) | Taki sent 6 diligence questions April 23 (production capacity, 5-year plan, pre-order deposits, P&L). Not answered as of April 28. | Ask CJ: has Alex answered Taki's questions? If not, brief + answers at workspace/docs/wildernests-tattarang-diligence-2026-04-25.pdf. Elliot Goldstone (Tattarang investment team) is cc'd. Silence past June = cooling risk. |
 | Alfred pitch | May 5 coffee with Tom Inskip and Alice happened before sailing | Ask CJ what the outcome was |
 | Rick Landman callback | +447624277888 - 30-second bank verification | Bear Witness £6,000 payment held pending this call. Check if resolved. |
 | BPS Hub (Sam Cotton) | leasing@bpsdc.co.uk | Check if CJ moved forward |
