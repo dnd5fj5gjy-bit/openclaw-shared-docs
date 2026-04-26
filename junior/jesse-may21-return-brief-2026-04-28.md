@@ -120,7 +120,7 @@ Read these after handling Part 2.
 | Rick Landman callback | +447624277888 - 30-second bank verification | Bear Witness £6,000 payment held pending this call. Check if resolved. |
 | BPS Hub (Sam Cotton) | leasing@bpsdc.co.uk | Check if CJ moved forward |
 | Ships A Lot Qwilr | Jesse said "happy to move forward" April 24, Slack #modern-savage set up same day | Still needs Qwilr signature. CJ's Q5 in the debrief. |
-| Carson Combs (Zenbuild) | CEO of Zenbuild.com (building materials e-commerce), Bear intro Feb 2026, WhatsApp April 26: "have something for you to look at" | Reply when back. Possible Wildernests angle (building materials + prefab homes). |
+| Carson Combs (Zenbuild) | 33, American, Christian, London-based. Bear intro via "Jim" (faith network) Feb 2026. Also runs outdoor western clothing brand Out Yonder Co. WhatsApp April 26: "have something for you to look at." You connected with him on Instagram over your painting. | Reply warmly - this is a personal intro from Bear. The pitch is likely Out Yonder Co (investment or collab), not Zenbuild building materials. Low urgency, reply in first week back. |
 | Glint (GlintPay) | Bear co-invested via Shay O'Brien (Bray Capital Ltd). March 26 shareholder update: £123.6M revenue, first net profit Jan 2026, $12M funding round open at £0.18/share with pre-emption rights for existing shareholders. Bear impressed ("It reads really well"). | Ask Bear: did you exercise pre-emption rights in the $12M round? If not, the window may still be open - or may have closed. Jason Cozens CEO (jason@glintpay.com). |
 | Becoming X resignation | Bear's formal resignation was due by May 6 | Confirm it's done |
 | Sister Swims trademark | UK00004372256 - opposition window ~June 24 | No action needed, awareness only |
