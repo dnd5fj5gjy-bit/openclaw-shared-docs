@@ -28,6 +28,7 @@ This is a real, growing, bootstrapped business. Charles has retained significant
 ## What's Happened So Far
 
 - Bear invested in early 2024. He's customer #8420. He co-led the development of Pod 2.0 and sat in on product meetings.
+- **The 8420 figure matters:** When Bear joined, they had ~8,000 customers. Today they have 180,000. That is 22x growth in roughly one year. Bear's promotional work — face on every Amazon listing, every social post, every press article — is the most plausible driver of that scale jump. The profit share was agreed specifically for "promotional effort." The 22x growth is the evidence that promotional effort happened and worked.
 - A royalty arrangement was discussed at some point and died. This is normal — royalties on a £55/year refill product are too small to matter right now.
 - The negotiation has stalled. The relationship is warm but the commercial structure is undefined.
 - Bear/BGV's ongoing value to Water2: Bear's name and face on their Amazon listing and website. That is their primary marketing asset. It has ongoing commercial value that hasn't been formally compensated since the 2024 investment.
@@ -109,3 +110,73 @@ Email him instead:
 > Charles — meant to connect on this. I'm going off grid from next Tuesday. Happy to jump on a 20-minute call before then to make sure we're aligned on where things stand commercially. Does Monday or Tuesday morning work?
 
 Short. Friendly. Creates urgency without pressure.
+
+---
+
+## CRITICAL UPDATE — Added April 25, 2026
+
+**New intelligence found in Raemy's November 2025 portfolio snapshot. Read this before the call.**
+
+### Bear's Exact Position (confirmed)
+
+- **5% shareholding** in Water2 (registered as Gelcard Ltd)
+- **500 shares** acquired February 2024
+- **Purchase price:** £250,000
+- **Company valuation at purchase:** £5M (implied £5M valuation, now far higher)
+- **EIS eligible:** Yes (relevant for UK tax relief on the investment)
+- **Contact:** charles@water2.com (per portfolio snapshot)
+
+At today's estimated ARR of £12-18M and a 3-4x revenue multiple, the company is worth £36-72M. Bear's 5% is worth **£1.8M-£3.6M** — not the rough "£1M-£3.6M" range in the original call prep. The low end is now confirmed higher than the previous conservative estimate.
+
+### The Original Deal Had a Profit Share
+
+The portfolio snapshot notes: **"Quarterly profit share for Bear of 10% after tax in return for promotional effort."**
+
+This was the ORIGINAL structure agreed when Bear invested in February 2024, not a new proposal. This profit share was in the deal from the start.
+
+**This changes the call completely.**
+
+Jesse's March 2026 "Royalty Amendment Notes" was NOT a proposal for the first time — it was an attempt to change or expand the existing profit share structure. Charles's March 24 rejection letter says he won't agree to a "perpetual revenue-based royalty." He rejected the AMENDMENT, not necessarily the original profit share concept.
+
+### What Jesse Must Clarify on the Call
+
+**Question 1 (ask this first):** "Has the quarterly profit share been paid? We've got in the original structure that Bear was to receive 10% of profit after tax quarterly, for his promotional work. What does that look like in practice?"
+
+This is not aggressive. It's clarifying whether the original deal is being honoured.
+
+**Question 2 (the ARR question, unchanged):** "What's your ARR today?"
+
+**Question 3 (if profit share is in arrears or not paid):** "I want to make sure we're aligned on the original structure before we talk about anything new. Can you walk me through what's been paid to Bear under the profit share?"
+
+**Question 4 (the equity protection question):** "Does Bear have anti-dilution protection on the 5%? We have similar arrangements in other portfolio companies — it matters as you scale and do further funding rounds."
+
+### Why Charles Rejected the Royalty Amendment
+
+Charles's letter (March 24, 2026) is clear:
+- He refused a perpetual revenue-based royalty — it hurts exitability, destroys EBIT at scale
+- He used the Huel acquisition as an example (their EBIT would have been halved)
+- He said the original structure "was always equity-led"
+- He acknowledged the issue but said the royalty is the wrong solution
+- He remains "open to this conversation"
+
+**What this means for Tuesday:**  
+Do NOT propose a royalty. Charles has rejected it with sound reasoning, in writing. Coming back to the same point after his March 24 letter is a relationship risk.
+
+Instead, the conversation is about:
+1. Whether the existing profit share structure is working
+2. Anti-dilution protection on the 5%
+3. What the warrant top-up structure looks like for Bear's continued brand association going forward — equity, not royalties
+
+### The Warrant Option (for ongoing brand work)
+
+Since royalties are off the table, the cleanest ongoing compensation structure is:
+- Additional equity warrants for Bear's continued promotional association
+- Vesting over 2-3 years, tied to revenue milestones
+- This is additive to the existing 5% + profit share, not a replacement
+- Warrants don't hit the P&L the way royalties do — they're a future equity dilution, not a current cash obligation, which is why Charles can accept them
+
+If Charles asks "what structure works for you?", the answer is: "We're not looking to change the existing deal. We want to make sure the ongoing relationship — Bear's continued face and promotional work — is properly recognised, ideally through a small warrant tranche vesting over time."
+
+### Charles's Email
+
+**c@water2.com** (confirmed from the "Letter" email) — also note the portfolio snapshot lists **charles@water2.com** as the contact. Use c@water2.com for correspondence as that's what he emails from.
