@@ -61,6 +61,10 @@ modernsavage.co is live as a pre-launch waitlist page. All three products are al
 - Stripe entity decision: defer to Raemy before touching anything.
 - BPS Hub: That's CJ from April 29.
 
+**US trademark (MODERN SAVAGE) — in progress, one Raemy action:** On April 24 you told Kylee MacArthur (Weinberg Gonser, kylee@wgcounsel.com) "please proceed with the next steps." She's filing with Doug at USPTO. Budget ~$2,500. Kylee will send a formal engagement letter — but first, Raemy needs to confirm which entity the trademark registers to. Add to Raemy WhatsApp (task 3 above). No other action from you today.
+
+**Tiffany Haddish episode airs tonight (Tuesday April 28):** The FOX social toolkit is at https://app.box.com/s/f4ezgoocm3dcz7yuiwacaksudz6gxicc — send Calvin that link now (included in task 2). The Reality Club carousel dropped Sunday at 10am. Patrick Rogers (Tiffany's social manager) is actively monitoring for collabs and will repost. Hashtag: #RunningWild.
+
 ---
 
 ## What CJ Has from April 29
