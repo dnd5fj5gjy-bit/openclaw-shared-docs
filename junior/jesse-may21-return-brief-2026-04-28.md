@@ -134,4 +134,4 @@ If all five have clean answers, you're in good shape. If any are red — start t
 
 ---
 
-*Built April 28, 2026 by Junior. Updated April 29: DOAC removed, pricing decision added, Bear IG arc added as pre-sailing requirement, EBG 15% flat demand intel added, Calvin SOW draft flagged as ready. Updated April 29 (2): Wildernests contracts confirmed signed April 22 (equity + services); 3D model revision status flagged for May 21 check; Rick Landman £6,000 payment context added. Jesse reads May 21. Ship date and domain are the two live blockers - everything else is manageable.*
+*Built April 28, 2026 by Junior. Updated April 29: DOAC removed, pricing decision added, Bear IG arc added, EBG 15% flat demand intel added, Calvin SOW flagged. Updated April 29 (2): Wildernests contracts confirmed signed; 3D revision check added; Rick Landman context added. Updated April 29 (3): Ships A Lot verbal agreement April 24 (Qwilr still unsigned); Carson Combs WhatsApp follow-up flagged. Jesse reads May 21. Ship date and domain are the two live blockers - everything else is manageable.*
