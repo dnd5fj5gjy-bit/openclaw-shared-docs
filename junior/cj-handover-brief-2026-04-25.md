@@ -110,7 +110,24 @@ Bear's resignation from Becoming X is pending. CJ to confirm this has been forma
 
 **Note: Content approvals are Olly's job, not CJ's.** This section is here for awareness only.
 
-Jesse approves Bear social content until May 7. From May 7, Olly approves in his place. Calvin submits via Metricool — Olly needs to be copied on those requests. Episode briefs for all guests are built (see Olly's brief). CJ does not need to be in this workflow unless Calvin raises a commercial/contractual issue.
+Jesse approves Bear social content until May 7. From May 7, Olly approves in his place. Calvin submits via Metricool — Olly needs to be copied on those requests. CJ does not need to be in this workflow unless Calvin raises a commercial/contractual issue.
+
+**Running Wild S9 episode schedule (FOX, Tuesdays 9pm ET):**
+
+| Episode | Guest | Air Date | Status | Brief |
+|---------|-------|----------|--------|-------|
+| Ep1 | Matthew McConaughey | Apr 21 | Aired | n/a |
+| Ep2 | Tiffany Haddish | Apr 28 | Airs tonight | running-wild-tiffany-haddish-brief |
+| Ep3 | TBC (Uma Thurman or Elizabeth Banks) | May 5 | Jesse present | brief built |
+| Ep4 | TBC | May 12 | **Jesse sailing** | brief built — Olly needs this |
+| Ep5 | TBC | May 19 | **Jesse sailing** | brief built — Olly needs this |
+| Ep6 | TBC | May 26 | Jesse back May 21 | brief built |
+| Ep7 | TBC | June 2 | Jesse back | brief built |
+| Ep8 | TBC | June 9 | Jesse back | brief built |
+
+Episode briefs built for all remaining guests: Uma Thurman, Elizabeth Banks + Michelle Monaghan (combined), Colman Domingo, MGK, Rhys Darby. Briefs are in workspace/docs/ prefixed `running-wild-[guest]-brief`. Exact Eps 3-8 order is not publicly confirmed — Olly should pull the right brief when the previous episode's post-credit promo reveals the next guest.
+
+**Olly's action for May 12 and May 19:** Read the relevant brief the day before the episode airs. Check Calvin's scheduled content in Metricool. Approve or amend before 9pm ET.
 
 ---
 
