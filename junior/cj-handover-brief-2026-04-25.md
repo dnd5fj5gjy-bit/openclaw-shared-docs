@@ -123,6 +123,7 @@ Organizer: Thomas Filmer (thomas@tedshealth.com) — Ted's Health internal opera
 **CJ's action:** Attend or send apologies on Jesse's behalf. Thomas has been working on supplement designs (option 2: dark top/teal bottom approved by Jesse and Olly) and 3PL fulfillment quotes from 5 providers. CJ can attend and take notes for Jesse.
 
 **April 29, 1:00-2:00pm — BGV catch-up Zoom Meeting**
+Zoom link: https://us02web.zoom.us/j/82538081121?pwd=MmNwQ1FV
 Organizer: Em Lovell (em@beargryllsventures.com) — this is the biweekly EBG/BGV operational Zoom.
 **CJ's action:** Attend in Jesse's place. THIS IS NOT A ROUTINE CHECK-IN.
 
