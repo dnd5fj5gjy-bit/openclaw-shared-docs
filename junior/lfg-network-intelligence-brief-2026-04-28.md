@@ -33,6 +33,7 @@ Source's business model: they launch vertical digital content networks — eithe
 **Origin:** Source built the FCS deck; Jesse saw it April 2. Delbert looped him in.
 **Structure:** Bear is the Outdoors/Adventure pillar head inside Fox's Creator Network. Four pillars: Ramsay (Food), Martha Stewart (Home), Tom Segura (Comedy), Bear (Outdoors).
 **Jesse's reaction (April 2):** "Awesome. I think with dates it's going to be hard to get my dad to do the whole North Pole expedition. But for sure we will get a few episodes with him in them. I just filmed episode 1 on Monday!"
+**The show:** "Adventure Garage with Bear Grylls" — extreme vehicle transformation series, partnered with RealTruck (outdoor/overlanding accessories brand). Jesse filmed episode 1 on April 1. Production continued April 24-27 at Ware County Airport, Waycross, Georgia (Days 1-4 of a 4-day shoot). This is the FCS content Jesse is already actively building.
 **Revenue split:** Fox controls distribution. Bear earns content revenue. Fox owns the platform.
 **EBG complication:** EBG claims participation in the FOX Creator Network economics. This is the live dispute CJ is holding.
 
