@@ -3,33 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Junior — Jesse's HQ</title>
+<title>Junior HQ</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif; background: #0a0a0a; color: #e2e2e2; min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-/* Header */
 .header { background: #111; border-bottom: 1px solid #1e1e1e; padding: 16px 20px 14px; position: sticky; top: 0; z-index: 100; }
 .header-top { display: flex; justify-content: space-between; align-items: center; }
 .header-title { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.4px; }
-.header-meta { font-size: 11px; color: #444; }
-.live-dot { display: inline-block; width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; margin-right: 5px; animation: pulse 2s infinite; }
+.header-meta { font-size: 11px; color: #444; display: flex; align-items: center; gap: 8px; }
+.live-dot { display: inline-block; width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.reset-btn { font-size: 10px; color: #333; cursor: pointer; border: 1px solid #222; border-radius: 4px; padding: 2px 7px; background: transparent; }
+.reset-btn:hover { color: #555; border-color: #333; }
 
-/* Nav tabs */
 .tabs { display: flex; gap: 4px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; background: #1a1a1a; color: #666; cursor: pointer; white-space: nowrap; border: 1px solid #222; transition: all 0.15s; }
 .tab.active { background: #fff; color: #000; border-color: #fff; }
 
-/* Main */
 .main { max-width: 640px; margin: 0 auto; padding: 20px 16px 80px; }
-
-/* Section */
 .section { margin-bottom: 24px; }
 .section-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #444; margin-bottom: 10px; }
 
-/* Status banner */
 .status-banner { background: #1a1a1a; border: 1px solid #252525; border-radius: 12px; padding: 14px 16px; margin-bottom: 20px; }
 .status-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .status-row:last-child { margin-bottom: 0; }
@@ -43,51 +39,74 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
 .bg-blue { background: rgba(52,152,219,0.15); }
 
 /* Cards */
-.card { background: #141414; border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 16px; margin-bottom: 8px; display: block; text-decoration: none; color: inherit; transition: border-color 0.12s; cursor: pointer; }
+.card-wrap { position: relative; margin-bottom: 8px; }
+.card-wrap.dismissed { display: none; }
+
+.card {
+  background: #141414;
+  border: 1px solid #1e1e1e;
+  border-radius: 12px;
+  padding: 14px 50px 14px 16px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.12s;
+}
 .card:hover { border-color: #333; }
-.card.has-link:hover .card-arrow { opacity: 1; }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-.card-left { flex: 1; }
+.card.no-link { cursor: default; }
+
 .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 5px; }
 .card-title { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.35; }
 .card-body { font-size: 12px; color: #666; margin-top: 5px; line-height: 1.5; }
-.card-arrow { font-size: 14px; color: #333; opacity: 0; transition: opacity 0.12s; margin-left: 8px; margin-top: 2px; }
-.card-footer { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
-.chip { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
-
-/* Priority indicators */
-.p-red .card-tag { color: #e74c3c; }
-.p-amber .card-tag { color: #f39c12; }
-.p-green .card-tag { color: #2ecc71; }
-.p-blue .card-tag { color: #3498db; }
-.p-purple .card-tag { color: #9b59b6; }
-.p-grey .card-tag { color: #555; }
+.card-arrow { font-size: 11px; color: #444; margin-top: 3px; }
 
 .p-red { border-left: 2px solid #e74c3c; }
 .p-amber { border-left: 2px solid #f39c12; }
 .p-blue { border-left: 2px solid #3498db; }
 .p-green { border-left: 2px solid #2ecc71; }
+.p-purple { border-left: 2px solid #9b59b6; }
 
-/* Sprint */
+.p-red .card-tag { color: #e74c3c; }
+.p-amber .card-tag { color: #f39c12; }
+.p-blue .card-tag { color: #3498db; }
+.p-green .card-tag { color: #2ecc71; }
+.p-purple .card-tag { color: #9b59b6; }
+.p-grey .card-tag { color: #555; }
+
+/* Dismiss button */
+.dismiss-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.dismiss-btn:hover { border-color: #2ecc71; color: #2ecc71; background: rgba(46,204,113,0.1); }
+
+/* Sprint list */
 .sprint-row { display: flex; align-items: center; gap: 12px; background: #141414; border: 1px solid #1e1e1e; border-radius: 10px; padding: 11px 14px; margin-bottom: 6px; }
 .sprint-n { font-size: 11px; font-weight: 800; color: #333; min-width: 20px; }
 .sprint-title { font-size: 13px; font-weight: 600; color: #ddd; flex: 1; }
 .sprint-detail { font-size: 11px; color: #555; margin-top: 1px; }
 .sprint-time { font-size: 11px; font-weight: 700; color: #444; flex-shrink: 0; }
 
-/* Chips */
-.chip-red { background: rgba(231,76,60,0.12); color: #e74c3c; }
-.chip-amber { background: rgba(243,156,18,0.12); color: #f39c12; }
-.chip-green { background: rgba(46,204,113,0.12); color: #2ecc71; }
-.chip-blue { background: rgba(52,152,219,0.12); color: #3498db; }
-.chip-grey { background: #1e1e1e; color: #555; }
-
-/* Page tabs */
 .page { display: none; }
 .page.active { display: block; }
 
-/* Private badge */
-.priv { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; background: #1e1e1e; color: #444; border: 1px solid #2a2a2a; border-radius: 3px; padding: 1px 5px; margin-left: 6px; vertical-align: middle; }
+.priv { display: inline-block; font-size: 9px; font-weight: 700; background: #1e1e1e; color: #444; border: 1px solid #2a2a2a; border-radius: 3px; padding: 1px 5px; margin-left: 6px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -95,14 +114,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
 <div class="header">
   <div class="header-top">
     <div class="header-title">Junior HQ</div>
-    <div class="header-meta"><span class="live-dot"></span>Updated Apr 26, 2026</div>
+    <div class="header-meta">
+      <span class="live-dot"></span>Updated Apr 27
+      <button class="reset-btn" onclick="resetDismissed()">Reset</button>
+    </div>
   </div>
   <div class="tabs">
-    <div class="tab active" onclick="showPage('today')">Today</div>
-    <div class="tab" onclick="showPage('briefs')">Briefs</div>
-    <div class="tab" onclick="showPage('ms')">Modern Savage</div>
-    <div class="tab" onclick="showPage('rw')">Running Wild</div>
-    <div class="tab" onclick="showPage('bgv')">BGV</div>
+    <div class="tab active" onclick="showPage('today', this)">Today</div>
+    <div class="tab" onclick="showPage('briefs', this)">Briefs</div>
+    <div class="tab" onclick="showPage('ms', this)">Modern Savage</div>
+    <div class="tab" onclick="showPage('rw', this)">Running Wild</div>
+    <div class="tab" onclick="showPage('bgv', this)">BGV</div>
   </div>
 </div>
 
@@ -112,90 +134,163 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
 <div class="page active" id="page-today">
 
   <div class="section">
-    <div class="section-label">Situation — Apr 26 Sunday</div>
+    <div class="section-label">Situation — Monday Apr 27</div>
     <div class="status-banner">
       <div class="status-row">
-        <div class="status-icon bg-amber">✈️</div>
+        <div class="status-icon bg-green">🏠</div>
         <div class="status-text">
-          <div class="status-main">Jesse on set — back Monday April 27</div>
+          <div class="status-main">Jesse back Monday Apr 27</div>
           <div class="status-sub">One sprint day before CJ takes over Apr 29. Sailing May 7.</div>
         </div>
       </div>
       <div class="status-row">
         <div class="status-icon bg-red">⚡</div>
         <div class="status-text">
-          <div class="status-main">3 things that can't slip past Monday</div>
+          <div class="status-main">3 things that can't slip past today</div>
           <div class="status-sub">Ships A Lot signature · Rick Landman callback · CJ handover sent</div>
+        </div>
+      </div>
+      <div class="status-row">
+        <div class="status-icon bg-amber">📺</div>
+        <div class="status-text">
+          <div class="status-main">Tiffany Haddish ep airs TONIGHT (Tue Apr 28)</div>
+          <div class="status-sub">FOX toolkit in Jesse's inbox. Tyler Garfield Apr 24. Get it to Calvin.</div>
         </div>
       </div>
       <div class="status-row">
         <div class="status-icon bg-blue">📅</div>
         <div class="status-text">
-          <div class="status-main">EBG call May 4 — needs Bear aligned first</div>
-          <div class="status-sub">Creator Network dispute. Bear more sympathetic to EBG than CJ. WhatsApp Bear before Sunday.</div>
+          <div class="status-main">EBG call May 4 — align Bear first</div>
+          <div class="status-sub">Bear more sympathetic to EBG than CJ. WhatsApp him before Sunday.</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Action needed — Monday sprint</div>
+    <div class="section-label">Action needed — tap to open, check to dismiss</div>
 
-    <a class="card p-red has-link" href="https://shipsalot.qwilr.com/Modern-Savage-aHwI1CSkQd6q" target="_blank">
-      <div class="card-header">
-        <div class="card-left">
-          <div class="card-tag">🔴 Do first</div>
-          <div class="card-title">Ships A Lot — sign Qwilr</div>
-        </div>
-        <div class="card-arrow">→</div>
+    <div class="card-wrap" id="wrap-shipsalot">
+      <a class="card p-red" href="https://shipsalot.qwilr.com/Modern-Savage-aHwI1CSkQd6q" target="_blank">
+        <div class="card-tag">Do first — 5 min</div>
+        <div class="card-title">Ships A Lot — sign the Qwilr</div>
+        <div class="card-body">Susan waiting since Apr 24. Slack workspace already set up (#modern-savage).</div>
+        <div class="card-arrow">↗ Open Qwilr</div>
+      </a>
+      <button class="dismiss-btn" onclick="dismiss('shipsalot')">✓</button>
+    </div>
+
+    <div class="card-wrap" id="wrap-ryan">
+      <div class="card p-amber no-link">
+        <div class="card-tag">Monday morning — 2 min</div>
+        <div class="card-title">Ryan Porter (Fat Cow) — WhatsApp to reschedule</div>
+        <div class="card-body">"Hey Ryan — really sorry I missed Monday, filming ran longer than expected. Still really excited about this. Can we jump on a call this week?"</div>
       </div>
-      <div class="card-body">Susan waiting since Apr 24. 5 minutes. Slack workspace already set up.</div>
-    </a>
-
-    <div class="card p-red">
-      <div class="card-tag">🔴 Before sailing</div>
-      <div class="card-title">Rick Landman callback</div>
-      <div class="card-body">+447624277888 · 30 seconds · payment ready, needs bank account verification</div>
+      <button class="dismiss-btn" onclick="dismiss('ryan')">✓</button>
     </div>
 
-    <div class="card p-amber">
-      <div class="card-tag">🟠 Monday morning</div>
-      <div class="card-title">Ryan Porter (Fat Cow) — reschedule</div>
-      <div class="card-body">You missed the Apr 27 Zoom on set. WhatsApp: "Hey Ryan — really sorry I missed Monday, filming ran longer than expected. Still really excited about this. Can we jump on a call this week?"</div>
+    <div class="card-wrap" id="wrap-rick">
+      <div class="card p-red no-link">
+        <div class="card-tag">Before sailing — 30 sec</div>
+        <div class="card-title">Rick Landman callback</div>
+        <div class="card-body">+447624277888 — payment ready, needs bank account verification. Don't miss this before May 7.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('rick')">✓</button>
     </div>
 
-    <div class="card p-amber">
-      <div class="card-tag">🟠 Monday</div>
-      <div class="card-title">Water2 call — Charles Robinson</div>
-      <div class="card-body">Ask: (1) Has the profit share been paid? (2) ARR today? (3) Anti-dilution on 5%? Don't propose royalties — rejected March 24.</div>
+    <div class="card-wrap" id="wrap-calvin">
+      <div class="card p-blue no-link">
+        <div class="card-tag">Monday — 5 min</div>
+        <div class="card-title">Calvin x2 WhatsApps</div>
+        <div class="card-body">(a) "Any update on the SOW?" — (b) "Once Stripe is live, send Email 1 to the 170. I'll confirm when."</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('calvin')">✓</button>
     </div>
 
-    <div class="card p-amber">
-      <div class="card-tag">🟠 Before May 4</div>
-      <div class="card-title">WhatsApp Bear to align on EBG</div>
-      <div class="card-body">"May 4 EBG catch-up. Want 10 mins before Sunday to align on Creator Network economics?" Bear has more empathy for EBG's position than CJ does — you need his actual view.</div>
+    <div class="card-wrap" id="wrap-raemy">
+      <div class="card p-blue no-link">
+        <div class="card-tag">Monday — 2 min</div>
+        <div class="card-title">Raemy — which entity for Stripe?</div>
+        <div class="card-body">"Which entity should I use to set up Stripe for Modern Savage US subscriptions?" Wait for her answer before touching Stripe.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('raemy')">✓</button>
     </div>
 
-    <div class="card p-blue">
-      <div class="card-tag">🔵 Monday — ask first</div>
-      <div class="card-title">Stripe entity — ask Raemy before touching anything</div>
-      <div class="card-body">IOM entity is excluded from Stripe. Raemy decides which entity. Then 90-min Stripe setup.</div>
+    <div class="card-wrap" id="wrap-stripe">
+      <div class="card p-blue no-link">
+        <div class="card-tag">After Raemy confirms — 90 min</div>
+        <div class="card-title">Stripe setup</div>
+        <div class="card-body">Product: Modern Savage Adult Blend, $69/month. Have US entity docs ready. Do not start before Raemy confirms.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('stripe')">✓</button>
     </div>
 
-    <div class="card p-blue">
-      <div class="card-tag">🔵 Monday</div>
-      <div class="card-title">Calvin x2 WhatsApps</div>
-      <div class="card-body">(a) "Any update on the SOW?" (b) "Once Stripe is live, send Email 1 to the 170."</div>
+    <div class="card-wrap" id="wrap-water2">
+      <a class="card p-amber" href="water2-call-prep-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Monday — 30 min</div>
+        <div class="card-title">Water2 — call Charles Robinson</div>
+        <div class="card-body">Ask: (1) Has the profit share been paid? (2) ARR today? (3) Anti-dilution on the 5%? Don't propose royalties — rejected March 24.</div>
+        <div class="card-arrow">↗ Call prep brief</div>
+      </a>
+      <button class="dismiss-btn" onclick="dismiss('water2')">✓</button>
     </div>
+
+    <div class="card-wrap" id="wrap-cj">
+      <a class="card p-red" href="cj-handover-brief-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Monday — 2 min</div>
+        <div class="card-title">Forward CJ handover brief</div>
+        <div class="card-body">He takes over Apr 29. Calvin contracts, domain, BPS Hub, Tattarang, Becoming X.</div>
+        <div class="card-arrow">↗ Read brief first</div>
+      </a>
+      <button class="dismiss-btn" onclick="dismiss('cj')">✓</button>
+    </div>
+
+    <div class="card-wrap" id="wrap-alex">
+      <div class="card p-amber no-link">
+        <div class="card-tag">Monday — 2 min</div>
+        <div class="card-title">Alex WhatsApp — Tattarang diligence</div>
+        <div class="card-body">"Taki sent 6 diligence questions — Junior's done Q3, you just need the financial answers for Q1/2/4/5/6. I'll share the doc." Then share the Tattarang diligence PDF.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('alex')">✓</button>
+    </div>
+
+    <div class="card-wrap" id="wrap-bear-ebg">
+      <div class="card p-amber no-link">
+        <div class="card-tag">Before May 4</div>
+        <div class="card-title">WhatsApp Bear to align on EBG</div>
+        <div class="card-body">"May 4 EBG catch-up. Want 10 mins before Sunday to align on Creator Network economics?" — Bear more open to EBG than CJ. Align first.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('bear-ebg')">✓</button>
+    </div>
+
+    <div class="card-wrap" id="wrap-wildernests3d">
+      <div class="card p-blue no-link">
+        <div class="card-tag">Monday — 5 min</div>
+        <div class="card-title">Wildernests 3D feedback to Calvin</div>
+        <div class="card-body">Investor-grade feedback — feeds the UHNWI pitch video Gunnar is building.</div>
+      </div>
+      <button class="dismiss-btn" onclick="dismiss('wildernests3d')">✓</button>
+    </div>
+
+    <div class="card-wrap" id="wrap-tiffany">
+      <a class="card p-red" href="running-wild-tiffany-haddish-brief-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">TODAY — airs tonight</div>
+        <div class="card-title">Tiffany Haddish Ep2 — get toolkit to Calvin</div>
+        <div class="card-body">Tyler Garfield (FOX) sent toolkit to Jesse's inbox Apr 24. Reality Club carousel dropped Sunday. Patrick Rogers (Tiffany's manager) will repost correct collabs.</div>
+        <div class="card-arrow">↗ Episode brief</div>
+      </a>
+      <button class="dismiss-btn" onclick="dismiss('tiffany')">✓</button>
+    </div>
+
   </div>
 
   <div class="section">
-    <div class="section-label">Full Monday sprint order</div>
+    <div class="section-label">Full sprint order — Monday</div>
     <div class="sprint-row"><span class="sprint-n">1</span><div><div class="sprint-title">Ships A Lot Qwilr signature</div></div><span class="sprint-time">5 min</span></div>
-    <div class="sprint-row"><span class="sprint-n">2</span><div><div class="sprint-title">Ryan Porter WhatsApp</div></div><span class="sprint-time">2 min</span></div>
+    <div class="sprint-row"><span class="sprint-n">2</span><div><div class="sprint-title">Ryan Porter WhatsApp (reschedule)</div></div><span class="sprint-time">2 min</span></div>
     <div class="sprint-row"><span class="sprint-n">3</span><div><div class="sprint-title">Calvin x2 WhatsApps</div></div><span class="sprint-time">5 min</span></div>
     <div class="sprint-row"><span class="sprint-n">4</span><div><div class="sprint-title">Raemy — which Stripe entity?</div></div><span class="sprint-time">2 min</span></div>
-    <div class="sprint-row"><span class="sprint-n">5</span><div><div class="sprint-title">Rick Landman callback</div><div class="sprint-detail">+447624277888</div></div><span class="sprint-time">2 min</span></div>
+    <div class="sprint-row"><span class="sprint-n">5</span><div><div class="sprint-title">Rick Landman callback</div><div class="sprint-detail">+447624277888</div></div><span class="sprint-time">30 sec</span></div>
     <div class="sprint-row"><span class="sprint-n">6</span><div><div class="sprint-title">Stripe setup</div><div class="sprint-detail">After Raemy confirms entity · $69/month</div></div><span class="sprint-time">90 min</span></div>
     <div class="sprint-row"><span class="sprint-n">7</span><div><div class="sprint-title">Water2 call — Charles Robinson</div></div><span class="sprint-time">30 min</span></div>
     <div class="sprint-row"><span class="sprint-n">8</span><div><div class="sprint-title">Forward CJ handover brief</div></div><span class="sprint-time">2 min</span></div>
@@ -210,49 +305,81 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
   <div class="section">
     <div class="section-label">Read this week</div>
 
-    <a class="card p-red has-link" href="tuesday-morning-pack-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔴 Start here</div><div class="card-title">Monday Morning Pack</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Everything that moved while you were on set. 8 min read.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-red" href="tuesday-morning-pack-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">Start here — 8 min</div>
+        <div class="card-title">Monday Morning Pack</div>
+        <div class="card-body">Everything that moved while you were on set. Ratings, EBG, ShipsALot, BPS Hub, UTA.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
 
-    <a class="card p-amber has-link" href="water2-call-prep-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 Before Water2 call</div><div class="card-title">Water2 Call Prep</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Profit share, ARR, anti-dilution. Bear has 5% (Gelcard Ltd). Don't propose royalties.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-amber" href="water2-call-prep-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Before Water2 call</div>
+        <div class="card-title">Water2 Call Prep</div>
+        <div class="card-body">Profit share (was in original 2024 deal), ARR, anti-dilution on 5%. No royalties.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
 
-    <a class="card p-amber has-link" href="fat-cow-brief-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 Before Ryan Porter call</div><div class="card-title">Fat Cow — Deal Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">3 co-branded SKUs already agreed in principle. 6 questions for rescheduled call.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-amber" href="fat-cow-brief-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">Before Ryan Porter call</div>
+        <div class="card-title">Fat Cow — Deal Brief</div>
+        <div class="card-body">3 co-branded SKUs agreed in principle (moisturiser, sun cream, deodorant). 6 questions for rescheduled call.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
 
-    <a class="card p-red has-link" href="ebg-may4-zoom-prep-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔴 Before May 4 EBG call <span class="priv">PRIVATE</span></div><div class="card-title">EBG May 4 Zoom Prep</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">FOX network structure (Ramsay/Stewart/Segura/Bear). Bear's real position Apr 2. UTA context. Gordon Ramsay analogy.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-red" href="ebg-may4-zoom-prep-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">Before May 4 EBG call</div>
+        <div class="card-title">EBG May 4 Zoom Prep <span class="priv">PRIVATE</span></div>
+        <div class="card-body">FOX Creator Network structure. Bear's real position Apr 2. UTA context. Gordon Ramsay analogy. Read before aligning Bear.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
 
-    <a class="card p-amber has-link" href="ebg-contract-analysis-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 Context <span class="priv">PRIVATE</span></div><div class="card-title">EBG Contract Analysis</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Clauses 3.5, 8.2, 13.1. CJ is right. FOX never within scope. Mettle exclusivity very broad.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-amber" href="ebg-contract-analysis-2026-04-25.md" target="_blank">
+        <div class="card-tag">Context</div>
+        <div class="card-title">EBG Contract Analysis <span class="priv">PRIVATE</span></div>
+        <div class="card-body">Clauses 3.5, 8.2, 13.1. CJ is right. FOX never within scope. Mettle exclusivity very broad.</div>
+        <div class="card-arrow">↗ Open doc</div>
+      </a>
+    </div>
 
-    <a class="card p-amber has-link" href="twyn-deal-benchmarks-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 Before Tim's agreement</div><div class="card-title">Twyn Deal Benchmarks</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Twyn only raised £1.25M. Tim Levy is sophisticated. Cash advance expectations recalibrated. CJ reads first.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-amber" href="twyn-deal-benchmarks-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Before Tim's agreement</div>
+        <div class="card-title">Twyn Deal Benchmarks</div>
+        <div class="card-body">Only £1.25M raised. Tim Levy is sophisticated (22 founding credits). Cash-light by necessity. Reversion rights are critical.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 
   <div class="section">
     <div class="section-label">Sailing handover — CJ from Apr 29</div>
 
-    <a class="card p-purple has-link" href="cj-handover-brief-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟣 Send to CJ Monday</div><div class="card-title">CJ Handover Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Calvin contracts · domain acquisition · BPS Hub (Bear already talking to George) · Tattarang · Becoming X.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-purple" href="cj-handover-brief-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Send to CJ Monday</div>
+        <div class="card-title">CJ Handover Brief</div>
+        <div class="card-body">Calvin contracts (chase daily) · domain acquisition · BPS Hub (Bear already in thread with George) · Tattarang · Becoming X.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
 
-    <a class="card p-grey has-link" href="jesse-sailing-window-brief-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">Sailing May 7–21</div><div class="card-title">Sailing Window Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">What CJ holds, what waits, what needs action before departure.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-grey" href="jesse-sailing-window-brief-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">Sailing May 7-21</div>
+        <div class="card-title">Sailing Window Brief</div>
+        <div class="card-body">What CJ holds, what waits, what needs action before departure.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -265,14 +392,21 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
         <div class="status-icon bg-amber">🚀</div>
         <div class="status-text">
           <div class="status-main">Target launch July 1 — 10 weeks out</div>
-          <div class="status-sub">Website live at modernsavage.co · $69/month · 170 signups waiting</div>
+          <div class="status-sub">modernsavage.co live · $69/month US · £59/month UK · 170 signups waiting</div>
         </div>
       </div>
       <div class="status-row">
         <div class="status-icon bg-red">⚠️</div>
         <div class="status-text">
           <div class="status-main">Three hard blockers</div>
-          <div class="status-sub">Stripe entity (ask Raemy) · modernsavage.com domain (expires Jun 24) · Calvin SOW unsigned</div>
+          <div class="status-sub">Stripe entity (ask Raemy) · modernsavage.com domain expires Jun 24 · Calvin SOW unsigned</div>
+        </div>
+      </div>
+      <div class="status-row">
+        <div class="status-icon bg-green">✅</div>
+        <div class="status-text">
+          <div class="status-main">$82K manufacturing deposit sent Apr 23-24</div>
+          <div class="status-sub">ACF Pharma via Lightning Nutra. 3 products in production. Ship date TBC — CJ to confirm.</div>
         </div>
       </div>
     </div>
@@ -280,133 +414,238 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
 
   <div class="section">
     <div class="section-label">Launch docs</div>
-    <a class="card p-green has-link" href="modern-savage-launch-countdown-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟢 Master plan</div><div class="card-title">10-Week Launch Countdown</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Three hard gates, owner map for sailing window.</div>
-    </a>
-    <a class="card p-green has-link" href="modern-savage-uk-launch-brief-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟢 UK</div><div class="card-title">UK Launch Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">IOM entity works for UK sales. Ships A Lot/Scend confirmed. £59/month.</div>
-    </a>
-    <a class="card p-blue has-link" href="modern-savage-press-launch-brief-2026-04-27.md">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔵 PR</div><div class="card-title">Press Launch Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Telegraph, Daily Mail, MindBodyGreen. Start outreach May 26.</div>
-    </a>
-    <a class="card p-blue has-link" href="modern-savage-financial-model-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔵 Numbers</div><div class="card-title">Year 1 Financial Model</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Break-even at 300–450 subs. Base case £25K MRR by Jun 2027. 57% gross margin.</div>
-    </a>
-    <a class="card p-grey has-link" href="modernsavage-domain-acquisition-brief-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">Domain — CJ owns</div><div class="card-title">modernsavage.com Acquisition Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Expires Jun 24. MediaOptions broker only. Anonymous. Budget £2K. Never reveal identity.</div>
-    </a>
+
+    <div class="card-wrap">
+      <a class="card p-green" href="modern-savage-uk-expansion-brief-2026-04-24.md" target="_blank">
+        <div class="card-tag">UK Launch</div>
+        <div class="card-title">UK Launch Brief</div>
+        <div class="card-body">IOM entity works for UK sales. Ships A Lot/Scend confirmed. £59/month.</div>
+        <div class="card-arrow">↗ Open doc</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-blue" href="modern-savage-press-launch-brief-2026-04-27.md" target="_blank">
+        <div class="card-tag">PR</div>
+        <div class="card-title">Press Launch Brief</div>
+        <div class="card-body">Telegraph, Daily Mail, MindBodyGreen. Start outreach May 26.</div>
+        <div class="card-arrow">↗ Open doc</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-blue" href="modern-savage-email-2-proof-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Email sequence</div>
+        <div class="card-title">Email 2 — Science Proof</div>
+        <div class="card-body">Liver/heart/kidney science facts in Bear's voice. Follows Email 1 (origin story).</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="modernsavage-domain-acquisition-brief-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Domain — CJ owns this</div>
+        <div class="card-title">modernsavage.com Acquisition Brief</div>
+        <div class="card-body">Expires Jun 24. MediaOptions broker only. Anonymous. Budget £2K. Never reveal identity or deadline.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="modern-savage-manufacturing-contingency-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Risk</div>
+        <div class="card-title">Manufacturing Contingency Plan</div>
+        <div class="card-body">What happens if product doesn't arrive by Jun 25. Three scenarios.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 
   <div class="section">
     <div class="section-label">Fat Cow collab</div>
-    <a class="card p-amber has-link" href="fat-cow-brief-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 Deal in progress</div><div class="card-title">Fat Cow Skincare — Deal Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Modern Savage x Fat Cow co-branded: moisturiser, sun cream, deodorant. Ryan said yes Apr 25. Reschedule missed Zoom.</div>
-    </a>
+    <div class="card-wrap">
+      <a class="card p-amber" href="fat-cow-brief-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">Deal in progress</div>
+        <div class="card-title">Fat Cow Skincare — Deal Brief</div>
+        <div class="card-body">Modern Savage x Fat Cow: moisturiser, sun cream, deodorant. Ryan said yes. Reschedule missed Apr 27 Zoom.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 </div>
 
 <!-- RUNNING WILD -->
 <div class="page" id="page-rw">
   <div class="section">
-    <div class="section-label">Season 9 — FOX Mondays (9–10pm)</div>
+    <div class="section-label">Season 9 — FOX Tuesdays 9-10pm</div>
     <div class="status-banner">
       <div class="status-row">
         <div class="status-icon bg-green">✅</div>
         <div class="status-text">
-          <div class="status-main">Ep1 — Matthew McConaughey (Apr 21)</div>
+          <div class="status-main">Ep1 — McConaughey (Apr 21)</div>
           <div class="status-sub">1.3M viewers · 0.18 A18-49 · +23% timeslot lift · 4x Wikipedia surge</div>
         </div>
       </div>
       <div class="status-row">
         <div class="status-icon bg-red">📺</div>
         <div class="status-text">
-          <div class="status-main">Ep2 — Tiffany Haddish — TOMORROW (Tue Apr 28)</div>
-          <div class="status-sub">FOX toolkit in your inbox (Tyler Garfield Apr 24). Tag @tiffanyhaddish — Patrick Rogers will repost.</div>
+          <div class="status-main">Ep2 — Tiffany Haddish — TONIGHT (Tue Apr 28)</div>
+          <div class="status-sub">FOX toolkit in Jesse's inbox (Tyler Garfield Apr 24). Tag @tiffanyhaddish — Patrick Rogers will repost.</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Episode briefs — Calvin executes while you sail</div>
-    <a class="card p-red has-link" href="running-wild-tiffany-haddish-brief-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔴 Tomorrow Tue Apr 28</div><div class="card-title">Ep2: Tiffany Haddish</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Comedy angle, real vulnerability. Hard avoid: 2023 legal history. Patrick Rogers will repost correct collabs.</div>
-    </a>
-    <a class="card p-grey has-link" href="running-wild-mgk-episode-brief-2026-04-27.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">May 5</div><div class="card-title">Ep3: MGK</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">1yr sober, EST fanbase protective of vulnerability. Megan Fox = off-limits.</div>
-    </a>
-    <a class="card p-grey has-link" href="running-wild-colman-domingo-brief-2026-04-27.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">~May 12</div><div class="card-title">Ep4: Colman Domingo</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">"Radical love" is his phrase. Oscar nominated, not winner. MJ biopic = sensitive.</div>
-    </a>
-    <a class="card p-grey has-link" href="running-wild-uma-thurman-brief-2026-04-27.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">~May 19</div><div class="card-title">Ep5: Uma Thurman</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Buddhist upbringing angle (father Robert Thurman). Weinstein = off-limits.</div>
-    </a>
-    <a class="card p-blue has-link" href="running-wild-s9-ratings-analysis-2026-04-26.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔵 Context</div><div class="card-title">S9 Ratings Analysis</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">0.18 A18-49 is mid-table. The +23% timeslot lift is the signal EBG will use. Know the context.</div>
-    </a>
+    <div class="section-label">Episode briefs</div>
+
+    <div class="card-wrap">
+      <a class="card p-red" href="running-wild-tiffany-haddish-brief-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">TONIGHT Tue Apr 28</div>
+        <div class="card-title">Ep2: Tiffany Haddish</div>
+        <div class="card-body">Comedy angle, real vulnerability. Hard avoid: 2023 legal history. Patrick Rogers manages her socials.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="running-wild-mgk-episode-brief-2026-04-27.md" target="_blank">
+        <div class="card-tag">May 5</div>
+        <div class="card-title">Ep3: MGK</div>
+        <div class="card-body">1yr sober, EST fanbase protective of vulnerability. Megan Fox = off-limits.</div>
+        <div class="card-arrow">↗ Open doc</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="running-wild-colman-domingo-brief-2026-04-27.pdf" target="_blank">
+        <div class="card-tag">~May 12</div>
+        <div class="card-title">Ep4: Colman Domingo</div>
+        <div class="card-body">"Radical love" is his phrase. Oscar nominated, not winner. MJ biopic = sensitive.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="running-wild-uma-thurman-brief-2026-04-27.pdf" target="_blank">
+        <div class="card-tag">~May 19</div>
+        <div class="card-title">Ep5: Uma Thurman</div>
+        <div class="card-body">Buddhist upbringing (father Robert Thurman). Weinstein = off-limits.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-blue" href="running-wild-s9-ratings-analysis-2026-04-26.pdf" target="_blank">
+        <div class="card-tag">Context</div>
+        <div class="card-title">S9 Ratings Analysis</div>
+        <div class="card-body">0.18 A18-49 is mid-table. The +23% timeslot lift is what EBG will weaponise. Know the context.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 </div>
 
 <!-- BGV -->
 <div class="page" id="page-bgv">
+
   <div class="section">
     <div class="section-label">Wildernests</div>
-    <a class="card p-red has-link" href="wildernests-tattarang-diligence-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔴 6 questions waiting</div><div class="card-title">Tattarang Diligence Response</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Taki sent questions Apr 23 (unanswered). Elliot Goldstone now cc'd. Alex needs to respond. Q3 answered.</div>
-    </a>
-    <a class="card p-grey has-link" href="wildernests-tattarang-response-brief-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">Context</div><div class="card-title">Tattarang Intelligence Brief</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Twiggy Forrest family office ~$20B. Conservation angle. Fiveight property connection.</div>
-    </a>
+
+    <div class="card-wrap">
+      <a class="card p-red" href="wildernests-tattarang-diligence-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">6 questions waiting</div>
+        <div class="card-title">Tattarang Diligence Response</div>
+        <div class="card-body">Taki sent questions Apr 23. Elliot Goldstone cc'd. Alex needs to respond. Q3 answered by Junior.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
+
+    <div class="card-wrap">
+      <a class="card p-grey" href="wildernests-tattarang-response-brief-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Context</div>
+        <div class="card-title">Tattarang Intelligence Brief</div>
+        <div class="card-body">Twiggy Forrest family office ~$20B. Conservation angle. Fiveight property connection.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 
   <div class="section">
-    <div class="section-label">EBG</div>
-    <a class="card p-red has-link" href="ebg-may4-zoom-prep-2026-04-28.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🔴 May 4 Sunday 3pm UK <span class="priv">PRIVATE</span></div><div class="card-title">EBG Zoom Prep</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">$35-81M Creator Network dispute. Bear more open to EBG than CJ. UTA had nothing to do with EBG. Gordon Ramsay analogy.</div>
-    </a>
+    <div class="section-label">EBG — May 4 call</div>
+
+    <div class="card-wrap">
+      <a class="card p-red" href="ebg-may4-zoom-prep-2026-04-28.pdf" target="_blank">
+        <div class="card-tag">May 4 Sunday 3pm UK <span class="priv">PRIVATE</span></div>
+        <div class="card-title">EBG Zoom Prep</div>
+        <div class="card-body">Creator Network dispute. Bear more open than CJ. UTA had nothing to do with EBG. Gordon Ramsay analogy. Delbert owns 39% of Natural Studios — Bear holds option.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 
   <div class="section">
     <div class="section-label">Twyn</div>
-    <a class="card p-amber has-link" href="twyn-deal-benchmarks-2026-04-25.pdf">
-      <div class="card-header"><div class="card-left"><div class="card-tag">🟠 CJ reviews first</div><div class="card-title">Twyn Deal Benchmarks</div></div><div class="card-arrow">↗</div></div>
-      <div class="card-body">Only £1.25M raised. Tim Levy knows deal structure (Pirates, Jurassic World financing). Cash-light by necessity. Reversion rights are critical.</div>
-    </a>
+
+    <div class="card-wrap">
+      <a class="card p-amber" href="twyn-deal-benchmarks-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">CJ reviews first</div>
+        <div class="card-title">Twyn Deal Benchmarks</div>
+        <div class="card-body">Only £1.25M raised. Tim Levy sophisticated (Pirates, Jurassic World). Cash-light by necessity. Reversion rights critical.</div>
+        <div class="card-arrow">↗ Open PDF</div>
+      </a>
+    </div>
   </div>
 
   <div class="section">
     <div class="section-label">BPS Hub</div>
-    <div class="card p-amber">
-      <div class="card-tag">🟠 Active — Bear driving</div>
-      <div class="card-title">Bear Grylls Hub — 3 units at Grosvenor Bridge Arch</div>
-      <div class="card-body">Bear emailed George Musgrave Apr 24 asking for costs. You said "package deal" (all 3 or nothing). CJ must not contradict this. Coordinate before approaching Sam Cotton.</div>
+
+    <div class="card-wrap">
+      <a class="card p-amber" href="bps-hub-escalation-brief-2026-04-25.pdf" target="_blank">
+        <div class="card-tag">Active — Bear driving</div>
+        <div class="card-title">Bear Grylls Hub — Grosvenor Bridge Arch</div>
+        <div class="card-body">Bear emailed George Musgrave Apr 24 asking for costs on 3 units. Jesse said "package deal" (all 3 or nothing). CJ must coordinate, not contradict. Sam Cotton is the leasing contact.</div>
+        <div class="card-arrow">↗ Full brief</div>
+      </a>
     </div>
   </div>
-</div>
 
 </div>
+
+</div><!-- /main -->
 
 <script>
-function showPage(name) {
+function showPage(name, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
-  event.target.classList.add('active');
+  el.classList.add('active');
 }
+
+function dismiss(id) {
+  localStorage.setItem('dismissed-' + id, '1');
+  var wrap = document.getElementById('wrap-' + id);
+  if (wrap) wrap.classList.add('dismissed');
+}
+
+function resetDismissed() {
+  Object.keys(localStorage).forEach(function(key) {
+    if (key.startsWith('dismissed-')) localStorage.removeItem(key);
+  });
+  document.querySelectorAll('.card-wrap.dismissed').forEach(function(el) {
+    el.classList.remove('dismissed');
+  });
+}
+
+// On load, hide dismissed items
+(function() {
+  document.querySelectorAll('.card-wrap[id^="wrap-"]').forEach(function(wrap) {
+    var id = wrap.id.replace('wrap-', '');
+    if (localStorage.getItem('dismissed-' + id)) {
+      wrap.classList.add('dismissed');
+    }
+  });
+})();
 </script>
 </body>
 </html>
