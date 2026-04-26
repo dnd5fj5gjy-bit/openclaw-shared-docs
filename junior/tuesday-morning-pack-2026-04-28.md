@@ -102,10 +102,12 @@ Bear owns 39% of The Natural Studios (Delbert's company). Bear has an **option t
 
 ## Sailing May 7 — What to Resolve Before You Leave
 
-- Rick Landman callback ← do this Tuesday
+- Rick Landman callback ← do this Monday
 - Bear WhatsApp before May 4 EBG call
 - CJ fully briefed and operational
 - Calvin Email 1 instruction (conditional on Stripe being live)
 - Kylee MacArthur reply on US trademark (entity question first)
+- **Olly confirmed operational before you sail** — he's the content approval authority May 7-21. If he's still not well, designate a backup now.
+- **Alfred proposal fixes before May 5** — two critical edits needed (Alice placeholder + Costco analogy). Brief at `alfred-pitch-framework-2026-04-28.pdf`.
 
 After May 7, CJ holds everything until May 21.
