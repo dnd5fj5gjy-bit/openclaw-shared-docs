@@ -161,29 +161,27 @@ Argument 2 is the one BGV may not have properly anticipated. If the Everest Fund
 
 EBG can draw a direct causal line on both fronts: co-EP Running Wild + production capital partner → FOX Creator Network. That's harder to dismiss with a consulting agreement.
 
-**Why this argument is still wrong (BGV's counter):**
+**BGV's counter to Argument 1 (moral/causal):**
 
-1. Running Wild was a pre-existing FOX relationship — Bear has filmed with FOX since long before EBG's involvement. EBG's co-EP role on S9 didn't create the FOX relationship; it leveraged one that already existed.
+1. Running Wild was a pre-existing FOX relationship — Bear has filmed with FOX long before EBG's involvement. EBG's co-EP role on S9 leveraged that relationship, it didn't create it.
+2. The Creator Network was originated by Delbert and Source Media Group. FOX wanted Bear's digital reach (100M+ followers), not his show track record.
+3. If EBG has an uncompensated claim from the co-EP role, it belongs in the Running Wild deal — not a subsequent consulting agreement.
 
-2. The Creator Network was originated by Delbert and Source Media Group, not by the Running Wild production relationship. FOX's motivation was Bear's digital reach (100M+ followers) — not his show track record.
+**BGV's counter to Argument 2 (Everest Fund investment stake):**
 
-3. The co-EP arrangement for Running Wild was separately compensated. If EBG has an uncompensated claim from that production role, it would need to be in the Running Wild deal, not the consulting agreement.
+This one is harder. BGV needs to review the actual Everest Fund investment agreement before May 4. Specifically: does it grant economics only from Running Wild S9 P&L, or does it cover derivative deals built on the FOX relationship? If it's scoped to the show, the Creator Network falls outside it. If it's broader — BGV has a problem.
 
-4. The consulting agreement ($25K/month) was signed April 3. Both parties had a chance to define scope. EBG signed it. If they believed they had network economics rights at that point, they should have included it.
+**CJ must review the Everest Fund investment agreement before May 4.** This is the key legal document. Until that review happens, Jesse cannot accurately assess what EBG's contractual position is.
 
-**The question BGV cannot answer yet — and which matters most:**
+**The two questions Jesse must resolve BEFORE May 4:**
 
-> Did Bear, at any point, indicate — verbally or informally — that EBG would share in the Creator Network economics?
+**Question 1 — for CJ (legal):**
+> "What does the Everest Fund investment agreement actually cover? Is it scoped to Running Wild S9 P&L only, or does it have language that could extend to derivative FOX deals?"
 
-If Bear made any such statement (even offhand, even unintentionally), EBG's argument gains significant weight regardless of what the consulting agreement says. Promissory estoppel doesn't require a signed contract.
+**Question 2 — for Bear (relational):**
+> "Did you ever indicate — even casually — that EBG would share in the FOX Creator Network economics?"
 
-**Jesse's job BEFORE May 4:**
-
-When Jesse calls Bear to align, he needs to ask this specific question:
-> "Did you ever say anything to Benjamin or Will — even casually — that suggested EBG would be part of the FOX network economics? I need to know before Sunday so we're aligned."
-
-If Bear says no: stick with CJ's legal position. BGV's case is strong.
-If Bear says yes, or is uncertain: Jesse needs to know that before walking into the call, because the conversation changes completely — it becomes about quantum and structure, not whether EBG has a claim at all.
+Bear's answer to Question 2 determines posture. CJ's answer to Question 1 determines legal exposure. Jesse needs both before Sunday.
 
 This is the question the whole May 4 prep hinges on. Everything else is secondary.
 
