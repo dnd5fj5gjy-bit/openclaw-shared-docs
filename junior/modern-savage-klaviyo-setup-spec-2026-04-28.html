@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 860px; margin: 40px auto; padding: 0 40px; color: #1a1a1a; line-height: 1.6; font-size: 13px; }
+  h1 { font-size: 20px; border-bottom: 3px solid #27ae60; padding-bottom: 10px; margin-bottom: 4px; }
+  h2 { font-size: 15px; color: #27ae60; margin-top: 28px; border-left: 4px solid #27ae60; padding-left: 10px; background: #f0faf4; padding: 6px 10px; }
+  h3 { font-size: 13px; color: #333; margin-top: 16px; font-weight: 700; }
+  .meta { color: #666; font-size: 12px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+  thead tr th { background: #27ae60; color: white; padding: 7px 10px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 6px 10px; }
+  tr:nth-child(even) td { background: #f9f9f9; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 14px; border-radius: 6px; font-size: 11px; overflow-x: auto; margin: 10px 0; }
+  code.inline { background: #f0f0f0; padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+  ul, ol { margin: 6px 0 6px 20px; }
+  li { margin: 3px 0; }
+  ul.checklist { list-style: none; margin-left: 0; }
+  li.check:before { content: "☐ "; font-size: 14px; }
+  p { margin: 6px 0; }
+  hr { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+  strong { color: #111; }
+</style>
+</head>
+<body>
+<h1>Modern Savage — Klaviyo Setup Specification</h1>
+<p><strong>Prepared:</strong> April 28, 2026</p>
+<p><strong>Author:</strong> Junior</p>
+<p><strong>For:</strong> Calvin Manik — build before June 25</p>
+<p><strong>Purpose:</strong> Complete technical setup guide for Klaviyo. All email content already exists in docs — this is the implementation map.</p>
+<hr>
+<h2>Overview</h2>
+<p>Modern Savage has two distinct email workflows in Klaviyo:</p>
+<ol>
+<li><strong>Pre-launch sequence</strong> — sent to the 170-person waitlist before July 1. Manual campaign sends, not flows. Already built (Emails 1-5).</li>
+<li><strong>Post-purchase onboarding flow</strong> — triggered automatically when a customer subscribes. Automated Klaviyo flow. Built in `workspace/docs/modern-savage-post-purchase-sequence-2026-04-24.md`.</li>
+</ol>
+<p>These are separate. The pre-launch sequence ends when the waitlist converts to customers. The post-purchase flow begins.</p>
+<hr>
+<h2>1. Account Setup</h2>
+<h3>Lists to Create</h3>
+<table>
+<thead><tr><th>List Name</th><th>Who Goes In</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>`Waitlist - Founding Members`</td><td>170 pre-launch signups</td><td>Upload manually from waitlist CSV</td></tr>
+<tr><td>`Active Subscribers`</td><td>Paying subscribers</td><td>Klaviyo-Stripe integration (auto)</td></tr>
+<tr><td>`Kids Blend Interest`</td><td>People who expressed interest in kids blend</td><td>Tag from waitlist form if possible</td></tr>
+<tr><td>`Influencer Seeds`</td><td>20 gifted influencers</td><td>Add manually, exclude from campaign metrics</td></tr>
+</tbody></table>
+<h3>Segments to Create</h3>
+<table>
+<thead><tr><th>Segment Name</th><th>Logic</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>`Founding Members`</td><td>Subscribed before August 1, 2026</td><td>VIP comms, testimonial asks</td></tr>
+<tr><td>`Adult Blend Only`</td><td>Subscribed to adult SKU only</td><td>Family upsell targeting</td></tr>
+<tr><td>`High Engagers`</td><td>Opened 3+ emails in last 60 days</td><td>Social proof collection, ambassador outreach</td></tr>
+<tr><td>`At Risk - Month 2`</td><td>Active subscriber, Day 40-55, low open rate</td><td>Retention intervention</td></tr>
+<tr><td>`Referrers`</td><td>Has referred at least 1 subscriber</td><td>Loyalty programme</td></tr>
+</tbody></table>
+<hr>
+<h2>2. Pre-Launch Sequence (Campaigns, Not Flows)</h2>
+<p>These are one-time manual sends to the <code class="inline">Waitlist - Founding Members</code> list. Not automated. Calvin schedules and sends each one.</p>
+<table>
+<thead><tr><th>Email</th><th>Subject</th><th>Send Date</th><th>From Name</th><th>From Email</th></tr></thead>
+<tbody>
+<tr><td>Email 1</td><td>`I owe you an update.`</td><td>When Stripe live (target: May 15)</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+<tr><td>Email 2</td><td>`What's actually in it.`</td><td>3-4 days after Email 1</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+<tr><td>Email 3</td><td>`What I do before anything hard.`</td><td>10-14 days after Email 1</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+<tr><td>Email 4</td><td>`7 days.`</td><td>June 24</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+<tr><td>Email 5 (waitlist)</td><td>`Before we open the doors.`</td><td>June 29, 7am UK</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+<tr><td>Email 5 (launch day)</td><td>`It's live.`</td><td>July 1, 7am UK</td><td>Bear Grylls</td><td>hello@modernsavage.com</td></tr>
+</tbody></table>
+<p><strong>Note:</strong> Email 5 is actually two separate sends — the June 29 soft launch (waitlist only, 170 people) and the July 1 public launch (all subscribers + wider list).</p>
+<p><strong>Template settings for all pre-launch emails:</strong></p>
+<ul>
+<li>Plain text or minimal HTML — no header images, no heavy branding</li>
+<li>Unsubscribe footer: required by law, but keep plain ("Unsubscribe" link only, no elaborate footer)</li>
+<li>Preview text: set explicitly for each email (see content docs)</li>
+<li>A/B subject line test: set up for Emails 1, 3 — 50/50 split, pick winner after 4 hours by open rate</li>
+</ul>
+<hr>
+<h2>3. Post-Purchase Flow (Klaviyo Automation)</h2>
+<p><strong>Trigger:</strong> <code class="inline">Placed Order</code> event from Stripe → Klaviyo integration, where subscription type = Modern Savage Adult or Kids Blend.</p>
+<p><strong>CRITICAL:</strong> OB-1 must fire within 5 minutes of purchase. Klaviyo's default flow check interval is fine for this if the Stripe integration is webhooks-based (real-time). Confirm this with Stripe setup.</p>
+<h3>Flow Map</h3>
+<pre><code>
+[TRIGGER: First subscription order placed]
+         |
+         v
+    OB-1: "You're in."
+    Send: Immediately (0 min delay)
+    From: Bear Grylls <hello@modernsavage.com>
+         |
+    Wait: 2 days
+         |
+    OB-2: "What to expect in week one."
+    Send: Day 2
+         |
+    Wait: 5 days
+         |
+    OB-3: "Why this exists."
+    Send: Day 7
+    From: Bear Grylls (not "The Modern Savage Team" — this is Bear's personal story)
+         |
+    Wait: 7 days
+         |
+    OB-4: "What people are saying."
+    Send: Day 14
+    NOTE: Requires real quotes from Email 1 replies — see below
+         |
+    Wait: 14 days
+         |
+    OB-5: "Month one done."
+    Send: Day 28
+    CTA: Referral link (requires referral setup — see Section 5)
+         |
+    Wait: 32 days
+         |
+    OB-6: "Two months in."
+    Send: Day 60
+         |
+    [Flow ends — subscriber enters ongoing "Active Subscriber" list]
+</code></pre>
+<h3>Flow Settings</h3>
+<ul>
+<li>Flow name: `Modern Savage — Post-Purchase Onboarding`</li>
+<li>Status: Draft until tested, then Live by June 25</li>
+<li>Smart sending: OFF for OB-1 (send immediately regardless of prior sends). ON for OB-2 through OB-6.</li>
+<li>Recipient activity filter: none — all post-purchase subscribers get this regardless of prior email engagement</li>
+</ul>
+<hr>
+<h2>4. OB-4 Quote Collection Protocol</h2>
+<p>OB-4 (Day 14) uses real quotes from Email 1 replies. Without real quotes, the email cannot send as designed.</p>
+<p><strong>Calvin's action after Email 1 sends:</strong></p>
+<ol>
+<li>Export all replies to hello@modernsavage.com from the Email 1 send date through Day 14</li>
+<li>Select 3-4 quotes: genuine, specific, not generic ("This is great!"). Best are: specific outcome noticed, specific time reference, first-person voice</li>
+<li>Strip to first name + general descriptor (e.g., "David, firefighter" or "Sarah, London") — no surnames, no email addresses</li>
+<li>Insert into OB-4 template before it sends</li>
+<li>If fewer than 3 replies received: use 2 quotes and add one paraphrase from social if available. Do not fabricate.</li>
+</ol>
+<hr>
+<h2>5. Referral Program Technical Setup</h2>
+<p>OB-5 (Day 28) includes a referral link. This requires infrastructure before OB-5 sends.</p>
+<p><strong>Recommended tools:</strong></p>
+<ul>
+<li><strong>Referral Hero</strong> (referralhero.com) or <strong>Friendbuy</strong> — both integrate with Klaviyo and Stripe</li>
+<li>Budget: Referral Hero starts at ~$49/month; Friendbuy is enterprise-priced. Referral Hero is right for this stage.</li>
+</ul>
+<p><strong>Programme logic:</strong></p>
+<ul>
+<li>Referrer: gets 1 month free credit when referred friend completes first month</li>
+<li>Referred friend: first month free (zero financial risk at checkout)</li>
+<li>Implementation: unique referral link per subscriber, tracked in Referral Hero, credit applied to Stripe subscription automatically</li>
+</ul>
+<p><strong>Timing:</strong> This must be live before OB-5 sends. OB-5 sends Day 28 after first customer order (target: first orders July 1, so OB-5 lands late July). Setup deadline: June 25.</p>
+<p><strong>Flag for Jesse/Raemy:</strong> Referral program requires decision on whether "1 month free" credit is against recurring subscription or shipped product. If product is manufactured-to-order (not infinite stock), credit model is simpler than free shipment.</p>
+<hr>
+<h2>6. Stripe → Klaviyo Integration</h2>
+<p><strong>Required before any post-purchase flow works.</strong></p>
+<p>Setup steps:</p>
+<ol>
+<li>In Klaviyo: Integrations → Stripe → Connect (OAuth)</li>
+<li>Map events: `charge.succeeded` → `Placed Order`, `customer.subscription.deleted` → `Cancelled Subscription`</li>
+<li>Map subscriber properties: email, first name, subscription plan, order date, subscription status</li>
+<li>Test with a real £1 test charge before go-live</li>
+</ol>
+<p><strong>Key Klaviyo properties to map from Stripe:</strong></p>
+<table>
+<thead><tr><th>Klaviyo Property</th><th>Stripe Source</th></tr></thead>
+<tbody>
+<tr><td>`$email`</td><td>customer.email</td></tr>
+<tr><td>`$first_name`</td><td>customer.name (first word)</td></tr>
+<tr><td>`Subscription Plan`</td><td>subscription.items.data[0].price.nickname</td></tr>
+<tr><td>`Subscription Start Date`</td><td>subscription.created (Unix timestamp → datetime)</td></tr>
+<tr><td>`Subscription Status`</td><td>subscription.status</td></tr>
+<tr><td>`Order Value`</td><td>charge.amount / 100</td></tr>
+</tbody></table>
+<hr>
+<h2>7. Suppression and Compliance</h2>
+<p><strong>UK/EU compliance (GDPR + UK PECR):</strong></p>
+<ul>
+<li>All subscribers must have given explicit email marketing consent at checkout. Stripe checkout confirmation flow must include the consent tick-box. This is a legal requirement.</li>
+<li>Suppression list: anyone who unsubscribes from Klaviyo must be permanently suppressed — Klaviyo handles this automatically if the unsubscribe link is included in every send.</li>
+<li>Kids blend customers: if the purchaser is buying for a child, the marketing target is still the adult purchaser. No marketing addressed to children.</li>
+<li><strong>Colostrum allergen note:</strong> Any automated email that mentions the Kids Blend must carry the allergen declaration: "Contains Milk (Colostrum)." This applies to all automated emails referencing the Kids SKU.</li>
+</ul>
+<p><strong>US compliance (CAN-SPAM):</strong></p>
+<ul>
+<li>Physical address must be in the footer of every email</li>
+<li>Unsubscribe must be honoured within 10 business days</li>
+<li>Modern Savage shipping address (Ships A Lot or ACF Pharma) can serve as the physical address once confirmed</li>
+</ul>
+<hr>
+<h2>8. Before Go-Live Checklist (Calvin — complete by June 25)</h2>
+<ul class="checklist">
+<li class="check">Klaviyo account created under modernsavage.com domain (not Bear Witness email)</li>
+<li class="check">Stripe integration connected and tested with real test charge</li>
+<li class="check">`hello@modernsavage.com` sending domain authenticated (SPF + DKIM + DMARC) — critical for deliverability</li>
+<li class="check">`Waitlist - Founding Members` list uploaded and tagged</li>
+<li class="check">Pre-launch Email 1 template built and test-sent to Calvin + Jesse</li>
+<li class="check">Post-purchase flow built in draft (all 6 emails)</li>
+<li class="check">Post-purchase flow tested end-to-end with test subscriber account</li>
+<li class="check">OB-1 delivery tested: confirm arrives within 5 minutes of Stripe order</li>
+<li class="check">Referral Hero account created, programme configured, Klaviyo integration live</li>
+<li class="check">Referral link working: test referral → friend signup → credit allocation</li>
+<li class="check">UK GDPR consent mechanism confirmed live in checkout flow</li>
+<li class="check">Physical address confirmed in every email footer</li>
+<li class="check">All emails viewed in dark mode (Gmail + Apple Mail) — organ blend brand should still read clearly</li>
+<li class="check">All emails viewed on mobile (60%+ of opens will be mobile)</li>
+</ul>
+<hr>
+<h2>9. Deliverability Setup (do this first — before first send)</h2>
+<p>Klaviyo is only as good as the domain reputation behind it.</p>
+<p><strong>SPF record</strong> — add to modernsavage.com DNS:</p>
+<pre><code>
+v=spf1 include:klaviyo.com ~all
+</code></pre>
+<p><strong>DKIM</strong> — Klaviyo generates DKIM keys under Settings → Domains. Add the two CNAME records to modernsavage.com DNS.</p>
+<p><strong>DMARC</strong> — add to modernsavage.com DNS:</p>
+<pre><code>
+v=DMARC1; p=quarantine; rua=mailto:dmarc@modernsavage.com; ruf=mailto:dmarc@modernsavage.com; adkim=r; aspf=r
+</code></pre>
+<p><strong>Warm-up plan for new domain:</strong></p>
+<ul>
+<li>Do not send Email 1 to all 170 people on Day 1 if the domain is brand new</li>
+<li>Send to 50 most-engaged contacts first (those who opened the waitlist confirmation email)</li>
+<li>Wait 24 hours, check bounce/spam rate</li>
+<li>If below 1%: send to remaining 120</li>
+<li>A brand-new domain sending 170 emails at once has a small but real risk of hitting spam filters for first-time recipients</li>
+</ul>
+<hr>
+<h2>10. Ongoing Flows to Build Later (not July 1)</h2>
+<p>These are out of scope for launch but Calvin should have them on the roadmap:</p>
+<table>
+<thead><tr><th>Flow</th><th>Trigger</th><th>Purpose</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>Cancel-save flow</td><td>`Cancelled Subscription` event</td><td>Conviction-based retention (not discount)</td><td>High — build by August</td></tr>
+<tr><td>Win-back</td><td>60+ days since last order, no active subscription</td><td>Re-engage lapsed customers</td><td>Medium</td></tr>
+<tr><td>Birthday</td><td>`$birthday` profile property</td><td>Simple relationship touchpoint</td><td>Low</td></tr>
+<tr><td>90-day milestone</td><td>Day 90 post-purchase</td><td>Deepen retention, plant ambassador seed</td><td>High — build by September</td></tr>
+<tr><td>Kids blend upsell</td><td>Active adult-only subscriber, Day 45</td><td>Family subscription conversion</td><td>Medium</td></tr>
+</tbody></table>
+<hr>
+<p>*Built April 28, 2026. Technical setup guide for Calvin. All email content exists in separate docs — this is the implementation map. Calvin to complete the checklist by June 25 to ensure post-purchase flow is live before first customer orders on July 1.*</p>
+</body>
+</html>
