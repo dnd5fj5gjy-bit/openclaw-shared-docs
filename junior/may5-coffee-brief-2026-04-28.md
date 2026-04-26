@@ -47,7 +47,7 @@ Jesse is sailing Norway-Iceland-Greenland in 2 days (May 7). He is going to exac
 
 **Before or during the May 5 coffee, Jesse should know:**
 
-1. **Is the kit in his hands?** If he doesn't have the Ocean Pro kit physically, he cannot take it on the Arctic. He sails May 7. This is urgent. If not delivered, he needs to call Emilia on May 5 and arrange same-day collection or express delivery.
+1. **Kit is almost certainly delivered.** Emilia shipped the order mid-March (March 12 email: "your order is on the way and should be arriving next week"). That's 6+ weeks before sailing. No delivery issue has surfaced in subsequent emails. If Jesse hasn't unpacked it, now is the moment — confirm the kit is physically with him before leaving for the boat. If anything is wrong with sizing or condition, May 5 is the last chance to fix it.
 
 2. **Does he want to propose the Arctic content deal?** If yes: walk into the coffee with a simple offer: "I'm sailing to Norway-Iceland-Greenland May 7-21. I'll have Henri-Lloyd gear on for the offshore passages. I'll document it and deliver [X posts / one long-form content piece] when I'm back May 21." Alice can brief Emilia and have an answer back within the day.
 
