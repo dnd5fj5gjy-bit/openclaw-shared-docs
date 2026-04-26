@@ -675,7 +675,7 @@ function relTime(ts) {
 // ─── FEED ────────────────────────────────────────────
 async function loadFeed() {
   try {
-    const res = await fetch('/feed');
+    const res = await fetch(u('/feed'));
     const items = await res.json();
     const body = document.getElementById('feed-body');
     if (!items || items.length === 0) {
@@ -710,8 +710,8 @@ let resolvedLocally = new Set(
 async function loadDecisions() {
   try {
     const [decRes, stateRes] = await Promise.all([
-      fetch('/decisions'),
-      fetch('/state')
+      fetch(u('/decisions')),
+      fetch(u('/state'))
     ]);
     const decData = await decRes.json();
     const stateData = await stateRes.json();
@@ -803,7 +803,7 @@ async function resolveDecision(decId, optId, optLabel) {
   resolvedLocally.add(decId);
   localStorage.setItem('resolved_decisions', JSON.stringify([...resolvedLocally]));
   try {
-    await fetch('/decision', {
+    await fetch(u('/decision'), {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ decision_id: decId, title: '', chosen_option: optId, chosen_label: optLabel })
     });
@@ -819,7 +819,7 @@ async function loadInbox(showSpinner = false) {
     document.getElementById('inbox-body').innerHTML = '<div style="padding: 18px 16px; text-align: center;"><div class="feed-spinner"></div></div>';
   }
   try {
-    const res = await fetch('/emails?count=20');
+    const res = await fetch(u('/emails?count=20'));
     emailData = await res.json();
     renderInbox();
   } catch(e) {
@@ -886,7 +886,7 @@ async function toggleSynopsis(emailId) {
   panel.innerHTML = '<div class="synopsis-loading">Junior is reading this email...</div>';
 
   try {
-    const res = await fetch(`/synopsis?id=${encodeURIComponent(emailId)}`);
+    const res = await fetch(u('/synopsis') + '?id=' + encodeURIComponent(emailId));
     const data = await res.json();
     synopsisCache[emailId] = data;
     renderSynopsis(emailId, data);
@@ -932,7 +932,7 @@ document.getElementById('inbox-refresh').addEventListener('click', () => loadInb
 // ─── CALENDAR ────────────────────────────────────────
 async function loadCalendar() {
   try {
-    const res = await fetch('/calendar');
+    const res = await fetch(u('/calendar'));
     const events = await res.json();
     const body = document.getElementById('calendar-body');
 
@@ -978,7 +978,7 @@ async function sendToJunior() {
   talkSend.textContent = 'Sending...';
 
   try {
-    const res = await fetch('/junior-task', {
+    const res = await fetch(u('/junior-task'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text })
@@ -1016,7 +1016,7 @@ let activeDocCat = 'all';
 
 async function loadDocs() {
   try {
-    const res = await fetch('/docs');
+    const res = await fetch(u('/docs'));
     allDocs = await res.json();
     renderDocs();
     // Build category filter buttons
@@ -1076,7 +1076,7 @@ function renderDocs() {
 async function toggleReviewed(e, filename, currentlyReviewed) {
   e.preventDefault(); e.stopPropagation();
   const newState = !currentlyReviewed;
-  await fetch('/doc-reviewed', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({filename, reviewed: newState})});
+  await fetch(u('/doc-reviewed'), {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({filename, reviewed: newState})});
   await loadDocs();
 }
 
