@@ -98,7 +98,7 @@ UTA has already been in conversation with Delbert (Ty Flynn call was scheduled f
 
 1. **Is LFG a serious option or just a conversation?** CJ thinks it is. Jesse hasn't weighed in. Before CJ can respond substantively to Owen, Jesse and Bear need to agree.
 
-2. **Does pursuing LFG conflict with FCS commitments?** Jesse filmed episode 1 for what appears to be FCS content. Is there exclusivity baked into the FCS relationship? Nobody has checked this.
+2. **Does pursuing LFG conflict with FCS commitments?** Jesse has filmed multiple episodes of Adventure Garage (FCS content, RealTruck partnership). Is there exclusivity baked into the FCS relationship? The show is already in production — this question is time-sensitive. Nobody has checked the contract.
 
 3. **What does Bear actually want?** Bear's decision. Jesse is the operator. The question "did you ever indicate EBG would share in the FOX Creator Network economics?" (the May 4 alignment WhatsApp) is the same question as "how committed is Bear to the FOX path vs. the independent path?"
 
