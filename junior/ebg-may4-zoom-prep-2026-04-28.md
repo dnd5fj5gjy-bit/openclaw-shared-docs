@@ -189,12 +189,19 @@ If EBG pushes the "we built this" argument: ask them specifically what work EBG 
 
 ---
 
-## One Week Before This Call
+## Before This Call — One Question for Bear
 
-Brief Bear directly (WhatsApp). Short message:
-> "May 4 EBG catch-up coming up. Want to align on the Creator Network economics before the call — 10 mins on the phone before Sunday?"
+Brief Bear directly (WhatsApp before Tuesday Apr 29):
+> "May 4 EBG catch-up coming up. Want to align on the Creator Network economics before the call — 10 mins on the phone?"
 
 Bear wants to be involved. Give him the chance.
+
+**On that call, ask Bear one specific question:**
+> "Did you ever indicate — even casually — that EBG would share in the FOX Creator Network economics?"
+
+His answer determines the entire strategy:
+- Bear says no: BGV's legal position holds. CJ is right. Jesse listens on May 4 and doesn't engage on specifics.
+- Bear is uncertain or says yes: the May 4 call becomes about structure, not liability. Jesse needs to buy time ("Bear and I are still aligning") and make no commitments.
 
 ---
 
