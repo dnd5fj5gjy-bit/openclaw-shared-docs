@@ -49,7 +49,7 @@ Read: `ebg-may4-zoom-prep-2026-04-28.pdf`
 | 4 | Rick Landman callback | 2 min | +447624277888. 30 seconds. He has your payment ready, needs bank account verification. Don't miss this before sailing. |
 | 5 | Stripe setup + Felix loop-in | 90 min + 2 min | Product: Modern Savage Adult Blend, $69/month. Have US entity docs ready. **Critical additional step:** modernsavage.co is custom Next.js on Vercel — enabling live checkout is not automatic. Someone (Felix?) needs to add the live Stripe API keys to Vercel environment variables and toggle the "Coming Soon" state off. Without this, Email 1 goes out but nobody can actually buy. Ping Felix Monday morning: "MS checkout needs live Stripe keys deployed to Vercel once I have them — can you be on standby?" |
 | 6 | Water2 call — Charles Robinson | 30 min | Ask: (1) Has the profit share been paid? (2) ARR today? (3) Anti-dilution on the 5%? |
-| 7 | Wildernests 3D feedback to Calvin | 5 min | Investor-grade feedback — this feeds the UHNWI pitch video Gunnar is building. |
+| 7 | Wildernests 3D feedback to Calvin | 5 min | Investor-grade feedback — this feeds the UHNWI pitch video Gunnar is building. Read the 7-point checklist at `wildernests-3d-feedback-guide-2026-04-27.pdf` first (2 min). Key things: does it show real landscape context? Do materials read? Is there a night render? Is there a human figure for scale? |
 | 8 | Forward CJ handover brief to CJ | 2 min | File: `cj-handover-brief-2026-04-25.md`. He takes over April 29. |
 | 9 | Alex WhatsApp re: Tattarang | 2 min | "Taki sent 6 diligence questions — Junior's done Q3, you just need the financial answers for Q1/2/4/5/6. I'll share the doc." Then share `wildernests-tattarang-diligence-2026-04-25.pdf` |
 
