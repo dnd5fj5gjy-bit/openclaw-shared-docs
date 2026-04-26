@@ -109,9 +109,11 @@ Read these after handling Part 2.
 
 | Item | Status | What to do |
 |------|--------|------------|
+| Wildernests contracts | Both signed April 22 (services + equity agreements) | No action needed - confirmed complete |
+| Wildernests 3D model | Jesse gave revision notes April 23, team said "amending" | Check if corrected video delivered - needed for May launch |
 | Tattarang (Taki Dermedgoglou) | CJ following up from Bear's April 23 intro | Check if there's been a reply. Brief at workspace/docs/wildernests-tattarang-diligence-2026-04-25.pdf |
 | Alfred pitch | May 5 coffee with Tom Inskip and Alice happened before sailing | Ask CJ what the outcome was |
-| Rick Landman callback | +447624277888 — 30-second bank verification | Was flagged urgent. Check if resolved. |
+| Rick Landman callback | +447624277888 - 30-second bank verification | Bear Witness £6,000 payment held pending this call. Check if resolved. |
 | BPS Hub (Sam Cotton) | leasing@bpsdc.co.uk | Check if CJ moved forward |
 | Becoming X resignation | Bear's formal resignation was due by May 6 | Confirm it's done |
 | Sister Swims trademark | UK00004372256 — opposition window ~June 24 | No action needed, awareness only |
