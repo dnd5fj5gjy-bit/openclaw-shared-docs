@@ -111,6 +111,16 @@ Bear owns 39% of The Natural Studios (Delbert's company). Bear has an **option t
 
 ---
 
+## April 30 — Wildernests/BCG Call (on your calendar)
+
+Wednesday April 30 at 17:00: weekly call with Alex Aboshiha, Gunnar Trommer (BCG X), and "(Joe)" (added April 22, unknown). Zoom: https://us02web.zoom.us/j/84958923461
+
+This call is happening 3 days after you land. Alex needs to have sent Taki's diligence responses before this — or at minimum have the numbers ready to discuss verbally. If you've WhatsApp'd Alex on Monday (task 9), he'll know the deadline. The Tattarang diligence brief has the investor intelligence and framing so Alex's answers land correctly.
+
+**No prep action needed from you** — the Tuesday game plan covers it. Just flagging the Wednesday call exists so it's not a surprise.
+
+---
+
 ## Sailing May 7 — What to Resolve Before You Leave
 
 - Rick Landman callback ← do this Monday
