@@ -193,8 +193,9 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 8. **April 30 Wildernests/BCG call — email Gunnar that Jesse is off until May 21** (before April 28)
 9. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
 10. **Luminox 2nd amendment — respond to Maria Valenzuela, continue review**
-11. **FOX Creator Network economics dispute — hold BGV position, do not engage on substance**
-12. **Source Group / LFG Network — hold, no discussions without Jesse and Bear aligned**
+11. **Everest Fund investment agreement — get legal to review before May 4. Specific question: does it cover only Running Wild S9 P&L, or does it extend to derivative FOX deals? Report to Jesse before May 4.**
+12. **FOX Creator Network economics dispute — hold BGV position, do not engage on substance**
+13. **Source Group / LFG Network — hold, no discussions without Jesse and Bear aligned**
 
 *Note: apology to Caroline Michel, Tattarang follow-up, Water2 holding email, Running Wild Metricool approvals, and all "Jesse is sailing" replies → these are Olly's tasks, not on this list.*
 
