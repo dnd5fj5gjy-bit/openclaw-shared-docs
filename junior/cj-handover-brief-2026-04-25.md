@@ -147,8 +147,8 @@ Everest Brand Group (EBG / Benjamin Simon) is running two separate arguments abo
 **Before May 4:** CJ must get a legal read on the Everest Fund investment agreement — specifically whether it covers only Running Wild S9 P&L or extends to derivative FOX deals (like the Creator Network). This is the key document. Jesse needs the answer before the May 4 call.
 
 **April 30, 5:00-5:45pm — Weekly Wildernests/BCG call: Jesse, Alex, Gunnar, (Joe)**
-Organizer: Gunnar Trommer (BCG X). Attendees: Alex Aboshiha (Wildernests CEO), Gunnar, "(Joe)" (unidentified, added April 22).
-**CJ's action:** Email Gunnar (gunnar.trommer@bcg.com or similar) before April 28: "Jesse is off this week and sailing May 7-21. He'll reconnect from May 21. Please continue working with Alex in the meantime."
+Organizer: Gunnar Trommer (BCG X). Attendees: Alex Aboshiha (Wildernests CEO), Gunnar, Joe Daoud (Wildernests marketing/video collaborator — daoud.joe@gmail.com). Zoom: https://us02web.zoom.us/j/84958923461
+**CJ's action — FIRST DAY PRIORITY (April 29):** Email Gunnar at gunnar@wildernests.com on April 29 morning — the call is the following day, so this cannot wait. Message: "Jesse is back briefly this week and sailing May 7-21. He'll reconnect from May 21. Please continue working with Alex in the meantime on the BCG materials."
 
 ---
 
