@@ -167,6 +167,7 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 3. **modernsavage.com domain — submit MediaOptions acquisition request this week (NOT GoDaddy/Sedo, budget up to £2K)**
 4. **BPS Hub — email Sam Cotton this week, have exploratory call if response comes**
 5. **Flag Raemy on Modern Savage legal entity (Stripe)**
+5a. **Wildernests invoice — ask Raemy to raise £15K Bear Witness invoice to Wildernests (due week of April 28)**
 6. **Becoming X — confirm Bear resignation formally submitted**
 6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — routine biweekly)
 7. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
