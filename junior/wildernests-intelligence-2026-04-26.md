@@ -70,13 +70,28 @@ Bear's involvement goes beyond brand. He's actively fundraising for Wildernests 
 
 ---
 
-## What Jesse Should Do Before April 28
+## Status as of April 28 (updated)
 
-1. **Give Calvin feedback on the 3D rotation deliverable** — this is now investor-grade material, not just social content. Does it reflect the brand well enough for Tattarang to see?
+### DONE: Contracts signed April 22
+Both Wildernests agreements were completed and signed April 22:
+- **DM-Wnest LLC Services Agreement** — signed via Adobe Acrobat Sign, completed April 22 07:53. Managed through Cavendish Trust.
+- **Wnests LLC-Equity Services Agreement** — completed via Docusign April 22 00:05. Signed by Alexander Aboshiha and Jesse Grylls. The equity documentation concern is resolved.
 
-2. **Chase the Wildernests equity docs** — Raemy is setting up the Cavendish Trust structure. Are the documents ready for Jesse to sign? This may be a CJ/Raemy action, but Jesse should confirm status before he goes off.
+### OUTSTANDING: Bear Witness invoice and Rick Landman verification
+Raemy invoiced Bear Witness for Jesse's April services. Rick Landman (Cavendish Trust) is processing a £6,000 GBP payment to Jesse. Rick called requesting a 30-second bank verification call on +447624277888 — flagged urgent April 24. The Wildernests-specific invoice is separate and "will be prepared and shared when completed" (Rick Landman, April 24).
 
-3. **Ask CJ: what's the status of the Tattarang pitch?** Bear sent the investor info on April 23. Has anyone followed up with Taki? Does Tattarang need additional materials?
+Jesse needs to return Rick's call to clear the bank verification, otherwise the Bear Witness payment is held.
+
+### OUTSTANDING: 3D model revisions (status unknown after April 23)
+Jesse gave detailed interior feedback to the 3D team in the Wildernests WhatsApp group on April 23:
+- Foundations/stilts wrong: support blocks should be below ground level, not raised
+- Interior layout does not match floor plan: primary bedroom bathroom missing, can't see through the office, living room completely off
+- A wall/picture frame exists where a window should be
+
+The 3D team confirmed "Alright we're amending all the notes" on April 23. Status is unknown after that. Given the May launch reveal is imminent, Jesse should verify on May 21 whether the corrected 3D video has been delivered.
+
+### OUTSTANDING: Tattarang response
+Bear forwarded Wildernests investor info to Taki Dermedgoglou (Tattarang) twice: April 17 and April 23. No visible response as of April 28. CJ should be asked whether Tattarang has engaged.
 
 ---
 
