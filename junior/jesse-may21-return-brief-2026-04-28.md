@@ -140,4 +140,4 @@ If all five have clean answers, you're in good shape. If any are red — start t
 
 ---
 
-*Built April 28, 2026 by Junior. Updated April 29 (x5): DOAC removed; pricing + IG arc added; EBG 15% intel; Calvin SOW; Wildernests contracts confirmed; 3D check; Rick Landman; Ships A Lot/Carson Combs; Olly hospital; Tattarang correction; Glint pre-emption rights. Updated April 29 (6): Carson Combs corrected - personal intro (faith/art), not Wildernests supplier. Out Yonder Co is the likely pitch, not Zenbuild building materials. Ship date and domain are the two live blockers.*
+*Built April 28, 2026 by Junior. Updated April 29 (x5): DOAC removed; pricing + IG arc added; EBG 15% intel; Calvin SOW; Wildernests contracts confirmed; 3D check; Rick Landman; Ships A Lot/Carson Combs; Olly hospital; Tattarang correction; Glint pre-emption rights. Updated April 29 (6): Carson Combs corrected - personal intro (faith/art/art), Out Yonder Co is the likely pitch. Updated April 29 (7): AIR ONE eVTOL collab added - Bear had Instagram conversation with Gil Charnes before email landed in Jesse's inbox April 26. Ship date and domain are the two live blockers.*
