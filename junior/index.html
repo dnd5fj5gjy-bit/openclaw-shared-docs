@@ -14,8 +14,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
 .header-meta { font-size: 11px; color: #444; display: flex; align-items: center; gap: 8px; }
 .live-dot { display: inline-block; width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.reset-btn { font-size: 10px; color: #333; cursor: pointer; border: 1px solid #222; border-radius: 4px; padding: 2px 7px; background: transparent; }
-.reset-btn:hover { color: #555; border-color: #333; }
 
 .tabs { display: flex; gap: 4px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
@@ -116,7 +114,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sa
     <div class="header-title">Junior HQ</div>
     <div class="header-meta">
       <span class="live-dot"></span>Updated Apr 27
-      <button class="reset-btn" onclick="resetDismissed()">Reset</button>
     </div>
   </div>
   <div class="tabs">
@@ -626,15 +623,6 @@ function dismiss(id) {
   localStorage.setItem('dismissed-' + id, '1');
   var wrap = document.getElementById('wrap-' + id);
   if (wrap) wrap.classList.add('dismissed');
-}
-
-function resetDismissed() {
-  Object.keys(localStorage).forEach(function(key) {
-    if (key.startsWith('dismissed-')) localStorage.removeItem(key);
-  });
-  document.querySelectorAll('.card-wrap.dismissed').forEach(function(el) {
-    el.classList.remove('dismissed');
-  });
 }
 
 // On load, hide dismissed items
