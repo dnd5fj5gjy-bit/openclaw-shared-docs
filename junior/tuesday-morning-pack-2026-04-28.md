@@ -19,6 +19,8 @@
 
 5. **Delbert sent 19 images Saturday night at 22:03.** No text context — probably episode materials or show graphics. Worth looking at when you have a moment.
 
+6. **Bear went direct to George Musgrave on the BPS Hub — April 24.** Bear emailed George Musgrave asking "Any update George? And on costs for these units..." You were on set and missed this. The Bear Grylls Hub proposal covers 3 units at Grosvenor Bridge Arch, Battersea Power Station. Bear said "the majority will be customer facing." You had previously told George it's "a package deal" — all 3 or nothing. No response from George visible yet. CJ needs to know Bear is already in direct contact with George when he takes over (the CJ handover previously said "Sam Cotton" — that's a different BPS contact; George Musgrave is the one actually in the thread).
+
 ---
 
 ## Your Two Pre-Reads for Tuesday (10 minutes total)
