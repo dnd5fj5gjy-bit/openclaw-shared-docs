@@ -188,7 +188,7 @@ CJ asked Em Lovell (em@beargryllsventures.com) to get Bear's signature on the BE
 5. **Flag Raemy on Modern Savage legal entity (Stripe)**
 5a. **Wildernests invoice — ask Raemy to raise £15K Bear Witness invoice to Wildernests (due week of April 28)**
 6. **Becoming X — confirm Bear resignation formally submitted**
-6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — routine biweekly)
+6. **April 29 EBG/BGV Zoom — attend** (Em Lovell organizer — NOT routine. Read the critical briefing in section 8a above. Hold position, no substance on network economics, report word for word to Jesse after.)
 7. **April 29 Ted's Health Catchup — attend or send apologies** (Thomas Filmer, thomas@tedshealth.com)
 8. **April 30 Wildernests/BCG call — email Gunnar that Jesse is off until May 21** (before April 28)
 9. **BEAR logo NIL Agreement — confirm Bear has signed** (follow up with Em Lovell)
