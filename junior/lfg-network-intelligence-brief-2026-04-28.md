@@ -58,7 +58,7 @@ These two proposals pull in opposite directions.
 - Lower upside: Fox takes their cut, EBG claims a piece
 - Less control: Fox sets the platform rules
 - EBG friction: Every dollar the Creator Network generates is a potential EBG claim
-- Jesse is already building content for it (episode 1 filmed April 21 = Running Wild)
+- Jesse is already building content for it: Adventure Garage (vehicle transformation, RealTruck) filmed episode 1 April 1, actively in production April 24-27
 
 **LFG Independent Network:**
 - Higher risk: You're building from scratch
