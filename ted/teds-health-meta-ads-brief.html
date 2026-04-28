@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health: Meta Ad Campaign Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1B365D;
+  --accent: #4A90A4;
+  --warm: #D4A85C;
+  --dark: #1A1A2E;
+  --light: #F8F9FA;
+  --text: #2C3E50;
+  --vo: #1B365D;
+  --stock: #2d6a4f;
+  --product: #8B4513;
+  --tof: #4A90A4;
+  --mof: #D4A85C;
+  --bof: #9B2335;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--light); line-height: 1.7; font-size: 16px; }
+.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--dark); color: var(--light); text-align: center; padding: 4rem 2rem; position: relative; }
+.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 40%, rgba(74,144,164,0.10) 0%, transparent 60%); }
+.cover-subtitle { font-size: 0.8rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; position: relative; }
+.cover-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.1; position: relative; }
+.cover-title em { font-style: italic; color: var(--accent); }
+.cover-desc { font-size: 1rem; color: rgba(248,249,250,0.7); margin-top: 1.5rem; max-width: 520px; position: relative; line-height: 1.6; }
+.cover-footer { position: absolute; bottom: 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); opacity: 0.6; }
+section { max-width: 880px; margin: 0 auto; padding: 4.5rem 2rem; }
+.section-dark { background: var(--dark); color: var(--light); max-width: 100%; padding: 4.5rem 2rem; }
+.section-dark .inner { max-width: 880px; margin: 0 auto; }
+.section-alt { background: #EEF2F7; max-width: 100%; padding: 4.5rem 2rem; }
+.section-alt .inner { max-width: 880px; margin: 0 auto; }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.15; }
+.section-dark h2 { color: var(--light); }
+h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 0.8rem; color: var(--primary); }
+.section-dark h3 { color: rgba(248,249,250,0.85); }
+h4 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 1.8rem; margin-bottom: 0.5rem; }
+p { margin-bottom: 1.1rem; }
+.lead { font-size: 1.1rem; line-height: 1.8; color: var(--primary); }
+.section-dark .lead { color: rgba(248,249,250,0.7); }
+.divider { width: 50px; height: 2px; background: var(--accent); margin: 2.5rem 0; }
+
+.ad-card { background: white; border-radius: 6px; padding: 2.5rem; margin: 2.5rem 0; box-shadow: 0 2px 16px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+.ad-card.tof { border-top-color: var(--tof); }
+.ad-card.mof { border-top-color: var(--mof); }
+.ad-card.bof { border-top-color: var(--bof); }
+.ad-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.ad-header h3 { margin: 0; font-size: 1.5rem; }
+.ad-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.badge { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 2px; }
+.badge-tof { background: var(--tof); color: white; }
+.badge-mof { background: var(--mof); color: var(--dark); }
+.badge-bof { background: var(--bof); color: white; }
+.badge-format { background: #D5DDE8; color: var(--primary); }
+.badge-duration { background: var(--dark); color: white; }
+.badge-pillar { background: rgba(74,144,164,0.12); color: var(--primary); }
+
+.script-block { border-left: 3px solid #D5DDE8; padding: 1rem 0 1rem 1.5rem; margin: 1rem 0; position: relative; font-size: 0.95rem; }
+.script-block::before { content: attr(data-label); position: absolute; top: -0.6rem; left: 1.5rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; }
+.script-block.hook { border-color: var(--bof); }
+.script-block.hook::before { background: var(--bof); color: white; }
+.script-block.vo { border-color: var(--vo); }
+.script-block.vo::before { background: var(--vo); color: white; }
+.script-block.stock { border-color: var(--stock); }
+.script-block.stock::before { background: var(--stock); color: white; }
+.script-block.product { border-color: var(--product); }
+.script-block.product::before { background: var(--product); color: white; }
+.script-block.cta { border-color: var(--dark); }
+.script-block.cta::before { background: var(--dark); color: white; }
+.script-block.text-overlay { border-color: var(--warm); }
+.script-block.text-overlay::before { background: var(--warm); color: var(--dark); }
+
+.vo-line { font-style: italic; color: var(--vo); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0.3rem; }
+.direction { color: #666; font-size: 0.88rem; }
+.stock-search { background: rgba(45,106,79,0.08); border-radius: 3px; padding: 0.4rem 0.7rem; font-size: 0.82rem; color: var(--stock); display: inline-block; margin: 0.3rem 0.3rem 0.3rem 0; font-weight: 600; }
+.text-on-screen { font-weight: 700; color: var(--text); font-size: 1.05rem; }
+
+.key-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.key-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; }
+.key-swatch { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
+
+.structure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+.structure-card { background: white; padding: 1.5rem; border-radius: 4px; border-top: 3px solid var(--tof); }
+.structure-card.mid { border-top-color: var(--mof); }
+.structure-card.bot { border-top-color: var(--bof); }
+.structure-card h4 { margin-top: 0; }
+
+.tips-box { background: var(--dark); color: var(--light); padding: 2rem; border-radius: 6px; margin: 2rem 0; }
+.tips-box h4 { color: var(--accent); margin-top: 0; }
+.tips-box + .tips-box { margin-top: 1rem; }
+
+.compliance-box { background: #FFF8E7; border: 1px solid var(--warm); padding: 2rem; border-radius: 6px; margin: 2rem 0; }
+.compliance-box h4 { color: var(--primary); margin-top: 0; }
+
+@media (max-width: 700px) { .structure-grid { grid-template-columns: 1fr; } .ad-header { flex-direction: column; } h2 { font-size: 2rem; } }
+@media print { .cover { min-height: auto; page-break-after: always; } .ad-card { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-subtitle">Meta Ad Campaign Brief</div>
+  <h1 class="cover-title">Ted's <em>Health</em></h1>
+  <p class="cover-desc">8 launch ads across three funnel stages.<br>Premium stock footage + voiceover + text overlays.<br>Production-ready.</p>
+  <div class="cover-footer">Prepared by Bear Witness &middot; April 2026</div>
+</div>
+
+<!-- ==================== CAMPAIGN OVERVIEW ==================== -->
+<section>
+  <h2>Campaign Architecture</h2>
+  <div class="divider"></div>
+
+  <p class="lead">Ted's Health is a CQC-registered, doctor-led online men's health clinic specialising in testosterone replacement therapy (TRT) and erectile dysfunction (ED) treatment. Every ad in this campaign is built from premium stock footage, voiceover, and clean on-screen text. No patient faces. No before-and-after transformations. The tone is warm, factual, and destigmatising. We are talking to men who feel something is wrong but have been told it's "just getting older."</p>
+
+  <div class="structure-grid">
+    <div class="structure-card">
+      <h4>Top of Funnel</h4>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--tof); margin:0.5rem 0;">Problem Aware</p>
+      <p style="font-size:0.9rem;">Make men recognise their symptoms. No product, no brand. Just an honest mirror held up to what they have been normalising: chronic tiredness, brain fog, weight gain, low libido. The goal is recognition, not conversion.</p>
+      <p style="font-size:0.8rem; color:var(--accent); margin:0;"><strong>Objective:</strong> Video views / reach<br><strong>Audience:</strong> Broad interests (men's health, fitness, over-35, wellness, self-improvement)</p>
+    </div>
+    <div class="structure-card mid">
+      <h4>Mid Funnel</h4>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--warm); margin:0.5rem 0;">Solution Aware</p>
+      <p style="font-size:0.9rem;">Introduce Ted's Health as a solution. Explain how TRT diagnosis works, the price point, and why doctor-led matters. Demystify the process. Remove the fear of the unknown.</p>
+      <p style="font-size:0.8rem; color:var(--accent); margin:0;"><strong>Objective:</strong> Traffic / engagement<br><strong>Audience:</strong> Retarget TOF viewers + lookalikes</p>
+    </div>
+    <div class="structure-card bot">
+      <h4>Bottom of Funnel</h4>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--bof); margin:0.5rem 0;">Trust + Convert</p>
+      <p style="font-size:0.9rem;">CQC credentials, real doctors, Bear Grylls Ventures backing. Permission to act. Direct, simple CTA to book. These run to men who have already engaged with the brand.</p>
+      <p style="font-size:0.8rem; color:var(--accent); margin:0;"><strong>Objective:</strong> Conversions<br><strong>Audience:</strong> Retarget MOF engagers + site visitors</p>
+    </div>
+  </div>
+
+  <h3>How to Read the Scripts</h3>
+  <div class="key-grid">
+    <div class="key-item"><div class="key-swatch" style="background:var(--bof);"></div> <strong>HOOK</strong> First 1-3 seconds. Bold text + scroll-stopping visual. No VO yet.</div>
+    <div class="key-item"><div class="key-swatch" style="background:var(--vo);"></div> <strong>VO</strong> Voiceover script. Italic = exact script. Grey = delivery direction.</div>
+    <div class="key-item"><div class="key-swatch" style="background:var(--stock);"></div> <strong>STOCK / B-ROLL</strong> Premium stock footage. Search terms in green tags.</div>
+    <div class="key-item"><div class="key-swatch" style="background:var(--product);"></div> <strong>PRODUCT</strong> Product or brand footage (website, blood test kit, app).</div>
+    <div class="key-item"><div class="key-swatch" style="background:var(--warm);"></div> <strong>TEXT OVERLAY</strong> On-screen text. Animated or static.</div>
+    <div class="key-item"><div class="key-swatch" style="background:var(--dark);"></div> <strong>CTA</strong> Closing frame with branding and call to action.</div>
+  </div>
+
+  <div class="compliance-box">
+    <h4>Compliance &amp; Tone Guidelines</h4>
+    <p style="margin-bottom:0.6rem;">Ted's Health is a medical service. Every ad must comply with ASA/CAP and Meta advertising policies for health services. <strong>Critical rules:</strong></p>
+    <p style="margin-bottom:0.4rem; font-size:0.9rem;"><strong>1.</strong> Never make cure claims. Use "may help", "could support", "designed to support" language.</p>
+    <p style="margin-bottom:0.4rem; font-size:0.9rem;"><strong>2.</strong> Never guarantee outcomes. Individual results vary.</p>
+    <p style="margin-bottom:0.4rem; font-size:0.9rem;"><strong>3.</strong> Always position as doctor-led and medically supervised.</p>
+    <p style="margin-bottom:0.4rem; font-size:0.9rem;"><strong>4.</strong> Do not use before/after imagery or imply dramatic transformations.</p>
+    <p style="margin-bottom:0.4rem; font-size:0.9rem;"><strong>5.</strong> The tone is empathetic and destigmatising, never shaming or fear-based.</p>
+    <p style="margin-bottom:0; font-size:0.9rem;"><strong>6.</strong> Avoid explicit sexual content. ED references should be tasteful and indirect.</p>
+  </div>
+
+  <div class="tips-box">
+    <h4>Premium Visual Standard</h4>
+    <p style="margin-bottom:0;">Every ad must feel cinematic and premium. Use Artgrid or Storyblocks Pro. Prioritise footage with shallow depth of field, deliberate composition, and cinematic colour grading. Natural light: golden hour mornings, soft directional light through windows. Men in their 30s-50s in real-life settings: offices, kitchens, gyms, family moments. The visual world should feel aspirational but attainable. Avoid sterile clinical settings. When showing medical/consultation elements, keep them warm and human. Slow, intentional camera movement (slow push-ins, gentle tracking) over static locked-off shots.</p>
+  </div>
+
+  <div class="tips-box">
+    <h4>VO Recording Notes</h4>
+    <p style="margin-bottom:0;">The voiceover should be a warm male voice. Mid-range, grounded, empathetic. Think: a trusted friend who also happens to be a doctor. Not a broadcaster. Not a fitness influencer. Natural conversational pace with quiet confidence. The tone says "I understand, and there is something you can do about this." Leave 1-2 second pauses between sections for clean edit points. Record each ad as one continuous take, then record each section individually as backup coverage.</p>
+  </div>
+
+  <div class="tips-box">
+    <h4>Brand Footage &amp; Assets Needed</h4>
+    <p style="margin-bottom:0;">Ted's Health blood test kit (unboxing, kit on a kitchen counter, the packaging). The tedshealth.com website on a phone and laptop screen (homepage, booking page, dashboard). If available: Dr. Johnny in a consultation setting (warm office, not sterile clinic). Ted's Health logo and brand elements for end cards. All brand footage should match the cinematic warmth of the stock footage. Shoot in natural light, clean surfaces, warm tones.</p>
+  </div>
+</section>
+
+<!-- ==================== TOP OF FUNNEL ==================== -->
+<div class="section-dark">
+  <div class="inner">
+    <h2>Top of Funnel: Problem Aware</h2>
+    <div class="divider" style="background:var(--accent);"></div>
+    <p class="lead">These ads make men recognise their symptoms. No brand. No product. Just an honest description of what they are living with. The goal is to earn a long enough view to retarget, and to plant the thought: maybe this is not just "getting older."</p>
+
+    <!-- TOF AD 1 -->
+    <div class="ad-card tof">
+      <div class="ad-header">
+        <h3>Ad 1: The 2pm Wall</h3>
+        <div class="ad-meta">
+          <span class="badge badge-tof">Top of Funnel</span>
+          <span class="badge badge-format">Reel / Story</span>
+          <span class="badge badge-duration">30-40s</span>
+          <span class="badge badge-pillar">Symptom: Chronic Fatigue</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"Every day at 2pm, you hit a wall. And you've stopped questioning why."</p>
+        <p class="direction">Stock visual: Cinematic close-up of a man at a desk, mid-afternoon light through office blinds. He rubs his eyes. Shallow depth of field, warm but slightly desaturated tones. The energy is flat. Bold text over the top, clean white sans-serif.</p>
+        <p><span class="stock-search">man tired office desk afternoon cinematic</span> <span class="stock-search">exhausted man rubbing eyes work</span> <span class="stock-search">afternoon office light through blinds</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll">
+        <p class="direction">Slow cinematic montage of a man's day. Morning: alarm goes off, hand reaches over to silence it. He sits on the edge of the bed for a beat too long. Office: staring at a screen, losing focus. Reaching for another coffee. A meeting room where he is present but not sharp. Afternoon: checking the clock. Every shot should feel like "going through the motions." Premium grade throughout. Men aged 35-50, relatable, not models.</p>
+        <p><span class="stock-search">man sitting edge of bed morning tired</span> <span class="stock-search">man staring screen office unfocused</span> <span class="stock-search">pouring coffee office tired afternoon</span> <span class="stock-search">man checking watch office cinematic</span> <span class="stock-search">man meeting room tired distracted</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"You used to have energy. Not gym-obsessed, just... enough. Enough to get through the day without caffeine holding you together. Enough to play with the kids after work without faking it."</p>
+        <p class="direction">Warm, reflective. Like talking to a mate. Not dramatic. "Without faking it" should land quietly. A small truth that hits.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"Now there is a wall at 2pm. Every single day. And you have stopped asking why. You just assume this is what getting older feels like."</p>
+        <p class="direction">Slightly more direct. Not accusing. Naming the thing they have accepted. "You just assume" is the key phrase. Let it breathe.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"What if it's not just age?"</p>
+        <p class="direction">Clean frame, dark background. 2-second hold. No product. No brand. Let the question sit. The job is done if this thought follows them off the screen.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 3">
+        <p class="vo-line">"Low testosterone affects 1 in 4 men over 30. Most of them think they are just tired."</p>
+        <p class="direction">Factual. Quiet. Not selling anything. Planting a seed. "Most of them think they are just tired" is the last thing they hear.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. It might not be what you think.</p>
+        <p class="direction">Minimal end card. Logo only. Pure awareness. No URL. The job is done if they watched past the hook.</p>
+      </div>
+    </div>
+
+    <!-- TOF AD 2 -->
+    <div class="ad-card tof">
+      <div class="ad-header">
+        <h3>Ad 2: Not Just Getting Older</h3>
+        <div class="ad-meta">
+          <span class="badge badge-tof">Top of Funnel</span>
+          <span class="badge badge-format">Reel / Story</span>
+          <span class="badge badge-duration">30-40s</span>
+          <span class="badge badge-pillar">Symptom: Multiple</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"You're not just getting older. Something else might be going on."</p>
+        <p class="direction">Stock visual: Cinematic slow-motion of a man looking at himself in a bathroom mirror, morning light, slightly steamed. Shallow depth of field. He is searching his own face. Not vanity. Quiet concern. Bold text over the top.</p>
+        <p><span class="stock-search">man bathroom mirror morning cinematic</span> <span class="stock-search">man looking at reflection thoughtful</span> <span class="stock-search">bathroom morning light steam cinematic</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll">
+        <p class="direction">A montage of symptoms made visual. Man struggling to focus at a laptop, rubbing his temples. Lying awake in bed at night, staring at the ceiling, blue-ish light. Standing on a scale, exhaling. Sitting on the sofa while his partner and kids are in the background, slightly out of reach. The gym: he is there, but the effort feels heavier than it should. Every shot is cinematic, warm, relatable. Not pathologising. Just honest.</p>
+        <p><span class="stock-search">man rubbing temples focus work cinematic</span> <span class="stock-search">man lying awake bed night insomnia</span> <span class="stock-search">man standing on scale bathroom</span> <span class="stock-search">man sitting alone family background cinematic</span> <span class="stock-search">man gym tired struggling exercise</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"The weight that crept on and will not shift. The sleep that never quite recharges you. The brain fog at work. The libido that quietly disappeared."</p>
+        <p class="direction">Slow, measured. Each symptom is its own beat. You are reading a list they have never said out loud. Let each one land before moving to the next. Empathetic, not clinical.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"You told yourself it is just age. Just stress. Just a phase. But what if there is an actual, measurable reason? And what if a simple blood test could tell you?"</p>
+        <p class="direction">The pivot. "What if there is an actual, measurable reason?" should feel like the first time someone has offered them an explanation. Not a sales pitch. A possibility.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"Low testosterone. It's more common than you think."</p>
+        <p class="direction">Clean frame. 2-second hold. Warm tones, not clinical.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. Find out for sure.</p>
+        <p class="direction">Minimal end card. Logo. Awareness only.</p>
+      </div>
+    </div>
+
+    <!-- TOF AD 3 -->
+    <div class="ad-card tof">
+      <div class="ad-header">
+        <h3>Ad 3: The Conversation Men Don't Have</h3>
+        <div class="ad-meta">
+          <span class="badge badge-tof">Top of Funnel</span>
+          <span class="badge badge-format">Reel / Story</span>
+          <span class="badge badge-duration">35-45s</span>
+          <span class="badge badge-pillar">Destigmatisation</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"Men talk about everything. Except the one thing that might actually matter."</p>
+        <p class="direction">Stock visual: Cinematic wide shot of two men sitting in a pub or at a kitchen table, mid-conversation, pints or coffees in hand. Warm golden light, shallow depth of field. They are laughing about something. The hook text cuts across the warmth. Bold, clean.</p>
+        <p><span class="stock-search">two men pub conversation cinematic warm</span> <span class="stock-search">men friends talking kitchen table</span> <span class="stock-search">male friends coffee conversation cinematic</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll">
+        <p class="direction">A montage of men talking. Mates at a football match, animated and loud. A barbecue, laughing about something. An office corridor, two blokes chatting. The pub. The gym changing room. Men communicate constantly. But the visual mood shifts: same settings, but now the camera catches the quiet moments. A man pausing mid-conversation. Looking down at his pint. The energy drops for a beat. The things that go unsaid.</p>
+        <p><span class="stock-search">men watching football friends cinematic</span> <span class="stock-search">men barbecue laughing friends</span> <span class="stock-search">office corridor men talking cinematic</span> <span class="stock-search">man pausing pint pub thoughtful</span> <span class="stock-search">gym changing room men cinematic</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"You will talk about work. About football. About the mortgage. You will even joke about your dad bod. But you will not mention that you have not felt like yourself in months. That the energy is not there. That something has shifted and you cannot name it."</p>
+        <p class="direction">Warm, honest, zero judgment. You are describing a universal truth about how men communicate. "You will not mention" is not an accusation. It is an observation made with understanding.</p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll: tone shifts">
+        <p class="direction">The visual world opens up. A man going for a morning run in golden light, looking strong. A father lifting his child onto his shoulders. A man at a desk, focused and sharp. The energy lifts. These are not transformations. They are possibilities. Cinematic, warm, aspirational.</p>
+        <p><span class="stock-search">man running morning golden hour cinematic</span> <span class="stock-search">father lifting child shoulders park</span> <span class="stock-search">man focused work desk confident cinematic</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"Checking your testosterone level is not admitting weakness. It is the most practical thing you can do. A blood test. A conversation with a doctor. That is all it takes to find out."</p>
+        <p class="direction">The reframe. "Not admitting weakness" needs to land clearly. Then the simplicity: blood test, doctor, done. This should feel like permission.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"One conversation could change everything."</p>
+        <p class="direction">Clean frame. 2-second hold.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. Start the conversation.</p>
+        <p class="direction">Minimal end card. Logo only. The seed is planted.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== MID FUNNEL ==================== -->
+<div class="section-alt">
+  <div class="inner">
+    <h2>Mid Funnel: Solution Aware</h2>
+    <div class="divider"></div>
+    <p class="lead">The audience has seen a TOF ad or been reached through interest targeting. Now they learn how Ted's Health works. The brand is introduced directly. Product and process footage is prominent. The goal is to remove uncertainty and make the next step feel simple.</p>
+
+    <!-- MOF AD 4 -->
+    <div class="ad-card mof">
+      <div class="ad-header">
+        <h3>Ad 4: How It Actually Works</h3>
+        <div class="ad-meta">
+          <span class="badge badge-mof">Mid Funnel</span>
+          <span class="badge badge-format">Reel / In-Feed</span>
+          <span class="badge badge-duration">35-45s</span>
+          <span class="badge badge-pillar">Process Demystification</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"Blood test. Doctor. Answers. Here's how it works."</p>
+        <p class="direction">Stock visual: Overhead cinematic shot of a blood test kit being opened on a clean kitchen counter, warm morning light. Hands lifting the lid. Shallow depth of field. The visual says: this arrives at your door. Simple, clean, non-threatening. Bold text over the top.</p>
+        <p><span class="stock-search">opening package kitchen counter morning cinematic</span> <span class="stock-search">blood test kit home unboxing</span> <span class="stock-search">medical kit clean packaging overhead</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll: Step 1">
+        <p class="direction">The blood test sequence. A man at his kitchen counter with the kit open. Close-up of hands with a finger-prick device. A small blood sample card. He seals the return envelope. Drops it in a postbox. Every shot is calm, clean, cinematic. This is not scary. This is a man taking ten minutes out of his morning.</p>
+        <p><span class="stock-search">finger prick blood test home cinematic</span> <span class="stock-search">man blood sample home kit</span> <span class="stock-search">posting letter envelope postbox UK</span> <span class="stock-search">home medical test kitchen clean</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"Step one: a blood test kit arrives at your door. You do it at home. Takes five minutes. No clinic. No waiting room. No awkward conversation with a receptionist. You post it back and your results come to you."</p>
+        <p class="direction">Practical and reassuring. Each detail removes a barrier. "No awkward conversation with a receptionist" should get a small nod of recognition from the viewer. Pace it clearly.</p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll: Step 2">
+        <p class="direction">A video consultation. A man sitting at a kitchen table or home office, laptop open, talking to a doctor on screen. He looks relaxed. The doctor (or stand-in) is warm, professional. Cut to: a phone showing a notification or results dashboard. The visual says: you are in the loop. You have a real doctor. This is not a faceless online form.</p>
+        <p><span class="stock-search">man video call doctor laptop home cinematic</span> <span class="stock-search">telehealth consultation kitchen table</span> <span class="stock-search">man phone health results notification</span> <span class="stock-search">online doctor consultation warm professional</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"Step two: a doctor reviews your bloods and books a consultation with you. Not a chatbot. Not an algorithm. A real doctor. Dr. Johnny at Ted's Health conducts every single consultation himself. He talks you through your results, explains what they mean, and only recommends treatment if it is right for you."</p>
+        <p class="direction">This is the trust moment. "Every single consultation himself" is the differentiator. Let it land. "Only recommends treatment if it is right for you" is critical for compliance and for trust. Do not rush it.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"No guesswork. No hard sell. Just your results and a doctor who explains them."</p>
+        <p class="direction">Clean frame. 2-second hold. Warm background.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 3">
+        <p class="vo-line">"Step three: if treatment could help, your prescription is managed and monitored. Regular blood work. Ongoing check-ins. You are never left on your own."</p>
+        <p class="direction">The safety net. "You are never left on your own" is the close. Let it feel like a promise.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. Doctor-led TRT diagnosis from &pound;40. tedshealth.com</p>
+        <p class="direction">Brand end card. Logo, price, URL. The first time the audience sees the full proposition together.</p>
+      </div>
+    </div>
+
+    <!-- MOF AD 5 -->
+    <div class="ad-card mof">
+      <div class="ad-header">
+        <h3>Ad 5: &pound;40. That's It.</h3>
+        <div class="ad-meta">
+          <span class="badge badge-mof">Mid Funnel</span>
+          <span class="badge badge-format">Reel / Story</span>
+          <span class="badge badge-duration">25-35s</span>
+          <span class="badge badge-pillar">Price Point Hook</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"A full testosterone blood test and a doctor consultation. &pound;40."</p>
+        <p class="direction">Stock visual: Clean, cinematic close-up of a man's hand tapping his phone, warm morning light. The "&pound;40" appears large on screen, holds for a beat. The visual says: this is not expensive. This is not complicated. This is within reach. Bold, large text.</p>
+        <p><span class="stock-search">man phone hand morning light cinematic</span> <span class="stock-search">smartphone tap hand close up clean</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll">
+        <p class="direction">Quick, satisfying comparison cuts. A man tapping his card on a contactless terminal at a coffee shop. A gym membership card. A takeaway delivery arriving at a front door. Everyday things men spend money on without a second thought. Each shot premium, cinematic, 1-2 seconds. The contrast lands without a word: you spend more than this on things that matter less.</p>
+        <p><span class="stock-search">contactless payment coffee shop close up</span> <span class="stock-search">gym card membership tap cinematic</span> <span class="stock-search">food delivery door step UK</span> <span class="stock-search">man paying card everyday purchase</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"You spend more than that on a round of drinks. On a gym membership you use three times a month. On a takeaway you will forget by tomorrow."</p>
+        <p class="direction">Light, almost amused. Not preachy. Just putting the price in context. Conversational, like mates comparing what they waste money on.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"&pound;40 gets you:"</p>
+        <p class="direction">Beat. Then items appear one by one, clean kinetic text animation:</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay: Breakdown">
+        <p class="text-on-screen">A comprehensive blood test kit, delivered to your door.<br>Full testosterone and health marker analysis.<br>A one-to-one video consultation with a real doctor.</p>
+        <p class="direction">Each line appears with a subtle animation. Clean, simple. Let the value stack build. Hold the full list for 3 seconds.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"Forty quid. A blood test delivered to your door, a full hormone panel, and a personal consultation with a doctor who will actually explain what it all means. That is it. That is the price of knowing."</p>
+        <p class="direction">Confident, straightforward. "The price of knowing" is the payoff line. It reframes the purchase from a medical expense to a small act of self-knowledge. Let it close cleanly.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. &pound;40 TRT Diagnosis Package. tedshealth.com</p>
+        <p class="direction">Direct CTA. Logo, price, URL.</p>
+      </div>
+    </div>
+
+    <!-- MOF AD 6 -->
+    <div class="ad-card mof">
+      <div class="ad-header">
+        <h3>Ad 6: Doctor-Led, Not DIY</h3>
+        <div class="ad-meta">
+          <span class="badge badge-mof">Mid Funnel</span>
+          <span class="badge badge-format">Reel / In-Feed</span>
+          <span class="badge badge-duration">30-40s</span>
+          <span class="badge badge-pillar">Trust &amp; Differentiation</span>
+        </div>
+      </div>
+
+      <div class="script-block hook" data-label="Hook (1-3s)">
+        <p class="text-on-screen">"There are hundreds of online testosterone clinics. Most of them skip the part that matters."</p>
+        <p class="direction">Stock visual: Cinematic overhead of a man scrolling through his phone, multiple tabs open. The visual is information overload. Warm light but the screen glow is slightly cold. Shallow depth of field. Bold hook text cuts through.</p>
+        <p><span class="stock-search">man scrolling phone overhead cinematic</span> <span class="stock-search">smartphone multiple tabs research</span> <span class="stock-search">man phone sofa evening searching cinematic</span></p>
+      </div>
+
+      <div class="script-block stock" data-label="Stock / B-Roll">
+        <p class="direction">Visual contrast sequence. First: the "dodgy clinic" world. Fast, cheap-feeling stock: a generic questionnaire on a screen, an anonymous chatbot interface, a faceless online form, pills arriving in generic packaging. The footage is deliberately less premium, slightly colder grade. Then the visual shifts. Warmer light, premium grade returns. A real doctor on a video call, warm and engaged. A branded blood test kit being opened carefully. A man in a conversation, being listened to.</p>
+        <p><span class="stock-search">generic online form questionnaire screen</span> <span class="stock-search">chatbot interface phone screen</span> <span class="stock-search">generic medicine package plain</span> <span class="stock-search">doctor video call warm professional cinematic</span> <span class="stock-search">medical consultation engaged listening</span></p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 1">
+        <p class="vo-line">"Some online clinics will sell you testosterone after a five-minute questionnaire. No blood test. No doctor. No follow-up. Just a checkout page and a hope for the best."</p>
+        <p class="direction">Direct, serious, but not dramatic. You are stating facts. The viewer should feel uneasy about what they may have considered. "A hope for the best" carries the weight.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 2">
+        <p class="vo-line">"Ted's Health does it properly. Every patient starts with a blood test. Every consultation is with Dr. Johnny. He reviews your full bloodwork, explains your results, and only recommends treatment if the clinical evidence supports it. If your levels are fine, he will tell you. No upsell. No pressure."</p>
+        <p class="direction">The counter-argument. Steady, confident. "If your levels are fine, he will tell you" is the trust line. It says: we would rather be honest than make a sale. Let it land.</p>
+      </div>
+
+      <div class="script-block text-overlay" data-label="Text Overlay">
+        <p class="text-on-screen">"CQC registered. Doctor-led. Properly monitored."</p>
+        <p class="direction">Three lines, appearing in sequence. Clean. Each one is a trust signal. Hold the full set for 2 seconds.</p>
+      </div>
+
+      <div class="script-block vo" data-label="VO 3">
+        <p class="vo-line">"This is your health. It deserves more than a questionnaire."</p>
+        <p class="direction">Quiet, firm close. One sentence. Let it land and stop.</p>
+      </div>
+
+      <div class="script-block cta" data-label="CTA">
+        <p class="text-on-screen">Ted's Health. Doctor-led men's health. tedshealth.com</p>
+        <p class="direction">End card with logo, tagline, URL.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== BOTTOM FUNNEL ==================== -->
+<section>
+  <h2>Bottom of Funnel: Trust + Convert</h2>
+  <div class="divider"></div>
+  <p class="lead">The audience has recognised their symptoms and understood the process. Now they need the final push: trust, credentials, and a clear path to action. These ads run to retargeted audiences and site visitors. Direct CTAs to book the diagnosis package.</p>
+
+  <!-- BOF AD 7 -->
+  <div class="ad-card bof">
+    <div class="ad-header">
+      <h3>Ad 7: CQC Registered. Real Doctors.</h3>
+      <div class="ad-meta">
+        <span class="badge badge-bof">Bottom of Funnel</span>
+        <span class="badge badge-format">Reel / In-Feed</span>
+        <span class="badge badge-duration">35-45s</span>
+        <span class="badge badge-pillar">Trust Signals</span>
+      </div>
+    </div>
+
+    <div class="script-block hook" data-label="Hook (1-3s)">
+      <p class="text-on-screen">"507 men are already on doctor-led TRT with Ted's Health. Here's why they trust us."</p>
+      <p class="direction">Stock visual: Cinematic slow push-in on a man looking confident and present. Morning light, clean backdrop. He is mid-stride, or at a desk focused, or with his family. The energy is "a man who took the step." Bold text with the number "507" appearing large before settling into the full line.</p>
+      <p><span class="stock-search">confident man morning light cinematic</span> <span class="stock-search">man walking purposeful city morning</span> <span class="stock-search">man confident work desk focused cinematic</span></p>
+    </div>
+
+    <div class="script-block stock" data-label="Stock / B-Roll: credentials sequence">
+      <p class="direction">A visual trust montage. A CQC logo or certificate-style graphic, clean and official. A doctor's hands on a keyboard, reviewing results on a medical dashboard. A video consultation in progress, warm lighting, the doctor is engaged and listening. A blood test kit with branded packaging, opened carefully. The Ted's Health website on a phone screen showing the booking page. Every shot is warm and professional. The message is: real credentials, real people, real process.</p>
+      <p><span class="stock-search">medical certificate official document clean</span> <span class="stock-search">doctor reviewing results screen medical</span> <span class="stock-search">telehealth video call doctor warm</span> <span class="stock-search">branded medical kit packaging premium</span> <span class="stock-search">health website mobile phone booking</span></p>
+    </div>
+
+    <div class="script-block vo" data-label="VO 1">
+      <p class="vo-line">"Ted's Health is CQC registered. That means we are inspected and regulated by the same body that oversees every NHS hospital in England. Every consultation is conducted by Dr. Johnny, a licensed physician. Not a wellness coach. Not an online chatbot. A doctor."</p>
+      <p class="direction">Authoritative but not stiff. The CQC line is factual. "Not a wellness coach. Not an online chatbot. A doctor." is a three-beat build that should land with increasing weight. Confident, not arrogant.</p>
+    </div>
+
+    <div class="script-block vo" data-label="VO 2">
+      <p class="vo-line">"We are backed by Bear Grylls Ventures. Over 500 men are currently on monitored TRT programmes with us. And over 700 are being treated for ED. Every one of them started with the same thing: a blood test and a conversation."</p>
+      <p class="direction">The social proof section. Numbers are powerful here. Let them land factually. "Every one of them started with the same thing" normalises the first step. It says: you are not the first. Many men have already done this.</p>
+    </div>
+
+    <div class="script-block text-overlay" data-label="Text Overlay">
+      <p class="text-on-screen">CQC Registered<br>Doctor-Led Consultations<br>Backed by Bear Grylls Ventures<br>500+ Active TRT Patients<br>700+ Active ED Patients</p>
+      <p class="direction">Trust stack. Each line appears cleanly, one after another. Hold the full stack for 3 seconds. Premium typography on a dark or navy background.</p>
+    </div>
+
+    <div class="script-block vo" data-label="VO 3">
+      <p class="vo-line">"Your first step is the diagnosis package. A blood test kit delivered to your door and a one-to-one consultation with Dr. Johnny. Forty pounds. No commitment beyond that."</p>
+      <p class="direction">The close. Clear, simple, low-risk. "No commitment beyond that" is the safety net for anyone hesitating. Let it close cleanly.</p>
+    </div>
+
+    <div class="script-block cta" data-label="CTA">
+      <p class="text-on-screen">Book your diagnosis package. &pound;40. tedshealth.com</p>
+      <p class="direction">Direct conversion CTA. Logo, price, URL. This is bottom of funnel. They need the link.</p>
+    </div>
+  </div>
+
+  <!-- BOF AD 8 -->
+  <div class="ad-card bof">
+    <div class="ad-header">
+      <h3>Ad 8: Your First Step</h3>
+      <div class="ad-meta">
+        <span class="badge badge-bof">Bottom of Funnel</span>
+        <span class="badge badge-format">Reel / Story</span>
+        <span class="badge badge-duration">20-30s</span>
+        <span class="badge badge-pillar">Direct Conversion</span>
+      </div>
+    </div>
+
+    <div class="script-block hook" data-label="Hook (1-3s)">
+      <p class="text-on-screen">"You have read about it. You have thought about it. Here is your first step."</p>
+      <p class="direction">Stock visual: Cinematic close-up of a man's hand hovering over his phone, about to tap. The moment before action. Warm morning light, clean surface. The hesitation is the visual. Bold text is direct and warm.</p>
+      <p><span class="stock-search">hand hovering phone about to tap cinematic</span> <span class="stock-search">man phone hand close up morning light</span> <span class="stock-search">finger about to press screen cinematic</span></p>
+    </div>
+
+    <div class="script-block stock" data-label="Stock / B-Roll">
+      <p class="direction">A rapid, forward-moving sequence. A man picking up his phone. Tapping through a clean, simple website. A front door opening to a delivery. Hands opening a test kit on a kitchen counter. The finger-prick blood test: quick, clean, undramatic. Sealing the return envelope. Walking to a postbox. Every shot is 1-2 seconds, propulsive. The energy says: this is happening, it is easy, and it has already started. Cinematic but brisk.</p>
+      <p><span class="stock-search">man picking up phone morning decisive</span> <span class="stock-search">front door opening delivery package UK</span> <span class="stock-search">opening medical test kit kitchen clean</span> <span class="stock-search">finger prick blood test simple home</span> <span class="stock-search">sealing envelope posting letter UK cinematic</span></p>
+    </div>
+
+    <div class="script-block vo" data-label="VO 1">
+      <p class="vo-line">"Book online. The kit arrives in a couple of days. You do the blood test at home in five minutes and post it back. Then a doctor calls you, talks you through your results, and together you decide what happens next."</p>
+      <p class="direction">Fast, clear, almost rhythmic. Walk through the steps at pace. This is not contemplative. This is the action version. The viewer already knows why. Now they need to know how easy the how is.</p>
+    </div>
+
+    <div class="script-block text-overlay" data-label="Text Overlay">
+      <p class="text-on-screen">"5 minutes. &pound;40. A doctor who listens."</p>
+      <p class="direction">Three beats. Clean frame. Hold for 2 seconds.</p>
+    </div>
+
+    <div class="script-block vo" data-label="VO 2">
+      <p class="vo-line">"No waiting list. No GP referral needed. No judgement. Just answers."</p>
+      <p class="direction">Four short barrier-removals in quick succession. "Just answers" is the final word. Quiet, definitive. Let it close.</p>
+    </div>
+
+    <div class="script-block cta" data-label="CTA">
+      <p class="text-on-screen">Book now at tedshealth.com &mdash; TRT Diagnosis Package, &pound;40</p>
+      <p class="direction">Strongest CTA of the campaign. Logo, price, URL, and a "Book Now" action button graphic. This is the conversion ad. Every element points to the click.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DELIVERY NOTES ==================== -->
+<div class="section-dark">
+  <div class="inner">
+    <h2>Delivery Notes for Ku</h2>
+    <div class="divider" style="background:var(--accent);"></div>
+
+    <div class="tips-box" style="background: rgba(74,144,164,0.1); border: 1px solid rgba(74,144,164,0.2);">
+      <h4>Format &amp; Specs</h4>
+      <p style="margin-bottom:0.6rem;">All ads should be delivered in two formats:</p>
+      <p style="font-size:0.9rem; margin-bottom:0.3rem;"><strong>9:16 (Reels / Stories)</strong> &mdash; Primary format. All 8 ads.</p>
+      <p style="font-size:0.9rem; margin-bottom:0.3rem;"><strong>1:1 (In-Feed)</strong> &mdash; Secondary format for Ads 4, 6, 7.</p>
+      <p style="font-size:0.9rem; margin-bottom:0;"><strong>Resolution:</strong> 1080x1920 (9:16) / 1080x1080 (1:1). <strong>Export:</strong> H.264, high bitrate.</p>
+    </div>
+
+    <div class="tips-box" style="background: rgba(74,144,164,0.1); border: 1px solid rgba(74,144,164,0.2);">
+      <h4>Music &amp; Sound Design</h4>
+      <p style="margin-bottom:0;">Subtle, warm underscore throughout. Think: ambient piano, soft pads, light percussion. The music supports the VO, never competes with it. TOF ads should feel slightly more reflective and melancholic. MOF ads: cleaner, more forward-moving. BOF ads: confident, resolved. Royalty-free from Artlist or Epidemic Sound. No EDM. No corporate ukulele. The vibe is premium documentary.</p>
+    </div>
+
+    <div class="tips-box" style="background: rgba(74,144,164,0.1); border: 1px solid rgba(74,144,164,0.2);">
+      <h4>Typography &amp; Branding</h4>
+      <p style="margin-bottom:0;">On-screen text should use Ted's Health brand fonts where available, or a clean sans-serif (Inter, DM Sans, or similar). Navy (#1B365D) and white as primary text colours. Gold (#D4A85C) for accents and highlights only. Teal (#4A90A4) for secondary elements. All end cards: Ted's Health logo centred, URL below, dark background. Keep it clean and premium. No busy graphics, no emoji, no exclamation marks.</p>
+    </div>
+
+    <div class="tips-box" style="background: rgba(74,144,164,0.1); border: 1px solid rgba(74,144,164,0.2);">
+      <h4>Subtitles</h4>
+      <p style="margin-bottom:0;">All ads must have burned-in subtitles. Clean, white, bottom-third positioning. No auto-generated captions. Manually timed to the VO. Use a subtle dark drop-shadow or semi-transparent background bar for legibility over light footage. Subtitle text should match the VO script exactly.</p>
+    </div>
+
+    <div class="tips-box" style="background: rgba(74,144,164,0.1); border: 1px solid rgba(74,144,164,0.2);">
+      <h4>File Naming</h4>
+      <p style="margin-bottom:0;">
+        <code>TH-TOF-01-2pm-Wall-9x16.mp4</code><br>
+        <code>TH-TOF-02-Not-Just-Older-9x16.mp4</code><br>
+        <code>TH-TOF-03-Conversation-9x16.mp4</code><br>
+        <code>TH-MOF-04-How-It-Works-9x16.mp4</code><br>
+        <code>TH-MOF-05-Forty-Quid-9x16.mp4</code><br>
+        <code>TH-MOF-06-Doctor-Led-9x16.mp4</code><br>
+        <code>TH-BOF-07-CQC-Trust-9x16.mp4</code><br>
+        <code>TH-BOF-08-First-Step-9x16.mp4</code>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="section-dark">
+  <div class="inner" style="text-align:center;">
+    <div class="divider" style="background:var(--accent); margin: 0 auto 2rem;"></div>
+    <p style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent);">Ted's Health &middot; Meta Ad Campaign Brief &middot; April 2026 &middot; Prepared by Bear Witness</p>
+    <p style="font-size:0.8rem; color:rgba(248,249,250,0.5);">Confidential. For BGV internal use.</p>
+  </div>
+</div>
+
+</body>
+</html>
