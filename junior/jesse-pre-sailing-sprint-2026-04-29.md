@@ -176,7 +176,7 @@ Bear emailed George Musgrave (BPS) on April 24 asking for unit costs. If George 
 ## What CJ Should Hold While You Sail
 
 Brief CJ on five things before you leave:
-1. **Lightning Nutra email** — chase Chris Liming (chris@lightningnutra.com) for the ship date confirmation. "Can you confirm expected ship date for the SuperHero Add On order? We need product at UK fulfilment by June 25."
+1. **Lightning Nutra email** — chase Chris Liming (chris@lightningnutra.com) for the ship date confirmation. Deposit confirmed paid April 27 and R&D has started — but no ship date given yet. CJ draft email ready at workspace/docs/draft-cj-lightning-nutra-shipdate-2026-04-29.txt. Send it. The June 25 UK delivery deadline needs a yes or no from Chris.
 2. **MediaOptions domain** — keep pushing on modernsavage.com. Hard deadline June 24.
 3. **BPS Hub thread** — intercept any George Musgrave responses from Bear. Do not let Bear commit to costs.
 4. **Twyn model from Zain** — hold it for you. Don't action it. Read guide at workspace/docs/twyn-financial-model-reading-guide-2026-04-25.pdf before you discuss with Zain.
