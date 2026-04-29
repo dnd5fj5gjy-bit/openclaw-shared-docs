@@ -56,6 +56,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 **Organised legal brief sent to CJ.** Jesse's instruction before signing off. PDF sent from junior@beargryllsventures.com to cj@beargryllsventures.com with note that it hasn't been reviewed by Jesse. Jesse reviews Monday, then CJ coordinates with Ignition Law (Tammy/Jack).
 
+**Modern Savage timeline evidence found — READ FIRST on Monday.** Searching the email record found the thread that started Modern Savage. Bear emailed Andrew Kouvel (Lightning Nutra) on March 6, 2026 — the same day as one of the "threatening" messages cited in Mishcon's letter. Bear said "without any outside partners" and the email contains a formula comparison against "theirs" (almost certainly Organised's formula). Prior formulation history with Andrew predates Organised entirely ("what we had before"). Full analysis at workspace/docs/organised-legal-timeline-evidence-2026-04-29.md (LOCAL). Jesse must read this before talking to Ignition Law — this changes what they need to know.
+
 ---
 
 ## Daily Log
