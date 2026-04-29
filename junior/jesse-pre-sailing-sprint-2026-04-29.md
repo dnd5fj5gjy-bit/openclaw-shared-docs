@@ -110,6 +110,13 @@ The Wildernests launch captions (3 versions, including a Bear companion post) ar
 
 ---
 
+### Before May 3 — Reply to Ryan Porter (Fat Cow)
+Ryan messaged April 29 06:33 with a specific 3-SKU proposal aligned to Modern Savage blends. He asked: "What are your thoughts?" He's been waiting with no reply.
+
+Draft response ready at workspace/docs/draft-jesse-ryan-fatcow-2026-04-29.txt (LOCAL). Key points: confirms 3-SKU concept, corrects that MS targets families not just men, agrees on Summit Stack deodorant as performance add-on, pushes for a call this week on branding/applicator decisions. Send before May 3 or the momentum dies before you sail.
+
+---
+
 ### Before May 5 — YouTube Title for Sailing Video Ep 8
 Dhika (BG Main Content Team) messaged April 29 with 4 title options and a full description for the Southampton-to-Cowes first sail video. Pick one and reply to the group.
 
