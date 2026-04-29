@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>
+body{font-family:-apple-system,sans-serif;max-width:960px;margin:40px auto;padding:0 24px;font-size:13px;line-height:1.6;color:#1a1a1a}
+h1{font-size:22px;font-weight:800;margin-bottom:4px}
+h2{font-size:16px;font-weight:700;margin-top:32px;border-bottom:2px solid #222;padding-bottom:4px}
+h3{font-size:14px;font-weight:700;margin-top:20px}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:12px}
+th{background:#1a1a1a;color:#fff;padding:8px 10px;text-align:left;font-weight:700}
+td{padding:8px 10px;border:1px solid #ddd;vertical-align:top}
+tr:nth-child(even){background:#f9f9f9}
+strong{font-weight:700}
+em{font-style:italic;color:#555;font-size:11px}
+code{background:#f0f0f0;padding:2px 5px;border-radius:3px;font-size:11px}
+pre{background:#f0f0f0;padding:12px;border-radius:5px;font-size:11px;overflow-x:auto}
+p{margin:8px 0}ul,ol{margin:8px 0;padding-left:24px}li{margin:3px 0}
+</style></head><body><h1>Modern Savage — Launch Timeline Risk Model</h1>
+<p><strong>Built:</strong> April 29, 2026 by Junior<br />
+<strong>Purpose:</strong> If Lightning Nutra gives a ship date that's later than expected, what actually changes?<br />
+<strong>Use:</strong> Reference this when Chris Liming's ship date comes in. Paste the date into the right scenario below.</p>
+<hr />
+<h2>The Fixed Constraints</h2>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Date</th>
+<th>Flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UK fulfilment needs product</td>
+<td>June 25</td>
+<td>None — this is the July 1 launch requirement</td>
+</tr>
+<tr>
+<td>US-to-UK shipping (sea freight)</td>
+<td>28-35 days</td>
+<td>Low — air freight exists but expensive</td>
+</tr>
+<tr>
+<td>US-to-UK shipping (air freight)</td>
+<td>5-8 days</td>
+<td>High cost — ~3x sea freight price</td>
+</tr>
+<tr>
+<td>Manufacturing after R&amp;D complete</td>
+<td>14-21 days</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>R&amp;D started</td>
+<td>April 27</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>R&amp;D estimated completion</td>
+<td>Late May (estimated)</td>
+<td>Unknown — Lightning Nutra hasn't confirmed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Scenario Matrix</h2>
+<h3>Scenario A — Ship by May 26 (IDEAL)</h3>
+<p><strong>What needs to be true:</strong> R&amp;D completes ~May 12. Manufacturing done by May 23. Ships May 26.<br />
+<strong>UK arrival:</strong> June 23-30 (sea freight). In time for July 1.<br />
+<strong>Launch impact:</strong> None. Proceed as planned.<br />
+<strong>Probability:</strong> Low-moderate. R&amp;D started April 27, 2-week turnaround is tight but possible if formula was already established.</p>
+<hr />
+<h3>Scenario B — Ship by June 7 (MANAGEABLE)</h3>
+<p><strong>What needs to be true:</strong> R&amp;D completes ~May 18. Manufacturing done by June 4. Ships June 7.<br />
+<strong>UK arrival via sea freight:</strong> July 5-12. Miss July 1 by 1-2 weeks.<br />
+<strong>UK arrival via air freight:</strong> June 12-15. Still within July 1 window if booked immediately.<br />
+<strong>Launch impact:</strong> Either (1) delay launch 1-2 weeks to July 14, or (2) pay for air freight (~3x cost but saves the launch date).<br />
+<strong>Decision for Jesse:</strong> Is the launch date worth the air freight premium? At £59/month with a 170-person waitlist, getting even 50 paid subscribers costs ~£25K in MRR. Air freight probably costs £3-8K. The launch date is worth the premium.<br />
+<strong>Calvin's sequence:</strong> No change to email sequence. Launch week playbook holds.</p>
+<hr />
+<h3>Scenario C — Ship by June 21 (TIGHT BUT SURVIVABLE)</h3>
+<p><strong>What needs to be true:</strong> R&amp;D completes ~May 30. Manufacturing done by June 18. Ships June 21.<br />
+<strong>UK arrival via sea freight:</strong> July 19-26. Miss July 1 by 3+ weeks. Not viable.<br />
+<strong>UK arrival via air freight:</strong> June 26-29. Barely makes July 1 if booked immediately on ship date.<br />
+<strong>Launch impact:</strong> Must use air freight. No slack. If anything delays the air shipment, launch moves to mid-July.<br />
+<strong>Decision for Jesse:</strong> Authorise air freight the moment Chris confirms a June 21+ ship date. Do not wait to see if sea freight would be faster.<br />
+<strong>Calvin's sequence:</strong> Email sequence start date shifts by 1 week. Waitlist warmup email (built April 29) becomes critical — send it now to maintain momentum through the gap.</p>
+<hr />
+<h3>Scenario D — Ship after June 28 (LAUNCH MOVES)</h3>
+<p><strong>What needs to be true:</strong> Any scenario where Chris can't ship before June 28.<br />
+<strong>UK arrival:</strong> No viable path to July 1, even via air.<br />
+<strong>Launch impact:</strong> July 1 is gone. Earliest realistic new date: July 14-21.<br />
+<strong>Decisions cascade:</strong>
+1. Send waitlist warmup email immediately (built: workspace/docs/modern-savage-waitlist-warmup-2026-04-29.md)
+2. Tell Calvin to hold the Day 1 email sequence — don't start it against an empty shelf
+3. Inform Raemy — Stripe setup and payment processing can still proceed, just delay the email cadence
+4. Notify Bear (if he's in a soft-launch public post by then) — don't announce before product is in hand
+5. Run the manufacturing contingency brief: workspace/docs/modern-savage-manufacturing-contingency-2026-04-25.pdf</p>
+<hr />
+<h3>Scenario E — Chris doesn't respond before Jesse sails (HANDOVER RISK)</h3>
+<p><strong>The problem:</strong> Jesse sails May 7. If Chris hasn't confirmed a ship date by then, this hangs with CJ for two weeks.<br />
+<strong>What CJ needs:</strong> Authority to approve air freight up to a cost limit if ship date comes in late (Scenario C/D).<br />
+<strong>What Jesse should do before May 7:</strong> Tell CJ — "If Chris confirms a ship date of June 14 or later, authorise air freight. Don't wait for me. Cap is £8,000."<br />
+<strong>What Junior has done:</strong> Draft CJ-to-Chris email ready at workspace/docs/draft-cj-lightning-nutra-shipdate-2026-04-29.txt.</p>
+<hr />
+<h2>The Decision Tree (one-page version)</h2>
+<p><code>Chris confirms ship date BEFORE June 7?
+├── YES → Sea freight. Launch July 1. No action needed.
+└── NO
+    ├── June 7-21 → Authorise air freight immediately. Launch July 1 holds.
+    └── After June 21
+        ├── June 22-28 → Air freight, July 1 at risk. Prepare July 14 backup date.
+        └── After June 28 → Launch moves. Send warmup email. Tell Bear to hold posts.</code></p>
+<hr />
+<h2>What Jesse Should Do Before Sailing</h2>
+<ol>
+<li><strong>Tell CJ the air freight threshold</strong>: "If Lightning Nutra ships after June 14, authorise air freight. Cap £8K. Don't wait for me."</li>
+<li><strong>Get Chris to confirm ship date this week</strong>: CJ draft email ready. Should go out May 1 or as soon as CJ sends it.</li>
+<li><strong>Read the contingency brief</strong> if ship date lands in Scenario D: workspace/docs/modern-savage-manufacturing-contingency-2026-04-25.pdf</li>
+</ol>
+<hr />
+<h2>Cost Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Transit time</th>
+<th>Estimated cost (US-UK, ~500kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sea freight (FCL/LCL)</td>
+<td>28-35 days</td>
+<td>£1,500-3,000</td>
+</tr>
+<tr>
+<td>Air freight</td>
+<td>5-8 days</td>
+<td>£4,000-9,000</td>
+</tr>
+<tr>
+<td>Air freight express</td>
+<td>2-3 days</td>
+<td>£10,000+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Estimates only — get actual quote from Ships A Lot or freight forwarder when needed.</em></p>
+<hr />
+<p><em>Built April 29, 2026 by Junior. Non-personal document.</em></p></body></html>
