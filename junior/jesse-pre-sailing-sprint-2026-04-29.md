@@ -118,7 +118,7 @@ The Wildernests launch captions (3 versions, including a Bear companion post) ar
 ---
 
 ### Fat Cow — DONE (April 29)
-Jesse emailed Raemy and Ryan (April 29 13:45): "Raemy meet Ryan on Fat Cow Skincare. I'd love to get a call in for next week for us to chat through our partnership." Ryan confirmed Thursday afternoon works. Call is set. No further action needed before sailing.
+Jesse emailed Raemy and Ryan (April 29 13:45): "Raemy meet Ryan on Fat Cow Skincare. I'd love to get a call in for next week for us to chat through our partnership." Ryan confirmed Thursday afternoon works. **Jesse confirmed May 7 afternoon (April 29)** — call will run before sailing. Jesse + Raemy + Ryan Porter. No further action needed before sailing.
 
 ---
 
