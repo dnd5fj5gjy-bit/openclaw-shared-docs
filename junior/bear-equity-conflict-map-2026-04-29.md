@@ -58,5 +58,5 @@ If the answer is yes to any of the above, confirm the existing contract's exclus
 
 ---
 
-*Source: Jesse's inbox, WhatsApp archives, session intelligence. Some positions (Organised, BMF, Mettle exact terms) marked unclear — verify with CJ or Raemy.*
+*Source: Jesse's inbox, WhatsApp archives, session intelligence, public records. Mettle corrected to CO-FOUNDER (confirmed via Sky News, App Store listings). Organised and BMF exact terms still require CJ/Raemy verification.*
 *Conflict map — workspace/docs/bear-equity-conflict-map-2026-04-29.md*
