@@ -82,6 +82,13 @@ Rick is back from holiday May 5. The Bear Witness invoice to BGSA has a £6,000 
 
 ## Important Before You Leave (no hard deadline, but matters)
 
+### Timing conflict — Alastair Nicolas call
+You told Alastair (April 29 email) "can we speak late next week" — but you sail May 7. Late next week = May 7-9. You will have minimal signal from May 7.
+
+**What to do:** Either move the Alastair call to May 5 or May 6 (last two days before sailing), or send him a follow-up email clarifying you meant the week of May 19. Don't leave him expecting a call that won't happen.
+
+---
+
 ### Alastair Nicolas — Bear Referral
 Bear referred Alastair Nicolas (alastairnicolas2@gmail.com, 07850455447) for the BGV / BMF Battersea community. Alastair said he's available until today (Wednesday) 10am–3pm.
 
