@@ -53,9 +53,9 @@ Stripe cannot be configured without a price. The 170-person waitlist is still wa
 ---
 
 ### By May 6 — Ships A Lot Qwilr Signature
-You said "happy to move forward" April 24. You added Raemy April 27. Tom compiled a 3PL cost analysis (April 28). Raemy was reviewing it April 29. CJ needs this signed before you sail.
+You said "happy to move forward" April 24. Tom compiled a 3PL cost analysis (April 28). **Raemy reviewed it April 29 15:28 and confirmed: "Really comprehensive. In my view, I think those shipping costs are probably quite standard."** That is the green light.
 
-**What to do:** Check with Raemy — "Did you review the Ships A Lot 3PL cost analysis from Tom? Happy to proceed?" Once Raemy gives the green light, sign the Qwilr.
+**What to do:** Sign the Qwilr. Raemy has reviewed, costs are standard. No further check-in needed.
 
 ---
 
