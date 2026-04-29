@@ -148,6 +148,8 @@ Keep it short — he's at sea. Three sentences max: what they want, what they cl
 
 **The Everest Fund angle:** EBG's co-EP credit comes from Sovereign's Capital / Everest Fund investing in Running Wild S9 production. This is a separate financial relationship from the Bear Witness consulting agreement. The argument that a production investment gives commercial rights over all Bear content is a stretch. Jesse and Bear do not accept this interpretation.
 
+**Running Wild S9 ratings — useful context:** S9 premiered April 21 on FOX with a "weak debut" (TV Series Finale, the primary tracker). Episode 2 (Tiffany Haddish) aired April 28. If Ben leans hard on "EBG built the Running Wild audience" or "our Everest Fund investment drove viewership" — the show underperformed on debut. CJ does not need to say this, but should know it. Do not open with it. Only relevant if EBG overstates the production contribution as leverage.
+
 **Bear's position:** "CJ + Bear say EBG has no claim on new deals." Bear has agreed with CJ on this. The May 4 call may include Del (who co-owns The Natural Studios with Bear). Del's position is important — if Del appears aligned with EBG's claims, that's a significant new development.
 
 **Delbert Shoopman:** del@thenaturalstudios.com / ben@thenaturalstudios.com. Natural Studios is Bear's joint venture with Del and Banijay Group. EBG works through The Natural Studios on the production side. Del's relationship with Bear is personal and long-standing. If Del breaks from Ben Simon's position, that weakens EBG's case. Watch which way Del sits.
