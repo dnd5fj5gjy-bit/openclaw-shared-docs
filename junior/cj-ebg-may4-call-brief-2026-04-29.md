@@ -154,6 +154,16 @@ Keep it short — he's at sea. Three sentences max: what they want, what they cl
 
 **Delbert Shoopman:** del@thenaturalstudios.com / ben@thenaturalstudios.com. Natural Studios is Bear's joint venture with Del and Banijay Group. EBG works through The Natural Studios on the production side. Del's relationship with Bear is personal and long-standing. If Del breaks from Ben Simon's position, that weakens EBG's case. Watch which way Del sits.
 
+**EBG's financial picture — why the timing matters now:**
+
+Sovereign's Capital (EBG's backer) manages ~$780M AUM across five asset classes. They are not a distressed fund — they just closed their largest-ever VC fund ($60M+) in July 2024. EBG is not pushing because they are desperate. They are pushing because Everest Fund I specifically generates returns through Bear content licensing, sponsorships, and merchandising. A weak Running Wild S9 debut directly hurts Everest Fund I's performance metrics, which Ben has to justify to his LPs.
+
+Put simply: **EBG is trying to compensate for S9 underperformance by extracting more from Bear's other revenue streams.** This is why the timing is April/May 2026 — right after S9 aired weakly.
+
+One more thing CJ should know: **Ben Simon was previously Chief Commercial Officer at The Natural Studios** — Bear's own joint venture with Del. He has seen Bear's commercial deal flow from the inside. He knows roughly what Bear earns from the Creator Network, brand deals, and social revenue. He is not guessing at numbers. He knows what he's asking for.
+
+**CJ's leverage in this context:** EBG needs Bear to remain cooperative on two fronts: (1) the $25K/month consulting fee is their stable income, and (2) Bear's continued goodwill for future Running Wild seasons is what makes Everest Fund I viable. If EBG pushes too hard and loses the relationship, they lose both. Ben knows this. He is negotiating from commercial interest, not desperation — but he has limits on how hard he can push.
+
 ---
 
 ## The Sentence CJ Should Have Ready
