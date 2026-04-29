@@ -19,7 +19,7 @@ Bear now has equity or exclusivity in enough categories that a new pitch can con
 | **Organised Nutrition** | Jesse handles — Bear's role unclear | Unknown | Potential overlap with Modern Savage — resolve before MS scales |
 | **Wildernests** | Investor | Off-grid/modular homes | Other off-grid home brands, eco-living platforms |
 | **Water2** | 5% equity + 10% quarterly profit share | Smart home water tech | Other water technology or home sustainability brands |
-| **Mettle** | Ambassador/investor | Mental fitness and wellness apps | Any mental health app, mindfulness brand, or coaching platform |
+| **Mettle** | **CO-FOUNDER** (with Neil Smith, ex-TV producer). £2.5M seed raised Nov 2023. Bear on app as coach. | Men's mental fitness — breathwork, meditation, mindfulness. HIGH exclusivity risk. | Any men's mental health app, mindfulness platform, coaching app, or wellness brand targeting men |
 | **BGSA** | License holder (survival education) | Survival education and content | Any survival training brand, bushcraft company, or wilderness skills content deal |
 | **BecomingX** | Equity holder (license stays active post-director resignation) | Personal development content using Bear's IP | Other personal development platforms using Bear's name/brand |
 | **Natural Studios** | 39% JV with Delbert + Banijay Group | TV/film production for Bear content | Content deals outside Natural Studios structure may require Banijay approval |
