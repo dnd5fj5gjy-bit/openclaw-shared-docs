@@ -52,6 +52,10 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 **Ships A Lot Slack invite expiring ~May 8.** Susan U (Ships A Lot) sent invite April 27 for #modern-savage Slack workspace. Standard 11-day expiry = ~May 8. Join before sailing.
 
+**Alastair Nicolas call prep built.** Junior researched BMF Battersea, Alastair's background (@alastair_peakphysique - already doing faith+fitness online), and comparable models (Lord's Gym California that Bear visited, Faith and Fitness London). Bear is BMF co-founder - this is his venue. Brief at workspace/docs/alastair-nicolas-callprep-2026-04-29.md (LOCAL). Key framing: start the call with "Tell me what you're already building" - he leads.
+
+**Organised legal brief sent to CJ.** Jesse's instruction before signing off. PDF sent from junior@beargryllsventures.com to cj@beargryllsventures.com with note that it hasn't been reviewed by Jesse. Jesse reviews Monday, then CJ coordinates with Ignition Law (Tammy/Jack).
+
 ---
 
 ## Daily Log
