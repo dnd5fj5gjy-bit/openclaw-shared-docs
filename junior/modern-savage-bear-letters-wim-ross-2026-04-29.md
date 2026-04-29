@@ -115,9 +115,12 @@
 
 ## Jesse's decision — confirm before May 23
 
-- [ ] Wim Hof letter approved as written / needs changes
-- [ ] Ross Edgley letter approved as written / needs changes
-- [ ] Does Bear have an existing WhatsApp/DM relationship with either? If yes, send digitally first (more personal) and follow with physical package.
-- [ ] Top 5 confirmed (Wim, Gary Brecka, Thomas DeLauer, Ant Middleton, Ross) or swap any out?
+- [ ] Wim Hof letter approved / needs changes
+- [ ] Ross Edgley letter approved / needs changes
+- [ ] Gary Brecka letter approved / needs changes
+- [ ] Thomas DeLauer letter approved / needs changes
+- [ ] Ant Middleton letter approved / needs changes
+- [ ] Does Bear have an existing WhatsApp/DM with any of the top 5? If yes, send digitally first, follow with physical package.
+- [ ] Top 5 confirmed (Wim, Gary Brecka, Thomas DeLauer, Ant Middleton, Ross) or swap any?
 
-*Built April 29, 2026 by Junior. Reference seeding brief at workspace/docs/modern-savage-influencer-seeding-2026-04-28.pdf.*
+*Built April 29, 2026 by Junior. Updated April 29: Gary Brecka, Thomas DeLauer, and Ant Middleton letters added — all top 5 now complete. Reference seeding brief at workspace/docs/modern-savage-influencer-seeding-2026-04-28.pdf.*
