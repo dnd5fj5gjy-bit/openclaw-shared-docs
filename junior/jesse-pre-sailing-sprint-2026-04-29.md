@@ -89,6 +89,13 @@ Bear referred Alastair Nicolas (alastairnicolas2@gmail.com, 07850455447) for the
 
 ---
 
+### May 5 Coffee — Alfred Pitch (Tom Inskip)
+Both issues have been fixed on the live pitch site (bearwitness-x-alfred.netlify.app): "Alice" placeholder removed, "Costco for your home" analogy removed. Walk in confident — the site is clean.
+
+Alice Driscoll will be there as facilitator. Alice organized the Henri-Lloyd deal and knows both you and Tom. She's not Alfred team — she's the connector. Treat the session as meeting 3: Tom needs to leave with a clear next step agreed.
+
+---
+
 ### Calvin Modern Savage SOW — Three Decisions
 The SOW draft is at workspace/docs/calvin-modern-savage-sow-draft-2026-04-28.pdf. Three things to decide before the end of May 26 (after you're back), but worth thinking about now:
 1. Start date: June 1 as drafted, or May 1 with £1,500 setup fee?
