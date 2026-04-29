@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — GP Referral Pack</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: #fafaf8;
+    color: #1a1a1a;
+    line-height: 1.65;
+  }
+  .page-break { page-break-after: always; margin-bottom: 60px; padding-bottom: 40px; border-bottom: 2px solid #e5e5e5; }
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+  h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin-top: 36px; margin-bottom: 10px; color: #111; border-bottom: 1px solid #e5e5e5; padding-bottom: 6px; }
+  h3 { font-size: 0.95rem; font-weight: 700; margin-top: 20px; margin-bottom: 6px; color: #222; }
+  p { margin-bottom: 14px; }
+  .meta { font-size: 0.78rem; color: #888; margin-bottom: 28px; }
+  .lede { font-size: 1.05rem; color: #444; margin-bottom: 28px; line-height: 1.6; }
+  .callout {
+    background: #f0f4ff;
+    border-left: 3px solid #3b5bdb;
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+  }
+  .callout.green { background: #f0fff4; border-left-color: #2f9e44; }
+  .callout.amber { background: #fffbf0; border-left-color: #e67700; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  th { background: #f5f5f3; text-align: left; padding: 8px 12px; font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+  td { padding: 8px 12px; border-bottom: 1px solid #ebebeb; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  ul, ol { padding-left: 20px; margin-bottom: 14px; }
+  li { margin-bottom: 6px; }
+  .letter-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 32px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #1a1a1a;
+  }
+  .letter-box .letterhead {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  .letter-box .clinic-name { font-size: 1.2rem; font-weight: 700; color: #1a1a1a; }
+  .letter-box .clinic-details { font-size: 0.78rem; color: #666; margin-top: 4px; line-height: 1.5; }
+  .letter-box .date-block { text-align: right; font-size: 0.85rem; color: #666; }
+  .placeholder { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-style: italic; color: #856404; }
+  .doc-header {
+    background: #1a1a2e;
+    color: white;
+    padding: 24px 28px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+  }
+  .doc-header .doc-title { font-size: 1.4rem; font-weight: 700; }
+  .doc-header .doc-sub { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+  .contents { background: #f5f5f3; border-radius: 8px; padding: 20px 24px; margin-bottom: 40px; }
+  .contents h3 { margin-top: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
+  .contents ol { margin: 0; padding-left: 20px; }
+  .contents li { font-size: 0.9rem; margin-bottom: 4px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e5e5; font-size: 0.75rem; color: #999; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
+  .badge-blue { background: #dbeafe; color: #1d4ed8; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  @media print {
+    .page-break { page-break-after: always; }
+    body { background: white; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page-break">
+
+<div class="doc-header">
+  <div class="doc-title">Ted's Health — GP Referral Pack</div>
+  <div class="doc-sub">Three documents for GP practices · Ready to send or print</div>
+</div>
+
+<div class="meta">Prepared by Nexus · April 2026 · For use by Ted's Health clinical team</div>
+
+<p class="lede">This pack gives you everything needed to begin building a GP referral network — the single highest-moat patient acquisition channel available in the UK private TRT market. Most competitors are fighting for the same digital audience. Almost nobody is working the GP channel.</p>
+
+<div class="contents">
+  <h3>What's in this pack</h3>
+  <ol>
+    <li><strong>Document 1 — GP Practice Brief</strong> — One-page clinical summary to send or hand to practice managers. Explains who Ted's Health is, what it treats, and why GPs should refer.</li>
+    <li><strong>Document 2 — Patient Referral Letter Template</strong> — A ready-to-use letter GPs can personalise in under a minute. Removes friction from the referral decision.</li>
+    <li><strong>Document 3 — GP Feedback Report Template</strong> — The report Ted's Health sends back to the referring GP after each patient's initial consultation. Closes the loop and builds trust.</li>
+  </ol>
+</div>
+
+<h2>How to use this pack</h2>
+
+<h3>Step 1 — Identify target practices</h3>
+<p>Map every GP practice within 15 miles of Ted's Health's clinic. Prioritise practices with higher list sizes and those in areas with above-average male 30-60 demographics (typically suburban and commuter belt areas). A list of 30-50 practices is a manageable initial target.</p>
+
+<h3>Step 2 — Initial outreach</h3>
+<p>Send Document 1 (the GP Practice Brief) by post, addressed to the Practice Manager, from Ted's clinical director. Follow up by phone 7-10 days later — not to sell, but to offer to answer clinical questions and ask whether they'd like a short conversation. A 10-minute phone call with the practice manager or lead GP is the goal, not an immediate referral commitment.</p>
+
+<div class="callout amber">
+  <strong>Note on cold email:</strong> Email is easy to ignore. A physical letter on headed notepaper gets opened. Post Document 1 first, then follow up digitally. For GDPR compliance, don't send unsolicited marketing emails to individual GPs — postal outreach to practice addresses is fine.
+</div>
+
+<h3>Step 3 — Make the referral process frictionless</h3>
+<p>The biggest barrier to GP referrals isn't willingness — it's the time cost of writing a referral letter. Document 2 (the referral letter template) removes that barrier entirely. Make it available as a Word document that GPs can download from your website, or offer to email it on request.</p>
+
+<h3>Step 4 — Close the loop</h3>
+<p>Send Document 3 (the GP feedback report) within 5 working days of each referred patient's first consultation. GPs hate referring into black boxes. A brief, professional summary back to the referring doctor is what turns a one-off referral into a long-term referring relationship.</p>
+
+<div class="callout green">
+  <strong>The compound effect:</strong> One GP who refers 3-4 patients per month is worth more than most paid search campaigns — and those patients arrive pre-qualified, trusting the clinic their doctor recommended. GPs also talk to each other: one good relationship can seed others.
+</div>
+
+</div>
+<!-- END COVER -->
+
+
+<!-- DOCUMENT 1: GP PRACTICE BRIEF -->
+<div class="page-break">
+
+<div class="section-label">Document 1 of 3</div>
+<h1>Ted's Health: Private Testosterone Therapy</h1>
+<p class="meta">Clinical summary for GP practices · 1 page · ted's health | [clinic address]</p>
+
+<h2>About Ted's Health</h2>
+<p>Ted's Health is a UK private clinic specialising in testosterone replacement therapy (TRT) for men. We are a regulated private provider with GMC-registered prescribers. Our clinical team has experience in testosterone deficiency assessment, personalised TRT protocols, and ongoing monitoring.</p>
+
+<p>We work alongside NHS primary care — not to replace it. For your patients who fall outside NHS eligibility criteria, or who face lengthy NHS waiting times, we offer a direct route to assessment and treatment.</p>
+
+<h2>Why GPs refer to us</h2>
+
+<table>
+  <tr>
+    <th>The NHS problem</th>
+    <th>What Ted's Health offers</th>
+  </tr>
+  <tr>
+    <td>NHS eligibility threshold typically &lt;8 nmol/L total testosterone — many symptomatic men don't qualify</td>
+    <td>We treat symptomatic men with testosterone &lt;15 nmol/L, in line with BSSM guidance</td>
+  </tr>
+  <tr>
+    <td>NHS endocrinology referral wait: 6-12 months in most trusts</td>
+    <td>Initial consultation within 1-2 weeks; treatment started within 3 weeks if indicated</td>
+  </tr>
+  <tr>
+    <td>GP left with symptomatic patient, no good referral pathway</td>
+    <td>Simple referral process; feedback report sent back to GP within 5 working days</td>
+  </tr>
+</table>
+
+<h2>Who we treat</h2>
+<p>Adult men (18+) with symptoms consistent with testosterone deficiency, including:</p>
+<ul>
+  <li>Fatigue, reduced energy, poor sleep quality</li>
+  <li>Reduced libido and sexual dysfunction</li>
+  <li>Mood changes, low motivation, poor concentration</li>
+  <li>Reduced muscle mass, increased adiposity</li>
+  <li>Morning testosterone &lt;15 nmol/L on two separate tests, with symptoms</li>
+</ul>
+
+<h2>Our clinical process</h2>
+<ol>
+  <li><strong>Initial consultation</strong> — Full symptom assessment, review of existing bloods or new blood panel if required</li>
+  <li><strong>Shared decision-making</strong> — Treatment options discussed; patient chooses injection, gel, or other protocol</li>
+  <li><strong>Treatment initiation</strong> — Supervised by GMC-registered prescriber</li>
+  <li><strong>Monitoring</strong> — Regular bloods (testosterone, haematocrit, PSA, LH/FSH) per BSSM guidelines; GP kept informed</li>
+</ol>
+
+<div class="callout">
+  <strong>We will always write back.</strong> Every patient referred to Ted's Health receives a consultation summary report, sent to the referring GP within 5 working days. We are always contactable if you have clinical questions about a patient.
+</div>
+
+<h2>How to refer</h2>
+<p>Patients can self-refer, or you can send a brief referral letter to <span class="placeholder">[referrals@tedshealth.co.uk]</span>. We provide a referral letter template on request — it takes under a minute to complete. Alternatively, patients can book directly at <span class="placeholder">[website URL]</span> and mention their GP's name.</p>
+
+<p><strong>Clinical queries:</strong> <span class="placeholder">[clinical director name]</span>, Clinical Director — <span class="placeholder">[phone / email]</span></p>
+
+</div>
+<!-- END DOCUMENT 1 -->
+
+
+<!-- DOCUMENT 2: REFERRAL LETTER TEMPLATE -->
+<div class="page-break">
+
+<div class="section-label">Document 2 of 3 — for GPs to use</div>
+<h1>Patient Referral Letter Template</h1>
+<p class="meta">Provide this to GP practices as a Word document or paste it into an email. Fields in <span class="badge badge-blue">brackets</span> are for the GP to complete.</p>
+
+<br>
+
+<div class="letter-box">
+
+  <div class="letterhead">
+    <div>
+      <div class="clinic-name"><span class="placeholder">[GP Practice Name]</span></div>
+      <div class="clinic-details">
+        <span class="placeholder">[Practice Address, Line 1]</span><br>
+        <span class="placeholder">[Town, Postcode]</span><br>
+        Tel: <span class="placeholder">[Practice phone]</span>
+      </div>
+    </div>
+    <div class="date-block">
+      <span class="placeholder">[Date]</span>
+    </div>
+  </div>
+
+  <p><strong>Private &amp; Confidential</strong></p>
+
+  <p>
+    Ted's Health Clinical Team<br>
+    <span class="placeholder">[Ted's Health address]</span><br>
+    <span class="placeholder">[referrals@tedshealth.co.uk]</span>
+  </p>
+
+  <p>Dear Colleague,</p>
+
+  <p><strong>Re: <span class="placeholder">[Patient full name]</span>, DOB <span class="placeholder">[DD/MM/YYYY]</span>, NHS number <span class="placeholder">[if available]</span></strong></p>
+
+  <p>I would be grateful for your assessment and management of the above patient, who presents with symptoms consistent with testosterone deficiency. I am referring privately as the patient does not currently meet NHS threshold criteria / prefers not to wait for NHS assessment. <em>[Delete as appropriate.]</em></p>
+
+  <p><strong>Presenting symptoms:</strong><br>
+  <span class="placeholder">[Brief description — e.g. "fatigue, reduced libido, mood changes over 18 months"]</span></p>
+
+  <p><strong>Relevant history:</strong><br>
+  <span class="placeholder">[Relevant medical history, medications, contraindications if any]</span></p>
+
+  <p><strong>Recent testosterone results:</strong><br>
+  <span class="placeholder">[Morning testosterone result(s) with dates, if available. If no recent bloods: "No recent testosterone bloods — patient happy for new panel to be arranged."]</span></p>
+
+  <p><strong>Current medications:</strong><br>
+  <span class="placeholder">[List or "None of note"]</span></p>
+
+  <p>I am happy to be contacted if you require any further information. Please copy me into any correspondence regarding this patient's ongoing management.</p>
+
+  <p>Yours sincerely,</p>
+
+  <p>
+    <span class="placeholder">[GP Name]</span><br>
+    <span class="placeholder">[GMC Number]</span><br>
+    <span class="placeholder">[GP Practice Name]</span>
+  </p>
+
+</div>
+
+<br>
+<div class="callout">
+  <strong>For Ted's Health team:</strong> This template should be provided as a downloadable .docx file from your website referrals page, and emailed to any GP practice that expresses interest. The goal is that completing a referral takes the GP under 90 seconds.
+</div>
+
+</div>
+<!-- END DOCUMENT 2 -->
+
+
+<!-- DOCUMENT 3: GP FEEDBACK REPORT TEMPLATE -->
+<div class="page-break">
+
+<div class="section-label">Document 3 of 3 — for Ted's Health to send to GPs</div>
+<h1>Post-Consultation Feedback Report Template</h1>
+<p class="meta">Send this to the referring GP within 5 working days of the patient's initial consultation. It is the most important trust-building action in a GP referral relationship.</p>
+
+<br>
+
+<div class="letter-box">
+
+  <div class="letterhead">
+    <div>
+      <div class="clinic-name">Ted's Health</div>
+      <div class="clinic-details">
+        <span class="placeholder">[Clinic address]</span><br>
+        <span class="placeholder">[Phone]</span> · <span class="placeholder">[referrals@tedshealth.co.uk]</span>
+      </div>
+    </div>
+    <div class="date-block">
+      <span class="placeholder">[Date of letter]</span>
+    </div>
+  </div>
+
+  <p><strong>Private &amp; Confidential</strong></p>
+
+  <p>
+    <span class="placeholder">[GP Name]</span><br>
+    <span class="placeholder">[GP Practice Name]</span><br>
+    <span class="placeholder">[Practice Address]</span>
+  </p>
+
+  <p>Dear Dr <span class="placeholder">[Surname]</span>,</p>
+
+  <p><strong>Re: Consultation Report — <span class="placeholder">[Patient full name]</span>, DOB <span class="placeholder">[DD/MM/YYYY]</span></strong></p>
+
+  <p>Thank you for referring the above patient to Ted's Health. I write to update you following his initial consultation on <span class="placeholder">[date]</span>.</p>
+
+  <p><strong>Assessment summary:</strong><br>
+  <span class="placeholder">[Patient name]</span> attended for full testosterone deficiency assessment. He reported <span class="placeholder">[key symptoms]</span> with a duration of approximately <span class="placeholder">[timeframe]</span>.</p>
+
+  <p><strong>Investigations:</strong></p>
+  <ul>
+    <li>Morning total testosterone: <span class="placeholder">[X.X nmol/L]</span> (<span class="placeholder">[date]</span>)</li>
+    <li>SHBG: <span class="placeholder">[result or "pending"]</span></li>
+    <li>LH / FSH: <span class="placeholder">[results or "pending"]</span></li>
+    <li>Haematocrit: <span class="placeholder">[result or "pending"]</span></li>
+    <li>PSA: <span class="placeholder">[result or "not indicated / result]</span></li>
+  </ul>
+
+  <p><strong>Clinical decision:</strong><br>
+  <span class="placeholder">[One of: "Following assessment, testosterone deficiency was confirmed and treatment has been initiated." / "Following assessment, testosterone levels were within normal range and symptoms are most likely attributable to [alternative]. TRT was not indicated at this time and the patient has been advised accordingly." / "Borderline results — patient is being monitored with repeat bloods in 8 weeks before a treatment decision is made."]</span></p>
+
+  <p><strong>Treatment initiated (if applicable):</strong><br>
+  <span class="placeholder">[e.g. "Sustanon 250mg intramuscular injection every 3 weeks, with 6-week review." / "Testogel 50mg daily." / "N/A — treatment not indicated."]</span></p>
+
+  <p><strong>Monitoring plan:</strong><br>
+  The patient will be reviewed at <span class="placeholder">[6 / 12 weeks]</span> with repeat bloods including testosterone, haematocrit, and PSA. We will continue to manage the patient's TRT and will copy you into monitoring reports. We do not anticipate any changes to his primary care management, but please do not hesitate to contact us if you have any questions.</p>
+
+  <p><strong>Actions for primary care:</strong><br>
+  <span class="placeholder">[Usually "None" or "Please record TRT initiation in patient records" or "Please monitor blood pressure at next routine appointment."]</span></p>
+
+  <p>Thank you again for this referral. We very much welcome your ongoing support and are always available to discuss any patient you are considering referring.</p>
+
+  <p>Yours sincerely,</p>
+
+  <p>
+    <span class="placeholder">[Prescribing clinician name]</span><br>
+    <span class="placeholder">[GMC Number]</span><br>
+    Clinical Director, Ted's Health<br>
+    <span class="placeholder">[Direct email / phone]</span>
+  </p>
+
+</div>
+
+<br>
+<div class="callout green">
+  <strong>Why this report matters:</strong> Most private clinics never send anything back to the referring GP. This report does three things: (1) keeps the GP clinically informed and legally covered, (2) demonstrates that Ted's Health is a professional clinical partner, not just a dispensary, and (3) makes the GP far more likely to refer again. It takes your team 5 minutes to complete and compound over time into the most reliable patient acquisition channel you have.
+</div>
+
+</div>
+<!-- END DOCUMENT 3 -->
+
+
+<!-- IMPLEMENTATION NOTES -->
+<div>
+<div class="section-label">Implementation notes</div>
+<h1>Making This Work</h1>
+
+<h2>First 30 days: targeting</h2>
+<p>Start with 20-30 GP practices within a 10-mile radius. Focus on practices with online profiles that mention male health, men's health clinics, or testosterone — GPs who already see this patient type are far more receptive. Use NHS Digital's practice finder to get practice contact details.</p>
+
+<h2>What to say when you call</h2>
+<p>Don't pitch. Ask. "We've sent a clinical brief about our testosterone clinic and wanted to check whether it arrived and whether [clinician name] or your practice manager had any questions." If the answer is no: "Would it be useful if I sent over our referral letter template so you have it on file?" If the answer is yes: send Document 2 and follow up with a thank you.</p>
+
+<h2>Tracking</h2>
+<p>Keep a simple spreadsheet: practice name, contact name, date of first outreach, response, first referral date. After 60 days, you'll have a clear picture of which practices are active referrers and which aren't worth further time investment.</p>
+
+<h2>Compounding the relationship</h2>
+<p>After the first referral from a practice, send a handwritten note (or at minimum a personalised email) to the GP thanking them. At 3 months, share a brief aggregate update: "We've now seen 5 patients referred from your practice — average testosterone on presentation was X nmol/L, all are responding well to treatment." GPs appreciate feedback loops. This is what turns a trial referral into a long-term channel.</p>
+
+<h2>The numbers</h2>
+<p>Ted's Health needs 128 more patients to reach breakeven. A conservative GP referral channel — 5 active referring practices each sending 2 patients per month — delivers 10 patients/month from this channel alone. At that rate, 13 months to fill the gap from GP referrals only. But referral rates compound as trust builds; the real payoff is 18-24 months in, when GPs are defaulting to Ted's for testosterone queries without being asked.</p>
+
+<div class="footer">
+  GP Referral Pack prepared by Nexus · Ted's Health · April 2026<br>
+  Documents 1-3 are templates — [bracketed fields] require completion by Ted's Health clinical team before use.<br>
+  All clinical thresholds and guideline references accurate as of April 2026 per BSSM guidelines.
+</div>
+</div>
+
+</body>
+</html>
