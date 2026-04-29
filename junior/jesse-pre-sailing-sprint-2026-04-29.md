@@ -74,7 +74,7 @@ Bear needs to know four things before you lose signal: EBG call (CJ covers), Bec
 ---
 
 ### By May 5 — Rick Landman Callback
-Rick is back from holiday May 5. The Bear Witness invoice to BGSA has a £6,000 payment held pending a 30-second bank verification call: +447624277888.
+Rick is back from holiday May 5. The Bear Witness invoice to BGSA has a £6,000 payment held pending a 30-second bank verification call: +447624277888. Context: the invoice is being issued to MEL Entertainment Ltd (10-11 Innovation Place, Godalming, Surrey GU7 1JX) — Alastair McEwan-Smith is the contact there. Raemy has briefed Cavendish Trust (Shaun Corris) that this is a marketing one-off. The only hold is the bank verification callback.
 
 **What to do:** Call Rick between May 5 and May 6. Window closes when you sail.
 
