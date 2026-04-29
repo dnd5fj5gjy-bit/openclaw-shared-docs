@@ -142,6 +142,8 @@ Both issues have been fixed on the live pitch site (bearwitness-x-alfred.netlify
 
 Alice Driscoll will be there as facilitator. Alice organized the Henri-Lloyd deal and knows both you and Tom. She's not Alfred team — she's the connector. Treat the session as meeting 3: Tom needs to leave with a clear next step agreed.
 
+**Meeting 3 brief built:** workspace/docs/alfred-may5-brief-2026-04-29.md (LOCAL). Covers Tom's profile as a decision-maker, the one sentence to land the close, how to handle the audience fit question, and what "good" looks like at the end of the coffee. Read before you walk in.
+
 ---
 
 ### Calvin Modern Savage SOW — Three Decisions
