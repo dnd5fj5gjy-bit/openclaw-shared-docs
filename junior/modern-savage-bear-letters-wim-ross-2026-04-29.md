@@ -40,7 +40,55 @@
 
 ---
 
-## Template Letter (for the other 18 — Calvin uses this)
+## LETTER 3 — Gary Brecka
+
+> Hey Gary —
+>
+> You've spent your career arguing that the body knows what it needs — and that modern nutrition has spent fifty years removing it from the equation and selling synthetic replacements back. I agree with you completely.
+>
+> I've built a product called Modern Savage. Whole organs — heart, liver, kidney, adrenal — freeze-dried, nothing synthetic, nothing added. The argument is simple: before supplements existed, humans ate the whole animal. They prized the organs. The bioavailability is what modern nutrition has been trying to replicate with methylated vitamins and chelated minerals — and has never fully managed.
+>
+> You understand this better than almost anyone with a platform right now. The organ tissue contains the co-factors, the fat-soluble vitamins, the trace minerals in the forms the body actually recognises. Not isolated. Not synthesised. Whole.
+>
+> Sending you three months' supply. If it's worth telling your audience about, I'd be grateful. If it doesn't fit, no obligation.
+>
+> Bear
+
+---
+
+## LETTER 4 — Thomas DeLauer
+
+> Hey Thomas —
+>
+> I've been watching your work for a while. You went from struggling personally to becoming one of the most credible voices on performance nutrition. That journey — and the rigour you bring to it — is why I'm sending this.
+>
+> I've built something called Modern Savage. The premise is that the missing piece in the performance nutrition conversation isn't another amino acid profile or protein isolate — it's organ meat. Heart, liver, kidney, adrenal. Freeze-dried, whole, nothing synthetic.
+>
+> The nutrient density argument is your argument. Vitamins A, D, K2, B12, CoQ10, copper, selenium — in the forms the body evolved to process. Not isolated. Not labelled as "equivalent to." The real thing.
+>
+> Sending you three months. If it lands, I'd love to know what you think. No obligation if it doesn't fit.
+>
+> Bear
+
+---
+
+## LETTER 5 — Ant Middleton
+
+> Ant —
+>
+> Two men from the same world. Same training. Same ethos. I know what it takes to get through mornings that would break most people — and I know what you put in your body matters more than most people want to admit.
+>
+> I've built something called Modern Savage. Not another protein powder. Not another creatine stack. Organ nutrition — heart, kidney, liver, adrenal — the way soldiers and extreme athletes fuelled themselves for centuries before supplements existed. Freeze-dried. Whole. Nothing added.
+>
+> I take it every morning before anything hard. Thirty seconds. No taste. No ceremony.
+>
+> Sending you three months. Try it on your terms. If it's worth telling people about, brilliant. If not, I get it.
+>
+> Bear
+
+---
+
+## Template Letter (for the other 15 — Calvin uses this)
 
 > Hey [Name] —
 >
