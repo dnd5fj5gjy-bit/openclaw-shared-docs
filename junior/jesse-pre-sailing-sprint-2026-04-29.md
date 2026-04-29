@@ -89,6 +89,13 @@ Bear referred Alastair Nicolas (alastairnicolas2@gmail.com, 07850455447) for the
 
 ---
 
+### Before May 7 — Ben Mobley Budget Check (La Vie En Rose)
+Ben sent a full April 29 WhatsApp update: boat prep going well (wind generator done, safety kit bought, Jackie cleaning interior), but he flagged "funds are getting tight now" with daily marine store spending (rope, wire, junction boxes, shackles, conduit). He'll send an account update end of the week. He also asked: "do you have any update on the delivery for the outboard?"
+
+**What to do:** (1) When Ben sends the account update, review and top up his float before you leave — don't let him be cash-constrained in the final week of prep. (2) Answer his outboard delivery question.
+
+---
+
 ### Before May 7 — Fix Metricool Approver Settings
 There are 7+ Metricool review requests in your inbox right now (posts for April 29, April 30, May 5). During the sailing window, review requests go to YOU by email — but you'll have limited signal. If you're set as the sole approver, Calvin's posts will sit unreviewed and miss their windows.
 
