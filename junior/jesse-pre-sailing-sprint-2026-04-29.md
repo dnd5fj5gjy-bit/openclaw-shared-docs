@@ -21,6 +21,20 @@ FOX sent social assets (videos + photos) for the MGK Running Wild episode (airs 
 
 ---
 
+### By May 3 — Bear EBG Alignment WhatsApp
+EBG's May 4 call is CJ's to manage. But before CJ walks in, you need to know Bear's actual position: did he ever tell Ben Simon that EBG should get Creator Network economics? If Bear said something that created an expectation, CJ needs to know before the call.
+
+**What to do:** Send Bear the two-question WhatsApp. Draft is ready at workspace/docs/draft-bear-ebg-whatsapp-2026-04-29.txt. Send before May 3.
+
+---
+
+### By May 4 — Forward CJ the EBG Call Brief
+CJ is covering the May 4 EBG Zoom in your place. The brief covers what EBG will push for, exact phrases CJ can and cannot say, and what to report back. It's LOCAL (confidential intel about EBG's internal position), so send as a file, not a link.
+
+**What to do:** Forward workspace/docs/cj-ebg-may4-call-brief-2026-04-29.pdf to CJ directly, before May 4 at 15:00 UK.
+
+---
+
 ### By May 5 — Bear IG Pre-Launch Arc
 Ten posts across four phases are staged. Phase 1 (May 1–21) is supposed to run while you sail — Olly executes. If Olly is still recovering from surgery, someone else needs the brief.
 
