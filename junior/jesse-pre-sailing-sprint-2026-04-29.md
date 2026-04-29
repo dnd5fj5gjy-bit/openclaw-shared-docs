@@ -89,6 +89,13 @@ Bear referred Alastair Nicolas (alastairnicolas2@gmail.com, 07850455447) for the
 
 ---
 
+### Before May 7 — Fix Metricool Approver Settings
+There are 7+ Metricool review requests in your inbox right now (posts for April 29, April 30, May 5). During the sailing window, review requests go to YOU by email — but you'll have limited signal. If you're set as the sole approver, Calvin's posts will sit unreviewed and miss their windows.
+
+**What to do:** Log into Metricool, go to the @beargrylls account settings, add Olly Westmacott (olly@beargryllsventures.com) or CJ Cardenas (CJ@beargryllsventures.com) as a reviewer/approver. 5 minutes. Without this, even the MGK episode posts could miss the May 5 window.
+
+---
+
 ### Before May 7 — Confirm Wildernests Launch Date with Alex Aboshiha
 The Wildernests launch captions (3 versions, including a Bear companion post) are ready at workspace/docs/wildernests-launch-caption-2026-04-29.pdf. But they only work if the May 19-21 reveal is confirmed. The date has not been confirmed in writing anywhere in your email.
 
