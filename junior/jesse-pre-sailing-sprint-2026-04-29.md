@@ -119,6 +119,8 @@ Title options:
 3. First Sail, First Docking, First Voyage | Jesse Grylls
 4. Our Expedition Boat Finally Hits The Water | Jesse Grylls
 
+**Junior's recommendation:** Option 4 — "Our Expedition Boat Finally Hits The Water | Jesse Grylls." "Expedition boat" is keyword-strong, sets up the Greenland narrative, and signals adventure content to Bear's audience. Option 3 ("First Sail, First Docking, First Voyage") is the clean alternative if you want the serial feel.
+
 **What to do:** Reply in BG Main Content Team WhatsApp with your chosen title. If you want to tweak the description, say so. If you don't reply, the video sits unscheduled.
 
 ---
