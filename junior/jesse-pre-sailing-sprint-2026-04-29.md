@@ -62,7 +62,7 @@ You said "happy to move forward" April 24. You added Raemy April 27. Tom compile
 ### By May 6 — Forward Bear Social Coverage Brief to Olly (or CJ)
 Olly Westmacott (or CJ if Olly isn't back) needs to know what Bear is allowed to post May 7-21, the Running Wild toolkit process, and the Modern Savage Phase 1 approval rules. The brief is published and ready.
 
-**What to do:** Forward https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/junior/bear-social-coverage-may7-21-2026-04-29.html to Olly. If Olly is still in hospital, send it to CJ and say "Olly is backup, but you're primary if he's not back."
+**What to do:** Forward https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/junior/bear-social-coverage-may7-21-2026-04-29.html to Olly. He is confirmed operational — back submitting briefs and directing KU Creatives as of April 28. Send directly to him. Also add him as approver in Metricool (see next item).
 
 ---
 
