@@ -53,9 +53,23 @@ Stripe cannot be configured without a price. The 170-person waitlist is still wa
 ---
 
 ### By May 6 — Ships A Lot Qwilr Signature
-You said "happy to move forward" April 24. The Qwilr is still unsigned. CJ needs this to proceed with influencer seeding and dispatch planning.
+You said "happy to move forward" April 24. You added Raemy April 27. Tom compiled a 3PL cost analysis (April 28). Raemy was reviewing it April 29. CJ needs this signed before you sail.
 
-**What to do:** Sign the Qwilr. 2 minutes.
+**What to do:** Check with Raemy — "Did you review the Ships A Lot 3PL cost analysis from Tom? Happy to proceed?" Once Raemy gives the green light, sign the Qwilr.
+
+---
+
+### By May 6 — Forward Bear Social Coverage Brief to Olly (or CJ)
+Olly Westmacott (or CJ if Olly isn't back) needs to know what Bear is allowed to post May 7-21, the Running Wild toolkit process, and the Modern Savage Phase 1 approval rules. The brief is published and ready.
+
+**What to do:** Forward https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/junior/bear-social-coverage-may7-21-2026-04-29.html to Olly. If Olly is still in hospital, send it to CJ and say "Olly is backup, but you're primary if he's not back."
+
+---
+
+### May 6 — Send Bear the Pre-Sailing WhatsApp
+Bear needs to know four things before you lose signal: EBG call (CJ covers), BecomingX TM01 status, BPS George Musgrave thread (don't engage), Wildernests launch caption. Draft is ready.
+
+**What to do:** Send workspace/docs/draft-jesse-bear-presailing-whatsapp-2026-04-29.txt to Bear on the evening of May 6. Send AFTER the EBG alignment WhatsApp (the two-question one) has gone.
 
 ---
 
