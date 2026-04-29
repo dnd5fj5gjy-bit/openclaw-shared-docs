@@ -103,6 +103,19 @@ The Wildernests launch captions (3 versions, including a Bear companion post) ar
 
 ---
 
+### Before May 5 — YouTube Title for Sailing Video Ep 8
+Dhika (BG Main Content Team) messaged April 29 with 4 title options and a full description for the Southampton-to-Cowes first sail video. Pick one and reply to the group.
+
+Title options:
+1. Jesse Grylls Takes His Boat Out For The First Time
+2. We Sailed From Southampton To Cowes On Our First Ever Voyage | Jesse Grylls
+3. First Sail, First Docking, First Voyage | Jesse Grylls
+4. Our Expedition Boat Finally Hits The Water | Jesse Grylls
+
+**What to do:** Reply in BG Main Content Team WhatsApp with your chosen title. If you want to tweak the description, say so. If you don't reply, the video sits unscheduled.
+
+---
+
 ### May 5 Coffee — Alfred Pitch (Tom Inskip)
 Both issues have been fixed on the live pitch site (bearwitness-x-alfred.netlify.app): "Alice" placeholder removed, "Costco for your home" analogy removed. Walk in confident — the site is clean.
 
