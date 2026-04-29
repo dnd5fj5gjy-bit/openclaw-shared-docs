@@ -89,6 +89,13 @@ Bear referred Alastair Nicolas (alastairnicolas2@gmail.com, 07850455447) for the
 
 ---
 
+### Before May 7 — Confirm Wildernests Launch Date with Alex Aboshiha
+The Wildernests launch captions (3 versions, including a Bear companion post) are ready at workspace/docs/wildernests-launch-caption-2026-04-29.pdf. But they only work if the May 19-21 reveal is confirmed. The date has not been confirmed in writing anywhere in your email.
+
+**What to do:** Message Alex Aboshiha before sailing. Draft is at workspace/docs/draft-jesse-alex-wildernests-launch-2026-04-29.txt. One message, 30 seconds. If he says the launch moved, update Point 4 of the Bear pre-sailing WhatsApp accordingly.
+
+---
+
 ### May 5 Coffee — Alfred Pitch (Tom Inskip)
 Both issues have been fixed on the live pitch site (bearwitness-x-alfred.netlify.app): "Alice" placeholder removed, "Costco for your home" analogy removed. Walk in confident — the site is clean.
 
