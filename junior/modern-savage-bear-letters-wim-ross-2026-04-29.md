@@ -1,7 +1,7 @@
 # Modern Savage — Bear's Personal Letters
 **For:** Jesse to review, approve, and pass to Calvin for printing
 **Use by:** May 23 (influencer seeding dispatch)
-**Two letters:** Wim Hof + Ross Edgley (the two who warrant personal notes, not templates)
+**Five letters:** Wim Hof, Ross Edgley, Gary Brecka, Thomas DeLauer, Ant Middleton — all top 5 now have personal letters
 **Note:** These are handwritten-style — Calvin prints on quality card, Bear signs. Or Bear sends as a direct WhatsApp/DM if relationship allows.
 
 ---
