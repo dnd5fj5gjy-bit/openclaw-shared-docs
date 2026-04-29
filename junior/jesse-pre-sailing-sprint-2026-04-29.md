@@ -1,7 +1,9 @@
 # Pre-Sailing Sprint — Jesse
-**Deadline:** May 7 (sailing day)
+**Deadline:** May 7 (sailing day - morning departure)
 **Built:** April 29, 2026 by Junior
 **Purpose:** Everything that needs to happen before you leave. After this, the May 21 return brief takes over.
+
+**CONNECTIVITY NOTE (April 29):** Jesse has Starlink WiFi on Leviosa. Not a signal blackout — reachable mid-voyage for urgent decisions. Calls confirmed May 7 afternoon on the water (Carson 2pm, Fat Cow 3pm). Pre-sailing tasks below still valid — easier to action before sailing than from the boat.
 
 ---
 
