@@ -44,6 +44,16 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 ---
 
+## Discoveries Made While Jesse Was Away
+
+**MODERN SAVAGE UK trademark — ACCEPTED.** Not an objection letter. Junior read the IPO PDF. Mark passed examination in 9 days (Classes 5, 29), now entering 2-month opposition window. No deadline, no action needed. The "URGENT" flag that was in the return brief was wrong — corrected.
+
+**Alastair Nicolas — BMF faith community.** Jesse cold-messaged Alastair on Instagram (Bear personally recommended him) about building a faith-forward community at the BMF gym at Battersea Power Station. Jesse said "I'm really excited to chat this through." Alastair has been waiting since April 27. Call window is May 5-6 only before sailing. His number: 07850455447.
+
+**Ships A Lot Slack invite expiring ~May 8.** Susan U (Ships A Lot) sent invite April 27 for #modern-savage Slack workspace. Standard 11-day expiry = ~May 8. Join before sailing.
+
+---
+
 ## Daily Log
 
 ### April 30
