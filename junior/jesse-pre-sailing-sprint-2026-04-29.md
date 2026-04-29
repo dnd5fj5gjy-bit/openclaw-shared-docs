@@ -1,6 +1,7 @@
 # Pre-Sailing Sprint — Jesse
 **Deadline:** May 7 (sailing day - morning departure)
 **Status: COMPLETED by Jesse — April 29, 2026**
+**Jesse is OFF April 30 - May 3. Back May 4. Sailing May 7 morning.**
 **Built:** April 29, 2026 by Junior
 **Purpose:** Everything that needs to happen before you leave. After this, the May 21 return brief takes over.
 
