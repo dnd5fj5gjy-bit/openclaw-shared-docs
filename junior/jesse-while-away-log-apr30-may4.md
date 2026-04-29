@@ -14,7 +14,7 @@
 | Alfred May 5 coffee — Tom Inskip | May 5 | Brief ready (LOCAL) |
 | Ships A Lot Qwilr signature | Before May 7 | PENDING |
 | **Ships A Lot Slack invite** — expires ~May 8 (Susan U sent April 27) | Before May 7 | PENDING — join #modern-savage Slack before sailing |
-| Alastair Nicolas call — BMF faith community | May 5 or 6 (before sailing) | PENDING — he's ready, has been waiting 2 weeks |
+| Alastair Nicolas call — BMF faith community | May 5 or 6 (before sailing) | PENDING — call prep built (LOCAL). Start with "Tell me what you're already building." |
 | Ben Mobley — answer outboard question + check float | Before May 7 | PENDING |
 | Review Wildernests footage (Jesse chasing April 30 on call) | Before May 7 | PENDING |
 | Metricool content approvals (11 posts queued) | Before May 5 (MGK deadline) | PENDING |
