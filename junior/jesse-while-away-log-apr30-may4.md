@@ -37,7 +37,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 |------|--------|---------------|
 | May 6 Bear shoot — Olly planning | 3 emails sent, no email reply. But: Olly was active on WhatsApp April 28 (gave full team update to Jesse). Jesse sent script link + called April 29 14:00. Shoot may already be sorted via direct contact. | Confirm with Olly or Jesse May 4 |
 | CJ — Seekr investor call outcome | Bear asked "How did it go?" — no CJ response | Whenever CJ replies |
-| Weinberg Gonser — engagement letter / NDA | NDA not signed April 29. Raemy was catching up | Raemy action early May |
+| Weinberg Gonser — NDA + org chart | NDA not signed April 29. Kylee confirmed happy to sign. Raemy arranging April 30. Kylee also asked for: (1) comprehensive org chart, (2) double taxation details. Draft org chart built by Junior at workspace/docs/bgv-corporate-structure-weinberg-gonser-2026-04-29.md — Raemy to verify and send. | Raemy to arrange NDA + send org chart early May |
 | CJ — EBG May 4 call outcome | Call happens May 4. CJ has the brief | May 4 afternoon |
 | Lightning Nutra — ship date | Draft CJ email ready (LOCAL). No confirmed date. | CJ action early May |
 | modernsavage.com domain | CJ managing MediaOptions approach. Expires June 24. | Check weekly |
