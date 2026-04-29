@@ -157,4 +157,4 @@ Don't sail without knowing this.
 
 ---
 
-*Built April 29, 2026 by Junior. Covers the window April 29 – May 6.*
+*Built April 29, 2026 by Junior. Updated April 30: Bear EBG alignment WhatsApp added (by May 3), CJ EBG call brief forwarding (by May 4), Ships A Lot Qwilr status update (Raemy reviewing 3PL analysis), Bear social coverage forwarding (by May 6), Bear pre-sailing WhatsApp (May 6), Alfred May 5 pitch site confirmation (both issues fixed). Covers the window April 29 – May 6.*
