@@ -53,9 +53,9 @@ Stripe cannot be configured without a price. The 170-person waitlist is still wa
 ---
 
 ### By May 6 — Ships A Lot Qwilr Signature
-You said "happy to move forward" April 24. Tom compiled a 3PL cost analysis (April 28). **Raemy reviewed it April 29 15:28 and confirmed: "Really comprehensive. In my view, I think those shipping costs are probably quite standard."** That is the green light.
+You said "happy to move forward" April 24. Tom compiled a 3PL cost analysis (April 28). Raemy reviewed it April 29 and confirmed the shipping costs look standard. Green light given. Jesse confirmed shipping policy April 29 16:06: **customer pays shipping unless order is over ~$100, at which point shipping is free.**
 
-**What to do:** Sign the Qwilr. Raemy has reviewed, costs are standard. No further check-in needed.
+**What to do:** Sign the Qwilr. All parties aligned. Brief CJ on the $100 free-shipping threshold before she engages Ships A Lot on fulfilment setup.
 
 ---
 
