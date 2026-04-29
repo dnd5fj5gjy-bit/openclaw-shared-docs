@@ -35,7 +35,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 | Item | Status | Next Expected |
 |------|--------|---------------|
-| May 6 Bear shoot — Olly planning | 3 emails sent, no Olly reply yet | Olly reply May 1 |
+| May 6 Bear shoot — Olly planning | 3 emails sent, no email reply. But: Olly was active on WhatsApp April 28 (gave full team update to Jesse). Jesse sent script link + called April 29 14:00. Shoot may already be sorted via direct contact. | Confirm with Olly or Jesse May 4 |
 | CJ — Seekr investor call outcome | Bear asked "How did it go?" — no CJ response | Whenever CJ replies |
 | Weinberg Gonser — engagement letter / NDA | NDA not signed April 29. Raemy was catching up | Raemy action early May |
 | CJ — EBG May 4 call outcome | Call happens May 4. CJ has the brief | May 4 afternoon |
