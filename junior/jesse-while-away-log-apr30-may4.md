@@ -86,6 +86,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 **April 30 evening:**
 - **Olly replied on May 6 shoot** (10:56 BST). Location locked at Bear's house Wiltshire (2 outdoor + 1 kitchen). Jago confirmed. Em Lovell outreach sent today, awaiting reply. Olly prioritising Jesse's script variations and will give Bear the night before. Shoot is in good shape — only open item is Em's confirmation.
 - **Raemy accepted Fat Cow May 7 calendar invite** (18:04 BST). She is in for the 3pm call with Ryan Porter.
+- **NMN status correction (Modern Savage Summit Stack).** My morning compliance check flagged NMN as RED. Re-verified tonight: FDA reversed the 2022 NMN exclusion on September 29, 2025. NMN is lawful in US dietary supplements as of 2026. The risk drops from RED to GREEN with one verification step — confirm Lightning Nutra's NMN supplier has an active NDIN on file. New brief: `workspace/docs/modern-savage-nmn-update-2026-04-30.md`. The original compliance check has been updated to point at the correction. Lesson logged in `.learnings/LEARNINGS.md`.
 
 ### May 1
 *(To be filled as events occur)*
