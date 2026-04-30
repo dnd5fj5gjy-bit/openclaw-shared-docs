@@ -58,6 +58,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 **Modern Savage timeline evidence found — READ FIRST on Monday.** Searching the email record found the thread that started Modern Savage. Bear emailed Andrew Kouvel (Lightning Nutra) on March 6, 2026 — the same day as one of the "threatening" messages cited in Mishcon's letter. Bear said "without any outside partners" and the email contains a formula comparison against "theirs" (almost certainly Organised's formula). Prior formulation history with Andrew predates Organised entirely ("what we had before"). Full analysis at workspace/docs/organised-legal-timeline-evidence-2026-04-29.md (LOCAL). Jesse must read this before talking to Ignition Law — this changes what they need to know.
 
+**Organised legal brief updated to v2 (April 30).** Tammy Evans sent Ignition Law's full analysis to CJ. New: Organised has fully stopped using Bear's IP. The February 2026 option agreement is being used as Organised's defence (they claim it deviated from the HOT). Tammy's 4 questions mapped. Name correction: Niall Kiddle, not Nicole King. Updated brief at workspace/docs/organised-legal-response-info-2026-04-29.md. PDF at workspace/docs/organised-legal-response-info-v2-2026-04-30.pdf (LOCAL). Tammy's direct mobile: 07849 847 723.
+
 ---
 
 ## Daily Log
