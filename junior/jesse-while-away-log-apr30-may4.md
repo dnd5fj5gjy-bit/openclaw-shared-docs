@@ -72,6 +72,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - Bear's book "Rewild, Reboot, Recharge" (DK) confirmed publishing June 4, 2026 — 27 days before Modern Savage July 1 launch. Identical themes. Three opportunities built at workspace/docs/bear-book-modern-savage-alignment-2026-04-29.pdf (published).
 - Delbert Shoopman WhatsApp (00:06): Shared a tip on the Running Wild Hulu link for Facebook — paste URL, wait for card to populate, then delete the raw link text for a clean post. Minor ops note.
 - Return brief updated to version 49. Pushed to GitHub Pages.
+- **Metricool content approval reference built** — all 16 emails read, 8 unique captions documented with full text, platform counts, and approval recommendation. Jesse can batch-approve everything in one Metricool session Monday morning. Doc at workspace/docs/metricool-approval-ref-2026-04-30.md (LOCAL).
 
 ### May 1
 *(To be filled as events occur)*
