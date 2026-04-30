@@ -73,6 +73,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - Delbert Shoopman WhatsApp (00:06): Shared a tip on the Running Wild Hulu link for Facebook — paste URL, wait for card to populate, then delete the raw link text for a clean post. Minor ops note.
 - Return brief updated to version 49. Pushed to GitHub Pages.
 - **Metricool content approval reference built** — all 16 emails read, 8 unique captions documented with full text, platform counts, and approval recommendation. Jesse can batch-approve everything in one Metricool session Monday morning. Doc at workspace/docs/metricool-approval-ref-2026-04-30.md (LOCAL).
+- **Organised legal brief updated to v2** — Tammy Evans (Ignition Law) sent CJ her full analysis of Mishcon's April 25 letter. Three critical updates: (1) Organised has now fully ceased all use of Bear's IP/image, (2) the February 2026 option agreement is being used as Organised's primary defence (they claim it deviated materially from the HOT), (3) Tammy's 4 questions now fully documented with legal context. Name correction: it is Niall Kiddle (NK), not Nicole King. Updated brief at workspace/docs/organised-legal-response-info-2026-04-29.md. PDF at workspace/docs/organised-legal-response-info-v2-2026-04-30.pdf (LOCAL). Call Tammy Evans before any written response: 07849 847 723.
 
 ### May 1
 *(To be filled as events occur)*
