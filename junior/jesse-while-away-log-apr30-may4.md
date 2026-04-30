@@ -63,7 +63,15 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 ## Daily Log
 
 ### April 30
-*(To be filled as events occur)*
+
+**Overnight (April 29 evening into April 30):**
+- Alastair Nicolas call prep built — Bear is BMF co-founder, Alastair already does faith+fitness online (@alastair_peakphysique). Brief at workspace/docs/alastair-nicolas-callprep-2026-04-29.md.
+- Organised legal brief compiled + sent to CJ as PDF from junior@beargryllsventures.com at Jesse's instruction.
+- Modern Savage timeline evidence found in email record: Bear emailed Andrew Kouvel (Lightning Nutra) on March 6, 2026 — same day as Mishcon's "threatening" message — naming the product "MODERN SAVAGE" and comparing it against Organised's formula. Prior formulation history predates Organised. Brief at workspace/docs/organised-legal-timeline-evidence-2026-04-29.md (LOCAL — read before talking to Ignition Law).
+- BGV corporate structure draft built for Weinberg Gonser — Raemy to verify and send. At workspace/docs/bgv-corporate-structure-weinberg-gonser-2026-04-29.md.
+- Bear's book "Rewild, Reboot, Recharge" (DK) confirmed publishing June 4, 2026 — 27 days before Modern Savage July 1 launch. Identical themes. Three opportunities built at workspace/docs/bear-book-modern-savage-alignment-2026-04-29.pdf (published).
+- Delbert Shoopman WhatsApp (00:06): Shared a tip on the Running Wild Hulu link for Facebook — paste URL, wait for card to populate, then delete the raw link text for a clean post. Minor ops note.
+- Return brief updated to version 49. Pushed to GitHub Pages.
 
 ### May 1
 *(To be filled as events occur)*
