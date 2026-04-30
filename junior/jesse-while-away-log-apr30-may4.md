@@ -104,9 +104,12 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 | April 29 (am) | Jesse sent Olly the script link on WhatsApp and called | No reply |
 | April 29 (pm) | Junior emailed Olly — overview + shot list + scripts | No reply |
 | April 29 (pm) | Junior emailed Olly — shoot brief PDF link | No reply |
-| April 30 (early) | Junior emailed Olly — "6 days away, 3 things I need confirmed" | PENDING |
+| April 30 (early) | Junior emailed Olly — "6 days away, 3 things I need confirmed" | REPLIED 10:56 BST |
+| April 30 (10:56) | Olly full reply: (1) Location locked at Bear's house Wiltshire — 2 outdoor + 1 kitchen, Olly arrives early to scout with Jago. (2) Em Lovell — outreach sent today, awaiting confirm. (3) Jago — confirmed and locked. (4) Scripts — Olly prioritising Jesse's variations, will give Bear evening before. | Em is the one open item |
 
-**Escalation plan:** If no reply by May 1 EOD, contact Em Lovell directly (Jesse's authority for Olly covers this by extension). If no reply by May 2, brief Jesse on May 4 to call Olly personally.
+**Status:** Shoot is in good shape. The only outstanding confirmation is Em Lovell's availability for autocue. Olly will update when she replies.
+
+**Escalation plan:** If Em hasn't confirmed by May 4 EOD, brief Jesse on May 4 to nudge directly.
 
 ---
 
