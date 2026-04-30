@@ -64,6 +64,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 **Calvin Monday call agenda built.** Covers: Ted's equity (recommendation: decline for now — Ted's MRR £6K, white-label not shipped, services contract sufficient), Modern Savage equity negotiation (open 1%+1%, floor 1.5%+1.5%), YouTube access fix (ask Olly for Editor access, not YouTube support), content execution update. Brief at workspace/docs/calvin-monday-call-agenda-2026-04-30.md (LOCAL).
 
+**Modern Savage FTC/FDA compliance check done.** Three findings: (1) Website "longevity" claim needs rewording — AMBER risk, easy fix. (2) NMN in the Summit Stack is legally contested in the US — FDA has moved against NMN but enforcement inconsistent. Get a US supplement attorney's opinion before Summit Stack goes live. RED flag. (3) One line in Email 2 mentions "B12 deficiency" in a way that implies treatment — one-line reword needed. Everything else in the email sequence is clean. Brief at workspace/docs/modern-savage-compliance-check-2026-04-30.md.
+
 ---
 
 ## Daily Log
