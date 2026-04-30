@@ -88,6 +88,14 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - **Raemy accepted Fat Cow May 7 calendar invite** (18:04 BST). She is in for the 3pm call with Ryan Porter.
 - **NMN status correction (Modern Savage Summit Stack).** My morning compliance check flagged NMN as RED. Re-verified tonight: FDA reversed the 2022 NMN exclusion on September 29, 2025. NMN is lawful in US dietary supplements as of 2026. The risk drops from RED to GREEN with one verification step — confirm Lightning Nutra's NMN supplier has an active NDIN on file. New brief: `workspace/docs/modern-savage-nmn-update-2026-04-30.md`. The original compliance check has been updated to point at the correction. Lesson logged in `.learnings/LEARNINGS.md`.
 
+**April 30 late evening (Pulse 38):**
+- **Bear forwarded YIVTOL flying car idea** (18:56). Forwarded an Em Lovell email about a "FLYINGCARS Max Version" with note: "Maybe I do this!!? Would be epic fun… And could use on a RW." This is Bear thinking out loud. No action needed before May 4 — flag if you want to explore as a future RW segment or personal stunt.
+- **CJ executing on BecomingX/Outdoor Expo** (17:58). Per your April 29 "continue with original plan with haste" directive, CJ moved Bear to BCC and asked Paul Gurney to put him in touch with the National Outdoor Expo POCs directly. Execution is in motion. CJ has Bear's loan call-in directive too.
+- **Emily Escobar (FOX) sent RW toolkit Box link** (17:57). Reply to "RW Master Link" — Box link to all toolkits: https://app.box.com/s/jxozekmwl5ja4jvneq9iqc8sk67nmrah. This is the source Olly relies on for Running Wild social toolkits. Forward to Olly when you get to it (he probably already has access via Tyler Garfield).
+- **Comic book — Bear wants Tintin style** (16:42–17:40). Three-way thread between Bear, Silvia Molteni (PFD), and Em about the comic book artist Asena. Bear's verdict: "let's challenge her to make it much edgier — refer her to tintin style. If she can do it then great. If not we can stop." Silvia confirmed the original intro chain went via Charles at Water2. Decision is now with Asena to deliver an edgier sample.
+- **Delbert Shoopman — SKY x RW** (15:17). Looping Oliver in with you "who runs all of our social handles across the board." Suggests new SKY UK distribution coordination for Running Wild. No action required yet — will land properly when Oliver replies.
+- **No new Felix or Junior team messages.** Inbox otherwise quiet.
+
 ### May 1
 *(To be filled as events occur)*
 
