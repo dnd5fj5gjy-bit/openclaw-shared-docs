@@ -35,25 +35,13 @@ The email sequence is largely clean. The website has two items that need attenti
 
 ---
 
-## 2. Summit Stack — NMN Regulatory Status (CRITICAL)
+## 2. Summit Stack — NMN Regulatory Status (CORRECTED April 30 evening)
 
-**Current site listing:** BG Summit Stack includes NMN (nicotinamide mononucleotide) alongside creatine and electrolytes.
+**This section originally read RED. It has been corrected — see `modern-savage-nmn-update-2026-04-30.md` for the full updated analysis.**
 
-**The issue:** In October 2022, FDA responded to Prohealth saying NMN cannot be marketed as a dietary supplement because it was first introduced as a drug (Metro International Biotech filed an IND application for NMN before any supplement company sold it publicly). This "exclusion clause" under 21 USC 321(ff)(3)(B) applies when a substance is first studied as a drug.
+**Short version:** FDA reversed the 2022 NMN exclusion on September 29, 2025. NMN is lawful in US dietary supplements as of 2026. The single verification step is one email to Lightning Nutra: confirm their NMN supplier has an active NDIN on file (SyncoZymes, Inner Mongolia Kingdomway, and Xiamen Kingdomway are confirmed; one email tells us if we're already covered).
 
-**The current state:** FDA has not formally issued a final rule. Many companies still sell NMN. But FDA has sent warning letters and the legal status is contested. Enforcement has been inconsistent — some companies have removed NMN, others haven't.
-
-**The risk for Modern Savage specifically:**
-- Selling NMN in the US puts the Summit Stack in a regulatory grey zone
-- If FDA escalates NMN enforcement (which the supplement industry expects), Modern Savage could face a reformulation or stop-sale letter
-- Given the Organised legal situation is already active, a regulatory problem on top is poor timing
-
-**Recommended action:**
-1. Get a US supplement attorney's opinion on NMN before the Summit Stack goes live
-2. If the risk is material, swap NMN for NR (nicotinamide riboside) — similar mechanism, cleaner regulatory status
-3. Or launch the Summit Stack without NMN initially, add it once regulatory clarity exists
-
-**Who decides:** Jesse + a US supplement attorney. This is not a decision Calvin or CJ should make without legal input.
+**Why this section was wrong originally:** I made the regulatory call from the 2022 position without checking for updates. The reversal is public, documented, and easy to find. Logged in `.learnings/LEARNINGS.md`.
 
 ---
 
