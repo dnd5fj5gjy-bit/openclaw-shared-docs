@@ -60,6 +60,10 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 **Organised legal brief updated to v2 (April 30).** Tammy Evans sent Ignition Law's full analysis to CJ. New: Organised has fully stopped using Bear's IP. The February 2026 option agreement is being used as Organised's defence (they claim it deviated from the HOT). Tammy's 4 questions mapped. Name correction: Niall Kiddle, not Nicole King. Updated brief at workspace/docs/organised-legal-response-info-2026-04-29.md. PDF at workspace/docs/organised-legal-response-info-v2-2026-04-30.pdf (LOCAL). Tammy's direct mobile: 07849 847 723.
 
+**KU Creatives signed operational contracts for Ted's and Wildernests while Jesse was away.** Raemy processed both April 28. Ted's (GSET Health Limited) contract fully executed, invoice sent. Wildernests (Bear Witness) contract fully executed, backdated to April 1. These are KU Creatives company-level service contracts, not Calvin's personal equity agreements. Jesse didn't see this happen.
+
+**Calvin Monday call agenda built.** Covers: Ted's equity (recommendation: decline for now — Ted's MRR £6K, white-label not shipped, services contract sufficient), Modern Savage equity negotiation (open 1%+1%, floor 1.5%+1.5%), YouTube access fix (ask Olly for Editor access, not YouTube support), content execution update. Brief at workspace/docs/calvin-monday-call-agenda-2026-04-30.md (LOCAL).
+
 ---
 
 ## Daily Log
