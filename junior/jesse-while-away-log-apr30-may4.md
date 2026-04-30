@@ -17,7 +17,7 @@
 | Alastair Nicolas call — BMF faith community | May 5 or 6 (before sailing) | PENDING — call prep built (LOCAL). Start with "Tell me what you're already building." |
 | Ben Mobley — answer outboard question + check float | Before May 7 | PENDING |
 | Review Wildernests footage (Jesse chasing April 30 on call) | Before May 7 | PENDING |
-| Metricool content approvals (11 posts queued) | Before May 5 (MGK deadline) | PENDING |
+| Metricool content approvals (16 emails, 8 unique posts) | May 4 morning (MGK ep 3 airs May 5) | Reference doc ready at workspace/docs/metricool-approval-ref-2026-04-30.md |
 | Bear EBG WhatsApp draft (if CJ needs it post-May 4 call) | May 4-5 | Brief ready (LOCAL) |
 | Carson Combs call — 2pm May 7 | May 7 | CONFIRMED |
 | Fat Cow call — 3pm May 7 | May 7 | CONFIRMED |
