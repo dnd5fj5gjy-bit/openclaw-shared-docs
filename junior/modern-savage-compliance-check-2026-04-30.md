@@ -12,7 +12,7 @@ The email sequence is largely clean. The website has two items that need attenti
 **Traffic light:**
 - Email sequence: GREEN (one line to reword)
 - Website longevity claim: AMBER (reword before heavy ad spend)
-- NMN in Summit Stack: RED (needs legal opinion before launch)
+- NMN in Summit Stack: ~~RED~~ → **GREEN with one verification step**. FDA reversed exclusion September 29, 2025 — NMN is now lawful in US dietary supplements. See `modern-savage-nmn-update-2026-04-30.md` for corrected analysis. The single action: confirm Lightning Nutra's NMN supplier has an active NDIN.
 - Children's Mini Savage claims: AMBER (acceptable, but higher scrutiny applies)
 - FDA disclaimer: PRESENT on site — good
 
