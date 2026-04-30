@@ -96,6 +96,14 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - **Delbert Shoopman — SKY x RW** (15:17). Looping Oliver in with you "who runs all of our social handles across the board." Suggests new SKY UK distribution coordination for Running Wild. No action required yet — will land properly when Oliver replies.
 - **No new Felix or Junior team messages.** Inbox otherwise quiet.
 
+**April 30 late evening (Pulse 41 — Modern Savage UK entity check):**
+- Verified Companies House status of Modern Savage UK Ltd (the Stripe unblocker). Curiosity log noted on April 26 it wasn't registered. Today: still cannot find a Modern Savage Ltd (or obvious variant) registered under Jesse / Raemy / Bear Witness.
+- Two possibilities: (1) not yet registered (still blocked), (2) registered under a name I can't guess. External search alone cannot distinguish.
+- **One question to ask Raemy at Monday call**: "Where are we on the UK Ltd formation for Stripe? What name was it registered under, and what's the Stripe account status?"
+- If not done: this becomes highest-priority pre-sailing item. If done: just need company number to track.
+- Realistic Stripe-ready timeline if formed today is 4-6 weeks. Formed today = workable. Formed late May = soft launch June 29 at risk.
+- Brief: workspace/docs/modern-savage-uk-entity-status-2026-04-30.md (LOCAL).
+
 **April 30 late evening (Pulse 40 — Bear book date discrepancy found):**
 - I had Bear's book "Rewild, Reboot, Recharge" cached as **June 4, 2026** publication. Cross-checked against three retailers tonight:
   - South Africa (Exclusive Books): June 4, 2026
