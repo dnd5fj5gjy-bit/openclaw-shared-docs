@@ -96,6 +96,17 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - **Delbert Shoopman — SKY x RW** (15:17). Looping Oliver in with you "who runs all of our social handles across the board." Suggests new SKY UK distribution coordination for Running Wild. No action required yet — will land properly when Oliver replies.
 - **No new Felix or Junior team messages.** Inbox otherwise quiet.
 
+**April 30 late evening (Pulse 40 — Bear book date discrepancy found):**
+- I had Bear's book "Rewild, Reboot, Recharge" cached as **June 4, 2026** publication. Cross-checked against three retailers tonight:
+  - South Africa (Exclusive Books): June 4, 2026
+  - **UK (TGJones): July 9, 2026**
+  - Australia (The Nile): August 31, 2026
+- Same ISBN (9780241725375) — this is territorial release variation, normal for global publishing.
+- **If UK is July 9, the existing Bear-book / Modern Savage alignment brief is wrong.** It assumes book lands 27 days before MS (June 4 → July 1). Reality may be book lands 8 days AFTER MS (July 1 → July 9), which flips the play: MS rides Bear's press tour, not the other way around.
+- Brief built: workspace/docs/bear-book-date-correction-2026-04-30.md (LOCAL).
+- **One-line action for you Monday:** ask Silvia Molteni (PFD) for the confirmed UK + US + AU publication dates. She will know in seconds.
+- I have NOT updated the alignment brief or memory — waiting for you to confirm before changing anything downstream.
+
 ### May 1
 *(To be filled as events occur)*
 
