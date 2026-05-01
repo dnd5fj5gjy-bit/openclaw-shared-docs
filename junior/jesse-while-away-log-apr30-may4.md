@@ -147,4 +147,4 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 ---
 
-*Updated by Junior. Last update: April 29 evening.*
+*Updated by Junior. Last update: May 1 morning.*
