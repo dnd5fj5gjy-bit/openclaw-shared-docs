@@ -1,154 +1,152 @@
-# Chaser List — 1 May 2026
+# Chaser List (v2 — strict) — 1 May 2026
 
-## How to use
-- Each item shows who, what's stuck, last contact, draft email. Copy-paste, tweak if you want, send.
-- Items marked [HIGH] are the ones with the biggest opportunity cost or look rude to leave hanging.
-- Drafted only — nothing has been sent. Mailbox is untouched.
-
-I screened ~25 candidates and excluded ones inside the 5-day window (Maggie/Mint, Kirsten/Paul's UGC, Martin/Campsites — Martin replied "appreciate the update" so no chase needed there), internal BGV traffic (Junior, Em, Thomas, Jesse, Raemy), and LinkedIn/cold inbound (Joshua Shaw, Joe Baker, Mia/Raemy/Jonathan SSR which is internal Ted's Health ops). Let me know if you want any of those drafted too.
+## Criteria
+Only people Olly had a confirmed call with, where the deal never closed. Anyone signed/onboarded/with a live affiliate code excluded. Verified against inbox + sentitems.
 
 ---
 
-## Ambassadors
+## Audit table
 
-### 1. [HIGH] Nick Matthew — Squash legend / Ted's Health ambassador
-- **Thread:** Ted's Health x Nick Mathews
-- **Last contact:** 16 Apr — you sent post-call follow-up "really enjoyed the call… looking forward to building something strong together." 15 days, no reply.
-- **Why chase:** First call was strong, you flagged you wanted to build something with him. He's a name — letting it cool another fortnight risks losing the warmth.
-- **Draft:**
+| # | Name | Verdict | Evidence |
+|---|------|---------|----------|
+| 1 | Nick Matthew | EXCLUDED | Call 16 Apr happened, but post-call email issued live affiliate codes (NICKM40 + NM10) and referral link — per Olly's rule, code issued/active = done. |
+| 2 | Phill Mathews | INCLUDED | Zoom call 20 Mar confirmed (Zoom join + recording). 24 Mar email asks for codes/company name to send agreement for signing. No reply 38 days. Agreement not signed. |
+| 3 | Howard Green | EXCLUDED | Olly confirmed already dealt with. |
+| 4 | Gabriel Sey | INCLUDED | Call 24 Feb confirmed ("really appreciated the chat"). Talent agent Elena countered with £3k retainer ask 27 Feb, chased Olly 9 Mar. Olly never replied. No agreement. |
+| 5 | Daryl Selby | INCLUDED | Zoom recording 2 Mar confirms call took place. No follow-up email of any kind from Olly since. No agreement. |
+| 6 | Kenneth Palle | INCLUDED | Zoom recording 17 Mar confirms call took place. No follow-up email from Olly since. No agreement. |
+| 7 | Simon Waterson | INCLUDED | Zoom recording 5 Mar confirms call took place. No follow-up email from Olly since. No agreement. |
+| 8 | Ben Cohen | INCLUDED | Call 26 Feb confirmed (Ben dialed in at 14:45 + "great chat then"). No follow-up afterwards. No agreement. |
+| 9 | Ian / GymWolfPT | INCLUDED | Call 1 Apr confirmed. Code GYMWOLF10 issued but agreement explicitly the next step ("send the agreement over for e-signing"). Ian sent address 2 Apr; Olly never replied. Agreement not signed with him. |
+| 10 | Francis / BMF | INCLUDED | Call 19 Mar confirmed ("Great speaking with you earlier"). No reply 43 days. No agreement. |
+| 11 | Mike James / Endurance Physio | EXCLUDED | Call never happened — Olly cancelled the 30 Mar call and never rebooked. No call evidence at all. |
+| 12 | Stuart / MyWay Diabetes | EXCLUDED | Agreement signed ("Please find the agreement attached and it should be all signed and ready to go"), partnership live with March/April social schedule. No call evidence anyway — email-only thread. |
+| 13 | Kelly / Revitalise | EXCLUDED | Affiliate code "RYH" activated and live, Kelly added link to her website ("everything is live and ready to use"). Signed and active. |
+| 14 | Mike Gough | EXCLUDED | Affiliate code "ORACLE10" issued and active, info pack delivered, Mike actively forwarding to firefighters. No call evidence — email-only thread. |
 
-> Subject: Re: Ted's Health x Nick Mathews
->
-> Hi Nick,
->
-> Just circling back on my note from a couple of weeks ago. Wanted to keep the momentum from our chat going — happy to put a short proposal in front of you for how we'd activate you as an ambassador, or if it's easier, jump on another quick 20 minutes to talk through the shape of it.
->
-> Let me know what works and I'll send a slot through.
->
-> Thanks,
-> Olly
+**New candidates surfaced from sent items scan:**
+
+| # | Name | Verdict | Evidence |
+|---|------|---------|----------|
+| 15 | Matt / Newmanfitness | INCLUDED | Zoom call 26 Feb confirmed. 27 Feb email — codes NEWMANFITNESS / NEWMANFITNESS40 live but agreement explicitly pending ("could you confirm your company name and registered address so I can send the partnership agreement"). No reply 63 days. Agreement not signed. |
+
+(Also reviewed: Shaurya/PSA Squash — Olly already politely declined the £5k investment 10 Feb, conversation was closed cleanly, not a chase. Hannah Whitfield — too old, Oct 2025. OJay Health — code OM10 live, signed.)
 
 ---
 
-### 2. [HIGH] Phill Mathews — Ambassador onboarding
-- **Thread:** Teds Health x Phill Mathews
-- **Last contact:** 24 Mar — you offered to put him through the patient pathway as the kick-off. 38 days, no reply.
-- **Why chase:** Ambassador deal is sitting at the "first step" stage. Either he goes through onboarding or he quietly drops off — worth one nudge to find out which.
+## Chasers to send
+
+### 1. Phill Mathews — Ambassador onboarding stuck on agreement step
+- **Call:** Zoom, Friday 20 March
+- **Last contact:** 24 Mar — Olly asked Phill for preferred codes (e.g. PhillM10) and his company name/address to issue the agreement. No reply.
+- **Why chase:** Whole deal is gated on him picking codes and sending company details. One nudge unblocks it or kills it.
 - **Draft:**
 
 > Subject: Re: Teds Health x Phill Mathews
 >
 > Hi Phill,
 >
-> Just following up on my note from a few weeks back about getting you onto the Ted's Health patient pathway as the first step of the ambassador partnership. Happy to walk you through it on a quick call, or send the onboarding link straight over if you'd prefer to crack on.
+> Just circling back on my note from a few weeks ago. To get you live as an ambassador I just need two quick things from you:
 >
-> Let me know which works for you.
+> 1. The codes you'd like to use (e.g. PHILLM10 for the referral, or whatever you'd prefer).
+> 2. Your company name and registered address for the agreement.
 >
-> Thanks,
-> Olly
-
----
-
-### 3. [HIGH] Howard Green — Ambassador
-- **Thread:** Howard x Teds Health
-- **Last contact:** 27 Feb — you sent a follow-up nudge after no reply to your 26 Feb "really pleased we're so aligned" note. 63 days, still nothing.
-- **Why chase:** Two unanswered emails already; one more polite check-in and then it's reasonable to write it off. Worth knowing where he stands.
-- **Draft:**
-
-> Subject: Re: Howard x Teds Health
+> Once I have those I'll get the agreement over for e-signature and you can crack on with the complimentary BBT and consultation.
 >
-> Hi Howard,
->
-> Realise things have gone quiet on my last couple of notes. No worries at all if the timing's not right — just wanted to leave the door open. If you'd still like to take it forward as an ambassador, happy to send across the next steps; if it's a no, equally fine, just let me know either way.
+> Happy to jump on a quick call instead if easier — just say the word.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 4. [HIGH] Gabriel Sey — Ambassador
-- **Thread:** Gabriel x Teds Health / Gabriel Sey x Teds Health
-- **Last contact:** 24 Feb — post-call follow-up to Gabriel and Elena. 66 days, no reply. Internal note in your sent shows you discussed running it via the referral route.
-- **Why chase:** Big audience name. If referral route is now the play, frame it that way and make it a one-click yes.
+### 2. Gabriel Sey — Talent agent waiting on response to retainer counter
+- **Call:** 23 Feb (Olly: "really appreciated the chat")
+- **Last contact:** 9 Mar — Elena (Gabriel's agent at Millar Agency) chased asking for feedback on her £3k/month retainer counter-proposal. Olly never replied.
+- **Why chase:** Olly owes Elena a response. Letting it sit looks bad with the agency. Either give a clear "no" or come back with another structure.
 - **Draft:**
 
 > Subject: Re: Gabriel x Teds Health
 >
-> Hey Gabriel,
+> Hi Elena,
 >
-> Hope you've had a good few weeks. Thinking the cleanest way forward for us is via our referral partner setup rather than a full ambassador deal — much less paperwork your end, you just share a code with your community and earn from any conversions.
+> Apologies for the silence on this — your note got buried.
 >
-> Happy to set that up this week if you're up for it. Just say the word and I'll get the code/link generated.
+> A monthly retainer at that level isn't somewhere we can land right now, but I'd genuinely like to find a way to work with Gabriel. Would you be open to a hybrid: a smaller fixed fee for usage rights on one or two pieces of content, plus a referral upside on top? Happy to put numbers on paper if that's directionally interesting.
+>
+> If it's a clear no from your side, equally fine — just let me know either way and I'll stop chasing.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 5. Daryl Selby — Squash ambassador
-- **Thread:** Daryl Selby and Olly Westmacott
-- **Last contact:** 27 Feb — calendar invite for 30-minute meeting. No follow-up email since.
-- **Why chase:** Call either happened and never had a follow-up sent, or never happened. Either way you've gone radio silent.
+### 3. Daryl Selby — Squash ambassador, gone silent post-call
+- **Call:** Zoom, 2 March (recording confirms it happened)
+- **Last contact:** 27 Feb calendar invite — no email from Olly to Daryl after the call.
+- **Why chase:** Olly never followed up. Two months of silence on Olly's side. One direct nudge to find out where he stands.
 - **Draft:**
 
 > Subject: Ted's Health — picking back up
 >
 > Hi Daryl,
 >
-> Apologies it's gone quiet from my end since our intro a couple of months ago. Wanted to check whether you'd still like to take a proper look at the ambassador setup — happy to send a short overview through, or jump on 15 minutes if easier.
+> Apologies it's gone quiet from my end since our chat in early March. Wanted to check whether you'd still like to take it forward as a Ted's Health ambassador. I can send the onboarding details and a short agreement straight over, or jump on 15 minutes if you'd rather talk it through first.
 >
-> No pressure either way, just keen to know where you stand.
+> No pressure either way — just keen to know where you stand.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 6. Kenneth Palle — Ambassador
-- **Thread:** Kenneth x Teds Health zoom invite / kenneth Palle and Olly Westmacott
-- **Last contact:** 16 Mar — Zoom invite sent. No follow-up afterwards visible.
-- **Why chase:** Same pattern — call happened or didn't, no next step sent.
+### 4. Kenneth Palle — Ambassador, no follow-up sent
+- **Call:** Zoom, 17 March (recording confirms it happened)
+- **Last contact:** 16 Mar Zoom invite — no email from Olly to Kenneth after the call.
+- **Why chase:** Same pattern as Daryl. Call happened, Olly never sent next steps.
 - **Draft:**
 
 > Subject: Ted's Health — next steps
 >
 > Hi Kenneth,
 >
-> Wanted to circle back after our chat in March — apologies I haven't followed up sooner. Are you still keen to take it forward as an ambassador? If so I'll send across the onboarding details. If not, no worries at all, just let me know.
+> Sorry for the silence since our chat in March. If you're still up for taking it forward as an ambassador, I'll send across the onboarding details and a short agreement to sign. If the timing isn't right, no worries — just let me know either way.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 7. Simon Waterson — Celebrity trainer
-- **Thread:** Simon Waterson and Olly Westmacott
-- **Last contact:** 2 Mar — calendar invite, no email follow-up after.
-- **Why chase:** Big name, worth a single nudge to confirm whether the conversation went anywhere.
+### 5. Simon Waterson — Big-name trainer, no follow-up sent
+- **Call:** Zoom, 5 March (recording confirms it happened)
+- **Last contact:** 2 Mar calendar invite — no email from Olly to Simon after the call.
+- **Why chase:** High-value contact, worth one direct nudge to see if there's a path forward.
 - **Draft:**
 
 > Subject: Ted's Health — quick follow-up
 >
 > Hi Simon,
 >
-> Realise it's been a while since we last spoke — apologies for the radio silence my end. Are you still open to exploring something with Ted's Health? Happy to put together a short proposal, or to give you a quick call if that's easier.
+> Apologies for the radio silence since our chat in March. Are you still open to exploring something with Ted's Health? Happy to send a short proposal across, or grab another quick call if you'd prefer to talk shape first.
+>
+> Either works — let me know.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 8. Ben Cohen — Ambassador
-- **Thread:** Rescheduling call Ben x Ted's Health
-- **Last contact:** 26 Feb — you sent Zoom invite + "looking forward to speaking shortly." 64 days, no follow-up email visible from either side.
-- **Why chase:** Either call happened and never had a follow-up, or it dropped off. Worth one more attempt.
+### 6. Ben Cohen — Ambassador, never followed up post-call
+- **Call:** Zoom, 26 Feb (Ben confirmed "great chat then" after dialling in)
+- **Last contact:** 26 Feb — no email from Olly to Ben after the call itself.
+- **Why chase:** Strong audience, conversation left open. One nudge before it cools any further.
 - **Draft:**
 
 > Subject: Ted's Health — picking up where we left off
 >
 > Hi Ben,
 >
-> Apologies it's been a while since our last call. Wanted to check whether it's worth us picking the conversation back up — happy to send across a short proposal for how we'd structure the partnership, or to grab another 20 minutes on Zoom if you'd rather chat it through.
+> Apologies it's been a while since our call back in February. Wanted to see if you're still keen to push this forward — happy to send a short proposal for how we'd structure an ambassador partnership, or to grab another 20 minutes on Zoom if you'd rather talk it through.
 >
 > Whichever's easiest — let me know.
 >
@@ -157,19 +155,17 @@ I screened ~25 candidates and excluded ones inside the 5-day window (Maggie/Mint
 
 ---
 
-## Partners / Business Development
-
-### 9. [HIGH] Ian — GymWolfPT (Olly owes reply)
-- **Thread:** Re. Intro to discuss partnership options
-- **Last contact:** 2 Apr — Ian sent over GymWolfPT's full company address (Preston) so you could prep the partnership agreement. **Olly never replied.** 29 days. **He's waiting on you.**
-- **Why chase:** This one looks rude — he gave you exactly what you asked for and the agreement was the next step. Top priority.
+### 7. Ian — GymWolfPT (Olly owes the agreement)
+- **Call:** Zoom, 1 April
+- **Last contact:** 2 Apr — Ian sent his company address (GymWolfPT Limited, Preston). Olly never replied. He's been waiting on Olly for 29 days.
+- **Why chase:** Top priority. Ian gave Olly exactly what was asked for, and the agreement is the only thing left. Looks rude to leave it hanging.
 - **Draft:**
 
 > Subject: Re: Re. Intro to discuss partnership options
 >
 > Hi Ian,
 >
-> Massive apologies for the silence — got buried and your details got missed. Now have everything I need to get the partnership agreement drafted up using the GymWolfPT Limited address you sent across.
+> Massive apologies for the silence — your details got buried at my end. I now have everything I need to get the partnership agreement drafted using the GymWolfPT Limited / Preston address you sent across.
 >
 > I'll have the e-sign over to you in the next couple of days. Anything else changed your end I should know about before I send it?
 >
@@ -178,97 +174,40 @@ I screened ~25 candidates and excluded ones inside the 5-day window (Maggie/Mint
 
 ---
 
-### 10. [HIGH] Francis — BMF growth partnership
-- **Thread:** BMF growth
-- **Last contact:** 19 Mar — you sent post-call follow-up "really excited to get some momentum with discussions for growing the BMF community HQ." 43 days, no reply.
-- **Why chase:** BMF is one of yours — letting it stall this long looks bad internally too. Need a clear next step.
+### 8. Francis Ezie — BMF growth partnership stalled
+- **Call:** 19 March ("Great speaking with you earlier")
+- **Last contact:** 19 Mar — Olly's post-call follow-up with marketing capability summary. No reply 43 days.
+- **Why chase:** BMF is a portfolio brand — letting this stall reflects badly internally. Need a clear next step.
 - **Draft:**
 
 > Subject: Re: BMF growth
 >
 > Hi Francis,
 >
-> Wanted to revisit our conversation about BMF community HQ — realise it's gone quiet from both sides. What would help you most as a next step: a short written proposal of where we think we can support, or a follow-up call to thrash it out?
+> Wanted to revisit our chat about BMF community HQ — gone quiet from both sides.
 >
-> Either way happy to drive it forward, just need a steer.
+> What would be most useful as a next step: a short written proposal of where we think we can support, or a follow-up call to thrash it out? Either way, happy to drive it forward, just need a steer from you.
 >
 > Thanks,
 > Olly
 
 ---
 
-### 11. Mike James — The Endurance Physio
-- **Thread:** Ted's Health (you cancelled the 30 Mar call last-minute)
-- **Last contact:** 30 Mar — you cancelled the 9:30 call due to something urgent and asked to reschedule. Never rebooked. 32 days.
-- **Why chase:** You're the one who pulled the call. Looks unprofessional not to have rebooked. Quick "let's get it back in the diary."
+### 9. Matt — Newmanfitness, agreement step stalled
+- **Call:** Zoom, 26 February
+- **Last contact:** 27 Feb — Olly issued live codes (NEWMANFITNESS / NEWMANFITNESS40) and asked for company name + registered address to send the agreement. No reply 63 days.
+- **Why chase:** Same as Phill — codes are live but the agreement is sitting in limbo waiting on his details. One nudge to get him over the line or written off.
 - **Draft:**
 
-> Subject: Re: Ted's Health
+> Subject: Re: Matt x Teds Health partnership details
 >
-> Hi Mike,
+> Hi Matt,
 >
-> Apologies again for having to pull the call back at the end of March — and apologies it's taken me this long to circle back. Would love to get a fresh slot in the diary. Does anything next week work for you, or shall I send a Calendly link?
+> Just circling back on my note from late Feb. Your codes (NEWMANFITNESS / NEWMANFITNESS40) and link are still live and ready to go — only thing I'm missing to get the partnership agreement over for signing is your company name and registered address.
 >
-> Thanks,
-> Olly
-
----
-
-### 12. Stuart — MyWay Diabetes
-- **Thread:** Partnership Opportunity with MyWay Diabetes – Empowering Digital Health Together
-- **Last contact:** 16 Mar — you confirmed receipt of brand assets and said next steps would follow. 46 days, no follow-up from you visible.
-- **Why chase:** They sent assets, you said "no amendments needed" and… nothing. Either move it forward or close it down.
-- **Draft:**
-
-> Subject: Re: Partnership Opportunity with MyWay Diabetes
->
-> Hi Stuart,
->
-> Apologies for the slow follow-up since you sent the brand assets across. Wanted to confirm we're keen to move ahead — what would be most useful from your end as a next step: a short partnership outline document, or a quick call to align on launch timing?
+> If you can fire those across I'll have the agreement with you the same day. If you've decided not to take it forward, no worries at all — just let me know either way.
 >
 > Thanks,
 > Olly
 
 ---
-
-### 13. Kelly — Revitalise
-- **Thread:** Re: Follow-up / Re-introduction
-- **Last contact:** 18 Feb — your last "Hi Kelly" follow-up. 72 days.
-- **Why chase:** Long stale, but a signed Revitalise agreement was referenced earlier in the thread — worth a short close-out check.
-- **Draft:**
-
-> Subject: Re: Follow-up
->
-> Hi Kelly,
->
-> Realise it's been a while — wanted to check in on where things stand on your side with the Revitalise setup. Anything outstanding from us, or are we all good to go live with the affiliate code?
->
-> Quick yes/no is all I need.
->
-> Thanks,
-> Olly
-
----
-
-## Press / PR
-
-### 14. Mike Gough — Andropause referral partner
-- **Thread:** Introduction - Ted's Health
-- **Last contact:** 23 Feb — you replied to his thank-you for the andropause information pack you sent. 67 days.
-- **Why chase:** He was using the pack with his clients — worth knowing if it's landed any referrals or if there's anything else he needs from you.
-- **Draft:**
-
-> Subject: Re: Introduction - Ted's Health
->
-> Hi Mike,
->
-> Hope the andropause pack has been useful with your clients since I sent it across in Feb. Quick check-in: has anything come from it your end, and is there anything else you'd find helpful from us — referral codes, additional collateral, anything like that?
->
-> Thanks,
-> Olly
-
----
-
-## Other important
-
-*(Nothing standout in this bucket this week — most non-deal admin is up to date or sitting with internal team.)*
