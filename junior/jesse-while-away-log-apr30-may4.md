@@ -116,7 +116,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - I have NOT updated the alignment brief or memory — waiting for you to confirm before changing anything downstream.
 
 ### May 1
-*(To be filled as events occur)*
+
+- **Olly chased on May 6 shoot** (11:17 BST). "Just circling back - let me know if the rundown I sent yesterday covered everything you needed, or if there's anything else to nail down before Tuesday." His April 30 rundown did cover it (location, Jago, scripts) — only open item is Em Lovell's autocue confirmation. **Reply drafted only, not sent** (you off until May 4, send approval rule). Draft saved in junior@ outbox: subject "Re: Modern Savage shoot — May 6 planning check". One-line ask: has Em confirmed yet. Approve and send when back, or I'll send the moment you give the green light.
 
 ### May 2
 *(To be filled as events occur)*
