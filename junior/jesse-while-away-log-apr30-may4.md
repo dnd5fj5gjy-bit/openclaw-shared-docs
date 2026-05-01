@@ -132,6 +132,10 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - **Oliver Mosley confirmed geolocking on SKY x RW** (07:08 BST). Replied to the Delbert/Steph thread saying geolocking is fine given the late timing and it gives them runway for next time. Loop closing. Steph (SKY) acknowledged your asset link 15:07 with "we'll come back to you asap." No action from you.
 - **Four more Metricool review requests dropped overnight** for May 3 + May 5 posts (04:00, 04:01, 04:01, 04:04 BST). Total Metricool queue is now even larger heading into Monday. The metricool-approval-ref-2026-04-30.md doc covers the existing 8 unique captions, you may need to also clear these new 4 in the same Monday session before you sail. Adding Olly/CJ as Metricool approver remains the better permanent fix.
 
+### May 1 (late evening — Pulse 48)
+
+- **modernsavage.com refresh.** Re-checked the squatted .com domain. Confirmation: still parked, still expires June 24, registrant hidden behind Domains By Proxy. New nuance: nameservers are giantpanda.com (a domain monetization service for domainers, "intent-matched content for portfolios") and the live page returns a "this domain is coming soon" placeholder. Translation: the owner is a domain investor using a tactic that makes parked domains look pre-launch to inflate resale value, not a Chinese competitor preparing to launch under the MODERN SAVAGE name. The clientRenewProhibited registrar status is a domainer signal that the domain may be groomed for sale. **Implication for you:** if you ever wanted to make an offer for the .com, the cheapest moment is between now and June 24 (before the owner decides to renew or auction). Modernsavage.co is fine for launch — this is optionality, not urgency.
+
 ### May 2
 *(To be filled as events occur)*
 
