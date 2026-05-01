@@ -11,10 +11,24 @@
 
 ## The Hard Deadlines (days, not weeks)
 
-### TODAY — IPO Trademark Letter (UK00004375735)
-A new letter arrived from the UK Intellectual Property Office this morning (6am) for trademark UK00004375735 — filed April 20, almost certainly MODERN SAVAGE UK. The email says "important information" with an attached PDF letter. Nine days from filing to substantive IPO correspondence is unusually fast and suggests an examination report — potentially an objection with a response deadline.
+### TODAY — IPO Trademark Letters (TWO active filings, THREE unread letters)
 
-**What to do:** Open the IPO email in your inbox RIGHT NOW. Read the attached letter. If it's an examination objection, forward to Raemy or your UK IP solicitor immediately — do not let it sit unread while you sail. If it's an acceptance notice, no action needed.
+You have two live UK trade mark applications, both with unread examination correspondence sitting in your inbox.
+
+**UK00004372256** — filed April 13. Two unread IPO letters: April 24 07:40 and April 30 22:46. The follow-up letter pattern (two letters in 6 days) suggests either an examination report plus a reminder, or two separate examination issues. The April 24 letter could already be on its 2-month response clock — that puts the deadline around June 24.
+
+**UK00004375735** — filed April 20. One unread IPO letter: April 29 06:06. Nine days from filing to substantive correspondence is fast and suggests an examination report.
+
+Both applications use your personal name as applicant ("Dear Jesse Grylls" — no agent on file), which means correspondence comes straight to you and responses are your responsibility. Both are almost certainly MODERN SAVAGE-related (word mark + device mark, or two product marks).
+
+**What to do Monday morning, before anything else:**
+1. Open all three IPO emails in your inbox (search "IPO" in Outlook).
+2. Read each PDF attachment.
+3. If any is an examination objection, note the response deadline at the top of the letter. UK examination response deadlines are usually 2 months from issue.
+4. Forward the attachments to whoever you want handling responses (Raemy first, then likely a trade mark attorney — Mishcon and Ignition Law are litigators not filers; you may need to bring in a separate trade mark agent like Trademark Tower, Stobbs, or Marks & Clerk for examination response).
+5. If any letter is just an acceptance notice or publication notification, no action needed.
+
+If both filings hit examination objections and you sail without responding, you risk losing the priority dates of the April 13 and April 20 filings — meaning a competitor who files MODERN SAVAGE between now and your refile date could leapfrog you. This is the highest-impact item on this list.
 
 ---
 
