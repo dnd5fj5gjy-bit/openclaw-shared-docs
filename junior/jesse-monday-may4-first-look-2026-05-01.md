@@ -28,11 +28,21 @@ If pricing slips past today, Email 1 doesn't go to the 170-person waitlist befor
 
 ---
 
-## 3. MGK content approval (15 min)
+## 3. MGK content — toolkit landed Friday night (15 min)
 
-FOX assets for the May 5 RW episode are with Ashleigh Veverka. You must approve before May 3 (today is May 4 morning UK — assume you're already late). Get the assets, review, approve or hand to Calvin to execute.
+FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: https://app.box.com/s/evxlsz5o4o2fbp51ez4u6yp38qzjzipu
 
-**Output:** approved or delegated.
+Three things to do, in order:
+
+1. **Forward the link to Olly and Calvin** with this note: "Toolkit landed. Embargo on the Clips folder until US airtime May 5 8pm ET (UK 1am Wed). Photos/Promos/Graphics free now. Show is now 'Bear Grylls is Running Wild' — update any queued copy." Bear's UK team does not yet have the link.
+2. **Send Tyler a one-line thanks-and-received** (draft in coordination doc). Keeps the FOX social relationship warm for the rest of the season.
+3. **Check Metricool queue** for the title change. Anything that says "Running Wild" alone needs updating to "Bear Grylls is Running Wild".
+
+Folder breakdown, embargo, post cadence and draft reply at: workspace/docs/mgk-launch-coordination-2026-05-01.md
+
+**Critical:** the Clips folder name literally says "don't post till airtime" — if any Bear-side channel posts a clip before US 8pm ET May 5, FOX will flag it back upstream.
+
+**Output:** Olly/Calvin have toolkit + embargo note, Tyler acknowledged, Metricool queue title-checked.
 
 ---
 
