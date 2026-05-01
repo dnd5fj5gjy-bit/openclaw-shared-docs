@@ -118,6 +118,10 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 ### May 1
 
 - **Olly chased on May 6 shoot** (11:17 BST). "Just circling back - let me know if the rundown I sent yesterday covered everything you needed, or if there's anything else to nail down before Tuesday." His April 30 rundown did cover it (location, Jago, scripts) — only open item is Em Lovell's autocue confirmation. **Reply drafted only, not sent** (you off until May 4, send approval rule). Draft saved in junior@ outbox: subject "Re: Modern Savage shoot — May 6 planning check". One-line ask: has Em confirmed yet. Approve and send when back, or I'll send the moment you give the green light.
+- **CJ closed loop on Outdoor Expo / Paul Gurney** (13:22). FYI email to Bear. Bear replied "Predictable" (13:16). Reads like Paul pushed back as expected. CJ has the directives in hand (call in the loan, do not offset against Expo). No action needed from you, just awareness.
+- **Sustainable packaging intro live** (May 1, 00:01 + 12:39). Drew introduced you to Cody Ponsler, who tagged in Sarah Salscheider — she replied today eager to hear about the product and packaging needs. This is a Modern Savage packaging vendor lead. No reply required from you yet, you can pick this up Monday.
+- **George Brotherton — summer yacht charter inbound** (13:23). Cold sales inbound. No action.
+- **Tom Healy / Amrita** (13:22) — personal health, you're handling directly.
 
 ### May 2
 *(To be filled as events occur)*
