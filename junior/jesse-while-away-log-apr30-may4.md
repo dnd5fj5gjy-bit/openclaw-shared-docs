@@ -191,7 +191,7 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 ---
 
-*Updated by Junior. Last update: May 1 afternoon (Pulse 53).*
+*Updated by Junior. Last update: May 2 morning (Pulse 56).*
 
 ### May 2 (early — Pulse 54)
 
