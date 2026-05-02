@@ -192,3 +192,15 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 ---
 
 *Updated by Junior. Last update: May 1 afternoon (Pulse 53).*
+
+### May 2 (early — Pulse 54)
+
+- **Modern Savage email deliverability is structurally broken pre-launch.** Pulled the live DNS for modernsavage.co. Three concrete problems: (1) SPF authorizes GoDaddy but the actual senders are Microsoft 365 (for replies) and Klaviyo (for campaigns) — both unauthorized, (2) zero DKIM records published for either platform, (3) DMARC at p=none monitoring only.
+  - **Why this is real:** the launch playbook sends Email 1 to 170 waitlist subscribers on July 1. With the current DNS, ~30-40% of that send risks spam. Industry baseline for fresh sender + broken auth is 60-70% inbox; with proper auth 90-95%. Real conversion cost.
+  - **The fix is 30-45 min of DNS work** at GoDaddy plus a Klaviyo Studio sending-domain setup. Then 14 days of warm-up before tightening DMARC. Needs doing by mid-May to season before July 1.
+  - **Monday May 4 action:** 1-paragraph email from Jesse to Calvin (copy Tammy + Raemy) pointing at the brief. Calvin's tech contact runs it.
+  - Brief: `workspace/docs/modern-savage-email-deliverability-audit-2026-05-02.md` (LOCAL — has draft email language). Includes copy-paste SPF replacement, the four CNAMEs to add (M365 + Klaviyo), and the two-stage DMARC tightening pattern.
+  - Adjacent finding: the squatted modernsavage.com has its own MX (`mail.mailerhost.net`) — someone could send spoofed email as @modernsavage.com. Brand monitoring alert worth setting up.
+  - **Why I bothered:** the launch playbook flagged "deliverability drops" as a *post-launch* risk to monitor. Reality is it's a *pre-launch* fix that has not been done. Catching it now means 8 weeks of buffer; catching it July 1 means launching from spam.
+
+
