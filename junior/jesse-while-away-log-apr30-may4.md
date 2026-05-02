@@ -258,3 +258,12 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
   4. Validate three numbers via CJ this week: Lightning Nutra COGS at committed volume, Ships A Lot UK pick/pack rate, refund handling fee per unit
 - **What this model deliberately does NOT do:** new fundraising calculation, valuation update, or LTV:CAC for paid acquisition (Apr 28 model already covers paid). It picks up the gap on launch-window cash and cohort retention only.
 - **Operator dashboard prefig:** Six metrics fit on one screen. Junior to build the auto-refresh version on BGV dashboard before July 1 (~4 hours work, Stripe + Klaviyo APIs).
+
+### May 2 (overnight — Pulse 61)
+
+- **Modern Savage customer support template pack built.** 26 paste-ready templates covering order status, cancellation/refund, dosage/safety, billing, brand questions, negative reviews, and PR-sensitive replies. Plus volume forecast, SLAs, and merge-field checklist. Launch-window-tested for first 30 days.
+- Brief: `workspace/docs/modern-savage-support-templates-launch-2026-05-02.md` (LOCAL — paste into Helpscout/Front/Gorgias macros, ~1-2 hours setup).
+- **Why it matters:** the 90-day economics model just identified churn as the highest-leverage launch lever. Slow or inconsistent support = bad reviews = NPS drop = churn spike. Calvin's SOW does not include support, no templates exist today, support@ will get hammered W1-W2 (~120 emails forecast at peak). Without templates, support consumes 1.5-2 FTE of attention.
+- **One thing this pack surfaced that nobody had answered:** "Can I pause my subscription?" template T16 promises pause — but if pause is not built into Stripe + Klaviyo v1 flow, T16 is a lie. Calvin needs to confirm by Wednesday May 7 whether pause exists in v1, otherwise rewrite the template.
+- **Adverse event handling included** (T8 + internal note). Lightning Nutra adverse event pattern triggers MHRA / FDA voluntary reporting — should run via Weinberg Gonser before filing. This is the kind of process item that gets discovered the wrong way at launch — better to have it in the template pack now.
+- **Bundle into Monday Calvin email:** add a sixth item to the launch-infrastructure email asking which support tool will be used (Helpscout, Front, Gorgias) so templates can be wired up.
