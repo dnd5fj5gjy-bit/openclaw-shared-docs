@@ -1,7 +1,21 @@
-# Bear Book Publication Date — Verification Needed
+# Bear Book Publication Date — UK CONFIRMED JULY 9
 
 **Built:** April 30, 2026 evening (Pulse 40)
-**Why:** While reviewing Modern Savage / Bear book launch alignment for July, I cross-checked the publication date and found three different territory dates published online. The June 4 date in our existing alignment brief is likely the South African / non-UK date. Worth verifying before any MS-book coordination locks in, because **if the UK date is July 9, the relationship to MS July 1 launch flips completely.**
+**Updated:** May 2, 2026 (Pulse 52) — UK date verified directly with publisher (DK / Penguin)
+
+## Status: RESOLVED
+
+**UK publication date is July 9, 2026.** Confirmed by two independent sources: DK's own product page (dk.com/products/9780241725375-rewild-reboot-recharge) and TGJones (UK retailer). Same ISBN as SA (June 4) and AU (Aug 31) — territorial release variation.
+
+**Implication: the existing alignment brief has the sequencing backwards.** Modern Savage launches July 1, Bear's book lands July 9 — MS leads, book amplifies during launch ramp. See "If UK = July 9" section below for the correct play.
+
+No need to ask Silvia Monday — Junior can update downstream docs with confidence. (Still worth confirming US date with her if/when it matters for CJ's US press timing.)
+
+---
+
+## Original Note (kept for record)
+
+Cross-checked the publication date and found three different territory dates published online. The June 4 date in our existing alignment brief was the South African date, not UK.
 
 ---
 
