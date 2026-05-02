@@ -83,6 +83,7 @@ While preparing your Monday first-look I copied the Box link and a Frame.io pass
 - The chase-up list (workspace/docs/jesse-chase-up-list-2026-05-01.md) has 8 inbound conversations with copy-paste replies.
 - The Belmark packaging call wants a Tuesday slot — reply in the chase-up list moves it to May 5.
 - **Sailing-window calendar conflicts** — 4 standing meetings hit while you're at sea (May 13, 14, 18, 20) plus the May 7 17:00 weekly on departure day. Brief at `workspace/docs/jesse-sailing-calendar-conflicts-2026-05-01.md` (LOCAL). 10-min Olly brief, draft language ready. **Do this before Wednesday so Olly has time to action.**
+- **Modern Savage email deliverability is broken pre-launch.** SPF on modernsavage.co authorizes GoDaddy, not Microsoft 365 or Klaviyo. No DKIM published for either. ~30-40% of the July 1 launch email risks spam. Fix is 30-45 min of DNS work plus 14 days of seasoning. Brief: `workspace/docs/modern-savage-email-deliverability-audit-2026-05-02.md` (LOCAL). 1-paragraph forward to Calvin + Tammy + Raemy. **Send Monday so the fix happens this week.**
 - Optional: one-line acknowledgment to Ryan Dyck (booking thread, his dad died Saturday). Not business, just human.
 
 If you only do items 1-5 before noon, you've cleared the time-critical work. Items 6, the chase-up list, and the calendar conflicts brief can sit until afternoon.
