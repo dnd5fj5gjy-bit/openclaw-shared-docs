@@ -93,6 +93,9 @@ Use the framework in the negotiation brief. Start with the pro-rata acquisition 
 **4. YouTube access — resolve it (3 minutes)**
 Don't let this sit longer. Commit to getting Olly to grant access by Tuesday May 5.
 
+**4b. Lock TikTok + YouTube on @modernsavagenutrition (1 minute)**
+Both handles are wide open. Calvin registers them this week with the brand email. Optional: also grab @modernsavage / @modernsavageco / @themodernsavage on TikTok as defensive holds — all available. Full audit: `workspace/docs/modern-savage-social-handles-2026-05-02.md`.
+
 **5. Content/execution update — listen (10 minutes)**
 Let Calvin report. Note what's ready and what's blocked. You'll have already approved the Metricool posts.
 
