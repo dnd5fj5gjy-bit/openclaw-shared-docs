@@ -12,7 +12,7 @@
 
 Tyler Garfield (FOX Sr Manager Social Media) dropped the official MGK episode social toolkit on the group thread at 23:07 BST May 1. Shane Everitt (UMG, Colson's digital lead) confirmed receipt 23:43.
 
-**Toolkit:** https://app.box.com/s/evxlsz5o4o2fbp51ez4u6yp38qzjzipu
+**Toolkit:** [LOCAL ONLY — Box link in workspace doc]
 **Box folder name:** "Ep. 3 - MGK"
 
 ### Folder contents (verified)
@@ -50,8 +50,8 @@ If anyone on Bear's side posts a clip before US 8pm ET May 5, FOX will be embarr
 
 From earlier upstream email by Robert "Bobby" Vanover (April 28):
 
-- **Social tease (vertical + regular):** https://f.io/8jDPKdl  password: **RWH2026!**
-- **Sneak peek scene (vertical):** https://f.io/-2vhMmiZ
+- **Social tease (vertical + regular):** [LOCAL ONLY — Frame.io tease link in workspace doc]  password: **[redacted]**
+- **Sneak peek scene (vertical):** [LOCAL ONLY — Frame.io scene link in workspace doc]
 
 These are Frame.io links. Same posture as the Box clips: tease/sneak peek format suggests they can go pre-air; if any are full scenes, hold to airtime. When in doubt, ask Tyler.
 

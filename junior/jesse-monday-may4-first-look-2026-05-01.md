@@ -30,7 +30,7 @@ If pricing slips past today, Email 1 doesn't go to the 170-person waitlist befor
 
 ## 3. MGK content — toolkit landed Friday night (15 min)
 
-FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: https://app.box.com/s/evxlsz5o4o2fbp51ez4u6yp38qzjzipu
+FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: [LOCAL ONLY — Box link in workspace doc]
 
 Three things to do, in order:
 
