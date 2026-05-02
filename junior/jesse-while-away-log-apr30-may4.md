@@ -179,4 +179,16 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 ---
 
-*Updated by Junior. Last update: May 1 morning.*
+### May 1 (afternoon — Pulse 53)
+
+- **Sailing window calendar conflicts mapped.** Pulled Jesse's calendar May 7-21 and found 4 standing meetings inside the at-sea window plus 1 borderline on return day. None have been rescheduled yet.
+  - **At sea (decline + delegate):** May 13 13:00 BGV catchup (Em Lovell, Olly attends), May 14 17:00 Weekly Gunnar/Alex/Joe (decline, written update), May 18 15:00 EBG/BGV catchup (CJ attends — continuity from CJ's May 4 EBG call), May 20 13:00 BGV catchup (Olly attends).
+  - **Borderline:** May 21 17:00 Weekly Gunnar — keep on calendar, decide morning of based on Leviosa landing time.
+  - **Departure day May 7 stack:** 13:00 Carson Combs + 14:00 Fat Cow both keep (briefs already built). 17:00 Weekly Gunnar — recommend cancel for May 7 (Jesse needs to be travelling to boat).
+  - **Why this matters:** EBG May 18 specifically. Em Lovell is the EBG side of the bi-weekly. EBG is in active negotiation with BGV (CJ's May 4 call is the front edge). A no-show on May 18 reads as disengagement. CJ as delegate reads as continuity.
+  - **Monday May 4 action:** 10-minute brief from Jesse to Olly with the 5 decisions. Draft language ready in the brief.
+  - Brief: `workspace/docs/jesse-sailing-calendar-conflicts-2026-05-01.md` (LOCAL — contains EBG negotiation context).
+
+---
+
+*Updated by Junior. Last update: May 1 afternoon (Pulse 53).*
