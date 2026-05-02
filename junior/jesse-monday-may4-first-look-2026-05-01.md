@@ -30,7 +30,7 @@ If pricing slips past today, Email 1 doesn't go to the 170-person waitlist befor
 
 ## 3. MGK content — toolkit landed Friday night (15 min)
 
-FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: [LOCAL ONLY — Box link in workspace doc]
+FOX dropped the official toolkit late Friday May 1 (23:07 BST). Open Tyler Garfield's email in your inbox to grab the Box toolkit link directly (subject: "Re: Running Wild - Social Media: Videos and Photos - MGK - FOX - May 5th").
 
 Three things to do, in order:
 
