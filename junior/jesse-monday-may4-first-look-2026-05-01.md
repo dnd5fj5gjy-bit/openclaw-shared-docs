@@ -30,7 +30,7 @@ If pricing slips past today, Email 1 doesn't go to the 170-person waitlist befor
 
 ## 3. MGK content — toolkit landed Friday night (15 min)
 
-FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: https://app.box.com/s/evxlsz5o4o2fbp51ez4u6yp38qzjzipu
+FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: LOCAL link in workspace/memory/mgk-toolkit-secrets-2026-05-01.md
 
 Three things to do, in order:
 
@@ -54,11 +54,13 @@ CJ runs the EBG Zoom at 15:00 UK today in your place. Brief is at workspace/docs
 
 ---
 
-## 5. Ask Raemy on the Monday call: where are we on Modern Savage UK Ltd?
+## 5. Ask Raemy on the Monday call: two questions
 
-Companies House has no Modern Savage UK Ltd registered under your name, Raemy's, or Bear Witness. Either it's not done (Stripe still blocked) or it's done under a name I can't guess. Ask the question. If not done, this is the highest-priority pre-sailing item: 4-6 weeks to Stripe-ready means late May formation = June 29 launch at risk.
+**(a) Where are we on Modern Savage UK Ltd?** Companies House has no Modern Savage UK Ltd registered under your name, Raemy's, or Bear Witness. Either it's not done (Stripe still blocked) or it's done under a name I can't guess. If not done, this is the highest-priority pre-sailing item: 4-6 weeks to Stripe-ready means late May formation = June 29 launch at risk.
 
-**Output:** clarity on entity + Stripe timeline.
+**(b) Org chart for Weinberg Gonser.** Kylee MacArthur chased her overnight (May 2 01:11 BST) — she's waiting on the BGV org chart so she and Tye Gonser can write the US trademark Next Steps proposal. NDA is signed. The trademark filing is now gated entirely on this. Junior drafted a starter at `workspace/docs/bgv-corporate-structure-weinberg-gonser-2026-04-29.md` — Raemy verifies and sends.
+
+**Output:** clarity on entity + Stripe timeline; org chart sent to Kylee this week.
 
 ---
 
