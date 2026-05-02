@@ -241,3 +241,20 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - Draft: `workspace/docs/draft-calvin-launch-infrastructure-email-2026-05-02.txt` (LOCAL — edit tone if needed, attach briefs, send Monday).
 - **Why one email rather than five:** Calvin works through one inbox thread cleanly. Five separate threads = harder to track which is done. Also signals these are connected pieces of one launch-readiness sweep, not unrelated to-dos.
 - **Monday action:** Jesse opens the draft Monday morning, edits if he wants, sends to Calvin + Tammy + Raemy. 15 minutes saved.
+
+### May 2 (overnight build — Pulse 60)
+
+- **Modern Savage 90-day launch economics model built.** Companion to the Apr 28 Year 1 model, focused tight on weeks 1-12 (Jul 1 to Sep 22) when launch breakouts or stalls. GBP-baselined, Model A vs Model B compared week-by-week, sensitivity analysis on the three controllable levers, weekly operator dashboard with go/no-go thresholds, working-capital floor calculated.
+- Brief: `workspace/docs/modern-savage-90day-launch-economics-2026-05-02.md` (LOCAL — fills gap left by Year 1 model on launch-window cash flow + cohort math).
+- **Headline findings:**
+  - Family bundle is structurally highest-LTV product (£876) — must not be buried in Email 5 or homepage hierarchy.
+  - **Highest-leverage lever is churn, not acquisition.** A 1-point churn reduction is worth more cumulative profit than +10 organic adds per week. Calvin's SOW has no churn KPI today; should be added.
+  - **Model A vs B threshold extended:** April 28 brief said Model A if ship date by July 14. Cohort math says extend to July 21 — the marginal subscriber gain compounds for 8 weeks before cycle resets.
+  - **Working capital floor for Model A:** £23,500 in MS UK Ltd account on July 1. Raemy needs to confirm this is in place.
+- **Monday actions out of this:**
+  1. Approve Model A vs B threshold extension to July 21
+  2. Ask Raemy for MS UK Ltd cash position on July 1
+  3. Add 70%+ cohort retention KPI to Calvin SOW
+  4. Validate three numbers via CJ this week: Lightning Nutra COGS at committed volume, Ships A Lot UK pick/pack rate, refund handling fee per unit
+- **What this model deliberately does NOT do:** new fundraising calculation, valuation update, or LTV:CAC for paid acquisition (Apr 28 model already covers paid). It picks up the gap on launch-window cash and cohort retention only.
+- **Operator dashboard prefig:** Six metrics fit on one screen. Junior to build the auto-refresh version on BGV dashboard before July 1 (~4 hours work, Stripe + Klaviyo APIs).
