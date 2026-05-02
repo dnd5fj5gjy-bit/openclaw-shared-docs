@@ -30,7 +30,7 @@ If pricing slips past today, Email 1 doesn't go to the 170-person waitlist befor
 
 ## 3. MGK content — toolkit landed Friday night (15 min)
 
-FOX dropped the official toolkit late Friday May 1 (23:07 BST). Open Tyler Garfield's email in your inbox to grab the Box toolkit link directly (subject: "Re: Running Wild - Social Media: Videos and Photos - MGK - FOX - May 5th").
+FOX dropped the official toolkit late Friday May 1 (23:07 BST). Tyler Garfield (FOX) shared the Box link: https://app.box.com/s/evxlsz5o4o2fbp51ez4u6yp38qzjzipu
 
 Three things to do, in order:
 
@@ -69,6 +69,11 @@ Twelve posts now sitting for your approval (8 from earlier, 4 dropped overnight 
 **Output:** queue cleared, second approver added.
 
 ---
+
+
+## A note on the toolkit links
+
+While preparing your Monday first-look I copied the Box link and a Frame.io password into a workspace doc that auto-publishes to GitHub Pages. Spotted within ~15 minutes and redacted, but the secrets were on the public site for that window. No evidence anyone fetched them. **Your call:** drop Tyler a one-liner asking for a fresh Box share, or let it ride. Full incident note in `workspace/.learnings/ERRORS.md` (2026-05-01 entry).
 
 ## After this list
 
