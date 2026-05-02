@@ -234,3 +234,10 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - Brief: `workspace/docs/modern-savage-shipping-refunds-policy-drafts-2026-05-02.md` (LOCAL — paste-ready text for /shipping and /refunds, plus a Calvin/Tammy implementation checklist).
 - **Monday action:** Calvin or Tammy publishes both pages and updates the Stripe checkout legal text. 1-hour job. Should be in the same Calvin Monday email as deliverability + GDPR + handles.
 - Open dependencies: Ships A Lot UK returns address (Susan U has it), Modern Savage UK Ltd registered office (waiting on Companies House), confirmed ship date if Model A.
+
+### May 2 (mid-morning — Pulse 59)
+
+- **Calvin launch-infrastructure email drafted** — single email bundling all five Modern Savage technical items (deliverability + GDPR + social handles + /shipping & /refunds + Lightning Nutra ship date model decision). Calvin + Tammy on it, Raemy CC. Five briefs attached, one thread for Calvin to reply to with five tick-boxes.
+- Draft: `workspace/docs/draft-calvin-launch-infrastructure-email-2026-05-02.txt` (LOCAL — edit tone if needed, attach briefs, send Monday).
+- **Why one email rather than five:** Calvin works through one inbox thread cleanly. Five separate threads = harder to track which is done. Also signals these are connected pieces of one launch-readiness sweep, not unrelated to-dos.
+- **Monday action:** Jesse opens the draft Monday morning, edits if he wants, sends to Calvin + Tammy + Raemy. 15 minutes saved.
