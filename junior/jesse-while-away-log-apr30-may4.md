@@ -146,6 +146,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 
 ### May 2
 
+- **Modern Savage social handles — TikTok and YouTube wide open.** Same posture as the .com domain check. The brand has chosen `@modernsavagenutrition` (live on Instagram, 1,018 followers, confirmed via the social link on modernsavage.co). The matching handles on TikTok and YouTube are both unregistered. A squatter could grab either between now and June 29 launch — TikTok dispute resolution is 2-6 weeks even with a registered mark, and the UK trade mark is only at acceptance, not registered. **5-minute fix:** Calvin registers TikTok and YouTube on @modernsavagenutrition this week. Add to Monday Calvin call agenda. Full audit (including a likely Instagram squat at @modernsavageco): `workspace/docs/modern-savage-social-handles-2026-05-02.md`.
+
 - **Kylee MacArthur (Weinberg Gonser) chased Raemy at 01:11 BST.** Two days after the countersigned NDA went back. She is "keeping an eye out for the org chart" so she and Tye Gonser can prepare the Next Steps proposal. Polite chase, not aggressive — but a chase. The US trademark proposal is now gated entirely on Raemy delivering the BGV org chart. The draft Junior built April 29 (`workspace/docs/bgv-corporate-structure-weinberg-gonser-2026-04-29.md`) covers Bear Witness Ltd IoM structure, Modern Savage entity question, UK trademark status, US filing goals, double taxation framing — Raemy needs to verify and send. **Monday action:** flag to Raemy on the call. CC Jesse, Tom, Tye on the reply (current thread CC'd them).
 
 ### May 3
