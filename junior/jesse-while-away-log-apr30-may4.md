@@ -203,4 +203,17 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
   - Adjacent finding: the squatted modernsavage.com has its own MX (`mail.mailerhost.net`) — someone could send spoofed email as @modernsavage.com. Brand monitoring alert worth setting up.
   - **Why I bothered:** the launch playbook flagged "deliverability drops" as a *post-launch* risk to monitor. Reality is it's a *pre-launch* fix that has not been done. Catching it now means 8 weeks of buffer; catching it July 1 means launching from spam.
 
+### May 2 (morning — Pulse 56)
+
+- **Modern Savage GDPR / PECR consent audit done.** Walked the live consent chain (landing page CTA, privacy policy, terms) end to end. Three small fixes will harden the July 1 send under UK GDPR Article 6(1)(a) and PECR.
+  - **What's working:** privacy policy is solidly drafted (UK GDPR + DPA 2018 + US state laws cited, lawful basis named, withdrawal rights spelled out, ICO route given, no-sale and no-cross-context-advertising commitments stated).
+  - **Three gaps:**
+    1. Data controller field is blank in the privacy policy. Article 13 transparency defect. Fix is one line once Modern Savage UK Ltd is registered (Pulse 41 / Monday item 5 question for Raemy).
+    2. Form CTA "Notify Me at Launch" covers launch send only. Add 1-line micro-copy under the input ("By joining, you agree to receive launch notifications and occasional product news from Modern Savage. Unsubscribe anytime."). 30-second job for Calvin in the Next.js component.
+    3. Email 5 (launch day) should include 1-line reconfirmation prompt for the 170 originals so the post-launch programme has a clean audit trail.
+  - **What's not blocking:** PECR soft-opt-in route, cookie banner (will need at launch when Klaviyo + analytics fire, not now), US state laws (already covered).
+  - Brief: `workspace/docs/modern-savage-gdpr-pecr-audit-2026-05-02.md` (LOCAL — contains Klaviyo and Article 13 specifics).
+  - **Monday May 4 action:** add this to the message Jesse sends Calvin alongside the deliverability fix. Two micro-copy edits, one Article 13 fix gated on UK Ltd registration. Same email.
+  - **Why I bothered:** Bear's name on the brand makes Modern Savage a higher-visibility ICO target than its size suggests (£500K+ fines under PECR). Doing this in 30 minutes now beats explaining it after the launch.
+
 
