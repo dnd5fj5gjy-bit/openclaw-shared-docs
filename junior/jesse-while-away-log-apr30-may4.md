@@ -217,3 +217,20 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
   - **Why I bothered:** Bear's name on the brand makes Modern Savage a higher-visibility ICO target than its size suggests (£500K+ fines under PECR). Doing this in 30 minutes now beats explaining it after the launch.
 
 
+
+### May 2 (morning — Pulse 57)
+
+- **Launch date reality check — Lightning Nutra ship date is still unconfirmed and now mathematically constrained.** Walked the SuperHero Add On thread end-to-end. April 27 13:09 — Chris Liming confirms deposit received and "I will notify the team to begin working on R&D NOW." That's the formal R&D start. Five working days have passed without follow-up. CJ was supposed to email Chris this week per the April 28 launch-readiness doc — that email has not been sent.
+- **The math:** R&D start April 27 + 4 weeks = May 25 spec sign-off. Production 8-12 weeks = ship July 24 to August 24. Transit + customs 2 weeks = product-at-UK-fulfilment August 7 to September 7 in worst-realistic case. Optimistic case (informal R&D already done by Andrew Kouvel, production started April 27): product July 4-7. Even the optimistic case is a few days late for a "buy and ship" July 1 launch.
+- **Decision Jesse needs to make before sailing:** Model A — launch July 1 as a clearly-disclosed pre-order with explicit ship date on Email 5 and Stripe checkout. Or Model B — move the launch date to product-at-warehouse + 1 week buffer. Recommendation: Model A if confirmed ship date is on or before July 14. Model B if it slips beyond.
+- **Adjacent finding:** modernsavage.co has /privacy and /terms but no /shipping or /refunds policy page. Both are required under UK Distance Selling Regs at point of purchase. Junior building drafts to drop in once the model is locked.
+- Brief: `workspace/docs/modern-savage-launch-date-reality-check-2026-05-02.md` (LOCAL — has math, draft Raemy/CJ replies, the model decision tree, knock-on changes for Stripe/Email 5/refunds page).
+- **Monday May 4 action:** 3-line forward to CJ (with Raemy copied) demanding written ship date by Wednesday May 7 EOD US. Raemy's follow-up draft included.
+- **Why this is the biggest pre-launch risk left:** the deliverability + GDPR fixes are 30-minute Calvin jobs. The ship date is the launch-stopper. Five days of CJ silence on it is the pattern that needs breaking, not the date itself.
+
+### May 2 (mid-morning — Pulse 58)
+
+- **Shipping and Refunds policy drafts built** — the two missing legal pages on modernsavage.co. Without these on July 1 every Stripe checkout is technically non-compliant (UK Consumer Contracts Regulations 2013 + Consumer Rights Act 2015). Drafts are written for both UK and US customers, founding-member 170-list call-outs included, pre-order vs delayed-launch placeholders ready to fill once Model A or B is locked.
+- Brief: `workspace/docs/modern-savage-shipping-refunds-policy-drafts-2026-05-02.md` (LOCAL — paste-ready text for /shipping and /refunds, plus a Calvin/Tammy implementation checklist).
+- **Monday action:** Calvin or Tammy publishes both pages and updates the Stripe checkout legal text. 1-hour job. Should be in the same Calvin Monday email as deliverability + GDPR + handles.
+- Open dependencies: Ships A Lot UK returns address (Susan U has it), Modern Savage UK Ltd registered office (waiting on Companies House), confirmed ship date if Model A.
