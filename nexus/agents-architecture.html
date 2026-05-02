@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexus — Agent Fleet Technical Architecture</title>
+<style>
+  :root {
+    --bg: #0b0d12; --panel: #161922; --panel2: #1c2030; --line: #262b3d;
+    --text: #e8eaf0; --muted: #8590a8; --accent: #6ea8ff; --accent2: #a685ff;
+    --ok: #4ade80; --bad: #ef4444; --warn: #fbbf24;
+    --code-bg: #0f1218;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 28px 80px; max-width: 1480px; margin: 0 auto;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "SF Pro Display", "Inter", system-ui, sans-serif;
+    font-size: 14px; line-height: 1.55;
+  }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 38px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 15px; margin: 0; font-weight: 700; }
+  .lead { color: var(--muted); margin: 0 0 24px; max-width: 780px; }
+  .meta { color: var(--muted); font-size: 12px; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 18px 0 28px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat .n { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .stat .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 18px; }
+  .agent-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .agent-card header { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .agent-card .emoji { font-size: 26px; }
+  .agent-card .agent-id { color: var(--muted); font-size: 12px; font-weight: 400; margin-left: 6px; }
+  .agent-card .sub { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+
+  .kv-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
+  .kv { display: grid; grid-template-columns: 130px 1fr; align-items: start; gap: 10px; padding: 4px 0; }
+  .kv > span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
+  .kv code { background: var(--code-bg); padding: 3px 8px; border-radius: 5px; font-size: 12px; word-break: break-word; line-height: 1.5; }
+  .kv .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .dot.ok { background: var(--ok); }
+  .dot.bad { background: var(--bad); }
+
+  .sections-detail { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .sections-detail summary { cursor: pointer; color: var(--muted); font-size: 12px; }
+  .sections { margin: 8px 0 0 0; padding: 0; list-style: none; columns: 2; column-gap: 18px; }
+  .sections li { font-size: 11.5px; color: var(--text); padding: 1px 0; break-inside: avoid; }
+  .sections .ln { color: var(--muted); font-size: 10px; margin-right: 4px; }
+  .sections .more { color: var(--muted); font-style: italic; }
+
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+  .panel h3 { font-size: 14px; margin: 0 0 12px; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .twocol .panel ul { margin: 0; padding-left: 18px; max-height: 340px; overflow-y: auto; }
+  .twocol .panel ul li { font-size: 12px; padding: 2px 0; }
+  .twocol .panel ul li code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; }
+
+  pre {
+    background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px; font-size: 11.5px; overflow: auto; max-height: 380px;
+    color: #cbd5e1; line-height: 1.55;
+  }
+  code { font-family: "SF Mono", Menlo, monospace; }
+
+  .channel-row { display: grid; grid-template-columns: 200px 130px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .channel-row:last-child { border: none; }
+  .channel-row b { color: var(--accent); }
+  .channel-row .desc { color: var(--muted); font-size: 12.5px; }
+  .channel-row .file { font-family: "SF Mono", Menlo, monospace; font-size: 11px; color: var(--text); }
+
+  .flow { background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin: 14px 0;
+    font-family: "SF Mono", Menlo, monospace; font-size: 12px; line-height: 1.7; color: #cfd6e6; white-space: pre; overflow-x: auto; }
+
+  .recent-comms li { list-style: none; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+  .recent-comms .ts { color: var(--muted); font-size: 11px; margin-right: 8px; font-family: "SF Mono", Menlo, monospace; }
+  .recent-comms .type { color: var(--accent2); font-size: 10.5px; margin: 0 6px; }
+
+  .pain { background: linear-gradient(180deg, #2a1a22, #1c2030); border: 1px solid #4a2a3a; border-radius: 12px; padding: 18px 22px; }
+  .pain h3 { color: #ffb4b4; }
+  .pain ul { margin: 0; padding-left: 18px; }
+  .pain li { font-size: 13px; padding: 6px 0; }
+
+  .footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Nexus — Agent Fleet Technical Architecture</h1>
+<p class="lead">A precise, introspected map of how the six agents work: their files, memory, tools, listeners, scheduled jobs, and how they talk to each other. Generated live by inspecting the filesystem and running processes.</p>
+<p class="meta">Generated 2026-05-02 14:33  · 6 agents · 18 shared tools · 24 LaunchAgents</p>
+
+<div class="stat-row">
+  <div class="stat"><div class="n">6</div><div class="l">agents</div></div>
+  <div class="stat"><div class="n">5/6</div><div class="l">listeners up</div></div>
+  <div class="stat"><div class="n">2,289</div><div class="l">total CLAUDE.md lines</div></div>
+  <div class="stat"><div class="n">1,088</div><div class="l">HOT memory lines</div></div>
+  <div class="stat"><div class="n">0</div><div class="l">memory-db entries</div></div>
+  <div class="stat"><div class="n">18</div><div class="l">shared tools</div></div>
+  <div class="stat"><div class="n">24</div><div class="l">LaunchAgents</div></div>
+</div>
+
+<h2>1 · Per-agent technical profile</h2>
+<div class="grid">
+  
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🟦</span>
+        <div>
+          <h3>Junior<span class="agent-id">/junior</span></h3>
+          <p class="sub">Executive Assistant + Team Leader</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>Jesse Grylls</code></div>
+        <div class="kv"><span>tier</span><code>Tier 1 — Strategic / cross-cutting</code></div>
+        <div class="kv"><span>chat_id</span><code>8086020055</code></div>
+        <div class="kv"><span>listener</span><span class='dot ok'></span><code>running</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>467 lines, 22 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>—</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>680 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>34 lines</code></div>
+        <div class="kv"><span>projects</span><code>3 files</code></div>
+        <div class="kv"><span>domains</span><code>0 files</code></div>
+        <div class="kv"><span>people memory</span><code>5 records</code></div>
+        <div class="kv"><span>personality.md</span><code>no</code></div>
+        <div class="kv"><span>exportable.md</span><code>yes (whitelist)</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        <div class="kv"><span>workspace tools</span><code>life-process.py, morning_voice_brief.py, tunnel-watchdog.sh</code></div>
+        <div class="kv"><span>recent daily logs</span><code>mgk-toolkit-secrets-2026-05-01.md, teds-health.md, whatsapp-context-2026-04-21.md, whatsapp-context-synthesised.md, working-buffer.md</code></div>
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (22)</summary>
+        <ul class="sections"><li><span class="ln">L9</span> WHO YOU ARE</li><li><span class="ln">L20</span> CORE TRUTHS</li><li><span class="ln">L30</span> YOUR TEAM</li><li><span class="ln">L40</span> USER CONTEXT — JESSE</li><li><span class="ln">L63</span> HOW YOU COMMUNICATE</li><li><span class="ln">L77</span> TELEGRAM BEHAVIOUR</li><li><span class="ln">L105</span> AUTONOMOUS EXECUTION — THE #1 RULE</li><li><span class="ln">L129</span> EMAIL &amp; CALENDAR — CRITICAL CAPABILITY</li><li><span class="ln">L188</span> HEARTBEAT PROTOCOL</li><li><span class="ln">L220</span> TASK PERSISTENCE — CRITICAL</li><li><span class="ln">L230</span> MEMORY &amp; SELF-IMPROVEMENT</li><li><span class="ln">L265</span> INTER-AGENT COMMUNICATIONS</li><li><span class="ln">L279</span> TOOLS &amp; INTEGRATIONS</li><li><span class="ln">L338</span> DOCUMENT SHARING — CRITICAL DO NOT VIOLATE</li><li><span class="ln">L364</span> CONFIDENTIALITY — ABSOLUTE</li><li><span class="ln">L372</span> HARD SAFETY RULES</li><li><span class="ln">L384</span> WHAT YOU NEVER DO</li><li><span class="ln">L395</span> CONTINUITY</li><li><span class="ln">L401</span> WRITING QUALITY (for emails)</li><li><span class="ln">L412</span> DIRECTORY STRUCTURE</li><li><span class="ln">L445</span> ISOLATION PROTOCOL (added 2026-05-02)</li><li><span class="ln">L463</span> LONG TASKS — CHECKPOINT TO DISK (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🔗</span>
+        <div>
+          <h3>Nexus<span class="agent-id">/nexus</span></h3>
+          <p class="sub">Personal agent + Technical Lead</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>Felix Bond</code></div>
+        <div class="kv"><span>tier</span><code>Tier 2 — Systems / engineering</code></div>
+        <div class="kv"><span>chat_id</span><code>8325999298</code></div>
+        <div class="kv"><span>listener</span><span class='dot ok'></span><code>running</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>551 lines, 23 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>—</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>72 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>41 lines</code></div>
+        <div class="kv"><span>projects</span><code>0 files</code></div>
+        <div class="kv"><span>domains</span><code>1 files</code></div>
+        <div class="kv"><span>people memory</span><code>5 records</code></div>
+        <div class="kv"><span>personality.md</span><code>yes</code></div>
+        <div class="kv"><span>exportable.md</span><code>yes (whitelist)</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        <div class="kv"><span>workspace tools</span><code>ad_copy_gen.py, affiliate_pipeline.sh, architecture-audit.py, architecture-render.py, bgv-brand-monitor.py, build-architecture-dashboard.py, buzzbassador_gen.js, competitor_ads_scraper.py, generate-agent-status.py, generate-dashboard.py, generate-hub.py, generate-replay.py, isolation-audit.py, memory_backfill.json, memory_extract.py, memory_query.py, memory_seed.json, morning-digest.py +8</code></div>
+        <div class="kv"><span>recent daily logs</span><code>2026-04-03.md, 2026-04-05.md, 2026-05-02.md, Felix-Bond.md, working-buffer.md</code></div>
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (23)</summary>
+        <ul class="sections"><li><span class="ln">L9</span> WHO YOU ARE</li><li><span class="ln">L22</span> CORE TRUTHS</li><li><span class="ln">L32</span> YOUR TEAM</li><li><span class="ln">L49</span> HOW YOU COMMUNICATE</li><li><span class="ln">L63</span> USER CONTEXT</li><li><span class="ln">L73</span> TELEGRAM BEHAVIOUR</li><li><span class="ln">L126</span> AUTONOMOUS EXECUTION — THE #1 RULE</li><li><span class="ln">L161</span> HEARTBEAT PROTOCOL — AUTONOMOUS EXECUTION LOOP</li><li><span class="ln">L188</span> task-name-here</li><li><span class="ln">L209</span> PROACTIVE WORK (when truly idle)</li><li><span class="ln">L225</span> TASK PERSISTENCE — CRITICAL</li><li><span class="ln">L236</span> MEMORY &amp; SELF-IMPROVEMENT</li><li><span class="ln">L319</span> INTER-AGENT COMMUNICATIONS</li><li><span class="ln">L337</span> TOOLS &amp; INTEGRATIONS</li><li><span class="ln">L417</span> CONFIDENTIALITY — ABSOLUTE</li><li><span class="ln">L425</span> DOCUMENT SHARING — CRITICAL DO NOT VIOLATE</li><li><span class="ln">L454</span> HARD SAFETY RULES</li><li><span class="ln">L465</span> WHAT YOU NEVER DO</li><li><span class="ln">L476</span> CONTINUITY</li><li><span class="ln">L484</span> WRITING QUALITY RULES (for emails and external communications)</li><li><span class="ln">L495</span> DIRECTORY STRUCTURE</li><li><span class="ln">L529</span> ISOLATION PROTOCOL (added 2026-05-02)</li><li><span class="ln">L547</span> LONG TASKS — CHECKPOINT TO DISK (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🛰️</span>
+        <div>
+          <h3>HAL<span class="agent-id">/hal</span></h3>
+          <p class="sub">Personal agent</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>CJ Cardenas</code></div>
+        <div class="kv"><span>tier</span><code>Tier 2 — Personal ops</code></div>
+        <div class="kv"><span>chat_id</span><code>8643996557</code></div>
+        <div class="kv"><span>listener</span><span class='dot ok'></span><code>running</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>273 lines, 17 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>—</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>185 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>0 lines</code></div>
+        <div class="kv"><span>projects</span><code>1 files</code></div>
+        <div class="kv"><span>domains</span><code>0 files</code></div>
+        <div class="kv"><span>people memory</span><code>10 records</code></div>
+        <div class="kv"><span>personality.md</span><code>no</code></div>
+        <div class="kv"><span>exportable.md</span><code>yes (whitelist)</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        <div class="kv"><span>workspace tools</span><code>morning-brief.py, morning_voice_brief.py</code></div>
+        
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (17)</summary>
+        <ul class="sections"><li><span class="ln">L9</span> WHO YOU ARE</li><li><span class="ln">L20</span> CORE TRUTHS</li><li><span class="ln">L30</span> YOUR TEAM</li><li><span class="ln">L43</span> USER CONTEXT</li><li><span class="ln">L52</span> HOW YOU COMMUNICATE</li><li><span class="ln">L66</span> TELEGRAM BEHAVIOUR</li><li><span class="ln">L90</span> AUTONOMOUS EXECUTION — THE #1 RULE</li><li><span class="ln">L105</span> HEARTBEAT PROTOCOL</li><li><span class="ln">L131</span> MEMORY &amp; SELF-IMPROVEMENT</li><li><span class="ln">L146</span> INTER-AGENT COMMUNICATIONS</li><li><span class="ln">L156</span> TOOLS &amp; INTEGRATIONS</li><li><span class="ln">L194</span> HARD SAFETY RULES</li><li><span class="ln">L203</span> WHAT YOU NEVER DO</li><li><span class="ln">L212</span> DOCUMENT SHARING</li><li><span class="ln">L225</span> DIRECTORY STRUCTURE</li><li><span class="ln">L251</span> ISOLATION PROTOCOL (added 2026-05-02)</li><li><span class="ln">L269</span> LONG TASKS — CHECKPOINT TO DISK (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🩺</span>
+        <div>
+          <h3>Ted<span class="agent-id">/ted</span></h3>
+          <p class="sub">Ted&#x27;s Health business agent</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>Olly Westmacott (Ted&#x27;s Health)</code></div>
+        <div class="kv"><span>tier</span><code>Tier 3 — Vertical (Ted&#x27;s Health)</code></div>
+        <div class="kv"><span>chat_id</span><code>8086020055 (Olly via shared)</code></div>
+        <div class="kv"><span>listener</span><span class='dot ok'></span><code>running</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>264 lines, 15 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>—</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>88 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>3 lines</code></div>
+        <div class="kv"><span>projects</span><code>0 files</code></div>
+        <div class="kv"><span>domains</span><code>0 files</code></div>
+        <div class="kv"><span>people memory</span><code>10 records</code></div>
+        <div class="kv"><span>personality.md</span><code>no</code></div>
+        <div class="kv"><span>exportable.md</span><code>yes (whitelist)</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        <div class="kv"><span>workspace tools</span><code>morning_voice_brief.py</code></div>
+        
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (15)</summary>
+        <ul class="sections"><li><span class="ln">L9</span> WHO YOU ARE</li><li><span class="ln">L20</span> CORE TRUTHS</li><li><span class="ln">L29</span> YOUR TEAM</li><li><span class="ln">L42</span> HOW YOU COMMUNICATE</li><li><span class="ln">L56</span> USER CONTEXT</li><li><span class="ln">L64</span> TELEGRAM BEHAVIOUR</li><li><span class="ln">L94</span> AUTONOMOUS EXECUTION — THE #1 RULE</li><li><span class="ln">L110</span> HEARTBEAT PROTOCOL</li><li><span class="ln">L133</span> MEMORY &amp; SELF-IMPROVEMENT</li><li><span class="ln">L143</span> INTER-AGENT COMMUNICATIONS</li><li><span class="ln">L156</span> TOOLS &amp; INTEGRATIONS</li><li><span class="ln">L204</span> HARD SAFETY RULES</li><li><span class="ln">L213</span> DIRECTORY STRUCTURE</li><li><span class="ln">L242</span> ISOLATION PROTOCOL (added 2026-05-02)</li><li><span class="ln">L260</span> LONG TASKS — CHECKPOINT TO DISK (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🎩</span>
+        <div>
+          <h3>Q<span class="agent-id">/q</span></h3>
+          <p class="sub">Personal agent (private, isolated)</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>Bear Grylls</code></div>
+        <div class="kv"><span>tier</span><code>Tier 1 — Principal-only</code></div>
+        <div class="kv"><span>chat_id</span><code>8607504410</code></div>
+        <div class="kv"><span>listener</span><span class='dot ok'></span><code>running</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>330 lines, 16 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>present</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>47 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>22 lines</code></div>
+        <div class="kv"><span>projects</span><code>0 files</code></div>
+        <div class="kv"><span>domains</span><code>0 files</code></div>
+        <div class="kv"><span>people memory</span><code>0 records</code></div>
+        <div class="kv"><span>personality.md</span><code>yes</code></div>
+        <div class="kv"><span>exportable.md</span><code>no</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        <div class="kv"><span>workspace tools</span><code>ingest-team-learnings.py, memory_query.py, wakeup.py</code></div>
+        <div class="kv"><span>recent daily logs</span><code>working-buffer.md</code></div>
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (16)</summary>
+        <ul class="sections"><li><span class="ln">L11</span> THE FIRST RULE — PRIVACY IS EVERYTHING</li><li><span class="ln">L57</span> WHO YOU ARE</li><li><span class="ln">L69</span> CORE TRUTHS</li><li><span class="ln">L79</span> YOUR TEAM (and what you tell them about Bear)</li><li><span class="ln">L98</span> INHERITED WISDOM</li><li><span class="ln">L118</span> HOW YOU COMMUNICATE WITH BEAR</li><li><span class="ln">L151</span> AUTONOMOUS EXECUTION</li><li><span class="ln">L167</span> MEMORY ARCHITECTURE</li><li><span class="ln">L193</span> RESILIENCE</li><li><span class="ln">L204</span> TOOLS</li><li><span class="ln">L228</span> HARD RULES (read every session)</li><li><span class="ln">L243</span> DIRECTORY STRUCTURE</li><li><span class="ln">L280</span> FIRST SESSION CHECKLIST</li><li><span class="ln">L292</span> EVERY SESSION CHECKLIST</li><li><span class="ln">L302</span> CONTINUITY</li><li><span class="ln">L315</span> ISOLATION PROTOCOL (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+    <article class="agent-card">
+      <header>
+        <span class="emoji">🏔️</span>
+        <div>
+          <h3>BGV<span class="agent-id">/bgv</span></h3>
+          <p class="sub">Business operations agent</p>
+        </div>
+      </header>
+
+      <div class="kv-grid">
+        <div class="kv"><span>principal</span><code>Shared (BGV business)</code></div>
+        <div class="kv"><span>tier</span><code>Tier 3 — Vertical (BGV ops)</code></div>
+        <div class="kv"><span>chat_id</span><code>—</code></div>
+        <div class="kv"><span>listener</span><span class='dot bad'></span><code>DOWN</code></div>
+        <div class="kv"><span>CLAUDE.md</span><code>404 lines, 21 sections</code></div>
+        <div class="kv"><span>SKILLS.md</span><code>—</code></div>
+        <div class="kv"><span>HOT memory.md</span><code>16 lines</code></div>
+        <div class="kv"><span>corrections.md</span><code>3 lines</code></div>
+        <div class="kv"><span>projects</span><code>0 files</code></div>
+        <div class="kv"><span>domains</span><code>0 files</code></div>
+        <div class="kv"><span>people memory</span><code>0 records</code></div>
+        <div class="kv"><span>personality.md</span><code>no</code></div>
+        <div class="kv"><span>exportable.md</span><code>no</code></div>
+        <div class="kv"><span>memory-db</span><code>—</code></div>
+        
+        <div class="kv"><span>recent daily logs</span><code>2026-03-31.md, 2026-04-01.md, goals.md, working-buffer.md</code></div>
+      </div>
+
+      <details class="sections-detail">
+        <summary>CLAUDE.md sections (21)</summary>
+        <ul class="sections"><li><span class="ln">L9</span> WHO YOU ARE</li><li><span class="ln">L20</span> CORE TRUTHS</li><li><span class="ln">L30</span> YOUR TEAM</li><li><span class="ln">L46</span> HOW YOU COMMUNICATE</li><li><span class="ln">L59</span> USER CONTEXT</li><li><span class="ln">L68</span> TELEGRAM BEHAVIOUR</li><li><span class="ln">L105</span> AUTONOMOUS EXECUTION — THE #1 RULE</li><li><span class="ln">L130</span> EMAIL &amp; CALENDAR — ABSOLUTE HARD RULES</li><li><span class="ln">L156</span> HEARTBEAT PROTOCOL — AUTONOMOUS EXECUTION LOOP</li><li><span class="ln">L191</span> PROACTIVE WORK (when truly idle)</li><li><span class="ln">L205</span> TASK PERSISTENCE — CRITICAL</li><li><span class="ln">L215</span> MEMORY &amp; SELF-IMPROVEMENT</li><li><span class="ln">L264</span> INTER-AGENT COMMUNICATIONS</li><li><span class="ln">L281</span> TOOLS &amp; INTEGRATIONS</li><li><span class="ln">L320</span> DOCUMENT SHARING — CRITICAL DO NOT VIOLATE</li><li><span class="ln">L333</span> DOCUMENT DELIVERY RULES — CRITICAL</li><li><span class="ln">L341</span> HARD SAFETY RULES</li><li><span class="ln">L353</span> WHAT YOU NEVER DO</li><li><span class="ln">L364</span> CONTINUITY</li><li><span class="ln">L370</span> DIRECTORY STRUCTURE</li><li><span class="ln">L400</span> LONG TASKS — CHECKPOINT TO DISK (added 2026-05-02)</li></ul>
+      </details>
+    </article>
+    
+</div>
+
+<h2>2 · Inter-agent communication channels</h2>
+<div class="panel">
+  <div class="channel-row">
+    <b>agent-comms.jsonl</b>
+    <span class="desc">Broadcast log</span>
+    <div>
+      <span class="file">~/agents/nexus/workspace/agent-comms.jsonl</span><br>
+      <span class="desc">All agents append JSON lines here. Used for status updates, insights, ideas. Never carries user-private context (post-isolation rule, 2026-05-02). Format: <code>{id, from, to, message, type, timestamp}</code>. Types: <i>insight, idea, status, question, task, message</i>.</span>
+    </div>
+  </div>
+  <div class="channel-row">
+    <b>agent-tasks.jsonl</b>
+    <span class="desc">Task tracking</span>
+    <div>
+      <span class="file">~/agents/nexus/workspace/agent-tasks.jsonl</span><br>
+      <span class="desc">Active/queued/done state for cross-agent work. Format: <code>{id, agent, title, status, startedAt, ...}</code>.</span>
+    </div>
+  </div>
+  <div class="channel-row">
+    <b>pending-messages.jsonl</b>
+    <span class="desc">Direct messages</span>
+    <div>
+      <span class="file">~/agents/&lt;agent&gt;/workspace/pending-messages.jsonl</span><br>
+      <span class="desc">Per-agent DM inbox. Used for agent-to-agent direct messages and listener-injected user messages. Drained by the receiving agent's heartbeat or listener.</span>
+    </div>
+  </div>
+  <div class="channel-row">
+    <b>share-knowledge.py</b>
+    <span class="desc">Formal hand-off</span>
+    <div>
+      <span class="file">~/agents/shared/tools/share-knowledge.py</span><br>
+      <span class="desc">Sole sanctioned path to copy a piece of knowledge from one agent to another. Logs provenance (who shared, when, why). Used after isolation lockdown.</span>
+    </div>
+  </div>
+  <div class="channel-row">
+    <b>exportable.md</b>
+    <span class="desc">Whitelist (per-agent)</span>
+    <div>
+      <span class="file">~/agents/&lt;agent&gt;/self-improving/exportable.md</span><br>
+      <span class="desc">The ONLY part of an agent's self-improving memory that other agents may ingest. Contains operational lessons stripped of user-private context. Q's ingestion script reads only this file from each peer.</span>
+    </div>
+  </div>
+  <div class="channel-row">
+    <b>self-improving/ (PRIVATE)</b>
+    <span class="desc">Walled garden</span>
+    <div>
+      <span class="file">~/agents/&lt;agent&gt;/self-improving/</span><br>
+      <span class="desc">Private memory. No other agent reads. Holds memory.md (HOT), corrections.md, personality.md, projects/, domains/, people/, archive/. Cross-agent access goes through the four channels above — not by reading each other's files.</span>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top: 18px; color: var(--muted); font-size: 12px;">Telegram message flow (a single user message, end to end)</h3>
+<div class="flow">User → Telegram bot (e.g. @felixs_nexus_bot)
+        ↓
+telegram_listener.py --agent &lt;name&gt;       (long-poll getUpdates, allowlist check)
+        ↓ (allowed)
+recently-delivered.jsonl  +  log to ~/agents/logs/telegram-&lt;agent&gt;.log
+        ↓
+tmux send-keys → agents:&lt;agent&gt; window  → Claude Code session
+        ↓
+Assistant reads queue, executes, calls send_telegram.py
+        ↓
+sendMessage / sendVoice → Telegram → user</div>
+
+<h3 style="margin-top: 22px; color: var(--muted); font-size: 12px;">Recent agent-comms broadcasts</h3>
+<ul class="recent-comms"><li><span class="ts">04-30 08:30</span> <b>nexus → all</b> <span class="type">[insight]</span> Daily brand monitor complete. 9 notable items across BGV portfolio. Report: https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/nexus/brand-monitor-latest.htm</li><li><span class="ts">05-01 04:03</span> <b>nexus → all</b> <span class="type">[insight]</span> Nightly build: voice-audit.py — self-audits my outputs for sycophancy, AI-isms, hedging, padding, and conviction. Scores against personality.md ideals. Catches </li><li><span class="ts">05-01 08:30</span> <b>nexus → all</b> <span class="type">[insight]</span> Daily brand monitor complete. 11 notable items across BGV portfolio. Report: https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/nexus/brand-monitor-latest.ht</li><li><span class="ts">05-02 01:22</span> <b>nexus → all</b> <span class="type">[insight]</span> Architecture fix: shipped agent isolation protocol after Felix flagged cross-agent leakage (Ted had Felix&#x27;s chat_id + a Felix-to-Nexus mandate in HOT memory). B</li><li><span class="ts">05-02 08:30</span> <b>nexus → all</b> <span class="type">[insight]</span> Daily brand monitor complete. 12 notable items across BGV portfolio. Report: https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/nexus/brand-monitor-latest.ht</li></ul>
+
+<h2>3 · Memory architecture</h2>
+<div class="twocol">
+  <div class="panel">
+    <h3>Per-agent tiers</h3>
+    <p style="margin: 0 0 10px; font-size: 13px; color: var(--muted);">All under <code>~/agents/&lt;agent&gt;/self-improving/</code>.</p>
+    <ul>
+      <li><b>HOT</b> — <code>memory.md</code>: always loaded into context. ≤100 lines. Core preferences, rules, hot patterns.</li>
+      <li><b>WARM</b> — <code>projects/</code>, <code>domains/</code>: loaded when topic-relevant.</li>
+      <li><b>COLD</b> — <code>archive/</code>: demoted, rarely read.</li>
+      <li><b>Corrections</b> — <code>corrections.md</code>: last 50 user corrections.</li>
+      <li><b>Personality</b> — <code>personality.md</code>: voice, opinions, tone.</li>
+      <li><b>People</b> — <code>people/&lt;name&gt;.json</code>: relationship records.</li>
+      <li><b>Permanent DB</b> — <code>memory-db.jsonl</code>: searchable, append-only. Authoritative.</li>
+      <li><b>Daily logs</b> — <code>workspace/memory/YYYY-MM-DD.md</code>: per-day exhaust.</li>
+      <li><b>Working buffer</b> — <code>workspace/memory/working-buffer.md</code>: context-recovery scratchpad.</li>
+      <li><b>Lessons</b> — <code>workspace/.learnings/{LEARNINGS,ERRORS}.md</code>.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Shared resources (~/agents/shared/)</h3>
+    <p style="margin: 0 0 6px; font-size: 12px; color: var(--muted);">memory/ — fleet-wide reference (29 user-specific lines flagged for prune, 2026-05-02)</p>
+    <ul><li><code>index.md</code></li><li><code>memory.md</code></li><li><code>skills-ledger.md</code></li></ul>
+    <p style="margin: 14px 0 6px; font-size: 12px; color: var(--muted);">docs/ — protocols & guides</p>
+    <ul><li><code>ISOLATION-PROTOCOL.md</code></li></ul>
+  </div>
+</div>
+
+<h2>4 · Shared tools (~/agents/shared/tools/)</h2>
+<div class="panel">
+  <ul style="columns: 3; column-gap: 28px; margin: 0; padding-left: 18px;"><li><code>agent-watchdog.sh</code></li><li><code>contacts_search.py</code></li><li><code>fetch_instagram.py</code></li><li><code>generate_excel.py</code></li><li><code>generate_image.py</code></li><li><code>generate_voice.py</code></li><li><code>generate_voice_local.py</code></li><li><code>html_to_pdf.js</code></li><li><code>m365_graph.py</code></li><li><code>people_memory.py</code></li><li><code>personal_data_guard.py</code></li><li><code>read_whatsapp.py</code></li><li><code>sanitise_input.py</code></li><li><code>send_telegram.py</code></li><li><code>share-knowledge.py</code></li><li><code>task_heartbeat.py</code></li><li><code>telegram_listener.py</code></li><li><code>web_search.py</code></li></ul>
+</div>
+
+<h2>5 · Scheduled jobs</h2>
+<div class="twocol">
+  <div class="panel">
+    <h3>LaunchAgents (~/Library/LaunchAgents/)</h3>
+    <ul><li><code>ai.lmstudio.server.plist</code></li><li><code>ai.openclaw.dashboard.plist</code></li><li><code>ai.openclaw.gateway.plist</code></li><li><code>ai.openclaw.watchdog.plist</code></li><li><code>com.agents.dashboard.plist</code></li><li><code>com.agents.dialog-watchdog.plist</code></li><li><code>com.agents.hal-morning-brief.plist</code></li><li><code>com.agents.listener-watchdog.plist</code></li><li><code>com.agents.nexus-brand-monitor.plist</code></li><li><code>com.agents.nexus-morning-brief.plist</code></li><li><code>com.agents.nexus-savage-email.plist</code></li><li><code>com.agents.ngrok.plist</code></li><li><code>com.agents.ted-morning-brief.plist</code></li><li><code>com.agents.weekly-restart.plist</code></li><li><code>com.google.GoogleUpdater.wake.plist</code></li><li><code>com.google.keystone.agent.plist</code></li><li><code>com.google.keystone.xpcservice.plist</code></li><li><code>com.junior.life-process.plist</code></li><li><code>com.junior.pulse.plist</code></li><li><code>com.junior.tunnel-watchdog.plist</code></li><li><code>com.openclaw.github-sync.plist</code></li><li><code>homebrew.mxcl.colima.plist</code></li><li><code>homebrew.mxcl.tor.plist</code></li><li><code>pm2.bgvai.plist</code></li></ul>
+  </div>
+  <div class="panel">
+    <h3>crontab</h3>
+    <pre># =============================================================================
+# Agent Heartbeat Cron Jobs
+# Install with: crontab ~/agents/config/crontab.txt
+# Last updated: 2026-04-07
+# =============================================================================
+
+# --- All agents: heartbeat every 4 hours ---
+0 */4 * * * /bin/bash /Users/bgvai/agents/config/heartbeat.sh nexus
+10 */4 * * * /bin/bash /Users/bgvai/agents/config/heartbeat.sh junior
+20 */4 * * * /bin/bash /Users/bgvai/agents/config/heartbeat.sh hal
+30 */4 * * * /bin/bash /Users/bgvai/agents/config/heartbeat.sh ted
+
+# --- Junior: nightly autonomous build (2 AM UK time = 01:00 UTC during BST) ---
+0 1 * * * /bin/bash /Users/bgvai/agents/config/heartbeat-nightly.sh junior
+
+# --- Nexus: nightly surprise for Felix (2 AM UK time) ---
+0 1 * * * /bin/bash /Users/bgvai/agents/config/heartbeat-nightly.sh nexus
+
+# --- HAL: morning intelligence brief to CJ at 7am daily ---
+0 7 * * * /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/bgvai/agents/hal/workspace/tools/morning-brief.py &gt;&gt; /Users/bgvai/agents/logs/hal-morning-brief.log 2&gt;&amp;1
+
+# --- Dashboard regeneration every 5 minutes ---
+# NOTE: watchdog also regenerates on every 2min cycle. This is a fallback.
+*/5 * * * * /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/bgvai/agents/nexus/workspace/tools/generate-dashboard.py &gt;&gt; /Users/bgvai/agents/nexus/workspace/.learnings/dashboard-cron.log 2&gt;&amp;1
+
+# --- Junior: reminder checker every 30 min (precise one-off reminders) ---
+*/30 * * * * /bin/bash /Users/bgvai/agents/config/check-reminders.sh &gt;&gt; /Users/bgvai/agents/logs/reminders.log 2&gt;&amp;1
+
+# --- Junior: morning brief at 6am UTC (7am BST) ---
+0 5 * * * /usr/bin/python3 /Users/bgvai/agents/junior/workspace/morning-brief.py &gt;&gt; /Users/bgvai/agents/logs/junior-morning-brief.log 2&gt;&amp;1
+
+# --- Junior: pre-meeting intelligence check every 30 min ---
+*/30 * * * * /usr/bin/python3 /Users/bgvai/agents/junior/workspace/pre-meeting-intel.py &gt;&gt; /Users/bgvai/agents/logs/junior-pre-meeting.log 2&gt;&amp;1</pre>
+  </div>
+</div>
+
+<h2>6 · tmux topology (session: agents)</h2>
+<div class="panel">
+  <p style="margin: 0 0 10px; font-size: 13px; color: var(--muted);">Each agent runs Claude Code inside a tmux window. Listeners <code>send-keys</code> to inject user messages. The watchdog respawns dead windows.</p>
+  <ul style="margin: 0; padding-left: 18px;"><li><code>0: nexus (2 panes) [80x24] [layout 3ca0,80x24,0,0[80x18,0,0,0,80x5,0,19,1]] @0</code></li><li><code>1: hal (3 panes) [80x24] [layout 149f,80x24,0,0[80x12,0,0,7,80x5,0,13,10,80x5,0,19,8]] @4</code></li><li><code>2: junior (2 panes) [80x24] [layout fc08,80x24,0,0[80x18,0,0,11,80x5,0,19,12]] @6</code></li><li><code>3: ted (1 panes) [80x24] [layout b263,80x24,0,0,6] @3</code></li><li><code>4: whatsapp- (1 panes) [147x39] [layout 68b4,147x39,0,0,15] @9</code></li><li><code>5: q* (2 panes) [147x39] [layout 6f7d,147x39,0,0[147x33,0,0,16,147x5,0,34,17]] @10 (active)</code></li></ul>
+</div>
+
+<h2>7 · Watchdogs &amp; safety layers</h2>
+<div class="panel">
+  <ul>
+    <li><b>agent-watchdog.sh</b> — <code>~/agents/shared/tools/agent-watchdog.sh</code>. Detects dead tmux windows, ECONNRESET storms (3+ Retrying… attempts), API retry-loop freezes. Force-respawns stuck Claude sessions in 90–120s.</li>
+    <li><b>isolation-audit.py</b> — <code>~/agents/nexus/workspace/tools/isolation-audit.py</code>. Nightly scan for cross-agent context leakage. <code>--quarantine</code> moves offending lines to <code>self-improving/.quarantine/</code>. Built 2026-05-02 after Felix flagged Ted holding Felix's chat_id.</li>
+    <li><b>publish guard</b> — <code>~/agents/shared/tools/personal_data_guard.py</code> + GitHub Pages PreCommit hook. Blocks publishing files with email threads, M365 raw data, WhatsApp exports, or personal correspondence patterns. Log: <code>~/agents/shared/logs/publish_blocked.jsonl</code>.</li>
+    <li><b>voice-audit.py</b> — <code>~/agents/nexus/workspace/tools/voice-audit.py</code>. Self-audits assistant outputs for sycophancy, AI-isms, hedging, padding. Scores against personality.md ideals.</li>
+    <li><b>injection_attempts.jsonl</b> — <code>~/agents/shared/logs/</code>. Records prompt-injection attempts caught by sanitise_input.py.</li>
+    <li><b>brand-monitor LaunchAgent</b> — daily 8:30 BGV portfolio scan, output to <code>brand-monitor-latest.html</code>.</li>
+    <li><b>morning briefs</b> — voice-note pipelines (Felix, Jesse, CJ, Olly) at 8:30am UK via Kokoro local TTS.</li>
+  </ul>
+</div>
+
+<h2>8 · Isolation protocol (post 2026-05-02)</h2>
+<div class="panel">
+  <p style="margin: 0 0 10px;">After cross-agent leakage was discovered (Q's ingest script was slurping ~1000 lines of peer memory; Ted held Felix's chat_id and a Felix-to-Nexus mandate in HOT memory), the fleet was locked down:</p>
+  <ul>
+    <li>Each agent's <code>self-improving/</code> directory is <b>private</b>. No other agent reads it.</li>
+    <li>Cross-agent knowledge moves through exactly four channels: <code>agent-comms.jsonl</code>, <code>pending-messages.jsonl</code>, <code>share-knowledge.py</code>, <code>exportable.md</code>.</li>
+    <li>Q's ingest refactored from full-memory-slurp to whitelisted <code>exportable.md</code> only (1000 → 83 lines).</li>
+    <li>All 5 CLAUDE.md files have an ISOLATION PROTOCOL section appended.</li>
+    <li>Doc: <code>~/agents/shared/docs/ISOLATION-PROTOCOL.md</code>.</li>
+  </ul>
+</div>
+
+<h2>9 · Known issues / improvement targets</h2>
+<div class="pain">
+  <h3>Things that are broken or fragile (so we can fix them)</h3>
+  <ul>
+    <li><b>Cron output stepping on user-queued messages</b> (incident 2026-05-02 13:55 → 14:29) — a scheduled Modern Savage inbox check emitted Telegram output while a user message sat unread in the queue. The session never returned to it. <i>Fix in progress: queue-watchdog flagging messages older than 15 min.</i></li>
+    <li><b>Listener placeholder chat_id bug</b> (Q, 2026-05-02) — <code>bear-chat-id.txt</code> shipped with Felix's id. Bear's first two messages were rejected. <i>Fixed; needs onboarding checklist update.</i></li>
+    <li><b>Heartbeat scheduling vs. user latency</b> — heartbeats fire every 4hr. If a user message lands at minute 1 and the session is busy on a cron task, latency to first response can be 0–4hr depending on listener interleave.</li>
+    <li><b>shared/memory/</b> still has 29 user-specific lines flagged for human-reviewed prune (isolation follow-up).</li>
+    <li><b>Junior, HAL, Ted, BGV</b> — none have published <code>exportable.md</code> yet. Q's ingest only sees Nexus's lessons.</li>
+    <li><b>SKILLS.md</b> — only Q has one. The other agents would benefit from a structured skills surface (current shared skills vs per-agent skills is implicit).</li>
+    <li><b>memory.md drift</b> — Sunday 09:00 hygiene cycle exists in CLAUDE.md but no enforcement. Patterns get added, never demoted.</li>
+    <li><b>OpenAI API keys are 401-dead</b> — Kokoro local TTS now standard. generate_voice.py (OpenAI) is still on disk; should be retired or marked deprecated.</li>
+    <li><b>No structured "owner of a task" model</b> — agent-tasks.jsonl tracks tasks per agent but cross-agent dependencies are informal. Would benefit from explicit blocks/blockedBy.</li>
+    <li><b>No fleet-level health dashboard exposed to Felix</b> — agent-status.html exists but pull-only. No proactive page on user-facing latency, queue depth, error rate.</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Built by Nexus. Lives at <code>~/agents/nexus/workspace/tools/build-architecture-dashboard.py</code> — re-run to regenerate.<br>
+  Output: <code>~/agents/nexus/workspace/docs/agents-architecture.html</code> · auto-published to GitHub Pages by the PostToolUse hook.
+</div>
+
+</body>
+</html>
