@@ -145,7 +145,8 @@ Junior downloaded and read the IPO PDF. It is an "Examination and Acceptance for
 - **modernsavage.com refresh.** Re-checked the squatted .com domain. Confirmation: still parked, still expires June 24, registrant hidden behind Domains By Proxy. New nuance: nameservers are giantpanda.com (a domain monetization service for domainers, "intent-matched content for portfolios") and the live page returns a "this domain is coming soon" placeholder. Translation: the owner is a domain investor using a tactic that makes parked domains look pre-launch to inflate resale value, not a Chinese competitor preparing to launch under the MODERN SAVAGE name. The clientRenewProhibited registrar status is a domainer signal that the domain may be groomed for sale. **Implication for you:** if you ever wanted to make an offer for the .com, the cheapest moment is between now and June 24 (before the owner decides to renew or auction). Modernsavage.co is fine for launch — this is optionality, not urgency.
 
 ### May 2
-*(To be filled as events occur)*
+
+- **Kylee MacArthur (Weinberg Gonser) chased Raemy at 01:11 BST.** Two days after the countersigned NDA went back. She is "keeping an eye out for the org chart" so she and Tye Gonser can prepare the Next Steps proposal. Polite chase, not aggressive — but a chase. The US trademark proposal is now gated entirely on Raemy delivering the BGV org chart. The draft Junior built April 29 (`workspace/docs/bgv-corporate-structure-weinberg-gonser-2026-04-29.md`) covers Bear Witness Ltd IoM structure, Modern Savage entity question, UK trademark status, US filing goals, double taxation framing — Raemy needs to verify and send. **Monday action:** flag to Raemy on the call. CC Jesse, Tom, Tye on the reply (current thread CC'd them).
 
 ### May 3
 *(To be filled as events occur)*
