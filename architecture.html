@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Fleet — Live Architecture</title>
+<style>
+:root {
+  --bg: #0b0d12; --panel: #161922; --panel2: #1c2030; --line: #262b3d;
+  --text: #e8eaf0; --muted: #8590a8; --accent: #6ea8ff; --accent2: #a685ff;
+  --ok: #4ade80; --bad: #ef4444; --warn: #fbbf24;
+  --code-bg: #0f1218;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto; padding: 32px 28px 80px; max-width: 1480px;
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, "SF Pro Display", "Inter", system-ui, sans-serif;
+  font-size: 14px; line-height: 1.55;
+}
+h1 { font-size: 28px; margin: 0 0 6px; }
+h2 { font-size: 18px; margin: 38px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+h3 { font-size: 15px; margin: 0 0 8px; font-weight: 700; }
+.lead { color: var(--muted); margin: 0 0 24px; max-width: 780px; }
+.meta { color: var(--muted); font-size: 12px; }
+.grid { display: grid; gap: 16px; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px;
+}
+.card .row { display: flex; justify-content: space-between; gap: 8px; margin: 4px 0; font-size: 13px; }
+.card .row .k { color: var(--muted); }
+.card .row .v { color: var(--text); font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; font-size: 12px; word-break: break-all; text-align: right; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.02em; }
+.pill.ok { background: rgba(74,222,128,0.15); color: var(--ok); border: 1px solid rgba(74,222,128,0.3); }
+.pill.bad { background: rgba(239,68,68,0.15); color: var(--bad); border: 1px solid rgba(239,68,68,0.3); }
+.pill.warn { background: rgba(251,191,36,0.15); color: var(--warn); border: 1px solid rgba(251,191,36,0.3); }
+.pill.muted { background: var(--panel2); color: var(--muted); border: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; background: var(--panel2); }
+tr:hover td { background: var(--panel); }
+code, .mono { font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; font-size: 12px; background: var(--code-bg); padding: 1px 5px; border-radius: 3px; color: #d6e0ff; }
+.mermaid-wrap { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; overflow: auto; }
+ul.flow { list-style: none; padding: 0; margin: 0; counter-reset: f; }
+ul.flow li { counter-increment: f; padding: 10px 12px 10px 44px; position: relative; border-left: 2px solid var(--line); margin-left: 12px; }
+ul.flow li::before { content: counter(f); position: absolute; left: -16px; top: 8px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'base'});</script>
+</head>
+<body>
+  <h1>Agent Fleet — Live Architecture</h1>
+  <p class="lead">Auto-generated from running infrastructure. Refreshes every hour.</p>
+  <p class="meta">Generated <b>2026-05-12 13:25:00 </b></p>
+
+  <h2>Topology</h2>
+  <div class="mermaid-wrap"><div class="mermaid">%%{init: {'theme':'base','themeVariables':{
+  'primaryColor':'#1c2030','primaryTextColor':'#e8eaf0','primaryBorderColor':'#262b3d',
+  'lineColor':'#6ea8ff','secondaryColor':'#161922','tertiaryColor':'#0b0d12',
+  'fontFamily':'-apple-system, system-ui, sans-serif','fontSize':'13px'
+}}}%%
+graph TB
+    U8607504410["👤 Bear<br/><small>8607504410</small>"]
+    U8325999298["👤 Felix<br/><small>8325999298</small>"]
+    U7989359858["👤 Jesse<br/><small>7989359858</small>"]
+    U5533134349["👤 5533134349<br/><small>5533134349</small>"]
+    A_nexus["🔗 NEXUS<br/><small>Claude Code</small>"]
+    A_junior["🎯 JUNIOR<br/><small>Claude Code</small>"]
+    A_hal["🧭 HAL<br/><small>Claude Code</small>"]
+    A_ted["🩺 TED<br/><small>Claude Code</small>"]
+    A_q["🕴️ Q<br/><small>Claude Code</small>"]
+    U8607504410 --> A_q
+    U8325999298 --> A_q
+    U7989359858 --> A_q
+    U5533134349 --> A_q
+    SHARED["🛠️ shared/tools<br/><small>send_telegram · m365 · voice · whatsapp · web</small>"]
+    A_nexus -.-> SHARED
+    A_junior -.-> SHARED
+    A_hal -.-> SHARED
+    A_ted -.-> SHARED
+    A_q -.-> SHARED
+    classDef user fill:#1c2030,stroke:#a685ff,color:#e8eaf0
+    classDef agent fill:#161922,stroke:#6ea8ff,color:#e8eaf0,stroke-width:2px
+    classDef tool fill:#0f1218,stroke:#262b3d,color:#8590a8
+    class U7989359858,U8325999298,U8607504410,U5533134349 user
+    class A_nexus,A_junior,A_hal,A_ted,A_q agent
+    class SHARED tool</div></div>
+
+  <h2>Agents (5)</h2>
+  <div class="grid cards">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3>🔗 NEXUS</h3>
+        <span class="pill ok">running</span>
+      </div>
+      <p class="meta" style="margin:0 0 12px;">Felix&#x27;s personal agent + technical lead of the three-agent team.</p>
+      <div class="row"><span class="k">Model</span><span class="v">sonnet</span></div>
+      <div class="row"><span class="k">Effort</span><span class="v">medium</span></div>
+      <div class="row"><span class="k">Bot</span><span class="v">?</span></div>
+      <div class="row"><span class="k">Pane proc</span><span class="v">claude.exe</span></div>
+      <div style="margin-top:10px;"><span class="k" style="color:var(--muted);font-size:12px;">Users: </span></div>
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3>🎯 JUNIOR</h3>
+        <span class="pill ok">running</span>
+      </div>
+      <p class="meta" style="margin:0 0 12px;">Team leader + Jesse&#x27;s personal agent. Strategy, direction, cross-cutting decisions.</p>
+      <div class="row"><span class="k">Model</span><span class="v">sonnet</span></div>
+      <div class="row"><span class="k">Effort</span><span class="v">max</span></div>
+      <div class="row"><span class="k">Bot</span><span class="v">?</span></div>
+      <div class="row"><span class="k">Pane proc</span><span class="v">claude.exe</span></div>
+      <div style="margin-top:10px;"><span class="k" style="color:var(--muted);font-size:12px;">Users: </span></div>
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3>🧭 HAL</h3>
+        <span class="pill ok">running</span>
+      </div>
+      <p class="meta" style="margin:0 0 12px;">CJ&#x27;s personal assistant agent.</p>
+      <div class="row"><span class="k">Model</span><span class="v">sonnet (default)</span></div>
+      <div class="row"><span class="k">Effort</span><span class="v">high (claude default)</span></div>
+      <div class="row"><span class="k">Bot</span><span class="v">?</span></div>
+      <div class="row"><span class="k">Pane proc</span><span class="v">claude.exe</span></div>
+      <div style="margin-top:10px;"><span class="k" style="color:var(--muted);font-size:12px;">Users: </span></div>
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3>🩺 TED</h3>
+        <span class="pill ok">running</span>
+      </div>
+      <p class="meta" style="margin:0 0 12px;">Olly&#x27;s personal assistant and operational support.</p>
+      <div class="row"><span class="k">Model</span><span class="v">sonnet (default)</span></div>
+      <div class="row"><span class="k">Effort</span><span class="v">high (claude default)</span></div>
+      <div class="row"><span class="k">Bot</span><span class="v">?</span></div>
+      <div class="row"><span class="k">Pane proc</span><span class="v">claude.exe</span></div>
+      <div style="margin-top:10px;"><span class="k" style="color:var(--muted);font-size:12px;">Users: </span></div>
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3>🕴️ Q</h3>
+        <span class="pill ok">running</span>
+      </div>
+      <p class="meta" style="margin:0 0 12px;">Bear&#x27;s personal agent. Only Bear&#x27;s.</p>
+      <div class="row"><span class="k">Model</span><span class="v">sonnet</span></div>
+      <div class="row"><span class="k">Effort</span><span class="v">medium</span></div>
+      <div class="row"><span class="k">Bot</span><span class="v">8603663929...3AzHFM</span></div>
+      <div class="row"><span class="k">Pane proc</span><span class="v">claude.exe</span></div>
+      <div style="margin-top:10px;"><span class="k" style="color:var(--muted);font-size:12px;">Users: </span><span class="pill muted">Bear</span> <span class="pill muted">Felix</span> <span class="pill muted">Jesse</span> <span class="pill muted">5533134349</span></div>
+    </div>
+    </div>
+
+  <h2>Data flow — how a Telegram message becomes an answer</h2>
+  
+    <ul class="flow">
+      <li><b>User sends a Telegram message</b> to an agent's bot (e.g., Felix → @QuartermasterBot).</li>
+      <li><b>Listener daemon</b> (<code>telegram_listener.py</code>) long-polls the Telegram API and receives the message.</li>
+      <li>Listener checks <code>allowed_users</code>, then calls <code>tmux send-keys</code> to the agent's pane formatted as <code>[Telegram message from &lt;name&gt; (chat_id: ...)]: &lt;text&gt;</code> followed by Enter.</li>
+      <li><b>Claude Code (the agent)</b> sees the prompt and processes it. Reads CLAUDE.md, per-user state, memory. May spawn Task sub-agents for non-trivial work.</li>
+      <li>Agent calls <code>send_telegram.py --chat-id &lt;id&gt; --text "..."</code> to reply. Telegram API delivers to user's phone.</li>
+      <li>Session is logged to <code>workspace/sessions/YYYY-MM-DD.jsonl</code>.</li>
+    </ul>
+    
+
+  <h2>Storage &amp; backup</h2>
+  
+    <div class="grid cards">
+      <div class="card">
+        <h3>📁 Per-agent state</h3>
+        <p class="meta">Each agent's private memory + workspace. Never read by other agents.</p>
+        <div class="row"><span class="k">Path</span><span class="v">~/agents/&lt;agent&gt;/</span></div>
+        <div class="row"><span class="k">Brain</span><span class="v">CLAUDE.md</span></div>
+        <div class="row"><span class="k">Memory</span><span class="v">self-improving/</span></div>
+        <div class="row"><span class="k">Tasks</span><span class="v">workspace/SESSION-STATE.md</span></div>
+        <div class="row"><span class="k">Sessions</span><span class="v">workspace/sessions/*.jsonl</span></div>
+      </div>
+      <div class="card">
+        <h3>🤝 Shared resources</h3>
+        <p class="meta">Tools and norms shared across all agents. No user-private data.</p>
+        <div class="row"><span class="k">Path</span><span class="v">~/agents/shared/</span></div>
+        <div class="row"><span class="k">Tools</span><span class="v">tools/ (telegram, m365, voice, web)</span></div>
+        <div class="row"><span class="k">Memory</span><span class="v">memory/ (operational only)</span></div>
+        <div class="row"><span class="k">Credentials</span><span class="v">credentials/ (M365 tokens)</span></div>
+        <div class="row"><span class="k">Docs</span><span class="v">docs/ (ISOLATION-PROTOCOL.md etc)</span></div>
+      </div>
+      <div class="card">
+        <h3>💾 Off-host backup</h3>
+        <p class="meta">Hourly encrypted snapshot. Survives Mac death.</p>
+        <div class="row"><span class="k">Repo</span><span class="v">dnd5fj5gjy-bit/agents-state-backup (private)</span></div>
+        <div class="row"><span class="k">Encryption</span><span class="v">age (credentials only)</span></div>
+        <div class="row"><span class="k">Key</span><span class="v">~/.age/agents-backup.key + Keychain</span></div>
+        <div class="row"><span class="k">Cadence</span><span class="v">every 1h via launchd</span></div>
+      </div>
+    </div>
+    
+  <p>Last snapshot <b>53 minutes ago</b> (172 total, 53M on disk).</p>
+
+  <h2>Infrastructure (launchd jobs)</h2>
+  <p class="lead">All scheduled and KeepAlive services. <code>running</code> = currently has a PID. <code>idle</code> = scheduled / waiting next interval.</p>
+  
+    <table>
+      <thead><tr><th>Label</th><th>Schedule</th><th>State</th><th>Program</th></tr></thead>
+      <tbody><tr><td><code>com.agents.architecture-dashboard</code></td><td>every 1800s</td><td><span class="pill ok">running 93551</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/config/build-architecture.py</code></td></tr><tr><td><code>com.agents.backup</code></td><td>every 3600s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/backup.sh</code></td></tr><tr><td><code>com.agents.dashboard</code></td><td>KeepAlive</td><td><span class="pill ok">running 51677</span></td><td><code>/opt/homebrew/opt/node@22/bin/node /Users/bgvai/agents/dashboard/agent-bridge.js</code></td></tr><tr><td><code>com.agents.dialog-watchdog</code></td><td>every 120s</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.hal-morning-brief</code></td><td>hour=05 min=30</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.health-summary</code></td><td>hour=08 min=00</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/health-summary.sh</code></td></tr><tr><td><code>com.agents.listener-watchdog</code></td><td>every 30s</td><td><span class="pill muted">idle</span></td><td><code>/bin/zsh /Users/bgvai/agents/shared/tools/agent-watchdog.sh</code></td></tr><tr><td><code>com.agents.log-rotate</code></td><td>every 3600s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/log-rotate.sh</code></td></tr><tr><td><code>com.agents.nexus-brand-monitor</code></td><td>hour=08 min=30</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.nexus-fleet-health</code></td><td>calendar</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/nexus/workspace/tools/fleet-health.py</code></td></tr><tr><td><code>com.agents.nexus-morning-brief</code></td><td>hour=00 min=00</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.nexus-savage-email</code></td><td>every 5880s</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.ngrok</code></td><td>KeepAlive</td><td><span class="pill ok">running 706</span></td><td><code>/opt/homebrew/bin/ngrok http 9999</code></td></tr><tr><td><code>com.agents.ops-dashboard</code></td><td>every 300s</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/shared/upgrades/observability/build.py</code></td></tr><tr><td><code>com.agents.process-watchdog</code></td><td>every 300s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/process-watchdog.sh</code></td></tr><tr><td><code>com.agents.queue-watchdog</code></td><td>every 300s</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/shared/tools/queue_watchdog.py --max-age-min 15</code></td></tr><tr><td><code>com.agents.rss-pulse</code></td><td>every 1800s</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/shared/upgrades/rss-pulse/pulse.py</code></td></tr><tr><td><code>com.agents.screen-monitor</code></td><td>every 1800s</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/shared/upgrades/screen-monitor/watch.py</code></td></tr><tr><td><code>com.agents.startup</code></td><td>RunAtLoad</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/startup.sh all</code></td></tr><tr><td><code>com.agents.ted-morning-brief</code></td><td>hour=00 min=30</td><td><span class="pill muted">idle</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.agents.tool-tests</code></td><td>every 3600s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/shared/upgrades/tool-tests/run_smoke.sh</code></td></tr><tr><td><code>com.agents.webhook-server</code></td><td>KeepAlive</td><td><span class="pill ok">running 53809</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/shared/upgrades/webhook/server.py</code></td></tr><tr><td><code>com.agents.weekly-restart</code></td><td>hour=23 min=00 weekday=0</td><td><span class="pill muted">idle</span></td><td><code>/bin/zsh /Users/bgvai/agents/config/weekly-restart.sh</code></td></tr><tr><td><code>com.junior.email-api-server</code></td><td>KeepAlive</td><td><span class="pill ok">running 87090</span></td><td><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacO</code></td></tr><tr><td><code>com.junior.email-api-tunnel</code></td><td>KeepAlive</td><td><span class="pill ok">running 25552</span></td><td><code>/opt/homebrew/bin/cloudflared tunnel --url http://localhost:5185 --no-autoupdate</code></td></tr><tr><td><code>com.junior.inbox-triage</code></td><td>every 3600s</td><td><span class="pill muted">idle</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/junior/workspace/tools/inbox_triage.py</code></td></tr><tr><td><code>com.junior.life-process</code></td><td>KeepAlive</td><td><span class="pill ok">running 699</span></td><td><code>/usr/bin/python3 /Users/bgvai/agents/junior/workspace/tools/life-process.py</code></td></tr><tr><td><code>com.junior.pulse</code></td><td>every 1800s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/config/heartbeat-pulse.sh</code></td></tr><tr><td><code>com.junior.tunnel-watchdog</code></td><td>every 300s</td><td><span class="pill muted">idle</span></td><td><code>/bin/bash /Users/bgvai/agents/junior/workspace/tools/tunnel-watchdog.sh</code></td></tr></tbody>
+    </table>
+    
+
+  <h2>Resilience layers</h2>
+  <div class="grid cards">
+    <div class="card">
+      <h3>🛡️ process-watchdog</h3>
+      <p class="meta">Restarts hung Claude Code instances. Detects dead pane process or stale pane content for 30+ min.</p>
+    </div>
+    <div class="card">
+      <h3>📡 listener-watchdog</h3>
+      <p class="meta">Restarts Telegram listeners that crash. Original watchdog from before May 5.</p>
+    </div>
+    <div class="card">
+      <h3>🌐 tunnel-watchdog</h3>
+      <p class="meta">Observes the email-API cloudflared tunnel. Notifies Felix only on sustained failure (~15+ min).</p>
+    </div>
+    <div class="card">
+      <h3>💾 backup</h3>
+      <p class="meta">Hourly encrypted snapshot to private GitHub repo. age-encrypted credentials.</p>
+    </div>
+    <div class="card">
+      <h3>🗒️ log-rotate</h3>
+      <p class="meta">Hourly. Truncates any log over 50MB to its last 2000 lines, in-place (preserves writers' open FDs).</p>
+    </div>
+    <div class="card">
+      <h3>🔁 weekly-restart</h3>
+      <p class="meta">Sundays 23:00. Clean restart of all agents to refresh long-lived contexts.</p>
+    </div>
+    <div class="card">
+      <h3>📊 health-summary</h3>
+      <p class="meta">08:00 daily. Telegrams Felix a fleet-status digest (who's up, last backup, recent restarts, disk).</p>
+    </div>
+  </div>
+
+</body></html>

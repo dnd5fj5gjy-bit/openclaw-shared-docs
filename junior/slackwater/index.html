@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slackwater — Operational Intelligence for Critical Infrastructure</title>
+<meta name="description" content="AI go/no-go verdict at 8 PM the night before. Stop paying for mobilizations that should never happen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070B14;--s1:#0D1526;--s2:#111D35;
+  --b1:#1A2845;--b2:#243354;
+  --cyan:#0EA5E9;--cyd:rgba(14,165,233,.12);
+  --grn:#10B981;--grd:rgba(16,185,129,.1);
+  --amb:#F59E0B;--amd:rgba(245,158,11,.1);
+  --red:#EF4444;--rdd:rgba(239,68,68,.1);
+  --t1:#F1F5F9;--t2:#94A3B8;--t3:#475569;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.container{max-width:1120px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 28px;transition:all .3s}
+nav.on{background:rgba(7,11,20,.96);border-bottom:1px solid var(--b1);backdrop-filter:blur(16px)}
+.nv{max-width:1120px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:16px;font-weight:800;letter-spacing:.06em;text-decoration:none;color:var(--t1)}
+.logo span{color:var(--cyan)}
+.nl{display:flex;gap:28px;list-style:none}
+.nl a{color:var(--t2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nl a:hover{color:var(--t1)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:inherit}
+.bp{background:var(--cyan);color:#fff}.bp:hover{background:#38bdf8;transform:translateY(-1px);box-shadow:0 8px 28px rgba(14,165,233,.3)}
+.bg{background:transparent;color:var(--t2);border:1px solid var(--b2)}.bg:hover{color:var(--t1);border-color:var(--t3)}
+.blg{padding:14px 28px;font-size:16px;border-radius:10px}
+
+/* INTRO TOP */
+.intro-top{padding:88px 0 44px;text-align:center;position:relative;overflow:hidden}
+.intro-top h1{font-size:clamp(32px,5vw,58px);max-width:660px;margin:0 auto 16px}
+.intro-sub{font-size:17px;color:var(--t2);max-width:460px;margin:0 auto 28px;line-height:1.65}
+.intro-top .hacts{justify-content:center;margin-bottom:0}
+.intro-top .hstats{justify-content:center;margin-top:40px;padding-top:30px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;position:relative;overflow:hidden}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.035) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.hglow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(14,165,233,.07) 0%,transparent 60%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.7}50%{opacity:1}}
+.hin{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--s1);border:1px solid var(--b2);border-radius:100px;font-size:12px;color:var(--t2);margin-bottom:28px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(36px,5.5vw,68px);margin-bottom:22px;line-height:1.02}
+.hero h1 .r{color:var(--red)}.hero h1 .c{color:var(--cyan)}
+.hero-sub{font-size:18px;color:var(--t2);max-width:500px;margin-bottom:36px;line-height:1.75}
+.hacts{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hlink{color:var(--t2);font-size:14px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s}
+.hlink:hover{color:var(--t1)}
+.hstats{display:flex;gap:36px;margin-top:52px;padding-top:36px;border-top:1px solid var(--b1);flex-wrap:wrap}
+.hs .n{font-size:26px;font-weight:900;line-height:1}
+.hs .l{font-size:11px;color:var(--t3);margin-top:4px}
+.vstack{display:flex;flex-direction:column;gap:10px}
+.vc{background:var(--s1);border:1px solid var(--b2);border-radius:14px;padding:20px 24px;font-family:var(--mono);font-size:11.5px}
+.vcm{display:flex;justify-content:space-between;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--b1)}
+.vcs{color:var(--t2);font-size:10.5px}.vct{color:var(--t3);font-size:10px}
+.vbadge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:7px;font-size:11px;font-weight:700;margin-bottom:12px;letter-spacing:.06em}
+.vgo{background:var(--grd);border:1px solid rgba(16,185,129,.25);color:var(--grn)}
+.vstop{background:var(--rdd);border:1px solid rgba(239,68,68,.25);color:var(--red)}
+.vcbody{color:var(--t2);line-height:1.8;font-size:11px}.vcbody strong{color:var(--t1)}
+
+/* ===== SCROLL STORY ===== */
+.scroll-zone{height:800vh;position:relative}
+.story-stage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+
+/* narrative overlay */
+.narr{position:absolute;right:0;top:0;bottom:0;width:42%;display:flex;flex-direction:column;justify-content:center;padding:0 max(5vw, 28px) 0 40px;pointer-events:none;z-index:10}
+.nstate{position:absolute;opacity:0;transition:opacity .5s;padding-left:0;will-change:opacity}
+.nstate.show{opacity:1}
+.ntime{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ntime::before{content:'';width:20px;height:1px;background:var(--cyan);flex-shrink:0}
+.nstate h2{font-size:clamp(26px,3.5vw,42px);margin-bottom:14px;line-height:1.1}
+.nstate p{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:10px}
+
+/* canvas container */
+.canvas-wrap{position:absolute;left:0;top:0;bottom:0;width:58%;display:flex;align-items:center;justify-content:center}
+#iface{display:block}
+
+/* progress dots */
+.pdots{position:absolute;left:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:20}
+.pd{width:7px;height:7px;border-radius:50%;background:var(--b2);border:1.5px solid var(--b1);transition:all .4s;cursor:pointer}
+.pd.a{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 6px rgba(14,165,233,.4)}
+
+/* scroll hint */
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px;animation:fadeHint 2s 1s both}
+@keyframes fadeHint{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.scroll-hint svg{animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* SHARED SECTION STYLES */
+.sec-hdr{text-align:center;margin-bottom:64px}
+.sec-hdr h2{font-size:clamp(28px,4vw,50px);margin:12px 0 16px}
+.sec-hdr p{font-size:17px;color:var(--t2);max-width:540px;margin:0 auto;line-height:1.7}
+.fu{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+.fu.d1{transition-delay:.1s}.fu.d2{transition-delay:.2s}.fu.d3{transition-delay:.3s}.fu.d4{transition-delay:.4s}
+
+/* PROBLEM */
+.prob-bg{background:linear-gradient(180deg,var(--bg) 0%,#0B0912 50%,var(--bg) 100%)}
+.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.cost-card{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:28px;text-align:center}
+.cost-card .amt{font-size:48px;font-weight:900;color:var(--red);line-height:1;margin-bottom:8px}
+.cost-card p{font-size:13px;color:var(--t2);line-height:1.6}
+.fail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.fail{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:22px;display:flex;gap:14px}
+.fail .fi{font-size:24px;flex-shrink:0;margin-top:2px}
+.fail h4{font-size:14px;margin-bottom:5px}
+.fail p{font-size:13px;color:var(--t2);line-height:1.6}
+
+/* OPERATIONS */
+.ops-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.otl{display:flex;flex-direction:column;padding-left:24px;border-left:2px solid linear-gradient(var(--b2),var(--cyan),var(--b2));position:relative}
+.otl::before{content:'';position:absolute;left:-1px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--b2),var(--cyan),var(--b2))}
+.oti{padding-bottom:28px;position:relative;padding-left:20px}
+.oti:last-child{padding-bottom:0}
+.oti::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--b2)}
+.oti:hover::before{border-color:var(--cyan)}
+.ot-t{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--cyan);margin-bottom:4px;text-transform:uppercase}
+.oti h4{font-size:14px;margin-bottom:4px}
+.oti p{font-size:13px;color:var(--t2);line-height:1.6}
+.clayers{display:flex;flex-direction:column;gap:10px}
+.clayer{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:16px 18px}
+.clayer-t{font-size:9.5px;font-weight:700;letter-spacing:.08em;color:var(--cyan);text-transform:uppercase;margin-bottom:7px}
+.clayer p{font-size:12px;color:var(--t2);line-height:1.6}
+
+/* WORKERS */
+.w-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.w-split h2{font-size:clamp(26px,3.5vw,40px);margin:12px 0 18px}
+.w-split p{color:var(--t2);line-height:1.75;font-size:15px;margin-bottom:12px}
+.flist{display:flex;flex-direction:column;gap:11px;margin-top:22px}
+.fitem{display:flex;gap:9px;align-items:flex-start}
+.fitem .ck{width:17px;height:17px;border-radius:50%;background:var(--grd);border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:8.5px;color:var(--grn)}
+.fitem span{font-size:13px;color:var(--t2);line-height:1.5}
+.fitem strong{color:var(--t1)}
+.wui{background:var(--s1);border:1px solid var(--b2);border-radius:14px;overflow:hidden}
+.wuih{padding:12px 16px;border-bottom:1px solid var(--b1);display:flex;justify-content:space-between;align-items:center}
+.wuih h4{font-size:12px;font-weight:600}.wuih span{font-size:10px;color:var(--t3)}
+.wlist{padding:8px;display:flex;flex-direction:column;gap:5px}
+.wcard{background:var(--bg);border:1px solid var(--b1);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between}
+.wcl{display:flex;align-items:center;gap:9px}
+.wav{width:28px;height:28px;border-radius:50%;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--cyan)}
+.wname{font-size:11px;font-weight:600}.wrole{font-size:9.5px;color:var(--t3)}
+.wbs{display:flex;gap:4px}
+.wb{padding:2px 6px;border-radius:100px;font-size:8.5px;font-weight:600}
+.wbc{background:var(--cyd);border:1px solid rgba(14,165,233,.2);color:var(--cyan)}
+.wbo{background:var(--grd);border:1px solid rgba(16,185,129,.2);color:var(--grn)}
+.wbw{background:var(--amd);border:1px solid rgba(245,158,11,.2);color:var(--amb)}
+.wbd{background:var(--rdd);border:1px solid rgba(239,68,68,.2);color:var(--red)}
+.walert{padding:9px 14px;font-size:10.5px;color:var(--red);border-top:1px solid var(--b1);background:rgba(239,68,68,.04);line-height:1.6}
+.wcols{margin-top:10px;padding:12px 14px;background:var(--s1);border:1px solid var(--b1);border-radius:8px}
+.wclbl{font-size:9px;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{padding:3px 8px;background:var(--s2);border:1px solid var(--b2);border-radius:100px;font-size:10px;color:var(--t3)}
+
+/* DATA */
+.dcols{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-bottom:44px}
+.dcards{display:flex;flex-direction:column;gap:10px}
+.dc{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:14px 16px;display:flex;gap:12px}
+.dc .di{font-size:20px;flex-shrink:0}
+.dc h4{font-size:12px;font-weight:600;margin-bottom:3px}
+.dc p{font-size:11.5px;color:var(--t2);line-height:1.6}
+.pline{display:flex;flex-direction:column}
+.pli{display:flex;gap:18px;padding-bottom:24px;border-left:2px solid var(--b2);margin-left:5px;padding-left:18px;position:relative}
+.pli:last-child{border-left-color:transparent;padding-bottom:0}
+.pld{position:absolute;left:-6px;top:0;width:11px;height:11px;border-radius:50%;background:var(--cyan);border:2px solid var(--bg)}
+.pli:last-child .pld{background:var(--grn);box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+.plp{font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--cyan);text-transform:uppercase;margin-bottom:3px}
+.pli:last-child .plp{color:var(--grn)}
+.pli h4{font-size:13px;margin-bottom:3px}
+.pli p{font-size:12px;color:var(--t2);line-height:1.6}
+.dbar{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.dbar h4{font-size:13px;margin-bottom:2px}.dbar p{font-size:12px;color:var(--t2)}
+.dpills{display:flex;gap:22px}
+.dp .dv{font-size:12px;font-weight:700}.dp .dl{font-size:9px;color:var(--t3);margin-top:2px}
+
+
+/* CASE STUDIES */
+.cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.cs{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:28px;position:relative;overflow:hidden}
+.cs::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
+.cs.pos::before{background:var(--grn)}
+.csd{font-size:9.5px;color:var(--t3);margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}
+.cs h3{font-size:17px;margin-bottom:12px;line-height:1.3}
+.csb{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:20px}
+.csc{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.csc .ca{font-size:32px;font-weight:900;color:var(--red)}
+.csc .cx{font-size:11.5px;color:var(--t3);line-height:1.5}
+.csv{padding:12px 14px;border-radius:7px;background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.14)}
+.csvl{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--grn);text-transform:uppercase;margin-bottom:5px}
+.csv p{font-size:11.5px;color:var(--t2);line-height:1.7}
+
+/* TRIAL */
+.tbox{background:var(--s1);border:1px solid var(--b2);border-radius:20px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.tbox::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(14,165,233,.08) 0%,transparent 65%)}
+.tbox h2{font-size:clamp(28px,4vw,46px);margin:12px 0 16px;position:relative}
+.tbox p{font-size:17px;color:var(--t2);max-width:500px;margin:0 auto 36px;line-height:1.7;position:relative}
+.tnums{display:flex;justify-content:center;gap:52px;margin-bottom:40px;position:relative;flex-wrap:wrap}
+.tn .tv{font-size:40px;font-weight:900;color:var(--cyan);line-height:1}
+.tn .tl{font-size:12px;color:var(--t2);margin-top:4px}
+
+/* FORM */
+.form-sec{background:var(--s1);border-top:1px solid var(--b1)}
+.fwrap{max-width:580px;margin:0 auto}
+.fwrap>h2{font-size:clamp(22px,3vw,34px);margin-bottom:7px;text-align:center}
+.fwrap>.fs{text-align:center;color:var(--t2);margin-bottom:40px;font-size:15px}
+.fprog{display:flex;gap:7px;margin-bottom:32px}
+.fpi{flex:1;height:3px;border-radius:2px;background:var(--b1);transition:background .3s}
+.fpi.on{background:var(--cyan)}.fpi.done{background:var(--grn)}
+.fpane{display:none}.fpane.active{display:block}
+.fpane>h3{font-size:18px;margin-bottom:6px}
+.fpane .fss{font-size:13px;color:var(--t2);margin-bottom:24px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:24px}
+.opt{background:var(--bg);border:2px solid var(--b1);border-radius:9px;padding:13px;cursor:pointer;transition:all .18s;text-align:left}
+.opt:hover{border-color:var(--b2)}.opt.sel{border-color:var(--cyan);background:var(--cyd)}
+.opt .oi{font-size:17px;margin-bottom:5px}
+.opt .ot{font-size:11.5px;font-weight:600;margin-bottom:2px}
+.opt .od{font-size:10px;color:var(--t3);line-height:1.4}
+.ff{margin-bottom:12px}
+.ff label{display:block;font-size:11.5px;font-weight:600;color:var(--t2);margin-bottom:6px}
+.ff input,.ff select{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--b2);border-radius:7px;color:var(--t1);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s}
+.ff input::placeholder{color:var(--t3)}
+.ff input:focus,.ff select:focus{border-color:var(--cyan)}
+.ff select option{background:var(--s1)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.szs{display:flex;gap:7px;flex-wrap:wrap}
+.sz{padding:7px 13px;background:var(--bg);border:1px solid var(--b2);border-radius:6px;font-size:12px;cursor:pointer;transition:all .18s;color:var(--t1);font-family:inherit}
+.sz.sel{background:var(--cyd);border-color:var(--cyan);color:var(--cyan)}
+.fnav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--b1)}
+.succ{display:none;text-align:center;padding:32px 0}
+.succ .ck{width:56px;height:56px;border-radius:50%;background:var(--grd);border:2px solid rgba(16,185,129,.25);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 20px}
+.succ h3{font-size:22px;margin-bottom:10px}
+.succ p{color:var(--t2);font-size:14px;line-height:1.7}
+.succ a{color:var(--cyan);text-decoration:none}
+
+/* TIDAL PREVIEW */
+.tp-box{background:var(--s1);border:1px solid rgba(14,165,233,.25);border-radius:8px;padding:12px 14px;margin-top:10px;font-family:var(--mono);font-size:10px}
+.tp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;gap:4px}
+.tp-hl{font-size:9.5px;font-weight:700;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase}
+.tp-src{font-size:9px;color:var(--t3)}
+.tp-lbl{font-size:8.5px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.tp-row{display:grid;grid-template-columns:80px 110px 55px 1fr;gap:6px;padding:4px 0;border-bottom:1px solid var(--b1)}
+.tp-row:last-of-type{border-bottom:none}
+.tp-day{color:var(--t2)}.tp-win{color:var(--grn)}.tp-dur{color:var(--t3)}.tp-hw{color:var(--cyan)}
+.tp-foot{font-size:9px;color:var(--t3);margin-top:8px;line-height:1.5}
+.tp-note{font-size:10.5px;color:var(--cyan);padding:4px 0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--b1);padding:36px 0}
+.ftin{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.ftl .fl{font-size:14px;font-weight:800;letter-spacing:.06em}
+.ftl .fl span{color:var(--cyan)}
+.ftl p{font-size:12px;color:var(--t3);margin-top:5px}
+.ftr{font-size:12px;color:var(--t3);text-align:right;line-height:1.9}
+.ftr a{color:var(--t2);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hin{grid-template-columns:1fr}.vstack{display:none}
+  .hstats{flex-wrap:wrap;gap:20px}
+  .narr{width:100%;padding:0 24px;position:relative}.canvas-wrap{display:none}
+  .nstate{position:relative;opacity:1 !important;padding-right:0;margin-bottom:20px}
+  .story-stage{flex-direction:column;padding:80px 0 24px}
+  .scroll-zone{height:auto}
+  .pdots{display:none}
+  .cost-grid{grid-template-columns:1fr}
+  .fail-grid{grid-template-columns:1fr}
+  .ops-grid{grid-template-columns:1fr}
+  .w-split{grid-template-columns:1fr}
+  .dcols{grid-template-columns:1fr}
+
+  .cs-grid{grid-template-columns:1fr}
+  .tnums{flex-wrap:wrap;gap:24px}
+  .tbox{padding:40px 24px}
+  .opts{grid-template-columns:1fr}.frow{grid-template-columns:1fr}
+  .nl{display:none}
+  section{padding:72px 0}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+<div class="nv">
+  <a class="logo" href="#top">SLACK<span>WATER</span></a>
+  <ul class="nl">
+    <li><a href="#story">How It Works</a></li>
+    <li><a href="#workers">Workers</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#trial">Free Trial</a></li>
+  </ul>
+  <a href="#form" class="btn bp">Start Free Trial</a>
+</div>
+</nav>
+
+<!-- INTRO -->
+<section class="intro-top" id="top">
+<div class="hgrid"></div><div class="hglow"></div>
+<div class="container">
+  <div style="position:relative;z-index:1">
+    <div class="badge" style="display:inline-flex"><span class="dot"></span>In beta · 3 UK infrastructure sites · May 2026</div>
+    <h1>Stop paying for mobilisations<br>that should never happen.</h1>
+    <p class="intro-sub">Slackwater connects to your site documents, your workers, and live environmental data — then gives your site manager a go/no-go call at 8 PM the night before mobilisation.</p>
+    <div class="hacts" style="justify-content:center">
+      <a href="#form" class="btn bp blg">Start Free 90-Day Trial</a>
+      <a href="#story" class="hlink">Watch it work <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+    </div>
+    <div class="hstats" style="justify-content:center;margin-top:40px;padding-top:30px">
+      <div class="hs"><div class="n">£<span class="counter" data-t="24600">0</span></div><div class="l">avg protected per stand-down prevented</div></div>
+      <div class="hs"><div class="n"><span class="counter" data-t="2">0</span>–<span class="counter" data-t="4">0</span>×</div><div class="l">nothing-days per site per month</div></div>
+      <div class="hs"><div class="n">8 PM</div><div class="l">verdict — the night before</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SCROLL STORY — canvas driven -->
+<div class="scroll-zone" id="story">
+<div class="story-stage" id="stage">
+
+  <div class="narr" id="narr">
+    <div class="nstate" id="ns0">
+      <div class="ntime">Before Slackwater</div>
+      <h2>30 workers.<br>6 contractors.<br>Nobody's sure.</h2>
+      <p>Tidal window in 16 hours. Permits unconfirmed. ERT crew status unknown. Someone's calling round at 7 AM to see who shows. £13,000 a day burning regardless.</p>
+      <p style="font-size:13px;color:var(--t3)">Scroll down to watch it resolve.</p>
+    </div>
+    <div class="nstate" id="ns1">
+      <div class="ntime">17:00 — auto-fetch</div>
+      <h2>Enter a location once.<br>Never type tides again.</h2>
+      <p>Wind, tidal windows, EA gate schedule — pulled automatically from Met Office and ADMIRALTY APIs. James confirms worker availability in 30 seconds. That's all Slackwater needs.</p>
+    </div>
+    <div class="nstate" id="ns2">
+      <div class="ntime">17:06 — cross-referencing</div>
+      <h2>Every constraint.<br>Every document.<br>Under 3 seconds.</h2>
+      <p>6 documents. 4 live data feeds. 30 workers. The ERT absence is caught at 6 PM — not at the 7:30 AM briefing when it's already too late and £24,600 is already committed.</p>
+    </div>
+    <div class="nstate" id="ns3">
+      <div class="ntime">8:03 PM — verdict issued</div>
+      <h2>PROCEED.<br>22 of 30.<br>£2,880 saved.</h2>
+      <p>Before anyone's set an alarm. Exact crew numbers, task sequence, start times. Supervisor reviews, approves in one tap. Dispatch begins immediately.</p>
+    </div>
+    <div class="nstate" id="ns4">
+      <div class="ntime">8:03 PM — workers notified</div>
+      <h2>Personalised.<br>Not a group chat.</h2>
+      <p>Every worker gets their own message — their name, their task, their start time. The 8 zero-hours workers not needed: stood down automatically. £2,880 back in the budget before the tidal window even opens.</p>
+    </div>
+    <div class="nstate" id="ns5">
+      <div class="ntime">6:55 AM — Thames Barrier</div>
+      <h2>No stand-downs.<br>No surprises.</h2>
+      <p>22 workers. Right tasks. Right time. Tidal window opens on schedule. ERT crew confirmed. £2,880 saved compared to full mobilisation. This is what every day looks like.</p>
+    </div>
+  </div>
+
+  <div class="canvas-wrap">
+    <canvas id="iface"></canvas>
+  </div>
+
+  <div class="pdots">
+    <div class="pd a" id="pd0"></div>
+    <div class="pd" id="pd1"></div>
+    <div class="pd" id="pd2"></div>
+    <div class="pd" id="pd3"></div>
+    <div class="pd" id="pd4"></div>
+    <div class="pd" id="pd5"></div>
+  </div>
+
+  <div class="scroll-hint">
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    Scroll to continue
+  </div>
+
+</div>
+</div>
+
+<!-- PROBLEM -->
+<section class="prob-bg">
+<div class="container">
+  <div class="sec-hdr fu"><span class="lbl">The Problem</span><h2>You're paying for certainty<br>you don't have.</h2><p>UK infrastructure sites lose thousands every month to mobilizations that should never have happened.</p></div>
+  <div class="cost-grid">
+    <div class="cost-card fu"><div class="amt">£<span class="counter" data-t="24600">0</span></div><p>Average cost of a failed mobilization — guaranteed contractor wages, plant hire, and transport. All for zero output.</p></div>
+    <div class="cost-card fu d1"><div class="amt"><span class="counter" data-t="2">0</span>–<span class="counter" data-t="4">0</span>×</div><p>Failed days per site per month on tidal, weather, or permit-constrained infrastructure projects.</p></div>
+    <div class="cost-card fu d2"><div class="amt"><span class="counter" data-t="6">0</span> hrs</div><p>Typical notice before a stand-down. The crew is already in vans. This decision should have been made last night.</p></div>
+  </div>
+  <div class="fail-grid">
+    <div class="fail fu"><div class="fi">🌊</div><div><h4>Tidal window missed</h4><p>A third-party schedule overruns. The window closes before access is safe. Nobody connected the dots the night before.</p></div></div>
+    <div class="fail fu d1"><div class="fi">🌬️</div><div><h4>Weather threshold exceeded</h4><p>Wind hits 18 m/s. Crane hard stop at 10 m/s. Site works can continue at 15 m/s. One system tracks all three limits. Yours probably doesn't.</p></div></div>
+    <div class="fail fu d2"><div class="fi">📋</div><div><h4>Permit expired or not ready</h4><p>A permit to work lapsed at midnight. Full crew on site. Nothing to do. Send them home and pay them anyway.</p></div></div>
+    <div class="fail fu d3"><div class="fi">👷</div><div><h4>Minimum crew not met</h4><p>One ERT absence. Minimum safety requirements unmet at the 7:30 AM briefing. Primary task stands down all day.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- OPERATIONS -->
+<section>
+<div class="container">
+  <div class="sec-hdr fu"><span class="lbl">Daily Operations</span><h2>The 8 PM ritual</h2><p>From afternoon inputs to morning execution — here's the exact flow every day.</p></div>
+  <div class="ops-grid">
+    <div class="fu">
+      <div class="otl">
+        <div class="oti"><div class="ot-t">17:00 — automatic</div><h4>Environmental data fetched</h4><p>Wind speed and forecast pulled from Met Office DataPoint. Tidal windows from the ADMIRALTY tidal API. EA gate schedule from Environment Agency data feeds. No manual entry.</p></div>
+        <div class="oti"><div class="ot-t">17:00 – 17:01</div><h4>Site manager confirms (~30 sec)</h4><p>Worker availability and permit readiness — the two things no API knows. One quick check. Everything else is already there.</p></div>
+        <div class="oti"><div class="ot-t">17:06 – 18:00</div><h4>Constraint analysis runs</h4><p>All inputs cross-referenced against every document: permit expiry, tidal overlap, CTC clearances, minimum crew rules, sequencing dependencies.</p></div>
+        <div class="oti"><div class="ot-t">18:00</div><h4>Absence flags issued</h4><p>If minimum crew requirements can't be met, the system flags it at 6 PM — giving supervisors time to request standby cover before the verdict.</p></div>
+        <div class="oti"><div class="ot-t">20:00</div><h4>Verdict issued</h4><p>Go, partial, or no-go — with full reasoning, exact crew numbers, task sequence. Supervisor reviews and approves the crew list.</p></div>
+        <div class="oti"><div class="ot-t">20:00 – 20:15</div><h4>Workers notified</h4><p>Personalised dispatch messages. Each worker gets their start time, task, and site-specific instructions. Zero-hours not needed: not contacted.</p></div>
+        <div class="oti"><div class="ot-t">Next morning</div><h4>Briefed crew arrives</h4><p>Workers arrive knowing their task and sequence position. No 7:30 AM surprises. No stand-downs. £2,880 saved before site opens.</p></div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <h3 style="font-size:17px;margin-bottom:18px">How the constraint logic works</h3>
+      <div class="clayers">
+        <div class="clayer"><div class="clayer-t">Layer 1 — Environmental</div><p class="clayer p">Wind speed, tidal windows, and temperature thresholds auto-fetched daily from Met Office DataPoint and the ADMIRALTY tidal API using your site's grid reference. Each asset can have different limits — the system tracks them all, and you never type a tide time again.</p></div>
+        <div class="clayer"><div class="clayer-t">Layer 2 — Regulatory</div><p class="clayer p">Permit to work expiry. EA consents and gate schedules. Third-party access windows. Method statement scope. All extracted from documents automatically — no manual data entry.</p></div>
+        <div class="clayer"><div class="clayer-t">Layer 3 — Personnel</div><p class="clayer p">CTC clearance levels per worker. Certification expiry tracking. Minimum crew requirements per task type. ERT and safety-critical role checks before any mobilization is approved.</p></div>
+        <div class="clayer"><div class="clayer-t">Layer 4 — Sequencing</div><p class="clayer p">Scaffold before engineers access. ERT on station before in-water work. Multi-contractor dependencies tracked. No one stands around waiting for the team before them.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WORKERS -->
+<section style="background:linear-gradient(180deg,var(--bg) 0%,var(--s1) 50%,var(--bg) 100%)" id="workers">
+<div class="container">
+  <div class="w-split">
+    <div class="fu">
+      <span class="lbl">Worker & Contractor Management</span>
+      <h2>Your whole team.<br>One system.</h2>
+      <p>Every worker — directly employed, zero-hours, and contractor — managed with automatic CTC verification and competency checking before every mobilization.</p>
+      <p>When the verdict is issued, the system already knows who is qualified, cleared, and available. Supervisors approve the list. Workers dispatched. Zero admin.</p>
+      <div class="flist">
+        <div class="fitem"><div class="ck">✓</div><span><strong>CTC security clearance and competency verified automatically</strong> — non-compliant workers never appear on the crew list</span></div>
+        <div class="fitem"><div class="ck">✓</div><span><strong>Multi-contractor visibility</strong> — each contractor sees their tasks; principal contractor sees all dependencies</span></div>
+        <div class="fitem"><div class="ck">✓</div><span><strong>Zero-hours managed precisely</strong> — only called when needed; stood-down workers save you money before the shift starts</span></div>
+        <div class="fitem"><div class="ck">✓</div><span><strong>Minimum crew enforced at 6 PM</strong> — ERT gaps flagged the evening before, not at the 7:30 AM briefing</span></div>
+        <div class="fitem"><div class="ck">✓</div><span><strong>Real-time reoptimisation</strong> — conditions change mid-shift? One update recalculates who does what for the rest of the day</span></div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <div class="wui">
+        <div class="wuih"><h4>Crew list — 8 May 2026</h4><span>34 workers · 5 contractors</span></div>
+        <div class="wlist">
+          <div class="wcard"><div class="wcl"><div class="wav">MR</div><div><div class="wname">M. Reynolds</div><div class="wrole">Site supervisor · Direct</div></div></div><div class="wbs"><span class="wb wbc">CTC Enhanced</span><span class="wb wbo">On site</span></div></div>
+          <div class="wcard"><div class="wcl"><div class="wav">TK</div><div><div class="wname">T. Kapoor</div><div class="wrole">ERT diver · DiveCo</div></div></div><div class="wbs"><span class="wb wbc">CTC SC</span><span class="wb wbo">Confirmed</span></div></div>
+          <div class="wcard" style="opacity:.55"><div class="wcl"><div class="wav" style="color:var(--red)">RC</div><div><div class="wname">R. Cole</div><div class="wrole">ERT standby · DiveCo</div></div></div><div class="wbs"><span class="wb wbd">Absent — unannounced</span></div></div>
+          <div class="wcard"><div class="wcl"><div class="wav">PL</div><div><div class="wname">P. Lockwood</div><div class="wrole">Steelwork · Rendel Ltd</div></div></div><div class="wbs"><span class="wb wbc">CTC SC</span><span class="wb wbw">Cert exp. 14d</span></div></div>
+          <div class="wcard" style="background:rgba(16,185,129,.04);border-color:rgba(16,185,129,.14)"><div class="wcl"><div class="wav" style="color:var(--grn)">+29</div><div><div class="wname">29 more workers</div><div class="wrole">All cleared · All confirmed</div></div></div><div class="wbs"><span class="wb wbo">Ready</span></div></div>
+        </div>
+        <div class="walert">⚠ ERT minimum crew: 2 required, 1 confirmed. R. Cole absent — flagged 18:00. Request DiveCo standby by 19:30 or primary task cannot proceed.</div>
+      </div>
+      <div class="wcols">
+        <div class="wclbl">Data collected per worker</div>
+        <div class="tags"><span class="tag">Name + role</span><span class="tag">Company / contractor</span><span class="tag">CTC clearance + expiry</span><span class="tag">Certifications + expiry</span><span class="tag">Direct / zero-hours / sub</span><span class="tag">Contact preference</span><span class="tag">Daily availability</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DATA -->
+<section>
+<div class="container">
+  <div class="sec-hdr fu"><span class="lbl">Data & Learning</span><h2>The system learns your site.</h2><p>After three months, recommendations are built from your actual operational data — not industry averages.</p></div>
+  <div class="dcols">
+    <div class="fu">
+      <h3 style="font-size:17px;margin-bottom:14px">What gets collected</h3>
+      <div class="dcards">
+        <div class="dc"><div class="di">📄</div><div><h4>Documents</h4><p>Permits, risk assessments, method statements. Claude auto-extracts every constraint, threshold, expiry, and regulatory requirement.</p></div></div>
+        <div class="dc"><div class="di">🌤️</div><div><h4>Environmental data</h4><p>Wind, tides, temperature — auto-fetched from Met Office and ADMIRALTY APIs using your site's location. Zero manual entry for environmental conditions.</p></div></div>
+        <div class="dc"><div class="di">👷</div><div><h4>Daily confirmations</h4><p>Worker availability and permit readiness — the two things only you know. ~30 seconds per afternoon.</p></div></div>
+        <div class="dc"><div class="di">📊</div><div><h4>Task logs</h4><p>Start/finish times, crew size, blockers. ~60 seconds per task. Builds the pattern library that makes future predictions precise.</p></div></div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <h3 style="font-size:17px;margin-bottom:14px">What month 3 looks like</h3>
+      <p style="font-size:13px;color:var(--t2);margin-bottom:16px;line-height:1.6">After three months of task logs, Slackwater stops giving you generic recommendations and starts giving you yours.</p>
+      <div class="dc" style="margin-bottom:10px"><div class="di">📍</div><div><h4>Site-specific patterns</h4><p>Your site's anode cutting takes 3h 20m — not the 4h on the method statement. Tidal window calculations adjust automatically.</p></div></div>
+      <div class="dc" style="margin-bottom:10px"><div class="di">👥</div><div><h4>Crew configuration memory</h4><p>The Reynolds + Kapoor combo completes gate checks 40 minutes faster than average. That becomes the default recommendation.</p></div></div>
+      <div class="dc"><div class="di">⚠️</div><div><h4>Recurring blocker alerts</h4><p>EA gate checks overrun on the third Thursday of every month — Slackwater starts flagging this automatically. You fix it once.</p></div></div>
+    </div>
+  </div>
+  <div class="dbar fu"><div><h4>Your data stays yours</h4><p>Used solely to improve recommendations for your site. Not shared, not sold. Local or your own Supabase instance.</p></div><div class="dpills"><div class="dp"><div class="dv">Local / Supabase</div><div class="dl">Storage</div></div><div class="dp"><div class="dv">Never shared</div><div class="dl">Data policy</div></div><div class="dp"><div class="dv">Your device</div><div class="dl">API key</div></div></div></div>
+</div>
+</section>
+
+
+<!-- CASE STUDIES -->
+<section id="cases">
+<div class="container">
+  <div class="sec-hdr fu"><span class="lbl">Case Studies</span><h2>What this looks like in practice</h2><p>Two real incidents on the Thames Barrier, totalling over £43,000 in preventable losses. Slackwater would have called both the night before.</p></div>
+  <div class="vstack fu" style="flex-direction:row;gap:16px;max-width:700px;margin:0 auto 56px;flex-wrap:wrap">
+    <div class="vc" style="flex:1;min-width:280px">
+      <div class="vcm"><span class="vcs">Thames Barrier · Gate Check + Bolt Work</span><span class="vct">20:03 · 6 May 2026</span></div>
+      <div class="vbadge vgo">✓ PROCEED</div>
+      <div class="vcbody"><strong>Crew:</strong> 34 workers confirmed · 5 contractors<br><strong>Sequence:</strong> Gates team 07:00 · Anode cutting 09:30 — tidal window<br><strong>EA gate check:</strong> complete 08:45. Buffer 45 min ✓<br><span style="color:var(--t3)">Workers notified 20:03 · Zero-hours dispatched</span></div>
+    </div>
+    <div class="vc" style="flex:1;min-width:280px;border-color:rgba(239,68,68,.22)">
+      <div class="vcm"><span class="vcs">Thames Barrier · Cofferdam + Anode Works</span><span class="vct">19:58 · 9 May 2026</span></div>
+      <div class="vbadge vstop">✗ DO NOT MOBILISE</div>
+      <div class="vcbody"><strong>Reason:</strong> EA barrier operation conflicts with cofferdam dewatering window. No productive access achievable.<br><br><span style="color:var(--red)">Saving: <strong>£24,600</strong> — crew notified 19:58. Stay home.</span></div>
+    </div>
+  </div>
+  <div class="cs-grid">
+    <div class="cs fu">
+      <div class="csd">9 May 2026 — Thames Barrier — Cofferdam + Anode Cutting</div>
+      <h3>The barrier operation nobody modelled</h3>
+      <div class="csb">Thirty-four workers across five contractors. Specialist marine crane on day rate. EA barrier operation schedule conflicted with the cofferdam dewatering window — nobody had run the check the night before. Zero productive access achieved. Every worker paid in full.</div>
+      <div class="csc"><span class="ca">£24,600</span><span class="cx">guaranteed wages, crane hire and logistics<br>lost in a single morning</span></div>
+      <div class="csv"><div class="csvl">Slackwater verdict — night before</div><p>"DO NOT MOBILISE — EA barrier operation conflicts with cofferdam dewatering window before safe access. Saving: <strong>£24,600.</strong>"</p></div>
+    </div>
+    <div class="cs pos fu d2">
+      <div class="csd">11 May 2026 — Thames Barrier — Anode Cutting + Jet Washing</div>
+      <h3>The absence that stood down a site</h3>
+      <div class="csb">One unannounced DiveCo ERT absence meant minimum crew requirements were unmet at 7:30 AM. Primary task stood down all day. Nineteen workers redeployed to lower-priority cleaning. An unscheduled Rendel inspection arrived mid-afternoon, aborting jet washing entirely.</div>
+      <div class="csc"><span class="ca" style="color:var(--red)">£18,400</span><span class="cx">daily cost plus cascading knock-on losses<br>across two days of rescheduled work</span></div>
+      <div class="csv"><div class="csvl">Slackwater would have</div><p>Sent minimum crew confirmation at 6 PM. Flagged the absence and the rescheduled inspection. Pre-planned fallback tasks. Zero surprises at the 7:30 AM brief.</p></div>
+    </div>
+    <div class="fu" style="margin-top:20px;background:var(--s1);border:1px solid rgba(245,158,11,.2);border-radius:14px;padding:28px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--amb)"></div>
+      <div class="csd">14 May 2026 — Thames Barrier — Anode Cutting + Gate Inspection</div>
+      <h3>The partial proceed nobody planned for</h3>
+      <div class="csb">Two tasks scheduled. Tidal window sufficient for gate inspection but not anode cutting. EA permit covers inspection but not cutting until 16:00. Standard practice: mobilise everyone and decide on the ground. Slackwater did something different.</div>
+      <div class="csv" style="border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.04)">
+        <div class="csvl" style="color:var(--amb)">Slackwater verdict — partial proceed</div>
+        <p>"PARTIAL PROCEED — Deploy gates inspection team (12 workers, 07:00). Anode cutting crew: stand down until 16:00 EA permit window opens. Saving <strong>£11,800</strong> in zero-hours morning wages while delivering full inspection output."</p>
+      </div>
+      <p style="font-size:12px;color:var(--t3);margin-top:14px;line-height:1.6">This is the call that's hardest to make at 7:30 AM with crews waiting. Slackwater calculates it the night before.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TRIAL -->
+<section id="trial">
+<div class="container">
+  <div class="tbox fu">
+    <span class="lbl" style="position:relative">Free Trial</span>
+    <h2>One site. 90 days. No cost.</h2>
+    <p>We're onboarding infrastructure sites one at a time. We configure Slackwater around your specific operations. Honest feedback is all we ask.</p>
+    <div class="tnums">
+      <div class="tn"><div class="tv">90</div><div class="tl">days, full access</div></div>
+      <div class="tn"><div class="tv">1</div><div class="tl">site, fully configured</div></div>
+      <div class="tn"><div class="tv">£0</div><div class="tl">cost, no obligation</div></div>
+    </div>
+    <a href="#form" class="btn bp blg" style="position:relative">Apply for Your Site →</a>
+    <p style="font-size:13px;color:var(--t3);margin-top:20px;position:relative">After the trial, pricing is based on site complexity — we quote during setup. No surprises.</p>
+    <p style="font-size:16px;color:var(--t2);margin-top:32px;font-style:italic;position:relative;letter-spacing:-.01em">Built for the people who keep the country running.</p>
+  </div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="form-sec" id="form">
+<div class="container">
+<div class="fwrap fu">
+  <h2>Tell us about your site</h2>
+  <p class="fs">2 minutes. We tailor Slackwater to your operations from day one.</p>
+  <div class="fprog" id="fprog"><div class="fpi on" id="fi1"></div><div class="fpi" id="fi2"></div><div class="fpi" id="fi3"></div></div>
+  <div class="fpane active" id="fp1">
+    <h3>What type of site are you managing?</h3><p class="fss">Helps us understand your primary constraints.</p>
+    <div class="opts">
+      <div class="opt" data-v="flood" onclick="pick(this,'st')"><div class="oi">🌊</div><div class="ot">Flood Defence / Coastal</div><div class="od">Tidal windows, EA consent, gate operations</div></div>
+      <div class="opt" data-v="rail" onclick="pick(this,'st')"><div class="oi">🚂</div><div class="ot">Rail</div><div class="od">Track possessions, isolations, NR coordination</div></div>
+      <div class="opt" data-v="highways" onclick="pick(this,'st')"><div class="oi">🛣️</div><div class="ot">Highways</div><div class="od">Traffic management, permits, weather windows</div></div>
+      <div class="opt" data-v="power" onclick="pick(this,'st')"><div class="oi">⚡</div><div class="ot">Power & Utilities</div><div class="od">Outage windows, HV isolation, network ops</div></div>
+      <div class="opt" data-v="offshore" onclick="pick(this,'st')"><div class="oi">🌬️</div><div class="ot">Offshore / Marine</div><div class="od">Marine weather, vessel scheduling, installations</div></div>
+      <div class="opt" data-v="other" onclick="pick(this,'st')"><div class="oi">🏗️</div><div class="ot">Other Infrastructure</div><div class="od">Airport, nuclear, construction, mixed site</div></div>
+    </div>
+    <div class="fnav"><div></div><button class="btn bp" onclick="next(1)">Continue →</button></div>
+  </div>
+  <div class="fpane" id="fp2">
+    <h3>Tell us about your operations</h3><p class="fss">Helps us configure Slackwater correctly from day one.</p>
+    <div class="ff"><label>Workers on site on a typical day?</label><div class="szs"><button class="sz" onclick="sz(this,'u10')">Under 10</button><button class="sz" onclick="sz(this,'10-30')">10–30</button><button class="sz" onclick="sz(this,'30-100')">30–100</button><button class="sz" onclick="sz(this,'100+')">100+</button></div></div>
+    <div class="ff" style="margin-top:12px"><label>Primary operational constraint?</label><select id="fc1"><option value="">Select…</option><option>Tidal windows</option><option>Weather thresholds</option><option>Permit availability and expiry</option><option>Crew availability and certifications</option><option>Third-party access conflicts</option><option>All of the above</option></select></div>
+    <div class="ff"><label>How do you currently decide whether to mobilize?</label><select id="fp1s"><option value="">Select…</option><option>Morning of — we decide when people arrive</option><option>Evening before — informal, by phone</option><option>Evening before — we have a process</option><option>We use a software system</option></select></div>
+    <div class="fnav"><button class="btn bg" onclick="back(2)">← Back</button><button class="btn bp" onclick="next(2)">Continue →</button></div>
+  </div>
+  <div class="fpane" id="fp3">
+    <h3>Almost there</h3><p class="fss">We'll be in touch within 24 hours to set up your trial.</p>
+    <div class="frow"><div class="ff"><label>First name</label><input id="fn" placeholder="James"></div><div class="ff"><label>Last name</label><input id="fl" placeholder="Reynolds"></div></div>
+    <div class="ff"><label>Email</label><input id="fe" type="email" placeholder="james@yourcompany.co.uk"></div>
+    <div class="frow"><div class="ff"><label>Your role</label><select id="fr"><option value="">Select…</option><option>Site Manager</option><option>Project Manager</option><option>Operations Manager</option><option>Director / Principal</option><option>Other</option></select></div><div class="ff"><label>Company</label><input id="fc2" placeholder="Your company"></div></div>
+    <div class="ff"><label>Site name <span style="color:var(--t3);font-weight:400">(optional — try typing Thames Barrier)</span></label><input id="fs1" placeholder="e.g. Thames Barrier, Medway, Tilbury…" oninput="checkTidalSite(this.value)"></div>
+    <div id="tidal-preview" class="tp-box" style="display:none"></div>
+    <div class="fnav"><button class="btn bg" onclick="back(3)">← Back</button><button class="btn bp blg" onclick="sub()">Apply for Free Trial →</button></div>
+  </div>
+  <div class="succ" id="succ">
+    <div class="ck">✓</div><h3>You're on the list.</h3>
+    <p>We'll be in touch within 24 hours to configure your trial site.</p>
+    <p style="margin-top:10px">We'll be in touch within 24 hours to schedule setup.</p>
+    <p style="margin-top:10px;font-size:12px">Questions: <a href="mailto:hello@slackwater.live">hello@slackwater.live</a></p>
+  </div>
+</div>
+</div>
+</section>
+
+<footer><div class="container"><div class="ftin"><div class="ftl"><div class="fl">SLACK<span>WATER</span></div><p>Operational intelligence for critical infrastructure.</p><p><a href="mailto:hello@slackwater.live" style="color:var(--t3);text-decoration:none">hello@slackwater.live</a></p></div><div class="ftr"><p>© 2026 Slackwater</p><p>Operational intelligence for UK critical infrastructure.</p></div></div></div></footer>
+
+<script>
+// ====== NAV ======
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',scrollY>16));
+
+// ====== FADE UPS ======
+const fobs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fu').forEach(el=>fobs.observe(el));
+
+// ====== COUNTERS ======
+function cnt(el,t){const d=1800,s=performance.now(),f=t%1!==0;(function tick(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=f?(t*e).toFixed(1):Math.round(t*e).toLocaleString();p<1&&requestAnimationFrame(tick)})(s)}
+const cobs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting&&!x.target.dataset.r){x.target.dataset.r=1;cnt(x.target,+x.target.dataset.t)}}),{threshold:.5});
+document.querySelectorAll('.counter').forEach(el=>cobs.observe(el));
+
+// ====== CANVAS SCROLL ANIMATION ======
+const canvas=document.getElementById('iface');
+const ctx=canvas.getContext('2d');
+const DPR=Math.min(window.devicePixelRatio||1,2);
+let W=0,H=0,IW=0,IH=0,IX=0,IY=0;
+
+function resize(){
+  const wrap=canvas.parentElement;
+  W=wrap.offsetWidth;H=wrap.offsetHeight;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  canvas.width=W*DPR;canvas.height=H*DPR;
+  ctx.scale(DPR,DPR);
+  IW=Math.min(460,W-48);IH=Math.min(560,H-60);
+  IX=(W-IW)/2;IY=(H-IH)/2;
+  draw(lastP);
+}
+window.addEventListener('resize',resize);
+
+// ---- colour constants ----
+const C={
+  bg:'#070B14',s1:'#0D1526',s2:'#111D35',
+  b1:'#1A2845',b2:'#243354',
+  cyan:'#0EA5E9',grn:'#10B981',amb:'#F59E0B',red:'#EF4444',
+  t1:'#F1F5F9',t2:'#94A3B8',t3:'#475569',
+};
+
+// ---- helpers ----
+function rr(x,y,w,h,r,fill,stroke,lw){
+  ctx.beginPath();
+  const r2=typeof r==='number'?[r,r,r,r]:r;
+  if(ctx.roundRect){ctx.roundRect(x,y,w,h,r2)}
+  else{
+    const tl=r2[0],tr=r2[1],br=r2[2],bl=r2[3];
+    ctx.moveTo(x+tl,y);ctx.lineTo(x+w-tr,y);ctx.quadraticCurveTo(x+w,y,x+w,y+tr);
+    ctx.lineTo(x+w,y+h-br);ctx.quadraticCurveTo(x+w,y+h,x+w-br,y+h);
+    ctx.lineTo(x+bl,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-bl);
+    ctx.lineTo(x,y+tl);ctx.quadraticCurveTo(x,y,x+tl,y);ctx.closePath();
+  }
+  if(fill){ctx.fillStyle=fill;ctx.fill()}
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||1;ctx.stroke()}
+}
+function txt(s,x,y,sz,w,col,align){
+  ctx.font=`${w||400} ${sz}px -apple-system,Inter,sans-serif`;
+  ctx.fillStyle=col||C.t1;ctx.textAlign=align||'left';ctx.textBaseline='middle';
+  ctx.fillText(s,x,y);
+}
+function mono(s,x,y,sz,col,align){
+  ctx.font=`${sz||11}px JetBrains Mono,monospace`;
+  ctx.fillStyle=col||C.t2;ctx.textAlign=align||'left';ctx.textBaseline='middle';
+  ctx.fillText(s,x,y);
+}
+function ease(t){return t<.5?2*t*t:-1+(4-2*t)*t}
+function easeOut(t){return 1-Math.pow(1-t,3)}
+function easeIn(t){return t*t*t}
+function spring(t){return 1-Math.cos(t*Math.PI*2.2)*Math.exp(-t*4.5)}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function segP(p,from,to){return clamp((p-from)/(to-from),0,1)}
+function alpha(col,a){
+  const r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+function lerp(a,b,t){return a+(b-a)*t}
+
+// ---- Panel chrome (drawn once around each scene) ----
+function drawChrome(x,y,w,h,title,subtitle,tint){
+  // outer glow
+  ctx.shadowColor=alpha(tint||C.cyan,.18);ctx.shadowBlur=40;
+  rr(x,y,w,h,16,C.s1,tint||C.b2,1);
+  ctx.shadowBlur=0;
+  // header
+  rr(x,y,w,44,[16,16,0,0],C.s2,C.b1,1);
+  // traffic lights
+  [C.red,C.amb,C.grn].forEach((c,i)=>{ctx.beginPath();ctx.arc(x+14+i*12,y+22,4,0,Math.PI*2);ctx.fillStyle=c;ctx.fill()});
+  txt(title||'SLACKWATER',x+50,y+22,12,800,C.t1);
+  mono(subtitle||'Thames Barrier · Gate Check',x+w-14,y+22,9.5,C.t3,'right');
+  // divider
+  ctx.strokeStyle=C.b1;ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(x,y+44);ctx.lineTo(x+w,y+44);ctx.stroke();
+}
+
+// ======== SCENE 0 — CHAOS ========
+// 30 worker tiles scattered/overlapping, question marks, red status, unresolved
+const WORKER_DATA=[
+  {i:'MR',n:'M. Reynolds',r:'Site supervisor',s:'confirmed',c:C.grn},
+  {i:'TK',n:'T. Kapoor',r:'ERT diver',s:'confirmed',c:C.grn},
+  {i:'RC',n:'R. Cole',r:'ERT standby',s:'absent',c:C.red},
+  {i:'PL',n:'P. Lockwood',r:'Steelwork',s:'unconfirmed',c:C.amb},
+  {i:'JH',n:'J. Harris',r:'Scaffolder',s:'confirmed',c:C.grn},
+  {i:'SW',n:'S. Webb',r:'Gate tech',s:'unconfirmed',c:C.amb},
+  {i:'DN',n:'D. Nair',r:'Anode cutting',s:'confirmed',c:C.grn},
+  {i:'BF',n:'B. Foster',r:'Zero-hours',s:'unknown',c:C.t3},
+  {i:'AL',n:'A. Lewis',r:'Crane op.',s:'confirmed',c:C.grn},
+  {i:'OB',n:'O. Benson',r:'Safety',s:'unconfirmed',c:C.amb},
+];
+
+// Seeded chaos positions: scattered around panel, some overlapping
+function chaosPos(i,totalW,totalH,bx,by){
+  const seed=i*137.5;
+  const cols=5,rows=2;
+  const col=i%cols,row=Math.floor(i/cols);
+  const baseX=bx+col*(totalW/cols)+16;
+  const baseY=by+row*(totalH/rows)+8;
+  // add chaos offset using pseudo-random from index
+  const ox=(Math.sin(seed)*0.5+0.5-0.5)*80;
+  const oy=(Math.cos(seed*1.3)*0.5+0.5-0.5)*40;
+  return{x:baseX+ox,y:baseY+oy};
+}
+
+function drawScene0(x,y,w,h,p){
+  const tileW=84,tileH=48,pad=x+16,bw=w-32;
+
+  // background noise — scattered question marks
+  ctx.save();
+  const noiseAlpha=clamp(1-p*2,0,1)*0.35;
+  if(noiseAlpha>0.01){
+    ctx.globalAlpha=noiseAlpha;
+    const questions=['?','!','?','!','?'];
+    questions.forEach((q,i)=>{
+      const qx=x+30+i*(bw/5)+Math.sin(i*2.1)*20;
+      const qy=y+20+Math.cos(i*1.7)*30;
+      txt(q,qx,qy,28,900,alpha(C.red,.5),'center');
+    });
+  }
+  ctx.restore();
+
+  // Draw worker tiles in chaos layout
+  const visCount=Math.round(WORKER_DATA.length*Math.min(p*3,1));
+  WORKER_DATA.slice(0,Math.max(visCount,1)).forEach((w2,i)=>{
+    const itemP=segP(p,i*.05,i*.05+.25);
+    const a=ease(clamp(itemP,0,1));
+    if(a<0.01)return;
+    const pos=chaosPos(i,bw-tileW,h-tileH-20,pad,y+10);
+    ctx.globalAlpha=a;
+    ctx.save();
+    ctx.translate(pos.x+(1-a)*20,pos.y+(1-a)*10);
+    // rotation chaos
+    const rot=(Math.sin(i*2.3)*0.08)*(1-p);
+    ctx.translate(tileW/2,tileH/2);ctx.rotate(rot);ctx.translate(-tileW/2,-tileH/2);
+
+    const borderCol=w2.s==='absent'?C.red:w2.s==='unconfirmed'?C.amb:w2.s==='unknown'?C.t3:C.b2;
+    rr(0,0,tileW,tileH,6,C.bg,borderCol,w2.s==='absent'?1.5:1);
+    // avatar dot
+    ctx.beginPath();ctx.arc(14,tileH/2,8,0,Math.PI*2);
+    ctx.fillStyle=alpha(w2.c,.15);ctx.fill();
+    ctx.beginPath();ctx.arc(14,tileH/2,8,0,Math.PI*2);
+    ctx.strokeStyle=alpha(w2.c,.4);ctx.lineWidth=1;ctx.stroke();
+    txt(w2.i,14,tileH/2,7,700,w2.c,'center');
+    // name
+    txt(w2.n,28,tileH/2-7,9,600,C.t1);
+    mono(w2.s,28,tileH/2+7,8,w2.c);
+    ctx.restore();
+    ctx.globalAlpha=1;
+  });
+
+  // floating problem badges
+  if(p>0.2){
+    const badgeP=segP(p,.2,.5);
+    const badges=[
+      {t:'TIDAL WINDOW?',x:pad,y:y+h-48,c:C.amb},
+      {t:'PERMIT STATUS?',x:pad+bw/2,y:y+h-48,c:C.red},
+      {t:'ERT MINIMUM?',x:pad+bw/3,y:y+h-28,c:C.red},
+    ];
+    badges.forEach((b,i)=>{
+      const ba=ease(clamp(segP(badgeP,i*.15,i*.15+.3),0,1));
+      ctx.globalAlpha=ba*0.9;
+      rr(b.x,b.y,120,16,4,alpha(b.c,.08),alpha(b.c,.3));
+      mono(b.t,b.x+6,b.y+8,8,b.c);
+      ctx.globalAlpha=1;
+    });
+  }
+
+  // chaos label
+  const labA=ease(Math.min(p*4,1));
+  ctx.globalAlpha=labA*0.6;
+  txt('30 workers · 6 contractors · 3h 20m window',x+w/2,y+h-8,10,400,C.t3,'center');
+  ctx.globalAlpha=1;
+}
+
+// ======== SCENE 1 — DATA LOADING ========
+function drawScene1(x,y,w,h,p){
+  const pad=x+16,bw=w-32;
+
+  // header
+  ctx.globalAlpha=ease(Math.min(p*3,1));
+  txt('Fetching conditions — 17:00',pad,y+12,11,600,C.t2);
+  mono('Auto-pull · Met Office · ADMIRALTY · EA feeds',pad,y+26,9.5,C.t3);
+  ctx.globalAlpha=1;
+
+  // data stream bars
+  const streams=[
+    {label:'Wind forecast',src:'Met Office DataPoint',val:'14 m/s NNW',bar:0.46,c:C.cyan,icon:'~'},
+    {label:'Tidal window',src:'ADMIRALTY Standard Port',val:'09:15 → 12:35',bar:0.72,c:C.cyan,icon:'≋'},
+    {label:'EA gate schedule',src:'Environment Agency',val:'Check complete 08:45',bar:0.89,c:C.grn,icon:'⊞'},
+    {label:'Permit to work',src:'Document store',val:'Active · exp 14 Jun',bar:1.0,c:C.grn,icon:'✓'},
+    {label:'Worker availability',src:'Site manager input',val:'28 confirmed · 2 flagged',bar:0.78,c:C.amb,icon:'⚠'},
+  ];
+
+  streams.forEach((s,i)=>{
+    const rowP=segP(p,0.05+i*0.12,0.05+i*0.12+0.35);
+    const a=ease(clamp(rowP,0,1));
+    if(a<0.01)return;
+    const ry=y+42+i*46;
+    ctx.globalAlpha=a;
+    ctx.save();ctx.translate(0,(1-a)*10);
+
+    // row bg
+    rr(pad,ry,bw,38,7,C.bg,C.b1);
+
+    // icon circle
+    ctx.beginPath();ctx.arc(pad+18,ry+19,10,0,Math.PI*2);
+    ctx.fillStyle=alpha(s.c,.1);ctx.fill();
+    mono(s.icon,pad+18,ry+19,10,s.c,'center');
+
+    // label + source
+    txt(s.label,pad+36,ry+12,11,600,C.t1);
+    mono(s.src,pad+36,ry+25,9,C.t3);
+
+    // value
+    mono(s.val,pad+bw-10,ry+12,10,s.c,'right');
+
+    // progress bar
+    const barW=bw-32;const barH=3;const barX=pad+16,barY=ry+35;
+    rr(barX,barY,barW,barH,2,C.b1);
+    const filledW=barW*Math.min(s.bar*ease(rowP),s.bar);
+    if(filledW>2)rr(barX,barY,filledW,barH,2,alpha(s.c,.7));
+
+    ctx.restore();ctx.globalAlpha=1;
+  });
+
+  // Done marker
+  const doneP=segP(p,.85,1);
+  if(doneP>0.01){
+    ctx.globalAlpha=ease(doneP);
+    const dy=y+42+5*46+4;
+    rr(pad,dy,bw,26,6,alpha(C.grn,.07),alpha(C.grn,.25));
+    mono('↻ All inputs confirmed · Analysis running…',pad+10,dy+13,10,C.grn);
+    ctx.globalAlpha=1;
+  }
+}
+
+// ======== SCENE 2 — AI ANALYSIS ========
+function drawScene2(x,y,w,h,p){
+  const pad=x+16,bw=w-32;
+
+  // pulsing analysis header
+  const pulse=0.7+0.3*Math.sin(Date.now()/400);
+  ctx.globalAlpha=ease(Math.min(p*4,1))*pulse;
+  txt('Cross-referencing constraints…',pad,y+12,12,700,C.cyan);
+  ctx.globalAlpha=1;
+  ctx.globalAlpha=ease(Math.min(p*4,1));
+  mono('6 documents · 4 data sources · 30 workers',pad,y+26,9.5,C.t3);
+  ctx.globalAlpha=1;
+
+  const checks=[
+    {ic:'✓',c:C.grn,t:'Permit to work — active',sub:'Expires 14 Jun 2026 · 38 days remaining'},
+    {ic:'✓',c:C.grn,t:'Method statement — scope confirmed',sub:'Gate check, bolt work, anode cutting'},
+    {ic:'✓',c:C.cyan,t:'EA gate check → tidal window',sub:'Complete 08:45 · Window 09:15 · Buffer 30m ✓'},
+    {ic:'✓',c:C.grn,t:'CTC clearances — 28 of 30 verified',sub:'All confirmed workers cleared for site access'},
+    {ic:'⚠',c:C.red,t:'ERT minimum crew: 2 required, 1 confirmed',sub:'R. Cole absent · Requesting DiveCo standby'},
+  ];
+
+  checks.forEach((c2,i)=>{
+    const cp=segP(p,0.04+i*0.1,0.04+i*0.1+0.32);
+    const a=ease(clamp(cp,0,1));
+    if(a<0.01)return;
+    const cy2=y+40+i*46;
+    ctx.globalAlpha=a;
+    ctx.save();ctx.translate((1-a)*-16,0);
+
+    const bg=i===4?alpha(C.red,.04):C.bg;
+    const border=i===4?alpha(C.red,.2):C.b1;
+    rr(pad,cy2,bw,38,6,bg,border,i===4?1.5:1);
+
+    // icon badge
+    rr(pad+6,cy2+9,20,20,5,alpha(c2.c,.1));
+    txt(c2.ic,pad+16,cy2+19,11,700,c2.c,'center');
+
+    txt(c2.t,pad+34,cy2+13,11,600,i===4?C.red:C.t1);
+    mono(c2.sub,pad+34,cy2+27,9,C.t3);
+
+    // scan line for active item
+    if(i===4&&a<0.95){
+      const scanX=pad+bw*(ease(cp));
+      ctx.strokeStyle=alpha(C.red,.4);ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.moveTo(pad,cy2+38);ctx.lineTo(scanX,cy2+38);ctx.stroke();
+    }
+
+    ctx.restore();ctx.globalAlpha=1;
+  });
+
+  // bottom warning
+  const wP=segP(p,.88,1);
+  if(wP>0){
+    ctx.globalAlpha=ease(wP);
+    const wy=y+40+5*46+4;
+    rr(pad,wy,bw,26,6,alpha(C.amb,.07),alpha(C.amb,.3));
+    mono('⚠  Standby sourced — ERT gap resolved · Preparing verdict',pad+10,wy+13,9.5,C.amb);
+    ctx.globalAlpha=1;
+  }
+}
+
+// ======== SCENE 3 — VERDICT ========
+function drawScene3(x,y,w,h,p){
+  const cx2=x+w/2,pad=x+16,bw=w-32;
+
+  // ---- PROCEED badge ----
+  const vp=ease(segP(p,0,.25));
+  if(vp>0){
+    ctx.globalAlpha=vp;
+    const sc=0.65+vp*0.35;
+    ctx.save();
+    ctx.translate(cx2,y+h*0.20);ctx.scale(sc,sc);
+    // glow halo
+    const grad=ctx.createRadialGradient(0,0,0,0,0,IW*.3);
+    grad.addColorStop(0,alpha(C.grn,.22));
+    grad.addColorStop(1,'transparent');
+    ctx.fillStyle=grad;ctx.fillRect(-IW*.4,-IH*.25,IW*.8,IH*.5);
+
+    ctx.font=`900 ${Math.round(IW*.115)}px -apple-system,Inter,sans-serif`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.shadowColor=alpha(C.grn,.5);ctx.shadowBlur=40;
+    ctx.fillStyle=C.grn;ctx.fillText('PROCEED',0,0);
+    ctx.shadowBlur=0;
+    // underline bar
+    const uw=ctx.measureText('PROCEED').width*0.95;
+    ctx.fillStyle=alpha(C.grn,.35);
+    ctx.fillRect(-uw/2,16,uw,3);
+    ctx.restore();
+    ctx.globalAlpha=1;
+  }
+
+  // ---- Summary stats row ----
+  const statsP=segP(p,.22,.55);
+  if(statsP>0){
+    const stats=[
+      {v:'22',l:'of 30 mobilised'},
+      {v:'8',l:'stood down'},
+      {v:'£2,880',l:'saved today'},
+    ];
+    const sw=(bw-24)/3;
+    stats.forEach((s,i)=>{
+      const sa=ease(clamp(segP(statsP,i*.18,i*.18+.4),0,1));
+      if(sa<0.01)return;
+      const sx=pad+i*(sw+12);
+      const sy=y+h*0.36;
+      ctx.globalAlpha=sa;
+      ctx.save();ctx.translate(0,(1-sa)*12);
+      const bg=i===2?alpha(C.grn,.07):C.bg;
+      const border=i===2?alpha(C.grn,.25):C.b1;
+      rr(sx,sy,sw,44,8,bg,border);
+      txt(s.v,sx+sw/2,sy+15,i===2?14:18,900,i===2?C.grn:C.t1,'center');
+      mono(s.l,sx+sw/2,sy+32,8.5,C.t3,'center');
+      ctx.restore();ctx.globalAlpha=1;
+    });
+  }
+
+  // ---- Crew sequence plan ----
+  const planP=segP(p,.5,1);
+  if(planP>0){
+    const plan=[
+      {t:'07:00',team:'Gates inspection team',crew:'6 workers',c:C.cyan},
+      {t:'08:30',team:'Steelwork + bolt preparation',crew:'8 workers',c:C.cyan},
+      {t:'09:15',team:'Anode cutting crew — tidal window',crew:'8 workers',c:C.grn},
+      {t:'16:00',team:'ERT standby re-confirmed',crew:'2 divers',c:C.grn},
+    ];
+    const planStartY=y+h*0.53;
+    plan.forEach((step,i)=>{
+      const sp=ease(clamp(segP(planP,i*.14,i*.14+.35),0,1));
+      if(sp<0.01)return;
+      ctx.globalAlpha=sp;
+      ctx.save();ctx.translate((1-sp)*10,0);
+      const ry=planStartY+i*38;
+      rr(pad,ry,bw,30,5,C.bg,C.b1);
+      // time dot
+      ctx.beginPath();ctx.arc(pad+14,ry+15,4,0,Math.PI*2);
+      ctx.fillStyle=alpha(step.c,.3);ctx.fill();
+      ctx.beginPath();ctx.arc(pad+14,ry+15,4,0,Math.PI*2);
+      ctx.strokeStyle=step.c;ctx.lineWidth=1.5;ctx.stroke();
+      // connector line to next
+      if(i<plan.length-1){
+        ctx.strokeStyle=alpha(step.c,.2);ctx.lineWidth=1;ctx.setLineDash([2,3]);
+        ctx.beginPath();ctx.moveTo(pad+14,ry+26);ctx.lineTo(pad+14,ry+38);ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      mono(step.t,pad+28,ry+10,9.5,step.c);
+      txt(step.team,pad+28,ry+22,10,500,C.t1);
+      mono(step.crew,pad+bw-8,ry+15,9,C.t3,'right');
+      ctx.restore();ctx.globalAlpha=1;
+    });
+
+    // Approve button
+    const ap=ease(segP(planP,.85,1));
+    if(ap>0){
+      ctx.globalAlpha=ap;
+      const ay=planStartY+plan.length*38+4;
+      ctx.shadowColor=alpha(C.grn,.2);ctx.shadowBlur=14;
+      rr(pad,ay,bw,30,7,alpha(C.grn,.12),alpha(C.grn,.4));
+      ctx.shadowBlur=0;
+      txt('Supervisor approved — dispatching crew →',cx2,ay+15,11,600,C.grn,'center');
+      ctx.globalAlpha=1;
+    }
+  }
+}
+
+// ======== SCENE 4 — DISPATCH ========
+function drawScene4(x,y,w,h,p){
+  const pad=x+16,bw=w-32;
+
+  ctx.globalAlpha=ease(Math.min(p*3,1));
+  txt('Dispatching crew — 20:03',pad,y+12,11,600,C.t2);
+  mono('Personalised · Not a group chat · 22 messages sent',pad,y+26,9.5,C.t3);
+  ctx.globalAlpha=1;
+
+  const notifs=[
+    {i:'MR',n:'M. Reynolds',r:'Site supervisor',msg:'You\'re on. 07:00, dock 3. Lead the gates team.',c:C.grn,t:'20:03'},
+    {i:'TK',n:'T. Kapoor',r:'ERT diver — DiveCo',msg:'You\'re on. ERT station 08:30. Anode cutting 09:15.',c:C.cyan,t:'20:03'},
+    {i:'JH',n:'J. Harris',r:'Scaffolder',msg:'You\'re on. Report dock 2 at 07:30.',c:C.cyan,t:'20:04'},
+    {i:'PW',n:'P. Walsh',r:'Zero-hours — not needed',msg:'Stand down tomorrow. We\'ll be in touch.',c:C.amb,t:'20:04'},
+    {i:'+18',n:'18 more workers',r:'All notified',msg:'Personalised task + time sent to each worker.',c:C.grn,t:'20:05'},
+  ];
+
+  notifs.forEach((n,i)=>{
+    const np=ease(clamp(segP(p,i*.12,i*.12+.28),0,1));
+    if(np<0.01)return;
+    const ny=y+38+i*48;
+    ctx.globalAlpha=np;
+    ctx.save();ctx.translate((1-np)*22,0);
+    rr(pad,ny,bw,40,8,C.bg,n.r.includes('not needed')?alpha(C.amb,.2):C.b1);
+    // avatar
+    rr(pad+7,ny+8,24,24,12,C.s2);
+    txt(n.i,pad+19,ny+20,n.i.length>2?8:9,700,n.c,'center');
+    // text
+    txt(n.n,pad+38,ny+13,11,600,C.t1);
+    mono(n.msg,pad+38,ny+27,8.5,n.r.includes('not needed')?C.amb:C.t2);
+    mono(n.t,pad+bw-6,ny+13,9,C.t3,'right');
+    // status dot
+    ctx.beginPath();ctx.arc(pad+bw-14,ny+27,4,0,Math.PI*2);
+    ctx.fillStyle=n.r.includes('not needed')?C.amb:C.grn;ctx.fill();
+    ctx.restore();ctx.globalAlpha=1;
+  });
+
+  // summary footer
+  const ep=ease(segP(p,.88,1));
+  if(ep>0){
+    ctx.globalAlpha=ep;
+    const ey=y+38+5*48+4;
+    rr(pad,ey,bw,24,6,alpha(C.grn,.06),alpha(C.grn,.2));
+    mono('8 workers stood down · £2,880 saved vs full mobilisation',pad+10,ey+12,9.5,C.grn);
+    ctx.globalAlpha=1;
+  }
+}
+
+// ======== SCENE 5 — CLARITY ========
+function drawScene5(x,y,w,h,p){
+  const cx2=x+w/2,pad=x+16,bw=w-32;
+
+  // time header
+  ctx.globalAlpha=ease(Math.min(p*4,1));
+  txt('6:55 AM — Thames Barrier',pad,y+12,11,600,C.t2);
+  mono('Gate check + bolt work · All crew briefed',pad,y+26,9.5,C.t3);
+  ctx.globalAlpha=1;
+
+  // Big clarity stats
+  const stats=[
+    {v:'22',l:'workers on site',sub:'All briefed · all compliant',c:C.grn},
+    {v:'£2,880',l:'saved today',sub:'8 workers stood down',c:C.grn},
+    {v:'09:15',l:'tidal window opens',sub:'EA check complete 08:42',c:C.cyan},
+    {v:'£13,000+',l:'day rate protected',sub:'zero mobilisation waste',c:C.grn},
+  ];
+
+  const gw=(bw-12)/2;
+  stats.forEach((s,i)=>{
+    const sp=ease(clamp(segP(p,i*.12,i*.12+.32),0,1));
+    if(sp<0.01)return;
+    const col=i%2,row=Math.floor(i/2);
+    const sx=pad+col*(gw+12),sy=y+40+row*64;
+    ctx.globalAlpha=sp;
+    ctx.save();ctx.translate(0,(1-sp)*14);
+    const isHighlight=i===0||i===1;
+    rr(sx,sy,gw,52,8,isHighlight?alpha(s.c,.06):C.bg,isHighlight?alpha(s.c,.2):C.b1,isHighlight?1.5:1);
+    txt(s.v,sx+gw/2,sy+17,i===1?15:18,900,s.c,'center');
+    txt(s.l,sx+gw/2,sy+32,10,600,C.t1,'center');
+    mono(s.sub,sx+gw/2,sy+46,8,C.t3,'center');
+    ctx.restore();ctx.globalAlpha=1;
+  });
+
+  // Crew grid — 22 green dots, 8 amber (stood down)
+  const gridP=segP(p,.5,1);
+  if(gridP>0){
+    const dotR=7,dotGap=18,cols=10,rows=3;
+    const gStartX=cx2-((cols*dotGap)/2)+dotR;
+    const gStartY=y+40+2*64+12;
+    let di=0;
+    for(let row=0;row<rows;row++){
+      for(let col=0;col<cols;col++){
+        if(di>=30)break;
+        const dotP=ease(clamp(segP(gridP,di*.018,di*.018+.15),0,1));
+        if(dotP<0.01){di++;continue;}
+        const on=di<22;
+        const dx=gStartX+col*dotGap,dy=gStartY+row*dotGap;
+        ctx.globalAlpha=dotP;
+        ctx.beginPath();ctx.arc(dx,dy,dotR,0,Math.PI*2);
+        ctx.fillStyle=on?alpha(C.grn,.2):alpha(C.amb,.1);ctx.fill();
+        ctx.beginPath();ctx.arc(dx,dy,dotR,0,Math.PI*2);
+        ctx.strokeStyle=on?C.grn:alpha(C.amb,.4);ctx.lineWidth=on?1.5:1;ctx.stroke();
+        if(on){
+          ctx.fillStyle=C.grn;ctx.font=`700 7px Inter`;ctx.textAlign='center';ctx.textBaseline='middle';
+          ctx.fillText('✓',dx,dy);
+        }
+        ctx.globalAlpha=1;
+        di++;
+      }
+    }
+    // legend
+    const legP=segP(gridP,.8,1);
+    if(legP>0){
+      ctx.globalAlpha=ease(legP);
+      const ly=gStartY+rows*dotGap+8;
+      ctx.beginPath();ctx.arc(pad+8,ly,5,0,Math.PI*2);ctx.fillStyle=alpha(C.grn,.25);ctx.fill();
+      ctx.beginPath();ctx.arc(pad+8,ly,5,0,Math.PI*2);ctx.strokeStyle=C.grn;ctx.lineWidth=1;ctx.stroke();
+      mono('22 mobilised',pad+18,ly,9,C.grn);
+      ctx.beginPath();ctx.arc(pad+100,ly,5,0,Math.PI*2);ctx.fillStyle=alpha(C.amb,.15);ctx.fill();
+      ctx.beginPath();ctx.arc(pad+100,ly,5,0,Math.PI*2);ctx.strokeStyle=alpha(C.amb,.5);ctx.lineWidth=1;ctx.stroke();
+      mono('8 stood down',pad+110,ly,9,C.amb);
+      ctx.globalAlpha=1;
+    }
+  }
+
+  // Final verdict echo
+  const finalP=segP(p,.82,1);
+  if(finalP>0){
+    ctx.globalAlpha=ease(finalP)*0.12;
+    ctx.font=`900 ${Math.round(IW*.18)}px -apple-system,Inter,sans-serif`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillStyle=C.grn;
+    ctx.fillText('PROCEED',cx2,y+h/2);
+    ctx.globalAlpha=1;
+  }
+}
+
+// ---- MAIN DRAW ----
+let lastP=0;
+
+// Scene boundaries: 0=chaos, 1=data, 2=analysis, 3=verdict, 4=dispatch, 5=clarity
+const SCENE_BOUNDS=[0,.15,.32,.52,.70,.86,1];
+
+function sceneProgress(p,si){
+  const raw=segP(p,SCENE_BOUNDS[si],SCENE_BOUNDS[si+1]);
+  return Math.min(raw/0.65,1);
+}
+
+function draw(p){
+  lastP=p;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);
+
+  // Background grid
+  ctx.strokeStyle='rgba(14,165,233,.02)';ctx.lineWidth=1;
+  for(let gx=0;gx<W;gx+=52){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke()}
+  for(let gy=0;gy<H;gy+=52){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke()}
+
+  const x=IX,y=IY,w=IW,h=IH;
+  const bx=x+1,by=y+44,bw=w-2,bh=h-45;
+
+  // Determine dominant scene and blend
+  let si=SCENE_BOUNDS.length-2;
+  for(let i=0;i<SCENE_BOUNDS.length-1;i++){
+    if(p<SCENE_BOUNDS[i+1]){si=i;break}
+  }
+  const scP=sceneProgress(p,si);
+
+  // Panel chrome — tint shifts from red (chaos) to green (clarity)
+  const tintT=p;
+  const tintR=Math.round(lerp(239,16,tintT));
+  const tintG=Math.round(lerp(68,185,tintT));
+  const tintB=Math.round(lerp(68,129,tintT));
+  const panelTint=`rgb(${tintR},${tintG},${tintB})`;
+  const subtitles=['Chaos · 30 workers unresolved','Loading · 17:00 auto-fetch','Analysis · Cross-referencing','Verdict · 8:03 PM','Dispatch · Workers notified','Clarity · 6:55 AM · On site'];
+  drawChrome(x,y,w,h,'SLACKWATER',subtitles[si],panelTint);
+
+  // Clip to body area
+  ctx.save();
+  ctx.beginPath();ctx.rect(bx,by,bw,bh);ctx.clip();
+
+  // Scene dispatch
+  if(si===0) drawScene0(x,by,w,bh,scP);
+  else if(si===1) drawScene1(x,by,w,bh,scP);
+  else if(si===2) drawScene2(x,by,w,bh,scP);
+  else if(si===3) drawScene3(x,by,w,bh,scP);
+  else if(si===4) drawScene4(x,by,w,bh,scP);
+  else drawScene5(x,by,w,bh,scP);
+
+  ctx.restore();
+}
+
+// ---- SCROLL DRIVER ----
+const ZONE=document.getElementById('story');
+const NARR_STATES=document.querySelectorAll('.nstate');
+const PDOTS=document.querySelectorAll('.pd');
+const SCROLL_HINT=document.querySelector('.scroll-hint');
+// Narrative scene boundaries (must match SCENE_BOUNDS above)
+const SCENES=[0,.15,.32,.52,.70,.86];
+let rafId=null,curScene=-1,animFrameId=null;
+
+function getScrollP(){
+  const r=ZONE.getBoundingClientRect();
+  const total=ZONE.offsetHeight-window.innerHeight;
+  return Math.max(0,Math.min(1,-r.top/total));
+}
+
+// Animate the analysis pulse while in scene 2
+function animateIfNeeded(p){
+  const inAnalysis=p>=SCENE_BOUNDS[2]&&p<SCENE_BOUNDS[3];
+  if(inAnalysis){
+    if(!animFrameId){
+      function loop(){animFrameId=requestAnimationFrame(loop);draw(lastP)}
+      loop();
+    }
+  } else {
+    if(animFrameId){cancelAnimationFrame(animFrameId);animFrameId=null}
+  }
+}
+
+function updateUI(){
+  const p=getScrollP();
+  if(p>0.02&&SCROLL_HINT)SCROLL_HINT.style.opacity='0';
+  draw(p);
+  animateIfNeeded(p);
+
+  let sc=SCENES.length-1;
+  for(let i=0;i<SCENES.length-1;i++){
+    const mid=(SCENES[i]+SCENES[i+1])/2;
+    if(p<mid){sc=i;break}
+  }
+
+  if(sc!==curScene){
+    curScene=sc;
+    NARR_STATES.forEach((n,i)=>{
+      n.style.opacity=i===sc?'1':'0';
+      n.style.transform=i<sc?'translateY(-22px)':i>sc?'translateY(22px)':'translateY(0)';
+      n.style.transition='opacity .55s ease,transform .55s ease';
+    });
+    PDOTS.forEach((d,i)=>d.classList.toggle('a',i===sc));
+  }
+  rafId=null;
+}
+
+window.addEventListener('scroll',()=>{if(!rafId)rafId=requestAnimationFrame(updateUI)},{passive:true});
+
+// init
+resize();
+setTimeout(()=>{resize();updateUI()},100);
+
+// ====== FORM ======
+const fd={};
+function pick(el,f){el.closest('.opts').querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');fd[f]=el.dataset.v}
+function sz(el,v){el.closest('.szs').querySelectorAll('.sz').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');fd.sz=v}
+function next(s){
+  if(s===1&&!fd.st){alert('Please select your site type.');return}
+  if(s===2){fd.c=document.getElementById('fc1').value;fd.p=document.getElementById('fp1s').value}
+  document.getElementById('fp'+s).classList.remove('active');
+  document.getElementById('fp'+(s+1)).classList.add('active');
+  document.getElementById('fi'+s).classList.remove('on');document.getElementById('fi'+s).classList.add('done');
+  document.getElementById('fi'+(s+1)).classList.add('on');
+}
+function back(s){
+  document.getElementById('fp'+s).classList.remove('active');document.getElementById('fp'+(s-1)).classList.add('active');
+  document.getElementById('fi'+s).classList.remove('on');document.getElementById('fi'+(s-1)).classList.remove('done');document.getElementById('fi'+(s-1)).classList.add('on');
+}
+function sub(){
+  const e=document.getElementById('fe').value.trim(),n=document.getElementById('fn').value.trim();
+  if(!e||!n){alert('Please enter your name and email.');return}
+  fd.e=e;fd.n=n;
+  document.getElementById('fp3').classList.remove('active');document.getElementById('fprog').style.display='none';
+  document.getElementById('succ').style.display='block';
+  console.log('Slackwater application:',fd);
+}
+
+// ====== TIDAL LOOKUP DEMO ======
+const TIDAL_SITES={
+  'thames barrier':{
+    name:'Thames Barrier · Woolwich Reach',source:'ADMIRALTY · Sheerness Standard Port',
+    windows:[
+      {day:'Mon 12 May',window:'10:24 → 15:18',dur:'4h 54m',hw:'13:51 (+6.1m)'},
+      {day:'Tue 13 May',window:'11:12 → 16:06',dur:'4h 54m',hw:'14:39 (+6.0m)'},
+      {day:'Wed 14 May',window:'12:00 → 16:54',dur:'4h 54m',hw:'15:27 (+5.9m)'},
+      {day:'Thu 15 May',window:'12:48 → 17:42',dur:'4h 54m',hw:'16:15 (+5.8m)'},
+      {day:'Fri 16 May',window:'13:36 → 18:30',dur:'4h 54m',hw:'17:03 (+5.7m)'},
+    ]
+  },
+  'tilbury':{
+    name:'Tilbury Docks · River Thames',source:'ADMIRALTY · Tilbury Standard Port',
+    windows:[
+      {day:'Mon 12 May',window:'09:48 → 14:12',dur:'4h 24m',hw:'12:00 (+5.8m)'},
+      {day:'Tue 13 May',window:'10:36 → 15:00',dur:'4h 24m',hw:'12:48 (+5.7m)'},
+      {day:'Wed 14 May',window:'11:24 → 15:48',dur:'4h 24m',hw:'13:36 (+5.6m)'},
+      {day:'Thu 15 May',window:'12:12 → 16:36',dur:'4h 24m',hw:'14:24 (+5.5m)'},
+      {day:'Fri 16 May',window:'13:00 → 17:24',dur:'4h 24m',hw:'15:12 (+5.4m)'},
+    ]
+  },
+  'medway':{
+    name:'Medway Estuary · Chatham',source:'ADMIRALTY · Sheerness Standard Port',
+    windows:[
+      {day:'Mon 12 May',window:'10:06 → 14:48',dur:'4h 42m',hw:'12:27 (+5.7m)'},
+      {day:'Tue 13 May',window:'10:54 → 15:36',dur:'4h 42m',hw:'13:15 (+5.6m)'},
+      {day:'Wed 14 May',window:'11:42 → 16:24',dur:'4h 42m',hw:'14:03 (+5.5m)'},
+      {day:'Thu 15 May',window:'12:30 → 17:12',dur:'4h 42m',hw:'14:51 (+5.4m)'},
+      {day:'Fri 16 May',window:'13:18 → 18:00',dur:'4h 42m',hw:'15:39 (+5.3m)'},
+    ]
+  },
+  'woolwich':{
+    name:'Woolwich Arsenal Pier · River Thames',source:'ADMIRALTY · Sheerness Standard Port',
+    windows:[
+      {day:'Mon 12 May',window:'10:30 → 15:12',dur:'4h 42m',hw:'13:51 (+6.0m)'},
+      {day:'Tue 13 May',window:'11:18 → 16:00',dur:'4h 42m',hw:'14:39 (+5.9m)'},
+      {day:'Wed 14 May',window:'12:06 → 16:48',dur:'4h 42m',hw:'15:27 (+5.8m)'},
+      {day:'Thu 15 May',window:'12:54 → 17:36',dur:'4h 42m',hw:'16:15 (+5.7m)'},
+      {day:'Fri 16 May',window:'13:42 → 18:24',dur:'4h 42m',hw:'17:03 (+5.6m)'},
+    ]
+  }
+};
+
+function checkTidalSite(val){
+  const v=val.toLowerCase().trim();
+  const box=document.getElementById('tidal-preview');
+  if(v.length<3){box.style.display='none';return;}
+  let match=null;
+  for(const key of Object.keys(TIDAL_SITES)){
+    if(v.includes(key)||key.split(' ').some(w=>v.includes(w)&&w.length>4)){match=TIDAL_SITES[key];break;}
+  }
+  if(!match){
+    box.innerHTML='<div class="tp-note">↻ Auto-fetch ready — tidal data feeds configured for your site during setup.</div>';
+    box.style.display='block';return;
+  }
+  box.innerHTML=`<div class="tp-head"><span class="tp-hl">↻ Tidal data matched</span><span class="tp-src">${match.name} · ${match.source}</span></div><div class="tp-lbl">Safe access windows — next 5 days</div>${match.windows.map(w=>`<div class="tp-row"><span class="tp-day">${w.day}</span><span class="tp-win">${w.window}</span><span class="tp-dur">${w.dur}</span><span class="tp-hw">HW ${w.hw}</span></div>`).join('')}<div class="tp-foot">Auto-fetched daily at 17:00 · Your site manager never types a tide time again.</div>`;
+  box.style.display='block';
+}
+</script>
+</body>
+</html>
