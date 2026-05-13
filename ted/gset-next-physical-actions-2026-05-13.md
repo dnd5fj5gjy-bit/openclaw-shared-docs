@@ -94,14 +94,14 @@ One message to Jesse with the line items:
 
 | Line | £ |
 |---|---|
-| Editor retainer (9 months × £1.8k) | 16,200 |
+| Editor retainer (£1.8k/month — total scales with run length, TBC) | 1,800/mo |
 | Actor fee + buyout | 3,500 |
 | Studio (2 days + crew) | 4,500 |
 | Sound design / mix-in (occasional, post) | 1,200 |
-| Contingency 10% | 2,540 |
-| **Total** | **~27,940** |
+| Contingency 10% (on fixed lines) | 920 |
+| **Fixed upfront** | **~10,120 + editor monthly** |
 
-Roughly half the original drama-version budget. No paid media, no landing page, no domain — none of that is in scope.
+Run length / episode cadence still TBC — editor cost shown as a monthly rate so Jesse can sign off the structure without committing to a length yet. No paid media, no landing page, no domain — none of that is in scope.
 **Done when:** Jesse replied with £ approved.
 
 ---
