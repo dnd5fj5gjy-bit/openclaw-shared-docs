@@ -1,137 +1,144 @@
-# GSET — Next Physical Actions
+# GSET — Next Operational Actions
 
 *Prepared by Ted · 13 May 2026 · For Olly*
 
-**Status going into this list:** YouTube channel set up. Graphics in flight (blocker on visual identity, not on most of below). Strategy locked. Pivot to audiobook-led 8-min episodes locked. Bear filming locked OUT.
+**The thing being built:** A YouTube series of ~20 episodes, ~8 minutes each, made from the existing audiobook ("podcast") of *The Greatest Story Ever Told*. ~160 mins of new filming to pair with the audio. YouTube channel already set up. Graphics in flight. No domain. No landing page. No spin-off platforms. **Just episodes on the channel, in the right form, on time.**
 
-This is the physical do-list from where you actually are. Ordered by what unblocks the most. No options. No "decide between A and B" unless flagged.
-
----
-
-## TODAY (Tue 13 May)
-
-### 1. Send the Andy Lyon email at Hodder
-Time: 10 min. Template ready in `gset-operator-playbook.md` Step 1 — paste, send from your Outlook. Add one line: explicitly ask if BGV can monetise the 8-min audiobook-take episodes on YouTube. Without his written reply, every clip and episode is on shaky ground.
-**Done when:** sent. (Reply will come later — don't wait.)
-
-### 2. Buy the domain
-Time: 10 min. Cloudflare Registrar. Try in order: `greateststoryevertold.tv` → `.co` → `.org` (.com is taken). ~£12/yr, auto-renew on, WHOIS privacy on. Forward receipt to Felix.
-**Done when:** domain shows in your Cloudflare dashboard.
-
-### 3. Claim the three remaining handles
-Time: 30 min. Instagram, TikTok, Substack — name `@thegreateststoryevertold` (or closest available; match across all three). Placeholder bio: *"The Greatest Story Ever Told — by Bear Grylls. A BGV channel. Launching summer 2026."* Set the same profile image (use any holding graphic for now — swap when finals land).
-**Done when:** all three handles claimed and locked.
-
-### 4. Put the Friday 9–10am block in your calendar — recurring
-Time: 2 min. Immovable. This is the GSET operations hour. Outlook → recurring weekly. No agenda needed yet; the discipline is the point.
-**Done when:** event recurring weekly in calendar.
+This is the operational do-list to get them filmed, edited, and live.
 
 ---
 
-## THIS WEEK (Wed 14 – Fri 16 May)
+## The five operational workstreams
 
-### 5. Get year-1 budget signed off — £35–45k
-One message to Jesse with the budget table from `gset-self-execution-plan.md`. Headlines: editor retainer £18–24k, reader fees £3–6k, studio days £2–4k, paid media £8–12k, contingency. You need this number locked before you can hire the editor or commit to media.
-**Done when:** Jesse has replied with a £ figure approved.
+Everything below sits inside one of these:
 
-### 6. Tell Jesse in writing that you own this
-One paragraph: *"I'm operating GSET. Weekly check-ins, monthly KPI report, escalation triggers: budget overrun >10%, Bear ask exceeds patron model, Hodder rights pushback."* Removes drift risk.
-**Done when:** message sent.
-
-### 7. Write the editor job brief and post it
-Spec it for the *new* format: comfortable layering audiobook audio with picture, syncing to chapter beats, cutting for 8:30–10:30 mins, shorts factory output. Retainer £1,500–2,000/mo. Post to: Felix's freelance network first, then People Per Hour / Production Hub. Brief target: 3 shortlisted candidates by end of week.
-**Done when:** brief is live and 3+ candidates lined up to interview.
-
-### 8. Decide Pentecost (24 May) — skip
-Recommendation: skip. With the format pivot you can't ship a representative first episode by 24 May. Anniversary 19 Jun becomes day-one moment. **Reply "skip" or "light" to confirm.**
-**Done when:** decision sent.
+1. **Rights** — written permission from Hodder/audiobook publisher to cut, re-cut, and monetise.
+2. **Editor** — who edits 20 episodes + shorts.
+3. **Actor** — one performer, 20 episodes, batched.
+4. **Studio** — where the 2–3 day batch shoot happens.
+5. **Cost** — total spend signed off before any commitments.
 
 ---
 
-## NEXT WEEK (Mon 19 – Fri 23 May)
+## RIGHTS — this week
 
-### 9. Interview 3 editors, pick one
-Hire by Fri 23. Get them to send a 60-sec test cut of any audiobook audio + B-roll combo before you decide.
+### 1. Send the Hodder rights email today
+10 min. Email Andy Lyon at Hodder Faith. Explicitly ask for written confirmation on:
+- Use of audiobook audio in 8-minute YouTube episodes
+- Editorial rights to cut chapters into episodes
+- **YouTube monetisation of those episodes**
+- Use of audio clips for promo shorts
+
+Template is ready in `gset-operator-playbook.md` Step 1 — add the monetisation line.
+**Done when:** sent. Reply may take a week — don't block other workstreams on it.
+
+### 2. Confirm where the master audiobook audio lives
+Either Hodder has the masters and we license access, or we have files we already paid for and need to re-license usage. Worth asking Andy in the same email: "How do we get clean audio masters by Mon 9 Jun for the edit?"
+**Done when:** clear answer on file delivery path and date.
+
+---
+
+## EDITOR — hire by Fri 23 May
+
+### 3. Write the editor brief
+60 min. Spec the role tight to this format:
+- Comfortable layering audiobook audio over picture
+- Cuts to 8:30–10:30 mins for YouTube mid-roll monetisation
+- Builds shorts (~30–60s) from each episode's offcuts
+- Available for ~9 months of fortnightly cuts after the shoot
+- Retainer £1,500–2,000/mo
+
+Ask Felix who BGV's used before. If nothing usable, post to People Per Hour / Production Hub.
+**Done when:** brief is written, 3+ candidates lined up.
+
+### 4. Interview 3, hire one
+By end of next week. Get a 60-second test edit from each: audiobook audio + any B-roll, their choice. Pick on craft, not pitch.
 **Done when:** contract signed.
 
-### 10. Draft Substack post 1
-90 min of writing. Frame: "Why we're rebuilding the engine in-house." Schedule for Fri 22 May regardless of Pentecost call — it functions as the soft public launch.
-**Done when:** post drafted + scheduled.
+---
 
-### 11. Bear call — get visual treatment decided
-5 min of agenda on the next Bear call. Three options for him to pick:
-  - **A** — Reader on-camera (single performer, silent acting, cheap).
-  - **B** — Atmospheric / B-roll (landscapes, hands, no central performer, cinematic).
-  - **C** — Hybrid: reader spine + ~30–40% B-roll cutaways. *Ted's recommendation.*
-Without his call, the shoot can't be briefed accurately.
-**Done when:** Bear has picked one.
+## ACTOR — longlist by Wed 21 May, sign by Fri 30 May
 
-### 12. Cross-promo brief for BGV brand heads
-1-pager. One tile, one newsletter mention, one social repost each at launch from: Ted's Health, Modern Savage, Sister Directory, BMF. Ted (me) drafts; you send.
-**Done when:** brief sent to all 4 brand heads.
+### 5. Build the longlist (5–6 names)
+Criteria:
+- Face you can watch for ~3 hours of cumulative screen time across 20 episodes
+- Physically and tonally credible for the material
+- Available for 2–3 batch shoot days in mid-June
+- Single fee covering all 20 episodes + buyout
+
+Mix known and unknown. A recognisable name accelerates launch; an unknown is cheaper and easier to lock in.
+**Done when:** longlist sat in a doc, top 2 contacted.
+
+### 6. Sign one actor
+Decision by Fri 30 May. Budget envelope £2–5k depending on name. Single-fee buyout covering all 20 episodes, all platforms, in perpetuity. Don't agree to per-episode fees.
+**Done when:** signed contract in hand.
 
 ---
 
-## WEEK OF 26 MAY
+## STUDIO — book by Fri 6 Jun
 
-### 13. Confirm chapter list
-Half-page table: ep # → chapter title → audiobook timestamp range → working episode title. 20 episodes. If chapters don't divide cleanly into 8-min units, flag to Hodder for re-cut permission.
-**Done when:** table sits in `workspace/docs/gset-episode-map.md`.
+### 7. Get 2–3 quotes for a 2-day batch shoot
+London likely. One neutral set, lighting setup once, all 20 chapters back-to-back. Ask Felix for previous BGV studios. Budget envelope £1.5–3k/day inclusive of crew (cam op + sound).
+**Done when:** quotes in.
 
-### 14. Reader longlist
-5–6 names. Criteria: face you can watch for hours of footage, physically credible for the material, available for 2–3 batch shoot days. Mix of known + unknown — a recognisable name accelerates the launch.
-**Done when:** longlist in a doc, sent to Jesse for sense-check.
-
-### 15. Studio location lock
-London likely. Get 2–3 quotes for a 2-day batch shoot (one location, one lighting setup, all 20 episodes shot back-to-back). Ask Felix who BGV has used before.
-**Done when:** chosen, deposit paid.
+### 8. Book the studio
+Two days: Tue 16 – Wed 17 Jun (anniversary 19 Jun, tight against launch). Pay deposit.
+**Done when:** dates locked, deposit paid.
 
 ---
 
-## WEEK OF 2 JUNE
+## COST — signed off by Fri 16 May
 
-### 16. Reader cast and contract
-Decision by Fri 30 May. £2–5k buyout depending on the name. 2–3 shoot days.
-**Done when:** signed.
+### 9. Get year-1 budget signed off
+One message to Jesse with the line items:
 
-### 17. First clip batch (from existing audiobook audio + archive Bear footage)
-Five clips. Spec in `gset-operator-playbook.md` Step 5. Editor's first deliverable — gets the channel populated *before* episode 1 drops, which is what the YouTube monetisation gate (1k subs / 4k watch hours) needs.
-**Done when:** five clips uploaded as YouTube Shorts, IG Reels, TikTok.
+| Line | £ |
+|---|---|
+| Editor retainer (9 months × £1.8k) | 16,200 |
+| Actor fee + buyout | 3,500 |
+| Studio (2 days + crew) | 4,500 |
+| Sound design / mix-in (occasional, post) | 1,200 |
+| Contingency 10% | 2,540 |
+| **Total** | **~27,940** |
 
----
-
-## WEEK OF 9 JUNE — RUN-UP TO ANNIVERSARY
-
-### 18. Batch shoot day(s)
-2–3 days, one studio, one reader, all 20 chapters back-to-back.
-**Done when:** rushes delivered to editor.
-
-### 19. Cut the trailer
-90-sec sizzle reel: audiobook intro + tease of visual treatment + Bear archive sting at the end. Editor's job. Doubles as the Hodder ask asset and BGV cross-promo asset.
-**Done when:** trailer signed off.
-
-### 20. Anniversary drop — Thursday 19 June 2026
-Channel goes live. Trailer drops. Episode 1 drops. Substack post 2 drops. Cross-promo activates across BGV brands. Bear posts the trailer to his own channels (one of his two-per-year anchored posts).
-**Done when:** all four assets live on the day.
+Roughly half the original drama-version budget. No paid media, no landing page, no domain — none of that is in scope.
+**Done when:** Jesse replied with £ approved.
 
 ---
 
-## What's NOT in this list — and why
+## RUN-UP — what happens after the four hires
 
-- **Graphics finalisation** — blocked on external delivery; chase separately.
-- **Paid media activation** — waits until 50 organic subs to baseline CPM.
-- **"Give One Away" gifting** — Q4 anchor, separate workstream.
-- **Church partnerships outreach** — starts after Andy Lyon reply (rights confirmation gates the church starter pack).
-- **The Chosen-adjacent outreach** — waits until trailer is in hand.
+### 10. Confirm the chapter map (week of 26 May)
+Half-page table: ep # → audiobook chapter → timestamp range → working episode title. If chapters don't divide into 8-min units, decide whether to combine or split. Flag to Hodder if it changes the cut materially.
+
+### 11. Pre-prod with actor (week of 9 June)
+Read-through, blocking, basic mood per chapter. Half-day with actor + editor + you.
+
+### 12. Shoot — Tue 16 / Wed 17 June
+All 20 chapters in two days. Editor on set day 2 to check footage usability before everyone leaves.
+
+### 13. Edit ep 1 + trailer in parallel — Wed 17 / Thu 18 June
+Editor's only job for 48 hours.
+
+### 14. Launch — Thursday 19 June 2026
+Episode 1 live. 90-sec trailer live. Channel public.
 
 ---
 
-## Decisions Ted needs from you to keep moving
+## What Ted needs you to decide
 
-1. Pentecost: **skip / light?** (Recommendation: skip.)
-2. Budget envelope to ask Jesse for: **£35k / £40k / £45k?** (Recommendation: £40k.)
-3. Editor brief: **post publicly or go to Felix's freelance network first?** (Recommendation: Felix's network first, public after 48hr.)
+1. **Budget envelope to send Jesse:** £28k as estimated above, or pad to £32k for unknowns?
+2. **Actor route:** known name (faster reach, £4–5k) or unknown (cheaper, £2–3k, takes longer to find the right one)?
+3. **Studio: who do you want me to ask Felix about first** — does he have a preferred London studio for this kind of single-set shoot?
 
 ---
 
-*Related: `gset-operator-playbook.md`, `gset-pivot-action-steps-2026-05-12.md`, `gset-self-execution-plan.md`, `gset-action-steps-may-2026.md`*
+## Open questions for Olly
+
+- Is there an existing actor relationship we should approach first, or do we go cold?
+- Is the audiobook 20 chapters as-is, or are we re-cutting?
+- Who is point on Hodder if Andy Lyon goes quiet?
+
+---
+
+*Related: `gset-operator-playbook.md`, `gset-pivot-action-steps-2026-05-12.md`*
