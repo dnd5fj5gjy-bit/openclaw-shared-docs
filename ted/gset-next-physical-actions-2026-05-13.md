@@ -45,7 +45,7 @@ Either Hodder has the masters and we license access, or we have files we already
 - Comfortable layering audiobook audio over picture
 - Cuts to 8:30–10:30 mins for YouTube mid-roll monetisation
 - Builds shorts (~30–60s) from each episode's offcuts
-- Available for ~9 months of fortnightly cuts after the shoot
+- Available for ongoing fortnightly cuts after the shoot (run length TBC)
 - Retainer £1,500–2,000/mo
 
 Ask Felix who BGV's used before. If nothing usable, post to People Per Hour / Production Hub.
