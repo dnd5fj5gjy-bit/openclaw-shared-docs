@@ -1,8 +1,16 @@
 # The Greatest Story Ever Told — YouTube Series
 
-### Overview for Hodder Faith
+### Series at a Glance & Production Plan, for Hodder Faith
 
 *Prepared by BGV · 13 May 2026 · For Andy Lyon ahead of 14 May call*
+
+---
+
+## Context
+
+This document is a companion to the *Publisher Promotion Framework* shared earlier this year. That framework set out a portfolio of ten ideas Hodder could own; this is the executable plan for **Idea #1 — a dedicated YouTube channel for the book**, evolved into a fully-scoped series we are now ready to commission.
+
+It is deliberately tighter than the framework version: one reader instead of five, one batch shoot instead of an open-ended commissioning brief, one anniversary launch instead of a slow ramp. Everything else in the framework (audiobook clips, IG, Substack, calendar anchors, Give One Away) still stands behind it.
 
 ---
 
