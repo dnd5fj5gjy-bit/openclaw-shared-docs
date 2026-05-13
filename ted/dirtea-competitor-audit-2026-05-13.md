@@ -407,6 +407,54 @@ Everything else is downstream of these three.
 
 ---
 
+# 3B. Alignment with Bear Witness narrative strategy
+
+> This audit is the **paid + distribution** layer underneath the Bear Witness organic narrative strategy (March 2026). Every piece of paid creative below routes back to one of Jesse's five mission narratives. The audit does not replace the narrative architecture — it gives it a paid engine.
+
+### Mapping paid + creative work to the five narratives
+
+| Bear Witness narrative | What it owns (per Jesse's doc) | How this audit's paid plan executes against it |
+|---|---|---|
+| **1. The Burnout Loop** *(primary)* | Recognition. "That's me." Caffeine → crash → wine → bad sleep cycle. Highest emotional urgency. Founder origin story sits here. | **Track A — "I quit coffee" UGC** is this narrative in paid form. 35–45-year-old US women, kitchen, hand-held. Hooks like "I had to quit coffee at 36" and "the afternoon slump fix" are literal Burnout Loop hooks. **Estimated 60–70% of US Meta spend.** Founders (Simon + Andrew) feature in the higher-production cuts as the lived-it voice. |
+| **2. Ancient Intelligence, Modern Life** *(primary)* | Wonder. Fungi predate flowers by 800m years. Mycelial network, sourcing heritage. Visual + Substack-heavy. | **The quarterly Bear archive stunt film** ("morning of an expedition") sits here — primal, ancient, awe-driven. **YouTube long-form deep-dives** on sourcing + mycology, repurposed as Reels. Light paid amplification (~10% of spend) — this narrative is built for earned + organic, not paid push. |
+| **3. Take Back Control** *(strong secondary)* | Empowerment. Morning ritual. From passenger to pilot. | **Track B — "Morning ritual" UGC** (AG1-coded) is this narrative. Hooks like "what's actually in my morning stack" and "the 4-minute morning that runs my day." The **Welcome Kit** (ceramic mug + matcha whisk + sachets) is this narrative made physical — the ritual you build with the kit. **20–25% of US Meta spend.** Per-host landing pages (Mel Robbins, Rich Roll, Huberman) sit here — intentional people choosing tools. |
+| **4. The Science Behind the Sacred** *(strong secondary)* | Intellectual trust. Tara Swart, 40%+ beta-glucans, dual extraction, 100% fruiting bodies. Carousel + YouTube long-form heavy. | **Tara Swart YouTube series** (6 episodes, doctor's-office aesthetic) is this narrative as a content engine. Each episode repurposed into 8–12 vertical clips — **this is the creative pool for the "Evidence" Meta layer** (~10% of spend, dosage-comparison + science-led carousels). Targets high-intent search ("lion's mane benefits," "mushroom coffee for ADHD"). Defends against AG1 on credibility. |
+| **5. Nature's Ultimate Design** *(supporting)* | Quiet conviction. Simplification. One ritual replaces 14 supplements. Underpins the other four. | **Not paid-led** — this is the philosophical wrapper. Shows up as the brand-world layer: cinematic forest/mycelium b-roll in the stunt film, founder-led "I used to take 14 supplements, now I take one" content, and the simplification message running through the welcome flow + PDP copy. Earns its place organically; no dedicated paid budget. |
+
+### Indicative paid allocation by narrative (US Meta, monthly)
+
+| Narrative | Share of paid spend | Primary creative format |
+|---|---|---|
+| 1. Burnout Loop | 60–70% | Track A UGC, kitchen, hand-held |
+| 3. Take Back Control | 20–25% | Track B UGC, AG1-coded ritual content |
+| 4. Science Behind the Sacred | 8–12% | Carousels + Tara YouTube cut-downs |
+| 2. Ancient Intelligence | ~5% (amplification only) | Stunt film, mycology long-form clips |
+| 5. Nature's Ultimate Design | 0% (organic / brand-world only) | n/a |
+
+### Bear deployment — explicit alignment check
+
+Jesse's strategy: "Bear Grylls is positioned as a credibility asset rather than a content engine, deployed strategically at high-impact moments rather than diluted across daily posts."
+
+This audit's plan: **one quarterly stunt film built from archive footage** (60-second cinematic, no new Bear filming). All other Bear usage is photographic/portrait/legacy assets in PR + retail comms. **No daily Bear paid creative. No new Bear shoot days.** Direct match to Jesse's principle.
+
+### What we are NOT changing from Jesse's strategy
+
+- The five mission narratives — kept verbatim as the creative spine.
+- The platform tiering (IG + TikTok Tier 1, YouTube + Substack Tier 2, LinkedIn Tier 3) — paid plan respects it.
+- "Sell the problem, never the product." Every Track A and Track B hook leads with a felt problem, not a product feature.
+- Bear as credibility asset, not content engine.
+- 40+ wellness-curious as the primary growth audience.
+
+### What this audit ADDS on top of Jesse's strategy
+
+- A US-specific paid distribution engine (Jesse's doc is platform/narrative-led, organic-first).
+- An always-on Meta programme with two creative tracks, 60+ creatives in a 90-day window.
+- Industrialised UGC affiliate engine + TikTok Shop, drawing from one creator pool.
+- Per-host landing pages and a founder podcast tour as attribution + reach infrastructure.
+- A US Welcome Kit + reviews + email capture stack — the conversion-side fixes Jesse's strategy needed but didn't address.
+
+---
+
 # 4. Asset / brief implications
 
 What DIRTEA actually needs to commission to make the above real.
