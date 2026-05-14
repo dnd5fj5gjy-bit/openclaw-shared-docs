@@ -65,34 +65,30 @@ body::after{
   background:
     /* Woven surface grain — fine cross-weave noise */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72 .24' numOctaves='4' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
-    /* Fine crinkle between pleats — ~36px micro-folds */
-    repeating-linear-gradient(90deg,
-      transparent 0,rgba(0,0,0,.20) 4px,rgba(0,0,0,.08) 9px,transparent 14px,
-      rgba(255,255,255,.06) 19px,transparent 24px,
-      rgba(0,0,0,.16) 29px,rgba(0,0,0,.06) 34px,transparent 36px
-    ),
-    /* Primary deep velvet pleats — ~116px, varying shadow depths */
-    repeating-linear-gradient(90deg,
-      rgba(0,0,0,.92) 0,rgba(0,0,0,.74) 3px,rgba(0,0,0,.42) 9px,rgba(0,0,0,.16) 18px,
-      rgba(0,0,0,.03) 27px,rgba(255,228,215,.04) 33px,rgba(255,255,255,.17) 38px,
-      rgba(255,228,215,.04) 44px,rgba(0,0,0,.06) 52px,rgba(0,0,0,.34) 62px,
-      rgba(0,0,0,.64) 72px,rgba(0,0,0,.84) 80px,rgba(0,0,0,.58) 87px,
-      rgba(0,0,0,.28) 94px,rgba(0,0,0,.08) 102px,rgba(0,0,0,.02) 109px,
-      rgba(255,255,255,.13) 113px,rgba(0,0,0,.02) 118px,rgba(0,0,0,.30) 126px,
-      rgba(0,0,0,.80) 134px,rgba(0,0,0,.92) 140px
-    ),
-    /* Stage overhead — warm amber top-light, shadow pools at base */
-    linear-gradient(180deg,
-      rgba(230,150,90,.28) 0%,rgba(200,115,70,.10) 18%,transparent 42%,
-      rgba(0,0,0,.20) 72%,rgba(0,0,0,.58) 100%
-    ),
-    /* Base deep crimson velvet */
+    /* Pleat highlights — soft warm light on each fold's rounded face */
+    radial-gradient(ellipse 11% 112% at  8% 50%, rgba(255,235,220,.18) 0%,transparent 70%),
+    radial-gradient(ellipse 10% 108% at 22% 50%, rgba(255,235,220,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 12% 115% at 37% 50%, rgba(255,235,220,.17) 0%,transparent 72%),
+    radial-gradient(ellipse  9% 105% at 51% 50%, rgba(255,235,220,.13) 0%,transparent 62%),
+    radial-gradient(ellipse 11% 110% at 66% 50%, rgba(255,235,220,.15) 0%,transparent 70%),
+    radial-gradient(ellipse 10% 112% at 81% 50%, rgba(255,235,220,.14) 0%,transparent 68%),
+    /* Pleat valley shadows — deep crease between each fold */
+    radial-gradient(ellipse 3.5% 110% at  0% 50%, rgba(0,0,0,.96) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 15% 50%, rgba(0,0,0,.88) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 29% 50%, rgba(0,0,0,.91) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 44% 50%, rgba(0,0,0,.86) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 58% 50%, rgba(0,0,0,.89) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 73% 50%, rgba(0,0,0,.84) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at 88% 50%, rgba(0,0,0,.92) 0%,transparent 100%),
+    /* Stage overhead */
+    linear-gradient(180deg, rgba(210,130,70,.22) 0%,transparent 38%,rgba(0,0,0,.35) 100%),
+    /* Base velvet */
     linear-gradient(180deg,
       #060103 0%,#1e0508 8%,#461010 20%,
       #751e22 34%,#8B2F3E 50%,
       #751e22 66%,#461010 80%,#1e0508 92%,#060103 100%
     );
-  box-shadow:inset -60px 0 96px rgba(0,0,0,.94),inset -5px 0 20px rgba(0,0,0,.98);
+  box-shadow:inset -55px 0 90px rgba(0,0,0,.92),inset -4px 0 18px rgba(0,0,0,.97);
 }
 
 .curtain-l::after{
@@ -106,33 +102,30 @@ body::after{
   background:
     /* Woven surface grain — different seed for R panel */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72 .24' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
-    /* Fine crinkle — phase-shifted for right panel */
-    repeating-linear-gradient(90deg,
-      transparent 0,rgba(0,0,0,.17) 3px,rgba(0,0,0,.07) 8px,transparent 13px,
-      rgba(255,255,255,.05) 18px,transparent 23px,
-      rgba(0,0,0,.19) 29px,rgba(0,0,0,.07) 34px,transparent 36px
-    ),
-    /* Primary deep velvet pleats — mirror-phase for right */
-    repeating-linear-gradient(90deg,
-      rgba(0,0,0,.90) 0,rgba(0,0,0,.70) 4px,rgba(0,0,0,.38) 10px,rgba(0,0,0,.14) 20px,
-      rgba(0,0,0,.02) 30px,rgba(255,255,255,.15) 35px,rgba(255,228,215,.03) 40px,
-      rgba(0,0,0,.05) 50px,rgba(0,0,0,.32) 60px,rgba(0,0,0,.62) 70px,
-      rgba(0,0,0,.82) 78px,rgba(0,0,0,.54) 85px,rgba(0,0,0,.24) 92px,
-      rgba(0,0,0,.06) 100px,rgba(0,0,0,.02) 107px,rgba(255,255,255,.12) 112px,
-      rgba(0,0,0,.02) 117px,rgba(0,0,0,.28) 125px,rgba(0,0,0,.78) 133px,rgba(0,0,0,.90) 140px
-    ),
+    /* Pleat highlights — mirrored for right panel */
+    radial-gradient(ellipse 11% 112% at 92% 50%, rgba(255,235,220,.18) 0%,transparent 70%),
+    radial-gradient(ellipse 10% 108% at 78% 50%, rgba(255,235,220,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 12% 115% at 63% 50%, rgba(255,235,220,.17) 0%,transparent 72%),
+    radial-gradient(ellipse  9% 105% at 49% 50%, rgba(255,235,220,.13) 0%,transparent 62%),
+    radial-gradient(ellipse 11% 110% at 34% 50%, rgba(255,235,220,.15) 0%,transparent 70%),
+    radial-gradient(ellipse 10% 112% at 19% 50%, rgba(255,235,220,.14) 0%,transparent 68%),
+    /* Pleat valley shadows */
+    radial-gradient(ellipse 3.5% 110% at 100% 50%, rgba(0,0,0,.96) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  85% 50%, rgba(0,0,0,.88) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  71% 50%, rgba(0,0,0,.91) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  56% 50%, rgba(0,0,0,.86) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  42% 50%, rgba(0,0,0,.89) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  27% 50%, rgba(0,0,0,.84) 0%,transparent 100%),
+    radial-gradient(ellipse 3.5% 110% at  12% 50%, rgba(0,0,0,.92) 0%,transparent 100%),
     /* Stage overhead */
-    linear-gradient(180deg,
-      rgba(230,150,90,.28) 0%,rgba(200,115,70,.10) 18%,transparent 42%,
-      rgba(0,0,0,.20) 72%,rgba(0,0,0,.58) 100%
-    ),
-    /* Base deep crimson */
+    linear-gradient(180deg, rgba(210,130,70,.22) 0%,transparent 38%,rgba(0,0,0,.35) 100%),
+    /* Base velvet */
     linear-gradient(180deg,
       #060103 0%,#1e0508 8%,#461010 20%,
       #751e22 34%,#8B2F3E 50%,
       #751e22 66%,#461010 80%,#1e0508 92%,#060103 100%
     );
-  box-shadow:inset 60px 0 96px rgba(0,0,0,.94),inset 5px 0 20px rgba(0,0,0,.98);
+  box-shadow:inset 55px 0 90px rgba(0,0,0,.92),inset 4px 0 18px rgba(0,0,0,.97);
 }
 
 .curtain-r::before{
@@ -804,32 +797,14 @@ if (isMobile) {
     }
   });
 
-  // Trailing fabric folds — linger at centre while main panels sweep away
-  // This creates the 'bunching in the middle' effect of real draped curtains
+  // 3D perspective: curtains pivot from the rail above and fold as they sweep away
   const panels = document.querySelector('.curtain-panels');
-  function mkFold(side) {
-    const f = document.createElement('div');
-    const isL = side === 'l';
-    f.style.cssText = `position:absolute;top:0;bottom:0;width:12%;pointer-events:none;will-change:transform;${isL ? 'right:50%' : 'left:50%'};background:${isL
-      ? 'linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.82) 4%,#461010 12%,#8B2F3E 38%,#8B2F3E 62%,#461010 88%,rgba(0,0,0,.82) 96%,rgba(0,0,0,0) 100%)'
-      : 'linear-gradient(270deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.82) 4%,#461010 12%,#8B2F3E 38%,#8B2F3E 62%,#461010 88%,rgba(0,0,0,.82) 96%,rgba(0,0,0,0) 100%)'}`;
-    panels.appendChild(f);
-    return f;
-  }
-  const foldL = mkFold('l');
-  const foldR = mkFold('r');
-
-  // 3D perspective: curtains pivot from the top rail and fold away as real fabric would
   gsap.set(panels, { perspective: 1300, perspectiveOrigin: '50% 5%' });
 
   tl
     .to(curtainText, { opacity: 0, scale: 0.97, ease: 'power1.in', duration: 0.28 }, 0)
-    // Main panels rotate in 3D as they slide — bottom swings out then folds away
     .to(curtainL, { xPercent: -100, rotateY: -30, transformOrigin: '0% 4%', ease: 'power2.inOut', duration: 1 }, 0)
     .to(curtainR, { xPercent: 100, rotateY: 30, transformOrigin: '100% 4%', ease: 'power2.inOut', duration: 1 }, 0)
-    // Trailing folds: very slow start, then rush away — lingers at centre like gathered fabric
-    .to(foldL, { xPercent: -100, ease: 'power3.in', duration: 1 }, 0.04)
-    .to(foldR, { xPercent: 100, ease: 'power3.in', duration: 1 }, 0.04)
     .to(curtainPelmet, { yPercent: -100, ease: 'power2.inOut', duration: 0.65 }, 0.22);
 }
 
