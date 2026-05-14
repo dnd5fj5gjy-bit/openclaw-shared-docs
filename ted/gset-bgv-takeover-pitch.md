@@ -238,7 +238,7 @@ The engine is ready to run. Say when.
 **Client:** Hodder Faith
 **Operator:** Bear Grylls Ventures
 **Programme:** GSET — *The Greatest Story Ever Told* marketing engine
-**Retainer:** £5,000 / month, all-in
+**Retainer:** £5,000 / month, all-in (allocation table in section 10)
 **Term:** 3-month minimum, then rolling monthly, 30 days' notice
 **Invoicing:** Monthly in advance
 **Scope:** Sections 03, 07, 08 of this document
