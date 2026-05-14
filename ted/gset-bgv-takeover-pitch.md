@@ -176,6 +176,23 @@ Volumes are calibrated to the engine the handover doc describes. They're not a m
 
 **Retainer: £5,000 per month, all-in.**
 
+### How the retainer is allocated
+
+Every line below is load-bearing. The engine described in sections 03 and 04 cannot function with any of these workstreams removed — content without editing has nothing to ship, content without distribution stays invisible, the loop without the community layer collapses to a one-way feed, and every workstream without the operations layer becomes a separate negotiation.
+
+| Workstream | £ / month |
+|---|---:|
+| Content production — audio and visual editing across all formats (audiobook clips, long-form readings, stills, BTS) | 1,200 |
+| Distribution and posting across all channels (scheduling, calendar-anchor sequencing, platform-spec compliance) | 750 |
+| Substack — depth engine (weekly reading companion, list growth, segmentation) | 750 |
+| Website — rebuild in month 1, ongoing weekly management thereafter | 800 |
+| Community and reader-testimony loop (Facebook group moderation, testimony capture, RGC pipeline) | 400 |
+| Brand stewardship and voice consistency across every surface | 350 |
+| Operations — single point of contact, weekly check-in, monthly reporting, silent coordination with Bear's social team | 750 |
+| **Total** | **5,000** |
+
+The allocation is what it costs to run the engine the strategy doc described. Nothing here is padding; nothing here is optional without breaking something specific and named.
+
 What's included: everything in sections 03, 07, and 08. One number. No additional fees for in-scope work, no hourly extras, no project-management surcharge.
 
 What sits outside the retainer (and would be quoted separately on agreement):
