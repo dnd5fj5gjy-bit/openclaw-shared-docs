@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GSET BGV Pitch — Running the Engine</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 18mm;
+  }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #3a3a3a;
+    --ink-light: #6b6b6b;
+    --rule: #d8d3c8;
+    --rule-soft: #ece8df;
+    --accent: #6b3410;
+    --paper: #fbf9f4;
+    --tint: #f3efe6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: var(--ink);
+    font-family: "Charter", "Iowan Old Style", "Source Serif Pro", "Georgia", serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .display, .eyebrow, .pull-quote, .meta, .num, .retainer-banner {
+    font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
+  }
+
+  /* ── Cover ─────────────────────────────────────────── */
+  .cover {
+    page-break-after: always;
+    padding: 30mm 0 0 0;
+    text-align: left;
+  }
+  .cover .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 9pt;
+    color: var(--ink-light);
+    margin-bottom: 16mm;
+  }
+  .cover h1 {
+    font-family: "Charter", "Iowan Old Style", Georgia, serif;
+    font-weight: 700;
+    font-size: 44pt;
+    line-height: 1.05;
+    margin: 0 0 8mm 0;
+    letter-spacing: -0.01em;
+  }
+  .cover .subtitle {
+    font-size: 16pt;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0 0 24mm 0;
+    max-width: 140mm;
+  }
+  .cover .meta-grid {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 6mm 0;
+    margin: 0 0 18mm 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm 12mm;
+  }
+  .cover .meta-grid div { font-size: 10pt; }
+  .cover .meta-grid .label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 8pt;
+    color: var(--ink-light);
+    margin-bottom: 1mm;
+  }
+  .cover .meta-grid .value {
+    color: var(--ink);
+    font-size: 11pt;
+  }
+  .retainer-banner {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8mm 10mm;
+    margin: 0;
+    font-size: 12pt;
+    letter-spacing: 0.01em;
+  }
+  .retainer-banner .num {
+    font-size: 22pt;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .retainer-banner .sub {
+    color: #cdc6b6;
+    font-size: 10pt;
+  }
+
+  /* ── Section ──────────────────────────────────────── */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 14mm;
+  }
+  h2 {
+    font-size: 19pt;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 14mm 0 4mm 0;
+    padding: 0 0 3mm 0;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.005em;
+  }
+  h2 .section-num {
+    font-family: "Inter", sans-serif;
+    color: var(--ink-light);
+    font-weight: 400;
+    font-size: 11pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 8mm 0 2mm 0;
+    letter-spacing: 0.005em;
+  }
+
+  p {
+    margin: 0 0 3.5mm 0;
+    color: var(--ink-soft);
+  }
+  p strong, li strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Lists ─────────────────────────────────── */
+  ul, ol {
+    margin: 0 0 4mm 0;
+    padding-left: 6mm;
+    color: var(--ink-soft);
+  }
+  li { margin-bottom: 2mm; }
+
+  /* ── Pull quote / callout ─────────────────────── */
+  .pull {
+    background: var(--tint);
+    border-left: 3px solid var(--accent);
+    padding: 5mm 7mm;
+    margin: 5mm 0 6mm 0;
+    font-family: "Inter", sans-serif;
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .pull em { font-style: normal; color: var(--accent); }
+
+  .note {
+    background: #fffdf7;
+    border: 1px solid var(--rule);
+    padding: 4mm 6mm;
+    margin: 4mm 0;
+    font-size: 10pt;
+    color: var(--ink-soft);
+  }
+
+  /* ── Table ────────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0 6mm 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  table th {
+    text-align: left;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    padding: 3mm 4mm;
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  table td {
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  table td:last-child { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; }
+  table tr.total td {
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--tint);
+  }
+  table tr.total td:last-child { font-size: 12pt; }
+
+  /* Deliverables table has different last-col alignment */
+  table.deliverables td:last-child { text-align: left; color: var(--ink-soft); font-weight: 400; }
+  table.deliverables td:first-child { width: 55%; }
+
+  /* Allocation table — second column wider */
+  table.allocation td:first-child { width: 78%; }
+  table.allocation td:last-child { width: 22%; padding-right: 4mm; }
+
+  /* ── Appendix style ───────────────────────────── */
+  .appendix {
+    background: var(--tint);
+    padding: 8mm 10mm;
+    margin-top: 10mm;
+    border-radius: 0;
+    page-break-inside: avoid;
+  }
+  .appendix h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 9pt;
+    color: var(--ink-light);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2mm;
+    margin-bottom: 4mm;
+  }
+  .appendix .sow-grid {
+    display: grid;
+    grid-template-columns: 38mm 1fr;
+    gap: 2mm 5mm;
+    font-size: 10pt;
+  }
+  .appendix .sow-grid .label {
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 8.5pt;
+    font-family: "Inter", sans-serif;
+    padding-top: 1mm;
+  }
+  .appendix .sow-grid .value { color: var(--ink); }
+
+  /* ── Closing block ────────────────────────────── */
+  .closing {
+    margin-top: 10mm;
+    padding: 10mm;
+    background: var(--ink);
+    color: var(--paper);
+    page-break-inside: avoid;
+  }
+  .closing h2 { color: var(--paper); border-bottom-color: #4a4a4a; }
+  .closing h2 .section-num { color: #aea58e; }
+  .closing p { color: #e6e1d4; }
+  .closing ol { color: #e6e1d4; }
+  .closing .seal {
+    font-family: "Inter", sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    margin-top: 6mm;
+    padding-top: 4mm;
+    border-top: 1px solid #4a4a4a;
+  }
+
+  /* ── Utility ──────────────────────────────────── */
+  .page-break { page-break-before: always; }
+  .small { font-size: 9.5pt; }
+  .dim { color: var(--ink-light); }
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 8mm 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── COVER ─────────── -->
+<div class="cover">
+  <div class="eyebrow">Proposal · May 2026</div>
+  <h1>Running the Engine</h1>
+  <div class="subtitle">A proposal for BGV to operate the GSET marketing programme on behalf of Hodder Faith.</div>
+
+  <div class="meta-grid">
+    <div>
+      <div class="label">Prepared for</div>
+      <div class="value">Andy Lyon &middot; Hodder Faith</div>
+    </div>
+    <div>
+      <div class="label">From</div>
+      <div class="value">Bear Grylls Ventures</div>
+    </div>
+    <div>
+      <div class="label">Programme</div>
+      <div class="value">GSET — <em>The Greatest Story Ever Told</em></div>
+    </div>
+    <div>
+      <div class="label">Date</div>
+      <div class="value">May 2026</div>
+    </div>
+  </div>
+
+  <div class="retainer-banner">
+    <span class="num">£5,000 / month, all-in</span>
+    <span class="sub">Single retainer. One team. Everything in.</span>
+  </div>
+</div>
+
+<!-- ─────────── 01 ─────────── -->
+<section>
+  <h2><span class="section-num">01 — Where we are</span>The launch worked. The job has shifted.</h2>
+
+  <p><strong><em>The Greatest Story Ever Told</em> has sold roughly 300,000 copies in the UK in eight months</strong> — already half of <em>The Shack</em>'s lifetime UK sales. It debuted at #1 on the Sunday Times, the first Christian title to do so in Hodder Faith's recorded history, and continues to hold 4.8 stars across 1,400+ Amazon reviews.</p>
+
+  <p>The strategy doc we authored at handover laid out exactly how the publisher-owned marketing engine should work in this next phase — the five audience problems it solves, the loop instead of the funnel, the platform stack, the boundary around Bear's own channels. That document tells you <em>what</em> to do. It assumes an operator.</p>
+
+  <div class="pull">
+    The strategic job right now is not maintaining the UK. The UK is compounding. The job is the <em>US</em> — a market 50× larger, up 40% in Christian-book sales since COVID, and where Bear is not yet anchored to faith in the same way as he is here.
+  </div>
+
+  <p>This proposal closes that gap. BGV becomes Hodder Faith's full marketing and brand operator for GSET, end-to-end, from one team, for £5,000 per month — running every workstream in the engine the strategy doc described, US growth threaded through all of them.</p>
+</section>
+
+<!-- ─────────── 02 ─────────── -->
+<section>
+  <h2><span class="section-num">02 — What we're proposing</span>One team, one number, one decision.</h2>
+
+  <p>A single retainer that absorbs the operational role described in the handover doc and replaces the US-based brand manager hire you have green-lit. One team executing one plan — the plan we already wrote together — at a faster cadence and with the BG network already inside the building.</p>
+
+  <p>You keep strategic ownership and the broader brand-integration role (publisher relationships, megachurch tour, foreign-language collabs). We run the marketing and content engine end-to-end. When Bear's calendar-anchor posts are due, they happen silently through us. When new collaborators come on board, we plug them into the engine and you go negotiate the next ones.</p>
+
+  <div class="pull">£5,000 per month, all in. We can start next week.</div>
+</section>
+
+<!-- ─────────── 03 ─────────── -->
+<section>
+  <h2><span class="section-num">03 — The job to be done</span>Three priorities, ranked by strategic weight.</h2>
+
+  <ol>
+    <li><strong>Close the US gap.</strong> Build GSET's US presence to the scale the UK trajectory has already proved is achievable. Bridge Bear's identity in the US from "survivalist" to "person of faith who wrote a Gospel book." Position GSET for the US book tour you are planning, the megachurch network you are activating, and the wave from <em>The Shack</em> relaunch this autumn.</li>
+    <li><strong>Compound the UK.</strong> Keep the UK engine running at a cadence that converts the existing 300K-reader base into a long-tail of gifting, church bulk ordering, and reader-testimony loops. The UK is the proof of concept; we keep it warm.</li>
+    <li><strong>Set up international.</strong> As foreign-language editions roll out — Spanish, Portuguese, and the other ~8 markets currently in deal — stand up a content pattern that travels. Brazil specifically, given it is the fastest-moving Catholic-to-Protestant switch on earth, is a tier-one international target inside the first 12 months.</li>
+  </ol>
+
+  <p>Everything below is built around those three jobs.</p>
+</section>
+
+<!-- ─────────── 04 ─────────── -->
+<section class="page-break">
+  <h2><span class="section-num">04 — What BGV builds and manages</span>Every workstream in the engine, run by one team.</h2>
+
+  <p>The handover doc describes a loop — content, distribution, depth, community, conversion — each surface playing a specific role and feeding the next. BGV runs the whole loop. The sections below break it down by workstream, in the order of the £ allocation in section 10. Each one is sized to what the strategy needs the engine to do; none of them is a side workstream.</p>
+
+  <h3>Website — the central hub</h3>
+  <p>We rebuild <strong>thegreateststoryevertoldbook.com</strong> (or migrate to a cleaner domain if you prefer). It becomes the conversion surface and the single online home for the brand:</p>
+  <ul>
+    <li><strong>Retail link-tree with geo-routing</strong> — Amazon UK and US, Barnes &amp; Noble, Bookshop.org, Waterstones, St Andrews. Smooth purchasing journey beats incremental margin.</li>
+    <li><strong>Substack journal auto-pulled in</strong>, like the Bear Grylls site already does.</li>
+    <li><strong>Social feeds embedded.</strong></li>
+    <li><strong>Events page</strong> for the US book tour when that lands.</li>
+    <li><strong>Tracker links throughout</strong>, so book-sales attribution actually works (see section 05).</li>
+    <li><strong>US-cover swap</strong> on retail links when the visitor is geo-detected in the States.</li>
+  </ul>
+
+  <h3>Substack — the depth engine</h3>
+  <p>A new <em>Greatest Story</em> Substack, separate from Bear's personal one. Weekly reading companion. Theologian video transcripts tightened into articles — Andy has offered editorial pass on these. List growth, segmentation, gifting flow. The email-owned relationship channel that the algorithm cannot take away from us. The handover doc names this as one of the two strategic engines alongside the long-form video work; we treat it that way.</p>
+
+  <h3>YouTube — the long-form home</h3>
+  <p>Public, searchable, evergreen, monetizable. The reach channel where a US audience can be built from cold. Two episodes per week, two formats:</p>
+  <ul>
+    <li><strong>Format A — Immersive audiobook readings.</strong> Eight-minute episodes cut from the existing audiobook, dressed up with editor-added soundscape — when a door opens you hear the door, when someone walks you hear the footsteps. The audiobook becomes something that reads on screen.</li>
+    <li><strong>Format B — Theologian companion episodes.</strong> Each week, a theologian analyses the same audiobook extract. <em>"This is the valley Isaiah was in, predicting the coming of…"</em> — the contextual layer that turns the reading from devotional into compelling. We film these as a batch: <strong>a three-day filming schedule produces all 52 theologian episodes for the year.</strong> Scholars who worked on the book are the first invitees; the bench widens from there.</li>
+  </ul>
+  <p><strong>104 episodes of base content per year.</strong> Plus Bear-activated content where it lands naturally, plus US guests on their own slots — Levi Lusko, the Kathie Lee Gifford / Liberty scholar pairing you flagged, Jonathan Rumi when his Hodder book launches. Eight-minute floor means every episode is monetizable; revenue allocation to be agreed at contracting (pooled, recycled, or paid up to Hodder — no commercial preference from us).</p>
+  <p>Every long-form episode is also the raw material for the short-form work below. Immersive audiobook minutes get pulled out as vertical clips with visuals layered over; theologian moments get extracted as standalone insight pieces; behind-the-scenes from the theologian shoot becomes its own content stream. The YouTube long-form is not a destination workstream — it is the production layer that feeds the social distribution underneath it.</p>
+  <p><strong>Channels.</strong> GSET channel under the handle Olly has already claimed (renamed before launch). BG channels — 600K new followers since October, 300M views, 1M reach per day — used in the early months for spark and uplift, then GSET channels move to <strong>self-sufficient operation by month 6</strong>, not depending on cross-promo permanently.</p>
+
+  <h3>Short-form video — TikTok, Reels, Facebook video</h3>
+  <p>The repositioning surface for everything above. Minute-long extracts of the immersive audiobook readings with visuals layered over them; theologian explanations cut down into standalone insight clips; Bear-activated content where existing footage permits — readings, behind-the-scenes from the book and Bear's faith appearances. Vertical, captioned, paced for the platform. No new Bear filming required. This is where most casual US discovery will happen day-to-day — the long-form work earns the depth, the short-form earns the reach, and the same production effort serves both.</p>
+
+  <h3>Instagram and Facebook feeds</h3>
+  <p>Stills, quote graphics, carousels, reader testimony. Facebook still earns its place — the demographic skew matters for this audience, and the Facebook <strong>read-along reading group</strong> is a specific deliverable. Seeded, moderated, and used as the reader-testimony capture surface.</p>
+
+  <h3>Community and reader-testimony engine</h3>
+  <p>The line that closes the loop. Reader testimony captured, edited, and republished back into the channels that drove discovery; the Facebook reading group moderated daily and used to source it. The handover doc is explicit that this is what makes the engine a loop rather than a funnel — without it the entire strategy collapses to a one-way feed and the compounding effect that everything else relies on disappears.</p>
+
+  <h3>Brand stewardship and voice integrity</h3>
+  <p>One warm, invitational publisher voice held consistent across five audience segments, every surface above, and now two geographies (UK and US, with international coming online). Active stewardship that prevents the tone drifting toward the two failure modes the strategy doc names explicitly: churchy and salesy. Loss of voice integrity does not show up in metrics until it is costly to undo.</p>
+
+  <h3>Operations</h3>
+  <p>Single accountable owner across the whole engine. Weekly check-in, monthly performance reporting against the measurement frame in section 05, calendar-anchor planning, theologian and US-guest pipeline management, silent coordination with Bear's social team. Removes the "who owns this" tax that, on every comparable publisher-side programme, kills cadence by month three.</p>
+
+  <div class="note"><strong>No LinkedIn.</strong> Confirmed.</div>
+</section>
+
+<!-- ─────────── 06 ─────────── -->
+<section class="page-break">
+  <h2><span class="section-num">05 — Measurement</span>How we prove this works.</h2>
+
+  <p>You asked directly how we'd measure marketing impact against book sales. The honest answer is that book-sales attribution online is partial — Amazon does not tell us where buyers came from. So we build a measurement frame that gets us as close as we can:</p>
+
+  <ul>
+    <li><strong>Tracker links on the website</strong> for every outbound retail click — we know exactly how many people are leaving the site to buy.</li>
+    <li><strong>Geo-locked Facebook posts to the US</strong> so we can isolate US-market performance week-on-week.</li>
+    <li><strong>YouTube analytics</strong> give us US vs rest-of-world views, watch time, click-through to the site.</li>
+    <li><strong>Substack analytics</strong> give us list growth by geography and open / click rates against book-mention posts.</li>
+    <li><strong>Reported sales velocity</strong> from Hodder against our content calendar — we correlate cadence shifts with what Hodder sees in retail.</li>
+    <li><strong>Qualitative signal</strong> — reader-testimony capture rate, comment-to-view ratios, the kind of <em>"thank you for sharing your faith online"</em> response Jesse described receiving in person in the US.</li>
+  </ul>
+
+  <p>Monthly report against these. Quarterly strategic review where we recalibrate cadence if any one workstream is over- or under-performing.</p>
+</section>
+
+<!-- ─────────── 07 ─────────── -->
+<section>
+  <h2><span class="section-num">06 — Audiences, tone, Bear's role</span>Unchanged. We inherit the handover doc and honour it.</h2>
+
+  <h3>Five audiences</h3>
+  <p>Secular and lapsed Christians; faith-sharing Christians looking for a gifting tool; Bible-intimidated readers; spiritually fatigued believers; youth-focused adults. Each gets messaging tuned to their entry point. We do not sell the book — we educate around the problem it solves.</p>
+
+  <h3>Tone</h3>
+  <p>Warm and invitational. Never preachy, never salesy, never drifting into Bear's warrior-spiritual voice. The publisher voice, held consistent across every surface.</p>
+
+  <h3>Bear's role</h3>
+  <p>Approximately three calendar-anchor posts per year on his own channels (launch anniversary, Easter, Christmas Eve), using existing assets. No new filming for GSET. We operate Bear's channels alongside GSET's, which means cross-promo is silent and frictionless when it matters — but the GSET engine is built to work <em>without</em> him, in line with the strategy doc.</p>
+
+  <div class="note"><strong>No AI-generated content.</strong> Hachette policy. No AI voice, no AI imagery, no AI in book covers or marketing creative. We work within that.</div>
+</section>
+
+<!-- ─────────── 08 ─────────── -->
+<section>
+  <h2><span class="section-num">07 — Operating model</span>How we work with Hodder week to week.</h2>
+  <ul>
+    <li><strong>Single point of contact</strong> at BGV. You speak to one person. That person is accountable for everything in section 04.</li>
+    <li><strong>Weekly check-in</strong> — 30 minutes, standing slot, agenda built around the prior week's outputs and the next week's calendar.</li>
+    <li><strong>Approval flow</strong> — content ships on a trust-and-veto model: we publish on schedule against an approved monthly content plan; you have right of recall on anything that hasn't shipped yet, and an SLA on flagged corrections.</li>
+    <li><strong>Turnaround SLAs</strong> — urgent 48 hours; standard pipeline 7 days; calendar-anchor content prepared 2 weeks ahead; theologian batch filming scheduled 1 month in advance.</li>
+    <li><strong>Bear-channel coordination</strong> — handled silently inside BGV. You don't run that interface.</li>
+    <li><strong>Theologian and guest pipeline</strong> — we manage booking, filming, and logistics for the 52 annual theologian episodes and the named US-guest slots. You introduce contacts; we run the rest.</li>
+  </ul>
+</section>
+
+<!-- ─────────── 09 ─────────── -->
+<section class="page-break">
+  <h2><span class="section-num">08 — Monthly deliverables</span>What Hodder gets every month for £5k.</h2>
+
+  <table class="deliverables">
+    <thead>
+      <tr><th>Workstream</th><th>Monthly volume</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>YouTube — immersive audiobook readings (8 min)</td><td>X episodes</td></tr>
+      <tr><td>YouTube — theologian companion episodes (8 min)</td><td>X episodes</td></tr>
+      <tr><td>TikTok / Reels / Facebook video — short-form clips</td><td>X per week</td></tr>
+      <tr><td>Instagram / Facebook feed posts — stills, quotes, carousels</td><td>X per week</td></tr>
+      <tr><td>Substack reading companion</td><td>X posts per month</td></tr>
+      <tr><td>Facebook reading group</td><td>Daily moderation, X seeded threads / week</td></tr>
+      <tr><td>Reader testimony capture</td><td>Continuous; X published pieces / month</td></tr>
+      <tr><td>Website</td><td>Weekly content drops, structural updates as the engine requires</td></tr>
+      <tr><td>Bear calendar-anchor coordination</td><td>As due</td></tr>
+      <tr><td>Monthly performance report</td><td>1, end of month</td></tr>
+      <tr><td>Weekly operational check-in</td><td>4</td></tr>
+      <tr><td>Quarterly strategic review</td><td>1 every third month (in lieu of one weekly)</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small dim">Specific monthly volumes (the Xs above) are finalised in the contracting step, calibrated to the cadence needed to sustain the loop. They are the floor, not the ceiling; over-performance triggers a rebalance proposal at the quarterly review, not a price uplift.</p>
+</section>
+
+<!-- ─────────── 10 ─────────── -->
+<section>
+  <h2><span class="section-num">09 — Phasing</span>From sign-off to steady-state engine.</h2>
+
+  <h3>Month 1 — onboarding and rebuild</h3>
+  <ul>
+    <li>Full asset audit, content bank consolidation.</li>
+    <li>New GSET website scoped, designed, into build.</li>
+    <li>GSET Substack stood up.</li>
+    <li>GSET YouTube handle finalised, channel branded, first episodes in post-production.</li>
+    <li>Theologian booking and 3-day filming schedule locked for month 2.</li>
+    <li>Facebook reading group seeded; social channels claimed, cleaned up, branded.</li>
+    <li>First monthly content calendar approved; tracker infrastructure on existing assets.</li>
+  </ul>
+
+  <h3>Month 2 — ramp</h3>
+  <ul>
+    <li>Website live.</li>
+    <li>Theologian episodes filmed (52 in 3 days). Audiobook episodes in production.</li>
+    <li>YouTube channel launches with first 4 episodes. BG channel cross-promo activated.</li>
+    <li>Substack at weekly rhythm. All other channels posting at target cadence.</li>
+    <li>First Facebook reading group cohort active. First monthly performance report.</li>
+  </ul>
+
+  <h3>Month 3 onwards — steady-state engine</h3>
+  <ul>
+    <li>Full YouTube cadence sustained (2 episodes per week).</li>
+    <li>Reader-testimony loop closing.</li>
+    <li>US guest pipeline activated — first US-pastor slot live.</li>
+    <li>Quarterly strategic review introduced.</li>
+    <li>Engine compounding through calendar anchors and the Shack relaunch halo.</li>
+  </ul>
+
+  <h3>Month 6 onwards — international and self-sufficiency</h3>
+  <ul>
+    <li>GSET channels operating self-sufficiently; BG cross-promo dialled back to anchor moments.</li>
+    <li>Spanish / Portuguese content pattern stood up as language editions roll.</li>
+    <li>US book tour support content (if tour confirmed) integrated into calendar.</li>
+  </ul>
+</section>
+
+<!-- ─────────── 11 ─────────── -->
+<section class="page-break">
+  <h2><span class="section-num">10 — Commercial</span>£5,000 per month, all-in.</h2>
+
+  <h3>How the retainer is allocated</h3>
+  <p>Every line below is load-bearing. The engine cannot run with any of these workstreams removed — content without editing has nothing to ship, content without distribution stays invisible, the YouTube spine without the short-form factory wastes its own raw material, and every workstream without the operations layer becomes a separate negotiation.</p>
+
+  <table class="allocation">
+    <thead>
+      <tr><th>Workstream</th><th>£ / month</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Content production</strong> — audio and visual editing across all formats (audiobook immersive scoring, theologian episode edit, short-form clip factory, stills, captioning, platform-spec compliance).</td>
+        <td>1,400</td>
+      </tr>
+      <tr>
+        <td><strong>Distribution and posting</strong> across every channel (scheduling, calendar-anchor sequencing, geo-locked US posting, cross-channel coordination).</td>
+        <td>500</td>
+      </tr>
+      <tr>
+        <td><strong>Substack — depth engine</strong> (weekly reading companion, theologian-transcript articles, list growth, segmentation).</td>
+        <td>500</td>
+      </tr>
+      <tr>
+        <td><strong>Website</strong> — rebuild in month 1, ongoing weekly management thereafter. The conversion surface for the retail link-tree, Substack journal, events, US-cover geo-routing, tracker infrastructure for sales attribution.</td>
+        <td>1,000</td>
+      </tr>
+      <tr>
+        <td><strong>Community and reader-testimony engine</strong> — the line that closes the loop. Facebook reading group seeded and moderated, reader testimony captured and republished, RGC pipeline. Without this workstream the strategy's <em>loop, not funnel</em> thesis collapses into a one-way feed — reader stories never re-enter discovery, and every other workstream loses the compounding effect the strategy is built on.</td>
+        <td>500</td>
+      </tr>
+      <tr>
+        <td><strong>Brand stewardship and voice integrity</strong> — one warm, invitational publisher voice held consistent across five audience segments, seven channels, and now two geographies. Without active stewardship the tone drifts within weeks toward the two failure modes the strategy doc names explicitly: churchy and salesy. Loss of voice integrity is brand damage that does not appear in metrics until it is costly to undo.</td>
+        <td>400</td>
+      </tr>
+      <tr>
+        <td><strong>Operations</strong> — single accountable owner across the whole engine. Weekly check-in, monthly reporting against the measurement frame in section 05, calendar-anchor planning, theologian and US-guest pipeline, silent coordination with Bear's team. Without this workstream the publisher-side programme acquires a "who owns this" tax that, on every comparable programme we've seen, kills cadence by month three.</td>
+        <td>700</td>
+      </tr>
+      <tr class="total"><td>Total</td><td>5,000</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small dim">Nothing here is padding; nothing here is optional without breaking something specific and named. If Hodder needs the price lower, the honest answer is we scale back what's in the engine — we do not strip workstreams while keeping the same scope label.</p>
+
+  <h3>What's included</h3>
+  <p>Everything in sections 04, 07, 08, 09. One number. No additional fees for in-scope work, no hourly extras, no project-management surcharge.</p>
+
+  <h3>What sits outside the retainer</h3>
+  <ul>
+    <li><strong>Paid media spend</strong> — the ad budget itself, if Hodder wants to run paid; we manage campaigns at no extra fee.</li>
+    <li><strong>Third-party tooling licenses</strong> held in Hodder's name — e.g. Substack Pro tier, scheduling tools if you want them under your account rather than ours.</li>
+    <li><strong>Additional commissioned shoots</strong> — should Hodder ever want new on-camera assets beyond the theologian batch and existing Bear footage.</li>
+    <li><strong>Translation and localisation</strong> — when language editions roll, we quote that work separately and time-bound.</li>
+    <li><strong>The broader brand-integration role</strong> — publisher-to-publisher relationships, megachurch tour, foreign-publisher dictation. You have flagged you'll hire separately for this; we plug into whoever holds that brief.</li>
+  </ul>
+
+  <h3>YouTube monetization revenue</h3>
+  <p>Eight-minute episodes are monetizable. Revenue allocation to be agreed at contracting — three reasonable treatments: (a) pooled and decided at year-end, (b) routed back into incremental content generation, (c) paid up to Hodder against the retainer. We have no commercial preference.</p>
+
+  <h3>Term &amp; invoicing</h3>
+  <p><strong>3-month minimum, then rolling monthly with 30 days' notice on either side.</strong> The 3-month minimum is there because months 1 and 2 are front-loaded with rebuild work (website, Substack stand-up, theologian filming batch) — the runway has to exist for that investment to be worth it for both sides. Invoicing monthly in advance.</p>
+</section>
+
+<!-- ─────────── 12 ─────────── -->
+<section>
+  <h2><span class="section-num">11 — Why BGV</span>You are not hiring an agency to learn the brand.</h2>
+
+  <p>We wrote the strategy. We know the audiences, the calendar, the voice, the platform stack — because we built them. We already operate the BG channels (600K new followers since October, 300M views, 1M reach per day), which means calendar-anchor coordination with Bear's team happens silently rather than via formal request. We already sit inside the Hodder relationship — Sol Fuel's reprint is including a GSET chapter and Jesse's introduction.</p>
+
+  <div class="pull">
+    You are not hiring an agency to learn this brand. You are extending the team that authored the playbook to operate it, at the pace the publishing world does not normally move at.
+  </div>
+
+  <p>One team, one number, one accountable point of contact. The book deserves the engine the strategy described.</p>
+</section>
+
+<!-- ─────────── 13 ─────────── -->
+<div class="closing">
+  <h2><span class="section-num">12 — Next steps</span>Three things, in order.</h2>
+  <ol>
+    <li><strong>Read this.</strong> Push back on anything that doesn't sound right. Particular flags: the YouTube monetization treatment, the term length, the scope boundary between us and the separate brand-integration hire.</li>
+    <li><strong>30-minute call</strong> to walk through clarifications and any scope tuning.</li>
+    <li><strong>Green light.</strong> We start the week after sign-off. Month 1 onboarding triggers immediately; the theologian filming batch can be in calendars before the end of month 1.</li>
+  </ol>
+
+  <p>Within seven days of green light: asset audit complete, website rebuild kicked off, Substack stood up, GSET YouTube channel branded, theologian shortlist out for booking, first content batch in flight.</p>
+
+  <div class="seal">The engine is ready to run. Say when.</div>
+</div>
+
+<!-- ─────────── APPENDIX A ─────────── -->
+<div class="appendix page-break">
+  <h3>Appendix A — Single-page SOW</h3>
+  <div class="sow-grid">
+    <div class="label">Client</div><div class="value">Hodder Faith</div>
+    <div class="label">Operator</div><div class="value">Bear Grylls Ventures</div>
+    <div class="label">Programme</div><div class="value">GSET — <em>The Greatest Story Ever Told</em> marketing engine</div>
+    <div class="label">Lead</div><div class="value">Andy Lyon (Hodder Faith) ↔ [BGV PM name] (BGV)</div>
+    <div class="label">Retainer</div><div class="value">£5,000 / month, all-in (allocation in section 10)</div>
+    <div class="label">Term</div><div class="value">3-month minimum, then rolling monthly, 30 days' notice</div>
+    <div class="label">Invoicing</div><div class="value">Monthly in advance</div>
+    <div class="label">Scope</div><div class="value">Sections 04, 07, 08, 09 of this document</div>
+    <div class="label">Excluded</div><div class="value">Paid media spend, third-party licenses in Hodder's name, additional commissioned shoots, non-English localisation, the broader brand-integration role</div>
+    <div class="label">YT monetization</div><div class="value">Allocation to be agreed at contracting</div>
+    <div class="label">SLAs</div><div class="value">Urgent 48h, standard 7d, calendar-anchor 2 weeks ahead, theologian batch booked 1 month ahead</div>
+    <div class="label">Hard constraints</div><div class="value">No AI-generated content (Hachette policy)</div>
+    <div class="label">Launch readiness</div><div class="value">Week-after-sign-off start</div>
+  </div>
+</div>
+
+<!-- ─────────── APPENDIX B ─────────── -->
+<div class="appendix">
+  <h3>Appendix B — Assumptions in this draft</h3>
+  <ol>
+    <li><strong>YouTube monetization</strong> — revenue allocation left open for contracting. If you want a default position from us before that call, flag and we'll propose one.</li>
+    <li><strong>Audiobook clip licensing</strong> — assumes audiobook excerpt rights are usable for short-form clip distribution. If clip rights need a separate ask of the audiobook publisher, that's a month-1 onboarding item, not a blocker.</li>
+    <li><strong>The Chosen / Passion of Christ footage</strong> — short-form usage assumed acceptable. For YouTube monetization specifically, we will source written permission from The Chosen rather than rely on fair-use ambiguity.</li>
+    <li><strong>No AI content</strong> — explicit constraint per Hachette policy. The BG AI Voice asset is not used for GSET content.</li>
+    <li><strong>Domain</strong> — assumes rebuild of thegreateststoryevertoldbook.com or migration to a cleaner alternative. Flag a preference in the call.</li>
+    <li><strong>The separate brand-integration hire</strong> — assumed to be a freelancer or Hachette-internal placement under Andy's direct management. BGV's interface with that role is operational hand-offs.</li>
+    <li><strong>US guest pipeline</strong> — Levi Lusko, the Kathie Lee Gifford pairing, Jonathan Rumi at book launch are illustrative of the kind of US bench we'd build; specific bookings and timing depend on availability and Hodder introductions.</li>
+    <li><strong>Deliverable volumes</strong> in section 08 are the floor, not the ceiling — over-performance triggers a rebalance proposal at the quarterly review, not a price uplift.</li>
+  </ol>
+</div>
+
+</body>
+</html>
