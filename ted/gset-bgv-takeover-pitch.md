@@ -1,7 +1,7 @@
 # Running the Engine
 ## A proposal for BGV to operate the GSET marketing programme on behalf of Hodder Faith
 
-**Prepared for:** Andy, Hodder Faith
+**Prepared for:** Andy Lyon, Hodder Faith
 **From:** Bear Grylls Ventures
 **Date:** May 2026
 **Retainer:** £5,000 per month, all-in
@@ -10,224 +10,245 @@
 
 ## 01. Where we are
 
-The launch worked. *The Greatest Story Ever Told* debuted at #1 on the Sunday Times — the first Christian title to reach that position in Hodder Faith's recorded history — and the book continues to hold a 4.8-star rating across 1,400+ Amazon reviews. The strategy doc we authored at handover laid out exactly how the publisher-owned marketing engine should work post-launch: the five audience problems it solves, the platform stack, the loop instead of the funnel, and the boundary around Bear's own channels.
+The launch worked. *The Greatest Story Ever Told* has sold roughly 300,000 copies in the UK in eight months — already half of *The Shack*'s lifetime UK sales. It debuted at #1 on the Sunday Times — the first Christian title to do so in Hodder Faith's recorded history — and continues to hold a 4.8-star rating across 1,400+ Amazon reviews.
 
-That document tells you *what* to do. It assumes someone is going to *do it*.
+The strategy doc we authored at handover laid out exactly how the publisher-owned marketing engine should work in this next phase: the five audience problems it solves, the loop instead of the funnel, the platform stack, and the boundary around Bear's own channels. That document tells you *what* to do. It assumes an operator.
 
-Building that someone in-house — a content lead, an editor, a social manager, a Substack writer, a developer for the website, a project manager to hold the cadence — is a four-hire problem with onboarding lag, agency stitching, and a year before the engine runs smoothly. The book is now twelve months from anniversary moment. The window to compound is open and narrowing.
+The strategic job in front of GSET right now is not maintaining the UK. The UK base is compounding. The job is **the US** — a market 50× larger than the UK, up 40% in Christian-book sales since COVID, where the book is undersold relative to its UK trajectory and where Bear's reputation is not yet anchored to faith in the same way as it is here. That gap has to be closed deliberately.
 
-This proposal closes the gap. BGV becomes Hodder Faith's marketing and brand operator for GSET, end-to-end, from one team, for £5,000 per month.
+This proposal does that. BGV becomes Hodder Faith's marketing and brand operator for GSET, end-to-end, from one team, for £5,000 per month — built around a YouTube engine that doubles as a US-bridging machine, with the rest of the stack tuned to feed it and capture conversion.
 
 ---
 
 ## 02. What we're proposing
 
-A single retainer that absorbs every operational role in the handover strategy. One team executing one plan — the plan we already wrote together. No agency stitching, no scope drift between freelancers, no "who owns this" between a content person, a social person, and a developer. One number, one accountable team, one set of deliverables landing every week.
+A single retainer that absorbs the operational role described in the handover doc and replaces the "US-based brand manager" hire you have green-lit. One team executing one plan — the plan we already wrote together — at a faster cadence and with the BG network already inside the building.
 
-You keep strategic ownership. We keep the engine running. When Bear's three calendar-anchor posts are due, we coordinate them with his team. When Lent or Easter arrives, the schedule is already built. When a press hit or a reader testimony lands, it's already in the content factory by the end of the week.
+You keep strategic ownership and the broader brand-integration role (publisher relationships, megachurch tour, foreign-language collabs, etc.). We run the marketing and content engine end-to-end. When Bear's calendar-anchor posts are due, they happen silently through us. When new collaborators come on board, we plug them into the engine and you go negotiate the next ones.
 
-The retainer is £5,000 per month, all in.
-
----
-
-## 03. What BGV runs
-
-This is the operational stack we take off your plate. Each element is sized to the engine described in the handover doc, and each one depends on the others — content without distribution is invisible; distribution without editing has nothing to ship; the website without the channels is a billboard in a desert. We've grouped them so the dependencies are obvious.
-
-### Content factory
-- **Audiobook clip factory** — vertical clips cut from the audiobook for TikTok and Reels, the highest-ROI content source identified in the handover doc. We mine, edit, caption, and ship.
-- **Long-form readings** — actor-led readings cut into YouTube long-form, the public-searchable reach engine.
-- **Stills and quote graphics** — reader-shareable assets pulled from the text, designed for Instagram and Facebook.
-- **Behind-the-scenes assets** — repurposing existing event footage, press, and Big Church Read material into evergreen pieces.
-
-### Editing and post-production
-- All audio editing across audiobook-derived assets.
-- All visual editing across long-form, short-form, and graphic content.
-- Captioning, accessibility, and platform-spec compliance.
-
-### Distribution and posting
-- Scheduling and posting across YouTube, Substack, TikTok, Instagram, Facebook.
-- Calendar-anchor sequencing (Lent, Easter, Pentecost, Advent, Christmas, anniversary, autumn church-planning season).
-- Coordination with Bear's social team for his three annual calendar posts — we hand them the asset, the caption, and the slot.
-
-### Substack — the depth engine
-- A weekly reading companion to the book, written in the warm, invitational voice the handover doc specifies.
-- List growth, segmentation, and the reader-owned relationship the strategy is built around.
-- Cross-publication with other faith-aligned Substacks where it earns the discovery.
-
-### Website
-- Full redevelopment of the GSET site to fit the engine — discovery routes for each of the five audience segments, Substack signup as the primary CTA, gifting flow for the "Give One Away" mechanic, embedded reader stories.
-- Ongoing site management: weekly updates, new content surfaces, analytics review.
-
-### Community and reader-generated content
-- Facebook reading group seeded and moderated.
-- Reader-testimony pipeline — capture, edit, redistribute (with permission).
-- Light-touch community management on the public channels.
-
-### Brand stewardship
-- Voice and tone consistency across every surface — warm, invitational, never preachy, never salesy, never drifting into Bear's warrior-spiritual register.
-- Asset library maintenance and version control.
-
-### Reporting and operations
-- Monthly performance report against the loop metrics in the handover doc (flow, not vanity).
-- Weekly check-in with you. Single point of contact. Quarterly strategic review.
-
-Each of these is a workstream the strategy already requires. Removing any one of them breaks the loop the handover doc describes. We are not selling capacity — we are selling the engine running.
+The retainer is £5,000 per month, all in. We can start next week.
 
 ---
 
-## 04. How the engine works
+## 03. The job to be done
 
-The handover doc maps the reader journey as **Discover → Engage → Relate → Act → Give**. The operating model maps directly onto it.
+There are three things we need this engine to do, in order of strategic weight:
 
-- **Discover** — YouTube long-form readings, TikTok and Reels audiobook clips, Facebook reading group, partner Substack cross-posts. Public, searchable, evergreen.
-- **Engage** — Substack signup, reading companion subscription, Big Church Read funnel.
-- **Relate** — Weekly Substack posts, reader testimony, Facebook group discussions, persona-tuned messaging across the five audience segments.
-- **Act** — Gifting CTA on the website ("Give One Away"), church bulk ordering pathway, institutional placement workflow (prisons, military, schools).
-- **Give** — Reader-generated testimony loops back into Discover, closing the cycle.
+1. **Close the US gap.** Build GSET's US presence to the scale the UK trajectory has already proved is achievable. Bridge Bear's identity in the US from "survivalist" to "person of faith who wrote a Gospel book." Position GSET for the US book tour that Hodder is planning, the megachurch network you're activating, and the wave from *The Shack* relaunch this autumn.
+2. **Compound the UK.** Keep the UK engine running at a cadence that converts the existing 300K-reader base into a long-tail of gifting, church bulk ordering, and reader-testimony loops. The UK is the proof of concept; we keep it warm.
+3. **Set up international.** As foreign-language editions roll out — Spanish, Portuguese, and the other ~8 markets currently in deal — stand up a content pattern that travels. Brazil specifically, given it's the fastest-moving Catholic-to-Protestant switch on earth, is a tier-one international target inside the first 12 months.
 
-We don't run channels in parallel; we run them as a loop. Content created in one stage feeds the next. That's the metaphor the handover doc commits to, and the operating model has to honour it.
+Everything below is built around those three jobs.
 
 ---
 
-## 05. Audiences and tone — unchanged
+## 04. The YouTube engine — the spine of the offer
 
-We inherit the five audience segments defined at handover and we honour them precisely:
+YouTube is the centre of gravity for GSET. It is public, evergreen, searchable, monetizable, and the only platform where a US audience can be built from cold without paid acquisition. We make it the spine. Everything else feeds into and out of it.
 
-1. Secular and lapsed Christians who know of Jesus but not the story.
-2. Faith-sharing Christians looking for a gifting tool.
-3. Bible-intimidated readers who've bounced off Scripture.
-4. Spiritually fatigued believers who've lost the feeling.
-5. Youth-focused adults using Bear's credibility as a doorway.
+**Format A — Immersive audiobook readings.**
+Eight-minute episodes cut from the existing audiobook, dressed up with editor-added soundscape — when a door opens you hear the door, when someone walks you hear the footsteps. The audiobook is the highest-ROI asset in the content bank; this turns it into something that reads on screen.
 
-Each gets messaging tuned to their entry point, converging on the same book. We don't sell the product — we educate around the problem it solves.
+**Format B — Theologian companion episodes.**
+Each week, a theologian analyses the same audiobook extract. *"This is the valley Isaiah was in, predicting the coming of…"* — the kind of contextual layer that turns the reading from devotional into compelling. We film these as a batch: a three-day filming schedule produces all 52 theologian episodes for the year. Scholars who worked on the book are the first invitees; the bench widens from there.
 
-Tone is the warm, invitational publisher voice, distinct from Bear's. No churchiness, no generic inspiration, no corporate speak, no salesy CTAs. Specificity, reader testimony, and conversational language. The strategy doc is the brief; we follow it.
+**Cadence and volume.**
+Two episodes per week — one of each format. 104 episodes of base content per year. Plus Bear-activated content where it lands naturally (e.g. ChosenCon-style appearances cut into YouTube long-form). Plus US guests on their own slots — Levi Lusko, the Kathie Lee Gifford / Liberty scholar pairing you flagged, Jonathan Rumi when his Hodder book launches.
 
----
+**Monetization.**
+Eight-minute floor means every episode is monetizable. Revenue allocation to be agreed — pooled until year-end and decided, or routed back into content generation, or paid up to Hodder against the retainer. We have no commercial preference; flag your preferred treatment in commercial negotiation.
 
-## 06. Bear's role — unchanged
-
-The handover doc is explicit and we don't relitigate it. Bear posts approximately three times per year on calendar anchors (launch anniversary, Easter, Christmas Eve) using existing assets. He does not create new content. He does not amplify publisher drafts. The engine works without him.
-
-Our job is to make sure the publisher-owned engine actually runs at the level the strategy assumes. When Bear's calendar posts are due, we hand his social team the asset and the caption — they don't have to think about it.
+**Channels.**
+GSET channel under the handle Olly has already claimed (handle to be renamed before launch). BG channels — 600K new followers since October, 300M views, 1M reach per day — used in the early months for spark and uplift. The plan is explicitly to move GSET channels to self-sufficient operation by month 6, not to depend on cross-promo permanently.
 
 ---
 
-## 07. Monthly deliverables
+## 05. The rest of the stack — feeding the spine
 
-Concrete output every month, for £5,000 all-in:
+Each surface has a specific function inside the loop the strategy doc commits to.
 
-| Workstream | Monthly volume |
-|---|---|
-| YouTube long-form readings | 2 published |
-| TikTok / Reels audiobook clips | 16 (4 per week) |
-| Instagram / Facebook posts (stills, quotes, carousels) | 20 (5 per week) |
-| Substack reading companion | 4 posts per month (weekly cadence) |
-| Website updates | Weekly content drops; structural updates as the engine requires |
-| Facebook reading group | Daily moderation, 2 seeded discussion threads per week |
-| Reader testimony capture | Continuous; 2 published pieces per month |
-| Bear calendar-anchor coordination | As required; asset and caption ready in his team's hands one week ahead of each anchor |
-| Monthly performance report | 1, end of month |
-| Weekly operational check-in | 4 |
-| Quarterly strategic review | 1 (every third month, in lieu of one weekly) |
+**Short-form video — TikTok, Instagram Reels, Facebook video.**
+The audiobook-clip factory plus enhanced snippets from the YouTube long-form. Vertical, captioned, paced for the platform. Bear-activated content where existing footage permits — readings, behind-the-scenes from the book and Bear's faith appearances. No new Bear filming required.
 
-Volumes are calibrated to the engine the handover doc describes. They're not a menu — they're the minimum cadence at which the loop sustains itself.
+**Instagram and Facebook feeds.**
+Stills, quote graphics, carousels, reader testimony. Facebook still earns its place — the demographic skew matters for this audience, and the Facebook **read-along reading group** is a specific deliverable. Seeded, moderated, and used as the reader-testimony capture surface.
+
+**Substack — the depth engine.**
+A new *Greatest Story* Substack, separate from Bear's personal one. Weekly reading companion. Theologian video transcripts tightened into articles — Andy has offered editorial pass on these. List growth, segmentation, gifting flow. The email-owned relationship channel that the algorithm can't take away from us.
+
+**Website — the central hub.**
+We rebuild thegreateststoryevertoldbook.com (or migrate to a cleaner domain if you prefer; current one is workable). What it carries:
+- Retail link-tree with geo-routing — Amazon UK and US, Barnes & Noble, Bookshop.org, Waterstones, St Andrews. We do not push readers to one retailer; we let them pick. As you said, smooth purchasing journey beats incremental margin.
+- Substack journal auto-pulled in (like the Bear Grylls site already does).
+- Social feeds embedded.
+- Events page for the US book tour when that lands.
+- Tracker links throughout so book-sales attribution actually works.
+- US-cover swap on retail links when the visitor is geo-detected in the States.
+
+**No LinkedIn.** Confirmed.
+
+---
+
+## 06. Measurement — how we prove this works
+
+Andy asked directly how we'd measure marketing impact against book sales. The honest answer is that book-sales attribution online is partial — Amazon doesn't tell us where buyers came from. So we build a measurement frame that gets us as close as we can:
+
+- **Tracker links on the website** for every outbound retail click — we know exactly how many people are leaving the site to buy.
+- **Geo-locked Facebook posts to the US** so we can isolate US-market performance week-on-week.
+- **YouTube analytics** give us US versus rest-of-world views, watch time, and click-through to the site.
+- **Substack analytics** give us list growth by geography and open/click rates against book-mention posts.
+- **Reported sales velocity** from Hodder against our content calendar — we correlate cadence shifts with what Hodder sees in retail.
+- **Qualitative signal** — reader-testimony capture rate, comment-to-view ratios, the kind of *"thank you for sharing your faith online"* response Jesse described receiving in person in the US.
+
+Monthly report against these. Quarterly strategic review where we recalibrate cadence if any one workstream is over- or under-performing.
+
+---
+
+## 07. Audiences, tone, and Bear's role — unchanged
+
+We inherit the handover doc and we honour it.
+
+**Five audiences.** Secular and lapsed Christians; faith-sharing Christians looking for a gifting tool; Bible-intimidated readers; spiritually fatigued believers; youth-focused adults. Each gets messaging tuned to their entry point. We do not sell the book — we educate around the problem it solves.
+
+**Tone.** Warm and invitational, never preachy, never salesy, never drifting into Bear's warrior-spiritual voice. The publisher voice, held consistent across every surface.
+
+**Bear's role.** Approximately three calendar-anchor posts per year on his own channels (launch anniversary, Easter, Christmas Eve), using existing assets. No new filming for GSET. No AI-generated Bear voice for marketing content. We operate Bear's channels alongside GSET's, which means cross-promo is silent and frictionless when it matters — but the GSET engine is built to work without him, in line with the strategy doc.
+
+**No AI-generated content.** Hachette policy. No AI voice, no AI imagery, no AI in book covers or marketing creative. We work within that.
 
 ---
 
 ## 08. Operating model
 
-- **Single point of contact** at BGV. You speak to one person. That person is accountable for everything in section 03.
+- **Single point of contact** at BGV. You speak to one person. That person is accountable for everything in sections 04 and 05.
 - **Weekly check-in** — 30 minutes, standing slot, agenda built around the prior week's outputs and the next week's calendar.
-- **Approval flow** — content is shipped on a trust-and-veto model: we publish on schedule against an approved monthly content plan; you have right of recall on anything that hasn't shipped yet, and an SLA on flagged corrections.
-- **Turnaround SLAs** — urgent content turnaround within 48 hours; standard pipeline 7 days; calendar-anchor content prepared and approved 2 weeks ahead.
-- **Bear-channel coordination** — handled silently by us with Bear's social team. You don't run that interface.
-- **Tooling** — we run our own content stack. No third-party licenses passed through to you unless agreed in advance.
+- **Approval flow** — content ships on a trust-and-veto model: we publish on schedule against an approved monthly content plan; you have right of recall on anything that hasn't shipped yet, and an SLA on flagged corrections.
+- **Turnaround SLAs** — urgent content within 48 hours; standard pipeline 7 days; calendar-anchor content prepared and approved 2 weeks ahead; theologian batch filming scheduled 1 month in advance.
+- **Bear-channel coordination** — handled silently inside BGV. You don't run that interface.
+- **Theologian and guest pipeline** — we manage booking, filming, and logistics for the 52 annual theologian episodes and the named US-guest slots. You introduce contacts and we run the rest.
 
 ---
 
-## 09. Phasing
+## 09. Monthly deliverables
 
-**Month 1 — onboarding and rebuild**
-- Full asset audit and content bank consolidation.
-- Website redevelopment scoped, designed, and into build.
-- Substack stood up and migrated/launched.
-- Channel claim, cleanup, and bio/header refresh across the stack.
-- First content calendar approved.
-- First audiobook clip batch shipped.
+What Hodder gets every month for £5k:
 
-**Month 2 — ramp**
+| Workstream | Monthly volume |
+|---|---|
+| YouTube — immersive audiobook readings (8 min) | 4 |
+| YouTube — theologian companion episodes (8 min) | 4 |
+| TikTok / Reels / Facebook video — short-form clips | 16 (4 per week) |
+| Instagram / Facebook feed posts — stills, quotes, carousels | 20 (5 per week) |
+| Substack reading companion | 4 posts (weekly cadence) |
+| Facebook reading group | Daily moderation, 2 seeded threads per week |
+| Reader testimony capture | Continuous; 2 published pieces per month |
+| Website | Weekly content drops, structural updates as the engine requires |
+| Bear calendar-anchor coordination | As due |
+| Monthly performance report | 1, end of month |
+| Weekly operational check-in | 4 |
+| Quarterly strategic review | 1 every third month (in lieu of one weekly) |
+
+Volumes are calibrated to sustain the loop. They are the floor, not the ceiling; if a workstream is over-performing we propose a rebalance at the quarterly review rather than as a price uplift.
+
+---
+
+## 10. Phasing
+
+**Month 1 — onboarding and rebuild.**
+- Full asset audit, content bank consolidation.
+- New GSET website scoped, designed, and into build.
+- GSET Substack stood up.
+- GSET YouTube handle finalised, channel branded, first episodes in post-production.
+- Theologian booking and 3-day filming schedule locked for month 2.
+- Facebook reading group seeded.
+- Social channels claimed, cleaned up, branded.
+- First monthly content calendar approved.
+- Tracker infrastructure on existing assets.
+
+**Month 2 — ramp.**
 - Website live.
-- All channels posting at target cadence.
-- Substack at weekly rhythm with growing list.
+- Theologian episodes filmed (52 in 3 days). Audiobook episodes in production.
+- YouTube channel launches with first 4 episodes. BG channel cross-promo activated.
+- Substack at weekly rhythm.
+- All other channels posting at target cadence.
 - First Facebook reading group cohort active.
 - First monthly performance report.
 
-**Month 3 onwards — steady-state engine**
-- Full cadence sustained.
-- Reader testimony loop closing.
+**Month 3 onwards — steady-state engine.**
+- Full YouTube cadence sustained (2 episodes per week).
+- Reader-testimony loop closing.
+- US guest pipeline activated — first US-pastor slot live.
 - Quarterly strategic review introduced.
-- Engine compounding through calendar anchors.
+- Engine compounding through calendar anchors and the Shack relaunch halo.
+
+**Month 6 onwards — international and self-sufficiency.**
+- GSET channels operating self-sufficiently; BG cross-promo dialled back to anchor moments.
+- Spanish/Portuguese content pattern stood up as language editions roll.
+- US book tour support content (if tour confirmed) integrated into calendar.
 
 ---
 
-## 10. Commercial
+## 11. Commercial
 
 **Retainer: £5,000 per month, all-in.**
 
 ### How the retainer is allocated
 
-Every line below is load-bearing. The engine described in sections 03 and 04 cannot function with any of these workstreams removed — content without editing has nothing to ship, content without distribution stays invisible, the loop without the community layer collapses to a one-way feed, and every workstream without the operations layer becomes a separate negotiation.
+Every line below is load-bearing. The engine cannot run with any of these workstreams removed — content without editing has nothing to ship, content without distribution stays invisible, the YouTube spine without the short-form factory wastes its own raw material, and every workstream without the operations layer becomes a separate negotiation.
 
 | Workstream | £ / month |
 |---|---:|
-| Content production — audio and visual editing across all formats (audiobook clip factory, long-form actor readings, stills, behind-the-scenes assets, captioning, platform-spec compliance) | 1,400 |
-| Distribution and posting across every channel (scheduling, calendar-anchor sequencing, cross-channel coordination) | 500 |
-| Substack — depth engine (weekly reading companion, list growth, segmentation) | 500 |
-| Website — rebuild in month 1, ongoing weekly management thereafter (the conversion surface for gifting, Substack signup, church bulk ordering, institutional placement) | 1,000 |
+| Content production — audio and visual editing across all formats (audiobook immersive scoring, theologian episode edit, short-form clip factory, stills, captioning, platform-spec compliance) | 1,400 |
+| Distribution and posting across every channel (scheduling, calendar-anchor sequencing, geo-locked US posting, cross-channel coordination) | 500 |
+| Substack — depth engine (weekly reading companion, theologian-transcript articles, list growth, segmentation) | 500 |
+| Website — rebuild in month 1, ongoing weekly management thereafter (the conversion surface for the retail link-tree, Substack journal, events, US-cover geo-routing, tracker infrastructure for sales attribution) | 1,000 |
 | Community and reader-testimony engine — the line that closes the loop. Facebook reading group seeded and moderated, reader testimony captured and republished, reader-generated content pipeline. Without this workstream the strategy's *loop, not funnel* thesis collapses into a one-way feed — reader stories never re-enter discovery, and every other workstream loses the compounding effect the strategy is built on. | 500 |
-| Brand stewardship and voice integrity across every surface — one warm, invitational publisher voice held consistent across five audience segments and seven channels. Without active stewardship the tone drifts within weeks toward the two failure modes the strategy doc names explicitly: churchy and salesy. Loss of voice integrity is brand damage that does not appear in metrics until it is costly to undo. | 400 |
-| Operations — single accountable owner across the whole engine. Weekly check-in, monthly performance reporting against the strategy's flow metrics, calendar-anchor planning, and silent coordination with Bear's social team for his three annual posts. Without this workstream the publisher-side marketing programme acquires a "who owns this" tax that, on every comparable programme we've seen, kills cadence by month three. | 700 |
+| Brand stewardship and voice integrity across every surface — one warm, invitational publisher voice held consistent across five audience segments, seven channels, and now two geographies (UK and US, with international coming online). Without active stewardship the tone drifts within weeks toward the two failure modes the strategy doc names explicitly: churchy and salesy. Loss of voice integrity is brand damage that does not appear in metrics until it is costly to undo. | 400 |
+| Operations — single accountable owner across the whole engine. Weekly check-in, monthly performance reporting against the measurement frame in section 06, calendar-anchor planning, theologian and US-guest pipeline management, silent coordination with Bear's social team. Without this workstream the publisher-side marketing programme acquires a "who owns this" tax that, on every comparable programme we've seen, kills cadence by month three. | 700 |
 | **Total** | **5,000** |
 
-Nothing here is padding; nothing here is optional without breaking something specific and named.
+Nothing here is padding; nothing here is optional without breaking something specific and named. If Hodder needs the price lower, the honest answer is we scale back what's in the engine — we don't strip workstreams while keeping the same scope label.
 
-What's included: everything in sections 03, 07, and 08. One number. No additional fees for in-scope work, no hourly extras, no project-management surcharge.
+### What's included
+Everything in sections 04, 05, 08, 09, and 10. One number. No additional fees for in-scope work, no hourly extras, no project-management surcharge.
 
-What sits outside the retainer (and would be quoted separately on agreement):
-- Paid media spend (the ad budget itself; we manage the campaigns at no extra fee).
-- Third-party tooling licenses retained in Hodder's name (e.g. Substack Pro tier, scheduling tools if you want them under your account rather than ours).
-- Additional commissioned shoots, should Hodder ever want new on-camera assets beyond Bear's existing footage and the actor-reading format.
-- Translation or localisation of assets into non-English markets.
+### What sits outside the retainer
+- **Paid media spend** — the ad budget itself, if Hodder wants to run paid; we manage campaigns at no extra fee.
+- **Third-party tooling licenses** held in Hodder's name — e.g. Substack Pro tier, scheduling tools if you want them under your account rather than ours.
+- **Additional commissioned shoots** — should Hodder ever want new on-camera assets beyond the theologian filming batch and existing Bear footage.
+- **Translation and localisation** of assets into non-English markets — when language editions roll, we'll quote that work separately and time-bound.
+- **The broader brand-integration role** — publisher-to-publisher relationships, megachurch tour, foreign-publisher dictation, and the like. You have flagged you'll hire separately for this; we plug into whoever holds that brief.
 
-**Term:** Rolling monthly after an initial 3-month commitment. 30 days' notice on either side after the initial period. The 3-month minimum is there because months 1 and 2 are front-loaded with rebuild work — we need to know the runway exists to make that investment worth it for both sides.
+### YouTube monetization revenue
+8-minute episodes are monetizable. Revenue allocation to be agreed — three reasonable treatments: (a) pooled and decided at year-end, (b) routed back into incremental content generation, (c) paid up to Hodder against the retainer. We have no commercial preference; happy to settle in the contracting step.
 
-**Invoicing:** Monthly in advance.
+### Term
+3-month minimum, then rolling monthly with 30 days' notice on either side. The 3-month minimum is there because months 1 and 2 are front-loaded with rebuild work (website, Substack stand-up, theologian filming batch) — the runway has to exist for that investment to be worth it for both sides.
 
-A bare quote summary fits on one page; the SOW lives in the appendix.
-
----
-
-## 11. Why BGV
-
-We wrote the strategy. We know the audiences, the tone, the calendar, and the channel stack because we built them. We already sit inside Bear's world, which means the three-times-a-year calendar-anchor coordination happens silently rather than via formal request.
-
-You are not hiring an agency to learn your brand. You are extending the team that already authored the playbook to also run it.
-
-One team, one number, one accountable point of contact. The book deserves the engine the strategy described. We are the people who can make sure that engine actually runs.
+### Invoicing
+Monthly in advance.
 
 ---
 
-## 12. Next steps
+## 12. Why BGV
+
+We wrote the strategy. We know the audiences, the calendar, the voice, the platform stack — because we built them. We already operate the BG channels (600K new followers since October, 300M views, 1M reach per day), which means the calendar-anchor coordination with Bear's team happens silently rather than via formal request. We already sit inside the Hodder relationship — Sol Fuel's reprint is including a GSET chapter and Jesse's introduction.
+
+You are not hiring an agency to learn this brand. You are extending the team that authored the playbook to operate it, at the pace the publishing world doesn't normally move at.
+
+One team, one number, one accountable point of contact. The book deserves the engine the strategy described.
+
+---
+
+## 13. Next steps
 
 Three things, in order:
 
-1. **Read this.** Push back on anything that doesn't sound right.
-2. **30-minute call** to walk through clarifications and any scope tuning you want.
-3. **Green light.** We start the day after sign-off. Month 1 onboarding triggers immediately.
+1. **Read this.** Push back on anything that doesn't sound right. Particular flags: the YouTube monetization treatment, the term length, the scope boundary between us and the separate brand-integration hire you're planning.
+2. **30-minute call** to walk through clarifications and any scope tuning.
+3. **Green light.** We start the week after sign-off. Month 1 onboarding triggers immediately; the theologian filming batch can be in calendars before the end of month 1.
 
-Within seven days of green light: asset audit complete, website rebuild kicked off, Substack stood up, first content batch in flight.
+Within seven days of green light: asset audit complete, website rebuild kicked off, Substack stood up, GSET YouTube channel branded, theologian shortlist out for booking, first content batch in flight.
 
 The engine is ready to run. Say when.
 
@@ -238,21 +259,26 @@ The engine is ready to run. Say when.
 **Client:** Hodder Faith
 **Operator:** Bear Grylls Ventures
 **Programme:** GSET — *The Greatest Story Ever Told* marketing engine
-**Retainer:** £5,000 / month, all-in (allocation table in section 10)
+**Lead:** Andy Lyon (Hodder Faith) ↔ [BGV PM name] (BGV)
+**Retainer:** £5,000 / month, all-in (allocation in section 11)
 **Term:** 3-month minimum, then rolling monthly, 30 days' notice
 **Invoicing:** Monthly in advance
-**Scope:** Sections 03, 07, 08 of this document
-**Excluded:** Paid media spend, third-party licenses in Hodder's name, additional commissioned shoots, non-English localisation
-**Single point of contact:** [BGV PM name]
-**Approval model:** Approved monthly content plan + right of recall on unshipped items
-**SLAs:** Urgent 48h, standard 7d, calendar-anchor content ready 2 weeks ahead
+**Scope:** Sections 04, 05, 08, 09, 10 of this document
+**Excluded:** Paid media spend, third-party licenses in Hodder's name, additional commissioned shoots, non-English localisation, the broader brand-integration role
+**YouTube monetization revenue:** Allocation to be agreed at contracting
+**SLAs:** Urgent 48h, standard 7d, calendar-anchor 2 weeks ahead, theologian batch booked 1 month ahead
+**Hard constraints:** No AI-generated content (Hachette policy)
+**Launch readiness:** Week-after-sign-off start
 
 ---
 
 ### Appendix B — Assumptions made in this draft
 
-1. The client is Hodder Faith and the named decision-maker is Andy at Hodder. If the actual counterparty is different, the addressee block and section 11 framing need a one-line revision.
-2. Bear's social team continues to coordinate his ~3 annual calendar-anchor posts via existing channels — we coordinate, they post. If you'd like us to take that posting layer directly, that's an addition to section 03.
-3. The audiobook is licensed for clip use across short-form platforms. If clip rights need a separate ask of the audiobook publisher, that's a month-1 onboarding item, not a blocker.
-4. The website redevelopment scope assumes a marketing site rebuild, not a custom e-commerce build. If Hodder wants direct-to-consumer book sales through the GSET site rather than the existing retail/Hodder routes, that's a scoping conversation — likely additional, time-bound, quoted separately.
-5. Deliverable volumes in section 07 are the floor, not the ceiling. If reader response in months 2–3 justifies a higher cadence in one workstream (e.g. Substack going to twice-weekly), we propose the rebalance at the quarterly review — not as a price uplift.
+1. **YouTube monetization** — we've left the revenue allocation open for contracting rather than picking a treatment. If you want a default position from us before that call, flag and we'll propose one.
+2. **Audiobook clip licensing** — the proposal assumes audiobook excerpt rights are usable for short-form clip distribution. If clip rights need a separate ask of the audiobook publisher, that's a month-1 onboarding item, not a blocker.
+3. **The Chosen / Passion of Christ footage** — short-form usage assumed to be acceptable. For YouTube monetization specifically, we will source written permission from The Chosen (Andy raised this; we agree it's the safer route) rather than rely on fair-use ambiguity.
+4. **No AI content** — explicit constraint per Hachette policy. We work within that; the BG AI Voice asset is not used for GSET content.
+5. **Domain** — the proposal assumes a rebuild of thegreateststoryevertoldbook.com or migration to a cleaner alternative. If Hodder has a preference, flag in the call.
+6. **The separate brand-integration hire** — assumed to be a freelancer or Hachette-internal placement under Andy's direct management. BGV's interface with that role is operational hand-offs; we don't manage them.
+7. **US guest pipeline** — names referenced (Levi Lusko, Kathie Lee Gifford pairing, Jonathan Rumi at book launch) are illustrative of the kind of US bench we'd build; specific bookings and timing depend on availability and Hodder introductions.
+8. **Deliverable volumes in section 09** are the floor, not the ceiling — over-performance triggers a rebalance proposal at the quarterly review, not a price uplift.
