@@ -54,97 +54,121 @@ body::after{
   display:flex;
 }
 
-/* Velvet fold texture */
+/* Photorealistic velvet — multi-layer pleats + organic grain */
 .curtain-l,.curtain-r{
   flex:0 0 50%;height:100%;
   will-change:transform;position:relative;
+  overflow:hidden;
 }
 
 .curtain-l{
   background:
+    /* Woven surface grain — fine cross-weave noise */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72 .24' numOctaves='4' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    /* Fine crinkle between pleats — ~36px micro-folds */
     repeating-linear-gradient(90deg,
-      rgba(0,0,0,.52) 0px,
-      rgba(0,0,0,.22) 6px,
-      rgba(0,0,0,.0) 13px,
-      rgba(255,210,210,.04) 17px,
-      rgba(255,255,255,.07) 20px,
-      rgba(255,210,210,.03) 23px,
-      rgba(0,0,0,.05) 28px,
-      rgba(0,0,0,.30) 36px,
-      rgba(0,0,0,.52) 42px,
-      rgba(0,0,0,.24) 49px,
-      rgba(0,0,0,.0) 56px,
-      rgba(255,210,210,.035) 60px,
-      rgba(255,255,255,.06) 63px,
-      rgba(255,210,210,.025) 66px,
-      rgba(0,0,0,.08) 72px,
-      rgba(0,0,0,.36) 78px,
-      rgba(0,0,0,.52) 86px
+      transparent 0,rgba(0,0,0,.20) 4px,rgba(0,0,0,.08) 9px,transparent 14px,
+      rgba(255,255,255,.06) 19px,transparent 24px,
+      rgba(0,0,0,.16) 29px,rgba(0,0,0,.06) 34px,transparent 36px
     ),
+    /* Primary deep velvet pleats — ~116px, varying shadow depths */
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.92) 0,rgba(0,0,0,.74) 3px,rgba(0,0,0,.42) 9px,rgba(0,0,0,.16) 18px,
+      rgba(0,0,0,.03) 27px,rgba(255,228,215,.04) 33px,rgba(255,255,255,.17) 38px,
+      rgba(255,228,215,.04) 44px,rgba(0,0,0,.06) 52px,rgba(0,0,0,.34) 62px,
+      rgba(0,0,0,.64) 72px,rgba(0,0,0,.84) 80px,rgba(0,0,0,.58) 87px,
+      rgba(0,0,0,.28) 94px,rgba(0,0,0,.08) 102px,rgba(0,0,0,.02) 109px,
+      rgba(255,255,255,.13) 113px,rgba(0,0,0,.02) 118px,rgba(0,0,0,.30) 126px,
+      rgba(0,0,0,.80) 134px,rgba(0,0,0,.92) 140px
+    ),
+    /* Stage overhead — warm amber top-light, shadow pools at base */
     linear-gradient(180deg,
-      #110205 0%, #4a0f1d 8%, #7a2232 25%,
-      #9b3548 45%, #8b2f3e 60%,
-      #6B1D2A 78%, #380c13 92%, #110205 100%
+      rgba(230,150,90,.28) 0%,rgba(200,115,70,.10) 18%,transparent 42%,
+      rgba(0,0,0,.20) 72%,rgba(0,0,0,.58) 100%
+    ),
+    /* Base deep crimson velvet */
+    linear-gradient(180deg,
+      #070104 0%,#260710 8%,#521422 19%,
+      #8c2438 33%,#aa3450 50%,
+      #962c44 66%,#581422 81%,#260710 94%,#070104 100%
     );
-  box-shadow:inset -32px 0 60px rgba(0,0,0,.7),inset -2px 0 10px rgba(0,0,0,.9);
+  box-shadow:inset -60px 0 96px rgba(0,0,0,.94),inset -5px 0 20px rgba(0,0,0,.98);
 }
 
 .curtain-l::after{
   content:'';position:absolute;right:0;top:0;bottom:0;
-  width:14px;
-  background:linear-gradient(90deg,transparent,rgba(0,0,0,.75));
+  width:22px;
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.85));
   z-index:2;
 }
 
 .curtain-r{
   background:
+    /* Woven surface grain — different seed for R panel */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72 .24' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    /* Fine crinkle — phase-shifted for right panel */
     repeating-linear-gradient(90deg,
-      rgba(0,0,0,.52) 0px,
-      rgba(0,0,0,.32) 8px,
-      rgba(0,0,0,.14) 14px,
-      rgba(0,0,0,.0) 20px,
-      rgba(255,210,210,.03) 24px,
-      rgba(255,255,255,.06) 27px,
-      rgba(255,210,210,.025) 30px,
-      rgba(0,0,0,.05) 36px,
-      rgba(0,0,0,.26) 44px,
-      rgba(0,0,0,.52) 50px,
-      rgba(0,0,0,.24) 56px,
-      rgba(0,0,0,.0) 62px,
-      rgba(255,210,210,.03) 66px,
-      rgba(255,255,255,.055) 69px,
-      rgba(0,0,0,.08) 74px,
-      rgba(0,0,0,.32) 80px,
-      rgba(0,0,0,.52) 86px
+      transparent 0,rgba(0,0,0,.17) 3px,rgba(0,0,0,.07) 8px,transparent 13px,
+      rgba(255,255,255,.05) 18px,transparent 23px,
+      rgba(0,0,0,.19) 29px,rgba(0,0,0,.07) 34px,transparent 36px
     ),
+    /* Primary deep velvet pleats — mirror-phase for right */
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.90) 0,rgba(0,0,0,.70) 4px,rgba(0,0,0,.38) 10px,rgba(0,0,0,.14) 20px,
+      rgba(0,0,0,.02) 30px,rgba(255,255,255,.15) 35px,rgba(255,228,215,.03) 40px,
+      rgba(0,0,0,.05) 50px,rgba(0,0,0,.32) 60px,rgba(0,0,0,.62) 70px,
+      rgba(0,0,0,.82) 78px,rgba(0,0,0,.54) 85px,rgba(0,0,0,.24) 92px,
+      rgba(0,0,0,.06) 100px,rgba(0,0,0,.02) 107px,rgba(255,255,255,.12) 112px,
+      rgba(0,0,0,.02) 117px,rgba(0,0,0,.28) 125px,rgba(0,0,0,.78) 133px,rgba(0,0,0,.90) 140px
+    ),
+    /* Stage overhead */
     linear-gradient(180deg,
-      #110205 0%, #4a0f1d 8%, #7a2232 25%,
-      #9b3548 45%, #8b2f3e 60%,
-      #6B1D2A 78%, #380c13 92%, #110205 100%
+      rgba(230,150,90,.28) 0%,rgba(200,115,70,.10) 18%,transparent 42%,
+      rgba(0,0,0,.20) 72%,rgba(0,0,0,.58) 100%
+    ),
+    /* Base deep crimson */
+    linear-gradient(180deg,
+      #070104 0%,#260710 8%,#521422 19%,
+      #8c2438 33%,#aa3450 50%,
+      #962c44 66%,#581422 81%,#260710 94%,#070104 100%
     );
-  box-shadow:inset 32px 0 60px rgba(0,0,0,.7),inset 2px 0 10px rgba(0,0,0,.9);
+  box-shadow:inset 60px 0 96px rgba(0,0,0,.94),inset 5px 0 20px rgba(0,0,0,.98);
 }
 
 .curtain-r::before{
   content:'';position:absolute;left:0;top:0;bottom:0;
-  width:14px;
-  background:linear-gradient(90deg,rgba(0,0,0,.75),transparent);
+  width:22px;
+  background:linear-gradient(90deg,rgba(0,0,0,.85),transparent);
   z-index:2;
 }
 
-/* Top pelmet bar */
+/* Top pelmet — decorative valance */
 .curtain-pelmet{
   position:absolute;top:0;left:0;right:0;
-  height:88px;z-index:4;
+  height:92px;z-index:4;
   will-change:transform;
-  background:linear-gradient(180deg,#0e0106 0%,#380c13 45%,#5c1624 80%,transparent 100%);
-  border-bottom:1px solid rgba(196,152,58,.3);
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.55) 0,rgba(0,0,0,.22) 5px,transparent 12px,
+      rgba(255,255,255,.07) 17px,transparent 22px,
+      rgba(0,0,0,.48) 28px,rgba(0,0,0,.55) 34px
+    ),
+    linear-gradient(180deg,#050103 0%,#2e0a12 28%,#581622 62%,transparent 100%);
+  border-bottom:2px solid rgba(196,152,58,.60);
+  box-shadow:0 3px 28px rgba(0,0,0,.80),0 2px 0 rgba(196,152,58,.22);
 }
+
+/* Hanging tassel fringe */
 .curtain-pelmet::after{
-  content:'';position:absolute;left:0;right:0;bottom:-8px;height:16px;
-  background:repeating-linear-gradient(90deg,#380c13 0px,#5c1624 8px,#4a1019 16px,#380c13 24px);
-  opacity:.75;
-  border-top:1px solid rgba(196,152,58,.18);
+  content:'';position:absolute;left:0;right:0;bottom:-18px;height:20px;
+  background:repeating-linear-gradient(90deg,
+    transparent 0px,transparent 4px,
+    rgba(196,152,58,.80) 4px,rgba(196,152,58,.80) 6px,
+    rgba(180,138,48,.55) 6px,rgba(180,138,48,.55) 8px,
+    transparent 8px,transparent 14px
+  );
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.0) 100%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.0) 100%);
 }
 
 /* Curtain centre text */
