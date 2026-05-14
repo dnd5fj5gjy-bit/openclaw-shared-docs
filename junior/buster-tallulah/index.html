@@ -59,7 +59,6 @@ body::after{
   flex:0 0 50%;height:100%;
   will-change:transform;position:relative;
   overflow:hidden;
-  filter:url(#velvetFold);
 }
 
 .curtain-l{
@@ -89,9 +88,9 @@ body::after{
     ),
     /* Base deep crimson velvet */
     linear-gradient(180deg,
-      #070104 0%,#200509 8%,#4a1019 19%,
-      #78202e 33%,#8B2F3E 50%,
-      #78202e 66%,#4a1019 81%,#200509 94%,#070104 100%
+      #060103 0%,#1e0508 8%,#461010 20%,
+      #751e22 34%,#8B2F3E 50%,
+      #751e22 66%,#461010 80%,#1e0508 92%,#060103 100%
     );
   box-shadow:inset -60px 0 96px rgba(0,0,0,.94),inset -5px 0 20px rgba(0,0,0,.98);
 }
@@ -129,9 +128,9 @@ body::after{
     ),
     /* Base deep crimson */
     linear-gradient(180deg,
-      #070104 0%,#200509 8%,#4a1019 19%,
-      #78202e 33%,#8B2F3E 50%,
-      #78202e 66%,#4a1019 81%,#200509 94%,#070104 100%
+      #060103 0%,#1e0508 8%,#461010 20%,
+      #751e22 34%,#8B2F3E 50%,
+      #751e22 66%,#461010 80%,#1e0508 92%,#060103 100%
     );
   box-shadow:inset 60px 0 96px rgba(0,0,0,.94),inset 5px 0 20px rgba(0,0,0,.98);
 }
@@ -508,16 +507,6 @@ section{position:relative;z-index:3}
 </head>
 <body>
 
-<!-- SVG filter: warp gradient fold lines so they look organic, not machine-generated -->
-<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-  <defs>
-    <filter id="velvetFold" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.026 0.058" numOctaves="4" seed="4" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-  </defs>
-</svg>
-
 <!-- ===== CURTAIN ===== -->
 <div class="curtain-wrap" id="curtainWrap">
   <div class="curtain-panels">
@@ -815,17 +804,32 @@ if (isMobile) {
     }
   });
 
-  // Perspective so curtains fold away in 3D — pivot near the top (curtain-rod position)
-  gsap.set('.curtain-panels', { perspective: 1300, perspectiveOrigin: '50% 6%' });
-  gsap.set(curtainL, { transformOrigin: '0% 3%' });
-  gsap.set(curtainR, { transformOrigin: '100% 3%' });
+  // Trailing fabric folds — linger at centre while main panels sweep away
+  // This creates the 'bunching in the middle' effect of real draped curtains
+  const panels = document.querySelector('.curtain-panels');
+  function mkFold(side) {
+    const f = document.createElement('div');
+    const isL = side === 'l';
+    f.style.cssText = `position:absolute;top:0;bottom:0;width:12%;pointer-events:none;will-change:transform;${isL ? 'right:50%' : 'left:50%'};background:${isL
+      ? 'linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.82) 4%,#461010 12%,#8B2F3E 38%,#8B2F3E 62%,#461010 88%,rgba(0,0,0,.82) 96%,rgba(0,0,0,0) 100%)'
+      : 'linear-gradient(270deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.82) 4%,#461010 12%,#8B2F3E 38%,#8B2F3E 62%,#461010 88%,rgba(0,0,0,.82) 96%,rgba(0,0,0,0) 100%)'}`;
+    panels.appendChild(f);
+    return f;
+  }
+  const foldL = mkFold('l');
+  const foldR = mkFold('r');
+
+  // 3D perspective: curtains pivot from the top rail and fold away as real fabric would
+  gsap.set(panels, { perspective: 1300, perspectiveOrigin: '50% 5%' });
 
   tl
     .to(curtainText, { opacity: 0, scale: 0.97, ease: 'power1.in', duration: 0.28 }, 0)
-    // Left curtain: slides left AND folds away from viewer — bottom swings out (drape physics)
-    .to(curtainL, { xPercent: -100, rotateY: -32, ease: 'power2.inOut', duration: 1 }, 0)
-    // Right curtain: mirror
-    .to(curtainR, { xPercent: 100, rotateY: 32, ease: 'power2.inOut', duration: 1 }, 0)
+    // Main panels rotate in 3D as they slide — bottom swings out then folds away
+    .to(curtainL, { xPercent: -100, rotateY: -30, transformOrigin: '0% 4%', ease: 'power2.inOut', duration: 1 }, 0)
+    .to(curtainR, { xPercent: 100, rotateY: 30, transformOrigin: '100% 4%', ease: 'power2.inOut', duration: 1 }, 0)
+    // Trailing folds: very slow start, then rush away — lingers at centre like gathered fabric
+    .to(foldL, { xPercent: -100, ease: 'power3.in', duration: 1 }, 0.04)
+    .to(foldR, { xPercent: 100, ease: 'power3.in', duration: 1 }, 0.04)
     .to(curtainPelmet, { yPercent: -100, ease: 'power2.inOut', duration: 0.65 }, 0.22);
 }
 
