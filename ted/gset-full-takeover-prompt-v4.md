@@ -50,13 +50,13 @@ Reference allocation (use, adjust if the workstream split changes):
 
 | Workstream | £ / month |
 |---|---:|
-| Content production — audio and visual editing across all formats | 1,200 |
-| Distribution and posting across all channels | 750 |
-| Substack — depth engine | 750 |
-| Website — rebuild then ongoing management | 800 |
-| Community and reader-testimony loop | 400 |
-| Brand stewardship and voice consistency | 350 |
-| Operations — single point of contact, reporting, Bear-team coordination | 750 |
+| Content production — audio and visual editing across all formats | 1,400 |
+| Distribution and posting across all channels | 500 |
+| Substack — depth engine | 500 |
+| Website — rebuild then ongoing management | 1,000 |
+| Community and reader-testimony engine (the line that closes the loop) | 500 |
+| Brand stewardship and voice integrity (one voice across five audiences and seven surfaces) | 400 |
+| Operations — single accountable owner, reporting, Bear-team coordination | 700 |
 | **Total** | **5,000** |
 
 Each row must come with a one-line justification *why removing it breaks something specific*. The table is the airtight version of "every line essential" — designed so a procurement reader looking for cuts finds no obvious target.
