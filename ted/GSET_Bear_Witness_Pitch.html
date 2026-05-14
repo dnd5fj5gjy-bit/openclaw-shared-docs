@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Greatest Story Ever Told — Proposal for Hodder Faith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --gold-light: #D4A05A;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+  }
+  nav.scrolled {
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+  }
+  .nav-logo em {
+    font-style: italic;
+    color: var(--burgundy);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--charcoal-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--burgundy); }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 7rem 2.5rem;
+    position: relative;
+  }
+  section.dark {
+    background: var(--ink-deep);
+    color: var(--cream);
+  }
+  section.dark h1, section.dark h2, section.dark h3, section.dark h4 {
+    color: var(--cream);
+  }
+  section.cream-dark { background: var(--cream-dark); }
+  section.off-white { background: var(--off-white); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .container-wide {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--burgundy);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+  section.dark .section-tag {
+    color: var(--gold-light);
+  }
+  .section-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .section-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--charcoal-light);
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+  }
+  section.dark .section-lead {
+    color: rgba(245, 240, 232, 0.78);
+  }
+
+  p { margin-bottom: 1.15rem; }
+  p:last-child { margin-bottom: 0; }
+  section.dark p { color: rgba(245, 240, 232, 0.82); }
+
+  strong { font-weight: 500; color: var(--charcoal); }
+  section.dark strong { color: var(--cream); }
+
+  em { font-style: italic; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2.5rem 6rem;
+    background: linear-gradient(165deg, var(--cream) 0%, var(--cream-dark) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(122, 42, 32, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(44, 95, 74, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-content {
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--burgundy);
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.015em;
+  }
+  .hero h1 em {
+    color: var(--burgundy);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: 1.25rem;
+    color: var(--charcoal-light);
+    margin-bottom: 3rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--charcoal-light);
+    flex-wrap: wrap;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '•';
+    margin-left: 2.5rem;
+    color: var(--burgundy);
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--charcoal-light);
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+    50% { transform: translate(-50%, 8px); opacity: 1; }
+  }
+
+  /* ===== REVEAL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== STAT GRID ===== */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3.5rem 0;
+  }
+  .stat {
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--burgundy);
+    margin-bottom: 0.6rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    color: var(--charcoal-light);
+    line-height: 1.5;
+  }
+  section.dark .stat { border-top-color: rgba(245, 240, 232, 0.18); }
+  section.dark .stat-number { color: var(--gold-light); }
+  section.dark .stat-label { color: rgba(245, 240, 232, 0.75); }
+
+  /* ===== PROPOSITION CARD ===== */
+  .proposition {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 4rem 3.5rem;
+    margin: 3.5rem 0;
+    border-left: 4px solid var(--gold);
+    position: relative;
+  }
+  .proposition-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+  }
+  .proposition-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.3;
+    color: var(--cream);
+  }
+  .proposition-text em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* ===== PRIORITY CARDS ===== */
+  .priority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .priority {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(245, 240, 232, 0.12);
+    padding: 2.2rem 2rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .priority:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+  }
+  .priority-rank {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+  .priority h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ===== ENGINE LOOP DIAGRAM ===== */
+  .engine-loop {
+    margin: 3.5rem 0;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    padding: 3rem 2rem;
+    border-radius: 4px;
+  }
+  .loop-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+    align-items: stretch;
+  }
+  .loop-stage {
+    text-align: center;
+    padding: 1.4rem 0.8rem;
+    background: var(--cream);
+    border-radius: 4px;
+    position: relative;
+    border: 1px solid var(--rule-light);
+  }
+  .loop-stage h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .loop-stage p {
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .loop-arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin: 0 -0.2rem;
+    align-self: center;
+  }
+  .loop-footnote {
+    margin-top: 1.8rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--charcoal-light);
+    font-style: italic;
+  }
+
+  /* ===== CHANNEL CARDS ===== */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+    margin-top: 3rem;
+  }
+  .channel-card {
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .channel-card:hover {
+    border-color: var(--burgundy);
+    box-shadow: 0 6px 20px rgba(42, 42, 42, 0.06);
+  }
+  .channel-card.active {
+    border-color: var(--burgundy);
+    box-shadow: 0 6px 24px rgba(122, 42, 32, 0.1);
+  }
+  .channel-header {
+    padding: 2rem 2rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .channel-header-text {
+    flex: 1;
+  }
+  .channel-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--charcoal-light);
+    margin-bottom: 0.6rem;
+  }
+  .channel-card h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.5rem;
+  }
+  .channel-role {
+    font-size: 0.95rem;
+    color: var(--burgundy);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .channel-toggle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--burgundy);
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 0.35s ease, background 0.3s ease;
+  }
+  .channel-card.active .channel-toggle {
+    transform: rotate(45deg);
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+  .channel-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+  }
+  .channel-card.active .channel-detail {
+    max-height: 1200px;
+  }
+  .channel-detail-inner {
+    padding: 0 2rem 2.2rem;
+    border-top: 1px solid var(--rule-light);
+    padding-top: 1.5rem;
+    margin-top: 0.4rem;
+  }
+  .channel-detail p {
+    font-size: 0.95rem;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+  }
+  .channel-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+  .channel-detail li {
+    padding-left: 1.4rem;
+    position: relative;
+    font-size: 0.92rem;
+    color: var(--charcoal-light);
+    margin-bottom: 0.55rem;
+    line-height: 1.55;
+  }
+  .channel-detail li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ===== DELIVERABLE TABLE ===== */
+  .table-wrap {
+    margin-top: 2.5rem;
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--off-white);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+  }
+  th, td {
+    padding: 1.05rem 1.3rem;
+    text-align: left;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  th {
+    background: var(--cream-dark);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--charcoal);
+  }
+  td { color: var(--charcoal-light); }
+  td:first-child { color: var(--charcoal); font-weight: 400; }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* ===== COMMERCIAL TABLE WITH TOOLTIPS ===== */
+  .commercial-table tr {
+    cursor: help;
+    transition: background 0.2s ease;
+    position: relative;
+  }
+  .commercial-table tbody tr:hover {
+    background: var(--cream);
+  }
+  .commercial-total {
+    background: var(--ink-deep) !important;
+    color: var(--cream) !important;
+  }
+  .commercial-total td {
+    color: var(--cream) !important;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    border-bottom: none;
+  }
+  .commercial-table td:first-child {
+    width: 45%;
+  }
+  .commercial-table td:nth-child(2) {
+    width: 15%;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--burgundy);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .commercial-table td:nth-child(3) {
+    width: 40%;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--charcoal-light);
+  }
+
+  /* ===== PHASING TIMELINE ===== */
+  .phase-timeline {
+    margin-top: 3rem;
+    position: relative;
+  }
+  .phase-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .phase-row:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .phase-label {
+    font-family: 'DM Serif Display', serif;
+    color: var(--burgundy);
+  }
+  .phase-month {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--charcoal-light);
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 0.4rem;
+  }
+  .phase-title {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+  .phase-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .phase-content li {
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.55rem;
+    color: var(--charcoal-light);
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+  .phase-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 8px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ===== COMPARISON ===== */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .comp-col {
+    padding: 2.5rem 2rem;
+    border-radius: 4px;
+    position: relative;
+  }
+  .comp-col.alt {
+    background: rgba(42, 42, 42, 0.04);
+    border: 1px solid var(--rule);
+  }
+  .comp-col.us {
+    background: var(--ink-deep);
+    color: var(--cream);
+    border: 1px solid var(--gold);
+  }
+  .comp-badge {
+    position: absolute;
+    top: -12px;
+    right: 1.5rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+  .comp-col h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .comp-col.us h4 { color: var(--cream); }
+  .comp-col ul { list-style: none; padding: 0; }
+  .comp-col li {
+    padding: 0.55rem 0 0.55rem 1.6rem;
+    position: relative;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+  .comp-col.alt li {
+    color: var(--charcoal-light);
+  }
+  .comp-col.alt li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1em;
+    width: 5px;
+    height: 5px;
+    background: rgba(42, 42, 42, 0.3);
+    border-radius: 50%;
+  }
+  .comp-col.us li {
+    color: rgba(245, 240, 232, 0.85);
+  }
+  .comp-col.us li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    color: var(--gold-light);
+    font-size: 0.95rem;
+  }
+
+  /* ===== MEASUREMENT LAYERS ===== */
+  .measure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+    margin-top: 2.5rem;
+  }
+  .measure-card {
+    background: var(--off-white);
+    padding: 2rem 1.8rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .measure-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(42, 42, 42, 0.05);
+  }
+  .measure-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--burgundy);
+    margin-bottom: 0.4rem;
+  }
+  .measure-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+  }
+  .measure-card p {
+    font-size: 0.92rem;
+    color: var(--charcoal-light);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ===== WHY BGV ===== */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .why-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(245, 240, 232, 0.12);
+    padding: 2.2rem 2rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .why-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+  }
+  .why-rank {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .why-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .why-card p {
+    font-size: 0.94rem;
+    color: rgba(245, 240, 232, 0.78);
+    line-height: 1.65;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    text-align: center;
+    padding: 8rem 2.5rem;
+    background: var(--cream-dark);
+  }
+  .cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  .cta-section .section-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-steps {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 3rem 0 3.5rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-step {
+    padding: 0 1.6rem;
+    border-left: 1px solid var(--rule);
+    text-align: left;
+    min-width: 180px;
+  }
+  .cta-step:first-child { border-left: none; }
+  .cta-step-num {
+    font-family: 'DM Serif Display', serif;
+    color: var(--burgundy);
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .cta-step p {
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+    margin: 0;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 1.1rem 2.5rem;
+    background: var(--ink-deep);
+    color: var(--cream);
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .cta-button:hover {
+    background: var(--burgundy);
+    transform: translateY(-2px);
+  }
+  .signature {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--charcoal-light);
+    font-size: 0.95rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink-deep);
+    color: rgba(245, 240, 232, 0.6);
+    padding: 2rem 2.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ===== VOICE NOTE ===== */
+  .note-card {
+    background: var(--off-white);
+    border-left: 3px solid var(--burgundy);
+    padding: 1.8rem 2rem;
+    margin-top: 2.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .note-card p {
+    font-size: 0.94rem;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+  }
+  .note-card strong {
+    color: var(--charcoal);
+  }
+
+  /* ===== TWO COLUMN PROSE ===== */
+  .two-col-prose {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .two-col-prose h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--burgundy);
+  }
+  section.dark .two-col-prose h4 { color: var(--gold-light); }
+
+  /* ===== POPUP MODAL ===== */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 42, 56, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .modal-backdrop.open {
+    display: flex;
+  }
+  .modal {
+    background: var(--off-white);
+    max-width: 540px;
+    width: 100%;
+    padding: 3rem 2.8rem;
+    border-radius: 6px;
+    position: relative;
+    border-top: 3px solid var(--gold);
+  }
+  .modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--charcoal-light);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.4rem 0.6rem;
+  }
+  .modal-close:hover { color: var(--burgundy); }
+  .modal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .modal p {
+    color: var(--charcoal-light);
+    font-size: 0.96rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4.5rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+    .stat-grid, .priority-grid, .channel-grid, .measure-grid, .why-grid, .two-col-prose, .comparison {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .loop-stages { grid-template-columns: 1fr; gap: 0.5rem; }
+    .loop-arrow { transform: rotate(90deg); margin: 0.3rem 0; }
+    .phase-row { grid-template-columns: 1fr; gap: 0.8rem; }
+    .hero-meta { gap: 1rem; }
+    .hero-meta span:not(:last-child)::after {
+      margin-left: 1rem;
+    }
+    .proposition { padding: 2.5rem 1.8rem; }
+    .commercial-table td:nth-child(3) { display: none; }
+    .commercial-table td:first-child { width: 65%; }
+    .commercial-table td:nth-child(2) { width: 35%; }
+    .cta-steps { flex-direction: column; align-items: stretch; }
+    .cta-step { border-left: none; border-top: 1px solid var(--rule); padding: 1.2rem 0; }
+    .cta-step:first-child { border-top: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-logo">Bear Witness <em>×</em> Hodder Faith</div>
+  <div class="nav-links">
+    <a href="#context">Context</a>
+    <a href="#proposal">Proposal</a>
+    <a href="#engine">The Engine</a>
+    <a href="#measurement">Measurement</a>
+    <a href="#commercial">Commercial</a>
+    <a href="#next">Next Steps</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Proposal for Hodder Faith — May 2026</div>
+    <h1 class="reveal">The Greatest <em>Story</em><br />Ever Told</h1>
+    <p class="hero-sub reveal">A proposal from Bear Witness to operate the full marketing and brand engine for the biggest Christian title Hodder Faith has published in a generation.</p>
+    <div class="hero-meta reveal">
+      <span>Prepared for Hodder Faith</span>
+      <span>Prepared by Bear Witness</span>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ============ CONTEXT ============ -->
+<section id="context">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">01 — Where we are</div>
+      <h2 class="section-heading">A UK success compounding. A US market wide open.</h2>
+      <p class="section-lead">The Greatest Story Ever Told sold 300,000 copies in the UK in its first eight months. That is already half of <em>The Shack</em>'s entire UK lifetime, done in a fraction of the time, for a book whose author was not previously a faith publisher's lead voice.</p>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="stat">
+        <div class="stat-number">300K</div>
+        <div class="stat-label">UK copies sold in 8 months</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">#1</div>
+        <div class="stat-label">Sunday Times debut, first ever for a Hodder Faith Christian title</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4.8★</div>
+        <div class="stat-label">across 1,400+ Amazon reviews</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p>The book debuted at #1 on the Sunday Times. Reader reactions consistently compare it to <em>The Chosen</em>. Bear has called it the proudest thing he has ever done.</p>
+      <p>That is a UK story compounding under its own momentum. The strategic gap is the United States.</p>
+      <p>The US Christian book market is roughly fifty times the size of the UK's. It is up 40% since COVID. The appetite is at a generational high. And Bear, universally known in the US, is <em>not yet</em> known there as a person of faith in the way he is in the UK. The bridge between Bear-as-explorer and Bear-as-faith-author has been built here. It has not been built there.</p>
+      <p>That is the work to do.</p>
+      <p>The strategic question for Hodder Faith is no longer "how do we promote this book." It is "how do we operate the brand of the biggest Christian title we've published in a generation, across two geographies and the start of an international rollout, without losing the momentum we have."</p>
+      <p>To do that, you need an operating engine. An engine that produces content, distributes it, holds the voice, builds owned audience, and proves attribution back to retail, every week, against a calendar that already exists.</p>
+      <p>This proposal puts Bear Witness behind the wheel of that engine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPOSAL ============ -->
+<section id="proposal" class="off-white">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">02 — What we are proposing</div>
+      <h2 class="section-heading">One team. One number. One decision.</h2>
+    </div>
+
+    <div class="proposition reveal">
+      <div class="proposition-label">The proposition</div>
+      <p class="proposition-text">Bear Witness operates the full marketing and brand engine for GSET, end-to-end, for <em>£5,000 per month, all-in.</em></p>
+    </div>
+
+    <div class="reveal">
+      <p>One retainer. One accountable team. One set of deliverables landing every week. The proposition replaces the US-based brand manager hire Hodder has green-lit. It does not augment it. It replaces it.</p>
+    </div>
+
+    <div class="comparison reveal">
+      <div class="comp-col alt">
+        <h4>The brand manager hire</h4>
+        <ul>
+          <li>One person doing the job of seven, good at one or two things and stretched on the rest</li>
+          <li>Needs an agency network around them to ship at volume, which then needs managing</li>
+          <li>Six months to recruit, six months to function</li>
+          <li>Sits outside Bear's content world, asking permission for assets and approvals</li>
+          <li>Fragments the creative work across multiple owners</li>
+        </ul>
+      </div>
+      <div class="comp-col us">
+        <div class="comp-badge">Recommended</div>
+        <h4>Bear Witness as full operator</h4>
+        <ul>
+          <li>Content team, distribution team, editor, website operator, community lead, brand custodian, account lead, already assembled</li>
+          <li>One number, one accountable owner, no agency stitching</li>
+          <li>Starts the Monday the green light lands</li>
+          <li>Inside Bear's content world end-to-end, no permission gates</li>
+          <li>Wrote the strategy the engine runs on</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-card reveal">
+      <p><strong>The boundary.</strong> What's excluded, and where Hodder will still hire separately, is the broader brand-integration role: publisher-to-publisher relationships, foreign-language coordination, the US megachurch tour, and the chairman-level industry stewardship that requires a Hachette-internal seat. That is a different job. We are not pitching for it. The two roles work side by side. The brand-integration hire makes the introductions and opens the doors. We turn every one of those moments into content, audience, and attribution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIORITIES ============ -->
+<section class="dark">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">03 — The job to be done</div>
+      <h2 class="section-heading">Three priorities, in this order. We mean the order.</h2>
+    </div>
+
+    <div class="priority-grid reveal">
+      <div class="priority">
+        <div class="priority-rank">01</div>
+        <h3>Close the US gap</h3>
+        <p>Twelve months of presence and authority in the US Christian audience. A US-facing voice on every channel. A pipeline of US faith voices championing the book. Geo-isolated tracking. Active alignment with the named collab pipeline: Levi Lusko, Kathie Lee Gifford, the Liberty scholar, Jonathan Roumie when his Hodder title lands, <em>The Shack</em>'s autumn relaunch for halo.</p>
+      </div>
+      <div class="priority">
+        <div class="priority-rank">02</div>
+        <h3>Compound the UK</h3>
+        <p>The UK is doing the work. It needs to be sustained, not reinvented. Daily presence on UK-relevant channels. The calendar anchors operated properly: Lent, Holy Week, Pentecost, the one-year anniversary in June, autumn church push, Advent. The church partnership programme expanded into a permanent, always-on starter pack.</p>
+      </div>
+      <div class="priority">
+        <div class="priority-rank">03</div>
+        <h3>Set up international</h3>
+        <p>GSET sells in ten languages already. Brazil, the most Christian country on Earth, sits unmoved. That changes inside year one. Spanish and Portuguese channels mirrored from the master stack. A repeatable model: any new language edition plugs into the engine inside thirty days. By month nine, active and growing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENGINE ============ -->
+<section id="engine">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">04 — How the engine works</div>
+      <h2 class="section-heading">A loop, not a funnel.</h2>
+      <p class="section-lead">The engine is built as a single integrated system. Six channels, each with a specific job, each feeding the others. No channel works on its own. None of them is the centre. The whole loop is the deliverable.</p>
+    </div>
+
+    <div class="engine-loop reveal">
+      <div class="loop-stages">
+        <div class="loop-stage">
+          <h4>Discover</h4>
+          <p>Catch people who weren't looking. Short-form on TikTok, Reels, Shorts. YouTube search.</p>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-stage">
+          <h4>Engage</h4>
+          <p>Give them a reason to stay. YouTube long-form. Instagram daily presence.</p>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-stage">
+          <h4>Relate</h4>
+          <p>Turn interest into relationship. Substack subscriptions. Facebook reading community.</p>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-stage">
+          <h4>Act</h4>
+          <p>Convert with no friction. Website with geo-routed retail tree. Tracker layer throughout.</p>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-stage">
+          <h4>Give</h4>
+          <p>Readers become the campaign. Gifting, reader testimony, church group adoption.</p>
+        </div>
+      </div>
+      <div class="loop-footnote">Readers who give a copy create the next reader's moment of discovery. The loop feeds itself.</div>
+    </div>
+
+    <div class="reveal">
+      <p>Most publisher marketing treats platforms as separate megaphones: post the same message everywhere, hope it reaches someone. That fails because it asks every platform to do the same job. In this engine, each platform has one job. Content travels between them in a specific direction. The platforms are not silos. They form a journey.</p>
+      <p>What follows is each channel and the specific role it plays. Click any card to expand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHANNELS ============ -->
+<section id="channels" class="off-white">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">05 — The channels</div>
+      <h2 class="section-heading">Six channels. One engine.</h2>
+    </div>
+
+    <div class="channel-grid">
+
+      <!-- YouTube -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Search and permanence</div>
+            <h3>YouTube</h3>
+            <p class="channel-role">The library that compounds for years</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>YouTube is a search engine that happens to play video. Five years from now, someone searching <em>"who was Jesus," "Gospel retelling," "books like The Chosen,"</em> or <em>"Bear Grylls faith"</em> should find this channel. A video uploaded in June 2026 still earns watch-time and book sales in June 2030. Of every platform in the stack, this is the one whose work compounds longest.</p>
+            <p><strong>Two episodes a week, every week.</strong></p>
+            <ul>
+              <li><strong>Episode A — The Reading.</strong> Eight to twelve minutes. The book itself, read from the audiobook master, with editor-added soundscape and ambient audio. The door creaks open. The storm rises. The crowd noise builds. A modern audio-driven reading that does what reviewers keep saying the book does: makes the familiar feel new.</li>
+              <li><strong>Episode B — The Unpacking.</strong> Eight to twelve minutes. A theologian sits with the same passage. Where it sits in the Hebrew scriptures. What the original audience would have heard. The historical setting. The same scholars who fact-checked GSET have a permanent role here.</li>
+              <li><strong>The math.</strong> 52 weeks. 2 episodes. 104 episodes per year as the base layer.</li>
+              <li><strong>Batch production.</strong> The full theologian cycle filmed in a three-day batch shoot, refreshed every six months.</li>
+              <li><strong>Self-funding.</strong> 8-minute minimum hits the YouTube ad threshold. The channel pays for itself over time, with revenue treatment open: pooled production budget, retainer credit, or P&amp;L line.</li>
+              <li><strong>The source layer for everything else.</strong> Every YouTube episode is the raw material for short-form across TikTok, Reels, and Shorts. Re-cut, never cross-posted. One shoot, infinite outputs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Short-form -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Discovery</div>
+            <h3>Short-form — TikTok, Reels, Shorts</h3>
+            <p class="channel-role">The hook that catches people who weren't looking</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>Where the audience meets the book without having gone looking for it. Three to five clips per week, per platform, each re-cut for the platform's grammar. The crucifixion scenes from the audiobook. Shimon's failure. Maryam of Magdala at the tomb. Theologian moments that stop a scroll.</p>
+            <ul>
+              <li><strong>Source one: the YouTube engine itself.</strong> Every long-form episode is sliced into multiple short-form cuts, each engineered for one platform.</li>
+              <li><strong>Source two: BG-activated content.</strong> Existing footage of Bear reading the book, podcast clips (Eldredge, Brierley, Metaxas, Will Cain), ChosenCon, press interviews. Hours of usable material already in the bank.</li>
+              <li><strong>Source three: licensed visual atmosphere.</strong> Passion of the Christ, RRR archival, and <em>The Chosen</em> footage where permission can be cleared, set against the audiobook's emotional beats.</li>
+              <li><strong>Every clip points one stage deeper into the engine.</strong> Discovery is wasted if there is nowhere to go after it.</li>
+              <li><strong>Geo-locked variants</strong> on TikTok and Reels to isolate UK and US activity for clean measurement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Substack -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Depth and ownership</div>
+            <h3>Substack</h3>
+            <p class="channel-role">The only owned email list in the stack</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>Substack is the most strategically important channel after YouTube, because it is the only one that gives Hodder an <em>owned</em> email list. Algorithms can take TikTok and Instagram away tomorrow. They cannot take Substack away. Twelve months in, this subscriber list is the single most valuable owned asset GSET has.</p>
+            <ul>
+              <li><strong>A standalone GSET Substack.</strong> Separate from Bear's personal one. Weekly cadence.</li>
+              <li><strong>Content recipe.</strong> Theologian YouTube transcripts edited and tightened into proper essays. Hodder's offer of an editorial pass is gratefully accepted.</li>
+              <li><strong>Reader letters and spotlights.</strong> Curated reader stories appearing twice a month, with permission, in the editorial.</li>
+              <li><strong>Seasonal series.</strong> Lenten reading companion, Advent calendar, Pentecost sequence.</li>
+              <li><strong>Discussion guides</strong> for church groups, downloadable, free, gated only by email signup.</li>
+              <li><strong>The reader-not-follower distinction.</strong> A Substack subscriber has given an email address and opted in to weekly contact. That is a different commercial asset to a social follower.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Daily presence</div>
+            <h3>Instagram</h3>
+            <p class="channel-role">The heartbeat between peaks</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>The book does not need to be selling on Instagram. It needs to be <em>familiar</em>, so when a calendar peak arrives the audience already knows it. Steady, consistent, always there.</p>
+            <ul>
+              <li><strong>Five feed posts a week, plus stories.</strong> Designed quote cards, audiograms, reader-testimony spotlights, theologian-of-the-week, behind-the-scenes from the YouTube shoots.</li>
+              <li><strong>Reels share the short-form stack</strong> but get their own platform-native treatment.</li>
+              <li><strong>Saves and shares</strong> over likes as the success metric. Content that travels DM-to-friend matters more than reach.</li>
+              <li><strong>Bio always points one stage deeper</strong> into Substack or the website.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Community</div>
+            <h3>Facebook</h3>
+            <p class="channel-role">The reading community and the structured cohorts</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>Facebook is undervalued by book marketers and over-served by faith audiences. It is where the book's natural readers actually are. Two distinct mechanics:</p>
+            <ul>
+              <li><strong>The GSET reading community group.</strong> Moderated by us, self-sustaining within ninety days. Discussion prompts twice a week, reader-led from there. Church group leaders find each other and exchange materials. A permanent home that members invite their friends into.</li>
+              <li><strong>Read-along reading groups.</strong> Structured five-week reads, one per eyewitness perspective, fully facilitated. People sign up, get a weekly prompt, a passage, a discussion question, and access to a private cohort. By year-end, several thousand readers have moved through one.</li>
+              <li><strong>Geo-locked posts</strong> split UK and US activity for clean measurement. This is also the cleanest way to isolate the US sales-correlation signal Hodder asked for.</li>
+              <li><strong>Page activity</strong> mirrors Instagram, with Facebook-native formats and community tone.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div class="channel-card reveal" onclick="toggleChannel(this)">
+        <div class="channel-header">
+          <div class="channel-header-text">
+            <div class="channel-tag">Conversion and attribution</div>
+            <h3>The website</h3>
+            <p class="channel-role">The only piece Hodder fully owns</p>
+          </div>
+          <div class="channel-toggle">+</div>
+        </div>
+        <div class="channel-detail">
+          <div class="channel-detail-inner">
+            <p>The existing <em>thegreateststoryevertoldbook.com</em> serves a purpose. It is not the home this brand needs. We rebuild it as the permanent central hub. The only piece of infrastructure with no algorithm in the way, and the only piece that can prove the marketing is working.</p>
+            <ul>
+              <li><strong>Geo-routed retail link tree.</strong> UK visitors see Amazon UK, Waterstones, Bookshop.org, St Andrews. US visitors see Amazon US, Barnes &amp; Noble, Bookshop.org US. Foreign editions appear as they roll out.</li>
+              <li><strong>Geo-detected cover swap.</strong> US visitors see the US cover. UK visitors see the UK cover. Future foreign editions served in their respective markets.</li>
+              <li><strong>Auto-pulled Substack journal.</strong> Every new article appears in the site's journal section without manual republishing.</li>
+              <li><strong>Embedded social feeds, events page, tracker links throughout.</strong> Every outbound click attributed by source, geography, and campaign.</li>
+              <li><strong>Build phase month one. Live by end of month two.</strong></li>
+            </ul>
+            <p style="margin-top: 1.4rem;"><strong>One note: no LinkedIn.</strong> LinkedIn audiences are not the audiences for this book. They are professional, transactional, and behaviourally cold to faith content. Time spent there is time taken from the channels that work.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEASUREMENT ============ -->
+<section id="measurement" class="cream-dark">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">06 — Measurement</div>
+      <h2 class="section-heading">How we'll prove this works.</h2>
+      <p class="section-lead">Hodder asked the right question on the call: how does this lead to book sales? The honest answer is that book sales are a lagging indicator with retail noise on top, and no marketing operator can give a perfectly clean attribution chain. What we can give you is a signal layer that, taken together, tells you the engine is working and tells Hodder where to lean.</p>
+    </div>
+
+    <div class="measure-grid reveal">
+      <div class="measure-card">
+        <div class="measure-num">01</div>
+        <h4>Direct attribution</h4>
+        <p>Every outbound retail click from the website is tagged. Every link in every Substack post is tagged. Every social bio link is tagged. We will tell you, within a week, how many readers reached a retail page through which channel. We won't see what they bought once they got there. Retail doesn't share that. We see volume and geography, and that is enough.</p>
+      </div>
+      <div class="measure-card">
+        <div class="measure-num">02</div>
+        <h4>Geo-isolated velocity</h4>
+        <p>Geo-locked Facebook content, US-targeted Substack campaigns, and US-cover web routing produce a measurable US-specific traffic line. We compare its movement to Hodder's US retail velocity reports month over month. Correlation is not proof. But if US web sessions and US Substack subscribers climb while US retail velocity climbs, the marketing is moving the needle.</p>
+      </div>
+      <div class="measure-card">
+        <div class="measure-num">03</div>
+        <h4>Engine analytics</h4>
+        <p>YouTube watch time. Substack subscriber growth. Facebook Group active membership. Instagram saves and shares. Short-form view-through rates. These tell us whether the engine itself is healthy: whether content is finding audience, and whether audience is converting deeper into the loop. Reported monthly in a single dashboard.</p>
+      </div>
+      <div class="measure-card">
+        <div class="measure-num">04</div>
+        <h4>Qualitative signal</h4>
+        <p>Reader testimonies. Comment quality. The kind of DMs that come in. The church groups starting up. The readers who write to say they have given the book to someone. The data that does not appear on a spreadsheet but matters more than any of it. Tracked, surfaced, and reported.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top: 3rem;">
+      <p style="font-size: 1rem;"><strong>Reporting cadence.</strong> One monthly summary document. A weekly check-in covers the operational layer. A quarterly strategy review covers the three-month horizon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEAR / VOICE ============ -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">07 — Voice, audiences, Bear's role</div>
+      <h2 class="section-heading">The things that do not change because the operator changed.</h2>
+      <p class="section-lead">The handover strategy document settled these answers already. They hold whether the engine is operated in-house at Hodder or by Bear Witness. They are listed here for completeness.</p>
+    </div>
+
+    <div class="two-col-prose reveal">
+      <div>
+        <h4>Audiences</h4>
+        <p>Five problems remain the five content pillars: <em>"I don't know the story," "I want to share my faith," "the Bible feels impenetrable," "I've lost the feeling," "I want my kids to engage."</em> Each pillar gets its share of weekly output, weighted toward US-relevant framings where the channels are US-targeted.</p>
+        <h4>Voice</h4>
+        <p>Warm, direct, invitational, never preachy, never salesy. Bear's own published words supply the strongest tone: the audiobook, the book itself, the existing video interviews. Our voice is the friend who genuinely loved the book and wants to talk about it.</p>
+      </div>
+      <div>
+        <h4>Bear's role on GSET</h4>
+        <p>Unchanged from the handover document. Roughly three calendar-anchor posts per year on his personal channels: Easter, Christmas, anniversary. Written by his team and approved by him. Occasional story reposts when content earns them. No filming briefs. No requests for new content. No Bear-dependency in the operating model.</p>
+        <h4>A hard line on AI</h4>
+        <p>Hachette policy. No AI-generated voice. No AI-generated imagery. No AI in covers or marketing creative. Where AI tools are used for backend processes (transcription, scheduling, analytics), they sit outside the creative output and are never used to generate published content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPERATING MODEL ============ -->
+<section class="dark">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">08 — Operating model</div>
+      <h2 class="section-heading">One owner. One rhythm.</h2>
+    </div>
+
+    <div class="two-col-prose reveal">
+      <div>
+        <h4>Single point of contact</h4>
+        <p>One name at Bear Witness, one name at Hodder. All requests, queries, approvals route through that person on both sides.</p>
+        <h4>Weekly check-in</h4>
+        <p>A standing thirty-minute call, agenda sent ahead. Status across the seven workstreams, last week's analytics, the coming week's plan, anything that needs Hodder input.</p>
+        <h4>Monthly report</h4>
+        <p>One document. Dashboard, channel summaries, qualitative highlights, the next month's priorities.</p>
+        <h4>Quarterly strategy review</h4>
+        <p>A longer session. The calendar three months out, anything that needs to shift, new collab opportunities, the international roadmap.</p>
+      </div>
+      <div>
+        <h4>Approval flow</h4>
+        <p><strong>Operational content</strong> (daily posts, clips, scheduled assets) published on our judgement; a sample sent for Hodder's review weekly but not gated on approval.</p>
+        <p><strong>Calendar-anchor content</strong> (Easter, Christmas, anniversary, major US push moments) approved by Hodder in advance via a content brief.</p>
+        <p><strong>Sensitive content</strong> (theological framing, contested topics, anything that crosses a Hodder brand line) escalated for approval before publication.</p>
+        <h4>Service-level commitments</h4>
+        <p>Urgent fixes live within 48 hours. Standard pipeline 7 days. Calendar-anchor content prepared 2 weeks ahead. Theologian batch filming scheduled 1 month in advance. Substack at weekly cadence. Website changes live within 7 working days unless structural.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLES ============ -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">09 — Monthly deliverables</div>
+      <h2 class="section-heading">The concrete shape of every month.</h2>
+      <p class="section-lead">Volumes at steady state, month three onwards. These are the floor, not the ceiling. Over-performance triggers a rebalance proposal at the quarterly review, not a price uplift. Calendar anchors (Lent, Easter, Pentecost, June anniversary, autumn church push, Advent) raise volumes for the relevant fortnight in each case.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Workstream</th>
+            <th class="num">Monthly volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>YouTube long-form episodes (Reading + Unpacking)</td><td class="num">8</td></tr>
+          <tr><td>YouTube Shorts</td><td class="num">12</td></tr>
+          <tr><td>TikTok original cuts</td><td class="num">12</td></tr>
+          <tr><td>Instagram Reels (overlap with TikTok where format permits)</td><td class="num">12</td></tr>
+          <tr><td>Instagram main feed</td><td class="num">20</td></tr>
+          <tr><td>Facebook Page posts</td><td class="num">12</td></tr>
+          <tr><td>Facebook Group prompts</td><td class="num">8</td></tr>
+          <tr><td>Read-along reading group cohort</td><td class="num">1 active, rolling</td></tr>
+          <tr><td>Substack articles</td><td class="num">4</td></tr>
+          <tr><td>Substack reader letters and spotlights</td><td class="num">2</td></tr>
+          <tr><td>Website updates (Substack auto-pull, tracker maintenance, ongoing iteration)</td><td class="num">Continuous</td></tr>
+          <tr><td>Reader-testimony curation surfaced to social and Substack</td><td class="num">4 minimum</td></tr>
+          <tr><td>Reporting (weekly check-ins + monthly report)</td><td class="num">4 + 1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASING ============ -->
+<section class="off-white">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">10 — Phasing</div>
+      <h2 class="section-heading">First six months, and beyond.</h2>
+    </div>
+
+    <div class="phase-timeline reveal">
+      <div class="phase-row">
+        <div class="phase-label">
+          <div class="phase-month">Month 1</div>
+          <div class="phase-title">Onboarding</div>
+        </div>
+        <div class="phase-content">
+          <ul>
+            <li>YouTube channel handle, branding, monetization setup completed</li>
+            <li>Website rebuild begins: design week one, build weeks two-to-four</li>
+            <li>Substack established, first three articles drafted</li>
+            <li>Theologian roster confirmed and first batch shoot scheduled</li>
+            <li>Facebook Group and Page launched</li>
+            <li>Inherited handover from Hodder team: every existing asset catalogued into a working content bank (Big Church Read videos, audiobook stems, press, podcast appearances, reader reviews)</li>
+            <li>First weekly check-in</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">
+          <div class="phase-month">Month 2</div>
+          <div class="phase-title">Ramp</div>
+        </div>
+        <div class="phase-content">
+          <ul>
+            <li>Theologian batch shoot completed (52 episodes in the can)</li>
+            <li>Website launches</li>
+            <li>YouTube channel publishes the first four episodes</li>
+            <li>Short-form publishing begins across TikTok, Reels, Shorts</li>
+            <li>Substack publishes weekly</li>
+            <li>Bear-channel uplift posts go out to seed initial audience</li>
+            <li>First read-along cohort opens for sign-up</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">
+          <div class="phase-month">Month 3+</div>
+          <div class="phase-title">Steady-state</div>
+        </div>
+        <div class="phase-content">
+          <ul>
+            <li>Full deliverable volume hit per the table above</li>
+            <li>Monthly reporting cycle established</li>
+            <li>First measurable signal on engine health and US traction</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">
+          <div class="phase-month">Month 6+</div>
+          <div class="phase-title">International and self-sufficiency</div>
+        </div>
+        <div class="phase-content">
+          <ul>
+            <li>GSET channels operating self-sufficiently; BG cross-promo dialled back to anchor moments only</li>
+            <li>Spanish and Portuguese channel architecture stood up as language editions roll</li>
+            <li>Brazil-targeted Substack pilot active</li>
+            <li>US book tour support content integrated into the calendar if tour confirmed</li>
+            <li>International audience growth visible in the monthly dashboard</li>
+            <li>YouTube monetization material; year-one results document delivered ahead of year-two planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMERCIAL ============ -->
+<section id="commercial">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">11 — Commercial</div>
+      <h2 class="section-heading">£5,000 per month, all-in.</h2>
+      <p class="section-lead">UK pounds, excludes VAT. One retainer covering the engine end-to-end. Each line of the allocation supports a specific function the other lines depend on. Hover any row to see what removing it breaks.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table class="commercial-table">
+        <thead>
+          <tr>
+            <th>Workstream</th>
+            <th class="num">£ / month</th>
+            <th>Without it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content production — audio and visual editing across all formats</td>
+            <td>1,400</td>
+            <td>No edited content means no episodes, no clips, no audiograms. Audiobook stems are raw audio; theologian footage is raw video. Nothing is shippable.</td>
+          </tr>
+          <tr>
+            <td>Distribution and posting across every channel</td>
+            <td>500</td>
+            <td>Content not distributed is content that does not exist. Scheduling, copywriting, hashtagging, geo-locking, cross-platform adaptation: without this layer the editing output sits in a folder.</td>
+          </tr>
+          <tr>
+            <td>Substack — the depth engine</td>
+            <td>500</td>
+            <td>The only owned-audience asset in the stack. Removing it surrenders email-list growth permanently to platforms that can change their algorithm without notice.</td>
+          </tr>
+          <tr>
+            <td>Website — rebuild then ongoing management</td>
+            <td>1,000</td>
+            <td>Without the rebuild and its tracker layer there is no central hub, no geo-routed retail attribution, and no way to answer the measurement question.</td>
+          </tr>
+          <tr>
+            <td>Community and reader-testimony engine</td>
+            <td>500</td>
+            <td>This is the line that closes the loop. The Facebook Group, the read-along cohorts, the curation of reader stories back into social and Substack. Without it the funnel is one-way and shallower.</td>
+          </tr>
+          <tr>
+            <td>Brand stewardship and voice integrity</td>
+            <td>400</td>
+            <td>One voice across five audiences, seven channels, two geographies. Without custodianship the engine fragments into "Instagram-tone" vs "Substack-tone" vs "US-tone" vs "UK-tone."</td>
+          </tr>
+          <tr>
+            <td>Operations — single accountable owner, reporting, theologian pipeline</td>
+            <td>700</td>
+            <td>The seam that holds the other lines together. Without operations, every workstream becomes a separate negotiation, the theologian pipeline has no booker, and the weekly and monthly reporting does not get written.</td>
+          </tr>
+          <tr class="commercial-total">
+            <td>Total</td>
+            <td>£5,000</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col-prose reveal" style="margin-top: 3rem;">
+      <div>
+        <h4>What's included</h4>
+        <p>All workstreams above. All content production, all distribution, all platform management, all reporting, all coordination with Bear's team, all theologian booking and payment of standard appearance fees within the production budget.</p>
+        <h4>Term and invoicing</h4>
+        <p>3-month minimum, then rolling monthly with 30 days' notice on either side. The 3-month minimum exists because months 1 and 2 are front-loaded with rebuild work (website, Substack stand-up, theologian filming batch). The runway has to exist for that investment to be worth it for both sides. Invoiced monthly in advance.</p>
+      </div>
+      <div>
+        <h4>What's excluded</h4>
+        <p>Paid media spend itself (the ad budget — we manage campaigns at no extra fee). Third-party tooling licenses held in Hodder's name (e.g. Substack Pro tier). Additional commissioned shoots beyond the theologian batch and existing Bear footage. Translation and localisation when language editions roll. The broader brand-integration role, which is Hodder's separate hire.</p>
+        <h4>YouTube monetization</h4>
+        <p>Eight-minute episodes are monetizable. Three reasonable treatments, allocation agreed at contracting: <strong>(a)</strong> pooled and decided at year-end, <strong>(b)</strong> routed back into incremental content generation, <strong>(c)</strong> paid up to Hodder against the retainer. No commercial preference from us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY BGV ============ -->
+<section class="dark">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">12 — Why Bear Witness</div>
+      <h2 class="section-heading">Three reasons. And one honest risk.</h2>
+      <p class="section-lead">We wrote the strategy document Hodder is currently working from. We already operate Bear's channels at the kind of scale this work needs. And we already sit inside the Hodder relationship — the Sol Fuel reprint is including a GSET chapter and a new introduction written by our team. You are not hiring an agency to learn this brand. You are extending the team that authored the playbook to operate it, at a pace the publishing world does not normally move at.</p>
+    </div>
+
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-rank">01</div>
+        <h3>We operate Bear's channels already</h3>
+        <p>Since October, those channels have added 600,000 followers and reached 300 million views. About a million people a day. The voice, the cadence, the production sensibility, the editorial judgement that produced those numbers is the same team and the same instincts that would operate GSET. No ramp-up. No onboarding the voice.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-rank">02</div>
+        <h3>We're inside the BG world end-to-end</h3>
+        <p>Bear's calendar, his speaking engagements, his media appearances, his other commitments: we already see them. When a GSET opportunity emerges from somewhere else in Bear's world, we catch it. When a GSET asset can earn a moment on Bear's personal channel, we make the call. An external brand manager would have to ask permission.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-rank">03</div>
+        <h3>We've thought about this longer than anyone</h3>
+        <p>The strategy document took conclusions we'd already reached over months of working the book at launch and turned them into a framework. The framework is not theoretical to us. It came from doing the work.</p>
+      </div>
+    </div>
+
+    <div class="note-card reveal" style="background: rgba(255, 255, 255, 0.04); border-left-color: var(--gold); margin-top: 3rem;">
+      <p style="color: rgba(245, 240, 232, 0.82);"><strong style="color: var(--cream);">The honest risk, named.</strong> Bear Witness sits inside the Bear Grylls world, which means we are closer to Bear than to Hodder. A publisher's instinct is to keep the brand operation under publisher control. The mitigation is the boundary stated in this document: Hodder's separate brand-integration hire is where institutional ownership of the wider brand lives. The Bear Witness retainer is where the content and channel engine lives. Two roles. Two ownerships. One mission.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT STEPS ============ -->
+<section id="next" class="cta-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">13 — Next steps</div>
+      <h2>Read, call, green light, start.</h2>
+      <p class="section-lead">We have built the operating plan to launch in week one. Onboarding, theologian outreach, website design, channel setup, and the first content batch all begin the day the green light lands. By the end of month two, in time for Lent and Easter, the single largest natural moment in the GSET calendar, the engine is in motion.</p>
+    </div>
+
+    <div class="cta-steps reveal">
+      <div class="cta-step">
+        <div class="cta-step-num">01</div>
+        <p>Read this proposal.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">02</div>
+        <p>A call to walk through anything that needs walking through.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">03</div>
+        <p>Hodder green light.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">04</div>
+        <p>We start the Monday after.</p>
+      </div>
+    </div>
+
+    <a href="mailto:?subject=GSET%20Proposal%20%E2%80%94%20Next%20Steps&amp;body=Hi%20Bear%20Witness%20team%2C%0A%0A" class="cta-button reveal">Get in touch</a>
+
+    <p class="signature reveal"><em>This is going to be a long-term mission for Hodder Faith.</em> This is how we operate it.</p>
+  </div>
+</section>
+
+<footer>
+  Bear Witness &nbsp;·&nbsp; Prepared for Hodder Faith &nbsp;·&nbsp; The Greatest Story Ever Told &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Confidential
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Channel card toggle
+  function toggleChannel(card) {
+    card.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
