@@ -182,16 +182,16 @@ Every line below is load-bearing. The engine described in sections 03 and 04 can
 
 | Workstream | £ / month |
 |---|---:|
-| Content production — audio and visual editing across all formats (audiobook clips, long-form readings, stills, BTS) | 1,200 |
-| Distribution and posting across all channels (scheduling, calendar-anchor sequencing, platform-spec compliance) | 750 |
-| Substack — depth engine (weekly reading companion, list growth, segmentation) | 750 |
-| Website — rebuild in month 1, ongoing weekly management thereafter | 800 |
-| Community and reader-testimony loop (Facebook group moderation, testimony capture, RGC pipeline) | 400 |
-| Brand stewardship and voice consistency across every surface | 350 |
-| Operations — single point of contact, weekly check-in, monthly reporting, silent coordination with Bear's social team | 750 |
+| Content production — audio and visual editing across all formats (audiobook clip factory, long-form actor readings, stills, behind-the-scenes assets, captioning, platform-spec compliance) | 1,400 |
+| Distribution and posting across every channel (scheduling, calendar-anchor sequencing, cross-channel coordination) | 500 |
+| Substack — depth engine (weekly reading companion, list growth, segmentation) | 500 |
+| Website — rebuild in month 1, ongoing weekly management thereafter (the conversion surface for gifting, Substack signup, church bulk ordering, institutional placement) | 1,000 |
+| Community and reader-testimony engine — the line that closes the loop. Facebook reading group seeded and moderated, reader testimony captured and republished, reader-generated content pipeline. Without this workstream the strategy's *loop, not funnel* thesis collapses into a one-way feed — reader stories never re-enter discovery, and every other workstream loses the compounding effect the strategy is built on. | 500 |
+| Brand stewardship and voice integrity across every surface — one warm, invitational publisher voice held consistent across five audience segments and seven channels. Without active stewardship the tone drifts within weeks toward the two failure modes the strategy doc names explicitly: churchy and salesy. Loss of voice integrity is brand damage that does not appear in metrics until it is costly to undo. | 400 |
+| Operations — single accountable owner across the whole engine. Weekly check-in, monthly performance reporting against the strategy's flow metrics, calendar-anchor planning, and silent coordination with Bear's social team for his three annual posts. Without this workstream the publisher-side marketing programme acquires a "who owns this" tax that, on every comparable programme we've seen, kills cadence by month three. | 700 |
 | **Total** | **5,000** |
 
-The allocation is what it costs to run the engine the strategy doc described. Nothing here is padding; nothing here is optional without breaking something specific and named.
+Nothing here is padding; nothing here is optional without breaking something specific and named.
 
 What's included: everything in sections 03, 07, and 08. One number. No additional fees for in-scope work, no hourly extras, no project-management surcharge.
 
