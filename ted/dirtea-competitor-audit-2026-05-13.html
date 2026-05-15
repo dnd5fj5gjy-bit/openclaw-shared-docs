@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DIRTEA — Competitor Social + Paid Audit (US-Lens) · BGV Strategy</title>
+<meta name="description" content="A competitor social + paid audit of 11 brands at or above £12M, focused on what could be lifted into DIRTEA's US strategy. Prepared for Olly Westmacott → Jesse Grylls, 13 May 2026." />
+<style>
+  :root{
+    --bg:#f6f1e7;
+    --paper:#fbf7ee;
+    --ink:#171411;
+    --ink-soft:#3a342d;
+    --muted:#6b6359;
+    --rule:#d9cdb6;
+    --rule-soft:#e6dec9;
+    --accent:#8a1d1d;        /* burgundy */
+    --accent-2:#1f3a5f;      /* deep navy */
+    --gold:#a07a2b;
+    --warn:#7a1818;
+    --warn-bg:#f3e4df;
+    --hl:#f0e5cb;            /* highlight */
+    --card:#fffaf0;
+    --shadow:0 1px 0 rgba(20,15,8,.04), 0 8px 30px -16px rgba(20,15,8,.16);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);}
+  body{
+    font-family: "Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .serif{font-family:"Tiempos Text","Iowan Old Style","Source Serif Pro","Georgia",serif;}
+  .display{font-family:"Tiempos Headline","Iowan Old Style","Source Serif Pro","Georgia",serif; font-weight:600; letter-spacing:-0.012em;}
+  a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid rgba(31,58,95,.25);}
+  a:hover{border-bottom-color:var(--accent-2);}
+
+  /* ───── Layout shell ───── */
+  .shell{display:grid; grid-template-columns: 240px minmax(0,1fr); gap:0; min-height:100vh;}
+  nav.side{
+    position:sticky; top:0; align-self:start;
+    height:100vh; overflow:auto;
+    padding:32px 22px 60px 36px;
+    border-right:1px solid var(--rule);
+    background:linear-gradient(180deg,var(--paper) 0%, var(--bg) 100%);
+    font-size:13.5px;
+  }
+  nav.side .nav-brand{
+    font-family:"Tiempos Headline","Iowan Old Style","Georgia",serif;
+    font-size:15.5px; letter-spacing:.02em;
+    color:var(--ink); margin-bottom:24px;
+    line-height:1.25;
+  }
+  nav.side .nav-brand small{
+    display:block;
+    font-family:"Inter",sans-serif;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); margin-top:6px;
+  }
+  nav.side h5{
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); margin:22px 0 8px 0; font-weight:600;
+  }
+  nav.side ol{list-style:none; padding:0; margin:0;}
+  nav.side ol li{margin:0;}
+  nav.side ol li a{
+    display:block; padding:5px 10px 5px 0; margin-left:-2px;
+    color:var(--ink-soft); border-bottom:none;
+    border-left:2px solid transparent;
+    padding-left:10px;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  nav.side ol li a:hover{color:var(--accent);}
+  nav.side ol li a.active{
+    color:var(--accent); border-left-color:var(--accent); background:rgba(138,29,29,.04);
+  }
+
+  main{padding:0;}
+  .wrap{max-width:880px; margin:0 auto; padding:48px 56px 80px;}
+
+  /* ───── Hero / cover ───── */
+  .hero{
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+    padding:72px 0 56px;
+  }
+  .hero .wrap{padding-top:0; padding-bottom:0;}
+  .eyebrow{
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:28px; height:1.5px; background:var(--accent); display:inline-block;}
+  h1.title{
+    font-family:"Tiempos Headline","Iowan Old Style","Georgia",serif;
+    font-weight:600;
+    font-size:54px; line-height:1.06; letter-spacing:-0.018em;
+    margin:0 0 18px 0;
+  }
+  h1.title em{
+    font-style:italic; color:var(--accent); font-weight:500;
+  }
+  .subtitle{
+    font-family:"Tiempos Text","Iowan Old Style","Georgia",serif;
+    font-size:21px; line-height:1.45; color:var(--ink-soft);
+    max-width:680px; margin:0 0 36px 0;
+  }
+  .meta-row{
+    display:grid; grid-template-columns: repeat(4,minmax(0,1fr));
+    gap:0;
+    border-top:1px solid var(--rule);
+    padding-top:22px;
+    margin-top:30px;
+  }
+  .meta-row .cell{
+    border-right:1px solid var(--rule-soft);
+    padding:0 18px 0 0;
+  }
+  .meta-row .cell:first-child{padding-left:0;}
+  .meta-row .cell:last-child{border-right:none;}
+  .meta-row .label{
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:6px;
+  }
+  .meta-row .value{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:14.5px; color:var(--ink); line-height:1.35;
+  }
+
+  /* hero stat */
+  .hero-stat{
+    margin-top:48px;
+    border:1px solid var(--rule);
+    background:#fff;
+    padding:32px 38px;
+    display:grid; grid-template-columns: auto 1fr; gap:32px; align-items:center;
+    box-shadow:var(--shadow);
+  }
+  .hero-stat .big{
+    font-family:"Tiempos Headline","Georgia",serif;
+    font-size:72px; line-height:1; color:var(--accent);
+    font-weight:600; letter-spacing:-0.02em;
+    white-space:nowrap;
+  }
+  .hero-stat .big sup{font-size:36px; vertical-align:top; line-height:1;}
+  .hero-stat .label{
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;
+  }
+  .hero-stat .copy{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:17px; line-height:1.45; color:var(--ink-soft);
+  }
+
+  /* ───── Section primitives ───── */
+  section{padding:64px 0; border-bottom:1px solid var(--rule-soft);}
+  section:last-of-type{border-bottom:none;}
+  .section-eyebrow{
+    font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin-bottom:14px;
+  }
+  h2.section-title{
+    font-family:"Tiempos Headline","Georgia",serif;
+    font-weight:600;
+    font-size:38px; line-height:1.12; letter-spacing:-0.015em;
+    margin:0 0 16px 0;
+  }
+  .section-lede{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:18.5px; line-height:1.55; color:var(--ink-soft);
+    margin:0 0 36px 0; max-width:720px;
+  }
+  h3{
+    font-family:"Tiempos Headline","Georgia",serif;
+    font-weight:600;
+    font-size:24px; line-height:1.22; letter-spacing:-0.01em;
+    margin:36px 0 14px 0;
+  }
+  h4{
+    font-family:"Inter",sans-serif;
+    font-weight:600; font-size:13.5px;
+    letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent-2);
+    margin:24px 0 8px 0;
+  }
+  p{margin:0 0 14px 0;}
+  ul,ol{margin:0 0 16px 0; padding-left:22px;}
+  li{margin-bottom:8px;}
+  ul li::marker{color:var(--accent);}
+  ol li::marker{color:var(--accent); font-weight:600;}
+  strong{font-weight:600; color:var(--ink);}
+  em{font-style:italic;}
+
+  /* ───── Executive summary panel ───── */
+  .exec{
+    background:#1c1814;
+    color:#f1ead9;
+    padding:56px 0;
+    margin:0;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+  }
+  .exec .wrap{padding-top:0; padding-bottom:0;}
+  .exec .section-eyebrow{color:#d4ab4a; opacity:.95;}
+  .exec h2.section-title{color:#fbf7ee;}
+  .exec .section-lede{color:#cdc4ad;}
+  .exec h3{color:#fbf7ee;}
+  .exec strong{color:#fbf7ee;}
+  .exec a{color:#e8c069; border-bottom-color:rgba(232,192,105,.4);}
+  .exec ol li::marker, .exec ul li::marker{color:#d4ab4a;}
+
+  .diagnosis-card{
+    border:1px solid #3a322a;
+    background:#241f1a;
+    padding:28px 32px;
+    margin:14px 0 36px;
+    border-left:3px solid var(--gold);
+  }
+  .diagnosis-card .tag{
+    font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:#d4ab4a; margin-bottom:10px; font-weight:600;
+  }
+  .diagnosis-card p{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:18px; line-height:1.55; color:#ece4cf; margin:0;
+  }
+
+  .moves-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:36px;
+    margin-top:18px;
+  }
+  .move-col h3{margin-top:0;}
+  .move-col ol{
+    list-style:none; padding:0; counter-reset:movecount;
+  }
+  .move-col ol li{
+    counter-increment:movecount;
+    padding:14px 0 14px 44px;
+    border-bottom:1px solid #2e2820;
+    position:relative;
+    margin:0;
+    font-size:14.5px; line-height:1.55;
+  }
+  .move-col ol li:last-child{border-bottom:none;}
+  .move-col ol li::before{
+    content:counter(movecount);
+    position:absolute; left:0; top:14px;
+    font-family:"Tiempos Headline",serif;
+    font-size:22px; font-weight:600;
+    color:var(--gold); line-height:1;
+    width:30px; text-align:right; padding-right:8px;
+    border-right:1px solid #3a322a;
+  }
+
+  .cost-callout{
+    margin:36px 0 8px;
+    background:linear-gradient(135deg, #2a221b 0%, #3a2e22 100%);
+    border:1px solid var(--gold);
+    padding:28px 36px;
+    display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:center;
+  }
+  .cost-callout .num{
+    font-family:"Tiempos Headline",serif;
+    font-size:46px; color:var(--gold);
+    font-weight:600; line-height:1; letter-spacing:-0.015em;
+    white-space:nowrap;
+  }
+  .cost-callout .label{
+    font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:#d4ab4a; margin-bottom:6px;
+  }
+  .cost-callout .copy{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:16px; line-height:1.5; color:#ece4cf;
+  }
+
+  .dont-block{
+    margin-top:32px;
+    background:#3a1a1a;
+    border:1px solid #5a2828;
+    border-left:4px solid #c75858;
+    padding:24px 30px;
+  }
+  .dont-block h4{color:#f0bcbc; margin-top:0;}
+  .dont-block ul{list-style:none; padding:0; margin:0;}
+  .dont-block ul li{
+    padding:10px 0 10px 28px; position:relative;
+    border-bottom:1px solid #4a2424;
+    color:#f1d4d4; font-size:14.5px; line-height:1.55;
+  }
+  .dont-block ul li:last-child{border-bottom:none;}
+  .dont-block ul li::before{
+    content:"✕"; position:absolute; left:0; top:11px;
+    color:#e89a9a; font-weight:700;
+  }
+  .dont-block strong{color:#fbf7ee;}
+
+  /* ───── Brand card ───── */
+  .brand-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    margin:32px 0;
+    padding:0;
+    overflow:hidden;
+    page-break-inside:avoid;
+  }
+  .brand-head{
+    display:grid; grid-template-columns:auto 1fr auto; gap:20px;
+    align-items:center;
+    padding:24px 32px 22px;
+    border-bottom:1px solid var(--rule-soft);
+    background:linear-gradient(180deg,#fffdf6 0%, var(--card) 100%);
+  }
+  .monogram{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--accent-2); color:#fbf7ee;
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Tiempos Headline",serif; font-weight:600;
+    font-size:23px; letter-spacing:-0.01em; line-height:1;
+    flex-shrink:0;
+  }
+  .monogram.fs{background:#3a4a2c;}
+  .monogram.om{background:#5c4a2a;}
+  .monogram.sg{background:#6c3aa6;}
+  .monogram.ln{background:#2a3a5f;}
+  .monogram.mw{background:#3a2a1f;}
+  .monogram.ry{background:#a04a1f;}
+  .monogram.ag{background:#1f5f3f;}
+  .monogram.hu{background:#1f1f1f;}
+  .monogram.ol{background:#a8456a;}
+  .monogram.ms{background:#d4724a; color:#1f1f1f;}
+  .monogram.ld{background:#0a0a0a;}
+
+  .brand-head .name{
+    font-family:"Tiempos Headline",serif;
+    font-size:26px; font-weight:600; line-height:1.1;
+    letter-spacing:-0.01em; color:var(--ink);
+    margin:0;
+  }
+  .brand-head .name .sub{
+    display:block; font-family:"Inter",sans-serif;
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; margin-top:5px;
+  }
+  .badge{
+    display:inline-block; font-size:10.5px;
+    letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+    padding:5px 11px; border-radius:99px;
+    background:rgba(31,58,95,.08); color:var(--accent-2);
+    border:1px solid rgba(31,58,95,.18);
+    white-space:nowrap;
+  }
+  .badge.mush{background:rgba(138,29,29,.08); color:var(--accent); border-color:rgba(138,29,29,.22);}
+  .badge.wellness{background:rgba(31,95,63,.08); color:#1f5f3f; border-color:rgba(31,95,63,.22);}
+  .badge.coffee{background:rgba(160,122,43,.10); color:var(--gold); border-color:rgba(160,122,43,.3);}
+  .badge.beverage{background:rgba(108,58,166,.08); color:#6c3aa6; border-color:rgba(108,58,166,.22);}
+
+  .brand-quote{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-style:italic; font-size:16.5px;
+    color:var(--ink-soft); line-height:1.5;
+    padding:18px 32px;
+    background:rgba(160,122,43,.05);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .brand-quote::before{content:"\201C "; color:var(--gold); font-weight:700;}
+  .brand-quote::after{content:" \201D"; color:var(--gold); font-weight:700;}
+
+  .brand-body{padding:24px 32px 28px;}
+
+  .mini-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:8px 0 22px;
+    font-size:14.5px;
+  }
+  .mini-table th, .mini-table td{
+    text-align:left; vertical-align:top;
+    padding:12px 14px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .mini-table th{
+    width:130px;
+    font-family:"Inter",sans-serif;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent-2); font-weight:600;
+    background:rgba(31,58,95,.04);
+    border-right:1px solid var(--rule-soft);
+  }
+  .mini-table td{color:var(--ink-soft); line-height:1.55;}
+  .mini-table tr:last-child th, .mini-table tr:last-child td{border-bottom:none;}
+
+  .brand-body h4{margin-top:18px;}
+  .brand-body ol, .brand-body ul{padding-left:20px;}
+
+  .wrong{
+    margin-top:18px;
+    border-left:3px solid var(--warn);
+    background:var(--warn-bg);
+    padding:14px 20px;
+    font-size:14.5px;
+  }
+  .wrong .lbl{
+    font-family:"Inter",sans-serif;
+    font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--warn); font-weight:600; margin-bottom:4px;
+  }
+
+  /* ───── Pull quote ───── */
+  .pullquote{
+    margin:48px 0;
+    padding:36px 0;
+    border-top:2px solid var(--accent);
+    border-bottom:1px solid var(--rule);
+  }
+  .pullquote q{
+    font-family:"Tiempos Headline","Georgia",serif;
+    font-size:30px; line-height:1.22; color:var(--ink);
+    font-style:italic; font-weight:500;
+    display:block; quotes:"\201C" "\201D";
+  }
+  .pullquote q::before{
+    content:"\201C"; color:var(--accent);
+    font-size:52px; line-height:0; vertical-align:-0.15em;
+    margin-right:6px;
+  }
+  .pullquote .src{
+    margin-top:18px;
+    font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted); font-weight:600;
+  }
+
+  /* ───── Big numbers strip ───── */
+  .stat-strip{
+    display:grid; grid-template-columns: repeat(4,minmax(0,1fr));
+    gap:0;
+    background:var(--paper);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    margin:48px -24px;
+  }
+  .stat-strip .stat{
+    padding:28px 24px;
+    border-right:1px solid var(--rule-soft);
+    text-align:center;
+  }
+  .stat-strip .stat:last-child{border-right:none;}
+  .stat-strip .num{
+    font-family:"Tiempos Headline",serif;
+    font-weight:600;
+    font-size:38px; line-height:1; color:var(--accent);
+    letter-spacing:-0.015em;
+    margin-bottom:8px;
+  }
+  .stat-strip .lbl{
+    font-size:11.5px; line-height:1.4; color:var(--ink-soft);
+  }
+
+  /* ───── Persona block ───── */
+  .persona{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--accent-2);
+    padding:28px 32px;
+    margin:24px 0 32px;
+    box-shadow:var(--shadow);
+  }
+  .persona .lbl{
+    font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--accent-2); font-weight:600; margin-bottom:8px;
+  }
+  .persona h3{margin:0 0 12px 0;}
+  .persona p{
+    font-family:"Tiempos Text","Georgia",serif;
+    font-size:16.5px; line-height:1.6; color:var(--ink-soft);
+    margin:0;
+  }
+
+  /* ───── Tables ───── */
+  table.standard{
+    width:100%; border-collapse:collapse; margin:18px 0 28px;
+    font-size:14.5px;
+  }
+  table.standard th, table.standard td{
+    text-align:left; vertical-align:top;
+    padding:13px 14px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  table.standard thead th{
+    background:var(--paper);
+    font-family:"Inter",sans-serif;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent-2); font-weight:600;
+    border-bottom:2px solid var(--rule);
+  }
+  table.standard tbody td{color:var(--ink-soft); line-height:1.5;}
+  table.standard tbody tr:hover{background:rgba(160,122,43,.04);}
+
+  /* ───── Milestones ───── */
+  .milestones{
+    display:grid; grid-template-columns: repeat(3,minmax(0,1fr));
+    gap:18px; margin:24px 0;
+  }
+  .milestone{
+    background:var(--card);
+    border:1px solid var(--rule);
+    padding:22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .milestone .day{
+    font-family:"Tiempos Headline",serif;
+    font-size:36px; color:var(--accent); font-weight:600;
+    line-height:1; letter-spacing:-0.015em;
+  }
+  .milestone .day small{
+    display:block; font-family:"Inter",sans-serif;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin-top:6px;
+  }
+  .milestone ul{margin-top:14px; padding-left:18px; font-size:14px;}
+  .milestone ul li{margin-bottom:7px; line-height:1.45;}
+
+  /* ───── Verification + footer ───── */
+  .flags{
+    background:var(--paper);
+    border:1px dashed var(--rule);
+    padding:24px 28px;
+    margin:24px 0 0;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .flags h4{margin-top:0; color:var(--warn);}
+
+  footer{
+    background:#1c1814; color:#cdc4ad;
+    padding:48px 0 56px;
+    font-size:13.5px;
+  }
+  footer .wrap{padding-top:0; padding-bottom:0;}
+  footer h4{color:#d4ab4a; margin-top:0;}
+  footer a{color:#e8c069; border-bottom-color:rgba(232,192,105,.3);}
+  footer .grid{
+    display:grid; grid-template-columns: 1.6fr 1fr 1fr; gap:36px;
+    margin-bottom:32px;
+  }
+  footer .rule{border-top:1px solid #3a322a; padding-top:18px; margin-top:18px; color:#9a9078; font-size:12px;}
+
+  /* ───── Responsive ───── */
+  @media (max-width: 980px){
+    .shell{grid-template-columns: 1fr;}
+    nav.side{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--rule);}
+    .wrap{padding:36px 24px 60px;}
+    .meta-row{grid-template-columns:1fr 1fr;}
+    .meta-row .cell{border-bottom:1px solid var(--rule-soft); padding:10px 0;}
+    .moves-grid{grid-template-columns:1fr;}
+    .hero-stat{grid-template-columns:1fr; gap:14px;}
+    .hero-stat .big{font-size:54px;}
+    .milestones{grid-template-columns:1fr;}
+    .stat-strip{grid-template-columns:1fr 1fr; margin:36px 0;}
+    .stat-strip .stat:nth-child(2){border-right:none;}
+    .stat-strip .stat{border-bottom:1px solid var(--rule-soft);}
+    h1.title{font-size:38px;}
+    h2.section-title{font-size:28px;}
+    footer .grid{grid-template-columns:1fr;}
+  }
+
+  /* ───── Print ───── */
+  @media print{
+    nav.side{display:none;}
+    .shell{grid-template-columns:1fr;}
+    body{background:#fff; color:#000; font-size:11pt;}
+    .hero{padding:24pt 0;}
+    section{padding:18pt 0; page-break-inside:auto;}
+    .brand-card{break-inside:avoid; page-break-inside:avoid; box-shadow:none; border:1px solid #ccc;}
+    .exec{background:#1c1814 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .hero-stat, .stat-strip, .milestone, .persona, .cost-callout, .diagnosis-card, .dont-block, .pullquote{break-inside:avoid;}
+    a{color:#000; border-bottom:none;}
+    h1.title{font-size:28pt;}
+    .wrap{max-width:none; padding:0 .5in;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ───────── SIDE NAV ───────── -->
+  <nav class="side" aria-label="Document sections">
+    <div class="nav-brand">
+      DIRTEA Audit
+      <small>BGV · Strategy · May 2026</small>
+    </div>
+
+    <h5>Sections</h5>
+    <ol>
+      <li><a href="#summary">Executive Summary</a></li>
+      <li><a href="#per-brand">1. Per-brand Audits</a></li>
+      <li><a href="#diagnosis">2. Diagnosis</a></li>
+      <li><a href="#growth-play">3. Growth Play</a></li>
+      <li><a href="#narrative">3B. Bear Witness Alignment</a></li>
+      <li><a href="#assets">4. Asset Implications</a></li>
+      <li><a href="#jesse">5. Jesse Summary (full)</a></li>
+      <li><a href="#flags">Verification &amp; Sources</a></li>
+    </ol>
+
+    <h5>Brands (11)</h5>
+    <ol>
+      <li><a href="#b-foursigmatic">Four Sigmatic</a></li>
+      <li><a href="#b-om">OM Mushroom</a></li>
+      <li><a href="#b-spacegoods">Spacegoods</a></li>
+      <li><a href="#b-londonnootropics">London Nootropics</a></li>
+      <li><a href="#b-mudwtr">MUD\WTR</a></li>
+      <li><a href="#b-ryze">RYZE</a></li>
+      <li><a href="#b-ag1">AG1</a></li>
+      <li><a href="#b-huel">Huel</a></li>
+      <li><a href="#b-olipop">Olipop</a></li>
+      <li><a href="#b-magicspoon">Magic Spoon</a></li>
+      <li><a href="#b-liquiddeath">Liquid Death</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- ───────── HERO ───────── -->
+    <header class="hero">
+      <div class="wrap">
+        <div class="eyebrow">BGV Strategy · Competitor Audit · US-Lens</div>
+        <h1 class="title">DIRTEA — Competitor<br/>Social <em>+</em> Paid Audit</h1>
+        <p class="subtitle">Eleven brands at or above £12M, audited for what could be lifted into DIRTEA's strategy — with a specific focus on the US market.</p>
+
+        <div class="meta-row">
+          <div class="cell">
+            <div class="label">Prepared</div>
+            <div class="value">13 May 2026</div>
+          </div>
+          <div class="cell">
+            <div class="label">For</div>
+            <div class="value">Olly Westmacott (BGV)<br/>→ Jesse Grylls</div>
+          </div>
+          <div class="cell">
+            <div class="label">By</div>
+            <div class="value">Ted · BGV Strategy</div>
+          </div>
+          <div class="cell">
+            <div class="label">Companion to</div>
+            <div class="value">DIRTEA Marketing Audit (Apr 2026)</div>
+          </div>
+        </div>
+
+        <div class="hero-stat">
+          <div class="big">0<sup>&nbsp;vs</sup> 4,000<sup>+</sup></div>
+          <div>
+            <div class="label">The audit in one number</div>
+            <div class="copy">Active US Meta ads — DIRTEA versus RYZE. The brand is not being out-thought. It is being out-shouted in the channel that decides the US wellness consumer's first purchase.</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ───────── EXECUTIVE SUMMARY ───────── -->
+    <section id="summary" class="exec">
+      <div class="wrap">
+        <div class="section-eyebrow">Executive Summary · The Jesse Box</div>
+        <h2 class="section-title">Read this first. Everything else is the working.</h2>
+
+        <div class="diagnosis-card">
+          <div class="tag">Headline diagnosis</div>
+          <p>DIRTEA's growth ceiling is execution, not brand — the premium identity is intact, but US paid social is effectively dormant while RYZE runs <strong>4,000+ UGC ads</strong>, AG1 whitelists through every major US podcast host, and Spacegoods has overtaken DIRTEA on UK search share and quietly opened a US site. DIRTEA is still leading with <em>"functional mushroom"</em> when the US growth wallet is buying <em>"focus"</em> and <em>"coffee alternative."</em></p>
+        </div>
+
+        <div class="moves-grid">
+          <div class="move-col">
+            <h3>7 visual moves Jesse can picture</h3>
+            <ol>
+              <li><strong>Kitchen-UGC Meta creative</strong> — 35-year-old US woman, mug in hand, hook line <em>"I quit coffee at 36 and my mornings finally make sense."</em> Vertical, hand-held, native. 10–15 clips/month in rotation.</li>
+              <li><strong>A Bear Grylls archive-cut stunt film</strong> — 60-second "morning of an expedition" sequence repurposing existing Bear footage with DIRTEA Coffee positioned as the kit. No new Bear filming required (bandwidth-constrained — confirmed).</li>
+              <li><strong>Dr Tara Swart on YouTube</strong> — 6-episode explainer series, white-desk doctor's-office aesthetic, titles like <em>"Lion's Mane &amp; Cortisol: What Actually Happens,"</em> optimised for high-intent US search.</li>
+              <li><strong>The DIRTEA Welcome Kit</strong> — every first US subscription order ships in a branded box with a ceramic mug, matcha whisk, and 5 travel sachets. Tangible "starter system" that re-justifies the £40+ price (AG1 model, RYZE frother model).</li>
+              <li><strong>Per-host landing pages</strong> — drinkdirtea.com/huberman, /melrobbins, /bear, /tara — each personalised, each with isolated UTM. Every podcast host gets a named URL.</li>
+              <li><strong>Reviews on every PDP</strong> — 3,000+ Trustpilot quotes surfaced in a carousel, star rating live in Google SERP. Currently absent; this is the single biggest CRO leak on the site.</li>
+              <li><strong>One quarterly stunt film, not weekly reels</strong> — pick 3–4 cultural moments per year and over-invest in them. Liquid Death cadence; DIRTEA tone.</li>
+            </ol>
+          </div>
+
+          <div class="move-col">
+            <h3>7 actionable moves (operational)</h3>
+            <ol>
+              <li><strong>Always-on US Meta paid programme</strong>, £30–50k/month, UGC creative engine producing 10–15 clips/month, two creative tracks ("I quit coffee" pain-led + "morning ritual" aspirational).</li>
+              <li><strong>TikTok Shop US launch</strong> with 20+ affiliate creators contracted in 90 days. Public sign-up page (Four Sigmatic template). Pay creators on commission + usage rights.</li>
+              <li><strong>Founder podcast tour</strong> — Andrew &amp; Simon Salter on 8–10 US podcasts in 90 days (Mel Robbins, Rich Roll, FoundMyFitness, Genius Life, How I Built This, The Drive). Magic Spoon's Gabi Lewis model.</li>
+              <li><strong>US Welcome Kit</strong> packed with every first-order subscription: branded mug, matcha whisk, travel sachets. AG1 playbook.</li>
+              <li><strong>Reposition the lead message</strong> for US: drop "functional mushroom" as headline; reframe as <em>"the coffee/matcha you already love, made for focus."</em> Mushroom is the <em>ingredient</em>, not the <em>category</em>.</li>
+              <li><strong>Stand up a private community space</strong> — Geneva or Facebook group — seeded with existing US customers, named tribe, branded merch token. RYZE has 365K members; DIRTEA has none.</li>
+              <li><strong>Reviews + first-purchase email capture live</strong> — Yotpo/Okendo on PDPs, Klaviyo two-step popup with 10% off. Single largest CRO leak left over from the April audit.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="cost-callout">
+          <div class="num">£300–400k</div>
+          <div>
+            <div class="label">All-in for the first 90 days</div>
+            <div class="copy">£150–200k creative + talent (UGC, founder tour, Tara YouTube series, Welcome Kit tooling, landing-page build, community ops) plus <strong>£30–50k/month US Meta paid</strong> from month 1. Recoverable within 6–9 months on AG1/RYZE benchmark CAC + retention.</div>
+          </div>
+        </div>
+
+        <div class="dont-block">
+          <h4>What we don't recommend</h4>
+          <ul>
+            <li><strong>Don't copy RYZE's 50% off / heavy discount stacking.</strong> It erodes DIRTEA's premium positioning, which is part of the moat. Maintain price discipline.</li>
+            <li><strong>Don't try to be Liquid Death edgy.</strong> The premium-UK aesthetic is defensible. Lift the <em>cadence</em> (3–4 stunts/year, earned-media flywheel), not the tone.</li>
+            <li><strong>Don't collapse to a single hero SKU.</strong> AG1 is structurally vulnerable at $79 on one product (Bryan Johnson attacks landed because of it). DIRTEA's multi-SKU mushroom + matcha + cacao range is a genuine moat.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── PER-BRAND AUDITS ───────── -->
+    <section id="per-brand">
+      <div class="wrap">
+        <div class="section-eyebrow">Section One</div>
+        <h2 class="section-title">Per-brand audits</h2>
+        <p class="section-lede">Eleven brands across two clusters: direct functional-mushroom competitors, and adjacent scale-up benchmarks. Each card carries the same structure — positioning, channels by tier, Meta footprint, US-specific notes, transferable tactics, and one thing they're getting wrong.</p>
+
+        <h3 style="margin-top:48px; padding-bottom:12px; border-bottom:2px solid var(--accent);">1A · Direct functional-mushroom category</h3>
+
+        <!-- FOUR SIGMATIC -->
+        <article class="brand-card" id="b-foursigmatic">
+          <div class="brand-head">
+            <div class="monogram fs">F</div>
+            <h3 class="name">Four Sigmatic <span class="sub">us.foursigmatic.com</span></h3>
+            <span class="badge mush">Direct mushroom · US incumbent</span>
+          </div>
+          <div class="brand-quote">Feel focused. Stay calm. Live well — every day.</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>Mainstream US functional-coffee leader. Finnish-heritage, benefit-led (Focus / Calm / Energy / Gut / Immunity), not mushroom-led. Warm, slightly nerdy, science-adjacent.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 Instagram</strong> (~300K, 3–4 posts/wk recipe reels &amp; UGC). <strong>T1 TikTok Shop / Affiliate</strong> via public sign-up page — strategy is <em>creators sell, brand doesn't perform.</em> <strong>T2 YouTube + podcasts.</strong> <strong>T3</strong> X &amp; Pinterest dormant.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403 on 2026-05-13; <strong>verify by hand pre-pitch.</strong> Ecosystem signal: heavy <em>"Subscribe &amp; SAVE 50%"</em> hooks, birthday/seasonal stacked sales, Coffee Lovers Bundle 61% off. Clean studio pack-shots mixed with lifestyle UGC. Functional hooks ("focus without the crash"), not emotional. Free-gift threshold at $79.</td></tr>
+              <tr><th>US notes</th><td><strong>The US incumbent</strong> — 6,200+ US stores (Whole Foods, Sprouts, Target, Costco). #1 mushroom coffee on Amazon US, 94% repeat-purchase intent. Mid-2025 Focus Espresso Pods launch was first functional espresso pod on market.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> TikTok Shop affiliate program with a public sign-up page — turns US creators into a paid distribution channel without paying upfront for content. <strong>2.</strong> Fight for <em>coffee</em> budget, not supplement budget. <strong>3.</strong> Benefit-led SKU naming (Focus / Calm / Energy) over mushroom-led — non-mushroom-literate US shoppers self-select faster.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Discount stacking is brutal</strong> (50–61% off in perpetuity). Trains the customer never to buy at full price. <em>Do not copy.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pullquote: Olli "actually hate mushrooms" -->
+        <div class="pullquote">
+          <q>The loyal US base actually hates mushrooms.</q>
+          <div class="src">Olli, Four Sigmatic Founder — danielleklemm.com case study</div>
+        </div>
+        <p style="margin-top:-24px; color:var(--muted); font-size:14px; max-width:680px;">This single admission from the category's US-incumbent founder is the most important sentence in this audit. The US wallet doesn't buy <em>mushroom</em>. It buys <em>focus</em> and <em>coffee replacement</em>. Every positioning recommendation downstream flows from it.</p>
+
+        <!-- OM -->
+        <article class="brand-card" id="b-om">
+          <div class="brand-head">
+            <div class="monogram om">O</div>
+            <h3 class="name">OM Mushroom Superfood <span class="sub">ommushrooms.com</span></h3>
+            <span class="badge mush">Direct mushroom · Retail-native</span>
+          </div>
+          <div class="brand-quote">Mushrooms Work Wonders™</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>California-grown, mycology-led functional mushroom range. Educated-wellness Whole Foods shopper; calm-clinical voice with mycologist co-founder + BRCGS AA facility credentials.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 Retail shelf + Amazon</strong> — #1 mushroom-powder blend on Amazon US, thousands of 5★ reviews. The "social channel" <em>is</em> the retailer ecosystem. <strong>T2 Instagram</strong> (~46K @ommushrooms) — anaemic for a 15-year brand. <strong>T3</strong> TikTok &amp; YouTube minimal.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403 on 2026-05-13. Ecosystem signal: moderate, <strong>education-first</strong> creative — carousel/static emphasising California-grown, mycologist-formulated, "10-mushroom complex." Offer: subscribe &amp; save 15% + free shipping (softer than competitors). Functional CTAs ("Shop Lion's Mane"), not urgent.</td></tr>
+              <tr><th>US notes</th><td><strong>US-native.</strong> Backed by Meaningful Partners growth investment (2024). Won the <strong>Whole Foods / Sprouts / Walmart trifecta</strong> — broadest natural-channel distribution of any pure-play mushroom brand. New CEO Sanjiv Gajiwala appointed late 2025. March 2025 added gummies (Cordyceps, Reishi) — moving into the <strong>format the US wellness consumer prefers.</strong></td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Format diversification — gummies in particular. US shoppers buy gummies more readily than powders. DIRTEA's powder-heavy lineup leaves shelf money at Whole Foods. <strong>2.</strong> Mycologist-as-founder credibility play — OM puts Steve Farrar's 30-year resume on the homepage. <strong>3.</strong> BRCGS AA / third-party testing badges front-and-centre — table-stakes for Whole Foods US category teams.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Social is undersized for the commercial footprint</strong> — 46K IG for a category leader is anaemic. Over-rotated to retail; under-invested in DTC top-of-funnel. <em>DIRTEA must not retreat into "retail-only credibility."</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- SPACEGOODS -->
+        <article class="brand-card" id="b-spacegoods">
+          <div class="brand-head">
+            <div class="monogram sg">S</div>
+            <h3 class="name">Spacegoods <span class="sub">spacegoods.com/en-us</span></h3>
+            <span class="badge mush">The brand to watch</span>
+          </div>
+          <div class="brand-quote">Sharp focus. Clean energy. No crash.</div>
+          <div class="brand-body">
+            <p><strong>The single most important brand to watch for DIRTEA's US strategy.</strong> UK-born coffee-v2 for the focus-economy / ADHD-adjacent Gen-Z/Millennial crowd. Playful, irreverent, design-forward.</p>
+            <table class="mini-table">
+              <tr><th>Channels</th><td><strong>T1 Instagram</strong> (~110K @spacegoods) — primary winning channel, Four Sigmatic-comparable on a brand founded April 2022. <strong>T2 TikTok</strong> (~42.1K @tryspacegoods) — active and growing, heavy creator/UGC. <strong>T2 Digital PR</strong> — Marie Claire, Esquire, GQ, Men's Health, Mail Online. JBH agency drove <strong>+122% search lift Mar–Aug 2025.</strong> <strong>T3</strong> YouTube limited.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403 on 2026-05-13. Ecosystem: heavy UGC-style creator ads, vertical video, "I switched off coffee and…" hooks, ADHD-focus testimonials. Spring 2026 promo: "Up to 58% off + Free Gifts," starter kits subscription-gated. Creative leans <strong>emotional</strong> ("unlock your potential," ADHD-relief framing).</td></tr>
+              <tr><th>US notes</th><td>Spacegoods overtook DIRTEA in UK search share (Spacegoods 30%, DIRTEA fell from 81% → 46%, JBH Mar–Aug 2025). Now operates a <strong>US site</strong> — $5 shipping, USD pricing, starter kits $47–$105. <strong>No US-specific SKUs yet</strong> — pure UK product range with US fulfilment, UK press logos on US homepage. <strong>The window for DIRTEA to leapfrog them in the US is open right now.</strong></td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> ADHD / focus-economy positioning hook — "Focus without the crash" + ADHD-adjacent framing doing heavy lifting in 2025. DIRTEA still skews "ancient wisdom"; the US growth market buys focus, not heritage. <strong>2.</strong> Digital PR engine — the +122% search lift came from coordinated press, not paid social. <strong>3.</strong> Starter Kit as subscription gate — cheapest entry point is subscription-only. Boosts LTV and trains customers into recurring immediately.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Sub-clinical doses</strong> — some ingredients dosed below efficacy thresholds (newcoffeereview.com). Kitchen-sink formula looks impressive but doesn't deliver clinical claims. DIRTEA's single-mushroom 1,000mg purity story is genuinely better. <em>Do not dilute to copy.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- LONDON NOOTROPICS -->
+        <article class="brand-card" id="b-londonnootropics">
+          <div class="brand-head">
+            <div class="monogram ln">L</div>
+            <h3 class="name">London Nootropics <span class="sub">londonnootropics.com</span></h3>
+            <span class="badge mush">Cautionary tale</span>
+          </div>
+          <div class="brand-quote">Best-in-Class Adaptogenic Coffee</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>Premium UK adaptogenic-coffee sachet brand. Clinically-studied branded extracts (Rhodiolife®, KSM-66, Hifas da Terra) as the differentiator. Calm, expert-led, slightly clinical. Target: focus-seeking professionals.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 Instagram</strong> (~57K @london.nootropics) — primary channel, growth slowed, half Spacegoods despite being two years older. <strong>T2 Press / earned</strong> — Dragons' Den halo (Deborah Meaden + Sara Davies, Feb 2022); Harrods + Selfridges shelf. <strong>T3</strong> TikTok, Facebook (~12K), LinkedIn (~1.2K) — dormant on TikTok where category growth is happening.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403. Light paid presence, sachet-hero static creative, "20% subscribe &amp; save," occasional founder testimonial. Gentle CTA ("Try the Selection Box, £15"). Brand reads <strong>underweight on paid social</strong> vs Spacegoods.</td></tr>
+              <tr><th>US notes</th><td><strong>No US shipping as of 2026-05-13.</strong> UK-only delivery, £-denominated, "free UK over £30." Clearest sign London Nootropics has ceded the US. First-mover in UK adaptogenic coffee, lost it. <strong>The cautionary tale.</strong></td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Branded-ingredient credibility (Rhodiolife®, KSM-66) — trademarked clinically-studied extracts give a wellness shopper something to Google. DIRTEA mostly uses generic names; 1–2 branded extracts raises perceived efficacy. <strong>2.</strong> Sachet/single-serve format — £15 Selection Box (3 varieties, 12 sachets) is a near-perfect low-friction trial product. <strong>3.</strong> Three-blend benefit architecture (Flow / Mojo / Zen) — tight, memorable, role-defined SKU naming.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Geographic timidity.</strong> First-mover head-start + Dragons' Den national platform → shipped nothing internationally. By 2025 losing share to a brand two years younger (Spacegoods). <em>DIRTEA must not repeat this.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- MUDWTR -->
+        <article class="brand-card" id="b-mudwtr">
+          <div class="brand-head">
+            <div class="monogram mw">M</div>
+            <h3 class="name">MUD\WTR <span class="sub">mudwtr.com</span></h3>
+            <span class="badge coffee">Coffee alternative · Cinematic</span>
+          </div>
+          <div class="brand-quote">Coffee alternative for the burnout-curious.</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>Adaptogenic mushroom cacao that promises ritual without jitters. Mid-thirties US wellness-leaning audience. Dry, literary, slightly counter-cultural voice.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 Instagram</strong> (~379K, 2025 search-reported) — cinematic founder/lifestyle content under the "Trends With Benefits" editorial brand. <strong>T2 YouTube</strong> — MUD\WTR Films produces long-form cinematic content on psychedelics, mindfulness, the human condition (Shorty Awards entry). Repurposed across socials. <strong>T3 TikTok</strong> (~13.6K, surprisingly low) — brand treats TikTok as UGC seeding, not owned-audience. <strong>Structural under-investment.</strong></td></tr>
+              <tr><th>Meta</th><td>Ad Library blocked (socket reset) 2026-05-13. Per The Performers + SocialHoney late-2025 scrapes: Meta creative is <strong>predominantly UGC testimonial video</strong> — the most-cited example is a customer filming herself in her kitchen with her baby in the background; <em>outperformed all polished studio work</em>. Hooks lean emotional/identity ("I quit coffee and…", "my mornings used to be…") not ingredient-led. CTAs route to subscription with starter-kit framing (frother + tin). <strong>Ad volume materially lower than RYZE</strong> — podcast-first spender.</td></tr>
+              <tr><th>US notes</th><td>US-native, US-only as primary market. Target nationally (multiple SKUs); 2025 protein-shake line extension. Podcast is highest-ROI top-of-funnel — founder Shane Heath on Meb Faber, Fitt Insider, Earned, SplitBase. Long-form interviews <em>are</em> the marketing.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Editorial brand-within-a-brand — "Trends With Benefits" + MUD\WTR Films give permission to publish opinion content unrelated to product. DIRTEA could spin up a UK-led mushroom/longevity editorial property. <strong>2.</strong> Founder-on-podcasts as primary acquisition — Shane Heath averages an interview a month. Salter brothers are under-leveraged on the US podcast circuit. <strong>3.</strong> Cinematic creative as differentiation — when RYZE wins with kitchen UGC, MUD\WTR wins with film. DIRTEA's UK-tea heritage allows a "ritual/craft" cinematic angle RYZE cannot copy.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>TikTok under-investment</strong> (13.6K). The audience is there; the brand is too in love with its cinematic voice for messy short-form. <em>Do not copy.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- RYZE -->
+        <article class="brand-card" id="b-ryze">
+          <div class="brand-head">
+            <div class="monogram ry">R</div>
+            <h3 class="name">RYZE Superfoods <span class="sub">ryzesuperfoods.com</span></h3>
+            <span class="badge mush">UGC volume monster</span>
+          </div>
+          <div class="brand-quote">Mushroom coffee that won't give you the jitters.</div>
+          <div class="brand-body">
+            <p>Problem-solution wedge for the coffee-anxious 30–55 US female wellness consumer. Warm peer-to-peer voice ("we drink it too"). Founder de-emphasised in creative.</p>
+
+            <table class="mini-table">
+              <tr><th>Channels</th><td><strong>T1 Meta (FB + IG paid)</strong> — the entire growth engine. <strong>T1 "How I RYZE" Facebook Group</strong> at <strong>~365K members</strong> (up from 93K in early 2023). Content factory + retention moat. <strong>T2 TikTok</strong> — UGC/affiliate channel; countless creators run #ryzesuperfoods under affiliate codes (e.g. CARAB15). <strong>T3 YouTube</strong> minimal owned; relies on creator placements.</td></tr>
+              <tr><th>Meta</th><td>Ad Library blocked 2026-05-13. Third-party trackers: <strong>~4,100–4,200 active Meta ads at any time</strong>, 1,000+ unique creatives in rotation (Brandsearch late-2025; Jackie He LinkedIn late-2023). Revenue ~$1.1M/day, 4.6M monthly visits. 2025 revenue $74M (GetLatka, conservative) → ~$300M (Forbes-via-X, unverified).</td></tr>
+            </table>
+
+            <h4>Creative pattern — worth memorising</h4>
+            <ul>
+              <li><strong>Format:</strong> ~80% UGC kitchen video, ~10% problem-solution carousels, ~10% before/after testimonials. <em>Almost no studio.</em></li>
+              <li><strong>Hooks:</strong> Pain-led ("I had to quit coffee because of the anxiety / tachycardia / acid reflux…"), curiosity-led ("Adaptogenic mushrooms are in right now — what are they?"), identity-led ("I'm 47 and I needed to fix my mornings").</li>
+              <li><strong>CTA:</strong> Discount code + free frother + free shipping on first order. <em>The frother is the conversion hack</em> — tangible "starter kit" object that closes the deal.</li>
+              <li><strong>Offer:</strong> Subscribe-and-save with no contract; affiliate code routes attribution.</li>
+              <li><strong>Volume strategy:</strong> Test at volume, not for perfection. Kill quickly, scale ruthlessly. 4,000+ active ads is a <em>strategic</em> choice, not waste.</li>
+            </ul>
+
+            <table class="mini-table" style="margin-top:18px;">
+              <tr><th>US notes</th><td>US-native, US-focused. <strong>January 2026 national retail launch into Target;</strong> May 2026 added three Target-exclusive lattes (Ube, Matcha, Chai) — aggressively converting DTC traction into shelf space in real time. Persona targeting sharply gendered 30–55 women; affiliate roster wellness/lifestyle, not fitness or longevity-bro.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> The community-as-content engine — "How I RYZE" at 365K is RYZE's most defensible asset; every member post is potential ad creative + social proof + product feedback. A "DIRTEA Daily Ritual" private community would compound for years. <strong>2.</strong> Industrialised UGC affiliate engine — RYZE recruits hundreds of micro-creators on affiliate codes and treats every video as a Meta creative candidate. Cheapest US acquisition channel available given Bear's existing pull. <strong>3.</strong> Free frother as conversion device — physical "starter object" packed with first orders dramatically lifts opt-in. DIRTEA's matcha whisk / ceramic spoon could play the same role.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Brand depth.</strong> RYZE's creative is so performance-optimised the brand itself is shallow — no editorial, no founder voice, no aesthetic moat. The day a cheaper imitator arrives with the same UGC playbook, RYZE has no defensible identity. <em>DIRTEA's premium-UK aesthetic is a defensible position RYZE structurally cannot copy — protect it.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Stat strip -->
+        <div class="stat-strip">
+          <div class="stat">
+            <div class="num">4,100+</div>
+            <div class="lbl">Active US Meta ads, RYZE — at any given moment</div>
+          </div>
+          <div class="stat">
+            <div class="num">365K</div>
+            <div class="lbl">Members in RYZE's "How I RYZE" Facebook community</div>
+          </div>
+          <div class="stat">
+            <div class="num">6,200+</div>
+            <div class="lbl">US retail doors stocking Four Sigmatic — #1 on Amazon US</div>
+          </div>
+          <div class="stat">
+            <div class="num">50K</div>
+            <div class="lbl">Monthly DIRTEA US-website visits — credibility is there; conversion engine is not</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:48px; padding-bottom:12px; border-bottom:2px solid var(--accent);">1B · Adjacent scale-up benchmarks</h3>
+
+        <!-- AG1 -->
+        <article class="brand-card" id="b-ag1">
+          <div class="brand-head">
+            <div class="monogram ag">A</div>
+            <h3 class="name">AG1 (Athletic Greens) <span class="sub">drinkag1.com</span></h3>
+            <span class="badge wellness">Premium daily greens · Podcast-led</span>
+          </div>
+          <div class="brand-quote">Foundational nutrition.</div>
+          <div class="brand-body">
+            <p>Single premium daily greens for high-performers; 25–50 US health-optimisation audience; authoritative, clinical, science-led (post-2025 reformulation pivot).</p>
+            <table class="mini-table">
+              <tr><th>Channels</th><td><strong>T1 Podcast advertising</strong> — 7th-largest podcast advertiser globally at <strong>~$2.2M/month across 592 shows</strong> (Ampifire, June 2023; still structural model in 2025). <strong>T1 Instagram</strong> (~655K) — authoritative content, athlete partnerships, clinical-study posts. <strong>T2 TikTok</strong> — creator whitelisting rather than owned account; #ag1 ~95M views, #athleticgreens ~86M, almost all UGC. <strong>T3 YouTube</strong> (owned modest) — partner placements on Huberman/Rogan/Ferriss carry the load.</td></tr>
+              <tr><th>Meta</th><td>Direct fetch blocked. Marketing-spend.com tracker reports ~50 active ads / ~$15K/month (looks understated; treat as unverified). What's reliably documented:</td></tr>
+            </table>
+            <ul>
+              <li><strong>Whitelisting is the core tactic.</strong> AG1 partners with creators, then runs paid ads through the creator's own handle so the ad looks native in-feed.</li>
+              <li><strong>Creative is testimonial-led but premium-coded</strong> — England Rugby, US SailGP, LIV Golf Ripper GC partnerships (Sep 2025) + clinical-trial assets give a "credentialed" aesthetic RYZE can't match.</li>
+              <li><strong>Hooks</strong> identity/aspiration ("how I show up at my best", "what's in my supplement stack") not pain-led.</li>
+              <li><strong>Offer mechanic:</strong> Subscribe → <em>Welcome Kit</em> = 30-day pouch + branded shaker + 5 travel packs + bottle of Vitamin D3+K2. Textbook high-ticket onboarding bundle.</li>
+              <li><strong>CTAs</strong> route to <strong>influencer-specific landing pages</strong> (drinkag1.com/partner/tim, /huberman, /rogan) with customised messaging.</li>
+            </ul>
+            <table class="mini-table" style="margin-top:14px;">
+              <tr><th>US notes</th><td>US-native, now Australian-HQ'd. <strong>Next Gen reformulation</strong> launched 1 May 2025, anchored to gold-standard clinical trials — direct response to Bryan Johnson attacks. New CEO Kat Cole steering into brick-and-mortar (vending, grocery) for the first time. Sports partnerships are a deliberate "credible, masculine, performance" rebalance away from Instagram-wellness associations.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> The Welcome Kit as subscription anchor — branded shaker + travel sachets + bonus product turns a $79/mo decision into a "starter system" worth owning. <strong>2.</strong> Per-podcast landing pages — drinkag1.com/partner/[host]. With Bear as ambassador, DIRTEA should run drinkdirtea.com/bear, /huberman-mentioned, etc. with proper attribution. <strong>3.</strong> Defend with clinical evidence early — Next Gen pivot was reactive defence. Commissioning a small clinical study on DIRTEA's lion's mane / chaga blend now is cheaper than reacting later.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Single-SKU dependency</strong> at $79–$99 monthly has become structurally vulnerable. Johnson's attacks landed precisely because the price was hard to defend on a single product. DIRTEA's multi-SKU range is a genuine moat. <em>Do not collapse to a single hero SKU.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- HUEL -->
+        <article class="brand-card" id="b-huel">
+          <div class="brand-head">
+            <div class="monogram hu">H</div>
+            <h3 class="name">Huel <span class="sub">huel.com</span></h3>
+            <span class="badge wellness">Nutrition-utility · Retail flip</span>
+          </div>
+          <div class="brand-quote">Complete, nutritionally balanced food, made convenient.</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>25–44 busy professionals + gym-goers. Functional, slightly nerdy, community-first ("Hueligans"). Nutrition-as-utility for people who don't want to think about food.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 YouTube + owned community ("Hueligans")</strong> — earned-community flywheel: branded merch, in-app community, Hueligan-tagged UGC feeding paid. Founder Julian Hearn + CEO James McMaster long-form on YouTube. <strong>T2 Instagram + TikTok</strong> — solid, not category-leading. Heavy UGC reposts, recipe, physique content, athlete partnerships. <strong>T3 X</strong> — dormant, customer service.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403. Per Panoramata, LeadDigital, Exposure Ninja Ep. 206: high-volume, highly segmented Meta program across UK/US/DE/JP, weighted toward functional creative — product shots, macro callouts (kcal/protein/27 vitamins), price-per-meal hooks ("£1.78 per meal"), bundle CTAs. Creator UGC exists but <strong>dominant register is studio + on-pack</strong>. Hooks: "I replaced 1 meal a day with…", "Nutritionally complete in 30 seconds." First-order discount typically free t-shirt + shaker + 10% off.</td></tr>
+              <tr><th>US notes</th><td>US is Huel's #2 market — crossed <strong>~$100M run rate in 2024</strong>. Small NYC office; Idris &amp; Sabrina Elba partnership since Dec 2022. Aggressive 2024–2025 US retail push: Walmart, Target, GNC, Sprouts — global store count doubled to 25,650. <strong>Danone agreed to acquire Huel for £865m in March 2026</strong> — retail-grocery acceleration in the US imminent.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> The "Hueligan" loyalty engine — name your tribe, give them a merch token (the t-shirt-with-first-order is load-bearing), feature them in paid. DIRTEA's brewers/ritual community is the obvious analogue; nothing today productises it. <strong>2.</strong> Lifecycle email on Ometria-class infrastructure — Huel runs a 5+ email behavioural drip with hard plain-text fallbacks for failed-payment recovery. <strong>3.</strong> Functional-claim creative variant for cold paid — at scale, the studio "macro stack on-pack" ad outperforms aesthetic lifestyle for cold acquisition.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>"Hueligan" name + merch can read cult-coded to outsiders</strong>, capping aspirational appeal in the US where the brand is still seen as a UK utility product. Functional framing also caps premium price elasticity. <em>DIRTEA should keep the ritual aesthetic.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- OLIPOP -->
+        <article class="brand-card" id="b-olipop">
+          <div class="brand-head">
+            <div class="monogram ol">O</div>
+            <h3 class="name">Olipop <span class="sub">drinkolipop.com</span></h3>
+            <span class="badge beverage">Prebiotic soda · Nostalgia reframe</span>
+          </div>
+          <div class="brand-quote">A new kind of soda — good for you, tastes like the soda you grew up with.</div>
+          <div class="brand-body">
+            <p>25–44 women, Gen Z + Millennial, health-curious nostalgia-lovers. Warm, retro, fun, never preachy. Prebiotic soda dressed as nostalgia, not medicine.</p>
+            <table class="mini-table">
+              <tr><th>Channels</th><td><strong>T1 TikTok</strong> — ~325K main account; <strong>#olipoppartner passed 1.6 billion views</strong> (Fortune 2025). 1.3B paid+organic views at $0.61 CPM. 30–40 creators activated monthly via long-term partnerships, not one-off seeding. <strong>T2 Instagram + Meta paid</strong> — ~25% of paid social on Meta, optimised for <strong>retailer-locator</strong> + new-to-brand reach, not DTC checkout. <strong>T3 YouTube / X</strong> dormant relative to TikTok.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403. Opus.pro tracker: ~12 active US ads in April 2026, longest live 90 days, average 10 days. Per Pixel &amp; Parchment + DTC Newsletter:</td></tr>
+            </table>
+            <ul>
+              <li><strong>Nostalgia hooks:</strong> "Taste that takes you back," "The cheat code we all remember" — lifestyle UGC + childhood-soda visual cues.</li>
+              <li><strong>Retail-locator ads:</strong> geo-targeted around Walmart and 7-Eleven; "$1 Minis" price-promo creative; "Find it at Walmart" CTAs.</li>
+              <li><strong>Functional callouts</strong> (9g fibre / 2g sugar / prebiotic) always layered <em>under</em> taste/nostalgia — never the lead.</li>
+              <li>Mix ~70% creator UGC, 30% studio/static. <strong>Emotional &gt; functional in primary brand creative.</strong></li>
+            </ul>
+
+            <table class="mini-table" style="margin-top:14px;">
+              <tr><th>US notes</th><td>US-native; whole machine US-tuned. <strong>~50,000 retailers</strong> (Walmart, Target, Costco, Whole Foods, Kroger, Publix, H-E-B). $400M+ revenue 2024, $1.85B valuation Feb 2025. <strong>"Sleepy Girl Mocktail"</strong> trend amplification netted 570M media impressions and 50M TikTok views <em>without paid spend</em>.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Category-creation via nostalgia, not medicine. Olipop never says "prebiotic soda" first; it says "the soda you grew up with, made better." DIRTEA leads too hard on "functional mushroom"; reframe as <em>"the coffee/matcha you already love, made to do more."</em> <strong>Highest-leverage idea in this audit.</strong> <strong>2.</strong> Amplify organic trends, don't seed them — find unprompted user trends, put paid behind them, hand back to creators. The "afternoon slump fix" trend lane is wide open. <strong>3.</strong> Long-term creator stables, not one-off seeding — 30–40 paid creators on rolling deals is the engine.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Heavy TikTok concentration risk</strong> — a platform shift exposes them. Flavour-launch cadence high enough that brand consistency on Meta is fraying; some recent ads read as price-promo retail-flyers, eroding the premium-nostalgia signal.
+            </div>
+          </div>
+        </article>
+
+        <!-- MAGIC SPOON -->
+        <article class="brand-card" id="b-magicspoon">
+          <div class="brand-head">
+            <div class="monogram ms">M</div>
+            <h3 class="name">Magic Spoon <span class="sub">magicspoon.com</span></h3>
+            <span class="badge beverage">Founder-podcast template</span>
+          </div>
+          <div class="brand-quote">Cereal you loved as a kid, made for the adult you became.</div>
+          <div class="brand-body">
+            <table class="mini-table">
+              <tr><th>Positioning</th><td>High-protein, zero-sugar, keto-friendly indulgence. 25–45 millennial Joe-Rogan/Tim-Ferriss-podcast-listener types + their families. Nostalgic, playful, slightly bro-coded. Wellness-as-indulgence with founder-cred.</td></tr>
+              <tr><th>Channels</th><td><strong>T1 Podcast host-read ads</strong> — Tim Ferriss, Joe Rogan, Bill Simmons, How I Built This. Co-founder Gabi Lewis is the audible thread — appears himself, transferring host credibility. <strong>T2 Instagram + Meta paid</strong> — strong creative reputation in the DTC ad-buyer community ("one of my favorite to follow for creative strategy" — Dara Denney). Seasonal flavour drops, ultra-wide IG posts, UGC reels. <strong>T3 TikTok organic</strong> — underweight; used as paid distribution surface more than community channel.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403. Per DTC Newsletter (Sep 30 2025) + Biddyco: moderate-volume, very high-craft Meta program. Hallmarks:</td></tr>
+            </table>
+            <ul>
+              <li><strong>Seasonal/scarcity hooks:</strong> "Salted Caramel — fall only," "Pumpkin Spice is back" — limited-edition flavour drops as primary creative engine.</li>
+              <li><strong>Ultra-wide static IG posts:</strong> recognisable visual format — wide cereal-bowl hero with bold copy overlays.</li>
+              <li><strong>UGC creator videos:</strong> 100+ UGC creators via minisocial for fully-licensed paid-ready video. Protein + taste are the two repeating pillars.</li>
+              <li><strong>Hooks:</strong> "0g sugar, 14g protein, tastes like the cereal you grew up with"; "I tried adult cereal so you don't have to."</li>
+              <li><strong>CTA / offer:</strong> "Build Your Box" subscription (4-box bundle), free shipping threshold, occasional 15% off.</li>
+            </ul>
+
+            <table class="mini-table" style="margin-top:14px;">
+              <tr><th>US notes</th><td>US-native. Big 2024–2026 move: DTC-to-retail flip — now in <strong>16,000+ stores</strong> (Walmart, Target, Kroger, Costco). Ad strategy extends to in-store aisle displays. Never expanded internationally with real intent — US is the whole game.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Founder content as credibility transfer — Gabi Lewis going on Tim Ferriss / How I Built This / Joe Rogan personally is worth more than any influencer budget. <strong>Salter brothers on US health-and-performance podcasts (Huberman, Attia, Rich Roll, US Steven Bartlett slots) is the highest-ROI move available.</strong> <strong>2.</strong> Seasonal/limited-edition drops as creative refresh engine — solves Meta creative-fatigue and gives press/influencers something new each quarter. DIRTEA's mushrooms map cleanly onto seasons (Reishi/winter, Lion's Mane/back-to-school). <strong>3.</strong> Wellness-as-indulgence framing — Magic Spoon refuses to be medicine. DIRTEA's matcha + cacao SKUs can pull harder on "treat that loves you back."</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Over-reliance on Gabi Lewis personal appearances</strong> creates key-person risk and doesn't scale. Bro-coded register caps the female-25–44 segment where Olipop is winning.
+            </div>
+          </div>
+        </article>
+
+        <!-- LIQUID DEATH -->
+        <article class="brand-card" id="b-liquiddeath">
+          <div class="brand-head">
+            <div class="monogram ld">L</div>
+            <h3 class="name">Liquid Death <span class="sub">liquiddeath.com</span></h3>
+            <span class="badge beverage">Earned-media flywheel</span>
+          </div>
+          <div class="brand-quote">Murder your thirst.</div>
+          <div class="brand-body">
+            <p>Healthy hydration for people who hate marketing. 18–34 men + counterculture women, music/skate/MMA-adjacent. Irreverent, heavy-metal-coded, anti-corporate. A beverage brand pretending to be a death-metal band.</p>
+            <table class="mini-table">
+              <tr><th>Channels</th><td><strong>T1 TikTok + Instagram (organic)</strong> — combined <strong>14M+ followers</strong> across TikTok and IG. TikTok is primary engagement driver. Mockumentary, parody-ad, celebrity stunt, music-video — almost no "product shot in a kitchen." <strong>T2 YouTube</strong> — long-form home for the big stunt films (Tony Hawk blood-boards, "Greatest Hates" album, Super Bowl extended cuts). Durable IP archive. <strong>T3 Meta paid</strong> — deliberately small. <strong>Paid-amplification-of-earned brand</strong>, not paid-acquisition brand.</td></tr>
+              <tr><th>Meta</th><td>Ad Library 403. Per Ad Breakdowns + Adweek BrandWeek 2025 + Marketing Brew Jan 2026:</td></tr>
+            </table>
+            <ul>
+              <li>Low volume by category standards — July 2024 snapshot showed <strong>~12 active ads</strong>. "A handful of times a month" cadence — explicitly not volume.</li>
+              <li><strong>Creative is overwhelmingly repurposed earned/organic content</strong> — identify unprompted UGC posts, put paid behind those posts with tight targeting, rather than studio-produced ad units.</li>
+              <li><strong>Hooks:</strong> comedic / shock / character-driven. CTA soft; mostly brand/awareness. Conversion ads optimise for Maximize Value of Conversions, 10–14 days then prune.</li>
+              <li>Super Bowl 2025 "Drink on the job" was their biggest paid swing — designed to be earned-media-multiplied, not viewed in-channel.</li>
+            </ul>
+
+            <table class="mini-table" style="margin-top:14px;">
+              <tr><th>US notes</th><td>US-native. Revenue <strong>$333M 2024, ~$340M 2025e</strong>, valuation $1.4B post Series E March 2024. Distribution: Walmart, 7-Eleven, Whole Foods, <strong>AMC theaters, Live Nation venues</strong> — venue/entertainment placement is the US-specific moat. Tony Hawk + Steve-O collaborations are deliberately American counterculture icons.</td></tr>
+              <tr><th>Transferable</th><td><strong>1.</strong> Earned-media flywheel via stunt content — pick 3–4 cultural moments per year and over-invest, rather than churn weekly ads. DIRTEA's adaptogen + Bear angle is genuinely under-stunted. <strong>One bold annual film with Bear archive footage would do more than 100 product reels.</strong> <strong>2.</strong> Paid amplification of organic UGC — find unprompted fans on TikTok/IG, license + boost their post with targeting. Cheaper, more authentic, avoids creator-fatigue. <strong>3.</strong> Venue / placement strategy in the US — DIRTEA could pursue analogous wellness-adjacent placements: SoulCycle, Equinox, F45, Barry's US — captive 25–45 health audience with founder credibility intact.</td></tr>
+            </table>
+
+            <div class="wrong">
+              <div class="lbl">What they're getting wrong</div>
+              <strong>Brand voice so distinctive it's almost untransferable</strong> into adjacent categories (see lukewarm reception to some iced-tea SKUs vs water core). Shock-humour register limits enterprise/grocery buyer comfort in conservative US states. <em>DIRTEA shouldn't try to be edgy</em> — the lesson is cadence and earned-media discipline, not tone.
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ───────── DIAGNOSIS ───────── -->
+    <section id="diagnosis">
+      <div class="wrap">
+        <div class="section-eyebrow">Section Two</div>
+        <h2 class="section-title">Diagnosis</h2>
+        <p class="section-lede">What is actually capping DIRTEA's growth? Not one thing — but only 2–3 things matter. The rest are downstream.</p>
+
+        <ol>
+          <li><strong>US paid-media creative engine is absent at the exact moment the category window is open.</strong> RYZE runs 4,100+ active Meta ads. AG1 whitelists through every major US podcast host. Spacegoods has opened a US site with UK product and shallow localisation. DIRTEA, per AdScan.ai, was running <strong>0 active Meta ads</strong> at the April audit. The brand is being out-shouted in the channel that decides the US wellness consumer's first purchase.</li>
+          <li><strong>Ambassador roster is treated as PR, not pipeline.</strong> Bear Grylls (4M+ YouTube subs, seven-figure personal investor) + Dr Tara Swart (neuroscientist, TED talk, 60K+ IG) + Roxie Nafousi is a top-1% credibility stable. DIRTEA's June 2025 Bear Reel earned <strong>108 likes on 386K followers</strong> (0.03% — see April audit). YouTube has 398 subscribers. There is no Bear/Tara/Roxie merchandised content series, no per-ambassador landing page, no signature stack SKUs, no per-podcast attribution URL. The credibility assets are not being converted into pipeline.</li>
+          <li><strong>Positioning is ingredient-led ("functional mushroom"), not benefit-led ("focus / coffee alternative"), at the exact moment Spacegoods and RYZE are winning the US benefit narrative.</strong> Four Sigmatic's founder Olli has publicly stated the loyal US base <em>"actually hate mushrooms"</em>. Olipop reframes prebiotic-as-medicine into "the soda you grew up with." DIRTEA still leads on the M-word in US-facing creative. The US growth wallet is buying focus and coffee-replacement, not heritage adaptogens.</li>
+        </ol>
+
+        <h4>Downstream of the above</h4>
+        <ol start="4">
+          <li>The April audit's PDP gaps remain — no reviews on PDPs (<strong>3,079 Trustpilot reviews invisible</strong>), no first-purchase email/SMS capture, no YouTube engine. CRO + lifecycle leaks that compound losses from points 1–3.</li>
+          <li>No US community space (RYZE has a 365K-member FB group; DIRTEA has none) — no compounding retention/UGC engine.</li>
+          <li>Founders Andrew &amp; Simon Salter are absent from the US podcast circuit despite a tier-1 product and a tier-1 ambassador stable. Magic Spoon's Gabi Lewis + MUD\WTR's Shane Heath both built their brands partly through founder-on-podcast — DIRTEA has not run this play.</li>
+        </ol>
+
+        <h3>Root causes — the only 2–3 that matter</h3>
+        <div class="diagnosis-card" style="background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent); color:var(--ink-soft);">
+          <div class="tag" style="color:var(--accent);">Root cause A</div>
+          <p style="color:var(--ink-soft);"><strong>US-market creative &amp; channel engine is dormant.</strong> Paid Meta absent; TikTok Shop US not activated; per-host podcast attribution non-existent. This is the operational gap.</p>
+        </div>
+        <div class="diagnosis-card" style="background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent); color:var(--ink-soft);">
+          <div class="tag" style="color:var(--accent);">Root cause B</div>
+          <p style="color:var(--ink-soft);"><strong>The credibility stable is logo-wall, not pipeline.</strong> Bear + Tara are arguably DIRTEA's most valuable asset; they're being used as PR signals, not as a content/conversion engine.</p>
+        </div>
+        <div class="diagnosis-card" style="background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent); color:var(--ink-soft);">
+          <div class="tag" style="color:var(--accent);">Root cause C</div>
+          <p style="color:var(--ink-soft);"><strong>Positioning hasn't translated for the US wallet.</strong> Still leading on "mushroom" when the buyer is searching for "focus" and "coffee alternative."</p>
+        </div>
+        <p style="margin-top:14px; font-style:italic; color:var(--muted);">Everything else is downstream of these three.</p>
+      </div>
+    </section>
+
+    <!-- ───────── GROWTH PLAY ───────── -->
+    <section id="growth-play">
+      <div class="wrap">
+        <div class="section-eyebrow">Section Three</div>
+        <h2 class="section-title">The growth play</h2>
+        <p class="section-lede">A 90-day strategy memo. Target persona, channel re-prioritisation, creative direction, and three tactical moves competitors are running that DIRTEA should adopt.</p>
+
+        <div class="persona">
+          <div class="lbl">Target US persona</div>
+          <h3>"Maya, 36 — Brooklyn / Austin / San Diego."</h3>
+          <p>Senior marketing or tech professional, or self-employed creative. Two coffees a day, considering quitting because the anxiety has worsened since 33. Already buys AG1 or has thought about it. Follows Tara Swart, Mel Robbins, Mark Hyman on Instagram. Listens to Huberman in the gym, Mel Robbins on the commute, <em>The Skinny Confidential</em> or <em>Pursuit of Wellness</em> in the kitchen. Search history: <em>"best mushroom coffee for ADHD," "lion's mane for focus," "caffeine alternative no jitters," "afternoon slump remedy."</em> She buys premium when the science is named, when the founder is on a podcast she trusts, and when the unboxing makes the price feel like a system, not a sachet. Subscription willingness: <strong>$50–80/month.</strong> <strong>Two needs:</strong> caffeine replacement at 10am, focus support at 3pm. She wants both in one ritual.</p>
+        </div>
+
+        <h3>Channel priority — what changes</h3>
+        <table class="standard">
+          <thead><tr><th>Channel</th><th>Current</th><th>Recommended</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Meta paid (US)</strong></td><td>Dormant (0 ads, April)</td><td><strong>Always-on</strong>, £30–50k/mo, 10–15 UGC creatives in rotation</td><td>RYZE/AG1 run this at volume; the channel decides first purchase</td></tr>
+            <tr><td><strong>TikTok Shop (US)</strong></td><td>Not activated</td><td><strong>Launch with 20+ affiliate creators in 90 days</strong></td><td>Cheapest US acquisition channel; affiliates pay for themselves</td></tr>
+            <tr><td><strong>YouTube</strong></td><td>398 subs, 70 videos</td><td><strong>Revive: Tara Swart 6-ep explainer series</strong></td><td>Compounds for 12+ months; owns high-intent search</td></tr>
+            <tr><td><strong>Podcasts</strong></td><td>None</td><td><strong>Salter brothers on 8–10 US shows in 90 days</strong></td><td>Magic Spoon / MUD\WTR template; cheapest credible founder-led acquisition</td></tr>
+            <tr><td><strong>Community</strong></td><td>None</td><td><strong>Private US group seeded with current buyers</strong></td><td>RYZE's 365K is moat; first-mover in DIRTEA's category</td></tr>
+            <tr><td><strong>Email/SMS</strong></td><td>Footer signup</td><td><strong>Klaviyo 2-step popup, 5-email welcome flow</strong></td><td>Standing recommendation from April audit</td></tr>
+            <tr><td><strong>PDP / CRO</strong></td><td>No reviews</td><td><strong>Reviews live, sticky ATC, FB threshold progress</strong></td><td>Standing recommendation from April audit</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Creative direction — next 90 days</h3>
+        <p><strong>Drop the studio flatlay as primary creative.</strong> Lead with the user, not the product. Kitchen UGC, morning routine, 35–45-year-old US women filming themselves.</p>
+
+        <h4>Track A — "I quit coffee" (pain-led, RYZE template)</h4>
+        <p>Hooks: <em>"I had to quit coffee at 36," "My anxiety stopped when I switched my morning," "The afternoon slump fix I tell every client about."</em> Format: vertical UGC, kitchen, hand-held. CTA: starter kit + free matcha whisk + 20% off subscription.</p>
+
+        <h4>Track B — "Morning ritual" (aspirational, AG1-coded)</h4>
+        <p>Hooks: <em>"What's actually in my morning stack," "How I show up at my best by 9am," "The 4-minute morning that runs my day."</em> Format: cleaner aesthetic, premium-coded, founder + ambassador appearances. CTA: drinkdirtea.com/[partner] landing pages with attribution.</p>
+
+        <h4>One stunt swing per quarter</h4>
+        <p>Bear archive footage edited into a "morning of an expedition" cinematic — 60 seconds, designed to earn media. No new Bear filming required (Bear bandwidth-constrained — confirmed). <strong>One per quarter, not one per month.</strong> Liquid Death cadence; DIRTEA tone.</p>
+
+        <h4>Tara Swart YouTube series in parallel</h4>
+        <p>6 episodes, 6–10 minutes, doctor's-office aesthetic, white desk, optimised for high-intent search (<em>"lion's mane benefits," "mushroom coffee for ADHD," "matcha vs coffee for focus"</em>). Each episode repurposed into 8–12 vertical clips for IG/TikTok/Shorts.</p>
+
+        <h3>3 specific tactical moves to adopt now</h3>
+        <ol>
+          <li><strong>The Welcome Kit (AG1).</strong> Every first US subscription order ships in a branded box with a ceramic mug + matcha whisk + 5 travel sachets. Re-justifies the premium and turns the unboxing into UGC fuel.</li>
+          <li><strong>Per-host landing pages (AG1).</strong> Every podcast host gets a personalised drinkdirtea.com URL with isolated UTM tracking. Founders go on the show; the host gets a code; the landing page personalises ("As heard on Mel Robbins…"). Attribution finally works.</li>
+          <li><strong>Industrialised UGC affiliate engine (RYZE).</strong> Open public sign-up page for US affiliates. Pay on commission + usage rights. The top 20% of creator outputs become Meta paid creatives. The other 80% pays for itself on TikTok Shop. <strong>Two channels, one creator pool.</strong></li>
+        </ol>
+
+        <h3>30 / 60 / 90 day milestones</h3>
+        <div class="milestones">
+          <div class="milestone">
+            <div class="day">30<small>Days</small></div>
+            <ul>
+              <li>Per-host landing pages live (6 pages — Bear, Tara, Huberman, Mel Robbins, Rich Roll, generic-creator)</li>
+              <li>8 US UGC creators contracted, first 15 clips delivered</li>
+              <li>First Meta always-on test live, £30k initial spend</li>
+              <li>1st DIRTEA US podcast booked (Salter brothers)</li>
+              <li>Reviews integration (Yotpo/Okendo) backfilling Trustpilot — standing item; must not slip further</li>
+            </ul>
+          </div>
+          <div class="milestone">
+            <div class="day">60<small>Days</small></div>
+            <ul>
+              <li>TikTok Shop US live with 20+ affiliates</li>
+              <li>Welcome Kit shipped with all US first orders (mug + whisk + 5 sachets)</li>
+              <li>Tara Swart YouTube episode 1 published; 8–12 vertical clips repurposed</li>
+              <li>US Klaviyo welcome flow + abandoned-cart live</li>
+              <li>2 founder podcast appearances aired</li>
+            </ul>
+          </div>
+          <div class="milestone">
+            <div class="day">90<small>Days</small></div>
+            <ul>
+              <li>First quarterly stunt film (Bear archive cut) published — major earned-media push</li>
+              <li>US community group (Geneva or FB) launched, seeded with 500+ current buyers</li>
+              <li>5 founder podcast appearances aired (Mel Robbins, Rich Roll, FoundMyFitness, Genius Life, How I Built This or equivalent)</li>
+              <li>Tara YouTube series at 3 episodes; organic search starting to compound</li>
+              <li>Always-on Meta at £50k/month, 60+ creatives in 90-day window</li>
+              <li>Clinical-study scoping initiated (Lion's Mane / Chaga blend) — AG1-defence playbook</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── BEAR WITNESS ALIGNMENT ───────── -->
+    <section id="narrative">
+      <div class="wrap">
+        <div class="section-eyebrow">Section 3B</div>
+        <h2 class="section-title">Alignment with Bear Witness narrative</h2>
+        <p class="section-lede">This audit is the <strong>paid + distribution</strong> layer underneath Jesse's Bear Witness organic narrative strategy (March 2026). Every piece of paid creative below routes back to one of his five mission narratives. The audit does not replace the narrative architecture — it gives it a paid engine.</p>
+
+        <h3>Mapping paid + creative work to the five narratives</h3>
+        <table class="standard">
+          <thead><tr><th>Bear Witness narrative</th><th>What it owns</th><th>How this audit executes against it</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>1. The Burnout Loop</strong> <em>(primary)</em></td>
+              <td>Recognition. "That's me." Caffeine → crash → wine → bad sleep cycle. Highest emotional urgency. Founder origin story sits here.</td>
+              <td><strong>Track A — "I quit coffee" UGC</strong> is this narrative in paid form. 35–45-yr-old US women, kitchen, hand-held. Hooks like "I had to quit coffee at 36" and "the afternoon slump fix" are literal Burnout Loop hooks. <strong>60–70% of US Meta spend.</strong> Founders feature in higher-production cuts as the lived-it voice.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Ancient Intelligence, Modern Life</strong> <em>(primary)</em></td>
+              <td>Wonder. Fungi predate flowers by 800m years. Mycelial network, sourcing heritage. Visual + Substack-heavy.</td>
+              <td>The <strong>quarterly Bear archive stunt film</strong> ("morning of an expedition") sits here — primal, ancient, awe-driven. YouTube long-form deep-dives on sourcing + mycology, repurposed as Reels. Light paid amplification (~10% of spend) — this narrative is built for earned + organic.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Take Back Control</strong> <em>(strong secondary)</em></td>
+              <td>Empowerment. Morning ritual. From passenger to pilot.</td>
+              <td><strong>Track B — "Morning ritual" UGC</strong> (AG1-coded) is this narrative. Hooks like "what's actually in my morning stack" and "the 4-minute morning that runs my day." The <strong>Welcome Kit</strong> (ceramic mug + matcha whisk + sachets) is this narrative made physical. <strong>20–25% of US Meta spend.</strong> Per-host landing pages (Mel Robbins, Rich Roll, Huberman) sit here — intentional people choosing tools.</td>
+            </tr>
+            <tr>
+              <td><strong>4. The Science Behind the Sacred</strong> <em>(strong secondary)</em></td>
+              <td>Intellectual trust. Tara Swart, 40%+ beta-glucans, dual extraction, 100% fruiting bodies. Carousel + YouTube long-form heavy.</td>
+              <td><strong>Tara Swart YouTube series</strong> (6 episodes, doctor's-office aesthetic) is this narrative as a content engine. Each episode repurposed into 8–12 vertical clips — <strong>the creative pool for the "Evidence" Meta layer</strong> (~10% of spend, dosage-comparison + science-led carousels). Targets high-intent search. Defends against AG1 on credibility.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Nature's Ultimate Design</strong> <em>(supporting)</em></td>
+              <td>Quiet conviction. Simplification. One ritual replaces 14 supplements. Underpins the other four.</td>
+              <td><strong>Not paid-led</strong> — the philosophical wrapper. Shows up as the brand-world layer: cinematic forest/mycelium b-roll in the stunt film, founder-led "I used to take 14 supplements, now I take one" content, simplification message in the welcome flow + PDP copy. Earns its place organically; no dedicated paid budget.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Indicative paid allocation by narrative (US Meta, monthly)</h3>
+        <table class="standard">
+          <thead><tr><th>Narrative</th><th>Share of paid spend</th><th>Primary creative format</th></tr></thead>
+          <tbody>
+            <tr><td>1. Burnout Loop</td><td><strong>60–70%</strong></td><td>Track A UGC, kitchen, hand-held</td></tr>
+            <tr><td>3. Take Back Control</td><td><strong>20–25%</strong></td><td>Track B UGC, AG1-coded ritual content</td></tr>
+            <tr><td>4. Science Behind the Sacred</td><td><strong>8–12%</strong></td><td>Carousels + Tara YouTube cut-downs</td></tr>
+            <tr><td>2. Ancient Intelligence</td><td><strong>~5%</strong> (amplification only)</td><td>Stunt film, mycology long-form clips</td></tr>
+            <tr><td>5. Nature's Ultimate Design</td><td><strong>0%</strong> (organic / brand-world only)</td><td>n/a</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Bear deployment — explicit alignment check</h3>
+        <p><strong>Jesse's strategy:</strong> "Bear Grylls is positioned as a credibility asset rather than a content engine, deployed strategically at high-impact moments rather than diluted across daily posts."</p>
+        <p><strong>This audit's plan:</strong> <em>one quarterly stunt film built from archive footage</em> (60-second cinematic, no new Bear filming). All other Bear usage is photographic/portrait/legacy assets in PR + retail comms. <strong>No daily Bear paid creative. No new Bear shoot days.</strong> Direct match to Jesse's principle.</p>
+
+        <h3>What we are NOT changing from Jesse's strategy</h3>
+        <ul>
+          <li>The five mission narratives — kept verbatim as the creative spine.</li>
+          <li>The platform tiering (IG + TikTok Tier 1, YouTube + Substack Tier 2, LinkedIn Tier 3) — paid plan respects it.</li>
+          <li>"Sell the problem, never the product." Every Track A and Track B hook leads with a felt problem, not a product feature.</li>
+          <li>Bear as credibility asset, not content engine.</li>
+          <li>40+ wellness-curious as the primary growth audience.</li>
+        </ul>
+
+        <h3>What this audit ADDS on top of Jesse's strategy</h3>
+        <ul>
+          <li>A US-specific paid distribution engine (Jesse's doc is platform/narrative-led, organic-first).</li>
+          <li>An always-on Meta programme with two creative tracks, 60+ creatives in a 90-day window.</li>
+          <li>Industrialised UGC affiliate engine + TikTok Shop, drawing from one creator pool.</li>
+          <li>Per-host landing pages and a founder podcast tour as attribution + reach infrastructure.</li>
+          <li>A US Welcome Kit + reviews + email capture stack — the conversion-side fixes Jesse's strategy needed but didn't address.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ───────── ASSETS ───────── -->
+    <section id="assets">
+      <div class="wrap">
+        <div class="section-eyebrow">Section Four</div>
+        <h2 class="section-title">Asset &amp; brief implications</h2>
+        <p class="section-lede">What DIRTEA actually needs to commission to make the above real.</p>
+
+        <h3>Creative &amp; content</h3>
+        <ul>
+          <li><strong>10–15 short-form US-creator UGC clips per month.</strong> Talent fee budget <strong>£15–20k/month</strong>. Two angles: morning-routine and afternoon-slump replacement. Must be US-located, US-accent native, US-aesthetic — <em>do not repurpose UK creators for US Meta.</em> Source via minisocial, Twirl, or in-house brief.</li>
+          <li><strong>One annual Bear archive-cut stunt film, 60 seconds.</strong> Editor + grade + sound only — <em>no new Bear filming</em> (bandwidth constraint locked). Repurpose existing expedition footage. <strong>Editor budget £5–8k;</strong> total film £10–15k including paid amplification.</li>
+          <li><strong>Tara Swart YouTube series — 6 episodes</strong> at 6–10 minutes each. Location, light production, edit, captions. <strong>£3–5k per episode × 6 = £18–30k total.</strong> Topics: lion's mane / cortisol / focus economy / sleep / matcha / women's hormones.</li>
+          <li><strong>Per-episode vertical clips</strong> — 8–12 short-form cutdowns per Tara episode for IG/TikTok/Shorts. <strong>£500–800 per episode</strong> in edit cost on top.</li>
+        </ul>
+
+        <h3>Talent / founder</h3>
+        <ul>
+          <li><strong>Salter brothers US podcast tour</strong> — Andrew &amp; Simon on 8–10 US shows in 90 days. <strong>PR retainer £4–6k/month</strong> for booking (US-based bookers recommended — e.g. Champagne Communications, specialist DTC bookers). Booking targets: <em>Mel Robbins, Rich Roll, FoundMyFitness (Rhonda Patrick), Genius Life (Max Lugavere), How I Built This, The Drive (Attia), The Skinny Confidential, Pursuit of Wellness (Mari Llewellyn).</em> Each appearance repurposed: full episode clip → 4–6 vertical clips → 1 landing-page banner update.</li>
+          <li><strong>Ambassador content rights renegotiation</strong> — Bear archive licence for the stunt film + 6-month paid rotation. Roxie Nafousi short-form content commitment (1 morning-routine reel per quarter). Tara Swart YouTube series + per-episode usage rights. <strong>Legal + licence costs £8–12k</strong> depending on existing contract structure.</li>
+        </ul>
+
+        <h3>Physical / unboxing</h3>
+        <ul>
+          <li><strong>US Welcome Kit production.</strong> Branded ceramic mug + matcha whisk + 5 travel sachets + welcome card. <strong>Unit cost £8–12</strong> per kit at MOQ; absorbed into first-subscription margin given £75–99 first order. <strong>Initial tooling + packaging design £6–10k</strong>, plus £10–15k for first inventory run.</li>
+          <li><strong>Stand-alone affiliate landing page + sign-up flow</strong> — Four Sigmatic-style public TikTok Shop affiliate sign-up. <strong>Design + dev £4–6k</strong>, ongoing comms via existing Shopify Collabs.</li>
+        </ul>
+
+        <h3>Digital build</h3>
+        <ul>
+          <li><strong>Per-host landing pages — 6 custom pages</strong> with isolated UTM tracking and dynamic ambassador-message swap. <strong>£5–8k one-off build;</strong> £500/mo ongoing optimisation.</li>
+          <li><strong>PDP review integration (Yotpo or Okendo)</strong> — backfill Trustpilot 3,079 reviews. <strong>£3–5k setup + £400–700/mo platform.</strong> <em>Standing item from April audit — material risk if it slips further.</em></li>
+          <li><strong>Klaviyo two-step popup + welcome flow + abandoned-cart + browse-abandon.</strong> <strong>Build £8–12k</strong>, platform existing. <em>Standing item from April audit.</em></li>
+        </ul>
+
+        <h3>Community / ops</h3>
+        <ul>
+          <li><strong>US community space (Geneva or private FB group)</strong> — community lead at <strong>1 day/week, £2–3k/month</strong> ongoing. Seeded with existing US Vitamin Shoppe + DTC buyers; named tribe to be brand-tested ("Ritualists," "DIRTEA Daily," candidates TBD).</li>
+        </ul>
+
+        <h3>Paid spend</h3>
+        <ul>
+          <li><strong>Always-on US Meta:</strong> <strong>£30–50k/month from month 1.</strong> Ramp to £75k/month by month 6 contingent on CAC/blended ROAS hitting industry benchmarks (AG1 / RYZE category benchmark CAC: $40–70 on first order, payback inside 90 days).</li>
+          <li><strong>TikTok Shop seeding budget:</strong> <strong>£3–5k/month</strong> in product seeding for first 90 days, plus commission (industry standard 10–15% on revenue).</li>
+          <li><strong>Founder podcast tour amplification:</strong> <strong>£5–8k per episode</strong> in paid promotion of episode clips on Meta + YouTube Shorts to convert each podcast appearance into a sustained acquisition asset.</li>
+        </ul>
+
+        <h3>Indicative totals (rough order)</h3>
+        <table class="standard">
+          <tbody>
+            <tr><td><strong>Setup / one-off (90 days)</strong></td><td>£150–200k</td></tr>
+            <tr><td><strong>Always-on monthly run rate from month 1</strong></td><td>£55–80k (Meta + UGC + PR + community + ambassador rotation)</td></tr>
+            <tr><td><strong>Total to put 90 days in motion</strong></td><td><strong style="color:var(--accent); font-size:18px;">£300–400k all-in</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="font-style:italic; color:var(--muted);">Recoverable on AG1/RYZE benchmark CAC + retention within 6–9 months at DIRTEA's price point and subscription mechanics.</p>
+      </div>
+    </section>
+
+    <!-- ───────── JESSE SUMMARY (FULL) ───────── -->
+    <section id="jesse">
+      <div class="wrap">
+        <div class="section-eyebrow">Section Five · One-page version</div>
+        <h2 class="section-title">The Jesse Summary (full)</h2>
+        <p class="section-lede">Designed to be read aloud or pasted into a Telegram/iMessage to Jesse Grylls.</p>
+
+        <div class="diagnosis-card" style="background:var(--card); border:1px solid var(--rule); border-left:4px solid var(--accent); color:var(--ink-soft);">
+          <div class="tag" style="color:var(--accent);">Headline diagnosis</div>
+          <p style="color:var(--ink-soft);">DIRTEA's growth ceiling is execution, not brand — the premium identity is intact, but US paid social is effectively dormant while RYZE runs 4,000+ UGC ads, AG1 whitelists through every major US podcast host, and Spacegoods has overtaken DIRTEA on UK search share and quietly opened a US site. DIRTEA is still leading with "functional mushroom" when the US growth wallet is buying "focus" and "coffee alternative."</p>
+        </div>
+
+        <h3>7 visual moves we'd make</h3>
+        <ol>
+          <li>Kitchen-UGC Meta creative — 35-year-old US woman with a mug, "I quit coffee at 36" hook, 10–15 clips/month in rotation.</li>
+          <li>A Bear Grylls archive-cut stunt film — 60-second "morning of an expedition" sequence with DIRTEA Coffee as the kit. No new Bear filming.</li>
+          <li>Dr Tara Swart on YouTube — 6 episodes, doctor's-office aesthetic, "Lion's Mane &amp; Cortisol" titles.</li>
+          <li>The DIRTEA Welcome Kit — every first US subscription ships with a branded mug, matcha whisk, 5 travel sachets.</li>
+          <li>Per-host landing pages — drinkdirtea.com/huberman, /melrobbins, /bear, /tara, isolated attribution.</li>
+          <li>Reviews live on every PDP — 3,000+ Trustpilot quotes in a carousel, star rating in Google SERP.</li>
+          <li>One quarterly stunt film, not weekly reels — Liquid Death cadence, DIRTEA tone.</li>
+        </ol>
+
+        <h3>7 actionable moves we'd make</h3>
+        <ol>
+          <li>Always-on US Meta paid programme, £30–50k/month, UGC engine of 10–15 clips/month, two creative tracks ("I quit coffee" + "morning ritual").</li>
+          <li>TikTok Shop US launch with 20+ affiliate creators contracted in 90 days, public sign-up page.</li>
+          <li>Founder podcast tour — Salter brothers on 8–10 US podcasts in 90 days (Mel Robbins, Rich Roll, FoundMyFitness, Genius Life).</li>
+          <li>US Welcome Kit packed with every first subscription order.</li>
+          <li>Reposition the US lead message: drop "functional mushroom" as headline; lead with "the coffee/matcha you already love, made for focus."</li>
+          <li>Stand up a private US community space (Geneva or Facebook), seeded with existing buyers, named tribe.</li>
+          <li>Reviews + first-purchase email capture live — Yotpo/Okendo on PDPs, Klaviyo two-step popup with 10% off.</li>
+        </ol>
+
+        <div class="cost-callout" style="background:var(--paper); border:1px solid var(--gold); color:var(--ink);">
+          <div class="num" style="color:var(--accent);">£300–400k</div>
+          <div>
+            <div class="label" style="color:var(--gold);">Cost to put in motion (rough order)</div>
+            <div class="copy" style="color:var(--ink-soft);">All-in for the first 90 days (£150–200k creative + talent + tooling, plus £30–50k/month US Meta from month 1). Recoverable within 6–9 months at AG1/RYZE benchmark CAC + retention.</div>
+          </div>
+        </div>
+
+        <div class="dont-block" style="background:var(--warn-bg); border:1px solid #c75858; border-left:4px solid var(--warn); color:var(--ink-soft);">
+          <h4 style="color:var(--warn);">What we don't recommend</h4>
+          <ul>
+            <li style="color:var(--ink-soft); border-bottom:1px solid #e8c8c8;"><strong style="color:var(--ink);">Don't copy RYZE's 50% off / discount stacking</strong> — erodes the premium that is part of DIRTEA's moat.</li>
+            <li style="color:var(--ink-soft); border-bottom:1px solid #e8c8c8;"><strong style="color:var(--ink);">Don't try to be Liquid Death edgy</strong> — lift the cadence (3–4 stunts/year), not the tone.</li>
+            <li style="color:var(--ink-soft);"><strong style="color:var(--ink);">Don't collapse to a single hero SKU</strong> — AG1 is structurally vulnerable at $79 on one product; DIRTEA's multi-SKU range is genuine moat.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── VERIFICATION + SOURCES ───────── -->
+    <section id="flags">
+      <div class="wrap">
+        <div class="section-eyebrow">Appendix</div>
+        <h2 class="section-title">Verification flags &amp; sources</h2>
+
+        <div class="flags">
+          <h4>Verification flags</h4>
+          <ul>
+            <li><strong>Meta Ad Library returned HTTP 403 / socket-reset for all 11 brands on 2026-05-13</strong> when accessed via automated fetch. All Meta creative claims in this document are sourced from third-party trackers and case studies cited inline (Brandsearch, Pixel &amp; Parchment, Ad Breakdowns, DTC Newsletter, Biddyco, Panoramata, Opus.pro, Marketing Examined, Heyseva, Optimonk). <strong>Recommend a human analyst spot-check facebook.com/ads/library directly per brand before client delivery.</strong></li>
+            <li>RYZE 2025 revenue: $74M (GetLatka, conservative) vs ~$300M (Forbes-via-X, unverified). Conservative figure used.</li>
+            <li>Four Sigmatic TikTok follower count, OM Mushroom revenue, MUD\WTR follower counts (IG 379K / TikTok 13.6K) — search-result reported, not primary-verified.</li>
+            <li>AG1 active-ad count from marketing-spend.com tracker (~50 ads / $15K/mo) is almost certainly understated; flagged unverified.</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top:36px;">Sources</h3>
+        <p style="font-size:14px; color:var(--ink-soft);"><strong>DIRTEA:</strong> April 2026 marketing audit (canonical, on file); dirteaworld.com; us.dirteaworld.com; Forbes June 2025; The Grocer; Fitt Insider; Companies House; AdScan.ai; Trustpilot.</p>
+        <p style="font-size:14px; color:var(--ink-soft);"><strong>Competitors:</strong> brand websites (accessed 2026-05-13); JBH Digital case study (Spacegoods); Brandsearch + Optimonk (RYZE); Marketing Examined + Fortune (Olipop); DTC Newsletter + Biddyco (Magic Spoon); Ad Breakdowns + Adweek + Marketing Brew (Liquid Death); Glossy + Inc. + Fortune + Marketing Brew + Heyseva (AG1); Retail Week + Sacra + ecdb + LeadDigital + Panoramata + Exposure Ninja Ep. 206 (Huel); Beverage Industry + danielleklemm.com (Four Sigmatic); PR Newswire + Nutritional Outlook (OM Mushroom); BevNET + PR Newswire (RYZE retail); The Sellout + eCommerceFuel + BevNET (MUD\WTR); Sacra + Entrepreneur + Chief Marketer (Liquid Death).</p>
+      </div>
+    </section>
+
+    <!-- ───────── FOOTER ───────── -->
+    <footer>
+      <div class="wrap">
+        <div class="grid">
+          <div>
+            <h4>About this document</h4>
+            <p>Companion audit to the April 2026 DIRTEA Marketing Audit. Competitor-facing analysis of 11 brands at or above £12M, synthesised back to DIRTEA's US growth strategy.</p>
+          </div>
+          <div>
+            <h4>Prepared by</h4>
+            <p>Ted · BGV Strategy<br/>For Olly Westmacott<br/>Onward to Jesse Grylls</p>
+          </div>
+          <div>
+            <h4>Methodology</h4>
+            <p>Brand-site + third-party tracker triangulation. Meta Ad Library 403'd on 2026-05-13; spot-check recommended pre-pitch.</p>
+          </div>
+        </div>
+        <div class="rule">
+          DIRTEA — Competitor Social + Paid Audit (US-Lens) · Prepared 13 May 2026 · BGV Strategy · Confidential — for internal use and Jesse Grylls review only.
+          <span style="display:block; margin-top:6px; font-size:10px; color:#7a7060;">v2026.05.15-editorial-html</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // Minimal sticky-nav active-section highlighter.
+  (function(){
+    var links = document.querySelectorAll('nav.side a[href^="#"]');
+    if(!('IntersectionObserver' in window) || links.length === 0) return;
+    var map = {};
+    links.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if(el) map[id] = a;
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var a = map[e.target.id];
+          if(a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) io.observe(el);
+    });
+  })();
+</script>
+
+</body>
+</html>
