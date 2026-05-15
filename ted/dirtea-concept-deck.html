@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DIRTEA — The Morning Rebellion</title>
+<style>
+  :root {
+    --ink: #f4ecde;
+    --ink-dim: #b8ad99;
+    --bg: #0d0a07;
+    --bg-2: #161108;
+    --bg-3: #1f1810;
+    --moss: #6b7d4b;
+    --moss-dim: #4b5a36;
+    --ember: #c97a3f;
+    --gold: #d6b370;
+    --rust: #8c3a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+    width: 100%;
+    padding: 6vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 4vh;
+    right: 8vw;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+
+  .slide-label {
+    position: absolute;
+    top: 4vh;
+    left: 8vw;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 4vh;
+    left: 8vw;
+    right: 8vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2vh;
+  }
+
+  .headline {
+    font-size: clamp(40px, 6.5vw, 96px);
+    color: var(--ink);
+  }
+
+  .headline em {
+    font-style: italic;
+    color: var(--ember);
+  }
+
+  .sub {
+    font-size: clamp(16px, 1.4vw, 22px);
+    color: var(--ink-dim);
+    margin-top: 3vh;
+    max-width: 720px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ── SLIDE 1: TITLE ── */
+  .slide-1 {
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(107,125,75,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 70%, rgba(201,122,63,0.10) 0%, transparent 50%),
+      var(--bg);
+    text-align: center;
+    align-items: center;
+  }
+  .slide-1 .mark {
+    width: 60px; height: 60px; border: 1px solid var(--gold);
+    border-radius: 50%; margin-bottom: 5vh; display: flex;
+    align-items: center; justify-content: center;
+    font-family: Georgia, serif; color: var(--gold); font-size: 20px;
+  }
+  .slide-1 .headline { font-size: clamp(48px, 8.5vw, 128px); }
+  .slide-1 .sub { text-align: center; }
+  .slide-1 .tag {
+    margin-top: 6vh; font-size: 11px; letter-spacing: 0.35em;
+    color: var(--ink-dim); text-transform: uppercase;
+  }
+
+  /* ── SLIDE 2: DIAGNOSIS ── */
+  .slide-2 { background: var(--bg); }
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 4vw; margin-top: 6vh;
+  }
+  .stat .num {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 6vw, 88px);
+    color: var(--ember); line-height: 1;
+  }
+  .stat .num.green { color: var(--moss); }
+  .stat .num.red { color: var(--rust); }
+  .stat .label {
+    font-size: 13px; color: var(--ink-dim);
+    margin-top: 1.5vh; line-height: 1.4;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SLIDE 3: COMPETITOR SIGNAL ── */
+  .slide-3 { background: var(--bg-2); }
+  .versus {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: 4vw; align-items: center; margin-top: 6vh;
+  }
+  .vbox {
+    border: 1px solid rgba(244,236,222,0.15);
+    padding: 4vh 3vw; min-height: 32vh;
+  }
+  .vbox.ryze { border-color: rgba(201,122,63,0.35); }
+  .vbox h3 { font-size: 28px; color: var(--ember); margin-bottom: 2vh; }
+  .vbox.ryze h3 { color: var(--gold); }
+  .vbox ul { list-style: none; }
+  .vbox li {
+    font-size: 14px; color: var(--ink-dim); padding: 1vh 0;
+    border-bottom: 1px solid rgba(244,236,222,0.08);
+    line-height: 1.5;
+  }
+  .vbox li:last-child { border: none; }
+  .vbox li strong { color: var(--ink); font-weight: 400; }
+  .vs {
+    font-family: Georgia, serif; font-size: 36px;
+    color: var(--ink-dim); font-style: italic;
+  }
+
+  /* ── SLIDE 4: THE INSIGHT ── */
+  .slide-4 {
+    background:
+      radial-gradient(ellipse at center, rgba(107,125,75,0.10) 0%, transparent 70%),
+      var(--bg);
+    text-align: center; align-items: center;
+  }
+  .quote-mark {
+    font-family: Georgia, serif; font-size: 120px;
+    color: var(--gold); line-height: 0.5; margin-bottom: 2vh;
+  }
+  .insight {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 3.2vw, 52px);
+    line-height: 1.3; max-width: 1100px;
+    font-weight: 400; color: var(--ink);
+  }
+  .insight em { color: var(--ember); font-style: italic; }
+  .insight-attr {
+    margin-top: 4vh; font-size: 12px; letter-spacing: 0.3em;
+    color: var(--ink-dim); text-transform: uppercase;
+  }
+
+  /* ── SLIDE 5: THE CONCEPT ── */
+  .slide-5 {
+    background:
+      linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 100%);
+  }
+  .concept-name {
+    font-family: Georgia, serif;
+    font-size: clamp(64px, 10vw, 160px);
+    line-height: 0.95; color: var(--ink); margin-top: 2vh;
+  }
+  .concept-name em { color: var(--ember); font-style: italic; }
+  .concept-tagline {
+    font-size: clamp(18px, 1.6vw, 28px);
+    color: var(--gold); margin-top: 4vh;
+    max-width: 800px; line-height: 1.4;
+    font-family: Georgia, serif; font-style: italic;
+  }
+
+  /* ── SLIDE 6: WHAT IT IS ── */
+  .slide-6 { background: var(--bg); }
+  .three-col {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 3vw; margin-top: 6vh;
+  }
+  .pillar {
+    border-top: 2px solid var(--ember); padding-top: 3vh;
+  }
+  .pillar:nth-child(2) { border-color: var(--moss); }
+  .pillar:nth-child(3) { border-color: var(--gold); }
+  .pillar-num {
+    font-family: Georgia, serif; font-size: 14px;
+    color: var(--ink-dim); letter-spacing: 0.2em; margin-bottom: 1.5vh;
+  }
+  .pillar h3 {
+    font-size: 26px; color: var(--ink);
+    margin-bottom: 2vh; line-height: 1.15;
+  }
+  .pillar p {
+    font-size: 14px; color: var(--ink-dim);
+    line-height: 1.55;
+  }
+
+  /* ── SLIDE 7: HERO ASSET ── */
+  .slide-7 { background: var(--bg-2); }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6vw; align-items: center; margin-top: 4vh;
+  }
+  .film-frame {
+    aspect-ratio: 16/9; background: var(--bg);
+    border: 1px solid rgba(244,236,222,0.2);
+    position: relative; overflow: hidden;
+  }
+  .film-frame::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(107,125,75,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 70%, rgba(140,58,26,0.3) 0%, transparent 50%),
+      linear-gradient(135deg, #0a1208 0%, #1a0e08 100%);
+  }
+  .film-frame::after {
+    content: '▶'; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: rgba(244,236,222,0.6); font-size: 48px;
+  }
+  .film-caption {
+    position: absolute; bottom: 2vh; left: 2vh; right: 2vh;
+    color: var(--ink); font-family: Georgia, serif;
+    font-style: italic; font-size: 18px; z-index: 2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+  .hero-text h3 {
+    font-size: 36px; color: var(--ink); margin-bottom: 2vh;
+  }
+  .hero-text p {
+    font-size: 15px; color: var(--ink-dim);
+    line-height: 1.65; margin-bottom: 2vh;
+  }
+  .hero-text .spec {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 1vh 2vw; margin-top: 3vh;
+    font-size: 12px; letter-spacing: 0.1em;
+  }
+  .hero-text .spec dt {
+    color: var(--gold); text-transform: uppercase;
+  }
+  .hero-text .spec dd { color: var(--ink-dim); }
+
+  /* ── SLIDE 8: SCIENCE ── */
+  .slide-8 { background: var(--bg); }
+  .tara-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 6vw; align-items: center; margin-top: 4vh;
+  }
+  .tara-card {
+    border: 1px solid rgba(214,179,112,0.3);
+    padding: 5vh 4vw; background: rgba(255,255,255,0.02);
+  }
+  .tara-card .role {
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 2vh;
+  }
+  .tara-card .name {
+    font-family: Georgia, serif; font-size: 32px;
+    color: var(--ink); margin-bottom: 3vh;
+  }
+  .tara-card ul { list-style: none; }
+  .tara-card li {
+    font-size: 13px; color: var(--ink-dim);
+    padding: 1vh 0; line-height: 1.5;
+    border-top: 1px solid rgba(244,236,222,0.08);
+  }
+  .ep-list h3 {
+    font-size: 28px; margin-bottom: 3vh;
+  }
+  .episode {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 2vw; padding: 2vh 0;
+    border-top: 1px solid rgba(244,236,222,0.1);
+  }
+  .episode:first-of-type { border-top: 1px solid rgba(244,236,222,0.2); }
+  .ep-num {
+    font-family: Georgia, serif; color: var(--gold);
+    font-size: 20px;
+  }
+  .ep-title {
+    font-family: Georgia, serif; font-size: 16px;
+    color: var(--ink); font-style: italic;
+  }
+  .ep-search {
+    font-size: 11px; color: var(--ink-dim);
+    margin-top: 0.5vh; letter-spacing: 0.05em;
+  }
+
+  /* ── SLIDE 9: WELCOME KIT ── */
+  .slide-9 { background: var(--bg-3); }
+  .kit-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6vw; align-items: center; margin-top: 4vh;
+  }
+  .kit-visual {
+    aspect-ratio: 1/1; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kit-box {
+    width: 80%; height: 80%;
+    background: linear-gradient(135deg, #2a1d10 0%, #1a1108 100%);
+    border: 1px solid var(--gold);
+    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 3vh;
+  }
+  .kit-box::before {
+    content: ''; position: absolute;
+    inset: 8%; border: 1px solid rgba(214,179,112,0.3);
+  }
+  .kit-box-label {
+    font-family: Georgia, serif; font-size: 14px;
+    color: var(--gold); letter-spacing: 0.3em;
+    text-transform: uppercase; margin-bottom: 2vh; z-index: 1;
+  }
+  .kit-box-title {
+    font-family: Georgia, serif; font-size: 32px;
+    color: var(--ink); text-align: center; z-index: 1;
+    line-height: 1.1;
+  }
+  .kit-items {
+    list-style: none; margin-top: 3vh;
+  }
+  .kit-items li {
+    display: grid; grid-template-columns: 30px 1fr;
+    gap: 2vw; padding: 2vh 0;
+    border-top: 1px solid rgba(244,236,222,0.1);
+    font-size: 15px; color: var(--ink);
+  }
+  .kit-items li::before {
+    content: '◦'; color: var(--ember); font-size: 24px;
+    line-height: 0.8;
+  }
+  .kit-items li span {
+    color: var(--ink-dim); font-size: 13px;
+    display: block; margin-top: 0.5vh;
+  }
+
+  /* ── SLIDE 10: EXECUTION ARC ── */
+  .slide-10 { background: var(--bg); }
+  .timeline {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; margin-top: 6vh; position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    top: 30px; left: 5%; right: 5%; height: 1px;
+    background: linear-gradient(90deg, var(--ember), var(--moss), var(--gold));
+  }
+  .ts {
+    padding: 0 2vw; position: relative;
+  }
+  .ts-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--ember); margin: 23px auto 4vh;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .ts:nth-child(2) .ts-dot { background: var(--moss); }
+  .ts:nth-child(3) .ts-dot { background: var(--gold); }
+  .ts-day {
+    font-family: Georgia, serif; font-size: 14px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink-dim); text-align: center; margin-bottom: 3vh;
+  }
+  .ts h3 {
+    font-size: 22px; color: var(--ink); margin-bottom: 2vh;
+    text-align: center;
+  }
+  .ts ul { list-style: none; }
+  .ts li {
+    font-size: 13px; color: var(--ink-dim);
+    padding: 1.2vh 0; line-height: 1.5;
+    border-top: 1px solid rgba(244,236,222,0.08);
+  }
+
+  /* ── SLIDE 11: COMMERCIAL ── */
+  .slide-11 {
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(214,179,112,0.10) 0%, transparent 60%),
+      var(--bg-2);
+  }
+  .commercial-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6vw; margin-top: 6vh; align-items: start;
+  }
+  .invest-block {
+    border-left: 2px solid var(--ember); padding-left: 3vw;
+  }
+  .invest-block.right {
+    border-color: var(--moss);
+  }
+  .invest-label {
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--ink-dim); text-transform: uppercase;
+    margin-bottom: 2vh;
+  }
+  .invest-num {
+    font-family: Georgia, serif;
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 1; color: var(--ember); margin-bottom: 2vh;
+  }
+  .invest-block.right .invest-num { color: var(--moss); }
+  .invest-sub {
+    font-size: 14px; color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .recoup {
+    margin-top: 6vh; padding-top: 4vh;
+    border-top: 1px solid rgba(244,236,222,0.15);
+    font-family: Georgia, serif; font-size: 22px;
+    color: var(--gold); font-style: italic;
+    max-width: 800px;
+  }
+
+  /* ── SLIDE 12: WHY US ── */
+  .slide-12 { background: var(--bg); }
+  .why-list {
+    list-style: none; margin-top: 6vh;
+    max-width: 900px;
+  }
+  .why-list li {
+    padding: 3vh 0; border-top: 1px solid rgba(244,236,222,0.15);
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 3vw; align-items: baseline;
+  }
+  .why-list li:last-child {
+    border-bottom: 1px solid rgba(244,236,222,0.15);
+  }
+  .why-num {
+    font-family: Georgia, serif; color: var(--gold);
+    font-size: 32px;
+  }
+  .why-text {
+    font-family: Georgia, serif; font-size: clamp(20px, 2vw, 32px);
+    color: var(--ink); line-height: 1.3;
+  }
+  .why-text em { color: var(--ember); font-style: italic; }
+
+  /* ── SLIDE 13: CTA ── */
+  .slide-13 {
+    background:
+      radial-gradient(ellipse at center, rgba(201,122,63,0.12) 0%, transparent 70%),
+      var(--bg);
+    text-align: center; align-items: center;
+  }
+  .slide-13 .headline {
+    font-size: clamp(48px, 7vw, 112px);
+  }
+  .cta-box {
+    margin-top: 6vh; padding: 4vh 6vw;
+    border: 1px solid var(--gold);
+    max-width: 700px;
+  }
+  .cta-box h3 {
+    font-size: 22px; color: var(--gold); margin-bottom: 2vh;
+  }
+  .cta-box p {
+    font-size: 15px; color: var(--ink-dim); line-height: 1.6;
+  }
+  .signoff {
+    margin-top: 8vh; font-size: 11px;
+    letter-spacing: 0.35em; color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+
+  /* nav dots */
+  .nav {
+    position: fixed; right: 3vw; top: 50%;
+    transform: translateY(-50%); z-index: 100;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .nav a {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(244,236,222,0.25);
+    transition: background 0.3s;
+    display: block;
+  }
+  .nav a:hover { background: var(--gold); }
+
+  @media (max-width: 900px) {
+    .slide { padding: 6vh 6vw; }
+    .stat-row, .three-col, .versus, .hero-grid,
+    .tara-grid, .kit-grid, .timeline, .commercial-grid {
+      grid-template-columns: 1fr; gap: 4vh;
+    }
+    .versus .vs { display: none; }
+    .timeline::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-hidden="true">
+  <a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a>
+  <a href="#s5"></a><a href="#s6"></a><a href="#s7"></a><a href="#s8"></a>
+  <a href="#s9"></a><a href="#s10"></a><a href="#s11"></a><a href="#s12"></a>
+  <a href="#s13"></a>
+</nav>
+
+<!-- SLIDE 1: TITLE -->
+<section class="slide slide-1" id="s1">
+  <div class="slide-label">Concept Deck</div>
+  <div class="slide-number">01 / 13</div>
+  <div class="mark">D</div>
+  <h1 class="headline">The Morning<br/><em>Rebellion</em></h1>
+  <p class="sub">A concept territory for DIRTEA to own — built to flip the plateau, defend the premium, and unlock the US.</p>
+  <div class="tag">Bear Witness × DIRTEA · May 2026</div>
+</section>
+
+<!-- SLIDE 2: DIAGNOSIS -->
+<section class="slide slide-2" id="s2">
+  <div class="slide-label">Diagnosis</div>
+  <div class="slide-number">02 / 13</div>
+  <div class="eyebrow">The Plateau</div>
+  <h2 class="headline">The product is fine.<br/>The <em>execution</em> isn't.</h2>
+  <p class="sub">DIRTEA's brand is intact — Bear, Tara, Vogue, Vitamin Shoppe. But the channels that decide the next purchase have gone quiet at the exact moment competitors are flooding them.</p>
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num red">–35%</div>
+      <div class="label">DIRTEA's UK share of search, Mar–Sep 2025<br/>(Spacegoods grew +122% in the same window)</div>
+    </div>
+    <div class="stat">
+      <div class="num">0</div>
+      <div class="label">Active DIRTEA Meta ads in the US<br/>(RYZE runs 4,100+ at any given moment)</div>
+    </div>
+    <div class="stat">
+      <div class="num green">398</div>
+      <div class="label">YouTube subscribers<br/>(despite a TED-talking neuroscientist as CSO)</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Source: April 2026 audit · JBH Digital · AdScan.ai</span>
+    <span>The Morning Rebellion</span>
+  </div>
+</section>
+
+<!-- SLIDE 3: COMPETITOR SIGNAL -->
+<section class="slide slide-3" id="s3">
+  <div class="slide-label">Competitor Signal</div>
+  <div class="slide-number">03 / 13</div>
+  <div class="eyebrow">Where the wallet is going</div>
+  <h2 class="headline">The US shopper is not buying<br/>"functional mushroom."</h2>
+  <p class="sub">She's buying focus, calm, and a coffee that doesn't crash her. The brands winning are not the ones with the best mushrooms — they're the ones with the cleanest <em>reframe</em>.</p>
+  <div class="versus">
+    <div class="vbox">
+      <h3>What DIRTEA leads with</h3>
+      <ul>
+        <li><strong>"Functional mushroom drinks"</strong> — ingredient-led</li>
+        <li>1,000mg Lion's Mane · &gt;40% beta-glucans</li>
+        <li>Heritage / ancestral framing</li>
+        <li>Studio flatlays, founder portraits, press logos</li>
+        <li>Premium UK aesthetic — beautiful, but distant</li>
+      </ul>
+    </div>
+    <div class="vs">vs</div>
+    <div class="vbox ryze">
+      <h3>What's actually selling</h3>
+      <ul>
+        <li><strong>"I quit coffee at 36"</strong> — pain-led identity</li>
+        <li>Spacegoods: ADHD / focus / no-crash</li>
+        <li>RYZE: kitchen UGC, free frother, 4,100 ads</li>
+        <li>AG1: per-host landing pages, podcast saturation</li>
+        <li>Olipop: "the drink you grew up with, made better"</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Four Sigmatic's own founder: "Our US customers actually hate mushrooms."</span>
+    <span>The Morning Rebellion</span>
+  </div>
+</section>
+
+<!-- SLIDE 4: THE INSIGHT -->
+<section class="slide slide-4" id="s4">
+  <div class="slide-label">The Unlock</div>
+  <div class="slide-number">04 / 13</div>
+  <div class="quote-mark">"</div>
+  <p class="insight">No competitor in this category has<br/>a <em>survival icon</em> as an investor<br/>and a <em>neuroscientist</em> as a CSO.<br/><br/>DIRTEA is sitting on the most defensible<br/>credibility stack in functional drinks —<br/>and using it like a logo wall.</p>
+  <div class="insight-attr">The asset competitors cannot copy</div>
+</section>
+
+<!-- SLIDE 5: THE CONCEPT -->
+<section class="slide slide-5" id="s5">
+  <div class="slide-label">The Concept</div>
+  <div class="slide-number">05 / 13</div>
+  <div class="eyebrow">One territory · Ownable · Defensible · US-shaped</div>
+  <h2 class="concept-name">The Morning<br/><em>Rebellion</em></h2>
+  <p class="concept-tagline">A campaign and creative territory built on a single promise:<br/>the morning that refuses to crash you.<br/>Drop "mushroom" as the lead. Sell the <em>ritual</em>, not the ingredient.<br/>Convert credibility into pipeline.</p>
+  <div class="footer">
+    <span>Replaces "Functional Mushroom Drinks" as the brand's lead message in the US</span>
+    <span>The Morning Rebellion</span>
+  </div>
+</section>
+
+<!-- SLIDE 6: WHAT IT IS -->
+<section class="slide slide-6" id="s6">
+  <div class="slide-label">The Concept · Anatomy</div>
+  <div class="slide-number">06 / 13</div>
+  <div class="eyebrow">Three pillars · one story</div>
+  <h2 class="headline">Built on the assets<br/>DIRTEA already owns.</h2>
+  <div class="three-col">
+    <div class="pillar">
+      <div class="pillar-num">01 · ICON</div>
+      <h3>Bear leads the revolt.</h3>
+      <p>A 60-second hero film cut from existing Bear Grylls expedition footage: <em>"The Morning of an Expedition."</em> The earliest start. The hardest day. The drink that runs it. No new Bear filming — Bear bandwidth constraint protected.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02 · EVIDENCE</div>
+      <h3>Tara backs it with the brain.</h3>
+      <p>Dr Tara Swart leads <em>The Cortisol Files</em> — a six-episode YouTube series. White-desk, doctor's-office aesthetic. Owns the highest-intent searches the category isn't writing for. The science DIRTEA already has, finally distributed.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03 · RITUAL</div>
+      <h3>The Welcome Kit makes it physical.</h3>
+      <p>Every first US subscription ships in a <em>Morning Rebellion</em> kit: ceramic mug, matcha whisk, five travel sachets, a printed ritual card. Re-justifies the premium. Re-frames a sachet as a system. Becomes the unboxing UGC engine.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Icon · Evidence · Ritual — three layers, one campaign</span>
+    <span>The Morning Rebellion</span>
+  </div>
+</section>
+
+<!-- SLIDE 7: HERO ASSET -->
+<section class="slide slide-7" id="s7">
+  <div class="slide-label">Hero Asset · Pillar 01</div>
+  <div class="slide-number">07 / 13</div>
+  <div class="eyebrow">The annual stunt film</div>
+  <h2 class="headline">"The Morning of<br/>an Expedition."</h2>
+  <div class="hero-grid">
+    <div class="film-frame">
+      <div class="film-caption">— 04:42 a.m.<br/>Some mornings choose you.</div>
+    </div>
+    <div class="hero-text">
+      <p>Sixty seconds. Bear archive footage edited into a cold-blue, pre-dawn sequence. Boots laced in the dark. Wind. A kettle on a camp stove. A mug of DIRTEA Coffee, held in gloved hands, steam rising into a black sky.</p>
+      <p>One line, late: <em>"You don't beat the morning. You out-prepare it."</em></p>
+      <p>Designed to earn media, not to sell from. One bold annual film, three quarterly cut-downs. Liquid Death cadence. DIRTEA tone.</p>
+      <dl class="spec">
+        <dt>Format</dt><dd>60s hero + 12 vertical cutdowns</dd>
+        <dt>Talent cost</dt><dd>£0 (archive license)</dd>
+        <dt>Edit budget</dt><dd>£10–15k all-in</dd>
+        <dt>Distribution</dt><dd>YouTube, Meta amplified, earned PR push</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: SCIENCE -->
+<section class="slide slide-8" id="s8">
+  <div class="slide-label">Evidence Engine · Pillar 02</div>
+  <div class="slide-number">08 / 13</div>
+  <div class="eyebrow">The compounding content asset</div>
+  <h2 class="headline">The Cortisol Files,<br/>by Dr Tara Swart.</h2>
+  <div class="tara-grid">
+    <div class="tara-card">
+      <div class="role">Chief Science Officer</div>
+      <div class="name">Dr Tara Swart</div>
+      <ul>
+        <li>Oxford-trained medical doctor</li>
+        <li>PhD, neuropharmacology</li>
+        <li>Senior Lecturer, MIT Sloan</li>
+        <li>NY Times & Sunday Times bestseller</li>
+        <li>Diary of a CEO · Aug 2025</li>
+        <li>Currently surfacing on DIRTEA: one blog post</li>
+      </ul>
+    </div>
+    <div class="ep-list">
+      <h3>Six episodes · 8 minutes each</h3>
+      <div class="episode"><div class="ep-num">01</div><div><div class="ep-title">Lion's Mane & Cortisol</div><div class="ep-search">→ "lion's mane benefits", "mushroom coffee for ADHD"</div></div></div>
+      <div class="episode"><div class="ep-num">02</div><div><div class="ep-title">Why You Crash at 3pm</div><div class="ep-search">→ "afternoon slump fix", "caffeine alternative"</div></div></div>
+      <div class="episode"><div class="ep-num">03</div><div><div class="ep-title">The Anxiety That Coffee Built</div><div class="ep-search">→ "quit coffee anxiety", "coffee replacement"</div></div></div>
+      <div class="episode"><div class="ep-num">04</div><div><div class="ep-title">Matcha vs Coffee, on a Brain Scan</div><div class="ep-search">→ "matcha vs coffee focus", "L-theanine"</div></div></div>
+      <div class="episode"><div class="ep-num">05</div><div><div class="ep-title">Women, Hormones, Adaptogens</div><div class="ep-search">→ "adaptogens for women", "stress cortisol female"</div></div></div>
+      <div class="episode"><div class="ep-num">06</div><div><div class="ep-title">The Morning That Runs the Day</div><div class="ep-search">→ "morning routine", "high performer ritual"</div></div></div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Each episode → 8–12 vertical clips → Meta + TikTok + Shorts</span>
+    <span>The Morning Rebellion</span>
+  </div>
+</section>
+
+<!-- SLIDE 9: WELCOME KIT -->
+<section class="slide slide-9" id="s9">
+  <div class="slide-label">Ritual Object · Pillar 03</div>
+  <div class="slide-number">09 / 13</div>
+  <div class="eyebrow">The premium, made physical</div>
+  <h2 class="headline">The Rebellion Kit.</h2>
+  <div class="kit-grid">
+    <div class="kit-visual">
+      <div class="kit-box">
+        <div class="kit-box-label">First Order · US</div>
+        <div class="kit-box-title">The Morning<br/>Rebellion Kit</div>
+      </div>
+    </div>
+    <div>
+      <p class="sub" style="margin-top:0">Every first US subscription ships in a single branded box. It turns a £40 sachet into a £40 system — and turns every customer into a content asset on day one.</p>
+      <ul class="kit-items">
+        <li>Ceramic Rebellion Mug<span>Hand-feel, weight, repeat-use. Lives on a kitchen counter for years.</span></li>
+        <li>Matcha Whisk + Stand<span>A craft tool. The opposite of a sachet.</span></li>
+        <li>Five Travel Sachets<span>Coffee · Matcha · Cacao · Chai · Focus. Trial across the range, not just the hero SKU.</span></li>
+        <li>The Ritual Card<span>A six-step morning. The literal anti-crash protocol, signed by Tara.</span></li>
+      </ul>
+      <p style="font-size:12px; color: var(--ink-dim); margin-top: 3vh; letter-spacing: 0.05em;">Unit cost £8–12 at MOQ · absorbed into first-subscription margin (£75+ first order). Tooling £6–10k one-off.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 10: EXECUTION ARC -->
+<section class="slide slide-10" id="s10">
+  <div class="slide-label">Execution Arc</div>
+  <div class="slide-number">10 / 13</div>
+  <div class="eyebrow">From concept to in-market</div>
+  <h2 class="headline">90 days to flip the plateau.</h2>
+  <div class="timeline">
+    <div class="ts">
+      <div class="ts-dot"></div>
+      <div class="ts-day">Day 30 · Stand It Up</div>
+      <h3>Foundations live</h3>
+      <ul>
+        <li>"Morning Rebellion" creative platform locked</li>
+        <li>6 per-host landing pages (Bear, Tara, Huberman, Mel Robbins, Rich Roll, generic)</li>
+        <li>8 US UGC creators contracted · first 15 clips delivered</li>
+        <li>Meta always-on test · £30k initial</li>
+        <li>Reviews live on every PDP (Yotpo / Okendo)</li>
+      </ul>
+    </div>
+    <div class="ts">
+      <div class="ts-dot"></div>
+      <div class="ts-day">Day 60 · Put It Live</div>
+      <h3>Engine in motion</h3>
+      <ul>
+        <li>Rebellion Kit shipping on every US first order</li>
+        <li>TikTok Shop US live · 20+ affiliate creators</li>
+        <li>Cortisol Files Episode 01 published</li>
+        <li>Salter brothers · 2 US podcasts aired</li>
+        <li>Klaviyo welcome flow + abandoned cart wired</li>
+      </ul>
+    </div>
+    <div class="ts">
+      <div class="ts-dot"></div>
+      <div class="ts-day">Day 90 · Earn the Room</div>
+      <h3>Cultural moment</h3>
+      <ul>
+        <li>"The Morning of an Expedition" hero film drops</li>
+        <li>Coordinated PR push — earned media flywheel</li>
+        <li>Cortisol Files at 3 episodes · SEO compounding</li>
+        <li>5 founder podcast appearances live</li>
+        <li>Meta at £50k/mo · 60+ creatives in market</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 11: COMMERCIAL -->
+<section class="slide slide-11" id="s11">
+  <div class="slide-label">Commercial Implication</div>
+  <div class="slide-number">11 / 13</div>
+  <div class="eyebrow">What it costs · what it returns</div>
+  <h2 class="headline">A £300–400k bet<br/>against a multi-million<br/>plateau.</h2>
+  <div class="commercial-grid">
+    <div class="invest-block">
+      <div class="invest-label">90-Day Investment</div>
+      <div class="invest-num">£300–400k</div>
+      <div class="invest-sub">£150–200k creative + talent + tooling (UGC, hero film, Cortisol Files, Rebellion Kit, landing pages, community). £30–50k/month US Meta from month one.</div>
+    </div>
+    <div class="invest-block right">
+      <div class="invest-label">Payback Window</div>
+      <div class="invest-num">6–9 mo</div>
+      <div class="invest-sub">At AG1 / RYZE benchmark CAC ($40–70 first order) and DIRTEA's subscription LTV. Plus protected UK share-of-search recovery — low seven figures of defended DTC revenue.</div>
+    </div>
+  </div>
+  <div class="recoup">"Recovering 60% UK share of search alone is worth more than the entire 90-day spend."</div>
+</section>
+
+<!-- SLIDE 12: WHY US -->
+<section class="slide slide-12" id="s12">
+  <div class="slide-label">Why Bear Witness</div>
+  <div class="slide-number">12 / 13</div>
+  <div class="eyebrow">The case for the partner</div>
+  <h2 class="headline">Five reasons we're<br/>the only team that<br/>can run this.</h2>
+  <ol class="why-list">
+    <li><div class="why-num">01</div><div class="why-text">We <em>are</em> the Bear engine. No agency on earth has tighter access to Bear's archive, voice, and time.</div></li>
+    <li><div class="why-num">02</div><div class="why-text">We've already done the audits. <em>You don't pay us to learn DIRTEA</em> — only to ship.</div></li>
+    <li><div class="why-num">03</div><div class="why-text">We know the BGV operating tempo: fast, premium, founder-respecting.</div></li>
+    <li><div class="why-num">04</div><div class="why-text">We run paid, creative, PR and founder content under <em>one roof</em>. Most plateaus die in agency silos.</div></li>
+    <li><div class="why-num">05</div><div class="why-text">We carry the same risk you do. If The Morning Rebellion doesn't move the metric, we both wear it.</div></li>
+  </ol>
+</section>
+
+<!-- SLIDE 13: CTA -->
+<section class="slide slide-13" id="s13">
+  <div class="slide-label">Next Step</div>
+  <div class="slide-number">13 / 13</div>
+  <div class="eyebrow">Decision required</div>
+  <h2 class="headline">Stop selling the<br/>mushroom.<br/>Start selling the<br/><em>morning.</em></h2>
+  <div class="cta-box">
+    <h3>The Ask</h3>
+    <p>A 60-minute working session with Andrew, Simon and Jessica to pressure-test The Morning Rebellion concept, agree the 90-day scope, and lock the launch window. We'll bring the creative platform, the production schedule, and the commercial model.</p>
+  </div>
+  <div class="signoff">Bear Witness · for DIRTEA · May 2026</div>
+</section>
+
+</body>
+</html>
