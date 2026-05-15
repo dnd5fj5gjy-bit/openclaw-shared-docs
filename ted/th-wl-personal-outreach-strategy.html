@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TH White-Label — Personal Outreach Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2C3E50;
+    --ink-dim: #6B7A89;
+    --ink-faint: #A8B2BD;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E8ECF0;
+    --line-soft: #F1F4F7;
+    --navy: #1A1A2E;
+    --accent: #2ECC71;
+    --warn: #E67E22;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 5rem 0 4rem;
+    margin-bottom: 3rem;
+  }
+  .hero .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8899AA;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .hero .sub {
+    color: #B8C2CC;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 620px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8899AA;
+  }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  /* Sections */
+  section { margin-bottom: 3rem; }
+  h2 {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  p { margin-bottom: 0.8rem; }
+  p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+
+  /* TL;DR box */
+  .tldr {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 3rem;
+  }
+  .tldr .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .tldr li::before {
+    content: '→';
+    color: var(--accent);
+    margin-right: 0.6rem;
+    font-weight: 700;
+  }
+
+  /* Cards (phases / pillars) */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.3rem 1.4rem;
+  }
+  .card .num {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .card p {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Table */
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.2rem 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th, td {
+    text-align: left;
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  th {
+    background: var(--line-soft);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.rank { font-weight: 700; color: var(--navy); width: 38px; }
+  td.score {
+    text-align: center;
+    font-weight: 700;
+    width: 56px;
+    color: var(--accent);
+  }
+  td.cat { color: var(--ink-dim); font-size: 0.82rem; }
+  .flag {
+    display: inline-block;
+    background: var(--highlight);
+    color: #8B6914;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+    font-weight: 700;
+  }
+
+  /* Message templates */
+  .templates { display: grid; gap: 1rem; margin: 1.2rem 0; }
+  .msg {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .msg-head {
+    background: var(--line-soft);
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+  }
+  .msg-head .timing {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .msg-body {
+    padding: 1.3rem 1.4rem;
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Note callout */
+  .note {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 1rem 1.3rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    color: #6B5410;
+  }
+  .note strong { color: #5A4509; }
+
+  /* Two-column split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  @media (max-width: 700px) { .split { grid-template-columns: 1fr; } }
+  .role-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.3rem 1.4rem;
+  }
+  .role-card .who {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .role-card.support .who { color: var(--ink-faint); }
+  .role-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .role-card ul { list-style: none; }
+  .role-card li {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    padding: 0.25rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .role-card li::before {
+    content: '•';
+    color: var(--ink-faint);
+    position: absolute;
+    left: 0;
+  }
+
+  /* Checklist */
+  .checklist {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.2rem 0;
+  }
+  .checklist h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .checklist ul { list-style: none; }
+  .checklist li {
+    padding: 0.5rem 0 0.5rem 1.8rem;
+    position: relative;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 3px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding: 2rem 0 3rem;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+
+  strong { font-weight: 700; }
+  .inline-key { color: var(--navy); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ted's Health · White-Label Programme</div>
+    <h1>Personal Outreach Strategy</h1>
+    <p class="sub">Onboarding LegitScript-certified UK partners to TH White-Label, founder to founder. No partnerships inbox. No vendor pitch.</p>
+    <div class="meta">
+      <span><strong>Owner</strong> Olly Westmacott</span>
+      <span><strong>Drafted</strong> 15 May 2026</span>
+      <span><strong>Wave 1 size</strong> ~10 partners</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li>Target the <strong>14 LegitScript-certified</strong> partners only — LegitScript is the gating cert</li>
+      <li>Find the <strong>Founder / CEO / MD</strong> on LinkedIn; skip the partnerships inbox</li>
+      <li>LinkedIn DM first. Three touches, seven days apart, then park</li>
+      <li>Five new partners per week. Wave 1 closes in about four weeks</li>
+      <li>Every touch logged in the dashboard — single source of truth</li>
+    </ul>
+  </div>
+
+  <!-- Why personal -->
+  <section>
+    <h2>Principle</h2>
+    <h3>Why personal, and why CEO-level</h3>
+    <p>White-label is a commercial, brand-linked decision. It's not bought by procurement — it's decided by the founder, CEO or MD. So we skip the contact form on day one.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">01</div>
+        <h4>Speed</h4>
+        <p>One conversation with the right person beats four weeks of being routed through partnerships inboxes.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h4>Signal</h4>
+        <p>Founder-to-business-lead approach reads as a strategic partnership, not a vendor pitch.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h4>Control</h4>
+        <p>You set the frame in the first message, before anyone slots TH into a category that doesn't fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target list -->
+  <section>
+    <h2>Wave 1</h2>
+    <h3>The 14 LegitScript-certified partners</h3>
+    <p class="lead">Ranked by dashboard score. Anyone not on this list is unviable for now — park them and revisit when their certification changes.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Partner</th>
+            <th>Category</th>
+            <th style="text-align:center;">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="rank">1</td><td>Pharmica</td><td class="cat">Private GP / Pharmacy</td><td class="score">92</td></tr>
+          <tr><td class="rank">2</td><td>The Independent Pharmacy</td><td class="cat">Online Pharmacy</td><td class="score">92</td></tr>
+          <tr><td class="rank">3</td><td>MedExpress</td><td class="cat">Online Pharmacy</td><td class="score">92</td></tr>
+          <tr><td class="rank">4</td><td>Oxford Online Pharmacy</td><td class="cat">Men's Health Clinic</td><td class="score">90</td></tr>
+          <tr><td class="rank">5</td><td>ZAVA</td><td class="cat">Sexual Health</td><td class="score">89</td></tr>
+          <tr><td class="rank">6</td><td>Mojo<span class="flag">Dedupe</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
+          <tr><td class="rank">7</td><td>Mosh<span class="flag">AU only</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
+          <tr><td class="rank">8</td><td>Dr Felix<span class="flag">Dedupe</span></td><td class="cat">Sexual Health</td><td class="score">87</td></tr>
+          <tr><td class="rank">9</td><td>SimplyMeds Online</td><td class="cat">Online Pharmacy</td><td class="score">87</td></tr>
+          <tr><td class="rank">10</td><td>Mojo Men's Health<span class="flag">Dedupe</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
+          <tr><td class="rank">11</td><td>Treated</td><td class="cat">ED Treatment</td><td class="score">85</td></tr>
+          <tr><td class="rank">12</td><td>Well Pharmacy</td><td class="cat">Online Pharmacy</td><td class="score">84</td></tr>
+          <tr><td class="rank">13</td><td>Simple Online Pharmacy<span class="flag">Dedupe</span></td><td class="cat">Online Pharmacy</td><td class="score">84</td></tr>
+          <tr><td class="rank">14</td><td>Click Pharmacy</td><td class="cat">Sexual Health</td><td class="score">80</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Before sending anything:</strong> de-duplicate Mojo and Dr Felix in the dashboard so you don't double-touch the same business. Decide if Mosh stays in (UK-only or international Wave 1?). Effective list size after cleanup: roughly <strong>10 unique UK businesses</strong>.
+    </div>
+  </section>
+
+  <!-- The plan -->
+  <section>
+    <h2>The Sequence</h2>
+    <h3>Four steps, repeatable per partner</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">Step 1 · 10 min</div>
+        <h4>Find the human</h4>
+        <p>LinkedIn search. Target titles, in order: Founder, CEO, MD, Commercial Director, Head of Partnerships. Log name, title, LinkedIn URL, email in the dashboard.</p>
+      </div>
+      <div class="card">
+        <div class="num">Step 2</div>
+        <h4>LinkedIn first</h4>
+        <p>Send a connection request with a one-line note. If accepted within five days, send the full opener. If not, switch to email or send as InMail.</p>
+      </div>
+      <div class="card">
+        <div class="num">Step 3 · over 14 days</h4>
+        <h4>Three touches</h4>
+        <p>Opener → seven-day follow-up → fourteen-day close. After touch three with no reply, status moves to "no response" and the lead rests for 90 days.</p>
+      </div>
+      <div class="card">
+        <div class="num">Step 4 · always</h4>
+        <h4>Log everything</h4>
+        <p>Update the dashboard status, contact info, notes and next action after every touch. The dashboard drives Wave 2 prioritisation.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Cadence target:</strong> five new partners contacted per week (don't blast all ten in one day — stagger so follow-ups stay manageable). Wave 1 completes in roughly four weeks.
+    </div>
+  </section>
+
+  <!-- Message templates -->
+  <section>
+    <h2>The Messages</h2>
+    <h3>Three-touch sequence</h3>
+    <p class="lead">Templates below. Personalise the opening line for each partner — that's the bit that matters.</p>
+
+    <div class="templates">
+
+      <div class="msg">
+        <div class="msg-head">
+          <span>Touch 1 — Opener</span>
+          <span class="timing">Day 0 · LinkedIn or email</span>
+        </div>
+        <div class="msg-body">Hi [first name],
+
+[Their company] keeps coming up as one of the few UK [pharmacy / men's health] businesses doing this properly — LegitScript-certified, good range, strong reputation.
+
+I lead market &amp; strategy at Bear Grylls Ventures. We've built <strong>Ted's Health</strong> — Bear's men's health platform — and we're launching a white-label programme so a small number of partners can offer the Ted's Health experience under their own brand, with our clinical and supply infrastructure behind it.
+
+Worth a 20-min call to see if it's a fit? I'd rather come straight to you than route through partnerships.
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head">
+          <span>Touch 2 — Follow-up</span>
+          <span class="timing">Day 7</span>
+        </div>
+        <div class="msg-body">Hi [first name] — circling back on the note above.
+
+Quick angle: we're picking the white-label launch partners now, and [Their company] is on a short list of ten. Happy to send a one-pager if it's easier than a call.
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head">
+          <span>Touch 3 — Close</span>
+          <span class="timing">Day 14</span>
+        </div>
+        <div class="msg-body">[first name] — last one from me.
+
+If white-label isn't a fit for [Their company] right now no problem, just say and I'll close the loop. If it might be and the timing's off, tell me when to come back.
+
+Olly</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Be ready -->
+  <section>
+    <h2>Prep</h2>
+    <h3>Three things you'll be asked on the first call</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">Q1</div>
+        <h4>What is white-label?</h4>
+        <p>Their brand, your front-end. Ted's Health clinical infrastructure, supply and fulfilment behind it. They keep the patient relationship and the margin on top.</p>
+      </div>
+      <div class="card">
+        <div class="num">Q2</div>
+        <h4>Commercials?</h4>
+        <p>One-line on revenue share or fee structure. Don't wing it. Get the number from Calvin before Week 1.</p>
+      </div>
+      <div class="card">
+        <div class="num">Q3</div>
+        <h4>Time to live?</h4>
+        <p>From signature to partner running on TH-WL. Be honest. Calvin and engineering can give a real number.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles -->
+  <section>
+    <h2>Roles</h2>
+    <h3>Olly leads. Ted supports.</h3>
+    <div class="split">
+      <div class="role-card">
+        <div class="who">Olly</div>
+        <h4>Leads the relationships</h4>
+        <ul>
+          <li>All outbound messaging signed and sent personally</li>
+          <li>All first calls taken personally</li>
+          <li>Commercial decisions and partner selection</li>
+          <li>Final call on which partners stay or rest</li>
+        </ul>
+      </div>
+      <div class="role-card support">
+        <div class="who">Ted</div>
+        <h4>Handles the engine room</h4>
+        <ul>
+          <li>LinkedIn-search shortlists for decision-makers (10 min / partner)</li>
+          <li>Personalised opener variants when you want to A/B</li>
+          <li>Dashboard data hygiene — contacts, statuses, follow-up dates</li>
+          <li>Friday digest: who replied, who's cold, who needs a touch this week</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section>
+    <h2>Action</h2>
+    <h3>Week 1</h3>
+    <div class="checklist">
+      <h4>Six things, in order</h4>
+      <ul>
+        <li>De-duplicate the 14 in the dashboard (Mojo, Dr Felix)</li>
+        <li>Decide: UK-only or international Wave 1? (Mosh stays in or out)</li>
+        <li>Pull commercials and time-to-live from Calvin</li>
+        <li>Find decision-makers for the top 5 — Pharmica, Independent Pharmacy, MedExpress, Oxford Online Pharmacy, ZAVA</li>
+        <li>Send Touch 1 to those 5 on LinkedIn (stagger across the week)</li>
+        <li>Log every touch in the dashboard</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Ted's Health · White-Label Programme<br>
+    Dashboard · <a href="https://dnd5fj5gjy-bit.github.io/th-wl-dashboard/">th-wl-dashboard</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
