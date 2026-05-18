@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Pre-Contract Prep & Editor Briefs · 18 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 7rem 2.5rem 5rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom: 1.2rem;
+    max-width: 900px;
+  }
+  .hero p.lede {
+    font-size: 1.15rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  /* Sections */
+  section {
+    padding: 5rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.9rem;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 2.2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+    margin: 2.4rem 0 0.8rem;
+  }
+  p { margin-bottom: 1rem; max-width: 820px; }
+
+  /* Status banner */
+  .status {
+    background: var(--off-white);
+    border-left: 3px solid var(--burgundy);
+    padding: 1.8rem 2rem;
+    margin: 0 auto 2rem;
+    max-width: 1100px;
+  }
+  .status strong { color: var(--burgundy); font-weight: 600; }
+
+  /* Brief card */
+  .brief {
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2rem 2.2rem;
+    margin: 1.4rem 0;
+  }
+  .brief-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.2rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .brief h3 { margin: 0; color: var(--ink); }
+  .brief .role {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 500;
+  }
+  .brief .priority {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    font-weight: 500;
+  }
+  .priority.p1 { background: var(--burgundy); color: var(--cream); }
+  .priority.p2 { background: var(--gold); color: var(--ink-deep); }
+  .priority.p3 { background: var(--rule); color: var(--charcoal-light); }
+
+  .brief-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--rule-light);
+    padding-bottom: 1rem;
+  }
+  .brief-meta span { margin-right: 1.5rem; }
+  .brief-meta strong { color: var(--charcoal); font-weight: 500; }
+
+  .brief h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    font-weight: 500;
+    margin: 1.4rem 0 0.6rem;
+  }
+  .brief ul { padding-left: 1.3rem; margin-bottom: 0.4rem; }
+  .brief ul li { margin-bottom: 0.4rem; }
+
+  .copyblock {
+    background: var(--cream-dark);
+    border-left: 2px solid var(--ink);
+    padding: 1.2rem 1.4rem;
+    margin-top: 1rem;
+    font-family: 'Outfit', monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink-deep);
+    border-radius: 2px;
+  }
+  .copyblock strong { font-weight: 600; }
+
+  /* Pre-stage table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.85rem 0.8rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    font-weight: 500;
+    background: var(--off-white);
+  }
+  td.own { color: var(--burgundy); font-weight: 500; white-space: nowrap; }
+  td.when { color: var(--muted); white-space: nowrap; }
+
+  .decision {
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    padding: 1.4rem 1.6rem;
+    margin: 1rem 0;
+    border-radius: 2px;
+  }
+  .decision strong { color: var(--ink); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 4rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Pre-Contract Prep</div>
+    <h1>If Hodder say yes — what we need <em>ready</em> the week the contract lands.</h1>
+    <p class="lede">A working punch list against the revised Bear Witness × Hodder deck. Editor briefs drafted to send, pre-stage assets to commission now, and the decisions still on Olly.</p>
+    <div class="meta">Ted · 18 May 2026 · For Olly</div>
+  </div>
+</header>
+
+<div class="status">
+  <strong>Where we are.</strong> The revised deck (15 May, post-Jesse pass) now pitches Bear Witness as Hodder's full marketing engine across six channels — YouTube, short-form, Substack, Instagram, Facebook, website. That is a meaningful scope expansion from the operational-only pitch we had two weeks ago (20-episode YouTube series + audio rights). The four-hires playbook (editor, actor, studio, rights) still applies — but it's now the floor, not the ceiling. Bear's role stays locked: <strong>no new filming</strong>, ~3 calendar-anchor posts/year, pre-recorded only.
+</div>
+
+<section>
+  <div class="section-tag">Editor briefs · Ready to send</div>
+  <h2>Five briefs to commission this week, in order of unblocker priority.</h2>
+  <p>These are drafted as <em>commission-ready</em> briefs. Each is sized so the named role can start work without further input. If a role isn't filled by an existing BGV contact, the brief doubles as a freelance posting.</p>
+
+  <!-- BRIEF 1 -->
+  <div class="brief">
+    <div class="brief-header">
+      <h3>1. Lead Video Editor — YouTube long-form</h3>
+      <div class="role">Brief · <span class="priority p1">P1 · this week</span></div>
+    </div>
+    <div class="brief-meta">
+      <span><strong>Output:</strong> 2 episodes/week (104/year)</span>
+      <span><strong>Retainer:</strong> £2.0–2.5k/mo (scope-revised from earlier £1.5–2k)</span>
+      <span><strong>Start:</strong> within 2 weeks of contract signature</span>
+    </div>
+
+    <h4>Scope</h4>
+    <ul>
+      <li><strong>Episode A — "Reading":</strong> 8–12 min. Audiobook chapter audio laid over ambient, photographic-style visual treatment (lit interiors, landscape b-roll, scripture overlays, slow text reveals). Designed to feel devotional, not documentary.</li>
+      <li><strong>Episode B — "Unpacking":</strong> 8–12 min. Single theologian on camera, intercut with referenced scripture, maps, historical imagery. Filmed in 3-day batch shoots every 6 months — editor cuts the whole batch into ~26 episodes per refresh.</li>
+      <li>Both formats hold ≥8:30 to clear YouTube mid-roll monetisation.</li>
+      <li>Locks intro/outro template + thumbnail system in week 1.</li>
+    </ul>
+
+    <h4>Deliverables in first 30 days</h4>
+    <ul>
+      <li>Episode 1 (Reading) — final cut, signed off by Olly + Jesse</li>
+      <li>Episode 2 (Unpacking — uses placeholder theologian footage from existing Bear interviews if first batch shoot not yet locked)</li>
+      <li>Visual treatment guide (LUTs, type, lower-thirds, scripture overlay style)</li>
+      <li>Trailer (60–90s)</li>
+    </ul>
+
+    <h4>Selection criteria</h4>
+    <ul>
+      <li>Show reel includes faith / documentary / long-form audio-led work</li>
+      <li>Comfortable cutting to audio first (most editors cut to picture)</li>
+      <li>Can manage their own assistants — we don't want to micro-staff</li>
+    </ul>
+    <div class="copyblock">
+      <strong>Felix-ask:</strong> "Who's the BGV YouTube long-form editor you'd trust with a 104-ep/year retainer? Faith-tone, audio-led. Need 3 names by Wed."
+    </div>
+  </div>
+
+  <!-- BRIEF 2 -->
+  <div class="brief">
+    <div class="brief-header">
+      <h3>2. Short-Form Clip Editor — TikTok / Reels / Shorts</h3>
+      <div class="role">Brief · <span class="priority p1">P1 · this week</span></div>
+    </div>
+    <div class="brief-meta">
+      <span><strong>Output:</strong> 3–5 clips/week per platform = ~12 clips/week</span>
+      <span><strong>Retainer:</strong> £1.5–1.8k/mo</span>
+      <span><strong>Start:</strong> can begin day 1 from existing Bear archive</span>
+    </div>
+
+    <h4>Scope</h4>
+    <ul>
+      <li>Re-cuts from each new YouTube episode (~6 clips per long-form drop)</li>
+      <li>Original clips pulled from existing Bear interview archive, podcast appearances, audiobook moments</li>
+      <li>Platform-native grammar — vertical, hard hook in 1.5s, on-screen captions, geo-locked variants (US text card vs UK text card on same edit)</li>
+      <li>Every clip ends with a soft pointer: Substack, episode link, or book retail</li>
+    </ul>
+
+    <h4>What we'll supply day 1</h4>
+    <ul>
+      <li>Archive bundle of cleared Bear footage (Olly to confirm rights holder list)</li>
+      <li>Audiobook stems (pending Hodder rights confirmation)</li>
+      <li>Caption style template + brand kit</li>
+    </ul>
+    <div class="copyblock">
+      <strong>Selection test:</strong> send one episode of the audiobook as audio + 20 mins of Bear interview footage. Ask for two ~45s clips with hooks. Pick on hook strength, not motion design.
+    </div>
+  </div>
+
+  <!-- BRIEF 3 -->
+  <div class="brief">
+    <div class="brief-header">
+      <h3>3. Web Build — thegreateststoryevertoldbook.com</h3>
+      <div class="role">Brief · <span class="priority p1">P1 · spec ready now</span></div>
+    </div>
+    <div class="brief-meta">
+      <span><strong>Output:</strong> Live in month 2</span>
+      <span><strong>Build cost:</strong> £4–6k one-off + £200/mo hosting/maintenance</span>
+      <span><strong>Stack:</strong> Astro or Next + Sanity / Substack-pull · geo-routing via Cloudflare Workers or Vercel edge</span>
+    </div>
+
+    <h4>Functional spec (already in deck — restated as build req)</h4>
+    <ul>
+      <li>Geo-routed retail link tree: Amazon UK/US, Waterstones, Bookshop.org, St Andrews, B&amp;N — region-detected, default-fallback</li>
+      <li>Geo-detected cover swap (US / UK / future editions)</li>
+      <li>Substack auto-pull (RSS → server-rendered, no manual republishing)</li>
+      <li>Social feed embeds, events page, attribution-tagged outbound clicks</li>
+      <li>Subscribe block above the fold — Substack double-opt-in</li>
+    </ul>
+
+    <h4>Attribution layer (the non-obvious requirement)</h4>
+    <ul>
+      <li>Every outbound retail click tagged with <code>?utm_source=gset_web&amp;utm_medium=<i>{geo}</i>&amp;utm_campaign=<i>{section}</i></code></li>
+      <li>Click events POSTed to a lightweight log endpoint (no GA — we own the data)</li>
+      <li>Surface in a simple Looker / Metabase dashboard, weekly auto-email to Olly</li>
+    </ul>
+    <div class="copyblock">
+      <strong>Felix-ask:</strong> "Can you scope a 4-week build of a geo-routed static site + retail attribution layer, or should we brief out to a freelancer? If freelancer, do you have one you'd trust on the attribution side specifically?"
+    </div>
+  </div>
+
+  <!-- BRIEF 4 -->
+  <div class="brief">
+    <div class="brief-header">
+      <h3>4. Graphic Designer — Channel Identity + Templates</h3>
+      <div class="role">Brief · <span class="priority p2">P2 · within 10 days</span></div>
+    </div>
+    <div class="brief-meta">
+      <span><strong>Output:</strong> One-off pack + monthly retainer for ongoing</span>
+      <span><strong>Cost:</strong> £2.5–3.5k one-off + £600/mo</span>
+    </div>
+
+    <h4>One-off pack</h4>
+    <ul>
+      <li>YouTube channel art, end-card, lower-third system, thumbnail template (3 variants — Reading / Unpacking / Special)</li>
+      <li>Instagram quote-card template (5 variants), audiogram template, Story template, Reel cover template</li>
+      <li>Substack header + section dividers</li>
+      <li>Facebook group banner + cohort-week post template</li>
+      <li>Type system across all six channels (DM Serif Display + Outfit, lifted from this doc's family if Jesse approves)</li>
+    </ul>
+
+    <h4>Monthly retainer covers</h4>
+    <ul>
+      <li>5 IG quote cards/week (templated, designer pulls from theologian transcripts)</li>
+      <li>YouTube thumbnails (2/week)</li>
+      <li>Seasonal hero artwork for Lent / Pentecost / Anniversary / Advent</li>
+    </ul>
+  </div>
+
+  <!-- BRIEF 5 -->
+  <div class="brief">
+    <div class="brief-header">
+      <h3>5. Community Lead — Facebook Group + Cohort Reads</h3>
+      <div class="role">Brief · <span class="priority p2">P2 · before launch</span></div>
+    </div>
+    <div class="brief-meta">
+      <span><strong>Output:</strong> Moderated GSET Reading Community + 5-week cohort cycles</span>
+      <span><strong>Retainer:</strong> £1.2–1.5k/mo (part-time, ~10 hrs/week)</span>
+    </div>
+
+    <h4>Scope</h4>
+    <ul>
+      <li>Set up &amp; moderate the GSET Reading Community FB group — rules, welcome flow, 2 prompts/week</li>
+      <li>Design and run the first 5-week cohort (Matthew). Discussion guide per week, daily passage, weekly live thread.</li>
+      <li>Self-sustaining by day 90 — recruit 8–12 volunteer moderators from active members</li>
+      <li>Coordinate with Substack editor on cohort companion emails</li>
+    </ul>
+    <div class="copyblock">
+      <strong>Profile:</strong> Faith-fluent, community-management background (Discord/FB/Slack), comfortable with light theology. Probably found through Hodder's existing church partner network — worth asking Andy Lyon for 2–3 introductions.
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div class="section-tag">Pre-stage assets · Commission now</div>
+  <h2>What to get into production this week, contract or no contract.</h2>
+  <p>None of these need Hodder's signature to start. All are reusable if the deal stalls or pivots back to self-execution.</p>
+
+  <table>
+    <thead>
+      <tr><th>Asset</th><th>Why now</th><th>Owner</th><th>By when</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Bear archive footage audit</strong> — comprehensive list of cleared, usable Bear clips (interviews, podcast appearances, retreat footage, audiobook session)</td>
+        <td>Every short-form clip and every YouTube b-roll moment depends on this. Without an audited list, the clip editor sits idle. No new Bear filming means archive <em>is</em> the production budget.</td>
+        <td class="own">Olly + Felix</td>
+        <td class="when">Wed 21 May</td>
+      </tr>
+      <tr>
+        <td><strong>Audiobook stems</strong> — clean isolated chapter audio from Hodder</td>
+        <td>Feeds Episode A and short-form clips. Andy Lyon ask, already drafted in operator playbook Step 1.</td>
+        <td class="own">Olly → Andy Lyon</td>
+        <td class="when">Tue 20 May</td>
+      </tr>
+      <tr>
+        <td><strong>Theologian longlist</strong> — 8–10 names for batch 1</td>
+        <td>Episode B can't film without them. 3-day batch shoot every 6 months means batch 1 needs to lock by mid-July. Names should span tradition (Anglican, Catholic, evangelical, Orthodox) — credibility on the show hinges on this.</td>
+        <td class="own">Jesse-led, Olly to shortlist</td>
+        <td class="when">Fri 30 May</td>
+      </tr>
+      <tr>
+        <td><strong>Domain + handles audit</strong></td>
+        <td>thegreateststoryevertoldbook.com plus matching IG / TikTok / YouTube / Substack. YouTube is claimed. Check the rest are still free — squatting risk rises the day this deal becomes public.</td>
+        <td class="own">Ted (Olly to approve)</td>
+        <td class="when">Mon 19 May</td>
+      </tr>
+      <tr>
+        <td><strong>Substack — first 4 posts queued</strong></td>
+        <td>Lent / anniversary / Pentecost run-up calendar means month 1 needs content in the can. Templates + voice guide drafted from existing audiobook excerpts.</td>
+        <td class="own">Ted draft → Olly review</td>
+        <td class="when">Fri 30 May</td>
+      </tr>
+      <tr>
+        <td><strong>Cross-promo brief for BGV brand network</strong></td>
+        <td>Ted's Health, Modern Savage, Sister Directory, Be Military Fit each give one tile + newsletter mention + social repost at launch. Free reach. Already half-drafted in <em>gset-action-steps-may-2026.md</em>.</td>
+        <td class="own">Ted to draft, Olly to send</td>
+        <td class="when">Fri 30 May</td>
+      </tr>
+      <tr>
+        <td><strong>Attribution / UTM scheme document</strong></td>
+        <td>The deck promises a measurement signal layer. Without a defined UTM taxonomy on day one, the data collected is unusable.</td>
+        <td class="own">Ted to draft</td>
+        <td class="when">Wed 28 May</td>
+      </tr>
+      <tr>
+        <td><strong>Voice &amp; content pillar guide</strong></td>
+        <td>Five content pillars + tone rules from the deck need translating into a 2-page guide that any editor / designer / community lead works from. Stops drift.</td>
+        <td class="own">Ted to draft, Jesse to approve</td>
+        <td class="when">Wed 28 May</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-tag">Decisions still on Olly</div>
+  <h2>Three calls that unlock everything else.</h2>
+
+  <div class="decision">
+    <strong>1. Editorial sign-off chain.</strong> Hodder's deck implies Hodder's editorial team passes on Substack essays. Does that extend to YouTube scripts? Short-form captions? If yes, we need to build a lightweight review-and-approve workflow into the production line before week 1 — otherwise the publishing rhythm dies in a Friday inbox.
+  </div>
+  <div class="decision">
+    <strong>2. Rights &amp; IP — who owns the YouTube channel and the Substack list?</strong> The deck doesn't name it. If Hodder owns the channel, every brief above shifts to "build it for handover." If Bear Witness owns it under a service contract, the briefs stay as-is. Worth surfacing before the contract is drafted, not after.
+  </div>
+  <div class="decision">
+    <strong>3. US launch date — soft or hard?</strong> The deck names "Months 1–12" for the US gap close. If month 1 is a public US launch (PR, partner activation with Lusko / Gifford / Roumie), the team needs to ramp 30 days earlier than a soft start would require. The hires above are sized for the soft model.
+  </div>
+</section>
+
+<section>
+  <div class="section-tag">Suggested order of operations</div>
+  <h2>This week.</h2>
+  <ol style="padding-left:1.4rem; line-height:1.9; max-width:760px;">
+    <li><strong>Mon 19:</strong> Domain &amp; handle audit. Send Hodder rights email (already drafted, add monetisation + stems request).</li>
+    <li><strong>Tue 20:</strong> Felix-ask on YouTube editor + web build. Olly + Felix start Bear archive audit.</li>
+    <li><strong>Wed 21:</strong> Editor brief 1 + 2 out to 3 candidates each.</li>
+    <li><strong>Thu 22:</strong> Web build brief out. Theologian longlist seeded with Jesse.</li>
+    <li><strong>Fri 23:</strong> Friday block — KPI review with Olly, lock open decisions.</li>
+  </ol>
+  <p style="margin-top:1.6rem; color:var(--muted); font-size:0.92rem;">Anything not started this week slips the launch window. Anniversary (19 Jun) is still the soft public moment; everything above is sized to be ready by then or one week after.</p>
+</section>
+
+<footer>
+  Ted · GSET · 18 May 2026 · companion to <em>GSET_Bear_Witness_Pitch.html</em> &amp; <em>gset-next-physical-actions-2026-05-13.md</em>
+</footer>
+
+</body>
+</html>
