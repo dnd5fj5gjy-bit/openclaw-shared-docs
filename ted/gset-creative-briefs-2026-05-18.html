@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Creative Briefs Pack · 18 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 900px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 760px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 820px; margin-bottom: 1rem; }
+  .preamble .note {
+    background: var(--off-white);
+    border-left: 3px solid var(--burgundy);
+    padding: 1.4rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .preamble .note strong { color: var(--burgundy); }
+
+  /* Brief block */
+  .brief {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 3rem 3rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .brief-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .brief h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .brief .subtitle {
+    color: var(--charcoal-light);
+    font-size: 1.02rem;
+    margin-bottom: 1.8rem;
+    max-width: 700px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    background: var(--cream-dark);
+    padding: 1.3rem 1.5rem;
+    border-radius: 4px;
+    margin: 1.4rem 0 2rem;
+  }
+  .meta-grid div { font-size: 0.88rem; }
+  .meta-grid .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  .meta-grid .val { color: var(--ink); font-weight: 500; }
+
+  .brief h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin: 1.8rem 0 0.7rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .brief p { margin-bottom: 0.85rem; max-width: 800px; }
+  .brief ul, .brief ol { padding-left: 1.4rem; margin-bottom: 0.6rem; max-width: 820px; }
+  .brief li { margin-bottom: 0.45rem; }
+
+  .references {
+    background: var(--cream);
+    border: 1px dashed var(--rule);
+    padding: 1.1rem 1.4rem;
+    border-radius: 3px;
+    margin: 0.6rem 0;
+  }
+  .references strong { font-weight: 500; color: var(--ink); }
+
+  .forward-note {
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Creative Brief Pack · v1</div>
+    <h1>Five things to start making this week — so the engine is real before the contract is signed.</h1>
+    <p class="lede">Commission-ready briefs Olly can forward as-is. Each one names the deliverable, the format, the references, the deadline, and the rate envelope. All buildable from existing assets — no Hodder dependency.</p>
+    <div class="meta">Ted · 18 May 2026 · For Olly &amp; the editors</div>
+  </div>
+</header>
+
+<div class="preamble">
+  <p>Five briefs follow. Each is self-contained — copy the block and paste it into an editor's inbox, attach the asset bundle, agree the rate, go. They are sized to be deliverable in 2–4 weeks each, in parallel.</p>
+  <p>The point of all five is the same: <strong>prove the engine works before Hodder commit.</strong> If we hand them a sizzle, a treatment film, a thumbnail pack, a brand system and a short-form launch pack <em>already cut</em>, the conversation stops being "can you deliver?" and starts being "when do we go live?"</p>
+  <div class="note">
+    <strong>Assets supplied to every editor:</strong> Bear archive footage bundle (Olly + Felix auditing this week), audiobook chapter audio (pending Hodder confirm — interim use stems we already paid for), book cover assets, GSET typographic system (DM Serif Display + Outfit), colour palette (cream / ink / burgundy / gold from the deck).
+  </div>
+</div>
+
+<!-- BRIEF 1 -->
+<section class="brief" id="brief-trailer">
+  <div class="brief-id">Brief 01 · Trailer</div>
+  <h2>The Channel Trailer — 60 seconds</h2>
+  <p class="subtitle">The film that lives at the top of the YouTube channel and plays at the bottom of every Hodder meeting from here on. Sells the engine in one minute.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Format</span><span class="val">60–75s film · 16:9 + 9:16 cut</span></div>
+    <div><span class="label">Deadline</span><span class="val">Fri 6 June</span></div>
+    <div><span class="label">Rate envelope</span><span class="val">£1,200–1,800</span></div>
+    <div><span class="label">Owner</span><span class="val">Lead video editor</span></div>
+  </div>
+
+  <h3>The Job</h3>
+  <p>A one-minute film that introduces <em>The Greatest Story Ever Told</em> as a YouTube channel and makes the viewer feel they have to come back. No exposition. No "welcome to my channel." A mood piece that earns trust through restraint.</p>
+
+  <h3>The Feel</h3>
+  <ul>
+    <li>Devotional, not documentary. Closer to a meditation app's onboarding film than a Netflix doc trailer.</li>
+    <li>Bear's voice (from existing audiobook chapter 1) over still-quiet visuals — candle, hands, scripture page, dawn, footpath, ink on paper, baptism water.</li>
+    <li>Slow. Generous in silence. The viewer can hear themselves think.</li>
+    <li>One title card at the end: <strong><em>The Greatest Story Ever Told.</em></strong> Underneath: <em>A reading. A reckoning. A return.</em></li>
+  </ul>
+
+  <h3>Structure</h3>
+  <ol>
+    <li><strong>0:00–0:10</strong> — Cold open. Single audio line from Bear, lifted from audiobook ch. 1 ("In the beginning…" or equivalent). Black with slow visual fade-in.</li>
+    <li><strong>0:10–0:35</strong> — Visual sequence. ~8 photographic-style shots, 3s each, married to ambient bed.</li>
+    <li><strong>0:35–0:50</strong> — Brief textual reveals on screen — three lines of the book, set in DM Serif Display, fading in over slow visuals. <em>"This is not a sermon."</em> / <em>"This is the oldest story."</em> / <em>"Told plainly, for once."</em></li>
+    <li><strong>0:50–1:00</strong> — Title card. Hold three seconds. End frame: book cover + retail prompt.</li>
+  </ol>
+
+  <h3>References</h3>
+  <div class="references">
+    <strong>Tone:</strong> Calm app's "1 Year of Meditation" trailer · The Bible Project's <em>Genesis 1–11</em> overview opening · Apple "Shot on iPhone — Faith" spot.<br>
+    <strong>Avoid:</strong> Hillsong-style sweeping aerials, voiceover guarantees, multiple voice clips intercut. One voice. One mood.
+  </div>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>60–75s master, ProRes + H.264</li>
+    <li>9:16 vertical cut for IG / TikTok / Shorts (60s hard cut)</li>
+    <li>15s teaser cut for paid sampling later</li>
+    <li>Open-project file handed back to BGV</li>
+  </ul>
+
+  <p class="forward-note">Forward-ready · attach Bear ch. 1 audiobook stem + archive bundle on commission.</p>
+</section>
+
+<!-- BRIEF 2 -->
+<section class="brief" id="brief-treatment">
+  <div class="brief-id">Brief 02 · Visual Treatment Film</div>
+  <h2>Episode A — "Reading" Look Proof</h2>
+  <p class="subtitle">Not an episode. A 45-second mood film that locks the visual treatment of the Reading series before we commit to 52/year.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Format</span><span class="val">40–50s film · 16:9 · graded master</span></div>
+    <div><span class="label">Deadline</span><span class="val">Fri 13 June</span></div>
+    <div><span class="label">Rate envelope</span><span class="val">£1,500–2,200 incl. colourist</span></div>
+    <div><span class="label">Owner</span><span class="val">Lead video editor + colourist</span></div>
+  </div>
+
+  <h3>The Job</h3>
+  <p>The Reading episode is the spine of the channel — 52 of them in year one. Before we cut episode 1 properly, we need a 40-second proof film that locks the look: LUTs, type, transitions, lower-thirds, scripture overlay style, pacing, music bed. Once this is approved, every Reading episode follows the same template.</p>
+
+  <h3>What it shows</h3>
+  <ul>
+    <li>Cold open: chapter number + title in DM Serif Display, fade up over black.</li>
+    <li>~30 seconds of audiobook narration laid over a single coherent visual sequence — candlelit interior, hands turning pages, a window at dawn, ambient outdoor cutaway.</li>
+    <li>One scripture overlay moment — clean white serif type drifting up the frame.</li>
+    <li>Closing card: title + episode marker + Substack subscribe nudge.</li>
+  </ul>
+
+  <h3>Look brief for the colourist</h3>
+  <ul>
+    <li>Warm, low-contrast. Cream and ink. Highlights pulled, blacks lifted slightly.</li>
+    <li>No saturated colour beyond candle / lamp / dawn. Skin tones natural-warm.</li>
+    <li>Subtle film grain, no aggressive halation.</li>
+  </ul>
+
+  <h3>Music / sound</h3>
+  <ul>
+    <li>Ambient bed only — drone, soft strings, occasional acoustic guitar pluck.</li>
+    <li>No percussion. No swell at the end.</li>
+    <li>License through Musicbed or Artlist — supply 2 options for sign-off.</li>
+  </ul>
+
+  <h3>References</h3>
+  <div class="references">
+    <strong>Closest:</strong> <em>The Bible Project</em>'s long-form Hebrew-prophets episodes (visual restraint) · Apple TV+ <em>The Mosquito Coast</em> opening titles (warmth) · <em>Calm</em>'s Story narrations (pacing).<br>
+    <strong>Avoid:</strong> stock-footage feel, lower-thirds with motion, sweeping camera moves, dramatic music build.
+  </div>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>40–50s master, ProRes</li>
+    <li>LUT(s) handed back as .cube files</li>
+    <li>Typographic system file (After Effects template for title card, scripture overlay, end card)</li>
+    <li>1-page written treatment summary so the next 51 editors can hold the line</li>
+  </ul>
+
+  <p class="forward-note">Forward-ready · pair with Brief 01 if commissioned to same editor for shared bed/grade savings.</p>
+</section>
+
+<!-- BRIEF 3 -->
+<section class="brief" id="brief-shorts">
+  <div class="brief-id">Brief 03 · Short-Form</div>
+  <h2>Launch Clip Pack — 5 Shorts from the Archive</h2>
+  <p class="subtitle">A pre-loaded fortnight of short-form before episode 1 is even live. Tests the discovery engine and gives the launch a head of steam.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Format</span><span class="val">5 clips · 30–60s · 9:16 vertical</span></div>
+    <div><span class="label">Deadline</span><span class="val">Fri 6 June</span></div>
+    <div><span class="label">Rate envelope</span><span class="val">£600–900 (£120–180/clip)</span></div>
+    <div><span class="label">Owner</span><span class="val">Short-form clip editor</span></div>
+  </div>
+
+  <h3>The Job</h3>
+  <p>Five short-form clips, each pulled from existing Bear footage and audiobook audio. Each clip works as a standalone — strong hook in 1.5 seconds, on-screen captions, ends pointing at the channel or Substack. The goal is to validate the engine at zero cost: we publish these in the run-up to launch, watch what travels, and refine the formula before the long-form drops.</p>
+
+  <h3>The Five Clips</h3>
+  <ol>
+    <li><strong>"Why I wrote it"</strong> — Bear talking about the book in an existing interview. ~45s. Hook: <em>"The story everyone half-knows."</em></li>
+    <li><strong>"The moment I came back to faith"</strong> — audiobook excerpt over visual. ~50s. Built for high-emotion scroll-stop.</li>
+    <li><strong>"What the Bible actually says about fear"</strong> — Bear interview + scripture overlay. ~40s. Theology-curious hook.</li>
+    <li><strong>"This is the part Hollywood always gets wrong"</strong> — audiobook excerpt re-cut as provocative hook. ~55s. Engagement-bait but truthful.</li>
+    <li><strong>"60 seconds with the loudest book in Britain"</strong> — book stat + 3 reader testimonies (text on screen) + Bear voice tag. ~60s. Social-proof variant.</li>
+  </ol>
+
+  <h3>Craft notes</h3>
+  <ul>
+    <li>Captions: sans-serif (Outfit Bold), bottom-third safe zone, white with black 30% drop shadow. No karaoke-bouncing words.</li>
+    <li>Hook is in the first 1.5s. No build-up. No "hey guys."</li>
+    <li>Each clip ends with a soft 1-second card pointing at the channel or Substack — not retail. We are not selling the book on social.</li>
+    <li>Provide UK and US text-card variants of clips 1, 3 and 5 (different stats / different framing).</li>
+  </ul>
+
+  <h3>References</h3>
+  <div class="references">
+    <strong>Studied:</strong> Bible Project shorts · Jordan Raynor TikTok · Father Mike Schmitz "Bible in a Year" clips · The Chosen behind-the-scenes shorts.<br>
+    <strong>Avoid:</strong> meme-text overlays, trending audio, anything that needs context to land.
+  </div>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>5 final clips (UK), 3 US variants — H.264 vertical, with and without captions burned in</li>
+    <li>Caption SRT files per clip (for accessibility + platform auto-translation)</li>
+    <li>1-line hook copy per clip for caption-text-on-post</li>
+  </ul>
+
+  <p class="forward-note">Forward-ready · supply archive bundle + audiobook stems on commission. Captions in Outfit Bold (font supplied).</p>
+</section>
+
+<!-- BRIEF 4 -->
+<section class="brief" id="brief-brand">
+  <div class="brief-id">Brief 04 · Brand Identity</div>
+  <h2>Channel &amp; Cross-Platform Visual System</h2>
+  <p class="subtitle">One designer, one pack. The visual language that holds across YouTube, Instagram, Substack, Facebook and the web.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Format</span><span class="val">Static + template pack · multi-platform</span></div>
+    <div><span class="label">Deadline</span><span class="val">Fri 13 June (full pack)</span></div>
+    <div><span class="label">Rate envelope</span><span class="val">£2,500–3,500 one-off</span></div>
+    <div><span class="label">Owner</span><span class="val">Graphic designer (faith / publishing background pref.)</span></div>
+  </div>
+
+  <h3>The Job</h3>
+  <p>Build the visual identity system that every editor, community lead and freelancer will work from. Not a logo exercise — a working kit that locks the channel's look across six surfaces, anchored in the typographic and colour decisions already in the deck.</p>
+
+  <h3>What's in the pack</h3>
+  <ul>
+    <li><strong>YouTube</strong> — channel banner, end-screen, three thumbnail templates (Reading / Unpacking / Special / Seasonal), watermark, lower-third</li>
+    <li><strong>Instagram</strong> — feed quote card (5 variants), audiogram template, Story template (3 variants), Reel cover template</li>
+    <li><strong>Substack</strong> — header artwork, three section dividers, post hero illustration style</li>
+    <li><strong>Facebook</strong> — group banner, cohort-week post template, discussion-prompt card</li>
+    <li><strong>Cross-cutting</strong> — full type system (DM Serif Display + Outfit), colour palette (cream, ink, burgundy, gold, forest), iconography (simple line-mark cross / book / dove)</li>
+  </ul>
+
+  <h3>Brand brief</h3>
+  <ul>
+    <li>Restrained. Editorial. Closer to a literary publisher than a megachurch.</li>
+    <li>Cream as base, ink as type, burgundy as accent, gold sparingly.</li>
+    <li>Type-led. Imagery is rare and earns its space when it appears.</li>
+    <li>Reads as <em>old</em> — like the book has been around longer than it has.</li>
+  </ul>
+
+  <h3>References</h3>
+  <div class="references">
+    <strong>Studied:</strong> Penguin Modern Classics covers · Plough Quarterly · Comment magazine · Faber poetry editions · The Bible Project's typographic minimalism.<br>
+    <strong>Avoid:</strong> evangelical worship-night gradients, scripted handwriting fonts, anything that reads "Christian merch."
+  </div>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>Figma file with all templates, editable, organised by surface</li>
+    <li>Exported PNGs for immediate use (thumbnails × 6, quote cards × 10, banners × 4)</li>
+    <li>1-page brand guidelines PDF (type, colour, spacing rules, do/don't)</li>
+    <li>Font licences passed to BGV</li>
+  </ul>
+
+  <p class="forward-note">Forward-ready · attach this HTML doc as visual reference (same family).</p>
+</section>
+
+<!-- BRIEF 5 -->
+<section class="brief" id="brief-audio">
+  <div class="brief-id">Brief 05 · Audio Pilot</div>
+  <h2>Episode 1 Cold-Open — 90-Second Audio Pilot</h2>
+  <p class="subtitle">The first 90 seconds of episode 1, finished. Proves the audio engine — ambience, narration treatment, scripture entry — works without picture.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Format</span><span class="val">90s audio file · stereo · mastered</span></div>
+    <div><span class="label">Deadline</span><span class="val">Wed 4 June</span></div>
+    <div><span class="label">Rate envelope</span><span class="val">£500–800</span></div>
+    <div><span class="label">Owner</span><span class="val">Audio engineer / sound designer</span></div>
+  </div>
+
+  <h3>The Job</h3>
+  <p>Take the opening 90 seconds of audiobook chapter 1 and build the full ambient bed underneath it — wind, distant water, a single bell, parchment, fire. Master it as if it were episode 1 of a finished podcast or the cold open of a finished YouTube episode. This is the spec the visual editor cuts <em>to</em>, not the other way round.</p>
+
+  <h3>Why this matters</h3>
+  <p>The channel's audio identity is the only constant across YouTube, Substack audiograms, Facebook clips and Instagram Reels. If the audio works on its own, the visual treatment becomes interchangeable. If it doesn't, no amount of grading saves us.</p>
+
+  <h3>Sound design notes</h3>
+  <ul>
+    <li>Ambient bed sits at -24 to -28 LUFS — present but always under the voice.</li>
+    <li>Bear's voice mastered for clarity, not loudness — slight warmth on the low-mids, light de-essing, no compression that flattens breath.</li>
+    <li>One signature audio motif (a sustained drone or a single low bell) repeated at chapter open and close — the audio version of the title card. The motif is identifiable across all 104 episodes.</li>
+    <li>Stem-deliver everything so the same bed can be reused under shorts and audiograms.</li>
+  </ul>
+
+  <h3>References</h3>
+  <div class="references">
+    <strong>Closest:</strong> <em>The Truth</em> podcast cold opens · BBC <em>Drama on 4</em> · Pray As You Go opening seconds · Hans Zimmer's <em>Time</em> as ambient grammar.<br>
+    <strong>Avoid:</strong> Sermon-style swells, choral pads, anything that announces "this is religious."
+  </div>
+
+  <h3>Deliverables</h3>
+  <ul>
+    <li>90s mastered stereo WAV + MP3</li>
+    <li>Full session stems (voice / bed / motif / FX) handed back</li>
+    <li>1-paragraph audio brief that the next 103 episodes follow</li>
+  </ul>
+
+  <p class="forward-note">Forward-ready · audiobook ch. 1 stem required. If Hodder hasn't confirmed by Tue 26 May, run this brief on a chapter we already have licensed access to.</p>
+</section>
+
+<section class="brief" style="background: var(--cream-dark); border-color: var(--rule);">
+  <div class="brief-id">Sequencing &amp; cost</div>
+  <h2>What this costs and how it fits together.</h2>
+
+  <div class="meta-grid">
+    <div><span class="label">Total commission envelope</span><span class="val">£6.3k–9.2k</span></div>
+    <div><span class="label">Window</span><span class="val">3 weeks (commission Mon 19 May → all in by Fri 13 June)</span></div>
+    <div><span class="label">Demonstrable output</span><span class="val">Trailer + look film + 5 shorts + brand pack + audio pilot</span></div>
+    <div><span class="label">Pre-launch use</span><span class="val">Hodder contract evidence + day-1 publishing stock</span></div>
+  </div>
+
+  <p style="margin-top: 1.4rem;">Sequence in this order: Brief 05 (audio pilot) is the unblocker — it sets the audio identity Briefs 01 and 02 cut to. Briefs 03 and 04 run in parallel from day one. By 13 June we have a 60-second trailer, a treatment film, five shorts, a brand kit and a 90-second audio pilot — enough to walk into any Hodder follow-up with the channel already partly built.</p>
+
+  <p style="margin-top: 0.8rem;"><strong>If Jesse wants only one commissioned this week,</strong> commission Brief 01 (the trailer). It compresses everything else into something Hodder can watch.</p>
+</section>
+
+<footer>
+  Ted · GSET · 18 May 2026 · companion to <em>GSET_Bear_Witness_Pitch.html</em>. Earlier prep doc archived as <em>gset-pre-contract-prep-2026-05-18.html</em>.
+</footer>
+
+</body>
+</html>
