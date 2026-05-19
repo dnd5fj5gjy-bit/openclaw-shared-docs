@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bear Grylls Hub | Battersea Power Station</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #2B4A3F;
+  --forest-deep: #1E3630;
+  --earth: #C07A45;
+  --earth-light: #D4935E;
+  --cream: #F5F0EA;
+  --cream-dark: #E8E0D6;
+  --charcoal: #2A2A2A;
+  --charcoal-light: #4A4A4A;
+  --white: #FDFBF8;
+  --sand: #D9CCBB;
+  --slate: #1A1F1C;
+  --chalk: #F5F0EA;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(253, 251, 248, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  padding: 1rem 3rem;
+}
+.logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--white); transition: color 0.4s ease; }
+nav.scrolled .logo { color: var(--charcoal); }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  text-decoration: none; color: var(--white); font-size: 0.85rem; font-weight: 400;
+  letter-spacing: 0.04em; transition: color 0.3s ease;
+}
+nav.scrolled .nav-links a { color: var(--charcoal-light); }
+.nav-links a:hover { color: var(--earth); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 6rem 2rem 4rem;
+  background:
+    linear-gradient(180deg, rgba(26, 31, 28, 0.5) 0%, rgba(26, 31, 28, 0.7) 50%, rgba(26, 31, 28, 0.9) 100%),
+    url('https://images.unsplash.com/photo-1532682494783-9e0268cc75b2?w=2400&q=80&auto=format&fit=crop') center/cover;
+  color: var(--white);
+  text-align: center;
+}
+.hero-inner { max-width: 880px; margin: 0 auto; width: 100%; }
+.hero-tag {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em;
+  color: var(--earth-light); margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s ease 0.2s forwards;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.5vw, 5.5rem); line-height: 1.05; margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp 1s ease 0.4s forwards;
+}
+.hero-lede {
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem); line-height: 1.6; max-width: 720px; margin: 0 auto 2.8rem;
+  opacity: 0; animation: fadeUp 1s ease 0.6s forwards; font-weight: 300; color: rgba(253,251,248,0.88);
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.1rem 2.6rem;
+  background: var(--earth); color: var(--white);
+  text-decoration: none; font-size: 0.9rem; letter-spacing: 0.1em; font-weight: 500;
+  text-transform: uppercase; border-radius: 2px;
+  opacity: 0; animation: fadeUp 1s ease 0.8s forwards;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(192, 122, 69, 0.25);
+}
+.hero-cta::after { content: '→'; transition: transform 0.3s ease; }
+.hero-cta:hover { background: var(--earth-light); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(192, 122, 69, 0.4); }
+.hero-cta:hover::after { transform: translateX(4px); }
+.scroll-indicator {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(253,251,248,0.55); opacity: 0; animation: fadeUp 1s ease 1.2s forwards;
+}
+.scroll-indicator::after {
+  content: ''; display: block; width: 1px; height: 30px; margin: 0.6rem auto 0;
+  background: rgba(253,251,248,0.4); animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
+@keyframes scrollLine { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+
+/* SECTIONS */
+section { padding: 7rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em;
+  color: var(--earth); margin-bottom: 1.2rem;
+}
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1.6rem;
+  max-width: 800px;
+}
+.section-body { font-size: 1.05rem; line-height: 1.75; color: var(--charcoal-light); max-width: 720px; margin-bottom: 3rem; }
+.section-body p + p { margin-top: 1.2rem; }
+
+.cream-bg { background: var(--cream); }
+.dark-bg { background: var(--forest-deep); color: var(--white); }
+.dark-bg .section-tag { color: var(--earth-light); }
+.dark-bg .section-body { color: rgba(253,251,248,0.78); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ========== WILD COFFEE SECTION ========== */
+.wild-section {
+  background: var(--cream);
+  color: var(--charcoal);
+  padding: 7rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.wild-inner { position: relative; max-width: 1100px; margin: 0 auto; }
+.wild-section .section-tag { color: var(--earth); }
+.wild-top {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 5rem; align-items: center;
+  margin-bottom: 5rem;
+}
+.wild-copy h2 {
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem); line-height: 1.05; margin-bottom: 1.6rem; color: var(--charcoal);
+  letter-spacing: -0.02em;
+}
+.wild-copy p {
+  font-size: 1.05rem; line-height: 1.75; color: var(--charcoal-light); margin-bottom: 1.2rem;
+}
+
+/* The editorial menu card (replaces the chalk sign) */
+.menu-card {
+  background: var(--forest-deep);
+  color: var(--cream);
+  padding: 3.5rem 2.8rem 3rem;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(30, 54, 48, 0.18);
+  text-align: center;
+}
+.menu-card::before {
+  content: '';
+  position: absolute; top: 1rem; left: 1rem; right: 1rem; bottom: 1rem;
+  border: 1px solid rgba(245, 240, 234, 0.14);
+  pointer-events: none;
+  border-radius: 2px;
+}
+.menu-eyebrow {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.4em;
+  color: var(--earth-light); margin-bottom: 1.4rem;
+}
+.menu-wordmark {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.6rem, 7.5vw, 5.6rem);
+  letter-spacing: 0.04em;
+  line-height: 1; color: var(--cream);
+  margin-bottom: 0.6rem;
+}
+.menu-tagline {
+  font-size: 0.95rem; color: rgba(245, 240, 234, 0.65);
+  letter-spacing: 0.08em; font-style: italic;
+  margin-bottom: 2rem;
+}
+.menu-rule {
+  width: 28px; height: 1px; background: var(--earth);
+  margin: 0 auto 1.8rem;
+}
+.menu-list {
+  list-style: none; font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem; line-height: 2; color: var(--cream);
+}
+.menu-list li { display: block; }
+.menu-list li + li { border-top: 1px solid rgba(245, 240, 234, 0.08); }
+.menu-foot {
+  font-size: 0.7rem; color: rgba(245, 240, 234, 0.55); margin-top: 1.8rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+}
+
+/* The stand grid: visual elements */
+.stand-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  margin-top: 3rem;
+}
+.stand-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: flex; flex-direction: column;
+}
+.stand-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.06); }
+.stand-img {
+  aspect-ratio: 4 / 5; overflow: hidden; position: relative;
+  background: var(--cream-dark);
+}
+.stand-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.stand-card:hover .stand-img img { transform: scale(1.04); }
+.stand-body { padding: 1.4rem 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+.stand-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em;
+  color: var(--earth); margin-bottom: 0.5rem;
+}
+.stand-body h4 {
+  font-size: 1.15rem; color: var(--charcoal); margin-bottom: 0.4rem;
+}
+.stand-body p { font-size: 0.88rem; color: var(--charcoal-light); line-height: 1.55; margin-bottom: 0; }
+
+.wild-spec {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--cream-dark);
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+.spec-item {
+  background: var(--cream); padding: 1.6rem 1.4rem;
+}
+.spec-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em;
+  color: var(--earth); margin-bottom: 0.6rem;
+}
+.spec-value {
+  font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--charcoal); line-height: 1.3;
+}
+
+/* ========== TWO-COL CONTEXT ========== */
+.context-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+.context-image { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; }
+.context-image img { width: 100%; height: 100%; object-fit: cover; }
+.context-badge {
+  position: absolute; bottom: 1rem; left: 1rem; background: rgba(43, 74, 63, 0.92);
+  color: var(--white); padding: 0.5rem 1rem; font-size: 0.75rem; letter-spacing: 0.1em;
+  text-transform: uppercase; border-radius: 2px;
+}
+
+/* ========== VISION CARDS ========== */
+.vision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.vision-card {
+  background: rgba(245, 240, 234, 0.04);
+  border: 1px solid rgba(245, 240, 234, 0.08);
+  padding: 2.4rem 2rem; border-radius: 4px;
+  transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  display: flex; flex-direction: column;
+}
+.vision-card:hover { transform: translateY(-4px); border-color: rgba(192, 122, 69, 0.4); background: rgba(245, 240, 234, 0.06); }
+.vision-num {
+  font-family: 'DM Serif Display', serif; font-size: 0.85rem;
+  color: var(--earth-light); letter-spacing: 0.2em;
+  margin-bottom: 1.4rem; opacity: 0.85;
+  padding-bottom: 1rem; border-bottom: 1px solid rgba(245, 240, 234, 0.12);
+}
+.vision-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--white); }
+.vision-card p { font-size: 0.95rem; line-height: 1.65; color: rgba(253,251,248,0.72); margin-bottom: 0; }
+
+/* ========== LAYOUT / SPACE ========== */
+.layout-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.layout-card {
+  background: var(--white); border: 1px solid var(--cream-dark);
+  padding: 2.2rem 1.6rem 2rem; border-radius: 4px; cursor: pointer;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  display: flex; flex-direction: column;
+  min-height: 240px;
+}
+.layout-card::after {
+  content: '+';
+  position: absolute; top: 1rem; right: 1.2rem;
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--earth);
+  color: var(--earth);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; line-height: 1; font-weight: 400;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.layout-card:hover { transform: translateY(-3px); border-color: var(--earth); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.layout-card:hover::after { background: var(--earth); color: var(--white); transform: rotate(45deg); }
+.layout-card.active { border-color: var(--earth); background: var(--cream); }
+.layout-card.active::after { background: var(--earth); color: var(--white); transform: rotate(45deg); }
+.layout-status {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--earth); margin-bottom: 0.8rem;
+}
+.layout-icon { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--forest); }
+.layout-card h4 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+.layout-card-sub { font-size: 0.85rem; color: var(--charcoal-light); }
+.click-hint {
+  font-size: 0.68rem; color: var(--earth);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+  display: flex; align-items: center; gap: 0.4rem;
+  margin-top: auto; padding-top: 1.2rem;
+}
+.click-hint::before { content: '→'; transition: transform 0.3s ease; }
+.layout-card:hover .click-hint::before { transform: translateX(3px); }
+.layout-strip-label {
+  text-align: center; font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--charcoal-light); margin: 2.5rem 0;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.layout-strip-label::before, .layout-strip-label::after {
+  content: ''; height: 1px; background: var(--cream-dark); flex: 1; max-width: 120px;
+}
+.layout-detail {
+  background: var(--cream); padding: 2.4rem 2.2rem; border-radius: 4px;
+  display: none; animation: fadeIn 0.5s ease;
+}
+.layout-detail.active { display: block; }
+.layout-detail h4 { font-size: 1.5rem; color: var(--forest); margin-bottom: 1rem; }
+.layout-detail p { font-size: 1rem; line-height: 1.75; color: var(--charcoal-light); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ========== BRAND GRID ========== */
+.brand-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem;
+}
+.brand-card, .brand-link {
+  background: var(--white); border: 1px solid var(--cream-dark);
+  padding: 1.8rem 1.8rem 2rem; border-radius: 4px;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative;
+  cursor: pointer;
+}
+.brand-card::after, .brand-link::after {
+  content: '↗';
+  position: absolute; top: 1.1rem; right: 1.3rem;
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--cream-dark);
+  color: var(--earth);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem; line-height: 1;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.brand-card.brand-popup-trigger::after { content: '+'; font-size: 1.1rem; }
+.brand-card:hover::after, .brand-link:hover::after {
+  background: var(--earth); color: var(--white); border-color: var(--earth);
+}
+.brand-card:hover, .brand-link:hover { transform: translateY(-3px); border-color: var(--earth); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+.brand-type {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--earth); margin-bottom: 0.6rem;
+}
+.brand-card h3, .brand-link h3 { font-size: 1.3rem; margin-bottom: 0.8rem; padding-right: 2.8rem; }
+.brand-card p, .brand-link p { font-size: 0.92rem; line-height: 1.65; color: var(--charcoal-light); margin-bottom: 0; }
+.card-arrow { display: none; }
+.brand-popup-trigger { cursor: pointer; }
+.brand-flag {
+  display: inline-block; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.18em;
+  background: var(--earth); color: var(--white); padding: 0.18rem 0.5rem; border-radius: 2px;
+  margin-left: 0.5rem; vertical-align: middle;
+}
+
+/* ========== CASE COMPARISON ========== */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.case-col {
+  border-radius: 4px; padding: 2.4rem 2rem; position: relative;
+}
+.case-col-bar { background: var(--charcoal); color: var(--white); }
+.case-col-hub { background: var(--forest-deep); color: var(--white); }
+.case-col-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.7; margin-bottom: 0.5rem; }
+.case-col h3 { font-size: 1.6rem; margin-bottom: 0.4rem; }
+.case-col-sub { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.6rem; letter-spacing: 0.05em; }
+.case-badge {
+  position: absolute; top: -10px; right: 1.5rem;
+  background: var(--earth); color: var(--white);
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem; border-radius: 2px;
+}
+.case-list { list-style: none; }
+.case-list li {
+  display: flex; gap: 0.7rem; font-size: 0.92rem; line-height: 1.6;
+  padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.case-list li:last-child { border-bottom: none; }
+.case-icon { color: var(--earth-light); flex-shrink: 0; }
+
+/* ========== CONTENT EVENTS ========== */
+.ce-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.ce-card {
+  background: var(--white); border-radius: 4px; overflow: hidden;
+  border: 1px solid var(--cream-dark);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.ce-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.ce-card-img { aspect-ratio: 16/9; overflow: hidden; }
+.ce-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.ce-card:hover .ce-card-img img { transform: scale(1.04); }
+.ce-card-body { padding: 1.8rem; }
+.ce-card-body h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+.ce-card-body p { font-size: 0.92rem; line-height: 1.65; color: var(--charcoal-light); margin-bottom: 1rem; }
+.ce-card-body ul { list-style: none; }
+.ce-card-body li {
+  font-size: 0.88rem; padding: 0.4rem 0 0.4rem 1.2rem; position: relative;
+  color: var(--charcoal-light); line-height: 1.55;
+}
+.ce-card-body li::before { content: '◇'; position: absolute; left: 0; color: var(--earth); font-size: 0.7rem; top: 0.6rem; }
+
+/* ========== METRICS / PARTNERSHIP ========== */
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.metric-box {
+  background: rgba(245, 240, 234, 0.06);
+  border: 1px solid rgba(245, 240, 234, 0.1);
+  padding: 1.8rem 1.4rem; border-radius: 4px; text-align: center;
+}
+.metric-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--earth-light); line-height: 1; margin-bottom: 0.6rem; }
+.metric-label { font-size: 0.85rem; line-height: 1.4; color: rgba(253,251,248,0.7); }
+.summary-card {
+  background: rgba(245, 240, 234, 0.04);
+  border: 1px solid rgba(245, 240, 234, 0.1);
+  padding: 2.4rem; border-radius: 4px;
+}
+.summary-card h3 { font-size: 1.6rem; color: var(--white); margin-bottom: 1rem; }
+.summary-card p { font-size: 1rem; line-height: 1.7; color: rgba(253,251,248,0.78); }
+
+/* ========== CTA ========== */
+.cta-section { text-align: center; }
+.cta-section .section-tag { color: var(--earth); }
+.cta-section .section-heading {
+  max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.cta-section .section-body {
+  max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 1rem;
+}
+.cta-button {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin-top: 1.5rem; padding: 1.1rem 2.6rem;
+  background: var(--forest); color: var(--white);
+  text-decoration: none; font-size: 0.9rem; letter-spacing: 0.1em; font-weight: 500;
+  text-transform: uppercase; border-radius: 2px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(43, 74, 63, 0.2);
+}
+.cta-button::after { content: '→'; transition: transform 0.3s ease; }
+.cta-button:hover { background: var(--forest-deep); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(43, 74, 63, 0.35); }
+.cta-button:hover::after { transform: translateX(4px); }
+.cta-signature { margin-top: 2rem; font-size: 0.85rem; color: var(--charcoal-light); letter-spacing: 0.08em; }
+
+footer {
+  background: var(--charcoal); color: rgba(253,251,248,0.5);
+  padding: 1.5rem 2rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+}
+
+/* ========== POPUP ========== */
+.popup-overlay {
+  position: fixed; inset: 0; background: rgba(26, 31, 28, 0.78); backdrop-filter: blur(8px);
+  display: none; align-items: center; justify-content: center; z-index: 200;
+  padding: 2rem;
+}
+.popup-overlay.active { display: flex; }
+.popup-card {
+  background: var(--white); padding: 3rem 2.6rem 2.6rem; border-radius: 6px;
+  max-width: 480px; text-align: center; position: relative;
+  animation: popupIn 0.4s ease;
+}
+@keyframes popupIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.popup-close {
+  position: absolute; top: 1rem; right: 1.2rem; background: none; border: none;
+  font-size: 1.4rem; cursor: pointer; color: var(--charcoal-light);
+}
+.popup-icon { font-size: 1.8rem; color: var(--earth); margin-bottom: 1rem; }
+.popup-card h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+.popup-card p { font-size: 0.95rem; line-height: 1.65; color: var(--charcoal-light); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.2rem; }
+  nav.scrolled { padding: 0.8rem 1.2rem; }
+  .nav-links { display: none; }
+  section { padding: 4.5rem 1.4rem; }
+  .wild-section { padding: 4.5rem 1.4rem; }
+  .wild-top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .menu-card { padding: 2.6rem 1.6rem 2.2rem; }
+  .context-grid, .vision-grid, .layout-grid, .brand-grid, .case-grid, .ce-grid, .metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .stand-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .wild-spec { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 5rem 1.4rem 3rem; }
+  .brand-card h3, .brand-link h3 { padding-right: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Bear Grylls Ventures</div>
+  <div class="nav-links">
+    <a href="#wild">WILD</a>
+    <a href="#vision">Vision</a>
+    <a href="#layout">The Space</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#case">The Case</a>
+    <a href="#partnership">Partnership</a>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">A proposal for Battersea Power Station</div>
+    <h1>You wanted food and beverage.</h1>
+    <p class="hero-lede">Here is what Bear Grylls does with one signature drink at the front, and a working ecosystem behind it. Adventure, wellness and brand power, brought to the Power Station in a way no standard F&amp;B tenancy can match.</p>
+    <a href="#wild" class="hero-cta">Meet WILD</a>
+  </div>
+  <div class="scroll-indicator">Scroll</div>
+</section>
+
+<!-- ============= WILD ============= -->
+<section class="wild-section" id="wild">
+  <div class="wild-inner">
+
+    <div class="wild-top">
+      <div class="wild-copy reveal">
+        <div class="section-tag">The F&amp;B Anchor</div>
+        <h2>WILD.</h2>
+        <p>One drink, two ways. Hot or iced. Coffee blended with Modern Savage organ powder, DIRTEA mushroom stack, bison collagen, raw milk and maple syrup. The full BGV wellness shelf in a single cup.</p>
+        <p>A short menu by design. Served inside the brand store, alongside the products that go in the cup. The kind of thing people stop for, photograph and post. The front door of the hub and a destination in its own right.</p>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-eyebrow">The Menu</div>
+        <div class="menu-wordmark">WILD</div>
+        <div class="menu-tagline">One drink, two ways.</div>
+        <div class="menu-rule"></div>
+        <ul class="menu-list">
+          <li>Modern Savage organ blend</li>
+          <li>DIRTEA mushroom stack</li>
+          <li>Bison collagen</li>
+          <li>Raw milk · Maple · Ice</li>
+        </ul>
+        <div class="menu-foot">Hot or iced</div>
+      </div>
+    </div>
+
+    <div class="wild-spec reveal">
+      <div class="spec-item">
+        <div class="spec-label">Format</div>
+        <div class="spec-value">One drink, two ways</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Signature</div>
+        <div class="spec-value">Modern Savage + DIRTEA</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Location</div>
+        <div class="spec-value">Inside the brand store</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Hours</div>
+        <div class="spec-value">From 7am daily</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============= VISUAL: THE STAND ============= -->
+<section class="wild-section" style="padding-top: 0;">
+  <div class="wild-inner">
+    <div class="reveal" style="margin-bottom: 2rem;">
+      <div class="section-tag">Inside The Store</div>
+      <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--charcoal); margin-bottom: 0.8rem;">What it looks like.</h2>
+      <p style="color: var(--charcoal-light); max-width: 640px; font-size: 1rem; line-height: 1.7;">Clean, considered, contemporary. Wood, ceramic, the BGV wellness shelf behind the bar. The product line in the cup is also the product line on display.</p>
+    </div>
+
+    <div class="stand-grid">
+      <div class="stand-card reveal">
+        <div class="stand-img">
+          <img src="https://images.unsplash.com/photo-1775059956734-78ffd2075cec?w=900&q=80&auto=format&fit=crop" alt="Minimalist cafe interior" loading="lazy">
+        </div>
+        <div class="stand-body">
+          <div class="stand-label">01 · Space</div>
+          <h4>The bar inside the store</h4>
+          <p>Clean wood, soft light, a counter you'd queue for. Designed to feel as considered as the products on the shelf.</p>
+        </div>
+      </div>
+
+      <div class="stand-card reveal" style="transition-delay: 0.1s;">
+        <div class="stand-img">
+          <img src="https://images.unsplash.com/photo-1527156231393-7023794f363c?w=900&q=80&auto=format&fit=crop" alt="Iced signature drink in highball glass" loading="lazy">
+        </div>
+        <div class="stand-body">
+          <div class="stand-label">02 · The Drink</div>
+          <h4>Iced signature</h4>
+          <p>Coffee, collagen and mushrooms under a raw milk swirl. Served over ice in a heavy highball.</p>
+        </div>
+      </div>
+
+      <div class="stand-card reveal" style="transition-delay: 0.2s;">
+        <div class="stand-img">
+          <img src="https://images.unsplash.com/photo-1545840716-c82e9eec6930?w=900&q=80&auto=format&fit=crop" alt="Wellness products on display shelf" loading="lazy">
+        </div>
+        <div class="stand-body">
+          <div class="stand-label">03 · The Shelf</div>
+          <h4>Modern Savage · DIRTEA · Water2</h4>
+          <p>The wellness lineup sits behind the bar in full view. Every cup is a product placement.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============= CONTEXT ============= -->
+<section>
+  <div class="section-inner">
+    <div class="context-grid">
+      <div class="reveal">
+        <div class="section-tag">Where We Are Today</div>
+        <h2 class="section-heading">We already call Battersea home.</h2>
+        <div class="section-body">
+          <p>Be Military Fit has been operating at the Power Station for some time. We know the location, we know the community, and we understand the rhythm of how people move through the space.</p>
+          <p>What we are proposing is the natural next chapter. We want to take what already works and expand it into something that Battersea Power Station can genuinely be proud of.</p>
+        </div>
+      </div>
+      <div class="context-image reveal">
+        <img src="https://batterseapowerstation.co.uk/content/uploads/2022/07/BMF-Urban-BPS-6.jpg" alt="Be Military Fit at Battersea Power Station" loading="lazy">
+        <div class="context-badge">BMF Urban · Battersea</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= VISION ============= -->
+<section class="dark-bg" id="vision">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">The Vision</div>
+      <h2 class="section-heading">Something worth coming for.</h2>
+      <div class="section-body">
+        <p>WILD is the entry point. Behind it sits a connected hub across three units that functions as a living, breathing community centre for adventure, wellness and purpose. A place where people drink, train, shop, learn, work and belong, all under one roof.</p>
+        <p>Every BMF class, every DIRTEA event, every book signing, every product launch and every Modern Savage activation pulls in an audience that might never have set foot in the Power Station otherwise. The footfall is something we generate, not something we hope walks past.</p>
+      </div>
+    </div>
+
+    <div class="vision-grid">
+      <div class="vision-card reveal">
+        <div class="vision-num">No. 01</div>
+        <h3>Community First</h3>
+        <p>Classes, workshops and events running all day, every day. The gym never sits empty between peak hours. It hums with energy from morning to night, pulling people into the Power Station throughout the entire day.</p>
+      </div>
+      <div class="vision-card reveal" style="transition-delay: 0.1s;">
+        <div class="vision-num">No. 02</div>
+        <h3>Brand Ecosystem</h3>
+        <p>The combined force of Bear Grylls' portfolio of brands creates a gravitational pull that a single bar simply cannot match. Modern Savage, DIRTEA, Water2, Ted's Health, BG Clothing, Mettle and Bear Grylls books, all in one place.</p>
+      </div>
+      <div class="vision-card reveal" style="transition-delay: 0.2s;">
+        <div class="vision-num">No. 03</div>
+        <h3>Content Engine</h3>
+        <p>The space becomes a constant source of social content and live events. Every class filmed. Every product launch hosted. Every WILD drink served. All of it tagging and promoting Battersea Power Station to millions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= LAYOUT ============= -->
+<section id="layout">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">The Space</div>
+      <h2 class="section-heading">Three units. One connected hub.</h2>
+      <div class="section-body">
+        <p>The three units sit side by side in a single strip. Rather than three disconnected tenants, we are proposing a single, cohesive experience that makes the whole strip a reason to visit. WILD lives inside the brand store at the entrance. The gym and office sit alongside.</p>
+      </div>
+    </div>
+
+    <div class="layout-grid">
+      <div class="layout-card" data-target="office">
+        <div class="layout-status">Proposed</div>
+        <div class="layout-icon">💻</div>
+        <h4>The Office</h4>
+        <div class="layout-card-sub">BG Ventures HQ</div>
+        <div class="click-hint">Click to explore</div>
+      </div>
+      <div class="layout-card" data-target="gym">
+        <div class="layout-status">Current</div>
+        <div class="layout-icon">💪</div>
+        <h4>The Gym</h4>
+        <div class="layout-card-sub">Be Military Fit</div>
+        <div class="click-hint">Click to explore</div>
+      </div>
+      <div class="layout-card" data-target="shop">
+        <div class="layout-status">Proposed</div>
+        <div class="layout-icon">🏞</div>
+        <h4>The Shop &amp; WILD</h4>
+        <div class="layout-card-sub">BG Brand Store + F&amp;B</div>
+        <div class="click-hint">Click to explore</div>
+      </div>
+    </div>
+
+    <div class="layout-strip-label">Fully Connected Strip</div>
+
+    <div class="layout-detail" id="detail-office">
+      <h4>BG Ventures Headquarters</h4>
+      <p>The working heart of the Bear Grylls brand ecosystem. All of our teams, from marketing and partnerships to product development and content creation, based here and contributing daily to the energy of the hub. Think of it as an active, visible workspace where the brands come to life. Collaborators, partners and talent walk through constantly. The proximity to the gym, the brand store and WILD means our team lives and breathes the community we are building.</p>
+    </div>
+    <div class="layout-detail" id="detail-gym">
+      <h4>Be Military Fit Community Hub</h4>
+      <p>We want to transform the existing gym from a fitness space into a true community centre. Classes, workshops, wellness events, brand activations and community gatherings running throughout the day, every day. No dead hours. No quiet periods. A constant flow of members, visitors and curious newcomers walking through the doors and into the Power Station. This becomes the anchor that keeps the strip alive.</p>
+    </div>
+    <div class="layout-detail" id="detail-shop">
+      <h4>The Bear Grylls Brand Store &amp; WILD</h4>
+      <p>A retail space showcasing the full range of Bear Grylls Ventures products. Modern Savage organ supplements, DIRTEA functional mushroom blends, Water2, Ted's Health, BG Clothing, Bear Grylls books and more. WILD trades out of the front. Customers taste, try, learn and buy. Bear's books alone draw a huge and loyal readership, and a dedicated space where fans can browse and purchase signed copies creates a destination that no online retailer can match. Combined with the gym, the office and the F&amp;B stand, the shop becomes the front door to an entire world of brands that people can engage with in person.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ECOSYSTEM ============= -->
+<section class="cream-bg" id="ecosystem">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">The Ecosystem</div>
+      <h2 class="section-heading">One hub. Many brands. One community.</h2>
+      <div class="section-body">
+        <p>Each brand within the Bear Grylls Ventures portfolio brings its own audience, its own story and its own reason for people to walk through the door. Together they create something no single tenancy can offer.</p>
+      </div>
+    </div>
+
+    <div class="brand-grid reveal" style="transition-delay: 0.1s;">
+
+      <a href="https://modernsavage.co" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Nutrition <span class="brand-flag">Launching July 2026</span></div>
+        <h3>Modern Savage</h3>
+        <p>Bear and Jesse's 100 percent family-owned primal nutrition brand. Organ blend, prebiotic and probiotic stack, superfoods for adults, with a Kids Blend that no competitor on the market offers. UK and US launch July 2026. Modern Savage at the Power Station means every BMF member, every Third Space visitor, every Boom Cycle rider walks past the brand daily and tastes it in every WILD coffee. The wellness corridor becomes a complete ecosystem where people can train, recover and refuel without leaving the neighbourhood.</p>
+      </a>
+
+      <a href="https://dirtea.com" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Functional Wellness</div>
+        <h3>DIRTEA</h3>
+        <p>Functional mushroom brand with a massive and highly engaged community. DIRTEA already runs regular in-person events, tastings and activations that draw hundreds of people to a location. For Battersea, this means a constant programme of events pulling new audiences into the Power Station who may never have visited otherwise. Their social media reach alone puts BPS in front of millions.</p>
+      </a>
+
+      <a href="https://water2.com" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Hydration</div>
+        <h3>Water2</h3>
+        <p>Clean hydration brand that aligns perfectly with the health-conscious, active audience BPS is building across its wellness offering. Water2 at the hub means every gym member, every event attendee and every WILD customer sees and engages with a product that reinforces the Power Station's positioning as London's leading wellness destination.</p>
+      </a>
+
+      <a href="https://tedshealth.com" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Men's Health</div>
+        <h3>Ted's Health</h3>
+        <p>A digital men's health clinic. Most health brands stay online. Having a physical touchpoint at BPS gives Ted's Health real-world credibility and creates a discreet, trusted environment for education and awareness. For the Power Station, it adds a genuinely differentiated wellness offering that no other London retail destination has, attracting a demographic that is underserved and highly engaged.</p>
+      </a>
+
+      <div class="brand-card brand-popup-trigger" onclick="showPopup('clothing')">
+        <div class="brand-type">Apparel</div>
+        <h3>BG Clothing</h3>
+        <p>Adventure and lifestyle clothing that gives BPS a distinctive retail presence alongside the existing fashion brands. BG Clothing appeals to a different customer than Zara or Lululemon. It brings in the outdoor and adventure community, a loyal and growing demographic, and gives them a reason to visit the Power Station that does not exist anywhere else in London.</p>
+      </div>
+
+      <a href="https://www.beargrylls.com/collections/bear-grylls-books" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Publishing</div>
+        <h3>Bear Grylls Books</h3>
+        <p>Bear is one of the UK's bestselling authors, with millions of books sold worldwide. His most recent release, The Greatest Story Ever Told, debuted at No.1 on the Sunday Times hardback non-fiction list. A dedicated space for signed copies, new releases, children's adventure books and exclusive editions creates a destination for families, fans and tourists alike.</p>
+      </a>
+
+      <a href="https://bemettle.com" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Mental Fitness</div>
+        <h3>Mettle</h3>
+        <p>Our mental fitness app. Mental health is the conversation of the decade, and BPS is already leaning into wellness as a core part of its identity. Mettle gives the hub a genuinely unique offering: live mental fitness workshops, resilience sessions, guided group experiences and launch events that no other tenant can provide.</p>
+      </a>
+
+      <a href="https://www.bemilitaryfit.com" target="_blank" rel="noopener" class="brand-link">
+        <div class="brand-type">Fitness</div>
+        <h3>Be Military Fit</h3>
+        <p>The anchor. Already established at the Power Station with a loyal member base. The expanded hub amplifies everything BMF already delivers, transforming a gym into a daily footfall engine. BMF members visit multiple times a week, they bring friends, they attend events. They stay. These are committed, recurring visitors who keep the strip active all day, every day.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= THE CASE ============= -->
+<section id="case">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">The Case</div>
+      <h2 class="section-heading">Why this beats a standard bar tenancy.</h2>
+      <div class="section-body">
+        <p>F&amp;B is the brief. WILD delivers F&amp;B, then stacks an entire wellness ecosystem on top. Same square footage, materially more value to the Power Station, both commercially and in terms of brand positioning.</p>
+      </div>
+    </div>
+
+    <div class="case-grid reveal">
+      <div class="case-col case-col-bar">
+        <div class="case-col-tag">Option A</div>
+        <h3>A standard bar</h3>
+        <div class="case-col-sub">Conventional F&amp;B tenancy</div>
+        <ul class="case-list">
+          <li><span class="case-icon">◇</span> Peak hours only. Activity concentrated in evenings and weekends.</li>
+          <li><span class="case-icon">◇</span> Interchangeable. One of many similar options visitors have already seen elsewhere.</li>
+          <li><span class="case-icon">◇</span> Minimal social footprint. Limited content value for the Power Station brand.</li>
+          <li><span class="case-icon">◇</span> Single function. Customers arrive, consume, leave.</li>
+          <li><span class="case-icon">◇</span> Turnover risk. Hospitality tenancies are volatile.</li>
+          <li><span class="case-icon">◇</span> Competes with existing bars and restaurants already at the Power Station.</li>
+        </ul>
+      </div>
+
+      <div class="case-col case-col-hub">
+        <div class="case-badge">Recommended</div>
+        <div class="case-col-tag">Option B</div>
+        <h3>The Bear Grylls Hub</h3>
+        <div class="case-col-sub">WILD plus a working ecosystem</div>
+        <ul class="case-list">
+          <li><span class="case-icon">✓</span> All-day footfall. WILD opens early. Classes, work, shopping and events run from morning to evening, seven days a week.</li>
+          <li><span class="case-icon">✓</span> Completely unique. A wellness-led coffee stand fronting a brand ecosystem of this scale does not exist elsewhere in London.</li>
+          <li><span class="case-icon">✓</span> Constant content creation tagging the Power Station to an audience of millions.</li>
+          <li><span class="case-icon">✓</span> Multiple reasons to visit. Drink, train, shop, attend events, meet the team, try products.</li>
+          <li><span class="case-icon">✓</span> Long-term tenant with deep investment in the location and genuine commitment to the community.</li>
+          <li><span class="case-icon">✓</span> A complement to existing restaurants, not a competitor. WILD is takeaway-focused, not a sit-down bar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CONTENT & EVENTS ============= -->
+<section class="cream-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Content and Events</div>
+      <h2 class="section-heading">Putting the Power Station in front of millions.</h2>
+      <div class="section-body">
+        <p>Every piece of content we create, every event we host, every product we launch, every WILD cup we hand over carries the Power Station with it. An active, ongoing promotional engine for the entire complex.</p>
+      </div>
+    </div>
+
+    <div class="ce-grid reveal">
+      <div class="ce-card">
+        <div class="ce-card-img">
+          <img src="https://images.unsplash.com/photo-1775059956734-78ffd2075cec?w=1200&q=80&auto=format&fit=crop&h=675" alt="On-site content space" loading="lazy">
+        </div>
+        <div class="ce-card-body">
+          <h3>Digital Content</h3>
+          <p>The hub becomes a content studio. Every class, every product moment, every team collaboration is potential content for Bear Grylls' channels and the portfolio brands.</p>
+          <ul>
+            <li>Social media content filmed and produced on-site daily</li>
+            <li>WILD launches, drops and limited editions captured and shared</li>
+            <li>Modern Savage and DIRTEA activations to millions of followers</li>
+            <li>Battersea Power Station tagged and featured consistently across platforms</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ce-card">
+        <div class="ce-card-img">
+          <img src="https://www.bemilitaryfit.com/hubfs/Tusk%20BMF.jpg" alt="Be Military Fit group event at Battersea Power Station" loading="lazy">
+        </div>
+        <div class="ce-card-body">
+          <h3>Live Events</h3>
+          <p>In-person gatherings that bring people to the Power Station who might never otherwise visit. A regular programme of events woven into the life of the hub, week after week.</p>
+          <ul>
+            <li>Product launches and brand activations</li>
+            <li>Community fitness challenges and charity events</li>
+            <li>Wellness workshops, tastings and panels</li>
+            <li>Book signings and meet-the-founder mornings at WILD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= PARTNERSHIP VALUE ============= -->
+<section class="dark-bg" id="partnership">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Partnership Value</div>
+      <h2 class="section-heading">What the Power Station gains.</h2>
+      <div class="section-body">
+        <p>A committed, long-term tenant with global reach, an active F&amp;B presence inside the brand store, and genuine ambition to make this space exceptional.</p>
+      </div>
+    </div>
+
+    <div class="metric-grid reveal">
+      <div class="metric-box">
+        <div class="metric-num">7AM</div>
+        <div class="metric-label">WILD opens<br>before anyone else</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">8+</div>
+        <div class="metric-label">Brands driving<br>footfall daily</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">100M+</div>
+        <div class="metric-label">Monthly social reach<br>tagging the venue</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">365</div>
+        <div class="metric-label">Days a year of<br>events and content</div>
+      </div>
+    </div>
+
+    <div class="summary-card reveal">
+      <h3>A tenant invested in your success.</h3>
+      <p>Our ambition is for the Bear Grylls Hub to become one of the most recognisable and talked-about spaces at Battersea Power Station. A WILD cup walking around the development, a counter people queue for, a strip that opens at dawn and stays alive past dusk. We want to build something here that lasts, that grows, and that makes the Power Station a place people actively choose to visit because of what we have created together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CTA ============= -->
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Next Steps</div>
+      <h2 class="section-heading">Let's build something Battersea can be proud of.</h2>
+      <div class="section-body">
+        <p>We would love the opportunity to walk through this in person, discuss terms, and show you exactly what we have planned. Drinks are on us.</p>
+      </div>
+      <a href="mailto:jesse@beargryllsventures.com?cc=raemy@beargryllsventures.com,cj@beargryllsventures.com&subject=The%20Bear%20Grylls%20Hub%20%E2%80%93%20Battersea%20Power%20Station%20Proposal" class="cta-button">Get in Touch</a>
+      <div class="cta-signature">Jesse, on behalf of Bear Grylls Ventures</div>
+    </div>
+  </div>
+</section>
+
+<footer>Bear Grylls Ventures · Battersea Power Station Proposal · Confidential</footer>
+
+<!-- ============= POPUPS ============= -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">×</button>
+    <div class="popup-icon">◆</div>
+    <h4 id="popup-title">Popup Title</h4>
+    <p id="popup-message">Popup message goes here.</p>
+  </div>
+</div>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Layout cards: clickable detail
+const layoutCards = document.querySelectorAll('.layout-card');
+const layoutDetails = document.querySelectorAll('.layout-detail');
+layoutCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const target = card.dataset.target;
+    layoutCards.forEach(c => c.classList.remove('active'));
+    layoutDetails.forEach(d => d.classList.remove('active'));
+    card.classList.add('active');
+    document.getElementById('detail-' + target).classList.add('active');
+  });
+});
+
+// Popup system
+const popupContent = {
+  clothing: {
+    title: 'New collection in development',
+    message: 'BG Clothing is being relaunched as part of the wider BGV evolution. Back very soon, with adventure and lifestyle pieces designed for the way our community actually lives.'
+  }
+};
+function showPopup(key) {
+  const data = popupContent[key];
+  if (!data) return;
+  document.getElementById('popup-title').textContent = data.title;
+  document.getElementById('popup-message').textContent = data.message;
+  document.getElementById('popup').classList.add('active');
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('active');
+}
+document.getElementById('popup').addEventListener('click', (e) => {
+  if (e.target.id === 'popup') closePopup();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePopup();
+});
+</script>
+
+</body>
+</html>
