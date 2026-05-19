@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Creative Briefs Pack v2 · Rolling Production Systems · 19 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 920px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 780px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 820px; margin-bottom: 1rem; }
+
+  .guardrail {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 1.6rem 1.8rem;
+    border-radius: 4px;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .guardrail h3 {
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .guardrail p { color: rgba(245, 240, 232, 0.92); max-width: 880px; margin: 0; font-size: 0.97rem; }
+
+  .month2 {
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .month2 strong { color: var(--burgundy); }
+
+  /* Brief block */
+  .brief {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2.8rem 3rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .brief-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .brief h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .brief .subtitle {
+    color: var(--charcoal-light);
+    font-size: 1.02rem;
+    margin-bottom: 1.6rem;
+    max-width: 740px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    background: var(--cream-dark);
+    padding: 1.2rem 1.4rem;
+    border-radius: 4px;
+    margin: 1.3rem 0 1.8rem;
+  }
+  .meta-grid div { font-size: 0.86rem; }
+  .meta-grid .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  .meta-grid .val { color: var(--ink); font-weight: 500; }
+
+  .brief h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin: 1.6rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .brief p { margin-bottom: 0.85rem; max-width: 820px; }
+  .brief ul, .brief ol { padding-left: 1.4rem; margin-bottom: 0.6rem; max-width: 820px; }
+  .brief li { margin-bottom: 0.4rem; }
+
+  .pipeline {
+    background: var(--cream);
+    border: 1px dashed var(--rule);
+    padding: 1.1rem 1.4rem;
+    border-radius: 3px;
+    margin: 0.6rem 0 1rem;
+    font-size: 0.94rem;
+  }
+  .pipeline strong { font-weight: 500; color: var(--ink); }
+
+  .signoff {
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .signoff strong { color: var(--ink); font-weight: 500; }
+
+  /* Phasing strip */
+  .phasing {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem 2.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+  }
+  .phasing h2 { color: var(--cream); margin-bottom: 1.6rem; font-size: 1.7rem;}
+  .phasing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+  .phasing-col {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.2rem;
+  }
+  .phasing-col h4 {
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  .phasing-col ul { padding-left: 1rem; }
+  .phasing-col li { font-size: 0.9rem; margin-bottom: 0.4rem; color: rgba(245, 240, 232, 0.88); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Creative Briefs · v2 · Rolling Production</div>
+    <h1>Eight workstreams. The Section 09 volumes. Sized for the in-house team.</h1>
+    <p class="lede">v2 of the GSET creative brief pack — rewritten against the full Bear Witness × Hodder deck, including the monthly volume table, the phased ramp, and the Hachette AI policy. Each brief is a rolling production system its editor owns end-to-end. All eight together hit the deck's monthly numbers without surprise.</p>
+    <div class="meta">Ted · 19 May 2026 · For Olly &amp; the BGV editing team</div>
+  </div>
+</header>
+
+<div class="guardrail">
+  <h3>Hard guardrail · across every brief</h3>
+  <p><strong>Hachette / Hodder AI policy applies absolutely.</strong> No AI-generated voice. No AI-generated imagery. No AI in covers or marketing creative. AI may be used for backend processes only — transcription, scheduling, analytics, draft outlining — and never to generate published content. Every editor signs this off before commission.</p>
+</div>
+
+<div class="month2">
+  <strong>Month 2 is the launch beat.</strong> By the end of Month 2 the website is live, first 4 YouTube episodes are published, the 52-episode theologian batch is in the can, short-form is publishing daily across three platforms, Substack is at weekly cadence, the read-along cohort is open for sign-up, and the monthly reporting loop is running. Every brief below is anchored to that moment. Month 1 = onboarding &amp; build; Month 2 = launch; Month 3+ = steady state at the Section 09 volumes.
+</div>
+
+<div class="preamble">
+  <p>The eight workstreams below map 1:1 to the deck. Volumes in each meta block are the Section 09 monthly floor at steady state — over-performance triggers a rebalance conversation, never a price uplift. Calendar anchors (Lent, Easter, Pentecost, June anniversary, autumn church push, Advent) raise volumes for the relevant fortnight; that's not in the table here.</p>
+  <p>Assets supplied to every editor on Day 1: <strong>the Bear archive bundle</strong> (catalogued in Month 1 — Big Church Read videos, audiobook stems, press, podcast appearances, reader reviews, the Sol Fuel chapter + intro the BW team wrote), the <strong>brand identity system</strong> (Brief 07), the <strong>signature audio motif &amp; mastering chain</strong> (Brief 08), and the <strong>voice &amp; content-pillar guide</strong> (one-pager already drafted).</p>
+</div>
+
+<!-- BRIEF 1 -->
+<section class="brief">
+  <div class="brief-id">Brief 01 · YouTube long-form</div>
+  <h2>Reading + Unpacking Episodes</h2>
+  <p class="subtitle">The spine. Eight long-form episodes/month — four Reading, four Unpacking. Designed to compound over years on search and watch-time.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">8 / month (52 Unpacking filmed in one Month-2 batch)</span></div>
+    <div><span class="label">Length</span><span class="val">8–12 min · ≥8:30 for mid-roll monetisation</span></div>
+    <div><span class="label">Owner</span><span class="val">Lead long-form editor (1 FTE equivalent)</span></div>
+    <div><span class="label">Refresh</span><span class="val">Theologian batch every 6 months</span></div>
+  </div>
+
+  <h3>Episode A — Reading (4/month)</h3>
+  <ul>
+    <li>Audiobook chapter audio laid over photographic-style visuals — candlelit interiors, hands turning pages, dawn landscapes, scripture overlays in DM Serif Display.</li>
+    <li>One signature audio motif at open and close (per Brief 08).</li>
+    <li>End card: episode number, subscribe prompt, Substack pointer, soft retail link in the description.</li>
+    <li>Devotional pacing — closer to a meditation app than a documentary. Generous in silence.</li>
+  </ul>
+
+  <h3>Episode B — Unpacking (4/month, batch-filmed)</h3>
+  <ul>
+    <li>Single theologian on camera, intercut with referenced scripture, historical imagery, simple maps.</li>
+    <li>Filmed in one 3-day batch shoot in Month 2 (52 episodes = enough for a full year). Refreshed every 6 months.</li>
+    <li>Theologian roster spans tradition (Anglican, Catholic, evangelical, Orthodox) — credibility on the show hinges on this. Roster locked by end of Month 1.</li>
+    <li>Editor cuts the whole batch into ~26 episodes over Month 2, the other 26 spread across the year as ongoing releases.</li>
+  </ul>
+
+  <h3>Visual treatment — locked once, replicated 104×</h3>
+  <ul>
+    <li>LUTs and grade locked in week 1 of Month 1 via a 40-second mood-film test (the only one-off in this brief).</li>
+    <li>After Effects template for title card, scripture overlay, lower-third, end card — handed to the team so any editor can hold the line.</li>
+    <li>Thumbnail system (three variants — Reading / Unpacking / Special) provided by Brief 07.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> audiobook stems → Reading rough cut (Day 1–2) → grade (Day 3) → finish + thumbnail (Day 4) → Hodder sample check Friday → publish Tuesday/Thursday. Unpacking cuts pulled from batch reel, same finishing pipeline.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Operational. Olly checks Friday sample. Calendar-anchor episodes (Easter, Pentecost, anniversary, Advent) pre-approved via content brief 2 weeks ahead.</div>
+</section>
+
+<!-- BRIEF 2 -->
+<section class="brief">
+  <div class="brief-id">Brief 02 · Short-form</div>
+  <h2>YouTube Shorts · TikTok · Instagram Reels</h2>
+  <p class="subtitle">The discovery engine. 36 clips/month across three platforms, geo-locked for UK/US, each pointing deeper into the engine.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">12 YT Shorts + 12 TikTok + 12 IG Reels = 36/mo</span></div>
+    <div><span class="label">Length</span><span class="val">30–60s · 9:16 vertical</span></div>
+    <div><span class="label">Owner</span><span class="val">Short-form editor (1 FTE)</span></div>
+    <div><span class="label">Source mix</span><span class="val">~60% YT episode re-cuts · ~40% archive originals</span></div>
+  </div>
+
+  <h3>Source breakdown</h3>
+  <ul>
+    <li>~6 clips per Reading episode (audiobook moments, scripture beats, ambient takes recut as standalone reflections)</li>
+    <li>~6 clips per Unpacking episode (theologian one-liners, scripture explainers, "what most people get wrong about…")</li>
+    <li>The remainder pulled from existing Bear archive — interviews, podcast appearances, retreat footage, audiobook recording session</li>
+    <li>Each clip exists in UK and US text-card variants where geography meaningfully changes the framing</li>
+  </ul>
+
+  <h3>Platform-native grammar</h3>
+  <ul>
+    <li><strong>YT Shorts:</strong> tighter narrative arcs, hook in 1.5s, ends pointing at the long-form episode</li>
+    <li><strong>TikTok:</strong> more conversational, more first-person, more comment-bait — but never trending audio (Hachette AI policy &amp; brand restraint)</li>
+    <li><strong>IG Reels:</strong> more visual, more scripture-overlay forward, more saveable</li>
+  </ul>
+
+  <h3>Craft non-negotiables</h3>
+  <ul>
+    <li>Captions in Outfit Bold, bottom-third safe zone, white with 30% black shadow. No karaoke text.</li>
+    <li>No meme overlays, no trending audio, no "POV when…"</li>
+    <li>Every clip ends with a soft pointer card (1s) — channel, Substack, or episode. Not retail. We do not sell the book on social.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Tuesday — pull source clips for the week from new long-form + archive. Wed/Thu — cut. Fri — caption + geo-variants. Schedule for Mon–Sat publishing across three platforms (one TikTok/Reel/Short per weekday + Saturday TikTok).
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Operational. Weekly sample (3–5 clips) sent to Hodder Friday but not gated.</div>
+</section>
+
+<!-- BRIEF 3 -->
+<section class="brief">
+  <div class="brief-id">Brief 03 · Instagram main feed</div>
+  <h2>Instagram — The Daily Heartbeat</h2>
+  <p class="subtitle">Twenty feed posts/month plus stories. Where saves and shares matter more than likes. Designed to travel via DM.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">20 feed posts + daily stories</span></div>
+    <div><span class="label">Format mix</span><span class="val">Quote cards · audiograms · reader testimonies · theologian spotlights · BTS</span></div>
+    <div><span class="label">Owner</span><span class="val">Social editor + graphic designer (shared)</span></div>
+    <div><span class="label">Success metric</span><span class="val">Saves &amp; shares · not likes</span></div>
+  </div>
+
+  <h3>The twenty / month</h3>
+  <ul>
+    <li><strong>8 quote cards</strong> — verses + book lines, set in templated Outfit + DM Serif Display, designer-produced from theologian transcripts and audiobook excerpts</li>
+    <li><strong>4 audiograms</strong> — Bear or theologian voice over a waveform + scripture treatment, 45s, sound-on, captioned</li>
+    <li><strong>4 reader testimonies</strong> — pulled from the testimony curation stream (4/mo, see Brief 09 within Brief 05)</li>
+    <li><strong>2 theologian spotlights</strong> — short profile reel introducing each new face from the Unpacking batch</li>
+    <li><strong>2 BTS / process</strong> — footage from the theologian shoot, the studio set, voice recording, etc.</li>
+  </ul>
+
+  <h3>Stories — daily</h3>
+  <ul>
+    <li>Episode drop reminder · Substack of the week · reader DM screenshots (with consent) · scripture-of-the-day · poll/question</li>
+    <li>Always sliders or polls — drives algorithm weight; doesn't need creative every day</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> designer batch-produces 5 quote cards every Friday. Audiograms cut by short-form editor (Brief 02) on Wednesday. Testimonies routed in from curation stream. Theologian spotlights produced day-of from batch-shoot offcuts.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Operational. Bio always points to Substack.</div>
+</section>
+
+<!-- BRIEF 4 -->
+<section class="brief">
+  <div class="brief-id">Brief 04 · Substack</div>
+  <h2>The Depth Engine</h2>
+  <p class="subtitle">The only non-algorithmic asset — and, by Month 12, the most valuable thing we own. Four articles + two reader letters/spotlights every month, plus seasonal companions.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">4 articles + 2 reader letters/spotlights /mo</span></div>
+    <div><span class="label">Length</span><span class="val">Articles 1,200–2,000 words · letters 600–900</span></div>
+    <div><span class="label">Owner</span><span class="val">Substack editor (writer) + Hodder editorial pass</span></div>
+    <div><span class="label">Seasonal</span><span class="val">Lent / Pentecost / Advent companions</span></div>
+  </div>
+
+  <h3>The recipe</h3>
+  <ul>
+    <li><strong>2 theologian essays/mo</strong> — Unpacking transcripts edited into long-form essays. Hodder editorial pass before publish.</li>
+    <li><strong>2 thematic articles/mo</strong> — original writing from the in-house editorial voice: doubt, gospel readings, faith and culture, Bear's perspective on a given passage</li>
+    <li><strong>2 reader letters / spotlights/mo</strong> — curated reader stories, sometimes Q&amp;A format, sometimes mini-profile of a church group or reader who's used the book</li>
+  </ul>
+
+  <h3>Seasonal companions (additional to the 4+2)</h3>
+  <ul>
+    <li><strong>Lent:</strong> 40-day daily series, short-form, gated to subscribers</li>
+    <li><strong>Holy Week + Easter:</strong> 8-piece series</li>
+    <li><strong>Pentecost:</strong> 7-piece series</li>
+    <li><strong>Advent:</strong> 24-day series</li>
+    <li><strong>Church discussion guides:</strong> free, email-gated PDFs released at each calendar anchor</li>
+  </ul>
+
+  <h3>Voice rules</h3>
+  <ul>
+    <li>Warm, direct, invitational, never preachy, never salesy — same tone as the audiobook.</li>
+    <li>Never AI-drafted in final form. AI permitted for outline scaffolding only, never published copy (Hachette policy).</li>
+    <li>Each post auto-pulls onto the website — no manual republishing.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Mon — write article 1. Tue — Hodder edit pass. Wed — schedule. Thu — write/curate reader letter. Fri — publish + cross-post tease to IG/FB. Friday cohort week — additional 2x cohort companion posts (see Brief 05).
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Each theologian essay edited by Hodder. Thematic articles operational unless theological line is contested.</div>
+</section>
+
+<!-- BRIEF 5 -->
+<section class="brief">
+  <div class="brief-id">Brief 05 · Facebook · Community</div>
+  <h2>Facebook Page + GSET Reading Community Group + Read-Along Cohorts</h2>
+  <p class="subtitle">Two mechanics on one platform. The Page is broadcast and discovery; the Group is community and cohort reads. Self-sustaining by day 90.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">12 Page posts + 8 Group prompts + 1 rolling cohort</span></div>
+    <div><span class="label">Cohort cadence</span><span class="val">5-week read-along, one per Gospel — Matthew, Mark, Luke, John, Acts</span></div>
+    <div><span class="label">Owner</span><span class="val">Community lead (part-time, ~10 hrs/wk)</span></div>
+    <div><span class="label">Self-sustaining target</span><span class="val">Day 90 — 8–12 volunteer moderators</span></div>
+  </div>
+
+  <h3>Facebook Page (12/mo)</h3>
+  <ul>
+    <li>Episode drops · Substack share · reader testimonies · cohort invite · church leader spotlight · seasonal anchor moments</li>
+    <li>Geo-locked variants where audiences diverge (UK / US framing on the same core post)</li>
+  </ul>
+
+  <h3>Group prompts (8/mo)</h3>
+  <ul>
+    <li>2x weekly discussion prompts (Mon + Thu) — one scripture, one cultural / lived-experience</li>
+    <li>Church leader networking thread (monthly)</li>
+    <li>"Reader of the month" feature</li>
+  </ul>
+
+  <h3>Read-along cohort (1 rolling)</h3>
+  <ul>
+    <li>Five-week structured read — Matthew first, then Mark, etc. Daily passages, weekly live thread, private cohort space.</li>
+    <li>Cohort companion emails: 2 per cohort week, sent via Substack (cohort-only segment).</li>
+    <li>Goal: several thousand readers through one cohort by year-end.</li>
+  </ul>
+
+  <h3>Reader-testimony curation (4/mo, feeder)</h3>
+  <ul>
+    <li>Community lead scans Group, IG DMs, Substack replies for usable testimonies (with consent process)</li>
+    <li>Surfaces 4 per month — feeds Brief 03 (IG) and Brief 04 (Substack reader letters)</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Mon AM — community lead sets the week's prompts + Page posts. Thu PM — cohort week's passage live. Continuous — moderation, testimony curation.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Operational. Sensitive theological exchanges escalated to Hodder per Section 08.</div>
+</section>
+
+<!-- BRIEF 6 -->
+<section class="brief">
+  <div class="brief-id">Brief 06 · Website &amp; attribution</div>
+  <h2>thegreateststoryevertoldbook.com</h2>
+  <p class="subtitle">Central hub, conversion layer, attribution backbone. Designed Month 1, live by end of Month 2.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Build window</span><span class="val">Design wk 1 · build wks 2–4 · live end of Month 2</span></div>
+    <div><span class="label">Stack</span><span class="val">Astro or Next + Substack RSS pull + Cloudflare edge geo-routing</span></div>
+    <div><span class="label">Owner</span><span class="val">In-house dev + designer (one-off) → ongoing maintenance retainer</span></div>
+    <div><span class="label">SLA</span><span class="val">Changes live in 7 working days (non-structural)</span></div>
+  </div>
+
+  <h3>Build spec</h3>
+  <ul>
+    <li>Geo-routed retail link tree — Amazon UK/US, Waterstones, Bookshop.org, St Andrews, Barnes &amp; Noble, region-defaulted</li>
+    <li>Geo-detected cover swap — UK / US / future editions</li>
+    <li>Substack auto-pull — server-rendered, no manual republishing</li>
+    <li>Social feed embeds, events page (church partner events, US tour if confirmed), tracker links</li>
+    <li>Subscribe block above the fold — Substack double-opt-in</li>
+    <li>Theologian roster page — refreshed each batch</li>
+  </ul>
+
+  <h3>Attribution layer (the non-obvious requirement)</h3>
+  <ul>
+    <li>Every outbound retail click tagged: <code>?utm_source=gset_web&amp;utm_medium=<i>{geo}</i>&amp;utm_campaign=<i>{section}</i></code></li>
+    <li>Click events POSTed to a lightweight log endpoint — we own the data, not GA</li>
+    <li>Surface in a simple Looker / Metabase dashboard, weekly auto-email to the single Hodder POC</li>
+    <li>Same scheme applied to outbound links from Substack, IG bio, FB Page</li>
+  </ul>
+
+  <h3>Month-1 build sequence</h3>
+  <ol>
+    <li>Wk 1 — design (cover-swap states, retail tree wireframes, Substack pull treatment)</li>
+    <li>Wk 2 — Astro/Next scaffolding + Substack RSS integration</li>
+    <li>Wk 3 — geo-routing + attribution layer + dashboard endpoint</li>
+    <li>Wk 4 — content load, QA, soft-launch behind staging URL</li>
+  </ol>
+
+  <div class="pipeline">
+    <strong>Ongoing pipeline:</strong> weekly Substack auto-pull (zero touch). Monthly tracker review. Per-campaign UTM scheme additions. Theologian roster refresh on each batch.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Structural changes escalated to Hodder POC. Operational copy (event listings, retail link adds) on our judgement.</div>
+</section>
+
+<!-- BRIEF 7 -->
+<section class="brief">
+  <div class="brief-id">Brief 07 · Brand &amp; visual identity</div>
+  <h2>The Cross-Platform Visual System</h2>
+  <p class="subtitle">One-off pack in Month 1, then a rolling template-support retainer. Locks the look across YouTube, Instagram, Substack, Facebook, Web.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">One-off</span><span class="val">Month 1, week 2</span></div>
+    <div><span class="label">Ongoing</span><span class="val">~25 templated assets / month (with social editor)</span></div>
+    <div><span class="label">Owner</span><span class="val">Graphic designer (1 FTE eq. across GSET + ongoing brand support)</span></div>
+    <div><span class="label">Aesthetic</span><span class="val">Editorial · restrained · type-led · cream/ink/burgundy/gold</span></div>
+  </div>
+
+  <h3>One-off pack (delivered end of Month 1)</h3>
+  <ul>
+    <li><strong>YouTube:</strong> channel banner, end-screen, three thumbnail templates (Reading / Unpacking / Special), watermark, lower-third</li>
+    <li><strong>Instagram:</strong> 5 feed quote-card variants, audiogram template, 3 Story templates, Reel cover template</li>
+    <li><strong>Substack:</strong> header artwork, 3 section dividers, post hero illustration style</li>
+    <li><strong>Facebook:</strong> Group banner, Page hero, cohort-week post template, discussion-prompt card</li>
+    <li><strong>Cross-cutting:</strong> type system (DM Serif Display + Outfit), full palette, line-mark iconography (cross, book, dove), 1-page brand guidelines</li>
+  </ul>
+
+  <h3>Ongoing monthly</h3>
+  <ul>
+    <li>~20 IG quote cards (templated, designer pulls from theologian transcripts + audiobook excerpts) — feeds Brief 03</li>
+    <li>~8 YouTube thumbnails — 2/week, feeds Brief 01</li>
+    <li>Seasonal hero artwork for each calendar anchor</li>
+    <li>Brief-on-demand support for the read-along cohort artwork</li>
+  </ul>
+
+  <h3>Brand brief — non-negotiables</h3>
+  <ul>
+    <li>Restrained. Editorial. Closer to a literary publisher than a megachurch.</li>
+    <li>Cream as base, ink as type, burgundy as accent, gold sparingly.</li>
+    <li>Imagery rare and earns its space. Type-led.</li>
+    <li>No AI imagery. No AI illustration. No AI in covers (Hachette policy).</li>
+  </ul>
+  <div class="signoff"><strong>Sign-off:</strong> Brand guidelines locked once by Hodder + Bear Witness. Ongoing templated assets operational.</div>
+</section>
+
+<!-- BRIEF 8 -->
+<section class="brief">
+  <div class="brief-id">Brief 08 · Audio system</div>
+  <h2>The Audio Identity</h2>
+  <p class="subtitle">The signature motif, the mastering chain, the audiogram template. The audio is what's consistent across every channel — picture changes, sound doesn't.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">One-off</span><span class="val">Month 1, weeks 2–3 — 90s pilot + system</span></div>
+    <div><span class="label">Ongoing</span><span class="val">QC pass on each Reading episode, audiogram support</span></div>
+    <div><span class="label">Owner</span><span class="val">Audio engineer / sound designer (part-time retainer)</span></div>
+    <div><span class="label">No AI voice</span><span class="val">Hachette policy — Bear's real voice only</span></div>
+  </div>
+
+  <h3>One-off deliverables</h3>
+  <ul>
+    <li><strong>90-second audio pilot</strong> — first 90 seconds of audiobook ch. 1 mastered with the full bed (wind, distant water, single bell, parchment, fire). The spec the visual editor cuts <em>to</em>, not the other way round.</li>
+    <li><strong>Signature audio motif</strong> — single sustained drone or low bell, used at chapter open and close. Identifiable across all 104 episodes.</li>
+    <li><strong>Mastering chain</strong> — voice -24 to -28 LUFS, slight warmth on low-mids, light de-essing, no compression that flattens breath.</li>
+    <li><strong>Audiogram template</strong> — Premiere/After Effects template the short-form editor and social editor reuse 12+ times/month.</li>
+    <li><strong>1-paragraph audio brief</strong> — the spec the next 103 episodes follow.</li>
+  </ul>
+
+  <h3>Ongoing</h3>
+  <ul>
+    <li>QC pass on each Reading episode bed mix (15 min per episode)</li>
+    <li>Master any seasonal companion (Lent daily, Advent daily) where ambient design is meaningful</li>
+    <li>Refresh signature motif annually if/when it gets stale</li>
+  </ul>
+  <div class="signoff"><strong>Sign-off:</strong> Audio identity locked once by Olly + Jesse. Ongoing QC operational.</div>
+</section>
+
+<!-- BRIEF 9 -->
+<section class="brief">
+  <div class="brief-id">Brief 09 · Channel trailer + launch artefacts</div>
+  <h2>The Launch Pack — Month 2 Bring-Up</h2>
+  <p class="subtitle">The one-time stack of artefacts the channel needs to exist on Day 1 of Month 2. Everything else here is a system; this brief is a list.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Deliverable date</span><span class="val">End of Month 1 → live Day 1 of Month 2</span></div>
+    <div><span class="label">Owner</span><span class="val">Lead long-form editor + social editor (shared)</span></div>
+    <div><span class="label">Re-use</span><span class="val">All assets feed back into the rolling systems above</span></div>
+  </div>
+
+  <h3>The artefacts</h3>
+  <ul>
+    <li><strong>60–75s channel trailer</strong> — devotional mood film over Bear's audiobook opening. 16:9 + 9:16 cuts. Lives at the top of the YouTube channel and plays at the bottom of every Hodder meeting from here on.</li>
+    <li><strong>40s Reading visual-treatment film</strong> — locks the look before episode 1 cuts. Produces the LUTs + the AE template Brief 01 reuses 52×.</li>
+    <li><strong>First 4 Reading episodes</strong> — full cuts, ready to publish across Month 2 weeks 1–2</li>
+    <li><strong>First batch of theologian Unpacking cuts</strong> — at least 4 ready for Month 2 weeks 3–4</li>
+    <li><strong>Launch short-form pack</strong> — 12 clips ready to publish across Month 2 first fortnight (pulled from the Reading episodes + archive)</li>
+    <li><strong>First 4 Substack posts</strong> — queued: intro / theologian essay 1 / thematic article 1 / first reader letter</li>
+    <li><strong>Read-along cohort kit</strong> — Matthew 5-week structure, daily passages, weekly prompts, cohort welcome email sequence</li>
+    <li><strong>Bear-channel uplift posts</strong> — 2 pre-approved posts to seed initial audience from Bear's existing channels (Section 10 onboarding)</li>
+  </ul>
+  <div class="signoff"><strong>Sign-off:</strong> All assets pre-approved by Hodder via Month 1 content brief.</div>
+</section>
+
+<!-- Phasing strip -->
+<div class="phasing">
+  <h2>How the eight briefs phase across the first six months.</h2>
+  <div class="phasing-grid">
+    <div class="phasing-col">
+      <h4>Month 1 · Onboarding</h4>
+      <ul>
+        <li>Asset audit + catalogue (Bear archive, audiobook stems)</li>
+        <li>Brand pack one-off (B07)</li>
+        <li>Audio system one-off (B08)</li>
+        <li>Web design + build (B06)</li>
+        <li>Theologian roster locked</li>
+        <li>Launch artefacts in production (B09)</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 2 · Ramp / Launch</h4>
+      <ul>
+        <li>Website live</li>
+        <li>52-ep theologian batch shoot complete</li>
+        <li>First 4 Reading episodes publish</li>
+        <li>Short-form publishing daily (B02)</li>
+        <li>Substack weekly cadence (B04)</li>
+        <li>Read-along Matthew cohort opens (B05)</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 3+ · Steady state</h4>
+      <ul>
+        <li>All Section 09 volumes hit</li>
+        <li>Monthly reporting cycle established</li>
+        <li>First measurable engine-health signal</li>
+        <li>Calendar anchors flex volumes seasonally</li>
+        <li>Cohort 1 graduates → Mark cohort opens</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 6+ · International</h4>
+      <ul>
+        <li>Spanish + Portuguese channels stood up</li>
+        <li>Brazil Substack pilot active</li>
+        <li>US tour content integrated (if tour confirmed)</li>
+        <li>Year-1 results doc ahead of year-2 planning</li>
+        <li>GSET channels self-sufficient — Bear uplift dialled back</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Ted · GSET · 19 May 2026 · v2 of the creative briefs pack · supersedes <em>gset-creative-briefs-2026-05-18.html</em><br>
+  Companion to <em>GSET_Bear_Witness_Pitch.html</em> · sized to deck Section 09 monthly volumes · Hachette AI policy applies absolutely
+</footer>
+
+</body>
+</html>
