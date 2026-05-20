@@ -1890,12 +1890,14 @@ section {
 @media (max-width: 760px) {
   nav { flex-direction: column; align-items: stretch; gap: 0.55rem; padding: 0.7rem 1rem; }
   nav.scrolled { padding: 0.6rem 1rem; }
-  .nav-links { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; gap: 1.05rem; padding-bottom: 0.2rem; scrollbar-width: none; }
+  .nav-links { display: flex; flex-wrap: nowrap; align-items: center; overflow-x: auto; width: 100%; gap: 1.05rem; padding-bottom: 0.2rem; scrollbar-width: none; }
   .nav-links::-webkit-scrollbar { display: none; }
-  .nav-links a { font-size: 0.64rem; white-space: nowrap; }
-  /* flatten the Mission dropdown so every title shows in the scroll row */
-  .nav-dropdown, .nav-submenu { display: contents; }
-  .nav-submenu { position: static; opacity: 1; visibility: visible; transform: none; background: none; border: none; box-shadow: none; padding: 0; min-width: 0; }
+  .nav-links > li { flex: 0 0 auto; display: flex; align-items: center; }
+  .nav-links a { font-size: 0.64rem; white-space: nowrap; line-height: 1; }
+  /* show Mission dropdown items inline in the scroll row (single line) */
+  .nav-dropdown { display: inline-flex; align-items: center; gap: 1.05rem; flex: 0 0 auto; }
+  .nav-submenu { position: static; display: inline-flex; align-items: center; gap: 1.05rem; opacity: 1; visibility: visible; transform: none; background: none; border: none; box-shadow: none; padding: 0; margin: 0; min-width: 0; }
+  .nav-submenu li { flex: 0 0 auto; }
   .nav-submenu a { padding: 0; font-size: 0.64rem; color: rgba(255,255,255,0.85) !important; background: none; }
   .nav-caret { display: none; }
 }
