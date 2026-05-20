@@ -1750,7 +1750,17 @@ section {
   color: var(--charcoal-light);
 }
 
-.control-map { background: var(--white); }
+/* Control Map — dark theme (SAMPLE for full-dark rollout) */
+.control-map { background: var(--deep); position: relative; }
+.control-map .section-tag { color: var(--gold-light); }
+.control-map .section-heading { color: var(--white); }
+.control-map .section-heading em { color: var(--gold-light); }
+.control-map .section-body { color: rgba(255,255,255,0.75); }
+.control-map .horizon-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(229,180,84,0.18); border-top: 3px solid var(--gold-light); }
+.control-map .horizon-time { color: var(--gold-light); }
+.control-map .horizon-card h3 { color: var(--white); }
+.control-map .horizon-lead { color: var(--gold-light); }
+.control-map .horizon-card ul li { color: rgba(255,255,255,0.72); border-top-color: rgba(255,255,255,0.12); }
 .episode-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3rem; }
 @media (max-width: 900px) { .episode-grid { grid-template-columns: 1fr; } }
 
@@ -1760,6 +1770,107 @@ section {
 .episode-cue { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-top: 1.1rem; transition: opacity 0.3s ease; }
 .episode-cue span { transition: transform 0.3s ease; display: inline-block; }
 .episode-card.revealed .episode-cue span { transform: rotate(90deg); }
+
+
+/* ================= FULL DARK THEME ROLLOUT ================= */
+/* Section backgrounds */
+.show, .why-now, .audience, .phases, .creative, .channels, .kpis, .ecosystem { background: var(--deep); }
+
+/* Section intro text */
+.show .section-tag, .why-now .section-tag, .audience .section-tag, .phases .section-tag, .creative .section-tag, .channels .section-tag, .kpis .section-tag, .ecosystem .section-tag { color: var(--gold-light); }
+.show .section-heading, .why-now .section-heading, .audience .section-heading, .phases .section-heading, .creative .section-heading, .channels .section-heading, .kpis .section-heading, .ecosystem .section-heading { color: var(--white); }
+.show .section-heading em, .why-now .section-heading em, .audience .section-heading em, .phases .section-heading em, .creative .section-heading em, .channels .section-heading em, .kpis .section-heading em, .ecosystem .section-heading em { color: var(--gold-light); }
+.show .section-body, .why-now .section-body, .audience .section-body, .phases .section-body, .creative .section-body, .channels .section-body, .kpis .section-body, .ecosystem .section-body { color: rgba(255,255,255,0.75); }
+
+/* Mission (.show) inline-styled bits */
+.show .section-body p[style] { color: rgba(255,255,255,0.92) !important; }
+.show .section-body strong, .show .section-body em { color: var(--gold-light) !important; }
+
+/* WHY NOW */
+.why-card { background: rgba(255,255,255,0.04); border-top-color: var(--gold-light); }
+.why-num { color: var(--gold-light); }
+.why-card h3 { color: var(--white); }
+.why-sub { color: var(--gold-light); }
+.why-card p { color: rgba(255,255,255,0.72); }
+
+/* AUDIENCE (interactive kept) */
+.audience-card { background: rgba(255,255,255,0.04); border-color: rgba(229,180,84,0.18); }
+.audience-card:hover, .audience-card.active { background: rgba(255,255,255,0.08); border-color: var(--gold-light); }
+.audience-cat { color: var(--gold-light); }
+.audience-card h3 { color: var(--white); }
+.audience-card .audience-size { color: rgba(255,255,255,0.6); }
+.audience-card p { color: rgba(255,255,255,0.72); }
+.audience-card::after { color: var(--gold-light); }
+.audience-detail { background: rgba(255,255,255,0.04); border-left-color: var(--gold); }
+.audience-pillar h4 { color: var(--white); }
+.audience-pillar p { color: rgba(255,255,255,0.72); }
+.audience-pillar-label { color: var(--gold-light); }
+
+/* PHASES */
+.phase-roman { color: var(--gold-light); }
+.phase-time { color: var(--gold-light); }
+.phase-label { color: var(--white); }
+.phase-stage::after { color: var(--gold-light); }
+.phase-detail { background: rgba(255,255,255,0.04); }
+.phase-detail-header { border-bottom-color: rgba(255,255,255,0.12); }
+.phase-detail-roman { color: var(--gold-light); }
+.phase-detail-title h3 { color: var(--white); }
+.phase-detail-title .phase-detail-time { color: var(--gold-light); }
+.phase-detail-block h5 { color: var(--gold-light); }
+.phase-detail-block ul li { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.12); }
+
+/* CHANNELS */
+.channel-card, .channel-block { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+.channel-card { border-top-color: var(--gold); }
+.channel-cat, .channel-block-tag { color: var(--gold-light); }
+.channel-card h3, .channel-block-header h3 { color: var(--white); }
+.channel-card .channel-body { color: rgba(255,255,255,0.72); }
+.channel-card ul li { color: rgba(255,255,255,0.72); border-top-color: rgba(255,255,255,0.12); }
+.channel-block-header { background: rgba(255,255,255,0.03); border-bottom-color: rgba(255,255,255,0.12); }
+.channel-block-item { color: rgba(255,255,255,0.72); border-right-color: rgba(255,255,255,0.12); }
+.channel-block-item .channel-block-num, .channel-block-item strong { color: var(--gold-light); }
+
+/* CREATIVE */
+.creative-card { background: rgba(255,255,255,0.04); }
+.creative-icon { color: var(--gold-light); }
+.creative-card h4 { color: var(--white); }
+.creative-card p { color: rgba(255,255,255,0.72); }
+.creative-spec { color: var(--gold-light); border-top-color: rgba(255,255,255,0.12); }
+.repurpose-engine { background: rgba(255,255,255,0.04); border-left-color: var(--gold); }
+.repurpose-source-label { color: var(--white); }
+.repurpose-item { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.78); }
+.repurpose-platform { color: var(--gold-light); }
+.ecosystem-subhead { color: var(--white); }
+
+/* KPIS */
+.ns-card { background: rgba(255,255,255,0.04); border-color: rgba(229,180,84,0.18); }
+.ns-num { color: var(--gold-light); }
+.ns-label { color: rgba(255,255,255,0.6); }
+.ns-card p { color: rgba(255,255,255,0.72); }
+
+/* ECOSYSTEM */
+.flywheel { background: rgba(255,255,255,0.03); border-color: rgba(229,180,84,0.15); }
+.flywheel-label { color: var(--gold-light); }
+.flywheel-node { background: rgba(255,255,255,0.05); border-color: rgba(229,180,84,0.15); }
+.flywheel-node h4 { color: var(--white); }
+.flywheel-node p { color: rgba(255,255,255,0.72); }
+.flywheel-return { color: rgba(255,255,255,0.7); }
+.flywheel-return span { color: var(--gold-light); }
+.horizon-card { background: rgba(255,255,255,0.04); }
+.horizon-time { color: var(--gold-light); }
+.horizon-card h3 { color: var(--white); }
+.horizon-lead { color: var(--gold-light); }
+.horizon-card ul li { color: rgba(255,255,255,0.72); border-top-color: rgba(255,255,255,0.12); }
+.platform-vision { background: rgba(255,255,255,0.04); border-color: rgba(229,180,84,0.18); }
+.platform-vision-tag { color: var(--gold-light); }
+.platform-vision h3 { color: var(--white); }
+.platform-vision p { color: rgba(255,255,255,0.78); }
+
+/* NAV clash fix */
+.nav-ut-text { white-space: nowrap; }
+.nav-links { gap: 1.4rem; }
+.nav-links a { font-size: 0.72rem; }
+@media (max-width: 1100px) { .nav-links { display: none; } }
 
 /* FOOTER */
 footer {
