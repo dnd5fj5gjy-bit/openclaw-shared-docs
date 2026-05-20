@@ -1381,11 +1381,16 @@ section {
   transition: all 0.3s ease;
 }
 
-.ns-card:hover {
-  background: var(--white);
-  box-shadow: 0 12px 35px rgba(11, 31, 42, 0.08);
+/* KPI tiles are static; only the ecosystem tile is interactive (links to the build) */
+.ns-card-highlight { cursor: pointer; }
+.ns-card-highlight:hover {
   transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(11, 31, 42, 0.28);
+  border-color: var(--gold-light);
 }
+.ns-cue { margin-top: 1rem; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); }
+.ns-cue span { display: inline-block; transition: transform 0.3s ease; }
+.ns-card-highlight:hover .ns-cue span { transform: translateX(4px); }
 
 .ns-card-highlight {
   background: var(--deep);
@@ -2441,11 +2446,12 @@ footer .divider {
         <div class="ns-label">Tier-One Earned Placements</div>
         <p>Across expert validation, genre outlets and long-form podcast. Tier-one defined as the outlets that reach the communities this show is built for — quality over volume.</p>
       </div>
-      <div class="ns-card ns-card-highlight">
+      <a href="#ecosystem" class="ns-card ns-card-highlight" style="display:block; text-decoration:none;">
         <div class="ns-num">Ecosystem</div>
         <div class="ns-label">Audience Delivered Into the Platform</div>
         <p>The metric that proves stage one worked — how many people the TV launch delivers into the YouTube channel, social following and owned email list. That number is the foundation everything in the ecosystem build that follows is built on. This is what the whole campaign is in service of.</p>
-      </div>
+        <div class="ns-cue">Explore the ecosystem <span>&rsaquo;</span></div>
+      </a>
     </div>
   </div>
 </section>
