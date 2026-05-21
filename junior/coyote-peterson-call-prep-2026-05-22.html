@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coyote Peterson + Ben Simon — Call Prep | May 22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --text: #2A2A2A;
+    --muted: #666;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* Header */
+  .header {
+    background: var(--forest-deep);
+    color: white;
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 0%, rgba(192,122,69,0.18) 0%, transparent 60%);
+  }
+  .header-inner { position: relative; max-width: 820px; margin: 0 auto; }
+  .call-badge {
+    display: inline-block;
+    background: var(--earth);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 0.8rem;
+  }
+  .header-meta {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+  .header-meta strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* Objectives strip */
+  .objectives {
+    background: var(--earth);
+    color: white;
+    padding: 2rem;
+  }
+  .objectives-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .obj-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .obj-num {
+    background: rgba(255,255,255,0.2);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .obj-text { font-weight: 400; }
+
+  /* Content sections */
+  .section {
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .section:nth-child(odd) { background: var(--white); }
+  .section:nth-child(even) { background: var(--cream); }
+  .section-inner { max-width: 820px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 0.5rem;
+  }
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--forest-deep);
+    margin-bottom: 1.25rem;
+    line-height: 1.25;
+  }
+  p { margin-bottom: 1rem; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* Profile card */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+  .profile-item {
+    background: var(--white);
+    padding: 1.2rem 1.4rem;
+  }
+  .profile-item dt {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+  .profile-item dd {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .profile-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: var(--forest);
+    color: white;
+    border-radius: 6px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+  }
+  .callout p { color: rgba(255,255,255,0.9); margin-bottom: 0.6rem; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong { color: white; }
+
+  .warning {
+    background: #FEF3CD;
+    border-left: 3px solid var(--earth);
+    border-radius: 0 4px 4px 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.25rem 0;
+  }
+  .warning p { color: #5a3800; margin-bottom: 0.5rem; }
+  .warning p:last-child { margin-bottom: 0; }
+
+  /* Questions list */
+  .q-list { margin-top: 1.5rem; }
+  .q-item {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 6px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .q-item:last-child { margin-bottom: 0; }
+  .q-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--forest-deep);
+    margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+  .q-why { font-size: 0.88rem; color: var(--muted); }
+
+  /* Watch outs */
+  .wo-list { margin-top: 1.25rem; }
+  .wo-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .wo-item:last-child { border-bottom: none; }
+  .wo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--earth);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .wo-text strong { display: block; font-weight: 600; color: var(--charcoal); margin-bottom: 0.25rem; }
+  .wo-text span { font-size: 0.9rem; color: var(--muted); }
+
+  /* Talking points */
+  .tp-list { margin-top: 1.25rem; }
+  .tp-item {
+    border-left: 3px solid var(--forest);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    background: var(--white);
+  }
+  .tp-q { font-weight: 600; font-size: 0.9rem; color: var(--forest-deep); margin-bottom: 0.4rem; }
+  .tp-a { font-size: 0.9rem; color: var(--text); }
+
+  /* The framing closer */
+  .closer {
+    background: var(--forest-deep);
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .closer-inner { max-width: 600px; margin: 0 auto; }
+  .closer h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--earth-light);
+    margin-bottom: 1rem;
+  }
+  .closer p { color: rgba(255,255,255,0.8); font-size: 1rem; }
+
+  /* Footer */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+
+  /* Conversation starter */
+  .cs-list { margin-top: 1rem; }
+  .cs-item {
+    background: var(--cream-dark);
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+    color: var(--forest-deep);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 2.2rem;
+  }
+  .cs-item::before {
+    content: '"';
+    position: absolute;
+    left: 0.8rem;
+    top: 0.7rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--earth);
+    line-height: 1;
+  }
+
+  ul.plain { list-style: none; padding: 0; }
+  ul.plain li {
+    padding: 0.5rem 0 0.5rem 1.4rem;
+    position: relative;
+    border-bottom: 1px solid var(--sand);
+    font-size: 0.93rem;
+  }
+  ul.plain li:last-child { border-bottom: none; }
+  ul.plain li::before { content: '-'; position: absolute; left: 0; color: var(--earth); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-inner">
+    <div class="call-badge">Call Prep - Confidential</div>
+    <h1>Coyote Peterson + Ben Simon</h1>
+    <div class="header-meta">
+      <strong>May 22, 2026 &mdash; 13:30 BST (8:30 AM EDT)</strong><br>
+      First contact. Jesse has never spoken to Coyote before.
+    </div>
+  </div>
+</div>
+
+<!-- Objectives -->
+<div class="objectives">
+  <div class="objectives-inner">
+    <div class="obj-item">
+      <div class="obj-num">1</div>
+      <div class="obj-text">Understand what Coyote actually wants next &mdash; not what Ben thinks he wants</div>
+    </div>
+    <div class="obj-item">
+      <div class="obj-num">2</div>
+      <div class="obj-text">Plant the Uncharted Treasures frame without pitching or giving anything away</div>
+    </div>
+    <div class="obj-item">
+      <div class="obj-num">3</div>
+      <div class="obj-text">Build a real relationship. This is meeting one, not deal meeting one</div>
+    </div>
+  </div>
+</div>
+
+<!-- Context -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Context</div>
+    <h2>What This Call Is</h2>
+    <p>Ben Simon (EBG CEO) set this up. Coyote confirmed via email: "wonderful to meet you, here's the invite link." EBG is circling the Uncharted Treasures concept and wants to understand whether Bear x Coyote is a packageable franchise or collab series.</p>
+    <p>Ben's job is to find where deals live. Coyote's job is to grow his business. Your job is to hold the strategic position while being genuinely interested in the person.</p>
+    <div class="callout">
+      <p><strong>Do not discuss deal structure on this call.</strong> Ben will try to move things toward a term sheet. Let him get excited. Just don't agree to any structure. That conversation belongs after Bear is in the room.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Coyote Profile -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Who You're Talking To</div>
+    <h2>Coyote Peterson</h2>
+
+    <dl class="profile-grid">
+      <div class="profile-item">
+        <dt>Real Name</dt>
+        <dd>Nathaniel Peterson</dd>
+      </div>
+      <div class="profile-item">
+        <dt>Age</dt>
+        <dd>~43</dd>
+      </div>
+      <div class="profile-item">
+        <dt>Base</dt>
+        <dd>Columbus, Ohio</dd>
+      </div>
+      <div class="profile-item">
+        <dt>Channel</dt>
+        <dd>Brave Wilderness &mdash; 21M+ subscribers</dd>
+      </div>
+      <div class="profile-item">
+        <dt>Built His Name On</dt>
+        <dd>Sting Pain Index &mdash; Bullet Ant, Executioner Wasp, Tarantula Hawk</dd>
+      </div>
+      <div class="profile-item">
+        <dt>Where He's Going</dt>
+        <dd>Conservation education, expedition, prestige storytelling</dd>
+      </div>
+    </dl>
+
+    <p style="margin-top:1.5rem;">The Bullet Ant episode (2017) crossed 100 million views. That content made him famous. It's also content he's quietly moving away from &mdash; he wants to be taken seriously as a naturalist and filmmaker, not just "the guy who gets stung." Watch for this if you mention his early work. He'll appreciate it but he doesn't want it to define the conversation.</p>
+
+    <p>Brave Wilderness is a production company, not just a YouTube channel. He has a team, multiple series, and has done licensing deals. He's a media operator. He'll be thinking about how any collab fits into his production slate, not just his personal schedule.</p>
+
+    <p>His audience skews younger than Bear's (heavy 14-30 on YouTube) but has a strong family component &mdash; parents who watch with kids. Conservation plays well. His Brave Wilderness Explorers content targets kids directly. That family audience is where the eventual Modern Savage crossover lives &mdash; but don't go there on this call.</p>
+
+    <div class="callout">
+      <p><strong>What Coyote can't build on his own:</strong> Real survival credentials. TV relationships. Geographic access to environments that require Bear-level credibility to reach. He knows this. It's almost certainly part of why he said yes to this call.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Opening -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">First Two Minutes</div>
+    <h2>Opening the Call</h2>
+    <p>Jesse has never met Coyote. The first two minutes matter more than people think. Don't open with Bear or business. Open with a specific observation that shows you actually know who Coyote is.</p>
+
+    <div class="cs-list">
+      <div class="cs-item">I've been watching your content for years &mdash; the Executioner Wasp episode is one of the most watched things in our house. Does it ever get easier?</div>
+      <div class="cs-item">Ben told me you're in Columbus &mdash; I didn't know the Midwest had wildlife worth filming. What's the craziest thing you've found there?</div>
+      <div class="cs-item">I saw the Brave Wilderness Explorers content. Is the kids angle something you want to build further, or does it mostly serve the family audience?</div>
+    </div>
+
+    <p style="margin-top:1rem;">Pick the one that feels most natural. The point is specificity &mdash; he'll have sat through enough "huge fan of your work" openers from people who've never watched the channel.</p>
+  </div>
+</div>
+
+<!-- Questions -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Key Questions</div>
+    <h2>What You Actually Want to Know</h2>
+    <p>These are genuine questions, not rhetorical. You want the answers. Specifically listen for what Coyote says he wants that he doesn't yet have.</p>
+
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-text">"Where do you want to take Brave Wilderness over the next few years &mdash; is it more content, or are you trying to build something beyond the channel?"</div>
+        <div class="q-why">Tells you whether he's building a company or a personal brand. Big difference for any collab structure.</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">"Have you ever done wildlife content in genuinely remote environments &mdash; I mean really off-grid, not documentary-remote?"</div>
+        <div class="q-why">Tests whether Coyote can operate in Bear's territory. If he's been waiting for an excuse to try, that's the most interesting answer.</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">"What's the gap you keep seeing in the outdoor adventure content space that nobody's filling right now?"</div>
+        <div class="q-why">This is the most important question on the call. His answer tells you what he wants to build. If he says "depth" or "real stakes" or "prestige" &mdash; you're aligned.</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">"Do you have kids? Does the family angle matter to you personally or is it mostly audience strategy?"</div>
+        <div class="q-why">Both personal (builds relationship) and strategic. Save this for the right moment, don't force it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Uncharted Treasures -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Strategic Position</div>
+    <h2>How to Frame Uncharted Treasures</h2>
+    <p>Don't pitch it formally. Plant a seed. The concept is Bear's IP &mdash; the franchise doesn't need Coyote to work. But Coyote could be a compelling guest on one expedition, the same way a great director casts the right person for a specific role.</p>
+
+    <div class="callout">
+      <p><strong>If the conversation gets to "what's Bear building?", try this:</strong></p>
+      <p>"We've been developing something around a series of genuine expeditions &mdash; places Bear has never taken cameras before. The idea is each expedition has a specific expertise angle, so you bring in the world's best person on that terrain or that wildlife. The guest serves the story, not the other way around."</p>
+    </div>
+
+    <p>This frame does several things simultaneously: positions Bear as IP holder, positions Coyote as a potential guest not a co-owner, makes Coyote curious without over-selling, gives Ben a deal shape he can start thinking about without you committing to anything.</p>
+
+    <p>If Coyote pushes for more detail, say the format is still in development and you're being selective about which partnerships make sense. That's true. And it's the right position.</p>
+  </div>
+</div>
+
+<!-- Talking Points -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">If Topics Come Up</div>
+    <h2>Talking Points</h2>
+
+    <div class="tp-list">
+      <div class="tp-item">
+        <div class="tp-q">"What is Bear building right now?"</div>
+        <div class="tp-a">Bear is in production on Running Wild S9+10 for Fox (currently airing) and in early development on a new adventure franchise format &mdash; something with more depth and fewer celebrity cameos. Don't name it yet.</div>
+      </div>
+      <div class="tp-item">
+        <div class="tp-q">"What would a collaboration look like?"</div>
+        <div class="tp-a">"Honestly I think it starts with finding the right expedition &mdash; a place where your expertise genuinely adds something. Not a stunt collab, an actual reason to be in the same location." Don't commit to any format or timeline.</div>
+      </div>
+      <div class="tp-item">
+        <div class="tp-q">"Would Bear actually do this himself or would you be fronting it?"</div>
+        <div class="tp-a">"Bear is involved in development and in select episodes. The format is designed so the franchise can run without him needing to be on every expedition &mdash; which is actually part of what makes it interesting." Accurate. Doesn't over-reveal Jesse's role.</div>
+      </div>
+      <div class="tp-item">
+        <div class="tp-q">"Should we get a follow-up in the diary to go deeper?"</div>
+        <div class="tp-a">Yes &mdash; but you set the agenda for what "deeper" means. "Let's get Bear on a call first, that way we're all in the room for the structural conversation." This is the right move.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Watch Outs -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Be Careful</div>
+    <h2>Watch Outs</h2>
+
+    <div class="wo-list">
+      <div class="wo-item">
+        <div class="wo-dot"></div>
+        <div class="wo-text">
+          <strong>Don't commit to anything structural</strong>
+          <span>Not a budget, not a timeline, not a platform, not an ownership split. This is a first meeting. Everything formal needs Bear in the room.</span>
+        </div>
+      </div>
+      <div class="wo-item">
+        <div class="wo-dot"></div>
+        <div class="wo-text">
+          <strong>Ben will try to move toward a term sheet</strong>
+          <span>He may say "so there's clearly something here &mdash; should we set up a follow-up to get into the details?" Agree to the follow-up. Don't let him set the agenda for what the details are.</span>
+        </div>
+      </div>
+      <div class="wo-item">
+        <div class="wo-dot"></div>
+        <div class="wo-text">
+          <strong>Coyote is selling too</strong>
+          <span>He's not here just because Ben asked him. Pay attention to what he's pushing toward &mdash; it tells you what he actually wants out of a deal. If he keeps steering toward co-IP, note that. If he wants distribution reach, note that.</span>
+        </div>
+      </div>
+      <div class="wo-item">
+        <div class="wo-dot"></div>
+        <div class="wo-text">
+          <strong>EBG 15% commission scope</strong>
+          <span>EBG has been pushing for a 15% flat commission on all opportunities. If deal structure comes up in any form, be clear that anything formal involves Bear directly and you need to loop him in first.</span>
+        </div>
+      </div>
+      <div class="wo-item">
+        <div class="wo-dot"></div>
+        <div class="wo-text">
+          <strong>Modern Savage &mdash; don't mention yet</strong>
+          <span>Coyote's audience is one of the best-fit Modern Savage demographics that exists. But this is a first call. Build the relationship first. The product conversation comes later, in person or in session two.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- After the Call -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">After the Call</div>
+    <h2>Next Steps</h2>
+
+    <ul class="plain" style="margin-top:0.5rem;">
+      <li>Send Coyote a brief, warm email from your BGV address within 24 hours &mdash; one paragraph, specific to something he said, no ask</li>
+      <li>Note anything specific he mentioned that you can follow up on (conservation projects, specific locations, content gaps he flagged)</li>
+      <li>Brief Ben on next steps before Ben briefs himself &mdash; you control the narrative here</li>
+      <li>If there's genuine interest in a collab structure, the next step is getting Bear on a call &mdash; not advancing structure without him</li>
+    </ul>
+
+    <div class="warning" style="margin-top:1.5rem;">
+      <p><strong>Flag to Junior after the call:</strong> What did Coyote say he wants that he doesn't yet have? That's the intelligence worth keeping. Anything structural &mdash; IP, format, platform preferences &mdash; also worth logging. Junior will update the brain accordingly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Closer -->
+<div class="closer">
+  <div class="closer-inner">
+    <h3>The One-Sentence Frame</h3>
+    <p>You're meeting a peer who has built something genuinely impressive, and you want to understand what he wants next. Everything else follows from that.</p>
+  </div>
+</div>
+
+<footer>
+  Prepared by Junior &mdash; 01:00 BST, May 22, 2026 &mdash; Confidential
+</footer>
+
+</body>
+</html>
