@@ -129,7 +129,7 @@ Pulled directly from `evidence/legitscript-research-2026-05-12.md`. Real entries
 | The Independent Pharmacy | Online pharmacy | Certified | LS cert stated in JSON-LD; sizeable independent online pharmacy | Warm email to MD/founder | 1 |
 | Treated | Online pharmacy / telehealth | Certified | LS verified badge; broad treatment range incl. men's health — strong brand fit | Warm email to founder/CEO | 1 |
 | Well Pharmacy | Pharmacy (large multiple) | Certified | LS seal 1066670; large UK pharmacy chain — bigger but real cert means real compatibility | Warm email via partnerships/MD; seek warm intro | 1 |
-| ZAVA | Online pharmacy / telehealth | Certified | LS verified; major European telehealth/pharmacy (Zava/DrEd rows fold in here) | Warm email to UK MD/CEO | 1 |
+| ZAVA | Online pharmacy / telehealth | Certified | ⚠️ **Reclassify — WL competitor, not a target.** ZAVA *is* the engine behind **Asda Online Doctor** (it runs its own white-label business and already does ED/men's health). It won't put TH's engine behind its brand. Treat as competitor benchmark, deprioritise as a partner. | — (competitor) | 1 |
 | Mojo | Men's / sexual health | Certified | LS seal 49348868; men's & sexual health positioning — direct audience overlap (Mojo Men's Health row folds in here) | Warm email to founder | 1 |
 | Mosh | Men's health clinic (AU) | Certified | LS-certified men's-health clinic — strong topical fit BUT Australia-based; confirm territory intent before approaching | Hold / confirm territory first | 1* |
 
