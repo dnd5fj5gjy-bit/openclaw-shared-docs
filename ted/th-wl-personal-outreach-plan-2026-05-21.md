@@ -249,6 +249,24 @@ Niches are only half of it. These change the *hit rate*:
 5. **Tiered ladder, easy first step.** Referral link → co-brand → full white-label. A small first yes is far easier than asking for the whole integration up front.
 6. **Mine the BGV/Bear network for warm intros first.** A warm path beats any cold note — map LinkedIn + portfolio relationships before cold-outreaching.
 
+### 8.7 Retired-player welfare & representative bodies (added 2026-05-21, per Olly)
+
+Distinct from the "sports clubs & fan bases" row above (which markets to *fans*): this is the **player welfare / representative bodies** that own a captive base of *ex-professional men* — exactly the TH demographic (post-career bodies, hormone/joint/recovery decline). Genuinely actionable, with one caveat that shapes the whole approach.
+
+**The model that works here — affinity, not resale.** These bodies don't resell clinics; they offer benefits *to members*. So pitch a **co-branded member benefit** — "[Body] Men's Health, powered by Ted's Health," offered to members on a rev-share (or discounted member-rate) basis. Their brand + duty-of-care on the front, our clinical engine underneath. A standard resale-WL is the wrong frame here.
+
+**Recommended first target — just one to start:**
+
+| Target | Why it's the right first move | Track |
+|---|---|---|
+| **Rugby Players' Association (RPA)** | Representative body for current & former England pro players. Already runs a **member-benefits programme** and carries a **post-career health/welfare remit** — a men's-health line is on-mission, not a stretch. One deal = a channel to the whole ex-player base. | Partnerships/commercial lead — but use the warm-intro lever below |
+
+**Extend only if RPA validates** (don't spread thin up front): **Rugby League Cares**, then cross-sport — **PFA** (football), **PCA** (cricket). Identical affinity model.
+
+**Skip for now:** pure charities (Restart Rugby, LooseHeadz) — governance makes a commercial rev-share hard; only relevant later as a *subsidised* welfare benefit, not a revenue line.
+
+> **The lever that makes this fast — warm intro via BGV/Bear.** Cold, these bodies are a slow institutional sell. Warm, they move quickly. **Recommended first action:** check who at BGV / in Bear's network has an RPA or senior pro-rugby contact; if there's a path, open it warm with a one-line intro + a co-branded "RPA Men's Health" demo page as the leave-behind. No warm path → approach the RPA commercial/partnerships lead directly with the same one-pager. Either way, lead with the member-benefit framing, not "white-label."
+
 ---
 
-*Doc complete — internal prep only. No outreach sent. Sections 8.5–8.6 added 2026-05-21.*
+*Doc complete — internal prep only. No outreach sent. Sections 8.5–8.7 added 2026-05-21.*
