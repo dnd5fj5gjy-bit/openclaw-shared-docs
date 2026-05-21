@@ -59,7 +59,7 @@
     color: #B8C2CC;
     font-size: 1rem;
     font-weight: 400;
-    max-width: 620px;
+    max-width: 640px;
     line-height: 1.6;
   }
   .hero .meta {
@@ -93,6 +93,24 @@
   }
   p { margin-bottom: 0.8rem; }
   p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+
+  .subhead {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.8rem 0 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .subhead .tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
 
   /* TL;DR box */
   .tldr {
@@ -166,41 +184,50 @@
     overflow: hidden;
     margin: 1.2rem 0;
   }
-  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .table-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+    padding: 0.9rem 1.1rem 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
   th, td {
     text-align: left;
-    padding: 0.85rem 1.1rem;
+    padding: 0.8rem 1.1rem;
     border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
   }
   th {
     background: var(--line-soft);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ink-dim);
     font-weight: 700;
   }
   tr:last-child td { border-bottom: none; }
-  td.rank { font-weight: 700; color: var(--navy); width: 38px; }
-  td.score {
-    text-align: center;
-    font-weight: 700;
-    width: 56px;
-    color: var(--accent);
-  }
-  td.cat { color: var(--ink-dim); font-size: 0.82rem; }
+  td.partner { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  td.cat { color: var(--ink-dim); font-size: 0.8rem; }
+  td.note { color: var(--ink-dim); font-size: 0.82rem; line-height: 1.5; }
+  td.touch { font-size: 0.8rem; color: var(--ink); }
   .flag {
     display: inline-block;
     background: var(--highlight);
     color: #8B6914;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.15rem 0.5rem;
+    padding: 0.12rem 0.45rem;
     border-radius: 3px;
-    margin-left: 0.4rem;
+    margin-left: 0.35rem;
     font-weight: 700;
+    white-space: nowrap;
   }
+  .flag.competitor { background: #FDEDEC; color: #B03A2E; }
+  .flag.hold { background: #FEF5E7; color: #B9770E; }
+  .flag.warm { background: #EAF7F0; color: #1E8449; }
 
   /* Message templates */
   .templates { display: grid; gap: 1rem; margin: 1.2rem 0; }
@@ -230,8 +257,15 @@
     font-size: 0.65rem;
     letter-spacing: 0.1em;
   }
+  .msg-subject {
+    padding: 0.8rem 1.4rem 0;
+    font-size: 0.78rem;
+    color: var(--ink-dim);
+    font-weight: 600;
+  }
+  .msg-subject strong { color: var(--ink); }
   .msg-body {
-    padding: 1.3rem 1.4rem;
+    padding: 0.8rem 1.4rem 1.3rem;
     font-size: 0.9rem;
     color: var(--ink);
     line-height: 1.7;
@@ -250,6 +284,72 @@
     color: #6B5410;
   }
   .note strong { color: #5A4509; }
+  .note.flag-red { background: #FDEDEC; border-left-color: #E74C3C; color: #7B241C; }
+  .note.flag-red strong { color: #641E16; }
+
+  /* Highlight feature block */
+  .feature {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1.8rem 1.9rem;
+    margin: 1.4rem 0;
+  }
+  .feature .kicker {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8899AA;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+  .feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .feature p { color: #C5CDD6; font-size: 0.92rem; margin-bottom: 0.8rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .feature strong { color: #fff; }
+  .feature .pill {
+    display: inline-block;
+    background: rgba(46,204,113,0.18);
+    color: #6FE0A0;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Tactics ordered list */
+  .tactics { counter-reset: t; list-style: none; margin: 1.2rem 0; display: grid; gap: 0.7rem; }
+  .tactics li {
+    counter-increment: t;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.95rem 1.1rem 0.95rem 3.1rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .tactics li::before {
+    content: counter(t);
+    position: absolute;
+    left: 1rem;
+    top: 0.9rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tactics li strong { color: var(--ink); }
 
   /* Two-column split */
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
@@ -341,11 +441,12 @@
   <div class="wrap">
     <div class="eyebrow">Ted's Health · White-Label Programme</div>
     <h1>Personal Outreach Strategy</h1>
-    <p class="sub">Onboarding LegitScript-certified UK partners to TH White-Label, founder to founder. No partnerships inbox. No vendor pitch.</p>
+    <p class="sub">A prioritised, defensible plan to bring best-fit partners onto TH White-Label — warm and founder-to-founder, starting with the lowest-friction targets first.</p>
     <div class="meta">
       <span><strong>Owner</strong> Olly Westmacott</span>
-      <span><strong>Drafted</strong> 15 May 2026</span>
-      <span><strong>Wave 1 size</strong> ~10 partners</span>
+      <span><strong>Updated</strong> 21 May 2026</span>
+      <span><strong>Live at once</strong> 8–10 partners</span>
+      <span><strong>Win</strong> a booked strategy call</span>
     </div>
   </div>
 </header>
@@ -356,163 +457,331 @@
   <div class="tldr">
     <div class="label">In one screen</div>
     <ul>
-      <li>Target the <strong>14 LegitScript-certified</strong> partners only — LegitScript is the gating cert</li>
-      <li>Find the <strong>Founder / CEO / MD</strong> on LinkedIn; skip the partnerships inbox</li>
-      <li>LinkedIn DM first. Three touches, seven days apart, then park</li>
-      <li>Five new partners per week. Wave 1 closes in about four weeks</li>
-      <li>Every touch logged in the dashboard — single source of truth</li>
+      <li>Start with <strong>LegitScript-certified</strong> partners — certification is the gating credential, so they convert fastest (Tier 1 first)</li>
+      <li>Warm, <strong>founder-to-founder</strong> — not a sales sequence. The single win metric is a <strong>booked partner strategy call</strong></li>
+      <li><strong>4 touches over ~16 days</strong>, then park. Cap <strong>8–10 live conversations</strong> so every reply gets a same-day personal response</li>
+      <li>Look beyond pharmacies: the same logic fits <strong>membership bodies, supermarkets (white space), and medical-cannabis clinics</strong></li>
+      <li><strong>ZAVA and Phlo are competitors, not targets</strong> — they sell the white-label engine themselves and have each already won a supermarket</li>
     </ul>
   </div>
 
-  <!-- Why personal -->
+  <!-- Principle -->
   <section>
     <h2>Principle</h2>
-    <h3>Why personal, and why CEO-level</h3>
-    <p>White-label is a commercial, brand-linked decision. It's not bought by procurement — it's decided by the founder, CEO or MD. So we skip the contact form on day one.</p>
+    <h3>Why personal, and why founder-to-founder</h3>
+    <p>White-label is a strategic, brand-linked decision — a business choosing to put TH's clinical engine behind its own brand. It isn't bought by procurement; it's decided founder-to-founder. So we skip the contact form and lead with peer respect.</p>
     <div class="grid-3">
       <div class="card">
         <div class="num">01</div>
         <h4>Speed</h4>
-        <p>One conversation with the right person beats four weeks of being routed through partnerships inboxes.</p>
+        <p>One conversation with the right person beats weeks of being routed through a partnerships inbox.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
         <h4>Signal</h4>
-        <p>Founder-to-business-lead approach reads as a strategic partnership, not a vendor pitch.</p>
+        <p>A principal-to-principal approach reads as a strategic partnership, not a vendor pitch.</p>
       </div>
       <div class="card">
         <div class="num">03</div>
         <h4>Control</h4>
-        <p>You set the frame in the first message, before anyone slots TH into a category that doesn't fit.</p>
+        <p>You set the frame in the first message, before anyone files TH into a category that doesn't fit.</p>
       </div>
     </div>
+    <div class="note">
+      <strong>Defensible to a sceptic.</strong> "You're emailing pharmacies at random" — no: we start only with partners who've passed the same compliance bar we hold, segmented by how their audience overlaps with men's-health demand. "Why not just buy ads?" — WL isn't a D2C product, it's infrastructure sold into businesses that already own the audience. "Personal doesn't scale" — the top tier is single digits; personal is exactly right at this volume. Scale comes after the model is proven.
+    </div>
+  </section>
+
+  <!-- Targeting logic -->
+  <section>
+    <h2>Targeting Logic</h2>
+    <h3>Prioritise on compatibility, not size</h3>
+    <p class="lead">The constraint on onboarding isn't audience size — it's regulatory and operational compatibility. We start where we can win quickly and cleanly, then go up-market on brand later.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">Tier 1 · go first</div>
+        <h4>LegitScript-certified</h4>
+        <p>Already passed the same regulatory bar TH operates to: lowest onboarding friction, they value compliant prescribing, minimal education needed. <strong>9 unique certified entities.</strong></p>
+      </div>
+      <div class="card">
+        <div class="num">Tier 2 · after</div>
+        <h4>Strong fit, not certified</h4>
+        <p>Real WL fits (men in their ecosystem, plausible appetite) but no cert evidence. Higher friction — some may need to certify. Approach after Tier 1, or in parallel only where there's a genuine warm relationship.</p>
+      </div>
+      <div class="card">
+        <div class="num">Excluded</div>
+        <h4>Out of scope</h4>
+        <p>Insurers / cash-plan providers, private hospital groups, and defunct or unidentifiable entities — removed from the list entirely.</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Why LegitScript and not brand size?</strong> A certified partner can be live faster and is far less likely to stall in compliance review. Audience size doesn't help if onboarding jams in governance — so warmth-to-close, not reach, sets the order.
+    </div>
+  </section>
+
+  <!-- Channel & tone -->
+  <section>
+    <h2>Channel &amp; Tone</h2>
+    <h3>Personal, medically grounded, one CTA</h3>
+    <p>Olly writes as a BGV / Ted's Health principal — state the situation, name the mutual upside, point at one next step. Borrow the Dr Jonathan Andrews framing ("hidden revenue stream," "you don't need to become a clinic," "your brand on the front, the operating system underneath") in Olly's own voice.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Primary channel</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="partner">Tier 1 (certified)</td><td class="touch">Warm email to founder/CEO/MD, LinkedIn as backup</td><td class="note">They've passed the same bar; lead with peer respect and make the strategic case properly.</td></tr>
+          <tr><td class="partner">Tier 2 (fit, not certified)</td><td class="touch">LinkedIn first, then email</td><td class="note">Lower prior relationship; LinkedIn opens warmer and lets you reference their business specifically.</td></tr>
+          <tr><td class="partner">Any mutual connection</td><td class="touch">Warm intro &gt; everything</td><td class="note">A one-line intro from a shared contact beats any cold-warm email. Always check for a path in first.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- The sequence -->
+  <section>
+    <h2>The Sequence</h2>
+    <h3>Four touches over ~16 days, then park</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">Touch 1 · Day 0</div>
+        <h4>Initial</h4>
+        <p>Who you are, the one-line fit specific to their business, the 30-minute call ask. Warm email for Tier 1; compressed LinkedIn note for Tier 2.</p>
+      </div>
+      <div class="card">
+        <div class="num">Touch 2 · +4 days</div>
+        <h4>Follow-up</h4>
+        <p>The demand-leak angle: their men already search for TRT/ED answers; without a pathway that demand leaves for a D2C competitor. Offer a one-pager as an alternative to the call.</p>
+      </div>
+      <div class="card">
+        <div class="num">Touch 3 · +5 days</div>
+        <h4>Value / proof</h4>
+        <p>What actually sits behind the WL: CQC registration, GMC doctors, branded intake-to-prescribing, MHRA-compliant pharmacy. "You bring the audience; we bring the operating system."</p>
+      </div>
+      <div class="card">
+        <div class="num">Touch 4 · +7 days</div>
+        <h4>Breakup</h4>
+        <p>Graceful close: leave the door open, no clutter. After this with no reply, mark dormant and revisit in ~3 months or on a fresh hook.</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Cadence:</strong> ~16-day window per target, then stop — don't chase past four touches. Cap <strong>8–10 active conversations</strong> at once so every reply gets a genuinely personal, same-day response. <strong>On a positive reply, stop the sequence immediately and book the call</strong> — the sequence exists only to get the call.
+    </div>
+  </section>
+
+  <!-- Messages -->
+  <section>
+    <h2>The Messages</h2>
+    <h3>Four-touch drafts</h3>
+    <p class="lead">Drafts for Olly to personalise — do not send as-is. The bracketed opening line, specific to their business, is the bit that matters.</p>
+    <div class="templates">
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 1 — Initial</span><span class="timing">Day 0 · Warm email (Tier 1)</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> A men's-health revenue line for [Company] — quick idea</div>
+        <div class="msg-body">Hi [Name],
+
+I run strategy at BGV, where we operate Ted's Health — a CQC-registered, GMC-doctor-led men's health service (TRT, hormone optimisation, ED, blood testing).
+
+I've been looking at [Company] because you've clearly built the audience and the trust — and you're LegitScript-certified, which is the hard part. What you may not have is a men's-health prescribing pathway behind your brand. We run that as white-label infrastructure: your brand on the front, our clinical engine underneath. No need to become a clinic.
+
+Worth a 30-minute partner strategy call to see if it fits? I can work around you next week.
+
+Best,
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 2 — Follow-up</span><span class="timing">+4 days</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> Re: A men's-health revenue line for [Company]</div>
+        <div class="msg-body">Hi [Name] — short follow-up. The reason I think this is worth 30 minutes specifically for [Company]: the men in your audience are already searching for testosterone and ED answers. Without a pathway, that demand quietly leaves your brand for a D2C competitor. White-label lets you keep the relationship — and the recurring revenue.
+
+Happy to send a one-pager first if that's easier than a call. Which is better for you?
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 3 — Value / proof</span><span class="timing">+5 days</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> What sits behind the Ted's Health white-label</div>
+        <div class="msg-body">Hi [Name] — in case it's useful before we speak, here's what the partnership actually puts behind your brand: CQC registration, GMC doctors trained in TRT/ED/hormone protocols, a branded intake-to-prescribing pathway, and MHRA-compliant pharmacy and repeat-management. The things that take 12 months and a clinical team to build — already running.
+
+You bring the audience; we bring the operating system. Still happy to grab 30 minutes whenever suits — [scheduling link].
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 4 — Breakup</span><span class="timing">+7 days · no reply</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> Closing the loop</div>
+        <div class="msg-body">Hi [Name] — I'll leave it here so I'm not cluttering your inbox. If a men's-health revenue line under your own brand becomes relevant down the line, the door's open — just reply to this and we'll pick it up.
+
+Wishing you and [Company] well.
+
+Olly</div>
+      </div>
+
+    </div>
+    <div class="note">For Tier 2 / LinkedIn, compress Touch 1 to 3–4 sentences (who you are, the one-line fit, the call ask), drop the LegitScript line, and reference something specific about their business instead.</div>
   </section>
 
   <!-- Target list -->
   <section>
-    <h2>Wave 1</h2>
-    <h3>The 14 LegitScript-certified partners</h3>
-    <p class="lead">Ranked by dashboard score. Anyone not on this list is unviable for now — park them and revisit when their certification changes.</p>
+    <h2>Target List</h2>
+    <h3>Wave 1 — prioritised partners</h3>
+    <p class="lead">Pulled from the LegitScript research file. Real entries only — Olly sources the named contact (founder / CEO / MD / partnerships lead) per row before reaching out.</p>
 
     <div class="table-wrap">
+      <div class="table-title">Tier 1 — LegitScript-certified (warmest, lowest-friction)</div>
       <table>
         <thead>
-          <tr>
-            <th></th>
-            <th>Partner</th>
-            <th>Category</th>
-            <th style="text-align:center;">Score</th>
-          </tr>
+          <tr><th>Partner</th><th>Segment</th><th>Why warm / flag</th><th>First touch</th></tr>
         </thead>
         <tbody>
-          <tr><td class="rank">1</td><td>Pharmica</td><td class="cat">Private GP / Pharmacy</td><td class="score">92</td></tr>
-          <tr><td class="rank">2</td><td>The Independent Pharmacy</td><td class="cat">Online Pharmacy</td><td class="score">92</td></tr>
-          <tr><td class="rank">3</td><td>MedExpress</td><td class="cat">Online Pharmacy</td><td class="score">92</td></tr>
-          <tr><td class="rank">4</td><td>Oxford Online Pharmacy</td><td class="cat">Men's Health Clinic</td><td class="score">90</td></tr>
-          <tr><td class="rank">5</td><td>ZAVA</td><td class="cat">Sexual Health</td><td class="score">89</td></tr>
-          <tr><td class="rank">6</td><td>Mojo<span class="flag">Dedupe</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
-          <tr><td class="rank">7</td><td>Mosh<span class="flag">AU only</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
-          <tr><td class="rank">8</td><td>Dr Felix<span class="flag">Dedupe</span></td><td class="cat">Sexual Health</td><td class="score">87</td></tr>
-          <tr><td class="rank">9</td><td>SimplyMeds Online</td><td class="cat">Online Pharmacy</td><td class="score">87</td></tr>
-          <tr><td class="rank">10</td><td>Mojo Men's Health<span class="flag">Dedupe</span></td><td class="cat">Men's Health Clinic</td><td class="score">87</td></tr>
-          <tr><td class="rank">11</td><td>Treated</td><td class="cat">ED Treatment</td><td class="score">85</td></tr>
-          <tr><td class="rank">12</td><td>Well Pharmacy</td><td class="cat">Online Pharmacy</td><td class="score">84</td></tr>
-          <tr><td class="rank">13</td><td>Simple Online Pharmacy<span class="flag">Dedupe</span></td><td class="cat">Online Pharmacy</td><td class="score">84</td></tr>
-          <tr><td class="rank">14</td><td>Click Pharmacy</td><td class="cat">Sexual Health</td><td class="score">80</td></tr>
+          <tr><td class="partner">Click Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">Compliant prescribing pharmacy — clean WL backend match</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">MedExpress</td><td class="cat">Online pharmacy</td><td class="note">Established online pharmacy with prescribing infrastructure</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">Pharmica</td><td class="cat">Online pharmacy</td><td class="note">Men's-health / ED already in range</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">Simple Online Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">Absorbed Dr Felix — larger combined audience</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">SimplyMeds Online</td><td class="cat">Online pharmacy</td><td class="note">Compliant online pharmacy</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">The Independent Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">Sizeable independent online pharmacy</td><td class="touch">Warm email to MD/founder</td></tr>
+          <tr><td class="partner">Treated</td><td class="cat">Pharmacy / telehealth</td><td class="note">Broad treatment range incl. men's health — strong brand fit</td><td class="touch">Warm email to founder/CEO</td></tr>
+          <tr><td class="partner">Well Pharmacy</td><td class="cat">Large multiple</td><td class="note">Large UK chain; real cert means real compatibility</td><td class="touch">Email via partnerships; seek warm intro</td></tr>
+          <tr><td class="partner">Mojo</td><td class="cat">Men's / sexual health</td><td class="note">Direct audience overlap</td><td class="touch">Warm email to founder</td></tr>
+          <tr><td class="partner">Mosh <span class="flag hold">AU — hold</span></td><td class="cat">Men's health clinic</td><td class="note">Strong topical fit but Australia-based — confirm territory intent first</td><td class="touch">Hold / confirm territory</td></tr>
+          <tr><td class="partner">ZAVA <span class="flag competitor">Competitor</span></td><td class="cat">Pharmacy / telehealth</td><td class="note">Runs Asda Online Doctor and sells WL itself — won't put TH's engine behind its brand. Benchmark, not a target.</td><td class="touch">— (competitor)</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="note">
-      <strong>Before sending anything:</strong> de-duplicate Mojo and Dr Felix in the dashboard so you don't double-touch the same business. Decide if Mosh stays in (UK-only or international Wave 1?). Effective list size after cleanup: roughly <strong>10 unique UK businesses</strong>.
+    <div class="table-wrap">
+      <div class="table-title">Tier 2 — strong fit, not certified / status unknown</div>
+      <table>
+        <thead>
+          <tr><th>Partner</th><th>Segment</th><th>Why warm / flag</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="partner">Men's Health Clinic</td><td class="cat">TRT clinic</td><td class="note">Exact same patient &amp; conditions; high topical overlap</td></tr>
+          <tr><td class="partner">Optiman Clinics</td><td class="cat">Men's health clinic</td><td class="note">Direct fit but Ireland-based — note territory</td></tr>
+          <tr><td class="partner">Androfill</td><td class="cat">Men's aesthetics</td><td class="note">Men's-focused clinic audience</td></tr>
+          <tr><td class="partner">Medichecks</td><td class="cat">Diagnostics</td><td class="note">Owns the trigger (hormone results), no treatment pathway — classic demand-leak</td></tr>
+          <tr><td class="partner">Thriva</td><td class="cat">Home blood test</td><td class="note">Home-test audience, no hormone treatment arm</td></tr>
+          <tr><td class="partner">Randox Health</td><td class="cat">Diagnostics</td><td class="note">Large diagnostics base; treatment pathway gap</td></tr>
+          <tr><td class="partner">Bluecrest Wellness</td><td class="cat">Health screening</td><td class="note">Screening audience with men in it; no treatment arm</td></tr>
+          <tr><td class="partner">The STI Clinic</td><td class="cat">Sexual / men's health</td><td class="note">Sexual-health audience overlaps men's-health demand</td></tr>
+          <tr><td class="partner">Doctor Fox</td><td class="cat">Online pharmacy</td><td class="note">GPhC-registered since 2010; prescribing infra exists, no LS cert</td></tr>
+          <tr><td class="partner">Oxford Online Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">Established online pharmacy</td></tr>
+          <tr><td class="partner">WebMed Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">GPhC-registered online pharmacy</td></tr>
+          <tr><td class="partner">Chemist Direct</td><td class="cat">Online pharmacy</td><td class="note">Established online pharmacy with audience</td></tr>
+          <tr><td class="partner">Assured Pharmacy</td><td class="cat">Online pharmacy</td><td class="note">GPhC-registered online pharmacy</td></tr>
+          <tr><td class="partner">HealthExpress</td><td class="cat">Pharmacy / telehealth</td><td class="note">Online treatment service with prescribing</td></tr>
+          <tr><td class="partner">Push Doctor</td><td class="cat">Online GP</td><td class="note">Consults &amp; audience, no dedicated hormone pathway</td></tr>
+          <tr><td class="partner">Doctor Care Anywhere</td><td class="cat">Online GP</td><td class="note">Private GP service with audience; no men's-health arm</td></tr>
+          <tr><td class="partner">MedicSpot</td><td class="cat">Telehealth</td><td class="note">Remote consult network; audience present</td></tr>
+          <tr><td class="partner">Online Clinic</td><td class="cat">Online clinic</td><td class="note">CQC-licensed online clinic</td></tr>
+          <tr><td class="partner">London Doctors Clinic</td><td class="cat">Private GP chain</td><td class="note">GP audience, in-person + remote</td></tr>
+          <tr><td class="partner">The GP Service</td><td class="cat">Clinician directory</td><td class="note">Network of GMC clinicians</td></tr>
+          <tr><td class="partner">PharmaDoctor</td><td class="cat">B2B platform</td><td class="note">Possible channel partner rather than direct WL — explore model fit</td></tr>
+          <tr><td class="partner">Pharmacy2U</td><td class="cat">Large pharmacy</td><td class="note"><span class="flag warm">Warm intro only</span> UK's largest digital pharmacy — big prize, pursue only via warm intro</td></tr>
+          <tr><td class="partner">Online Doctor by Boots</td><td class="cat">Retail telehealth</td><td class="note"><span class="flag warm">Warm intro only</span> Large audience; corporate, slow</td></tr>
+          <tr><td class="partner">Superdrug Online Doctor</td><td class="cat">Retail telehealth</td><td class="note"><span class="flag warm">Warm intro only</span> Large audience; corporate, slow</td></tr>
+          <tr><td class="partner">LloydsPharmacy Online Doctor</td><td class="cat">Telehealth</td><td class="note">Acquired into Pharmacy2U group (Jan 2026) — treat as part of Pharmacy2U; defer</td></tr>
+          <tr><td class="partner">Phlo Digital Pharmacy</td><td class="cat">Pharmacy (delivery)</td><td class="note"><span class="flag competitor">Competitor</span> Runs Morrisons Clinic; sells the WL engine itself. Benchmark, not a target.</td></tr>
+        </tbody>
+      </table>
     </div>
+    <div class="note"><strong>Contact-data caveat:</strong> no verified named contacts exist in the source file. Every "first touch" assumes Olly identifies the right person (founder / CEO / MD / partnerships lead) per company before reaching out.</div>
   </section>
 
-  <!-- The plan -->
+  <!-- Niche expansion -->
   <section>
-    <h2>The Sequence</h2>
-    <h3>Four steps, repeatable per partner</h3>
+    <h2>Expansion</h2>
+    <h3>Beyond the pharmacy pool</h3>
+    <p class="lead">The Tier 1/2 list is the <em>online-pharmacy &amp; clinic</em> pool. The same logic — "your brand on the front, our clinical engine underneath" — works for any business that owns a relevant audience but has no men's-health prescribing pathway.</p>
 
-    <div class="grid-3">
-      <div class="card">
-        <div class="num">Step 1 · 10 min</div>
-        <h4>Find the human</h4>
-        <p>LinkedIn search. Target titles, in order: Founder, CEO, MD, Commercial Director, Head of Partnerships. Log name, title, LinkedIn URL, email in the dashboard.</p>
-      </div>
-      <div class="card">
-        <div class="num">Step 2</div>
-        <h4>LinkedIn first</h4>
-        <p>Send a connection request with a one-line note. If accepted within five days, send the full opener. If not, switch to email or send as InMail.</p>
-      </div>
-      <div class="card">
-        <div class="num">Step 3 · over 14 days</h4>
-        <h4>Three touches</h4>
-        <p>Opener → seven-day follow-up → fourteen-day close. After touch three with no reply, status moves to "no response" and the lead rests for 90 days.</p>
-      </div>
-      <div class="card">
-        <div class="num">Step 4 · always</h4>
-        <h4>Log everything</h4>
-        <p>Update the dashboard status, contact info, notes and next action after every touch. The dashboard drives Wave 2 prioritisation.</p>
-      </div>
+    <div class="note flag-red">
+      <strong>The model is already proven — by competitors.</strong> Morrisons Clinic (powered by Phlo, Jan 2025) and Asda Online Doctor (powered by ZAVA) both run live grocery clinics: questionnaire → clinician → delivery. <strong>Phlo and ZAVA are not targets — they're competitors</strong> who each sell the WL operating system and have already won a supermarket. The opportunity is the <strong>white space they leave</strong> — and the wedge is depth: sell TH as the <strong>specialist men's-health / TRT module</strong>, not another generalist clinic.
     </div>
 
+    <div class="subhead">Supermarkets &amp; grocery <span class="tag">slow corporate BD track — not the warm-CEO cap</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Target</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Sainsbury's</td><td class="note">Strongest prize — pharmacy gap since LloydsPharmacy exited its in-store branches (2023). Clear hole to fill.</td></tr>
+          <tr><td class="partner">Waitrose</td><td class="note">Premium, health-conscious base; no online clinic. Brand fits a quality men's-health line.</td></tr>
+          <tr><td class="partner">Co-op</td><td class="note">Large national footprint, no clinic vertical.</td></tr>
+          <tr><td class="partner">M&amp;S Food</td><td class="note">Premium, wellness-leaning audience.</td></tr>
+          <tr><td class="partner">Ocado</td><td class="note">Pure-online, tech-forward grocer; natural fit for a digital clinic add-on.</td></tr>
+          <tr><td class="partner">Iceland / Aldi / Lidl</td><td class="note">Value grocers — possible but weaker fit; lower priority.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Supermarkets are corporate, procurement-led and slow — run them as a separate, longer-horizon BD track (warm intro to a category/partnerships lead). Don't fold them into the 8–10 personal-outreach cap. Asda + Morrisons taken; Tesco likely build-not-buy.</div>
+
+    <div class="subhead">Medical cannabis &amp; wellness clinics <span class="tag">suit the founder-to-founder sequence</span></div>
+    <p>~80,000 active UK patients across ~20–25 clinics, almost all telehealth-first and vertically integrated — they already hold GMC prescribers, governance, a pharmacy, and an engaged, mostly-male patient base (chronic pain / anxiety / sleep — heavy overlap with low-T). As margins compress, several are hunting additional verticals.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Target</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Releaf</td><td class="note">Digital-first clinic, large patient base; commercially nimble, founder-led. Best warm-CEO fit.</td></tr>
+          <tr><td class="partner">Mamedica</td><td class="note">One of the most established UK operators; own integrated pharmacy.</td></tr>
+          <tr><td class="partner">Curaleaf Clinic</td><td class="note">Highest-rated UK clinic; part of Curaleaf International. Larger / more corporate.</td></tr>
+          <tr><td class="partner">Alternaleaf</td><td class="note">Telehealth-first, scaling fast.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>The angle:</strong> "You've built the patient base and the prescribing rails; add a men's-health/TRT line and monetise the same patients." Frame as a <strong>complementary vertical</strong> (they don't do hormones), not a takeover — some hold a prescribing licence and may otherwise see TH as a competitor.</div>
+
+    <div class="subhead">More niches to consider <span class="tag">ranked by strength of fit</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Niche</th><th>Why it fits</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Health insurers &amp; benefits platforms</td><td class="note">Vitality, Bupa, AXA Health, perk platforms (Heka, Ben, Juno). Engaged members, actively buying digital-health perks; a men's-health module slots straight in.</td><td class="cat">Strongest new prize · corporate track</td></tr>
+          <tr><td class="partner">Sports clubs &amp; fan bases</td><td class="note">Football/rugby clubs, male-skewed and loyal. "Official health partner" deals.</td><td class="cat">BGV/Bear synergy</td></tr>
+          <tr><td class="partner">Barbershop &amp; grooming chains</td><td class="note">Ted's Grooming Room, Pall Mall Barbers — captive male footfall. QR / point-of-sale referral, no tech build.</td><td class="cat">Low-friction, fast pilots</td></tr>
+          <tr><td class="partner">Fertility / andrology &amp; hair-loss clinics</td><td class="note">Clinically adjacent, big male overlap, but most don't prescribe hormones — complementary not competitive.</td><td class="cat">Founder-to-founder</td></tr>
+          <tr><td class="partner">Veteran / military communities</td><td class="note">Direct tie to Be Military Fit (BGV asset). Trusted, male, health-engaged audience.</td><td class="cat">Warm via BGV portfolio</td></tr>
+          <tr><td class="partner">Independent-pharmacy buying groups</td><td class="note">Numark, NPA, Day Lewis — reach hundreds of independent pharmacies through one deal.</td><td class="cat">Leverage — one yes = many fronts</td></tr>
+          <tr><td class="partner">Betting/gaming &amp; men's media</td><td class="note">Huge male audiences (Sky Bet, bet365; Men's Health, GQ, The Athletic).</td><td class="cat">⚠ Vet brand-fit first</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead">Retired-player welfare &amp; representative bodies <span class="tag">Olly's idea — actioned</span></div>
+    <p>Distinct from "sports clubs &amp; fan bases" above (which markets to <em>fans</em>): this is the <strong>player welfare / representative bodies</strong> that own a captive base of <em>ex-professional men</em> — exactly the TH demographic (post-career bodies, hormone/joint/recovery decline).</p>
+    <div class="feature">
+      <div class="pill">The model that works here</div>
+      <h4>Affinity, not resale</h4>
+      <p>These bodies don't resell clinics — they offer benefits <strong>to members</strong>. So pitch a <strong>co-branded member benefit</strong>: "[Body] Men's Health, powered by Ted's Health," offered to members on a rev-share (or discounted member-rate) basis. Their brand + duty-of-care on the front, our clinical engine underneath. A standard resale-WL is the wrong frame here.</p>
+    </div>
+    <div class="table-wrap">
+      <div class="table-title">Recommended first target — just one to start</div>
+      <table>
+        <thead><tr><th>Target</th><th>Why it's the right first move</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Rugby Players'<br>Association (RPA)</td><td class="note">Representative body for current &amp; former England pro players. Already runs a member-benefits programme and carries a post-career health/welfare remit — a men's-health line is on-mission, not a stretch. One deal = a channel to the whole ex-player base.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Extend only if RPA validates</strong> (don't spread thin up front): Rugby League Cares, then cross-sport — PFA (football), PCA (cricket). Identical affinity model. <strong>Skip for now:</strong> pure charities (Restart Rugby, LooseHeadz) — governance makes a commercial rev-share hard; only relevant later as a subsidised welfare benefit.</p>
     <div class="note">
-      <strong>Cadence target:</strong> five new partners contacted per week (don't blast all ten in one day — stagger so follow-ups stay manageable). Wave 1 completes in roughly four weeks.
+      <strong>The lever that makes this fast — warm intro via BGV/Bear.</strong> Cold, these bodies are a slow institutional sell; warm, they move quickly. <strong>First action:</strong> check who at BGV / in Bear's network has an RPA or senior pro-rugby contact; if there's a path, open it warm with a one-line intro + a co-branded "RPA Men's Health" demo page as the leave-behind. No warm path → approach the RPA commercial/partnerships lead directly with the same one-pager. Either way, lead with the member-benefit framing, not "white-label."
     </div>
+
+    <div class="subhead">How to actually run the expansion <span class="tag">these change the hit rate</span></div>
+    <ol class="tactics">
+      <li><strong>Target networks/franchisors, not single sites.</strong> One deal with a buying group or franchise = dozens of fronts live at once. Far better ROI on Olly's time.</li>
+      <li><strong>De-risk the first yes.</strong> Lead with a free pilot + revenue-share, no upfront cost. Removes the biggest objection and gets you live to prove it.</li>
+      <li><strong>Build a clickable "YourBrand Clinic" demo.</strong> A one-page mock storefront with the partner's logo as the leave-behind — they see it instantly instead of imagining it.</li>
+      <li><strong>Lead every pitch with the proof point.</strong> "Morrisons + Asda already moved — here's the same model, men's-health-specialist." Social proof + mild FOMO.</li>
+      <li><strong>Tiered ladder, easy first step.</strong> Referral link → co-brand → full white-label. A small first yes beats asking for the whole integration.</li>
+      <li><strong>Mine the BGV/Bear network for warm intros first.</strong> A warm path beats any cold note — map LinkedIn + portfolio relationships before cold-outreaching.</li>
+    </ol>
   </section>
 
-  <!-- Message templates -->
-  <section>
-    <h2>The Messages</h2>
-    <h3>Three-touch sequence</h3>
-    <p class="lead">Templates below. Personalise the opening line for each partner — that's the bit that matters.</p>
-
-    <div class="templates">
-
-      <div class="msg">
-        <div class="msg-head">
-          <span>Touch 1 — Opener</span>
-          <span class="timing">Day 0 · LinkedIn or email</span>
-        </div>
-        <div class="msg-body">Hi [first name],
-
-[Their company] keeps coming up as one of the few UK [pharmacy / men's health] businesses doing this properly — LegitScript-certified, good range, strong reputation.
-
-I lead market &amp; strategy at Bear Grylls Ventures. We've built <strong>Ted's Health</strong> — Bear's men's health platform — and we're launching a white-label programme so a small number of partners can offer the Ted's Health experience under their own brand, with our clinical and supply infrastructure behind it.
-
-Worth a 20-min call to see if it's a fit? I'd rather come straight to you than route through partnerships.
-
-Olly</div>
-      </div>
-
-      <div class="msg">
-        <div class="msg-head">
-          <span>Touch 2 — Follow-up</span>
-          <span class="timing">Day 7</span>
-        </div>
-        <div class="msg-body">Hi [first name] — circling back on the note above.
-
-Quick angle: we're picking the white-label launch partners now, and [Their company] is on a short list of ten. Happy to send a one-pager if it's easier than a call.
-
-Olly</div>
-      </div>
-
-      <div class="msg">
-        <div class="msg-head">
-          <span>Touch 3 — Close</span>
-          <span class="timing">Day 14</span>
-        </div>
-        <div class="msg-body">[first name] — last one from me.
-
-If white-label isn't a fit for [Their company] right now no problem, just say and I'll close the loop. If it might be and the timing's off, tell me when to come back.
-
-Olly</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Be ready -->
+  <!-- Prep -->
   <section>
     <h2>Prep</h2>
     <h3>Three things you'll be asked on the first call</h3>
@@ -525,12 +794,12 @@ Olly</div>
       <div class="card">
         <div class="num">Q2</div>
         <h4>Commercials?</h4>
-        <p>One-line on revenue share or fee structure. Don't wing it. Get the number from Calvin before Week 1.</p>
+        <p>One line on revenue share or fee structure. Don't wing it — get the number from Calvin before Week 1.</p>
       </div>
       <div class="card">
         <div class="num">Q3</div>
         <h4>Time to live?</h4>
-        <p>From signature to partner running on TH-WL. Be honest. Calvin and engineering can give a real number.</p>
+        <p>From signature to partner running on TH-WL. Be honest — Calvin and engineering can give a real number.</p>
       </div>
     </div>
   </section>
@@ -554,10 +823,10 @@ Olly</div>
         <div class="who">Ted</div>
         <h4>Handles the engine room</h4>
         <ul>
-          <li>LinkedIn-search shortlists for decision-makers (10 min / partner)</li>
+          <li>Decision-maker shortlists per partner (founder / CEO / MD)</li>
           <li>Personalised opener variants when you want to A/B</li>
-          <li>Dashboard data hygiene — contacts, statuses, follow-up dates</li>
-          <li>Friday digest: who replied, who's cold, who needs a touch this week</li>
+          <li>Target-list hygiene — tiers, statuses, follow-up dates</li>
+          <li>Weekly digest: who replied, who's cold, who needs a touch</li>
         </ul>
       </div>
     </div>
@@ -570,18 +839,18 @@ Olly</div>
     <div class="checklist">
       <h4>Six things, in order</h4>
       <ul>
-        <li>De-duplicate the 14 in the dashboard (Mojo, Dr Felix)</li>
-        <li>Decide: UK-only or international Wave 1? (Mosh stays in or out)</li>
+        <li>Confirm territory calls: Mosh (AU) and Optiman (IE) — in or out of Wave 1?</li>
         <li>Pull commercials and time-to-live from Calvin</li>
-        <li>Find decision-makers for the top 5 — Pharmica, Independent Pharmacy, MedExpress, Oxford Online Pharmacy, ZAVA</li>
-        <li>Send Touch 1 to those 5 on LinkedIn (stagger across the week)</li>
-        <li>Log every touch in the dashboard</li>
+        <li>Find decision-makers for the top Tier 1 — Click, MedExpress, Pharmica, The Independent Pharmacy, Treated</li>
+        <li>Send Touch 1 to those partners (stagger across the week; cap 8–10 live)</li>
+        <li>Open the expansion thread: check the BGV/Bear network for an RPA / pro-rugby warm intro</li>
+        <li>Log every touch and status as you go — single source of truth</li>
       </ul>
     </div>
   </section>
 
   <footer>
-    Ted's Health · White-Label Programme<br>
+    Ted's Health · White-Label Programme · Personal Outreach Strategy · Updated 21 May 2026<br>
     Dashboard · <a href="https://dnd5fj5gjy-bit.github.io/th-wl-dashboard/">th-wl-dashboard</a>
   </footer>
 
