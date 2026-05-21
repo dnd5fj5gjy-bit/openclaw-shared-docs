@@ -170,4 +170,60 @@ Pulled directly from `evidence/legitscript-research-2026-05-12.md`. Real entries
 
 ---
 
-*Doc complete — internal prep only. No outreach sent.*
+## 8. Niche expansion — beyond the pharmacy pool (added 2026-05-21, per Olly)
+
+The Tier 1/2 list above is the *online-pharmacy & clinic* pool. Olly's instinct is right: the same WL logic — "your brand on the front, our clinical engine underneath" — works for any business that owns a relevant audience but has no men's-health prescribing pathway. Two adjacent niches stand out.
+
+### 8.1 The proof point — the supermarket-clinic model is already live
+
+The WL-clinic model has been validated in UK grocery, twice:
+
+- **Morrisons Clinic** (`clinic.morrisons.com`) — launched **Jan 2025, powered by Phlo**. Online questionnaire → clinician review → Royal Mail delivery. Treats ED, premature ejaculation, hair loss, weight loss, period delay, migraine, hay fever, acid reflux, acne. England only.
+- **Asda Online Doctor** — **powered by ZAVA**. Same model: questionnaire → doctor → deliver-or-collect.
+
+**What this means for our list (important):** *Phlo and ZAVA are not partner targets — they are our competitors.* They each sell the white-label operating system itself and have already won a supermarket. I've reclassified both rows above. Don't spend Olly's outreach time on them.
+
+**The actual opportunity is the white space they leave** — the supermarkets/retailers that *don't yet* have a men's-health clinic vertical.
+
+### 8.2 Supermarkets & grocery / retail
+
+**The wedge vs the incumbents:** Phlo (Morrisons) and ZAVA (Asda) run *generalist* private-script clinics — ED is one line among twenty. TH's pitch isn't "be another generalist clinic," it's **"add a specialist men's-health / TRT / hormone vertical"** — depth the generalists treat shallowly. Sell TH as the men's-health module, not a clone.
+
+| Target | Status / why | Note |
+|---|---|---|
+| **Sainsbury's** | Strongest prize. Has a **pharmacy gap** since LloydsPharmacy exited its in-store branches (2023) — a clear hole to fill with an online clinic. | Big buyer, slow procurement |
+| **Waitrose** | Premium, health-conscious base; no online clinic. Brand fits a quality men's-health line. | |
+| **Co-op** | Large national footprint, no clinic vertical. | |
+| **M&S / M&S Food** | Premium, wellness-leaning audience. | |
+| **Ocado** | Pure-online, tech-forward grocer; natural fit for a digital clinic add-on. | |
+| **Iceland / Aldi / Lidl** | Value grocers — possible but weaker fit; lower priority. | |
+| ~~Asda~~ / ~~Morrisons~~ / Tesco | Asda (ZAVA) + Morrisons (Phlo) already taken. Tesco is expanding its *own* in-store health — likely build-not-buy. | Excluded / unlikely |
+
+> **Caveat — different track to the warm-CEO sequence.** Supermarkets are corporate, procurement-led, slow — *not* founder-to-founder. Don't fold them into the 8–10 personal-outreach cap. Run them as a separate, longer-horizon BD track (warm intro to a category/partnerships lead beats a cold founder note here).
+
+### 8.3 Medical cannabis & wellness companies
+
+The UK medical-cannabis sector has ~**80,000 active patients across ~20–25 clinics** (end-2025), almost all **telehealth-first and vertically integrated** — i.e. they already hold GMC prescribers, clinical governance, a pharmacy, and an engaged, mostly-male patient base (chronic pain / anxiety / sleep — heavy overlap with low-T and men's-health demand). As cannabis margins compress and the market reshapes around rescheduling, several are actively hunting **additional verticals**. That's exactly Olly's thesis.
+
+**The angle:** "You've built the patient base and the prescribing rails; add a men's-health/TRT line and monetise the same patients — we run the clinical engine." Frame as a *complementary vertical* (they don't do hormones), not a takeover.
+
+| Target | Why | Note |
+|---|---|---|
+| **Releaf** | Digital-first clinic, large patient + survey base; commercially nimble, founder-led. | Best warm-CEO fit |
+| **Mamedica** (Lyphe Group) | One of the most established UK operators; own integrated pharmacy. | |
+| **Curaleaf Clinic** (formerly Sapphire) | Highest-rated UK clinic; part of Curaleaf International. | Larger / more corporate |
+| **Alternaleaf** | Telehealth-first, scaling fast. | |
+| CBD / wellness D2C brands w/ male audiences | Softer fit, no prescribing infra — lower priority. | Scan later |
+
+> **Caveat:** these already hold a prescribing licence, so some may see TH as a competitor. Lead with "complementary — you don't offer hormones, we do" and the shared-patient revenue maths. Unlike supermarkets, these *do* suit the founder-to-founder sequence in Section 5.
+
+### 8.4 Other adjacent verticals to scan (lower priority)
+
+Any business that owns a male audience but has no clinical pathway = a demand-leak fit:
+- **Gyms / fitness chains & supplement brands** — PureGym, Gymshark, Myprotein, Bulk: own the audience, zero pathway. Classic fit.
+- **Men's grooming / lifestyle DTC** brands.
+- **Corporate / occupational health** providers and **longevity clinics**.
+
+---
+
+*Doc complete — internal prep only. No outreach sent. Section 8 added 2026-05-21.*
