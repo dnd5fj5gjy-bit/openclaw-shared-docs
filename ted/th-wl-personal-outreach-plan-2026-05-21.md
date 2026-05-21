@@ -160,7 +160,7 @@ Pulled directly from `evidence/legitscript-research-2026-05-12.md`. Real entries
 | Online Clinic (theonlineclinic.co.uk) | Online clinic | Not certified | CQC-licensed online clinic (The Online Clinic dup folds here) | LinkedIn / email to MD | 2 |
 | London Doctors Clinic | Private GP chain | Not certified | GP audience, in-person + remote | LinkedIn to BD | 2 |
 | The GP Service | Clinician directory | Not certified | Network of GMC clinicians | LinkedIn to BD | 2 |
-| Phlo Digital Pharmacy | Pharmacy (delivery) | Not certified | Digital prescription delivery; tech-forward, possible appetite | LinkedIn to founder | 2 |
+| Phlo Digital Pharmacy | Pharmacy (delivery) | Not certified | ⚠️ **Reclassify — WL competitor, not a target.** Phlo is the engine behind **Morrisons Clinic** (launched Jan 2025; ED, PE, hair loss, weight loss et al.). Like ZAVA, it sells the operating system — it won't buy ours. Competitor benchmark, deprioritise as a partner. | — (competitor) | 2 |
 | PharmaDoctor | B2B pharmacy platform | Not certified | B2B clinical-services platform — possible channel partner rather than direct WL; explore model fit | LinkedIn to BD | 2 |
 | LloydsPharmacy Online Doctor | Telehealth | Not certified | Acquired into Pharmacy2U group (Jan 2026) — likely treat as part of Pharmacy2U; low standalone priority | Defer / fold to Pharmacy2U | 2 |
 
