@@ -224,6 +224,31 @@ Any business that owns a male audience but has no clinical pathway = a demand-le
 - **Men's grooming / lifestyle DTC** brands.
 - **Corporate / occupational health** providers and **longevity clinics**.
 
+### 8.5 More niches to consider (added 2026-05-21 — Olly's "what else" request)
+
+Ranked roughly by strength of fit:
+
+| Niche | Why it fits | Notes / flag |
+|---|---|---|
+| **Health insurers & employee-benefits platforms** | Vitality, Bupa, AXA Health, plus perk platforms (Heka, Ben, Juno). Engaged member bases, actively buying differentiated digital-health perks. Vitality already gamifies health — a men's-health module slots straight in. | **Strongest new prize.** Corporate track, not warm-CEO. |
+| **Sports clubs & fan bases** | Football/rugby clubs (PL, EFL), male-skewed and loyal. Club "official health partner" deals. | **BGV/Bear synergy** — Bear's profile opens doors here. |
+| **Barbershop & physical grooming chains** | Ted's Grooming Room, Pall Mall Barbers — captive male footfall. QR/point-of-sale referral, no tech build needed. | Low-friction, fast pilots. |
+| **Male fertility / andrology & hair-loss aesthetic clinics** | Clinically adjacent, big male overlap, but most *don't* prescribe hormones — complementary not competitive. | Founder-to-founder fit. |
+| **Veteran / military communities** | Direct tie to **Be Military Fit** (BGV asset). Trusted, male, health-engaged audience. | Warm via BGV portfolio. |
+| **Independent-pharmacy buying groups / franchise networks** | Numark, NPA, Day Lewis — reach hundreds of independent pharmacies through *one* deal. | **Leverage play — one yes = many fronts.** |
+| **Betting/gaming & men's-media platforms** | Huge male audiences (Sky Bet, bet365; Men's Health, GQ, The Athletic). | ⚠️ Brand-fit caution — vet against TH/Bear values first. |
+
+### 8.6 How to actually run it — implementation tactics
+
+Niches are only half of it. These change the *hit rate*:
+
+1. **Target networks/franchisors, not single sites.** One deal with a buying group or franchise = dozens of fronts live at once. Far better ROI on Olly's time than site-by-site.
+2. **De-risk the first yes.** Lead with *free pilot + revenue-share, no upfront cost*. Removes the biggest objection ("what if it flops") and gets you live to prove it.
+3. **Build a clickable "YourBrand Clinic" demo.** A 1-page mock storefront with the partner's logo on it as the leave-behind — they *see* it instantly instead of imagining it. Cheap to make, huge close-rate lift.
+4. **Lead every pitch with the proof point.** Morrisons + Asda already did this → "your competitor has moved; here's the same model, men's-health-specialist." Social proof + mild FOMO.
+5. **Tiered ladder, easy first step.** Referral link → co-brand → full white-label. A small first yes is far easier than asking for the whole integration up front.
+6. **Mine the BGV/Bear network for warm intros first.** A warm path beats any cold note — map LinkedIn + portfolio relationships before cold-outreaching.
+
 ---
 
-*Doc complete — internal prep only. No outreach sent. Section 8 added 2026-05-21.*
+*Doc complete — internal prep only. No outreach sent. Sections 8.5–8.6 added 2026-05-21.*
