@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Next-Stage Actionables · After Briefs Submitted · 22 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 920px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 840px; margin-bottom: 1rem; }
+
+  .guardrail {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 1.6rem 1.8rem;
+    border-radius: 4px;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .guardrail h3 {
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .guardrail p { color: rgba(245, 240, 232, 0.92); max-width: 880px; margin: 0; font-size: 0.97rem; }
+
+  /* You-are-here strip */
+  .youarehere {
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .youarehere strong { color: var(--burgundy); }
+
+  /* Decisions callout */
+  .decisions {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+    border-left: 5px solid var(--gold);
+    padding: 2.4rem 2.6rem 2rem;
+  }
+  .decisions .kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .decisions h2 { color: var(--cream); font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .decisions p.sub { color: rgba(245,240,232,0.78); margin-bottom: 1.5rem; max-width: 820px; }
+  .decision-item {
+    border-top: 1px solid rgba(245,240,232,0.16);
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: 0.6rem;
+    align-items: start;
+  }
+  .decision-item .num {
+    font-family: 'DM Serif Display', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .decision-item .q { color: var(--cream); font-weight: 500; margin-bottom: 0.2rem; }
+  .decision-item .why { color: rgba(245,240,232,0.7); font-size: 0.9rem; }
+  .decision-item .why .unblocks { color: var(--gold); }
+
+  /* Stage block */
+  .stage {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2.8rem 3rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .stage-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .stage h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .stage .when {
+    color: var(--charcoal-light);
+    font-size: 1.02rem;
+    margin-bottom: 1.6rem;
+    max-width: 760px;
+  }
+  .stage .goal {
+    background: var(--cream-dark);
+    border-radius: 4px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.92rem;
+    margin-bottom: 1.6rem;
+  }
+  .stage .goal strong { color: var(--ink); font-weight: 500; }
+
+  /* Action table */
+  table.actions {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.4rem 0 0.6rem;
+    font-size: 0.93rem;
+  }
+  table.actions th {
+    text-align: left;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0 0.8rem 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  table.actions td {
+    vertical-align: top;
+    padding: 0.85rem 0.8rem 0.85rem 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  table.actions td.what { color: var(--charcoal); }
+  table.actions td.what strong { color: var(--ink); font-weight: 500; }
+  table.actions td.owner { white-space: nowrap; }
+  .pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    padding: 0.16rem 0.55rem;
+    border-radius: 100px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pill.olly { background: var(--burgundy); color: var(--cream); }
+  .pill.ku { background: var(--forest); color: var(--cream); }
+  .pill.hodder { background: var(--ink); color: var(--cream); }
+  .pill.theo { background: var(--gold); color: var(--ink-deep); }
+  .pill.ted { background: var(--cream-dark); color: var(--ink); border: 1px solid var(--rule); }
+  .flag {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-size: 0.78rem;
+    color: var(--burgundy);
+    font-weight: 500;
+  }
+  .flag::before { content: "⚑ "; }
+
+  /* Phasing strip */
+  .phasing {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem 2.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+  }
+  .phasing h2 { color: var(--cream); margin-bottom: 1.6rem; font-size: 1.7rem;}
+  .phasing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+  .phasing-col {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.2rem;
+  }
+  .phasing-col h4 {
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  .phasing-col ul { padding-left: 1rem; }
+  .phasing-col li { font-size: 0.9rem; margin-bottom: 0.4rem; color: rgba(245, 240, 232, 0.88); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .legend {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Next-Stage Roadmap · After Briefs Submitted</div>
+    <h1>The briefs are in. Here's everything that happens next — in order.</h1>
+    <p class="lede">The creative video briefs are going to Ku Creatives now. This is the sequenced do-list from that moment forward — from content entering production, through the Month-1 onboarding build, to the Month-2 launch beat and steady state. Each line is a thing to do, with an owner. The decisions only you can make are pulled into one box at the top.</p>
+    <div class="meta">Ted · 22 May 2026 · For Olly · Anchored to the Bear Witness × Hodder deck v2</div>
+  </div>
+</header>
+
+<div class="guardrail">
+  <h3>Two hard guardrails · across everything below</h3>
+  <p><strong>1. No new Bear Grylls filming.</strong> Archive / pre-recorded Bear only — Big Church Read videos, audiobook stems, podcast appearances, retreat footage. <strong>2. Hachette / Hodder AI policy applies absolutely.</strong> No AI-generated voice, imagery, or marketing creative. AI is backend-only — transcription, scheduling, analytics, draft scaffolding — never published output.</p>
+</div>
+
+<div class="youarehere">
+  <strong>You are here:</strong> creative video briefs submitted to Ku → content entering production. The launch beat is <strong>Month 2</strong>: website live, first 4 Reading episodes published, short-form daily, Substack weekly, read-along Matthew opens. Everything in Stages 1–3 below feeds that single moment. Stage 4 is what keeps running after it.
+</div>
+
+<div class="legend">
+  <span><span class="pill olly">Olly</span> you</span>
+  <span><span class="pill ku">Ku</span> editing team</span>
+  <span><span class="pill hodder">Hodder</span> publisher / POC</span>
+  <span><span class="pill theo">Theologians</span> on-camera roster</span>
+  <span><span class="pill ted">Ted</span> me — draft / chase / track</span>
+</div>
+
+<!-- DECISIONS CALLOUT -->
+<div class="decisions">
+  <div class="kicker">Read this first · blocks the rest</div>
+  <h2>Decisions only you can make</h2>
+  <p class="sub">None of the workstreams below get fully unblocked until these are settled. Most are quick calls. Get them off your plate this week and Ku, the theologians, and the build can all move.</p>
+
+  <div class="decision-item">
+    <div class="num">1</div>
+    <div>
+      <div class="q">Has Hodder formally said yes to the £5k/mo full-engine retainer — or are we producing ahead of sign-off?</div>
+      <div class="why">If not signed, decide how much we build on spec vs. hold. <span class="unblocks">Unblocks: scope of everything below.</span></div>
+    </div>
+  </div>
+  <div class="decision-item">
+    <div class="num">2</div>
+    <div>
+      <div class="q">Who is the single Hodder point of contact, and is the asset bundle (Big Church Read videos, audiobook stems, press, reviews) cleared for us to cut and monetise?</div>
+      <div class="why">Ku can't finish episodes without clean masters and rights. <span class="unblocks">Unblocks: Brief 01, 02, 08.</span></div>
+    </div>
+  </div>
+  <div class="decision-item">
+    <div class="num">3</div>
+    <div>
+      <div class="q">Theologian roster — which ~4–6 names, across which traditions (Anglican / Catholic / evangelical / Orthodox)? Who approves the final list?</div>
+      <div class="why">The 52-ep batch shoot is the single biggest dependency. Roster must lock by end of Month 1. <span class="unblocks">Unblocks: Brief 01 Unpacking, batch shoot booking.</span></div>
+    </div>
+  </div>
+  <div class="decision-item">
+    <div class="num">4</div>
+    <div>
+      <div class="q">Website domain + build owner — is it <code>thegreateststoryevertoldbook.com</code>, and is the in-house dev or an external building it?</div>
+      <div class="why">Design starts week 1, must be live end of Month 2. <span class="unblocks">Unblocks: Brief 06.</span></div>
+    </div>
+  </div>
+  <div class="decision-item">
+    <div class="num">5</div>
+    <div>
+      <div class="q">Batch-shoot logistics — studio + dates for the 52-episode theologian shoot (needs ~1 month prep per SLA).</div>
+      <div class="why">If Month 2 is the launch, the shoot has to be booked now. <span class="unblocks">Unblocks: launch artefact pack, Brief 09.</span></div>
+    </div>
+  </div>
+  <div class="decision-item">
+    <div class="num">6</div>
+    <div>
+      <div class="q">Sign-off chain — who approves brand pack, audio identity, and the first 4 episodes before they go live?</div>
+      <div class="why">Deck says brand + audio lock once with Olly + Jesse; theologian essays get a Hodder pass. Confirm so nothing stalls at the gate. <span class="unblocks">Unblocks: Stage 3 publishing.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="preamble">
+  <p>The four stages below run roughly in sequence but overlap — Stage 1 is this week, Stage 2 is the Month-1 onboarding build, Stage 3 is the Month-2 launch beat itself, Stage 4 is what's running from Month 3. Owners use the pill colours above. The <span class="flag" style="margin:0">flag</span> mark on a line means it's waiting on one of the decisions in the box above, or on someone outside the team.</p>
+  <p>This supersedes the older <em>gset-next-physical-actions-2026-05-13</em> do-list, which was scoped to the production-only plan (20 episodes, hired actors, a studio batch shoot for a survival-style series). That scope is gone — we're on the full six-channel deck-v2 engine now.</p>
+</div>
+
+<!-- STAGE 1 -->
+<section class="stage">
+  <div class="stage-id">Stage 1 · This week</div>
+  <h2>Lock the foundations the production depends on</h2>
+  <p class="when">The briefs are submitted. Before Ku gets deep into cutting, the things every editor needs on Day 1 have to be confirmed or in motion: assets, roster, brand, audio, and a clear read on what's actually blocking.</p>
+  <div class="goal"><strong>Done when:</strong> assets audited and rights confirmed, theologian roster shortlisted, brand + audio one-offs commissioned, and the decision box above is cleared.</div>
+
+  <table class="actions">
+    <thead><tr><th style="width:62%">What</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="what"><strong>Asset audit + catalogue.</strong> Pull together everything we can cut from — Big Church Read videos, audiobook stems, press, podcast appearances, reader reviews, the Sol Fuel chapter + intro. One catalogue, shared to every editor.
+          <div class="flag">Needs decision 2 — rights clearance + clean masters from Hodder</div></td>
+        <td class="owner"><span class="pill ted">Ted</span> <span class="pill olly">Olly</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Confirm rights + single Hodder POC.</strong> Written OK to cut, re-cut, and monetise the audiobook + Big Church Read assets; name the one Hodder contact for sign-off and weekly samples.
+          <div class="flag">Needs decision 2</div></td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill hodder">Hodder</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Theologian roster shortlist.</strong> Draw up ~6 candidate names across traditions, with availability for a Month-2 batch shoot. Ted drafts the longlist + outreach note; Olly picks.
+          <div class="flag">Needs decision 3 — final roster + who approves</div></td>
+        <td class="owner"><span class="pill ted">Ted</span> <span class="pill olly">Olly</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Commission the brand pack (Brief 07).</strong> Greenlight the one-off visual identity system to Ku's designer — type, palette, thumbnail templates, channel art, IG/Substack/FB templates. Due end of Month 1.</td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Commission the audio system (Brief 08).</strong> Greenlight the 90s pilot, signature motif, mastering chain, audiogram template. Bear's real voice only — no AI voice.</td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Confirm what's blocking.</strong> One pass over the decision box — anything not settled this week becomes a chase item. Ted keeps the live blocker list.</td>
+        <td class="owner"><span class="pill ted">Ted</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- STAGE 2 -->
+<section class="stage">
+  <div class="stage-id">Stage 2 · Next 2–4 weeks · Month-1 onboarding</div>
+  <h2>Build the infrastructure the launch runs on</h2>
+  <p class="when">The four parallel workstreams that have to exist before anything can go live. Web, channels, the batch shoot, and the read-along machinery all get built or booked in this window so Month 2 is a switch-on, not a scramble.</p>
+  <div class="goal"><strong>Done when:</strong> website built behind staging, all six channels stood up, batch shoot booked + scheduled, and the Matthew read-along kit is ready.</div>
+
+  <table class="actions">
+    <thead><tr><th style="width:62%">What</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="what"><strong>Web design → build (Brief 06).</strong> Wk 1 design (cover-swap, retail tree, Substack pull); wks 2–4 build the Astro/Next site + Substack RSS + geo-routing + the attribution layer. Soft-launch behind a staging URL.
+          <div class="flag">Needs decision 4 — domain + build owner</div></td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Channel setup.</strong> Stand up / dress all six channels — YouTube, TikTok, IG, FB Page + Group, Substack. Apply the brand pack the moment it lands. Geo-targeting for UK/US configured.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill ted">Ted</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Book + schedule the 52-ep theologian batch shoot.</strong> Lock studio + 3 days, brief each theologian, run-of-show for all 52 Unpacking episodes in one batch. ~1 month prep per SLA — book now to hit Month 2.
+          <div class="flag">Needs decisions 3 + 5</div></td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill theo">Theologians</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Read-along cohort infrastructure (Matthew first).</strong> Build the 5-week Matthew structure — daily passages, weekly live-thread plan, private cohort space, welcome email sequence, cohort-only Substack segment.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill ted">Ted</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Lock the Reading visual treatment.</strong> 40s mood-film test → LUTs, grade, and the After Effects template (title card, scripture overlay, end card) the long-form editor reuses 52×.</td>
+        <td class="owner"><span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Build the launch artefact pack (Brief 09).</strong> Channel trailer, first 4 Reading episodes, first 4 Unpacking cuts, 12 launch short-form clips, first 4 Substack posts — all queued for Month-2 weeks 1–4.</td>
+        <td class="owner"><span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Pre-approve the launch content brief.</strong> Get Hodder sign-off on the Month-2 launch slate + calendar anchors in advance, so publishing isn't gated day-by-day.
+          <div class="flag">Needs decision 6 — sign-off chain</div></td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill hodder">Hodder</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- STAGE 3 -->
+<section class="stage">
+  <div class="stage-id">Stage 3 · Month 2 · The launch beat</div>
+  <h2>Switch the engine on</h2>
+  <p class="when">Everything built in Stages 1–2 goes live across one month. This is the moment the deck is anchored to — by the end of Month 2 all six channels are publishing and the read-along is open.</p>
+  <div class="goal"><strong>Done when:</strong> website live, first 4 Reading eps published, short-form running daily, Substack weekly, Matthew cohort open, and the monthly reporting loop has fired once.</div>
+
+  <table class="actions">
+    <thead><tr><th style="width:62%">What</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="what"><strong>Website goes live.</strong> Promote staging to production — retail link tree, geo cover-swap, Substack auto-pull, subscribe block, theologian page, attribution dashboard endpoint all on.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill olly">Olly</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Publish first 4 Reading episodes.</strong> Channel trailer pinned, then Reading eps 1–4 across weeks 1–2, followed by the first Unpacking cuts weeks 3–4 (Tue/Thu schedule).</td>
+        <td class="owner"><span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Short-form daily across three platforms.</strong> The 36/mo cadence begins — one Short/Reel/TikTok per weekday + Saturday TikTok, geo-variants live.</td>
+        <td class="owner"><span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Substack to weekly cadence.</strong> First 4 posts publish — intro / theologian essay 1 / thematic article 1 / first reader letter. Auto-pulls onto the website.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill hodder">Hodder</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Open the Matthew read-along.</strong> FB Group goes live, sign-up opens, week 1 passage + welcome sequence fires. IG/FB drive enrolment.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill ted">Ted</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Bear-channel uplift posts.</strong> 2 pre-approved archive-only posts seed initial audience from Bear's existing channels — no new filming.</td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill hodder">Hodder</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Fire the first monthly report.</strong> Pull the attribution dashboard + channel numbers into a one-page sample to the Hodder POC. Establishes the reporting loop.</td>
+        <td class="owner"><span class="pill ted">Ted</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- STAGE 4 -->
+<section class="stage">
+  <div class="stage-id">Stage 4 · Month 3+ · Steady state &amp; international</div>
+  <h2>Run it at volume, then take it abroad</h2>
+  <p class="when">From Month 3 the engine hits the Section 09 monthly volumes and runs on its own cadence; from Month 6 it expands internationally and the Bear uplift dials back as the GSET channels become self-sufficient.</p>
+  <div class="goal"><strong>Done when:</strong> all Section 09 volumes hit monthly, cohorts rolling Matthew → Mark → Luke → John → Acts, and the Month-6 international pilots are stood up.</div>
+
+  <table class="actions">
+    <thead><tr><th style="width:62%">What</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="what"><strong>Hit Section 09 volumes every month.</strong> 8 YT long-form, 36 short-form, 20 IG posts, FB Page + Group cadence, 4 Substack + 2 letters, 1 rolling cohort, 4 testimony curations. Over-performance triggers a rebalance, never a price uplift.</td>
+        <td class="owner"><span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Roll the cohorts.</strong> Matthew graduates → Mark opens → Luke → John → Acts. Target several thousand readers through one cohort by year-end; recruit 8–12 volunteer moderators so the Group self-sustains by day 90.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill ted">Ted</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Flex for calendar anchors.</strong> Raise volumes around Lent, Easter, Pentecost, the June anniversary, autumn church push, Advent — each pre-approved via content brief 2 weeks ahead.</td>
+        <td class="owner"><span class="pill ku">Ku</span> <span class="pill olly">Olly</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Establish the monthly reporting cycle.</strong> Attribution dashboard + engine-health signal reviewed monthly with Hodder; YouTube ad revenue pooled for year-end allocation.</td>
+        <td class="owner"><span class="pill ted">Ted</span> <span class="pill olly">Olly</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Theologian batch refresh.</strong> Re-shoot a fresh batch every ~6 months so the Unpacking strand never goes stale; refresh the roster page each time.</td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill theo">Theologians</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Month 6+ — international.</strong> Stand up Spanish + Portuguese channels, run the Brazil Substack pilot, integrate US tour content if the tour is confirmed. Dial back Bear uplift as GSET channels go self-sufficient.</td>
+        <td class="owner"><span class="pill olly">Olly</span> <span class="pill ku">Ku</span></td>
+      </tr>
+      <tr>
+        <td class="what"><strong>Year-1 results doc.</strong> Compile the year-1 engine results ahead of year-2 planning and the rolling-retainer review.</td>
+        <td class="owner"><span class="pill ted">Ted</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Phasing recap -->
+<div class="phasing">
+  <h2>The whole roadmap on one screen.</h2>
+  <div class="phasing-grid">
+    <div class="phasing-col">
+      <h4>Stage 1 · This week</h4>
+      <ul>
+        <li>Asset audit + rights cleared</li>
+        <li>Theologian roster shortlist</li>
+        <li>Brand pack commissioned</li>
+        <li>Audio system commissioned</li>
+        <li>Blocker list confirmed</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Stage 2 · 2–4 weeks</h4>
+      <ul>
+        <li>Web design + build (staging)</li>
+        <li>Six channels stood up</li>
+        <li>52-ep batch shoot booked</li>
+        <li>Matthew read-along kit built</li>
+        <li>Launch artefact pack in production</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Stage 3 · Month 2 launch</h4>
+      <ul>
+        <li>Website live</li>
+        <li>First 4 Reading eps publish</li>
+        <li>Short-form daily</li>
+        <li>Substack weekly</li>
+        <li>Matthew cohort opens</li>
+        <li>First monthly report fires</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Stage 4 · Month 3+ / 6+</h4>
+      <ul>
+        <li>Section 09 volumes hit monthly</li>
+        <li>Cohorts roll Matthew → Acts</li>
+        <li>Calendar anchors flex volumes</li>
+        <li>Theologian batch refresh @ 6mo</li>
+        <li>Spanish / Portuguese / Brazil pilot</li>
+        <li>Year-1 results doc</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Ted · GSET · 22 May 2026 · Next-stage actionables roadmap · supersedes <em>gset-next-physical-actions-2026-05-13.md</em><br>
+  Anchored to the Bear Witness × Hodder deck v2 · companion to <em>gset-creative-briefs-v2-2026-05-19.html</em> · No new Bear filming · Hachette AI policy applies absolutely
+</footer>
+
+</body>
+</html>
