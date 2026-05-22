@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear x Chosen In The Wild — Social Launch Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --gold: #B8962E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--charcoal); font-size: 16px; line-height: 1.6; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; background: var(--forest-deep); z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  nav .brand { font-family: 'DM Serif Display', serif; color: var(--cream); font-size: 1rem; letter-spacing: 0.02em; }
+  nav .tag { font-size: 0.75rem; color: var(--earth-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* SECTIONS */
+  section { padding: 7rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .narrow { max-width: 780px; margin: 0 auto; }
+
+  /* HERO */
+  .hero { background: var(--forest-deep); color: var(--white); padding-top: 9rem; padding-bottom: 7rem; }
+  .hero-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--earth-light); font-weight: 600; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero h1 span { color: var(--earth-light); font-style: italic; }
+  .hero .sub { font-size: 1.2rem; font-weight: 300; color: rgba(253,251,248,0.75); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.15); }
+  .stat { }
+  .stat .number { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--earth-light); }
+  .stat .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(253,251,248,0.5); margin-top: 0.2rem; }
+
+  /* CONTEXT */
+  .context { background: var(--white); }
+  .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--earth); font-weight: 700; margin-bottom: 0.75rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: 1.5rem; }
+  h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 0.75rem; }
+  p { margin-bottom: 1.2rem; font-weight: 400; color: #3A3A3A; }
+  .lead { font-size: 1.15rem; font-weight: 300; line-height: 1.75; color: var(--charcoal); margin-bottom: 1.5rem; }
+
+  /* CARDS GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .card { background: var(--cream); border-radius: 4px; padding: 2rem; }
+  .card-dark { background: var(--forest); color: var(--white); border-radius: 4px; padding: 2rem; }
+  .card-dark h3 { color: var(--white); }
+  .card-dark p { color: rgba(253,251,248,0.8); }
+  .card h3 { color: var(--forest); margin-bottom: 0.5rem; }
+  .card p { font-size: 0.95rem; margin-bottom: 0; color: #4A4A4A; }
+  .card-accent { border-left: 3px solid var(--earth); }
+
+  /* DARK SECTION */
+  .dark-section { background: var(--forest-deep); color: var(--white); }
+  .dark-section h2 { color: var(--white); }
+  .dark-section .section-label { color: var(--earth-light); }
+  .dark-section p { color: rgba(253,251,248,0.8); }
+
+  /* TIMELINE */
+  .timeline { margin-top: 2.5rem; }
+  .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--cream-dark); align-items: start; }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-date { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--earth); }
+  .timeline-content h3 { font-size: 1.1rem; font-family: 'Outfit', sans-serif; font-weight: 600; margin-bottom: 0.4rem; color: var(--charcoal); }
+  .timeline-content p { font-size: 0.9rem; margin-bottom: 0; color: #555; }
+  .timeline-item.highlight { background: var(--forest); margin: 0 -2rem; padding: 2rem; border-radius: 4px; border: none; }
+  .timeline-item.highlight .timeline-date { color: var(--earth-light); }
+  .timeline-item.highlight .timeline-content h3 { color: var(--white); }
+  .timeline-item.highlight .timeline-content p { color: rgba(253,251,248,0.8); }
+
+  /* POST EXAMPLES */
+  .post-box { background: var(--cream-dark); border-radius: 4px; padding: 1.5rem 2rem; margin: 1.5rem 0; border-left: 3px solid var(--earth); font-size: 0.95rem; line-height: 1.7; }
+  .post-box .post-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--earth); font-weight: 700; margin-bottom: 0.75rem; }
+  .post-box p { font-style: italic; color: var(--charcoal); margin-bottom: 0; }
+
+  /* ACTION ITEMS */
+  .action-list { list-style: none; margin-top: 1.5rem; }
+  .action-list li { padding: 1rem 1.5rem; background: var(--white); border-radius: 4px; margin-bottom: 0.75rem; display: flex; gap: 1rem; align-items: flex-start; font-size: 0.95rem; }
+  .action-list li .num { background: var(--earth); color: var(--white); font-weight: 700; font-size: 0.8rem; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 0.1rem; }
+  .action-list li strong { display: block; color: var(--forest); margin-bottom: 0.2rem; }
+  .action-list li span { color: #555; font-size: 0.9rem; }
+
+  /* TAGS */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .pill { background: var(--sand); border-radius: 100px; padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 500; color: var(--charcoal); }
+  .pill-dark { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); border-radius: 100px; padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 500; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.92rem; }
+  th { background: var(--forest); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--cream-dark); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(245,240,234,0.5); }
+
+  /* QUOTE */
+  .quote-block { background: var(--forest); color: var(--white); border-radius: 4px; padding: 2.5rem; margin: 2rem 0; }
+  .quote-block p { font-family: 'DM Serif Display', serif; font-size: 1.4rem; line-height: 1.5; color: var(--white); margin-bottom: 1rem; font-style: italic; }
+  .quote-block cite { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-light); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--sand); margin: 2rem 0; }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.5); padding: 2rem; text-align: center; font-size: 0.8rem; }
+
+  @media (max-width: 700px) {
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero-stats { gap: 1.5rem; }
+    section { padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Bear x Chosen In The Wild</div>
+  <div class="tag">Social Media Launch Strategy — May 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Jesse Grylls — Social Media Lead</div>
+    <h1>Bear x <span>Chosen In The Wild</span></h1>
+    <p class="sub">A social media launch strategy for the most distinctive cross-genre collaboration Bear has ever done. Faith meets wilderness. Amazon. August 9, 2026.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="number">July 9</div>
+        <div class="label">Virtual appearance + trailer</div>
+      </div>
+      <div class="stat">
+        <div class="number">Aug 9</div>
+        <div class="label">Binge drop on Amazon</div>
+      </div>
+      <div class="stat">
+        <div class="number">200M+</div>
+        <div class="label">Chosen views worldwide</div>
+      </div>
+      <div class="stat">
+        <div class="number">7 wks</div>
+        <div class="label">To launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section class="context">
+  <div class="container">
+    <div class="narrow">
+      <div class="section-label">The Opportunity</div>
+      <h2>This is not a typical content deal</h2>
+      <p class="lead">The Chosen is the most-watched independently distributed TV series in history - 200M+ views, distributed in 147 countries, with a fan base that organises community screenings and shares content with religious intensity.</p>
+      <p>Bear's public faith has always been authentic and prominent in his books and content. This collaboration is the first time that identity crosses into the largest faith-based entertainment property in the world. For Bear's audience, this lands as cultural validation. For The Chosen audience, Bear is an exciting new entry point.</p>
+      <p>Jesse leads all social media for this campaign. Del Shoopman (The Natural Studios) introduced Jesse to KB Britt (5&2 Studios) and the broader CITW team on May 21. Bear's virtual appearance is locked for July 9.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card card-accent">
+        <h3>The Chosen audience</h3>
+        <p>Evangelical and mainstream Christian, family-oriented, 25-55, US-primary but global. Hyper-engaged - binge-and-share culture, community events, extreme emotional investment. These are people who cry at trailer announcements.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>Bear's audience crossover</h3>
+        <p>Bear's Christian faith is well-established (books, social, personal brand). His survival identity maps directly onto the "tested by wilderness" themes of CITW. Both audiences celebrate faith, family, resilience, and purpose-driven challenge.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>5&2 Studios</h3>
+        <p>The fan strategy, merchandise, and events arm of The Chosen. Named for the loaves and fishes parable. KB Britt (Sr. Director, Fan Strategy) is Jesse's primary contact for this campaign. They understand grassroots launch mechanics better than most studios.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>Amazon</h3>
+        <p>Binge drop confirmed August 9. Trailer window approximately July 9. Amazon PR drives the embargo lift and key art announcement timings. All Bear posts go live only after Amazon clears the embargo - Jesse must confirm this with KB Britt before any teaser content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="background: var(--cream-dark); padding: 7rem 2rem;">
+  <div class="container">
+    <div class="section-label">Campaign Roadmap</div>
+    <h2>7-week phased launch</h2>
+    <p class="lead" style="max-width: 600px;">Five distinct phases from pre-announcement through binge drop. Each phase has a specific objective and tone.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Now - June 30</div>
+        <div class="timeline-content">
+          <h3>Phase 1: Pre-announcement tease</h3>
+          <p>Build intrigue without reveal. Bear's feed stays warm with standard adventure and faith-forward content. No Chosen branding. One cryptic teaser post around June 1 ("Something I've never experienced before..."). Goal: prime the audience emotionally, not informationally.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">July 1-8</div>
+        <div class="timeline-content">
+          <h3>Phase 2: Final build</h3>
+          <p>One "watch this space" post from Bear on July 6-7. No detail - just urgency. Coordinate with The Chosen team on simultaneous posting strategy. Confirm all assets and embargo lift time with KB Britt by June 30.</p>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-date">July 9</div>
+        <div class="timeline-content">
+          <h3>Launch Day - Virtual appearance + trailer</h3>
+          <p>Bear's virtual appearance (PM UK time). Simultaneous launch post with The Chosen accounts. IG feed + stories + TikTok all go live at the Amazon-confirmed embargo lift. This is the announcement moment.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">July 10 - Aug 8</div>
+        <div class="timeline-content">
+          <h3>Phase 4: Sustained build</h3>
+          <p>4 weeks of weekly touchpoints. Deeper personal caption one week. Community engagement (bridging Bear's audience to The Chosen's) another. Amazon countdown asset at 4-week mark. Story countdown in final week.</p>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-date">August 9</div>
+        <div class="timeline-content">
+          <h3>Binge Drop Day - Full push</h3>
+          <p>Go live before 8am UK (3am US East) so US wakes up to the news. Feed post + story + YouTube if available. Throughout the day, story reactions to fan comments and shares. 3-day fan engagement window after drop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JULY 9 LAUNCH CONTENT -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">Launch Day Content</div>
+    <h2>July 9 — what Bear posts</h2>
+    <p class="lead narrow">Bear's social content for launch day should feel personal, not promotional. The Chosen audience responds to authentic voice, not PR copy. Use faith language naturally. Reference the wilderness experience directly.</p>
+
+    <div class="post-box">
+      <div class="post-label">Instagram feed caption — framework</div>
+      <p>"I've spent my life being tested in the wild. Mountains, jungles, Arctic ice - the wilderness has always been where I've found out what I'm made of. And what I'm made of, at the core, is faith.<br><br>When the team behind The Chosen asked me to be part of Chosen In The Wild, I said yes before they finished the sentence. This project sits at the exact intersection of who I am - everything I believe and everything I love.<br><br>It's out on Amazon on August 9. I hope you watch it with your family. I watched it with mine.<br><br>[@thechosen @5and2studios @amazonprimevideo] July 9 trailer is out now - link in bio."</p>
+    </div>
+
+    <div class="post-box">
+      <div class="post-label">Instagram stories — sequence</div>
+      <p>Story 1: Key art or clip from CITW (supplied by KB Britt/Amazon)<br>Story 2: "This is something I've been looking forward to sharing." + Link sticker to trailer<br>Story 3: Behind-the-scenes still if available<br>Story 4: Swipe up / poll - "Already watched The Chosen?" Yes / No</p>
+    </div>
+
+    <div class="post-box">
+      <div class="post-label">TikTok</div>
+      <p>15-30 second clip from CITW footage (wilderness/adventure angle first, faith second for TikTok). Caption: shortened version of IG. Tag @thechosen on TikTok. Consider if The Chosen team wants a TikTok duet/stitch - ask KB Britt.</p>
+    </div>
+
+    <p style="margin-top: 1.5rem;"><strong>Critical:</strong> Jesse needs to confirm the exact time Amazon's embargo lifts with KB Britt. Bear's posts, The Chosen's posts, and Amazon's posts should go live simultaneously for maximum algorithmic signal.</p>
+  </div>
+</section>
+
+<!-- PHASES 1-2 DETAIL -->
+<section class="dark-section">
+  <div class="container">
+    <div class="section-label">Phase 1 — Pre-Announcement</div>
+    <h2>Warming the audience without revealing anything</h2>
+    <p class="lead narrow">The strongest launches start with curiosity. Bear should begin planting seeds 4-6 weeks before July 9 - not about CITW specifically, but about the emotional territory it occupies.</p>
+
+    <div class="grid-3">
+      <div class="card-dark">
+        <h3>Week of June 1</h3>
+        <p>Bear posts something cryptic. A wilderness shot with a caption that hints at "something I've never done before." No specifics. Could reference faith and challenge together. Objective: create intrigue in the comment section.</p>
+      </div>
+      <div class="card-dark">
+        <h3>Week of June 15</h3>
+        <p>Normal adventure content. Keep the feed warm. This is the quiet before the storm - don't over-tease. If Bear has any Running Wild S9 content still dropping, that keeps momentum without burning the CITW reveal early.</p>
+      </div>
+      <div class="card-dark">
+        <h3>Week of July 1</h3>
+        <p>"Watch this space." One post. One story. A still image - something from CITW filming if Amazon allows pre-embargo - or something thematic. "July 9. Something I'm genuinely proud of." Caption: nothing else.</p>
+      </div>
+    </div>
+
+    <div class="quote-block" style="margin-top: 3rem;">
+      <p>"Never sell the product. Educate people on the problems. Position the brand as the solution. Seek gratitude, not transactions."</p>
+      <cite>Junior — Mission-Based Social Strategy Framework</cite>
+    </div>
+
+    <p style="color: rgba(253,251,248,0.7); margin-top: 1.5rem;">Apply this to CITW: The "problem" is disconnection - from nature, from meaning, from faith. Bear embodies the solution. The content arc should lead people towards that realisation before the trailer ever lands.</p>
+  </div>
+</section>
+
+<!-- PHASE 4: SUSTAINED CAMPAIGN -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-label">Phase 4 — July 10 to August 8</div>
+    <h2>Four weeks to binge drop</h2>
+    <p class="lead narrow">The window between trailer drop and binge drop is the highest-value engagement period. The Chosen audience will be hungry for more content. Bear should show up weekly, not daily.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Week of July 14</div>
+        <div class="timeline-content">
+          <h3>Personal depth post</h3>
+          <p>Bear writes a longer-than-usual caption about what faith in the wilderness means to him personally. No product push. No show promotion. Just authentic voice. This is the post that The Chosen fanbase will screenshot and share. Think: storytelling that exists beyond the series.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Week of July 21</div>
+        <div class="timeline-content">
+          <h3>Bridge post</h3>
+          <p>Bear acknowledges The Chosen as a viewer. Something like: "I've been watching The Chosen with my family. If you haven't started it - start now. Before August 9." This bridges his audience to the show organically. It's genuine, not promotional.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Week of July 28</div>
+        <div class="timeline-content">
+          <h3>Countdown asset</h3>
+          <p>Clean graphic from Amazon/5&2: "12 days. August 9. @amazonprimevideo." Bear posts it in stories. Optionally in feed if Amazon supplies polished key art. Straightforward - this is information, not emotion. The emotion came earlier.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 4-8</div>
+        <div class="timeline-content">
+          <h3>Story countdown</h3>
+          <p>Story countdown sticker 5 days out. Bear is visible but not over-promoting. One brief story each day if possible: a wilderness quote, a faith reflection, a clip teaser. Build expectation without exhausting the audience's attention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BINGE DROP DAY -->
+<section style="background: var(--forest-deep); color: var(--white); padding: 7rem 2rem;">
+  <div class="container narrow">
+    <div class="section-label" style="color: var(--earth-light);">August 9 — Binge Drop</div>
+    <h2 style="color: var(--white);">Drop day execution</h2>
+    <p style="color: rgba(253,251,248,0.8); font-size: 1.1rem; margin-bottom: 2rem;">Go live before 8am UK (3am US East). The US audience wakes up to Bear promoting. The Chosen audience is already primed. Amazon has push notifications going out. The compounding effect is the goal.</p>
+
+    <div class="timeline">
+      <div class="timeline-item" style="border-bottom-color: rgba(255,255,255,0.1);">
+        <div class="timeline-date" style="color: var(--earth-light); font-size: 0.95rem;">Pre-6am UK</div>
+        <div class="timeline-content">
+          <h3 style="color: var(--white); font-size: 1rem;">Go live on all platforms simultaneously</h3>
+          <p style="color: rgba(253,251,248,0.7); font-size: 0.9rem;">IG feed post + IG story + TikTok. YouTube if a full promo cut has been prepared. Same time as The Chosen's posts and Amazon's posts - coordinate with KB Britt on exact timing.</p>
+        </div>
+      </div>
+      <div class="timeline-item" style="border-bottom-color: rgba(255,255,255,0.1);">
+        <div class="timeline-date" style="color: var(--earth-light); font-size: 0.95rem;">Throughout Aug 9</div>
+        <div class="timeline-content">
+          <h3 style="color: var(--white); font-size: 1rem;">React to the fan response</h3>
+          <p style="color: rgba(253,251,248,0.7); font-size: 0.9rem;">Bear shares 2-3 fan comments or screenshots to his story. Shows authenticity - he's watching the reaction. The Chosen audience is intensely loyal and will screenshot Bear sharing their comments. Creates secondary viral moment.</p>
+        </div>
+      </div>
+      <div class="timeline-item" style="border-bottom: none;">
+        <div class="timeline-date" style="color: var(--earth-light); font-size: 0.95rem;">Aug 10-14</div>
+        <div class="timeline-content">
+          <h3 style="color: var(--white); font-size: 1rem;">Post-drop engagement window</h3>
+          <p style="color: rgba(253,251,248,0.7); font-size: 0.9rem;">One story responding to fan reactions. If possible, Bear records a brief thank-you message to The Chosen community. Don't over-push - let the show speak for itself at this point.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEAR'S VIRTUAL APPEARANCE -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">July 9 — Virtual Appearance</div>
+    <h2>Talking points for Bear</h2>
+    <p class="lead narrow">Bear's virtual appearance (PM UK time = morning US East) is the emotional centrepiece of the launch. KB Britt / 5&2 Studios will provide the format. These are the key narratives Bear should draw on.</p>
+
+    <div class="grid-2">
+      <div class="card card-accent">
+        <h3>Why this project matters personally</h3>
+        <p>Bear's faith has always been the foundation of his outdoor identity. In the wild, stripped of distraction, he has consistently spoken about encountering God. This is not a new message for Bear - CITW is the fullest expression of it yet. He should say that.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>What the wilderness teaches</h3>
+        <p>"The wild is honest. It doesn't care about your reputation, your money, or your status. It cares whether you're present, humble, and genuine. That's exactly the kind of man Jesus was." This is the natural bridge between Bear's identity and The Chosen's narrative.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>Message to The Chosen audience</h3>
+        <p>Acknowledge that they know their faith deeply. Bear isn't teaching them. He's bringing a new lens - wilderness as a spiritual space, survival as a metaphor for faith. The tone should be one fan speaking to other fans, not a celebrity endorsement.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>Call to action</h3>
+        <p>Watch with family. Share it. The Chosen community is built on collective experience - community screenings, group watches, social sharing. Bear should explicitly invite group viewing. "Don't watch this alone. Watch it together." That message will resonate exactly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM BREAKDOWN -->
+<section style="background: var(--cream-dark);">
+  <div class="container">
+    <div class="section-label">Platform Strategy</div>
+    <h2>Where to show up and how</h2>
+    <table>
+      <tr>
+        <th>Platform</th>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Audience lens</th>
+      </tr>
+      <tr>
+        <td><strong>Instagram</strong></td>
+        <td>Primary</td>
+        <td>Feed post (launch + 2x sustained) + stories throughout</td>
+        <td>Faith + adventure framing. Medium-length captions - this audience reads. Tags: @thechosen @5and2studios @amazonprimevideo</td>
+      </tr>
+      <tr>
+        <td><strong>TikTok</strong></td>
+        <td>Secondary</td>
+        <td>15-30s clip at launch + one during sustained phase</td>
+        <td>Adventure angle first, faith second. Younger demographic. Consider TikTok duet with @thechosen</td>
+      </tr>
+      <tr>
+        <td><strong>YouTube</strong></td>
+        <td>Supplementary</td>
+        <td>One 3-5 min clip if Amazon/5&2 supplies a full promo cut</td>
+        <td>Adventure-first. Bear's YouTube audience is best reached with longer-form wilderness content that happens to feature CITW</td>
+      </tr>
+      <tr>
+        <td><strong>X / Twitter</strong></td>
+        <td>Skip</td>
+        <td>Not recommended</td>
+        <td>Low ROI for Bear. Focus resources on IG and TikTok.</td>
+      </tr>
+    </table>
+
+    <div style="margin-top: 2.5rem;">
+      <h3>The Chosen's own channels</h3>
+      <p>The Chosen has 2M+ Instagram followers and a TikTok presence. For launch day, Bear and The Chosen post simultaneously. Jesse should ask KB Britt to share The Chosen's planned post copy so captions are complementary, not redundant.</p>
+      <p>The Chosen audience is highly responsive to creator amplification. When Bear tags @thechosen, their community will flood into his comments. Prepare Bear for this - it will look like a takeover but it's a conversion opportunity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ASSET REQUESTS -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">What Jesse Needs from KB Britt</div>
+    <h2>Asset request checklist</h2>
+    <p class="lead narrow">Jesse should reply to the May 21 email thread and make these requests before June 20 to give time for Amazon approvals.</p>
+
+    <table>
+      <tr>
+        <th>Asset</th>
+        <th>Needed by</th>
+        <th>For</th>
+      </tr>
+      <tr>
+        <td>Official show logline / description</td>
+        <td>ASAP</td>
+        <td>Caption writing across all platforms</td>
+      </tr>
+      <tr>
+        <td>Amazon PR embargo lift: exact date and time</td>
+        <td>ASAP</td>
+        <td>Scheduling all pre-announcement content accurately</td>
+      </tr>
+      <tr>
+        <td>Key art (poster / still) — hi-res</td>
+        <td>June 30</td>
+        <td>IG feed posts (launch + sustained phase)</td>
+      </tr>
+      <tr>
+        <td>Trailer / short clip (for IG / TikTok)</td>
+        <td>July 7</td>
+        <td>Stories + TikTok at launch</td>
+      </tr>
+      <tr>
+        <td>Promotional cut (3-5 min for YouTube)</td>
+        <td>July 7</td>
+        <td>YouTube upload on launch day if applicable</td>
+      </tr>
+      <tr>
+        <td>CITW promotional calendar (the doc KB referenced)</td>
+        <td>ASAP</td>
+        <td>Aligning Bear's posts with Amazon / Chosen PR windows</td>
+      </tr>
+      <tr>
+        <td>Assets Bear needs to capture for The Chosen's channels</td>
+        <td>Before Bear's next filming block</td>
+        <td>KB mentioned these assets in her email - need to know what and when</td>
+      </tr>
+      <tr>
+        <td>Confirmation of July 9 virtual appearance format / link</td>
+        <td>June 30</td>
+        <td>Bear's preparation and time blocking</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- IMMEDIATE ACTIONS -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-label">Jesse's Immediate Actions</div>
+    <h2>Do these first</h2>
+
+    <ul class="action-list">
+      <li>
+        <div class="num">1</div>
+        <div>
+          <strong>Reply to KB Britt (this week)</strong>
+          <span>Del looped Jesse into the May 21 thread. Jesse introduces himself, confirms Bear's July 9 virtual slot, and requests the asset checklist above. This is Jesse's first official point of contact with the 5&2 team. Tone: professional, warm, direct.</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">2</div>
+        <div>
+          <strong>Confirm Amazon PR embargo with KB Britt (this week)</strong>
+          <span>Without knowing the embargo lift time, no pre-announcement content can be safely scheduled. This is the single most important piece of information for the campaign calendar. Ask specifically: "What is Amazon's confirmed embargo lift date and time for CITW?"</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">3</div>
+        <div>
+          <strong>Brief Ku Creatives / Dhika by June 1</strong>
+          <span>Calvin and the Ku team handle Bear's social execution. Brief them on CITW: what it is, the timeline, the design asset requirements, and the caption tone. They cannot execute without this briefing.</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">4</div>
+        <div>
+          <strong>Build Phase 1 tease post by June 1</strong>
+          <span>Write the cryptic pre-announcement post copy. Get it into Metricool and schedule for the week of June 1. Bear should not have to think about this - Jesse and Ku Creatives own the copy and scheduling.</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">5</div>
+        <div>
+          <strong>Sync with Del Shoopman</strong>
+          <span>Del is the connector between BGV and The Chosen. He should be in the loop on Jesse's strategy. Brief him briefly - "here is the arc I'm planning, please flag if anything conflicts with Amazon's PR plan."</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- BIG PICTURE -->
+<section class="dark-section">
+  <div class="container narrow">
+    <div class="section-label">The Bigger Picture</div>
+    <h2>Why this matters beyond the launch</h2>
+    <p class="lead">The Chosen fanbase has never meaningfully crossed into outdoor adventure content at this scale. Bear's involvement introduces him to 20M+ deeply engaged Christian viewers who don't yet know him well.</p>
+    <p>The Chosen community doesn't just watch - they recruit. They bring in friends, family, colleagues. If this lands right, it is a sustained audience acquisition event for Bear's channels, not just a launch spike.</p>
+    <p>More important: this is authentic. Bear's faith and his wilderness identity are genuinely aligned with The Chosen's world. The audience will feel that. When content is dishonest, The Chosen fanbase in particular can smell it immediately and will call it out loudly. When it's real, they amplify it with equal intensity.</p>
+
+    <div class="quote-block" style="margin-top: 2.5rem; background: rgba(255,255,255,0.08);">
+      <p>"Jesse, you are the social media lead for one of the most distinctive cross-genre collaborations Bear has ever done. Build it like a mission, not a campaign."</p>
+      <cite>Junior — May 2026</cite>
+    </div>
+
+    <div class="tag-list" style="margin-top: 2rem;">
+      <span class="pill-dark">Faith + Adventure</span>
+      <span class="pill-dark">Amazon Original</span>
+      <span class="pill-dark">August 9 drop</span>
+      <span class="pill-dark">July 9 trailer + virtual</span>
+      <span class="pill-dark">5&2 Studios</span>
+      <span class="pill-dark">The Natural Studios</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Bear x Chosen In The Wild — Social Media Launch Strategy — Built by Junior for Jesse Grylls — May 22, 2026
+</footer>
+
+</body>
+</html>
