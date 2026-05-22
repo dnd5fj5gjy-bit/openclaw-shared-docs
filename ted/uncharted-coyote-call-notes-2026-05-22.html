@@ -9,11 +9,10 @@
   :root{
     --navy:#0B1F2A; --navy2:#112D3C; --gold:#C9A24B; --gold-l:#E4C879;
     --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(11,31,42,.12);
-    --say:#0B1F2A; --saybg:#FFF8E8;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:780px;margin:0 auto;padding:0 18px 80px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
 
   .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 26px;padding:34px 26px 30px;border-bottom:3px solid var(--gold)}
   .hero .eyebrow{color:var(--gold-l);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
@@ -21,31 +20,24 @@
   .hero p{color:#cdd9e0;font-size:15px;max-width:60ch}
   .hero .meta{margin-top:14px;display:inline-block;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.5);color:var(--gold-l);font-weight:700;font-size:13px;padding:6px 12px;border-radius:30px}
 
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;margin:0 0 16px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
-  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold-l);font-weight:800;font-size:13px;margin-right:9px;flex:0 0 auto}
-  .kicker{color:var(--gold);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:4px}
-  h2{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;line-height:1.2}
-  h3{font-size:15px;font-weight:700;color:var(--navy);margin:14px 0 3px}
-  p.point{font-size:14.5px;color:#41525c;margin-top:5px}
-  .say{background:var(--saybg);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 14px;margin:9px 0 4px;font-size:16px;font-weight:600;color:var(--say)}
-  .say::before{content:"SAY";display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);font-weight:800;margin-bottom:4px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 16px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
+  .kicker{color:var(--gold);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:8px}
+  .open{font-size:16px;font-weight:600;color:var(--navy);line-height:1.55}
+  .open .note{display:block;margin-top:8px;font-weight:500;font-size:13.5px;color:#6a7780}
 
-  .lead{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border:none}
-  .lead .kicker{color:var(--gold-l)}
-  .lead h2{color:#fff}
-
-  .optional{background:#fbf4f0;border-color:rgba(160,90,60,.3)}
-  .optional .kicker{color:#a85a3c}
-
-  ul{margin:8px 0 2px;padding-left:0;list-style:none}
-  li{position:relative;padding-left:20px;margin:7px 0;font-size:14.5px;color:#3a4a54}
-  li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-  b.h{color:var(--navy)}
+  /* THE SCRIPT — read straight through */
+  .script{border-top:4px solid var(--gold)}
+  .script .kicker{color:var(--gold)}
+  .script p{font-size:17px;line-height:1.72;color:#27343c;margin:0 0 16px}
+  .script p:last-child{margin-bottom:0}
+  .script .lede{font-weight:600;color:var(--navy)}
+  .script em{font-style:normal;font-weight:700;color:var(--navy);background:#FFF4D6;padding:0 3px;border-radius:3px}
 
   .qa{border-top:1px dashed var(--line);padding-top:12px;margin-top:6px}
   .qa:first-of-type{border-top:none;padding-top:0}
   .q{font-weight:700;color:var(--navy);font-size:14.5px}
   .a{font-size:14px;color:#41525c;margin-top:3px}
+  h2{font-size:18px;font-weight:800;color:var(--navy)}
 
   .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:26px}
   .pill{display:inline-block;background:#ede7d8;color:#7a6326;font-weight:700;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0}
@@ -57,96 +49,57 @@
   <div class="hero">
     <div class="eyebrow">Bear Witness × Uncharted Treasures</div>
     <h1>Coyote Call — Your Notes</h1>
-    <p>Your half of the conversation: the plan for building a franchise off the back of the show. Clear and concise — talk to it, summarise, then offer the full document. (Updated with the Jesse call.)</p>
-    <div class="meta">⏱ Call 1:30pm · Jesse leads "promoting the show" · You lead "the franchise plan"</div>
+    <p>Your half of the conversation, written as one flowing explanation. Read it straight through and talk to it naturally — then offer the full document after.</p>
+    <div class="meta">⏱ Call 1:30pm · Jesse leads "promoting the show" · You lead "the bigger picture"</div>
   </div>
 
-  <!-- FRAME -->
+  <!-- OPENING -->
   <div class="card">
-    <div class="kicker">Open with this · ~30 sec</div>
-    <h2><span class="num">1</span> The frame</h2>
-    <div class="say">"Two things to cover today. First, how we promote the show — Jesse's going to lead that, he's done exactly this with Running Wild. Then I'll walk you through the bigger picture: how we build a franchise off the back of the show, not just promote one season."</div>
-    <p class="point">Hand to Jesse for the show-promotion piece, then pick up the franchise plan.</p>
+    <div class="kicker">The opening · before Jesse</div>
+    <p class="open">"Two things to cover today. First, how we promote the show — Jesse's going to lead that, he's done exactly this with Running Wild. Then I'll walk you through the bigger picture: how we build a franchise off the back of the show, not just promote one season."
+    <span class="note">→ Hand to Jesse for the show-promotion piece. Then come back and read the explanation below as one flow.</span></p>
   </div>
 
-  <!-- CORE IDEA -->
-  <div class="card lead">
-    <div class="kicker">Start here · explain this first</div>
-    <h2>2 · The bigger picture</h2>
-    <div class="say" style="background:rgba(255,255,255,.06);border-left-color:var(--gold-l);color:#fff">"The way we're looking at this: we don't just want to promote one show and move on. We want to build Uncharted Treasures into a year-round franchise — its own brand, its own loyal audience, something that keeps growing season after season. The TV show is a huge part of it, but it's one piece of something bigger we'd build together."</div>
-    <p class="point" style="color:#cdd9e0">He hasn't read the strategy doc — paint this picture from scratch before any detail. Don't reference "two ideas" or anything he hasn't seen yet.</p>
-  </div>
+  <!-- THE SCRIPT -->
+  <div class="card script">
+    <div class="kicker">Your explanation · read it as one flow</div>
+    <p class="lede">"So the way we're looking at this — we don't just want to promote one show and move on. We want to build Uncharted Treasures into a <em>year-round franchise</em>: its own brand, its own loyal audience, something that keeps growing season after season. The TV show is a huge part of that, but it's really one piece of something bigger we'd build together.</p>
 
-  <!-- YOUR PART -->
-  <div class="card">
-    <div class="kicker">Your part · the franchise plan</div>
-    <h2><span class="num">3</span> The points to make</h2>
+    <p>In practice, here's how it works. Through the year, you'd host a series of treasure hunts on YouTube — smaller-scale than the big one, but real hunts, real discoveries. That's what <em>builds the audience</em> and keeps people engaged all year round. And those build up towards the finale: one big expedition, the flagship — and that's the one that becomes the <em>broadcast TV season</em>.
 
-    <h3>1 — How it works (the structure)</h3>
-    <div class="say">"In practice: you'd host a series of treasure hunts on YouTube through the year — smaller-scale than the big one, but real hunts and real discoveries. That's what builds the audience and keeps people engaged all year. And those build up towards the finale: one big expedition, the flagship, and that's the one that becomes the broadcast TV season."</div>
-    <ul>
-      <li><b class="h">Year-round</b> — you host smaller-scale YouTube treasure hunts → builds hype and a loyal audience</li>
-      <li><b class="h">The finale</b> — those build up to the one big expedition = the broadcast TV season (the flagship)</li>
-    </ul>
+    <p>And everything we do along the way — every one of those digital hunts and every broadcast episode — we turn into weeks of content. We repurpose it across every platform, run the best of it as ads, and feed it all back into the YouTube channel. So the whole thing is constantly building the audience.
 
-    <h3>2 — The content engine</h3>
-    <div class="say">"And everything we do — every one of those digital hunts and every broadcast episode — we turn into weeks of content. We repurpose it across every social platform, run the best of it as ads, and feed it all back into the YouTube channel. So the whole thing is constantly building the audience."</div>
+    <p>And that audience is really the asset. It means when we take the big show to a network, we're not just pitching an idea — we're bringing a <em>proven, loyal audience</em> with us. That's what makes it land.
 
-    <h3>3 — The audience is the asset</h3>
-    <div class="say">"That audience is the real asset. It means when we take the big show to a network, we're not just pitching an idea — we're bringing a proven, loyal audience with us. That's what makes it land."</div>
+    <p>On our side, this is what we do well. We're experts at activating promotion around Bear Grylls, and we'd bring exactly that to Uncharted Treasures and to your brand, working alongside your team — building the Uncharted brand and <em>your brand</em> together, with you as the host of the digital series.
 
-    <h3>4 — What we bring, and building your brand</h3>
-    <div class="say">"This is what we do well — we're experts at activating promotion around Bear Grylls, and we'll bring exactly that to Uncharted Treasures and to your brand, working alongside your team. The goal is to build the Uncharted brand and your brand together, with you as the host of the digital series."</div>
+    <p>And the whole thing is underpinned by something most treasure shows can't offer: real credibility. Real excavation permits, a real archaeology team, real finds. That's what makes people trust it and stick with it.
 
-    <h3>5 — Underpinned by genuine credibility</h3>
-    <div class="say">"And it's all underpinned by real credibility — real excavation permits, a real archaeology team, real finds. That's what makes the audience trust it and stay, and it's what most treasure-hunt shows can't offer."</div>
-  </div>
-
-  <!-- LOYAL OWNED AUDIENCE -->
-  <div class="card">
-    <div class="kicker">On reach · say it plainly</div>
-    <h2><span class="num">4</span> A loyal audience, built with you</h2>
-    <div class="say">"Your reach and Bear's are how we launch quickly and at scale. From there, the plan is to build an audience that's genuinely loyal to Uncharted Treasures — and to build your brand right alongside it, with you as the host. That loyal audience is what makes each season easier to sell, and what lets the franchise stand on its own over time."</div>
-    <p class="point"><b class="h">In one line:</b> the reach gets us started fast; a loyal Uncharted audience — built with your brand — is what holds the value long term.</p>
-  </div>
-
-  <!-- OPTIONAL: UMBRELLA -->
-  <div class="card optional">
-    <div class="kicker">Optional · recommend leaving out</div>
-    <h2><span class="num">5</span> Other adventurers / "the umbrella"</h2>
-    <p class="point">You flagged this. Recommend <b class="h">not</b> making it a main point — we can't pay other creators yet, so they won't sit under the brand for free, and it complicates the cleaner "build Uncharted + your brand" message. If it comes up naturally, keep it light:</p>
-    <div class="say">"Longer term we're developing a strategy to bring other adventurers into the Uncharted world — but right now the focus is building this brand and yours, with you hosting the digital series."</div>
-  </div>
-
-  <!-- CLOSE -->
-  <div class="card">
-    <div class="kicker">Close the loop</div>
-    <h2><span class="num">6</span> The close</h2>
-    <div class="say">"That's the plan in summary. We've documented the full strategy — the phasing, the channels, the content engine and the targets. Rather than take you through all of it now, we'll send it over right after the call so you can review it properly."</div>
+    <p>That's the picture. We've put the full strategy into a document — rather than take you through all of it now, we'll send it over right after the call so you can go through it properly."</p>
   </div>
 
   <!-- QA -->
   <div class="card">
-    <div class="kicker">If he asks · quick-fire</div>
-    <h2><span class="num">7</span> Likely questions</h2>
+    <div class="kicker">Reference only · if he asks</div>
+    <h2>If he asks</h2>
     <div class="qa"><div class="q">"How much does this rely on me posting?"</div><div class="a">Your reach launches it; from there it runs on the loyal audience we build together, paid media and the wider portfolio. You're central as host — you accelerate it rather than carry it alone.</div></div>
-    <div class="qa"><div class="q">"What's Bear's role?"</div><div class="a">Executive producer credit, which opens broadcaster doors — Disney, Nat Geo, Amazon, Apple — plus stories and reposts to his 8.5M followers at launch. No new filming required; be straight on that. And we bring our Bear-Grylls promotional expertise across to your brand too.</div></div>
+    <div class="qa"><div class="q">"What's Bear's role?"</div><div class="a">Executive producer credit, which opens broadcaster doors — Disney, Nat Geo, Amazon, Apple — plus stories and reposts to his 8.5M followers at launch. No new filming required; be straight on that.</div></div>
     <div class="qa"><div class="q">"What do you need from me?"</div><div class="a">Hosting the digital series — the year-round YouTube treasure hunts — plus episode content and the podcast circuit. We work alongside your team on all of it.</div></div>
     <div class="qa"><div class="q">"How do you sell this to a network?"</div><div class="a">With the engaged year-round audience. We bring a proven, loyal audience to the table, not just a concept — that's what de-risks it for a broadcaster.</div></div>
     <div class="qa"><div class="q">"Why will this last when other treasure shows haven't?"</div><div class="a">Real permits, a real archaeology team and real finds, plus a year-round audience rather than a one-off. Credibility over manufactured drama.</div></div>
+    <div class="qa"><div class="q">"What about other adventurers / an umbrella of creators?"</div><div class="a">Don't lead on it — we can't pay other creators yet. If it comes up: "longer term we're developing a strategy to bring other adventurers in, but right now the focus is building this brand and yours, with you hosting."</div></div>
   </div>
 
   <div class="card" style="background:#fbf7ec;border-color:rgba(201,162,75,.4)">
     <div class="kicker">Keep in mind</div>
+    <span class="pill">Read it as one flow</span>
     <span class="pill">Clear and professional</span>
-    <span class="pill">Talk to it, don't read it out</span>
     <span class="pill">Jesse = show promo</span>
-    <span class="pill">You = the franchise plan</span>
-    <span class="pill">Smaller hunts → broadcast finale · everything repurposed</span>
+    <span class="pill">You = the bigger picture</span>
     <span class="pill">Summarise, then offer the doc</span>
   </div>
 
-  <div class="foot">Reading notes for Olly · Coyote Peterson call, 22 May 2026 · updated post-Jesse call · full strategy doc sent after the call</div>
+  <div class="foot">Reading notes for Olly · Coyote Peterson call, 22 May 2026 · full strategy doc sent after the call</div>
 
 </div>
 </body>
