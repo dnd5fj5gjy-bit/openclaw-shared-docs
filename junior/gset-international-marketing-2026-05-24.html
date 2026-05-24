@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSET International Marketing Strategy — Year 2 Push</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --gold: #B8960C;
+    --gold-light: #D4AF37;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; background: var(--forest-deep);
+    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    z-index: 100; border-bottom: 2px solid var(--earth);
+  }
+  nav .brand { font-family: 'DM Serif Display', serif; color: var(--white); font-size: 1.1rem; }
+  nav .meta { color: var(--sand); font-size: 0.8rem; font-weight: 300; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; background: var(--forest-deep);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 8rem 2rem 4rem;
+    background-image: linear-gradient(135deg, var(--forest-deep) 0%, #0f2018 50%, var(--forest) 100%);
+  }
+  .hero-inner { max-width: 900px; }
+  .hero-badge {
+    display: inline-block; background: var(--earth); color: var(--white);
+    padding: 0.4rem 1.2rem; border-radius: 2px; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--white); line-height: 1.1; margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--earth-light); }
+  .hero .sub {
+    font-size: 1.15rem; color: var(--sand); font-weight: 300;
+    max-width: 650px; margin: 0 auto 2.5rem;
+  }
+  .hero-stats {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--gold-light); }
+  .hero-stat .label { font-size: 0.75rem; color: var(--sand); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .inner { max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--earth); margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.2; margin-bottom: 1.5rem;
+  }
+  p { margin-bottom: 1rem; font-size: 1rem; font-weight: 400; }
+
+  /* DARK SECTION */
+  .dark { background: var(--forest-deep); color: var(--cream); }
+  .dark h2 { color: var(--white); }
+  .dark .section-label { color: var(--earth-light); }
+  .dark p { color: var(--sand); }
+
+  /* ALT SECTION */
+  .alt { background: var(--white); }
+
+  /* CARDS */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .card {
+    background: var(--white); border-radius: 4px; padding: 1.8rem;
+    border-left: 4px solid var(--earth); box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .dark .card { background: rgba(255,255,255,0.06); border-left-color: var(--earth-light); }
+  .card-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--earth); margin-bottom: 0.5rem; }
+  .dark .card-num { color: var(--earth-light); }
+  .card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .dark .card h3 { color: var(--white); }
+  .card p { font-size: 0.9rem; margin-bottom: 0; }
+  .dark .card p { color: var(--sand); }
+
+  /* HOOK CARDS */
+  .hook-card {
+    background: var(--white); border-radius: 4px; padding: 2rem;
+    margin-bottom: 1.5rem; border-top: 3px solid var(--gold-light);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+  .hook-card .hook-timing {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .hook-card h3 {
+    font-family: 'DM Serif Display', serif; font-size: 1.6rem;
+    margin-bottom: 0.8rem; color: var(--forest-deep);
+  }
+  .hook-card .hook-detail { font-size: 0.9rem; color: #555; }
+  .hook-card .hook-angle {
+    margin-top: 1rem; padding: 0.8rem 1rem;
+    background: var(--cream); border-left: 3px solid var(--earth);
+    font-size: 0.9rem; font-style: italic;
+  }
+
+  /* MARKET TABLE */
+  .market-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+  .market-table th {
+    background: var(--forest-deep); color: var(--white);
+    padding: 0.8rem 1rem; text-align: left; font-size: 0.8rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .market-table td {
+    padding: 0.9rem 1rem; border-bottom: 1px solid var(--cream-dark);
+    font-size: 0.9rem; vertical-align: top;
+  }
+  .market-table tr:nth-child(even) td { background: var(--cream); }
+  .market-table tr:hover td { background: #f0ebe3; }
+  .priority-1 { color: var(--earth); font-weight: 700; }
+  .priority-2 { color: #666; font-weight: 600; }
+
+  /* CHANNEL GRID */
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+  .channel {
+    padding: 1.5rem; border-radius: 4px;
+    background: var(--cream-dark); text-align: center;
+  }
+  .channel-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .channel h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .channel p { font-size: 0.82rem; color: #555; margin-bottom: 0; }
+
+  /* SPRINT TABLE */
+  .sprint { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+  .sprint th {
+    background: var(--forest); color: var(--white);
+    padding: 0.7rem 1rem; text-align: left; font-size: 0.8rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .sprint td {
+    padding: 0.8rem 1rem; border-bottom: 1px solid var(--cream-dark);
+    font-size: 0.88rem; vertical-align: top;
+  }
+  .sprint tr:nth-child(even) td { background: #f7f3ed; }
+  .sprint .week { font-weight: 700; white-space: nowrap; color: var(--forest); }
+  .sprint .owner { color: var(--earth); font-weight: 600; font-size: 0.8rem; }
+  .sprint .tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+  .tag-jesse { background: #e8f0eb; color: var(--forest); }
+  .tag-andy { background: #f0e8df; color: var(--earth); }
+  .tag-joint { background: #e8e0d6; color: #555; }
+
+  /* GOLDEN BOX */
+  .golden-box {
+    background: linear-gradient(135deg, var(--forest-deep), #0a1a12);
+    border: 1px solid var(--gold-light); border-radius: 4px;
+    padding: 2rem; margin: 2rem 0; color: var(--white);
+  }
+  .golden-box h3 {
+    font-family: 'DM Serif Display', serif; color: var(--gold-light);
+    font-size: 1.4rem; margin-bottom: 1rem;
+  }
+  .golden-box p { color: var(--sand); font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .golden-box strong { color: var(--white); }
+
+  /* KPI BOX */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .kpi {
+    background: var(--forest); color: var(--white);
+    padding: 1.5rem; text-align: center; border-radius: 4px;
+  }
+  .kpi .kpi-val { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--gold-light); }
+  .kpi .kpi-label { font-size: 0.78rem; color: var(--sand); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: var(--sand);
+    text-align: center; padding: 2rem; font-size: 0.8rem;
+  }
+
+  /* DIVIDER */
+  .divider { width: 60px; height: 3px; background: var(--earth); margin: 1rem 0 2rem; }
+  .dark .divider { background: var(--earth-light); }
+
+  /* LIST */
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li {
+    padding: 0.5rem 0 0.5rem 1.5rem; font-size: 0.95rem;
+    border-bottom: 1px solid var(--cream-dark);
+    position: relative;
+  }
+  ul.clean li:before { content: '→'; position: absolute; left: 0; color: var(--earth); }
+  .dark ul.clean li { border-bottom-color: rgba(255,255,255,0.1); color: var(--sand); }
+  .dark ul.clean li:before { color: var(--earth-light); }
+
+  @media (max-width: 600px) {
+    section { padding: 3rem 1.2rem; }
+    .hero { padding: 7rem 1.2rem 3rem; }
+    .hero-stats { gap: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">GSET Year 2 International Push</div>
+  <div class="meta">Prepared by Junior — 25 May 2026 — CONFIDENTIAL</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Bear Grylls / Hodder / Jesse Grylls</div>
+    <h1>The Greatest Story<br>Ever Told — <span>Year 2</span></h1>
+    <p class="sub">Jesse just landed the GSET International Marketing mandate. This brief maps the strategy, the three live cultural hooks, and the 90-day sprint to drive another 200K copies globally.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">#1</div>
+        <div class="label">Sunday Times Bestseller</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">4.7★</div>
+        <div class="label">1,953 Amazon UK Reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">200K</div>
+        <div class="label">Year 2 Target (Andy/Hodder)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="label">Live Cultural Hooks 2026/27</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATION -->
+<section class="alt">
+  <div class="inner">
+    <div class="section-label">Situation</div>
+    <h2>Where the Book Stands</h2>
+    <div class="divider"></div>
+    <p>GSET launched June 2025 with a No.1 Sunday Times debut. 4.7 stars with nearly 2,000 reviews. Bestseller status in Christian Church History on Amazon. By all measures, a strong Year 1 in the UK. The challenge Andy/Hodder brought Jesse in to solve: <strong>Year 2 international sales</strong>.</p>
+    <p>Year 2 is always harder for a faith book. The initial wave of core believers bought early. The growth now comes from two directions: reaching faith communities in new markets (especially the US) and breaking through to the cultural middle — people who don't identify as religious but respect Bear, are curious about Jesus, or will be pulled in by the surrounding cultural moment.</p>
+    <p>The timing in summer/autumn 2026 is genuinely exceptional. Three major cultural events align with GSET's content. This brief is built around exploiting all three.</p>
+
+    <div class="cards" style="margin-top:2.5rem">
+      <div class="card">
+        <div class="card-num">UK</div>
+        <h3>Home Market — Defend</h3>
+        <p>Remain visible. Hay Festival + JCS give two major PR windows this summer. Don't let the book go quiet.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">US</div>
+        <h3>Primary Growth Market</h3>
+        <p>Largest English-language Christian book market in the world. Bear has 100M+ monthly impressions via Fox/Running Wild. GSET has not broken through here yet. This is the prize.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">AU+ZA</div>
+        <h3>Secondary Anglophone Markets</h3>
+        <p>Strong faith communities, English-language, Bear highly recognised. Lighter lift than the US but meaningful volume.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE THREE HOOKS -->
+<section class="dark">
+  <div class="inner">
+    <div class="section-label">2026 / 2027 Opportunity</div>
+    <h2>Three Cultural Hooks</h2>
+    <div class="divider"></div>
+    <p>These are not manufactured PR pegs. They are live, high-profile cultural events that put the story of Jesus at the centre of public conversation. GSET is the perfect companion book for all three.</p>
+  </div>
+</section>
+
+<section class="alt" style="padding-top:0">
+  <div class="inner" style="padding-top:3rem">
+
+    <div class="hook-card">
+      <div class="hook-timing">Hook 1 — Summer 2026, Live Now</div>
+      <h3>Jesus Christ Superstar at the London Palladium</h3>
+      <p class="hook-detail">The award-winning Regent's Park Open Air Theatre production is transferring to the London Palladium for summer 2026. Cast: Sam Ryder as Jesus (Eurovision finalist, massive following), Tyrone Huntley as Judas, Boy George / Richard Armitage / Jesse Tyler Ferguson rotating as King Herod. This is a mainstream cultural event, not a niche faith production. It will generate enormous press coverage and put the story of Jesus in the secular spotlight all summer.</p>
+      <div class="hook-angle">
+        <strong>GSET angle:</strong> "Before you see it at the Palladium, read the account that started 2,000 years ago. Bear Grylls' eyewitness retelling of the same story — told through the eyes of someone who was there." Link directly to the production's promotional window. Approach the Palladium/LW Theatres for co-promotion: GSET in programme inserts, links in email newsletters, content crossover. This is not a paid media play — it's earned through the shared subject matter.
+      </div>
+    </div>
+
+    <div class="hook-card">
+      <div class="hook-timing">Hook 2 — Good Friday 26 March 2027 (pre-marketing starts now)</div>
+      <h3>Mel Gibson's "The Resurrection of the Christ"</h3>
+      <p class="hook-detail">The sequel to The Passion of the Christ (2004 box office: $612M), distributed by Lionsgate. Two-part release: Part 1 on Good Friday March 26, 2027, Part 2 on Ascension Day May 6, 2027. Now filming in Italy. Jim Caviezel not returning; Finnish actor Jaakko Ohtonen as Jesus. The build-up marketing for this film — set for global release — will be the largest mainstream cultural focus on Jesus since 2004. The pre-release window starts this autumn.</p>
+      <div class="hook-angle">
+        <strong>GSET angle:</strong> Position GSET as "the book to read before the film." By the time the film releases, GSET should be embedded in every Christian retail, streaming platform, and faith community as the companion read. Work with Andy/Hodder NOW to secure a tie-in edition (potentially with a "before the film" cover wrap). Approach Lionsgate's international marketing teams for potential co-promotion. This is an 18-month flywheel that Jesse should be seeding now.
+      </div>
+    </div>
+
+    <div class="hook-card">
+      <div class="hook-timing">Hook 3 — Late May / June 2026</div>
+      <h3>Hay Festival + Shara's Book Launch</h3>
+      <p class="hook-detail">Bear and Shara are both at Hay-on-Wye this season. Shara just launched "Never Stop Holding Hands." This is a double Grylls presence at the UK's leading literary festival — the natural media event to remind literary audiences that GSET exists and is still generating conversation. Andrew Smiles's family connection (introduced via Bertie Portal) is attending, with Lizzie Birkelund (Bear's relative, author) also at Hay.</p>
+      <div class="hook-angle">
+        <strong>GSET angle:</strong> Bear + Shara double event at Hay is a PR gift. Work with Hodder's PR team to get GSET prominently stocked at the Hay bookshop and in any Hay press coverage of the Grylls family. Use Bear's Hay appearance to do a brief faith/family/Jesus content moment for social — this creates immediate Hay-week GSET visibility. This is a short window but a free one.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MARKET PRIORITY -->
+<section>
+  <div class="inner">
+    <div class="section-label">Market Strategy</div>
+    <h2>Market Priority Stack</h2>
+    <div class="divider"></div>
+    <p>Jesse's mandate is international. Below is the priority order, with the rationale for each market and the single most important action in each.</p>
+
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Market</th>
+          <th>Why Now</th>
+          <th>Key Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="priority-1">1</td>
+          <td><strong>USA</strong></td>
+          <td>Largest English-language Christian market (80M+ evangelical Christians). Bear has Fox/Running Wild distribution, 100M+ monthly impressions on Bear's social channels. GSET not yet visible here — it's UK-published but available on Amazon US. The Mel Gibson film pre-marketing starts this autumn in the US first.</td>
+          <td>Confirm US publisher/distributor arrangement with Andy/Hodder. Build a Bear-led US social campaign. Target faith podcasts and media (listed below). Approach Lionsgate US on film tie-in.</td>
+        </tr>
+        <tr>
+          <td class="priority-2">2</td>
+          <td><strong>Australia</strong></td>
+          <td>Large Christian community (~52% identify as Christian). English-language, Bear very familiar via outdoor/adventure profile. Hodder has Commonwealth distribution.</td>
+          <td>Target top Australian Christian media and retailers. Calvin/Ku to schedule 3-4 Australia-specific posts on Bear's channels during key windows.</td>
+        </tr>
+        <tr>
+          <td class="priority-2">3</td>
+          <td><strong>South Africa</strong></td>
+          <td>Very large Christian population. Bear well-known. Rob Walker (capitalchange.co.za) already in the Modern Savage thread — faith networks likely overlap.</td>
+          <td>Identify faith media contacts. Check if Hodder has SA distributor.</td>
+        </tr>
+        <tr>
+          <td class="priority-2">4</td>
+          <td><strong>Ireland</strong></td>
+          <td>Natural market, strong faith culture, easy PR via Irish media using Bear's known profile.</td>
+          <td>Target Irish Times, Irish Independent faith pages. Lightweight coverage play.</td>
+        </tr>
+        <tr>
+          <td class="priority-2">5</td>
+          <td><strong>Canada</strong></td>
+          <td>Large faith community, English-language, Bear widely recognised from Canadian adventures.</td>
+          <td>Bundle with US campaign. Same media targets with slight regional adaptation.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- THE CHOSEN CONNECTION -->
+<section class="dark">
+  <div class="inner">
+    <div class="section-label">Unfair Advantage</div>
+    <h2>The Chosen Connection</h2>
+    <div class="divider"></div>
+    <p>This is GSET's biggest untapped asset. Jesse is now the social media lead for <strong>Chosen in the Wild</strong> — a Bear Grylls x The Chosen collaboration coming Aug 9, 2026 on Amazon. The Chosen is the most-watched Christian streaming series in history, with over 200M viewers across 190+ countries.</p>
+
+    <div class="golden-box">
+      <h3>The convergence nobody has activated yet</h3>
+      <p>Bear appears in The Chosen's universe (CITW, Aug 9). Bear wrote GSET — a retelling of Jesus's story. The Chosen's audience is exactly GSET's core market: faith-based, highly engaged, book-buying Christians.</p>
+      <p><strong>CITW drops Aug 9.</strong> That's the same week the JCS summer run peaks in London. That's 8 months before the Mel Gibson film opens.</p>
+      <p>The pitch to The Chosen's team (via Tasha Gaines at tasha@thechosen.tv): <strong>include GSET in The Chosen's in-show notes or creator newsletter as a companion read for viewers who want to go deeper on the story of Jesus.</strong> This requires no payment — it's a natural editorial recommendation. The Chosen's newsletter alone likely reaches 5-10M faith readers.</p>
+      <p><strong>This one activation alone could be worth more than any paid media campaign combined.</strong></p>
+    </div>
+
+    <ul class="clean">
+      <li>Ask Tasha Gaines for The Chosen's email newsletter reach and format — gauge if a GSET mention is possible</li>
+      <li>Prepare a short GSET "companion read" description Andy/Hodder can provide to The Chosen</li>
+      <li>Request Bear creates one CITW-adjacent content moment that naturally bridges to GSET (a short reflection on Jesus's story)</li>
+      <li>Explore whether CITW promotional material (Amazon, social) can include any GSET integration</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CHANNEL STRATEGY -->
+<section class="alt">
+  <div class="inner">
+    <div class="section-label">Channel Strategy</div>
+    <h2>How to Reach the Right Audiences</h2>
+    <div class="divider"></div>
+    <p>GSET needs two tracks running simultaneously: deepening penetration in core faith communities, and breaking through to the cultural middle who are faith-curious but not faith-active.</p>
+
+    <div class="channel-grid">
+      <div class="channel">
+        <div class="channel-icon">📱</div>
+        <h4>Social (Jesse-led)</h4>
+        <p>Bear's 100M/month impressions. Monthly GSET content drops. Tied to JCS/Chosen/Mel Gibson news hooks. Calvin/Olly execute.</p>
+      </div>
+      <div class="channel">
+        <div class="channel-icon">🎙️</div>
+        <h4>Faith Podcasts (US)</h4>
+        <p>The Chosen Podcast, The Daily Lectio, Focus on the Family, RELEVANT Podcast, Kirk Cameron's "Takeaways". Bear as guest.</p>
+      </div>
+      <div class="channel">
+        <div class="channel-icon">📚</div>
+        <h4>Christian Retail</h4>
+        <p>LifeWay (US), Mardel, Eden Books (UK), Koorong (AU). Secure front-of-store placement during the Mel Gibson film pre-marketing window (Sept-Feb).</p>
+      </div>
+      <div class="channel">
+        <div class="channel-icon">✉️</div>
+        <h4>Email Partnerships</h4>
+        <p>The Chosen's newsletter, Focus on the Family's lists, Premier Christianity (UK). A single endorsed mention in these lists is worth 50,000 social posts.</p>
+      </div>
+      <div class="channel">
+        <div class="channel-icon">🗞️</div>
+        <h4>Press / Media</h4>
+        <p>Christian Today, Premier Christianity, Christianity Today (US), ChurchLeaders.com. Not secular press — the faith media ecosystem is where this book lives.</p>
+      </div>
+      <div class="channel">
+        <div class="channel-icon">🎤</div>
+        <h4>Speaking / Church Tours</h4>
+        <p>Bear at major US megachurches (Elevation, Hillsong USA, Saddleback). One speaking slot = signed book tables, newsletter mentions, social amplification.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem">
+      <h3 style="font-size:1.2rem;margin-bottom:1rem;font-weight:600">Key US Faith Media Targets</h3>
+      <ul class="clean">
+        <li><strong>Christianity Today</strong> — largest evangelical magazine/site in the US. A review or feature here opens the evangelical door</li>
+        <li><strong>The Gospel Coalition</strong> — major Reformed/evangelical network, massive blogger readership</li>
+        <li><strong>RELEVANT Magazine</strong> — faith + culture crossover, younger audience, strong digital reach</li>
+        <li><strong>Focus on the Family</strong> — 35M+ monthly reach across radio, digital, print</li>
+        <li><strong>Kirk Cameron's Living Waters</strong> — faith media built around evangelism, exactly GSET's DNA</li>
+        <li><strong>ChurchLeaders.com</strong> — 300,000 US pastors read this. One recommendation from a pastor = 100+ book sales</li>
+        <li><strong>Eric Metaxas Show</strong> — top Christian talk radio/podcast, NYC-based, national syndication</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- JESSE'S ROLE -->
+<section>
+  <div class="inner">
+    <div class="section-label">Division of Labour</div>
+    <h2>Jesse's Role vs. Andy's Role</h2>
+    <div class="divider"></div>
+    <p>Andy Lyon and Hodder own the publishing infrastructure: distribution, retail relationships, PR agency, foreign rights deals. Jesse's mandate is specifically international marketing — which means digital, social, and relationship-driven amplification that Hodder's traditional publishing machine won't execute on its own.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-num" style="font-size:1.3rem;color:var(--forest)">Jesse</div>
+        <h3>Digital + Social + Partnerships</h3>
+        <ul class="clean" style="margin-top:0.5rem">
+          <li>Monthly GSET content calendar on Bear's channels</li>
+          <li>The Chosen tie-in negotiation (via Tasha Gaines)</li>
+          <li>US faith podcast pitching (Bear as guest)</li>
+          <li>Mel Gibson film tie-in partnership approach (Lionsgate)</li>
+          <li>JCS Palladium co-promotion outreach</li>
+          <li>US megachurch speaking pipeline (via EBG / Bear's US network)</li>
+          <li>Fan community activation (Bear's 100M impressions)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-num" style="font-size:1.3rem;color:var(--earth)">Andy / Hodder</div>
+        <h3>Publishing + Retail + Rights</h3>
+        <ul class="clean" style="margin-top:0.5rem">
+          <li>US publisher/distributor arrangement</li>
+          <li>Christian retail (LifeWay, Mardel) placement campaigns</li>
+          <li>Foreign rights sales (translation deals)</li>
+          <li>PR agency co-ordination</li>
+          <li>Tie-in edition production (Mel Gibson "before the film" cover)</li>
+          <li>Hay Festival and literary press</li>
+          <li>Award submissions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-num" style="font-size:1.3rem;color:var(--gold)">Joint</div>
+        <h3>High-Value Partnerships</h3>
+        <ul class="clean" style="margin-top:0.5rem">
+          <li>The Chosen integration (Jesse leads, Hodder provides materials)</li>
+          <li>Lionsgate Mel Gibson tie-in (Jesse initiates, Hodder licenses)</li>
+          <li>JCS Palladium co-promo (either can lead)</li>
+          <li>US megachurch tour (Jesse sources via EBG, Hodder supplies signed stock)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 90-DAY SPRINT -->
+<section class="dark">
+  <div class="inner">
+    <div class="section-label">Execution</div>
+    <h2>90-Day Sprint Plan</h2>
+    <div class="divider"></div>
+    <p>The priority is getting the structural partnerships in place before the summer quiets down. The autumn is when the real sales push happens — before Christmas and before the Mel Gibson film's pre-marketing peak.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="inner" style="padding-top:3rem">
+    <table class="sprint">
+      <thead>
+        <tr>
+          <th>Timeframe</th>
+          <th>Action</th>
+          <th>Owner</th>
+          <th>Hook</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="week">May 26–31</td>
+          <td>Call with Andy Lyon — align on Jesse's mandate scope, confirm US distribution status, request Hodder PR contacts and existing sales data by market</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>Foundation</td>
+        </tr>
+        <tr>
+          <td class="week">May 26–31</td>
+          <td>Contact Tasha Gaines (tasha@thechosen.tv) — express interest in GSET integration in The Chosen's editorial content around the CITW launch window. Ask for newsletter format and reach data.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>Chosen</td>
+        </tr>
+        <tr>
+          <td class="week">June 1–7</td>
+          <td>GSET social content drop 1: Bear on the JCS Palladium opening — "Before you watch Judas betray Jesus on the Palladium stage this summer, here's what actually happened..." Link to GSET. Calvin/Olly execute.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>JCS</td>
+        </tr>
+        <tr>
+          <td class="week">June 1–7</td>
+          <td>Approach LW Theatres (lwtheatres.co.uk) — offer Bear Grylls content in programme or newsletter in exchange for GSET placement/mention. Bear as a known face adds credibility.</td>
+          <td class="owner"><span class="tag tag-joint">Joint</span></td>
+          <td>JCS</td>
+        </tr>
+        <tr>
+          <td class="week">June 8–21</td>
+          <td>Build US faith podcast pitch list. Pitch Bear as guest to: Kirk Cameron's "Takeaways," RELEVANT Podcast, Eric Metaxas Show, The Chosen Podcast. Brief: Bear's faith journey, eyewitness storytelling approach, what GSET teaches readers about Jesus.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>US Push</td>
+        </tr>
+        <tr>
+          <td class="week">June 8–21</td>
+          <td>Hay Festival window — coordinate with Bear/Hodder for GSET to be prominently stocked and mentioned in press coverage. Bear creates 1x social content moment from Hay (faith angle).</td>
+          <td class="owner"><span class="tag tag-joint">Joint</span></td>
+          <td>Hay</td>
+        </tr>
+        <tr>
+          <td class="week">July 1–15</td>
+          <td>GSET social content drop 2: Chosen in the Wild launch window (Aug 9 binge drop). Bear's CITW content should reference the deeper story — natural bridge to GSET for Bear's faith audience.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>Chosen</td>
+        </tr>
+        <tr>
+          <td class="week">July–August</td>
+          <td>Mel Gibson tie-in planning: approach Lionsgate UK/US with proposal — GSET as official companion read for "Resurrection of the Christ." Target: "before the film" cover edition agreement by Sept. Andy/Hodder to co-lead on the licensing side.</td>
+          <td class="owner"><span class="tag tag-joint">Joint</span></td>
+          <td>Mel Gibson</td>
+        </tr>
+        <tr>
+          <td class="week">August</td>
+          <td>ChurchLeaders.com and Christianity Today — pitch Bear for a first-person piece on "Why I wrote about Jesus." This creates the evangelical press breakthrough needed for the US market. One article = 300K+ pastor readers.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>US Push</td>
+        </tr>
+        <tr>
+          <td class="week">Sept–Oct</td>
+          <td>US megachurch speaking — through EBG/Ben Simon, book Bear for 2-3 appearances at major US megachurches (Elevation Church, Saddleback, Hillsong USA). Each event = hundreds of direct book sales, major social reach, newsletter distribution.</td>
+          <td class="owner"><span class="tag tag-jesse">Jesse</span></td>
+          <td>US Push</td>
+        </tr>
+        <tr>
+          <td class="week">Oct–Nov</td>
+          <td>Pre-Mel Gibson media blitz: as the "Resurrection of the Christ" pre-marketing kicks into high gear globally, GSET is positioned as the book the film's audience should read. Target: Christian retail placement campaigns in US, AU, ZA timed to the pre-launch window.</td>
+          <td class="owner"><span class="tag tag-andy">Andy/Hodder</span></td>
+          <td>Mel Gibson</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- KPIS -->
+<section class="alt">
+  <div class="inner">
+    <div class="section-label">Measurement</div>
+    <h2>KPIs for Jesse's Mandate</h2>
+    <div class="divider"></div>
+    <p>The 200K Year 2 target belongs to Andy/Hodder. Jesse's contribution is measured differently — by the quality and reach of the partnerships and channels he activates. Below are Jesse's KPIs.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-val">1</div>
+        <div class="kpi-label">Chosen integration confirmed (any format)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">1</div>
+        <div class="kpi-label">Mel Gibson tie-in proposal sent by end July</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">3+</div>
+        <div class="kpi-label">US faith podcast appearances booked by Sept</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">2+</div>
+        <div class="kpi-label">US megachurch speaking slots confirmed</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">4</div>
+        <div class="kpi-label">GSET social content drops (Bear's channels) by Aug 31</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">1</div>
+        <div class="kpi-label">US Christian press feature (Christianity Today / RELEVANT) live by Aug</div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;padding:1.5rem;background:var(--cream-dark);border-radius:4px">
+      <h3 style="font-size:1rem;margin-bottom:0.5rem;font-weight:600">First conversation with Andy Lyon — agenda</h3>
+      <ul class="clean">
+        <li>What does the US distribution arrangement look like — is GSET available on Amazon US via Hodder or through a separate distributor?</li>
+        <li>What territories have seen organic international growth without marketing support?</li>
+        <li>Has Hodder approached Lionsgate about the Mel Gibson film? If not, Jesse can lead.</li>
+        <li>What PR agency is Hodder using — and have they pitched US faith media?</li>
+        <li>Can Hodder produce a "before the film" cover wrap edition in time for Oct/Nov?</li>
+        <li>What is the Hay Festival plan — is Bear doing an event or just attending?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>GSET International Marketing Strategy — Prepared by Junior, 25 May 2026</p>
+  <p style="margin-top:0.3rem;opacity:0.6">Jesse Grylls / Bear Grylls Ventures — Confidential</p>
+</footer>
+
+</body>
+</html>
