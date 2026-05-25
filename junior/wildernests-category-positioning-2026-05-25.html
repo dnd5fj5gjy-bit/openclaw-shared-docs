@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildernests — Category Positioning Brief | May 2026</title>
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #fafaf8;
+    --accent: #2d5a4e;
+    --accent-light: #3d7a68;
+    --warm: #8b6914;
+    --muted: #6b7280;
+    --border: #e0ddd8;
+    --card-bg: #f5f3f0;
+    --red: #b91c1c;
+    --green: #166534;
+    --amber: #92400e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: 60px;
+    width: 180px; height: 180px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .hero-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 2.8em;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+  .hero-sub {
+    font-size: 1.1em;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    font-style: italic;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 40px;
+  }
+  .verdict-box {
+    background: var(--accent);
+    color: #fff;
+    padding: 28px 32px;
+    border-radius: 4px;
+    margin-bottom: 44px;
+  }
+  .verdict-box .verd-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+  }
+  .verdict-box .verd-title {
+    font-size: 1.7em;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .verdict-box .verd-quote {
+    font-style: italic;
+    font-size: 1.05em;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 12px;
+  }
+  .verdict-box .verd-note {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+  h2 {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 44px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--ink);
+    margin: 22px 0 8px;
+  }
+  p { margin-bottom: 14px; }
+  .stakes {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .stakes p { margin: 0 0 8px; font-size: 0.97em; }
+  .stakes p:last-child { margin: 0; }
+  /* Scoring matrix */
+  .matrix { margin: 24px 0; border-collapse: collapse; width: 100%; font-size: 0.9em; font-family: 'Helvetica Neue', sans-serif; }
+  .matrix th {
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .matrix tr:last-child td { border-bottom: none; }
+  .matrix tr:nth-child(even) td { background: var(--card-bg); }
+  .score {
+    display: inline-flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.filled { background: var(--accent); }
+  .dot.empty { background: var(--border); }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  .badge.win { background: #dcfce7; color: var(--green); }
+  .badge.ok { background: #fef9c3; color: var(--amber); }
+  .badge.weak { background: #fee2e2; color: var(--red); }
+  /* Candidate cards */
+  .candidate {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 22px 0;
+    overflow: hidden;
+  }
+  .candidate-header {
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .candidate-name {
+    font-size: 1.15em;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .candidate-rank {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .candidate-body {
+    padding: 18px 22px;
+    font-size: 0.95em;
+  }
+  .pro-con {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .pro-list, .con-list {
+    background: var(--card-bg);
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .pro-list .pc-label { color: var(--green); }
+  .con-list .pc-label { color: var(--red); }
+  .pc-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pc-item {
+    font-size: 0.88em;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .pc-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+  }
+  .pro-list .pc-item::before { background: var(--green); }
+  .con-list .pc-item::before { background: var(--red); }
+  /* Winner */
+  .candidate.winner {
+    border-color: var(--accent);
+    border-width: 2px;
+  }
+  .candidate.winner .candidate-header {
+    background: var(--accent);
+    color: #fff;
+  }
+  .candidate.winner .candidate-rank { color: rgba(255,255,255,0.7); }
+  /* Framework */
+  .framework-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .fw-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .fw-title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .fw-desc { font-size: 0.9em; color: var(--ink); line-height: 1.5; }
+  /* Action steps */
+  .action-list { list-style: none; margin: 14px 0; }
+  .action-list li {
+    padding: 12px 16px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 10px;
+    background: var(--card-bg);
+    font-size: 0.95em;
+    border-radius: 0 3px 3px 0;
+  }
+  .action-list .al-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 3px;
+  }
+  /* Tattarang block */
+  .investor-box {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin: 28px 0;
+  }
+  .investor-box .inv-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .investor-box p { font-size: 0.95em; margin-bottom: 10px; }
+  .investor-box p:last-child { margin: 0; }
+  /* Call prep */
+  .call-box {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .call-box .cb-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 14px;
+  }
+  .call-box h3 { color: #fff; margin: 16px 0 8px; }
+  .call-box p, .call-box li { font-size: 0.95em; color: rgba(255,255,255,0.82); }
+  .call-box ul { padding-left: 18px; margin-top: 8px; }
+  .call-box li { margin-bottom: 7px; }
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  /* Footer */
+  .footer {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    padding: 30px 40px;
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.03em;
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 40px 24px 36px; }
+    .hero h1 { font-size: 2em; }
+    .container { padding: 36px 24px; }
+    .pro-con, .framework-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Wildernests &nbsp;/&nbsp; Category Strategy &nbsp;/&nbsp; May 2026</div>
+  <h1>The Category Decision</h1>
+  <p class="hero-sub">Five candidates. One choice. What Wildernests calls itself determines who buys it, who funds it, and who copies it.</p>
+  <div class="hero-meta">Prepared 25 May 2026 &nbsp;&bull;&nbsp; For May 28 weekly call &nbsp;&bull;&nbsp; Jesse Grylls / Junior</div>
+</div>
+
+<div class="container">
+
+  <!-- VERDICT -->
+  <div class="verdict-box">
+    <div class="verd-label">Recommendation</div>
+    <div class="verd-title">"Spacecraft for Planet Earth"</div>
+    <div class="verd-quote">"We don't build homes. We build spacecraft — engineered for the most extreme and beautiful places on Earth."</div>
+    <div class="verd-note">It's the only candidate that (a) can't be copied by a caravan company, (b) signals the level of engineering required for true off-grid performance, and (c) gives Tattarang a fundable narrative about defensible tech. Full rationale below.</div>
+  </div>
+
+  <!-- THE DECISION AND ITS STAKES -->
+  <h2>Why This Decision Matters Now</h2>
+
+  <p>Category naming is not a marketing question. It's a strategic one. What Wildernests calls its product determines:</p>
+
+  <div class="stakes">
+    <p><strong>The buyer:</strong> "Off-grid cabin" attracts weekenders. "Spacecraft" attracts people spending $300K+ on a second property with serious engineering expectations.</p>
+    <p><strong>The investor narrative:</strong> Tattarang's key question was moat durability. The answer lives in the category name. "Anywhere Home" sounds rentable. "Spacecraft for Planet Earth" implies proprietary systems that competitors can't replicate in a season.</p>
+    <p><strong>The competitive frame:</strong> A good category name makes competitors play on your terms. Tesla didn't call the Model S a "nice electric car" - they made internal combustion the old way. Wildernests needs the same rhetorical leverage.</p>
+    <p><strong>Phase 0 outreach (July):</strong> The call-to-action for pre-launch targeted outreach needs a single, clear line. The category IS that line.</p>
+  </div>
+
+  <p>The BCG Digital Ventures workshop on May 20 surfaced five candidates. None is wrong. One is clearly best. Here's the full analysis.</p>
+
+  <!-- SCORING MATRIX -->
+  <h2>Scoring Matrix</h2>
+
+  <p>Six criteria, scored 1-5. The criteria reflect what matters at this stage: premium appeal for buyers, moat signalling for investors, and ownable positioning for marketing.</p>
+
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Aspirational Pull</th>
+        <th>Clarity</th>
+        <th>Ownable?</th>
+        <th>Investor Moat Signal</th>
+        <th>Social / BG Fit</th>
+        <th>Total</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-style:italic;font-weight:600">Spacecraft for Planet Earth</td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span></span></td>
+        <td><strong>24/30</strong></td>
+        <td><span class="badge win">Winner</span></td>
+      </tr>
+      <tr>
+        <td style="font-style:italic">Anywhere Home</td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><strong>15/30</strong></td>
+        <td><span class="badge ok">Backup</span></td>
+      </tr>
+      <tr>
+        <td style="font-style:italic">No-Compromise Home</td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><strong>12/30</strong></td>
+        <td><span class="badge weak">Weak</span></td>
+      </tr>
+      <tr>
+        <td style="font-style:italic">Post-grid Home</td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><strong>13/30</strong></td>
+        <td><span class="badge weak">Weak</span></td>
+      </tr>
+      <tr>
+        <td style="font-style:italic">Beyond-the-grid Homes</td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><span class="score"><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span></span></td>
+        <td><strong>11/30</strong></td>
+        <td><span class="badge weak">Drop</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CANDIDATE DEEP DIVES -->
+  <h2>Full Analysis — Each Candidate</h2>
+
+  <!-- WINNER -->
+  <div class="candidate winner">
+    <div class="candidate-header">
+      <div>
+        <div class="candidate-name">"Spacecraft for Planet Earth"</div>
+        <div class="candidate-rank">Rank 1 &nbsp;/&nbsp; Recommended</div>
+      </div>
+      <span class="badge win" style="background:rgba(255,255,255,0.2);color:#fff">Winner</span>
+    </div>
+    <div class="candidate-body">
+      <p>The boldest, most ownable candidate. It reframes what a home can be — not a building, but a precision-engineered system designed for hostile and remote environments. That's exactly what a Wildernest must do if you're placing it in Alaska, the Norwegian fjords, or a Costa Rican rainforest.</p>
+      <p>The word "Spacecraft" does two things at once: it signals engineering grade (not a kit cabin, not glamping) and it implies a mission — you're going somewhere extraordinary. The qualifier "for Planet Earth" is the clever corrective that keeps it grounded. You're not actually going to space. You're going to the most beautiful, inaccessible parts of this planet.</p>
+      <div class="pro-con">
+        <div class="pro-list">
+          <div class="pc-label">Strengths</div>
+          <div class="pc-item">Completely ownable — no other company uses this</div>
+          <div class="pc-item">Signals engineering precision, not just aesthetic</div>
+          <div class="pc-item">Justifies premium price point through implied tech</div>
+          <div class="pc-item">Perfect for Bear Grylls — exploration grade, adventure-led</div>
+          <div class="pc-item">Investor pitch: implies R&amp;D moat, replicable systems</div>
+          <div class="pc-item">Creates a natural language for the product family</div>
+        </div>
+        <div class="con-list">
+          <div class="pc-label">Risks</div>
+          <div class="pc-item">Needs explanation — less instantly clear than "Anywhere Home"</div>
+          <div class="pc-item">SpaceX/Elon adjacency could be read as a reference</div>
+          <div class="pc-item">Might alienate buyers who want "warm" not "technical"</div>
+          <div class="pc-item">Team must commit to the frame — visual assets must match</div>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:0.9em;color:var(--accent);font-weight:600">Key insight: The clarity risk is manageable. The ownability is not. "Anywhere Home" can be stolen tomorrow by Airstream, Airbnb, or a startup with $5M. "Spacecraft for Planet Earth" cannot be stolen — it's too specific to Wildernests' actual product truth.</p>
+    </div>
+  </div>
+
+  <!-- RUNNER UP -->
+  <div class="candidate">
+    <div class="candidate-header">
+      <div>
+        <div class="candidate-name">"Anywhere Home"</div>
+        <div class="candidate-rank">Rank 2 &nbsp;/&nbsp; Best backup if team won't commit to Spacecraft</div>
+      </div>
+      <span class="badge ok">Backup</span>
+    </div>
+    <div class="candidate-body">
+      <p>The clearest and most emotionally immediate candidate. Everyone instantly understands what it means. It speaks directly to the core product promise: a premium home in any location you choose.</p>
+      <p>The problem is ownability. "Anywhere Home" is a phrase that dozens of companies could credibly adopt — from Airbnb Anywhere to Domino's (where a home can be "anywhere"). It also risks framing Wildernests as a rental product (Anywhere Home sounds like "you can stay anywhere") rather than an owned asset. At $250K+ prices, buyers are acquiring property, not booking accommodation.</p>
+      <div class="pro-con">
+        <div class="pro-list">
+          <div class="pc-label">Strengths</div>
+          <div class="pc-item">Immediate clarity — no explanation needed</div>
+          <div class="pc-item">Emotionally resonant — freedom is universal</div>
+          <div class="pc-item">Works on a homepage hero in 2 words</div>
+          <div class="pc-item">Accessible to non-techy luxury buyers</div>
+        </div>
+        <div class="con-list">
+          <div class="pc-label">Risks</div>
+          <div class="pc-item">Sounds adjacent to Airbnb Anywhere / vacation rental</div>
+          <div class="pc-item">Could connote mobile home or caravan market</div>
+          <div class="pc-item">No moat signal — any modular housing company can say this</div>
+          <div class="pc-item">Weak investor narrative (sounds operational, not technical)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NO COMPROMISE -->
+  <div class="candidate">
+    <div class="candidate-header">
+      <div>
+        <div class="candidate-name">"No-Compromise Home"</div>
+        <div class="candidate-rank">Rank 3 &nbsp;/&nbsp; Generic — retire it</div>
+      </div>
+      <span class="badge weak">Drop</span>
+    </div>
+    <div class="candidate-body">
+      <p>"No-compromise" is one of the most overused phrases in premium positioning. It is used by mattress brands (Casper), car brands (BMW), supplement brands, kitchen brands, and dozens of others. It communicates quality intention but says nothing about what makes Wildernests unique.</p>
+      <div class="pro-con">
+        <div class="pro-list">
+          <div class="pc-label">Surface appeal</div>
+          <div class="pc-item">Clear quality signal</div>
+          <div class="pc-item">Easy to understand</div>
+        </div>
+        <div class="con-list">
+          <div class="pc-label">Why it fails</div>
+          <div class="pc-item">Used by hundreds of premium brands</div>
+          <div class="pc-item">Says nothing about location freedom or engineering</div>
+          <div class="pc-item">No moat — any luxury builder could say this</div>
+          <div class="pc-item">Feels defensive, not aspirational</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-GRID / BEYOND-GRID -->
+  <div class="candidate">
+    <div class="candidate-header">
+      <div>
+        <div class="candidate-name">"Post-grid Home" / "Beyond-the-grid Homes"</div>
+        <div class="candidate-rank">Rank 4-5 &nbsp;/&nbsp; Drop both</div>
+      </div>
+      <span class="badge weak">Drop</span>
+    </div>
+    <div class="candidate-body">
+      <p>Both are defined by what they're NOT — they're not on the grid. Negative positioning is weak positioning. It puts the grid at the centre of the story, which makes utility infrastructure (electricity, sewage) the frame for a luxury product conversation.</p>
+      <p>More practically: "off-grid" connotes cost-savings, prepper culture, and rural simplicity. None of these associations belong in the same sentence as a $300K precision-built luxury residence. A wealthy Tattersalls buyer doesn't want to feel like they're buying a survivalist cabin.</p>
+      <div class="pro-con">
+        <div class="pro-list">
+          <div class="pc-label">One real strength</div>
+          <div class="pc-item">Strong for ESG/sustainability-focused investors</div>
+          <div class="pc-item">"Post-grid" is forward-looking in framing</div>
+        </div>
+        <div class="con-list">
+          <div class="pc-label">Why they fail</div>
+          <div class="pc-item">Defined by absence, not by ambition</div>
+          <div class="pc-item">Off-grid connotes prepper, camping, cost-cutting</div>
+          <div class="pc-item">Alienates mainstream luxury buyer</div>
+          <div class="pc-item">"Beyond" is one of the most generic prefixes in branding</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT THE CATEGORY UNLOCKS -->
+  <h2>What "Spacecraft for Planet Earth" Actually Unlocks</h2>
+
+  <p>A strong category name is not just a tagline — it's a thinking tool that aligns the whole team. Here's what "Spacecraft" unlocks across every major workstream:</p>
+
+  <div class="framework-grid">
+    <div class="fw-card">
+      <div class="fw-title">Product Engineering</div>
+      <div class="fw-desc">Spacecraft-grade systems: thermal management, power systems, structural integrity under environmental stress. This is why Gunnar's obsession with material quality and realistic renders isn't cosmetic — it's the proof layer that the category claim is real.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title">Pricing</div>
+      <div class="fw-desc">Spacecraft are not cheap. The category sets price expectations at SpaceX-level engineering premium, not Airstream-level convenience premium. At $250K+, buyers need a mental model that justifies the number. "Spacecraft" provides it.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title">Marketing / Bear Angle</div>
+      <div class="fw-desc">Bear Grylls has taken his family to some of the most extreme environments on Earth. Wildernests lets anyone do that — in a home built for those exact conditions. "This is how we live" is a uniquely credible story in Bear's hands.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title">Competitive Moat</div>
+      <div class="fw-desc">Competitors cannot simply claim "spacecraft" without building the systems to back it. The category raises the bar for entry. It's self-defending: if you haven't engineered your home for genuine off-grid performance, you can't credibly use the frame.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title">Phase 0 Outreach (July)</div>
+      <div class="fw-desc">Targeted HNWI outreach message writes itself: "We build spacecraft for Planet Earth — precision-engineered homes for the world's most remarkable places. Preview access opens [date]." Hooks the right buyer immediately.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title">Visual Identity</div>
+      <div class="fw-desc">Gunnar's brief for the renders aligns perfectly: cinematic, realistic finishes, luxury camera movement. That IS spacecraft-grade visual production. The category validates what the visual team is already trying to do.</div>
+    </div>
+  </div>
+
+  <!-- TATTARANG / INVESTOR ANGLE -->
+  <div class="investor-box">
+    <div class="inv-label">Tattarang / Investor Angle</div>
+    <p><strong>Tattarang's core question: moat durability.</strong> What stops a well-funded competitor from building the same thing?</p>
+    <p>The "Spacecraft" category provides the strongest answer: a spacecraft-grade off-grid home requires engineering systems that cannot be assembled quickly. Thermal management, energy storage, structural performance under environmental stress, water management — these are not bolt-on features. They take years of R&amp;D to get right. The category signals that the moat is <em>technical</em>, not just aesthetic.</p>
+    <p>Compare to "Anywhere Home": a well-funded competitor can claim that in a month. Compare to "Spacecraft for Planet Earth": a competitor must first build spacecraft-grade systems, then earn the right to the claim. That's a defensible category.</p>
+    <p><strong>How to use this in the Tattarang narrative:</strong> "We're not building luxury camping. We're building the first off-grid residential system engineered to the standards of extreme-environment infrastructure. The category we're creating — Spacecraft for Planet Earth — requires technical depth that takes years to develop. That's the moat."</p>
+  </div>
+
+  <!-- WHAT'S MISSING / ONE HONEST CAVEAT -->
+  <h2>One Honest Caveat</h2>
+
+  <p>The category name works perfectly — IF the product genuinely delivers spacecraft-grade performance. The risk is aspirational overreach: calling something a spacecraft and then delivering what feels like a well-designed shed would be catastrophic for trust.</p>
+
+  <p>The question to ask Gunnar and Alex at the May 28 call: <strong>"What specific engineering systems make us genuinely spacecraft-grade, and which are we still building toward?"</strong></p>
+
+  <p>The category should be adopted now — but the team must then build the product roadmap around earning it. The visual assets Gunnar is developing need to <em>show</em> the systems (energy array, thermal design, structural tolerance) not just the aesthetics. This is the visual direction brief for Joe and Gunnar.</p>
+
+  <!-- CALL PREP -->
+  <div class="call-box">
+    <div class="cb-label">May 28 Call &mdash; Wildernests Weekly &nbsp;/&nbsp; 17:00-17:45 BST</div>
+    <h3>What to go in with</h3>
+    <p>Come in with "Spacecraft for Planet Earth" as a recommendation, not a question. Present the scoring and reasoning. Give the team something to react to.</p>
+    <ul>
+      <li><strong>Open:</strong> "I've been working through the five options from the BCG session. I have a clear view. Can I take 5 minutes to walk through it?"</li>
+      <li><strong>Lead with the winner and the core reason:</strong> "Spacecraft is the only one that can't be stolen. Here's why that matters."</li>
+      <li><strong>Address the Tattarang moat question directly</strong> — the category framing is part of the investor pitch, not just the consumer pitch.</li>
+      <li><strong>Ask the honest question:</strong> "What are the 3 engineering systems that make this claim true today, and what are we still building toward?"</li>
+    </ul>
+    <h3>What to listen for</h3>
+    <ul>
+      <li>If Alex pushes back: is it about ownability, clarity, or buyer concern? Address specifically.</li>
+      <li>If Gunnar likes it: immediate implication for visual direction — the renders should show systems, not just forms.</li>
+      <li>If the team isn't ready to commit: propose a 2-week decision with a test — put both names in front of 3 target buyers and report back.</li>
+    </ul>
+    <h3>What to decide by end of call</h3>
+    <ul>
+      <li>Category name: locked or 2-week test?</li>
+      <li>Visual asset brief update: aesthetic only vs. systems-showing?</li>
+      <li>Phase 0 outreach language: who writes the first version?</li>
+    </ul>
+  </div>
+
+  <!-- DOWNSTREAM IMPLICATIONS -->
+  <h2>Immediate Downstream Actions (if Spacecraft is approved)</h2>
+
+  <ul class="action-list">
+    <li>
+      <span class="al-num">01 — Gunnar / Joe (Visual Direction)</span>
+      Update the visual asset brief. Renders should show engineering systems — solar arrays, thermal panels, structural anchoring — not just architectural beauty. The home should look like it belongs somewhere the rest of the world can't reach.
+    </li>
+    <li>
+      <span class="al-num">02 — Phase 0 Outreach (July)</span>
+      Draft the 3-line pitch for targeted HNWI outreach: "Spacecraft for Planet Earth. The first home engineered for the world's most remarkable places. Preview access: [link]." Jesse to own this draft before the July outreach window opens.
+    </li>
+    <li>
+      <span class="al-num">03 — Investor Deck (Tattarang)</span>
+      Align the Tattarang narrative to the category claim. Moat answer = technical systems depth. If Alex's next step with Taki is a follow-up call, the category choice changes the opening line of the pitch.
+    </li>
+    <li>
+      <span class="al-num">04 — Website / Joe Daoud</span>
+      The show house reveal (Mulholland, Aug best case) is the first time the world sees this. Joe's website design needs to land the category frame immediately — hero headline, visual language, everything.
+    </li>
+    <li>
+      <span class="al-num">05 — BCG Digital Ventures</span>
+      Loop BCG in on the final choice. They drove the category workshop — they should see the decision and the rationale. This also keeps them engaged for the Phase 1 launch (Sep/Oct).
+    </li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- QUICK MODERN SAVAGE NOTE -->
+  <h2>Addendum: Modern Savage — T-36 Watch Items</h2>
+  <p style="font-size:0.9em;color:var(--muted);margin-bottom:16px">Not the focus of this brief, but worth noting while Jesse is planning his week.</p>
+
+  <div class="stakes">
+    <p><strong>Entity (Modern Savage Ltd):</strong> Still not incorporated as of May 25. £50, same-day on Companies House. This is a 10-minute task that unblocks Stripe, banking, and UK customs. <em>Do this today.</em></p>
+    <p><strong>Ship date (Lightning Nutra):</strong> Needs confirmation by May 30 to protect the July 1 launch window. If it slips past June 25, the launch date slides. Jesse or CJ needs to get this in writing from Chris Liming this week.</p>
+    <p><strong>Domain (modernsavage.com):</strong> Expires June 24. CJ is running MediaOptions. Status unknown. Budget is £2,000. The launch domain of record should be .co unless and until .com is secured.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  Wildernests Category Positioning Brief &nbsp;&bull;&nbsp; Prepared 25 May 2026 by Junior, Executive Assistant to Jesse Grylls<br>
+  Confidential — BGV Internal &nbsp;&bull;&nbsp; For May 28 Wildernests Weekly Call
+</div>
+
+</body>
+</html>
