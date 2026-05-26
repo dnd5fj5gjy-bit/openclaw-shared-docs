@@ -1,343 +1,275 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bear Witness × Alfred — Statement of Work</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfred × Bear Witness — Statement of Work</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0E1A24;
-    --ink-soft:#1F2D3A;
-    --paper:#FFFFFF;
-    --bone:#F7F5F1;
-    --rule:#E6E2DA;
-    --muted:#5C6773;
-    --gold:#B8863B;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:'Inter',system-ui,sans-serif;
-    background:var(--bone);
-    color:var(--ink);
-    font-weight:400;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  .page{
-    max-width:880px;
-    margin:36px auto;
-    background:var(--paper);
-    border:1px solid var(--rule);
-    padding:56px 64px 48px;
-    box-shadow:0 1px 0 rgba(14,26,36,.04),0 24px 60px -32px rgba(14,26,36,.18);
-  }
+:root{
+  --alfred-pink:#FF00AA;
+  --alfred-yellow:#FFE600;
+  --alfred-cyan:#00E5FF;
+  --alfred-blue:#0066FF;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --warm-white:#FDFBF8;
+  --charcoal:#1A1A1A;
+  --charcoal-light:#3A3A3A;
+  --text-primary:#1A1A1A;
+  --text-muted:rgba(26,26,26,0.6);
+  --text-on-dark:rgba(255,255,255,0.85);
+  --text-on-dark-muted:rgba(255,255,255,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--text-primary);background:var(--cream);
+  line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
 
-  .lockup{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--rule);
-    margin-bottom:34px;
-  }
-  .brand{
-    font-size:.72rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--ink);
-    font-weight:600;
-  }
-  .brand .x{color:var(--gold);margin:0 .35em;font-weight:500}
-  .meta{
-    font-size:.72rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
+.hero{
+  min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);
+  padding:7rem 2rem 5rem;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:0.08;animation:float 20s ease-in-out infinite}
+.hero-bg-shapes .s1{width:500px;height:500px;top:-100px;right:-150px;background:var(--alfred-pink)}
+.hero-bg-shapes .s2{width:350px;height:350px;bottom:-80px;left:-100px;background:var(--alfred-cyan);animation-delay:-7s}
+.hero-bg-shapes .s3{width:250px;height:250px;top:40%;left:10%;background:var(--alfred-yellow);animation-delay:-14s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-30px) scale(1.05)}
+  66%{transform:translate(-15px,20px) scale(0.95)}
+}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--alfred-pink);font-weight:500;margin-bottom:1.5rem;position:relative;z-index:1}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5vw,4rem);
+  color:white;line-height:1.1;max-width:880px;margin-bottom:1.4rem;position:relative;z-index:1;
+}
+.hero h1 .accent{color:var(--alfred-pink)}
+.hero-sub{color:var(--text-on-dark);max-width:640px;font-size:1.05rem;margin-bottom:2rem;position:relative;z-index:1;line-height:1.75}
+.hero-meta{display:flex;gap:2rem;color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:400;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
 
-  h1{
-    font-family:'DM Serif Display',serif;
-    font-weight:400;
-    font-size:2.5rem;
-    line-height:1.08;
-    margin:0 0 10px;
-    letter-spacing:-.01em;
-  }
-  .deck{
-    font-size:1.02rem;
-    color:var(--ink-soft);
-    max-width:660px;
-    margin:0 0 30px;
-  }
+section{padding:5.5rem 2rem}
+.inner{max-width:1080px;margin:0 auto}
+.tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--alfred-pink);font-weight:500;margin-bottom:1rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.15;margin-bottom:1.2rem}
+.body-text{max-width:760px;color:var(--text-muted);margin-bottom:1.4rem;font-size:1rem}
+.body-text strong{color:var(--text-primary);font-weight:500}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--warm-white)}
+.sec-dark{background:var(--charcoal);color:white}
+.sec-dark .heading{color:white}
+.sec-dark .body-text{color:var(--text-on-dark)}
+.sec-dark .body-text strong{color:white}
 
-  .summary{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:0;
-    border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-    margin-bottom:30px;
-  }
-  .summary > div{
-    padding:14px 18px 14px 0;
-    border-right:1px solid var(--rule);
-  }
-  .summary > div:last-child{border-right:0;padding-right:0}
-  .summary .k{
-    font-size:.62rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:6px;
-  }
-  .summary .v{
-    font-size:.98rem;
-    font-weight:500;
-    color:var(--ink);
-  }
+.summary-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 auto;max-width:1080px;
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  transform:translateY(-3rem);position:relative;z-index:2;
+  box-shadow:0 20px 60px -30px rgba(0,0,0,0.18);
+}
+.summary-strip > div{padding:1.4rem 1.6rem;border-right:1px solid rgba(0,0,0,0.06)}
+.summary-strip > div:last-child{border-right:0}
+.summary-strip .k{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--alfred-pink);font-weight:600;margin-bottom:0.4rem}
+.summary-strip .v{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--charcoal);line-height:1.2}
 
-  h2{
-    font-family:'Inter',sans-serif;
-    font-size:.72rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    font-weight:600;
-    color:var(--gold);
-    margin:0 0 12px;
-  }
-  section + section{margin-top:26px}
-  p{margin:0 0 10px;color:var(--ink-soft);font-size:.97rem}
+.included{
+  display:grid;grid-template-columns:1fr;gap:0;margin-top:1.5rem;
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+.included .row{
+  display:grid;grid-template-columns:160px 1fr;gap:2rem;
+  padding:1.4rem 0;border-bottom:1px solid rgba(0,0,0,0.08);
+  align-items:start;
+}
+.included .row .lbl{
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--alfred-pink);font-weight:600;padding-top:0.25rem;
+}
+.included .row h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.4rem;line-height:1.25}
+.included .row p{color:var(--text-muted);font-size:0.95rem;line-height:1.65}
 
-  ul.clean{
-    list-style:none;
-    padding:0;
-    margin:0;
-  }
-  ul.clean li{
-    position:relative;
-    padding:9px 0 9px 20px;
-    border-bottom:1px solid var(--rule);
-    font-size:.95rem;
-    color:var(--ink-soft);
-  }
-  ul.clean li:last-child{border-bottom:0}
-  ul.clean li::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:18px;
-    width:8px;
-    height:1px;
-    background:var(--gold);
-  }
-  ul.clean li b{color:var(--ink);font-weight:600}
+.howwework{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem}
+.howwework .card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:1.8rem;
+}
+.howwework .card .card-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--alfred-cyan);font-weight:600;margin-bottom:0.6rem}
+.howwework .card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:white;margin-bottom:0.5rem;line-height:1.3}
+.howwework .card p{color:var(--text-on-dark-muted);font-size:0.92rem;line-height:1.7}
 
-  .pillars{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:0;
-    border:1px solid var(--rule);
-  }
-  .pillars > div{
-    padding:18px 20px;
-    border-right:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-  }
-  .pillars > div:nth-child(2n){border-right:0}
-  .pillars > div:nth-last-child(-n+2){border-bottom:0}
-  .pillars h3{
-    font-family:'Inter',sans-serif;
-    font-size:.95rem;
-    font-weight:600;
-    margin:0 0 4px;
-    color:var(--ink);
-  }
-  .pillars p{font-size:.9rem;margin:0;color:var(--muted)}
+.commercials{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;margin-top:2rem;
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;overflow:hidden;
+}
+.commercials > div{padding:2rem;border-right:1px solid rgba(0,0,0,0.06)}
+.commercials > div:last-child{border-right:0}
+.commercials .label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--alfred-pink);font-weight:600;margin-bottom:0.5rem}
+.commercials .figure{font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1;margin-bottom:0.5rem;color:var(--charcoal)}
+.commercials .figure-sm{font-family:'DM Serif Display',serif;font-size:1.3rem;line-height:1.15;margin-bottom:0.5rem;color:var(--charcoal)}
+.commercials p{font-size:0.88rem;color:var(--text-muted);line-height:1.6}
 
-  .commercials{
-    background:var(--ink);
-    color:#fff;
-    padding:22px 26px;
-    margin-top:8px;
-    display:grid;
-    grid-template-columns:1.3fr 1fr 1fr;
-    gap:24px;
-    align-items:start;
-  }
-  .commercials h2{color:var(--gold);margin-bottom:8px}
-  .commercials .fee{
-    font-family:'DM Serif Display',serif;
-    font-size:2rem;
-    line-height:1;
-    margin:6px 0 4px;
-  }
-  .commercials p{color:rgba(255,255,255,.78);font-size:.88rem;margin:0}
-  .commercials .label{
-    font-size:.62rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:rgba(255,255,255,.55);
-    margin-bottom:4px;
-  }
+footer{
+  background:var(--charcoal);color:var(--text-on-dark-muted);
+  padding:2.4rem 2rem;text-align:center;
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+}
+footer .lockup{color:white;letter-spacing:0.24em;font-weight:500;margin-bottom:0.4rem}
 
-  .signoff{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
-    margin-top:34px;
-    padding-top:24px;
-    border-top:1px solid var(--rule);
-  }
-  .signoff .role{
-    font-size:.62rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:30px;
-  }
-  .signoff .line{
-    border-bottom:1px solid var(--ink);
-    height:1px;
-    margin-bottom:8px;
-  }
-  .signoff .name{font-size:.85rem;color:var(--ink-soft)}
-
-  footer{
-    margin-top:30px;
-    padding-top:14px;
-    border-top:1px solid var(--rule);
-    display:flex;
-    justify-content:space-between;
-    font-size:.7rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  @media (max-width:720px){
-    .page{padding:32px 22px;margin:12px}
-    h1{font-size:2rem}
-    .summary{grid-template-columns:1fr 1fr}
-    .summary > div:nth-child(2){border-right:0}
-    .summary > div{border-bottom:1px solid var(--rule)}
-    .summary > div:nth-last-child(-n+2){border-bottom:0}
-    .pillars{grid-template-columns:1fr}
-    .pillars > div{border-right:0}
-    .pillars > div:nth-last-child(2){border-bottom:1px solid var(--rule)}
-    .commercials{grid-template-columns:1fr;gap:14px}
-    .signoff{grid-template-columns:1fr;gap:30px}
-  }
+@media(max-width:780px){
+  .summary-strip{grid-template-columns:1fr 1fr;transform:translateY(-2rem)}
+  .summary-strip > div{border-bottom:1px solid rgba(0,0,0,0.06)}
+  .summary-strip > div:nth-child(2){border-right:0}
+  .summary-strip > div:nth-last-child(-n+2){border-bottom:0}
+  .included .row{grid-template-columns:1fr;gap:0.3rem}
+  .commercials{grid-template-columns:1fr}
+  .commercials > div{border-right:0;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .commercials > div:last-child{border-bottom:0}
+  section{padding:4rem 1.4rem}
+  .hero{padding:5.5rem 1.4rem 4rem}
+}
 </style>
 </head>
 <body>
-<main class="page">
 
-  <div class="lockup">
-    <div class="brand">Bear Witness <span class="x">×</span> Alfred</div>
-    <div class="meta">Statement of Work · 2026</div>
+<div class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
   </div>
-
-  <h1>An advisory and editing partnership built to sit alongside your team.</h1>
-  <p class="deck">This Statement of Work covers the lighter-touch engagement model: a £5,000 / month retainer giving Alfred direct access to Bear Witness for content strategy counsel and unlimited editing support. We sit alongside your team — we do not replace it. The goal is to extend your in-house capability, sharpen the work that goes out, and keep momentum where you need it most.</p>
-
-  <div class="summary">
-    <div>
-      <div class="k">Engagement</div>
-      <div class="v">Sit-alongside advisory</div>
-    </div>
-    <div>
-      <div class="k">Retainer</div>
-      <div class="v">£5,000 / month</div>
-    </div>
-    <div>
-      <div class="k">Editing</div>
-      <div class="v">24/7 support</div>
-    </div>
-    <div>
-      <div class="k">Sector</div>
-      <div class="v">UK utilities</div>
-    </div>
+  <div class="hero-tag">Alfred <span style="color:rgba(255,255,255,0.4);margin:0 0.4em">×</span> Bear Witness</div>
+  <h1>A <span class="accent">sit-alongside</span> partnership built to extend your team — not replace it.</h1>
+  <p class="hero-sub">Statement of Work for a £5,000 / month advisory and editing retainer. Direct access to Bear Witness for content strategy counsel, plus unlimited editing support for the work your team is already producing.</p>
+  <div class="hero-meta">
+    <span>Statement of Work · 2026</span>
+    <span>·</span>
+    <span>Rolling monthly</span>
+    <span>·</span>
+    <span>UK utilities</span>
   </div>
+</div>
 
-  <section>
-    <h2>What's included</h2>
-    <ul class="clean">
-      <li><b>24/7 editing support</b> — Bear Witness's editing team available to turn Alfred's raw footage and source assets into finished, on-brand content; no per-project briefs needed, work submitted as it arrives.</li>
-      <li><b>Content strategy consultation</b> — direct line to Bear Witness senior strategy on positioning, content direction, channel calls, format choices and campaign sequencing.</li>
-      <li><b>Editorial guidance</b> — review and shaping of in-progress work from the Alfred team: scripts, hooks, thumbnails, titles, sequencing, distribution plays.</li>
-      <li><b>Working sessions</b> — a recurring weekly working call plus ad-hoc calls as priorities emerge.</li>
-      <li><b>Light-touch performance review</b> — periodic look at what's working and where to lean in, fed back into the next sprint of content.</li>
-    </ul>
-  </section>
+<div class="summary-strip">
+  <div><div class="k">Engagement</div><div class="v">Sit-alongside advisory</div></div>
+  <div><div class="k">Retainer</div><div class="v">£5,000 / month</div></div>
+  <div><div class="k">Editing</div><div class="v">24/7 support</div></div>
+  <div><div class="k">Term</div><div class="v">Rolling monthly</div></div>
+</div>
 
-  <section>
-    <h2>How we work together</h2>
-    <div class="pillars">
-      <div>
-        <h3>You lead.</h3>
-        <p>Alfred owns the roadmap, the calendar and the final call on everything that ships.</p>
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">What's included</div>
+    <h2 class="heading">A working layer behind your team.</h2>
+    <p class="body-text">This is a guidance, support and help engagement — <strong>not a full-service build</strong>. Alfred owns the roadmap, the calendar and every final call. Bear Witness gives you a senior strategy line and the editing horsepower to keep momentum where you need it most.</p>
+
+    <div class="included">
+      <div class="row">
+        <div class="lbl">01 · Editing</div>
+        <div>
+          <h3>24/7 editing support</h3>
+          <p>Bear Witness's editing team on hand to turn Alfred's raw footage and source assets into finished, on-brand content. No per-project briefs needed — submit work as it arrives, get it back ready to ship. Effectively an always-on production layer behind your in-house team.</p>
+        </div>
       </div>
-      <div>
-        <h3>We support.</h3>
-        <p>Bear Witness provides the editing capacity and the strategic second opinion behind the scenes.</p>
+      <div class="row">
+        <div class="lbl">02 · Strategy</div>
+        <div>
+          <h3>Content strategy consultation</h3>
+          <p>Direct senior-level counsel on positioning, content direction, channel calls, format choices and campaign sequencing. We sit alongside Alfred's team and bring outside perspective when decisions get hard.</p>
+        </div>
       </div>
-      <div>
-        <h3>Direct access.</h3>
-        <p>Jesse and the senior team. No account managers, no layers.</p>
+      <div class="row">
+        <div class="lbl">03 · Editorial</div>
+        <div>
+          <h3>Editorial guidance</h3>
+          <p>Review and shaping of in-progress work from the Alfred team — scripts, hooks, thumbnails, titles, sequencing, distribution plays. The kind of second pair of eyes that lifts the work from good to ready.</p>
+        </div>
       </div>
-      <div>
-        <h3>Built to flex.</h3>
-        <p>Scale up to a fuller engagement at any point if and when the work demands it.</p>
+      <div class="row">
+        <div class="lbl">04 · Sessions</div>
+        <div>
+          <h3>Working calls</h3>
+          <p>A recurring weekly working call to keep things aligned, plus ad-hoc calls as priorities emerge. Direct line — no account managers, no layers.</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>What this is not</h2>
-    <p>This SOW is help, not a full-stack build. It does not include paid media management, SEO content production, end-to-end campaign execution, influencer activation or full-time embedded resourcing. Those sit inside the wider Bear Witness × Alfred partnership proposal and can be added at any point.</p>
-  </section>
-
-  <section class="commercials">
-    <div>
-      <div class="label">Commercials</div>
-      <h2 style="color:var(--gold);margin:0">Retainer</h2>
-      <div class="fee">£5,000 / month</div>
-      <p>Covers editing capacity and strategic counsel as scoped above. Invoiced monthly in advance.</p>
-    </div>
-    <div>
-      <div class="label">Term</div>
-      <div class="fee" style="font-size:1.2rem;margin-top:6px">Rolling monthly</div>
-      <p>30 days notice either side. Either party can step up to the wider partnership at any point.</p>
-    </div>
-    <div>
-      <div class="label">Start</div>
-      <div class="fee" style="font-size:1.2rem;margin-top:6px">On signature</div>
-      <p>Onboarding handover within the first week. First strategy call inside seven days of start.</p>
-    </div>
-  </section>
-
-  <div class="signoff">
-    <div>
-      <div class="role">For Alfred</div>
-      <div class="line"></div>
-      <div class="name">Name, role, date</div>
-    </div>
-    <div>
-      <div class="role">For Bear Witness</div>
-      <div class="line"></div>
-      <div class="name">Jesse Grylls, Founder · date</div>
+      <div class="row">
+        <div class="lbl">05 · Review</div>
+        <div>
+          <h3>Light-touch performance review</h3>
+          <p>Periodic look at what's working and where to lean in, fed back into the next sprint of content.</p>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <footer>
-    <span>Bear Witness × Alfred</span>
-    <span>SOW · v1 · 2026-05-26</span>
-  </footer>
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">How we work together</div>
+    <h2 class="heading">Built to flex with you.</h2>
+    <p class="body-text">This SOW is the lean version of the Bear Witness × Alfred partnership. It's deliberately light so it can grow with you — start at £5k / month for editing and counsel, and if and when Alfred wants more, the engagement can step up to a fuller scope without restarting the contract.</p>
 
-</main>
+    <div class="howwework">
+      <div class="card">
+        <div class="card-label">You lead</div>
+        <h3>Alfred owns the roadmap.</h3>
+        <p>The calendar, the content priorities and every final call on what ships belong to Alfred.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">We support</div>
+        <h3>Bear Witness behind the scenes.</h3>
+        <p>Editing capacity and strategic second opinion. We're a working layer, not a competing voice.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Direct access</div>
+        <h3>Jesse and senior team.</h3>
+        <p>No account managers, no junior intermediaries. You speak to the people doing the work.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Designed to grow</div>
+        <h3>Step up when you want to.</h3>
+        <p>Editing volume can flex up as you produce more. The engagement can also expand into paid media, SEO, influencer activation or the full embedded Bear Witness × Alfred partnership at any point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">Commercials</div>
+    <h2 class="heading">Simple, monthly, no lock-in.</h2>
+
+    <div class="commercials">
+      <div>
+        <div class="label">Retainer</div>
+        <div class="figure">£5,000 / month</div>
+        <p>Covers editing capacity and strategic counsel as scoped above. Invoiced monthly in advance.</p>
+      </div>
+      <div>
+        <div class="label">Term</div>
+        <div class="figure-sm">Rolling monthly</div>
+        <p>30 days notice either side. Step up to the wider partnership at any point.</p>
+      </div>
+      <div>
+        <div class="label">Start</div>
+        <div class="figure-sm">On signature</div>
+        <p>Onboarding handover in week one. First strategy call inside seven days of start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="lockup">Alfred · Bear Witness</div>
+  <div>Statement of Work · v2 · 26 May 2026</div>
+</footer>
+
 </body>
 </html>
