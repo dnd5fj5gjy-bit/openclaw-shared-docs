@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncharted Treasures — Briefing Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#0B1F2A;
+  --deep:#112D3C;
+  --ink:#0E1A24;
+  --gold:#C49A52;
+  --gold-light:#E6C58C;
+  --cream:#F5F0E8;
+  --rule:rgba(255,255,255,0.1);
+  --muted:rgba(245,240,232,0.7);
+  --soft:rgba(245,240,232,0.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;font-weight:300;
+  background:var(--abyss);color:var(--cream);
+  line-height:1.55;font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+}
+
+header.lead{
+  padding:3.4rem 1.6rem 2.6rem;text-align:center;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,#0B1F2A 0%,#112D3C 100%);
+}
+header.lead .tag{font-size:0.66rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem}
+header.lead h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;margin-bottom:0.7rem}
+header.lead .deck{color:var(--muted);max-width:620px;margin:0 auto;font-size:0.96rem}
+header.lead .stamp{display:inline-block;margin-top:1.4rem;font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--soft)}
+
+nav.toc{
+  position:sticky;top:0;z-index:10;background:rgba(11,31,42,0.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);padding:0.7rem 1rem;
+  display:flex;gap:1rem;overflow-x:auto;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+}
+nav.toc a{color:var(--muted);text-decoration:none;white-space:nowrap;padding:0.3rem 0.1rem;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+section{padding:2.6rem 1.6rem;border-bottom:1px solid var(--rule);max-width:980px;margin:0 auto}
+section h2{
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:1.55rem;line-height:1.15;margin-bottom:1.1rem;
+}
+section h2 .num{color:var(--gold);font-size:0.6em;letter-spacing:0.2em;margin-right:0.6em;display:inline-block;vertical-align:middle;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:600}
+section p{color:var(--muted);margin-bottom:0.85rem;font-size:0.95rem}
+section p strong{color:var(--cream);font-weight:500}
+section .lead-p{font-size:1.02rem;color:var(--cream);margin-bottom:1.2rem;max-width:760px}
+
+ul.bullets{list-style:none;padding:0;margin:0.6rem 0 1rem}
+ul.bullets li{position:relative;padding:0.45rem 0 0.45rem 1.1rem;color:var(--muted);font-size:0.94rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+ul.bullets li:last-child{border-bottom:0}
+ul.bullets li::before{content:"";position:absolute;left:0;top:1.05rem;width:7px;height:1px;background:var(--gold)}
+ul.bullets li strong{color:var(--cream);font-weight:500}
+ul.bullets li b{color:var(--gold-light);font-weight:500}
+
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+.card{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.2rem}
+.card .lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem}
+.card h3{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:0.4rem;color:var(--cream)}
+.card p{color:var(--muted);font-size:0.9rem;margin:0;line-height:1.55}
+
+table.ep{width:100%;border-collapse:collapse;margin-top:0.8rem;font-size:0.88rem}
+table.ep th,table.ep td{text-align:left;padding:0.6rem 0.6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+table.ep th{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+table.ep td.epnum{color:var(--gold);font-family:'DM Serif Display',serif;font-size:1.1rem;width:38px}
+table.ep td.title{color:var(--cream);font-weight:500;width:25%}
+table.ep td.type{color:var(--gold-light);width:22%;font-size:0.85rem}
+table.ep td.play{color:var(--muted)}
+
+.phases{display:grid;grid-template-columns:1fr;gap:0.9rem;margin-top:1rem}
+@media(min-width:780px){.phases{grid-template-columns:1fr 1fr}}
+.phase{background:rgba(255,255,255,0.03);border-left:3px solid var(--gold);padding:1rem 1.1rem;border-radius:0 6px 6px 0}
+.phase .ph-lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.3rem}
+.phase h3{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:0.2rem}
+.phase .win{color:var(--gold-light);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:0.5rem}
+.phase p{font-size:0.88rem;color:var(--muted);margin:0}
+
+.control{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+.cc{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.2rem}
+.cc.in-hands{border-color:rgba(196,154,82,0.4)}
+.cc.locked{border-color:rgba(196,154,82,0.25)}
+.cc.upside{border-color:rgba(255,255,255,0.15)}
+.cc .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem}
+.cc h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream)}
+.cc ul{list-style:none;padding:0;margin:0}
+.cc ul li{padding:0.32rem 0 0.32rem 0.9rem;position:relative;font-size:0.86rem;color:var(--muted)}
+.cc ul li::before{content:"·";color:var(--gold);position:absolute;left:0;font-weight:700}
+
+.qa{margin-top:0.6rem}
+.qa .q{
+  font-family:'DM Serif Display',serif;font-size:1.02rem;color:var(--cream);margin:1.2rem 0 0.35rem;
+}
+.qa .q::before{content:"Q ";color:var(--gold);font-size:0.75em;letter-spacing:0.1em}
+.qa .a{font-size:0.94rem;color:var(--muted);line-height:1.6;padding-left:1rem;border-left:2px solid rgba(196,154,82,0.3)}
+
+.redlines{background:rgba(160,40,40,0.12);border:1px solid rgba(196,82,82,0.3);border-radius:8px;padding:1.2rem 1.3rem;margin-top:1rem}
+.redlines .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:#E89595;font-weight:600;margin-bottom:0.6rem}
+.redlines h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream)}
+.redlines ul{list-style:none;padding:0;margin:0}
+.redlines ul li{padding:0.4rem 0 0.4rem 1.1rem;position:relative;color:var(--muted);font-size:0.92rem}
+.redlines ul li::before{content:"✕";color:#E89595;position:absolute;left:0;font-size:0.8em;top:0.55rem;font-weight:600}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.8rem;margin-top:1rem}
+.stat{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1rem;text-align:center}
+.stat .n{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);line-height:1;margin-bottom:0.3rem}
+.stat .l{font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;line-height:1.4}
+
+.ammo{background:rgba(196,154,82,0.06);border:1px solid rgba(196,154,82,0.25);border-radius:8px;padding:1.3rem 1.4rem;margin-top:1rem}
+.ammo .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem}
+.ammo h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream)}
+.ammo ul{list-style:none;padding:0;margin:0}
+.ammo ul li{padding:0.5rem 0 0.5rem 1rem;position:relative;font-size:0.94rem;color:var(--cream);border-bottom:1px solid rgba(196,154,82,0.1)}
+.ammo ul li:last-child{border-bottom:0}
+.ammo ul li::before{content:"›";color:var(--gold);position:absolute;left:0;font-weight:600}
+
+footer{padding:2rem 1.6rem;text-align:center;color:var(--soft);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<header class="lead">
+  <div class="tag">Uncharted Treasures · Briefing Pack</div>
+  <h1>Everything you need before they start asking questions.</h1>
+  <p class="deck">Compiled from the live strategy doc, the Coyote call notes, and the framing locked with Jesse on 22 May. Scan top to bottom — the Q&A bank at the bottom is the one to memorise.</p>
+  <div class="stamp">For Olly · 26 May 2026</div>
+</header>
+
+<nav class="toc">
+  <a href="#picture">1 · The picture</a>
+  <a href="#model">2 · The model</a>
+  <a href="#owners">3 · Ownership</a>
+  <a href="#advantages">4 · Why we win</a>
+  <a href="#episodes">5 · 8 episodes</a>
+  <a href="#phases">6 · 4 phases</a>
+  <a href="#control">7 · Control map</a>
+  <a href="#audience">8 · Audience</a>
+  <a href="#ecosystem">9 · Ecosystem</a>
+  <a href="#ammo">10 · Ammo</a>
+  <a href="#qa">11 · Q&amp;A bank</a>
+  <a href="#redlines">12 · Never say</a>
+  <a href="#open">13 · Open</a>
+</nav>
+
+<section id="picture">
+  <h2><span class="num">01</span>The picture in one paragraph</h2>
+  <p class="lead-p"><strong>Uncharted Treasures is a franchise, not a show.</strong> A real-permit archaeological expedition in Long Island, Bahamas — birthplace of Caribbean piracy. Coyote Peterson hosts. Bart Michelini is the expert. Bear Grylls is Executive Producer. Bear Witness Media owns the IP, the production, the distribution, and everything after it airs.</p>
+  <p>It runs as <strong>year-round Coyote-hosted digital treasure hunts on YouTube</strong> that build audience all year, culminating each year in <strong>one flagship broadcast expedition</strong> — the 8-episode TV season. That season is the prestige anchor. The owned ecosystem (channel, social, community, list) is the asset that endures.</p>
+</section>
+
+<section id="model">
+  <h2><span class="num">02</span>The model — Model B, locked</h2>
+  <p>Olly settled this on the 22 May Coyote call: it's a <strong>combination, B-led</strong>. Coyote hosts year-round smaller-scale digital hunts (builds audience/hype) → these build up to the <strong>FINALE = one big broadcast TV season per year</strong> (the flagship). Plus the repurposing engine: every piece — both the smaller hunts AND the broadcast episodes — turned into weeks of content across every platform, best material run as Meta ads, all fed back into the YouTube channel.</p>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">Year-round</div><h3>Digital treasure hunts</h3><p>Coyote-hosted YouTube series. Smaller-scale. Always on. Builds audience and hype between TV seasons.</p></div>
+    <div class="card"><div class="lbl">Annual flagship</div><h3>Broadcast TV season</h3><p>One 8-episode big-spectacle expedition per year. The prestige beat. Sells to networks via proven audience.</p></div>
+    <div class="card"><div class="lbl">Content engine</div><h3>Repurposing → ads → YouTube</h3><p>Every hunt + every episode turned into multi-platform content. Best material runs as paid. All feeds back into the channel.</p></div>
+    <div class="card"><div class="lbl">The asset</div><h3>Owned audience</h3><p>Not a pitch, a proven, loyal audience. That's what de-risks the broadcaster deal and gives the franchise a moat.</p></div>
+  </div>
+</section>
+
+<section id="owners">
+  <h2><span class="num">03</span>Ownership — non-negotiable</h2>
+  <p class="lead-p"><strong>Bear Witness OWNS the Uncharted Treasures show + IP.</strong> Coyote = partner / host, NOT an owner of the franchise. The host seat is technically swappable — say that internally, never to him. Position him as founding face / launch engine of a durable franchise = recurring value for him.</p>
+  <ul class="bullets">
+    <li><strong>Bear Witness</strong> — owns the IP, the production, distribution, community, and everything after air.</li>
+    <li><strong>Coyote Peterson</strong> — primary talent / host / launch engine. Partner, not owner. Frame him as core partner not hired host.</li>
+    <li><strong>Bart Michelini</strong> — expert archaeologist / maritime historian. Credibility spine.</li>
+    <li><strong>Bear Grylls</strong> — Executive Producer credit. Opens broadcaster doors (Disney, Nat Geo, Amazon, Apple). Existing-content social posts on his 8.5M, no new filming.</li>
+  </ul>
+</section>
+
+<section id="advantages">
+  <h2><span class="num">04</span>Why Bear Witness wins this — 6 structural advantages</h2>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">01</div><h3>Tier-1 distribution</h3><p>Bear's EP credit opens broadcaster doors at Disney, Nat Geo, Amazon, Apple. Institutional weight, not vanity.</p></div>
+    <div class="card"><div class="lbl">02</div><h3>Coyote as amplifier</h3><p>20M+ YouTube audience launches the show — but the franchise doesn't depend on talent. Audience transfers to the IP.</p></div>
+    <div class="card"><div class="lbl">03</div><h3>Vertical control</h3><p>Bear Witness owns production, distribution, community end-to-end. Not handing the show to a broadcaster and hoping.</p></div>
+    <div class="card"><div class="lbl">04</div><h3>Real excavation permits</h3><p>Genuine legal access to sites untouched for 200 years. Competitors work with reconstruction. We work with the ground itself.</p></div>
+    <div class="card"><div class="lbl">05</div><h3>Bahamas piracy story</h3><p>Long Island is where Caribbean piracy was born. Culturally resonant, untold story — independent of production polish.</p></div>
+    <div class="card"><div class="lbl">06</div><h3>Bear's social reach</h3><p>8.5M followers on his personal channels. Stories / reposts / reactions at launch, zero new filming required.</p></div>
+  </div>
+</section>
+
+<section id="episodes">
+  <h2><span class="num">05</span>The 8 episodes</h2>
+  <table class="ep">
+    <thead><tr><th></th><th>Title</th><th>Discovery type</th><th>Promotional play</th></tr></thead>
+    <tbody>
+      <tr><td class="epnum">01</td><td class="title">The Permit</td><td class="type">Access hook</td><td class="play">Lead with permission — "dig where no one has in 200 years."</td></tr>
+      <tr><td class="epnum">02</td><td class="title">The Collapsed Well</td><td class="type">First artefact</td><td class="play">Bart standalone history video earns audience first; episode is the sequel.</td></tr>
+      <tr><td class="epnum">03</td><td class="title">The Inland Lake</td><td class="type">Archaeological dig</td><td class="play">Raw drone footage, no narration — let the comments speculate.</td></tr>
+      <tr><td class="epnum">04</td><td class="title">The Prison Records</td><td class="type">Historical evidence</td><td class="play">Actual period documents — legitimacy earns the expert community.</td></tr>
+      <tr><td class="epnum">05</td><td class="title">The Offshore Reef</td><td class="type">Dive sequence</td><td class="play">30-second underwater clip posted cold; episode answers the question.</td></tr>
+      <tr><td class="epnum">06</td><td class="title">The Shipwreck</td><td class="type">Major find</td><td class="play">Press release before episode. Mid-season peak. National coverage moment.</td></tr>
+      <tr><td class="epnum">07</td><td class="title">Sands Point</td><td class="type">Evidence convergence</td><td class="play">Plant season-two seed. Public conversation begins re: next phase.</td></tr>
+      <tr><td class="epnum">08</td><td class="title">The Verdict</td><td class="type">Series finale</td><td class="play">Whatever we found = more questions. Franchise conversation begins.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="phases">
+  <h2><span class="num">06</span>The 4 phases — promotion arc</h2>
+  <p>16-week promotion window — T–12 weeks through +8 weeks post-premiere.</p>
+  <div class="phases">
+    <div class="phase">
+      <div class="ph-lbl">Phase I · T–12 to T–6</div>
+      <h3>Tease</h3>
+      <div class="win">Establish legitimacy</div>
+      <p>Expert community outreach (archaeologists, maritime historians validate publicly). Coyote introduces himself to the show audience via BTS. Permit announcement = hero hook. Bear's EP credit on all materials. Earned media pitching to adventure/history podcasts.</p>
+    </div>
+    <div class="phase">
+      <div class="ph-lbl">Phase II · T–6 to T–1</div>
+      <h3>Build</h3>
+      <div class="win">Convert awareness to belief</div>
+      <p>Character intro films (Coyote, Bart, dive team). Audience-specific cutdowns (Family / Coyote / Bear variants). Paid social via Meta + YouTube pre-roll. Podcast circuit — Coyote and Bart long-form in trusted environments. Tension-building: raw footage, teaser clips, unanswered questions.</p>
+    </div>
+    <div class="phase">
+      <div class="ph-lbl">Phase III · Launch week</div>
+      <h3>Premiere</h3>
+      <div class="win">Make it unavoidable</div>
+      <p>Hero campaign film on owned and earned. Headline trailer (90-sec for TV/pre-roll). Connected TV buys final 2 weeks. Bear's social posts (if schedule allows). Live social reactivity. Press coverage maximised around air date.</p>
+    </div>
+    <div class="phase">
+      <div class="ph-lbl">Phase IV · Weeks 2-8</div>
+      <h3>Sustain</h3>
+      <div class="win">Retention &amp; ecosystem</div>
+      <p>Weekly repurposing: recap cuts (YouTube), Reels (IG), TikTok clips, podcast unpacking. BTS vlogs (Coyote-fronted, one per episode). Always-on social: 4 pillars × min 4 posts/week. Meta/YouTube shifts to binge messaging + retention.</p>
+    </div>
+  </div>
+</section>
+
+<section id="control">
+  <h2><span class="num">07</span>The Control Map — what we own vs. what we're confirming</h2>
+  <div class="control">
+    <div class="cc in-hands">
+      <div class="head">In our hands · owned outright</div>
+      <h3>Bear Witness controls</h3>
+      <ul>
+        <li>All creative production (trailers, social, press packs, AI reconstructions)</li>
+        <li>Bear Witness portfolio channels (BGSA, Modern Savage, managed accounts)</li>
+        <li>Paid media (Meta, YouTube, TikTok, CTV)</li>
+        <li>Press &amp; earned-media coordination</li>
+        <li>Official show channels (YouTube, IG, TikTok) + owned email list</li>
+        <li>Repurposing engine — episode → weeks of multi-platform content</li>
+        <li>Partnership development (Bahamas tourism, dive/history communities)</li>
+      </ul>
+    </div>
+    <div class="cc locked">
+      <div class="head">Confirmed with talent</div>
+      <h3>Locked by agreement</h3>
+      <ul>
+        <li>Coyote: primary promotional engine, YouTube rollout, BTS vlogs, episode reactions</li>
+        <li>Coyote: podcast circuit at launch</li>
+        <li>Bart Michelini: expert press + archaeology/maritime podcast circuit</li>
+        <li>Bear: EP credit on all materials</li>
+        <li>Bear: one confirmed trade-press interview (T–8)</li>
+      </ul>
+    </div>
+    <div class="cc upside">
+      <div class="head">Upside · bonus, not baseline</div>
+      <h3>Nice if it happens</h3>
+      <ul>
+        <li>Bear's 8.5M followers — stories/reposts/reactions at launch (no new filming)</li>
+        <li>Bear's premiere-night post (if schedule allows)</li>
+        <li>Organic press break-out beyond pre-pitched leads</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="audience">
+  <h2><span class="num">08</span>Audience pools &amp; reach</h2>
+  <p>Three primary pools, plus the numbers.</p>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">A1 · Primary</div><h3>The Adventure Family</h3><p>Parents 32-48 with kids 7-14. Co-viewing shows. Real stakes, no fake jeopardy.</p></div>
+    <div class="card"><div class="lbl">A2 · Primary</div><h3>The Coyote Audience</h3><p>18-34 digital natives. Coyote's 20M+ YouTube subscribers, already opted into real-world adventure.</p></div>
+    <div class="card"><div class="lbl">A3 · Secondary</div><h3>The Bear Audience</h3><p>25-55 adventure/survival viewers. Drawn by Bear's EP credit and real-stakes positioning.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">8.5M</div><div class="l">Bear personal social</div></div>
+    <div class="stat"><div class="n">50M+</div><div class="l">Bear Witness portfolio (combined)</div></div>
+    <div class="stat"><div class="n">20M+</div><div class="l">Coyote YouTube subs</div></div>
+    <div class="stat"><div class="n">78M+</div><div class="l">Accessible pool, pre-paid (w/ overlap)</div></div>
+  </div>
+  <p style="margin-top:1rem;font-size:0.84rem;color:var(--soft)"><strong style="color:var(--gold-light)">Number disclaimer (memorise):</strong> the 50M+ is ambiguous-on-purpose — combined portfolio reach including Bear's networks. The 8.5M is the honest "Bear distributes existing content via his own accounts, nothing new filmed" detail. They measure different things — both stay in the doc, deliberately.</p>
+</section>
+
+<section id="ecosystem">
+  <h2><span class="num">09</span>The Ecosystem — three horizons</h2>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">Horizon 1 · Capture</div><h3>Year 1</h3><p>Broadcast TV season = prestige anchor. Digital hunts all year build toward it. Acquisition via talent reach + paid. Repurposing engine feeds YouTube/social. Goal: establish brand, build owned audience.</p></div>
+    <div class="card"><div class="lbl">Horizon 2 · Compound</div><h3>Year 2+</h3><p>Year-round digital is now a predictable owned asset. Franchise no longer depends on one talent or one broadcaster. Annual TV season repeats as the prestige beat. Channel + social compound season to season.</p></div>
+    <div class="card"><div class="lbl">Horizon 3 · Expand</div><h3>Future</h3><p>Bring in secondary creators in time (mentioned only lightly — not the spine). Expand expedition geography beyond Bahamas. TV dependency decreases. Owned ecosystem = the moat.</p></div>
+  </div>
+</section>
+
+<section id="ammo">
+  <h2><span class="num">10</span>Ammo — punchy lines to deliver</h2>
+  <div class="ammo">
+    <div class="head">Lines that land</div>
+    <h3>Use these verbatim when the moment is right.</h3>
+    <ul>
+      <li>"This isn't a marketing campaign for a show. It's the first chapter of a franchise."</li>
+      <li>"Uncharted Treasures is the IP. Everything else serves it."</li>
+      <li>"The talent amplifies. The IP endures."</li>
+      <li>"We don't pitch a concept. We pitch a proven, loyal audience."</li>
+      <li>"Three years in, the franchise is self-sustaining. A broadcaster deal is acceleration, not oxygen."</li>
+      <li>"Other shows reconstruct. We work with the ground itself."</li>
+      <li>"Year-round on YouTube. Once a year on TV. Always on across social. That stack is what a franchise looks like — a single TV launch is what a show looks like."</li>
+    </ul>
+  </div>
+</section>
+
+<section id="qa">
+  <h2><span class="num">11</span>Q&amp;A bank — anticipated questions</h2>
+  <p>What Coyote (or anyone else) is most likely to ask, with the answer you give.</p>
+
+  <div class="qa">
+    <p class="q">How much posting/time is required from Coyote?</p>
+    <p class="a">Hosting digital hunts year-round, episode-fronted content, podcast circuit at launch. His reach launches it; the loyal audience build, paid media, and Bear Witness portfolio carry it. Hosting accelerates rather than sustains the franchise alone.</p>
+
+    <p class="q">What's Bear's actual involvement?</p>
+    <p class="a">Executive Producer credit (opens broadcaster doors at Disney, Nat Geo, Amazon, Apple) plus 8.5M-follower launch amplification via his existing channels. No new filming required from Bear — repurposes of existing assets only.</p>
+
+    <p class="q">What does the network pitch look like?</p>
+    <p class="a">We don't go in with a concept. We go in with an engaged year-round audience showing proven loyalty. Networks are buying de-risked demand, not an unproven idea.</p>
+
+    <p class="q">Why will this sustain when other treasure shows haven't?</p>
+    <p class="a">Three reasons: (1) credibility — real permits, real archaeology team, real finds, not manufactured drama; (2) year-round engagement vs. one-off broadcast format; (3) owned ecosystem (YouTube channel, social, community, email) keeps audience between seasons.</p>
+
+    <p class="q">Are other adventurers / creators getting involved?</p>
+    <p class="a">Right now we're building this brand with Coyote hosting. Long-term creator strategies developing — but unfunded presently, so a light "in time" framing, not the spine.</p>
+
+    <p class="q">What's the timeline?</p>
+    <p class="a">Open. Flagged for post-call resolution. Don't commit to specifics in the room.</p>
+
+    <p class="q">Whose channel do the digital hunts live on?</p>
+    <p class="a">Suggested: build the Uncharted channel as franchise home + cross-promote on Coyote's. His channel is his asset — flag as his call. Open decision.</p>
+
+    <p class="q">What's the commercial / what's in it for me?</p>
+    <p class="a"><strong style="color:#E89595">Defer.</strong> "Core partner not hired host." Steer off commercials in the vision call. Park for a separate conversation.</p>
+
+    <p class="q">Where's the show being filmed?</p>
+    <p class="a">Long Island, Bahamas. Birthplace of Caribbean piracy. Real archaeological sites, real permits, two centuries untouched.</p>
+
+    <p class="q">Why Bahamas piracy specifically?</p>
+    <p class="a">Long Island is where Caribbean piracy was born — culturally resonant, untold story. Stands independent of production quality. Bart Michelini (our expert) anchors the historical credibility.</p>
+
+    <p class="q">What if the season finds nothing big?</p>
+    <p class="a">"Whatever we found = more questions." That's Ep 8 by design. Series finale plants the season-two conversation. Open-ended narrative is the franchise's friend.</p>
+  </div>
+</section>
+
+<section id="redlines">
+  <h2><span class="num">12</span>Diplomacy — never say to Coyote</h2>
+  <div class="redlines">
+    <div class="head">Red lines</div>
+    <h3>Internal-only framings. Do NOT say in the room.</h3>
+    <ul>
+      <li>"The host seat is swappable" — true internally, never out loud. He's the founding face.</li>
+      <li>"We don't need you" — even gently. Always frame Bear as amplifier, Coyote as core partner.</li>
+      <li>Any commercials / money specifics — defer. "Core partner not hired host." Park for a separate conversation.</li>
+      <li>"Audience transfers to the IP" — true, but phrased to Coyote sounds like a downgrade. Phrase as "the audience grows with both you and the franchise."</li>
+      <li>The umbrella / other-creators idea as a roadmap — Olly de-emphasised this. Mention only lightly as "strategy in development" if pressed; can't pay other creators yet so don't promise.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="open">
+  <h2><span class="num">13</span>Open decisions — where things sit</h2>
+  <ul class="bullets">
+    <li><strong>Document distribution.</strong> Strategy doc was sent post-call for Coyote's independent review. Wait for his response.</li>
+    <li><strong>Timeline.</strong> Unresolved. Don't commit live.</li>
+    <li><strong>Time-commitment ask from Coyote.</strong> Open.</li>
+    <li><strong>Whose channel hosts the hunts.</strong> Suggested Uncharted-as-home + cross-promote Coyote's — flagged as his call.</li>
+    <li><strong>Commercials.</strong> Parked. Not for this conversation.</li>
+    <li><strong>Other-creators / umbrella.</strong> De-emphasised. Light "in time" only.</li>
+    <li><strong>The strategy doc itself</strong> — fully aligned to Model B post-Coyote-call, frozen for further edits unless he comes back with specific asks.</li>
+  </ul>
+</section>
+
+<footer>
+  Briefing · Olly only · 26 May 2026 · Compiled from live strategy doc + Coyote call notes
+</footer>
+
+</body>
+</html>
