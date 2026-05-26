@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Commerce Infrastructure Brief | T-35</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --green-signal: #2D6A4F;
+    --red-signal: #9B2335;
+    --amber-signal: #B5600C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--charcoal); font-weight: 400; }
+  a { color: var(--earth); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; background: var(--forest-deep);
+    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  nav .brand { font-family: 'DM Serif Display', serif; color: var(--cream); font-size: 1.1rem; }
+  nav .date { color: var(--sand); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; }
+
+  /* HERO */
+  .hero {
+    background: var(--forest-deep);
+    padding: 9rem 2rem 6rem;
+    text-align: center;
+  }
+  .hero .label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth-light); margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif; color: var(--white);
+    font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.15; margin-bottom: 1.2rem;
+  }
+  .hero p {
+    color: var(--sand); font-size: 1.15rem; font-weight: 300; max-width: 680px; margin: 0 auto 2.5rem;
+  }
+  .countdown-strip {
+    display: inline-flex; gap: 2rem; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+    padding: 1.2rem 2.5rem; margin-top: 1rem;
+  }
+  .countdown-item { text-align: center; }
+  .countdown-item .num {
+    font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--earth-light); display: block;
+  }
+  .countdown-item .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sand); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth); margin-bottom: 0.8rem;
+  }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 2.1rem; margin-bottom: 1.5rem; line-height: 1.2; }
+  h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; }
+  p { line-height: 1.7; color: #444; margin-bottom: 1rem; }
+
+  .section-alt { background: var(--white); }
+  .section-dark { background: var(--forest-deep); color: var(--white); }
+  .section-dark h2, .section-dark h3 { color: var(--white); }
+  .section-dark p { color: var(--sand); }
+  .section-dark .section-label { color: var(--earth-light); }
+
+  /* STATUS BOARD */
+  .status-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;
+  }
+  .status-card {
+    background: var(--white); border-radius: 6px; padding: 1.5rem;
+    border-left: 4px solid var(--sand);
+  }
+  .status-card.green { border-left-color: #2D6A4F; }
+  .status-card.amber { border-left-color: #B5600C; }
+  .status-card.red { border-left-color: #9B2335; }
+  .status-card .badge {
+    display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 20px; margin-bottom: 0.7rem;
+  }
+  .badge-green { background: #D1FAE5; color: #065F46; }
+  .badge-amber { background: #FEF3C7; color: #92400E; }
+  .badge-red { background: #FEE2E2; color: #991B1B; }
+  .badge-blue { background: #DBEAFE; color: #1E40AF; }
+  .status-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .status-card p { font-size: 0.9rem; margin: 0; color: #555; }
+
+  /* DECISION SECTION */
+  .decision-box {
+    background: linear-gradient(135deg, var(--forest-deep), var(--forest));
+    border-radius: 8px; padding: 2.5rem; margin: 2rem 0; color: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .decision-box::before {
+    content: '⚡'; position: absolute; top: -10px; right: 20px;
+    font-size: 5rem; opacity: 0.08;
+  }
+  .decision-box h3 { color: var(--earth-light); font-size: 1.6rem; margin-bottom: 1rem; }
+  .decision-box p { color: var(--sand); margin-bottom: 0.8rem; }
+  .decision-box .action { color: var(--white); font-weight: 600; font-size: 1rem; }
+
+  /* COMPARISON TABLE */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;
+  }
+  .compare-card {
+    border-radius: 8px; padding: 2rem; border: 2px solid var(--sand);
+    background: var(--white);
+  }
+  .compare-card.recommended {
+    border-color: var(--forest); background: var(--forest-deep); color: var(--white);
+  }
+  .compare-card.recommended h3 { color: var(--earth-light); }
+  .compare-card.recommended p { color: var(--sand); }
+  .compare-card.recommended li { color: var(--sand); }
+  .compare-card .rec-badge {
+    display: inline-block; background: var(--earth); color: white;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 1rem;
+  }
+  .compare-card h3 { margin-bottom: 1rem; }
+  .compare-card ul { list-style: none; padding: 0; }
+  .compare-card li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 0.9rem; line-height: 1.5; }
+  .compare-card.recommended li { border-bottom-color: rgba(255,255,255,0.1); }
+  .compare-card li:last-child { border-bottom: none; }
+  .pro { color: #065F46; font-weight: 600; }
+  .con { color: #991B1B; font-weight: 600; }
+  .compare-card.recommended .pro { color: #6EE7B7; }
+  .compare-card.recommended .con { color: #FCA5A5; }
+
+  /* SPRINT TABLE */
+  .sprint-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+  .sprint-table th {
+    background: var(--forest-deep); color: var(--cream); padding: 0.8rem 1rem;
+    text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .sprint-table td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem; vertical-align: top; }
+  .sprint-table tr:nth-child(even) td { background: var(--white); }
+  .sprint-table td:first-child { font-weight: 600; white-space: nowrap; }
+  .owner-tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.15rem 0.6rem; border-radius: 12px; margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+  .jesse { background: #DBEAFE; color: #1E40AF; }
+  .raemy { background: #FEF3C7; color: #92400E; }
+  .cj { background: #F3E8FF; color: #6B21A8; }
+  .calvin { background: #D1FAE5; color: #065F46; }
+  .felix { background: #FFE4E6; color: #9F1239; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 0.9rem 1rem 0.9rem 3rem; border-bottom: 1px solid var(--cream-dark);
+    position: relative; font-size: 0.95rem;
+  }
+  .checklist li::before {
+    content: ''; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+    width: 16px; height: 16px; border: 2px solid var(--sand); border-radius: 4px;
+  }
+  .checklist li.done::before {
+    background: var(--green-signal); border-color: var(--green-signal);
+    content: '✓'; color: white; font-size: 0.6rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .checklist li.urgent::before { border-color: var(--red-signal); }
+  .checklist li .tag { font-size: 0.75rem; font-weight: 600; color: var(--earth); margin-right: 0.5rem; }
+  .checklist li .note { font-size: 0.8rem; color: #888; display: block; margin-top: 0.2rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: var(--sand); padding: 2.5rem 2rem;
+    text-align: center; font-size: 0.85rem;
+  }
+
+  @media (max-width: 640px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .countdown-strip { gap: 1rem; padding: 1rem 1.5rem; }
+    nav { padding: 0.8rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Modern Savage</div>
+  <div class="date">Commerce Infrastructure Brief - May 26, 2026</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="label">Internal Brief - Jesse Grylls</div>
+  <h1>Commerce Infrastructure<br>Sprint Plan</h1>
+  <p>Delaware Inc is moving. One decision unlocks your payment stack. Here's everything that needs to happen in the next 35 days.</p>
+  <div class="countdown-strip">
+    <div class="countdown-item"><span class="num">35</span><span class="lbl">Days to Launch</span></div>
+    <div class="countdown-item"><span class="num">Jun 29</span><span class="lbl">Soft Launch</span></div>
+    <div class="countdown-item"><span class="num">Jul 1</span><span class="lbl">Public Launch</span></div>
+  </div>
+</div>
+
+<!-- STATUS BOARD -->
+<section>
+  <div class="container">
+    <div class="section-label">Infrastructure Status</div>
+    <h2>Where We Stand Today</h2>
+    <div class="status-grid">
+      <div class="status-card green">
+        <span class="badge badge-green">UNBLOCKED</span>
+        <h3>Delaware Inc - Modern Savage Inc</h3>
+        <p>Ice Miller (Paul Obszanski) is preparing documents now. Raemy confirmed directors: Bear + Jesse Grylls. 10,000 shares. Rodl (Atlanta CPA) as registered agent. Filing imminent - documents arriving for review before signing.</p>
+      </div>
+      <div class="status-card amber">
+        <span class="badge badge-amber">DECISION NEEDED</span>
+        <h3>Payment Architecture - Shopify vs Stripe</h3>
+        <p>Raemy has raised this with Ice Miller. Jesse needs to confirm before documents are finalised. See recommendation below. Reply to Raemy today.</p>
+      </div>
+      <div class="status-card red">
+        <span class="badge badge-red">HARD DEADLINE</span>
+        <h3>modernsavage.com Domain</h3>
+        <p>Expires June 24 - 7 days before launch. CJ using MediaOptions (anonymous acquisition). Status unknown. If CJ hasn't confirmed progress this week, escalate before June 1.</p>
+      </div>
+      <div class="status-card amber">
+        <span class="badge badge-amber">IN PROGRESS</span>
+        <h3>UK Entity + UK Stripe</h3>
+        <p>Bear Witness Ltd (IoM) complicates UK Stripe. Once Modern Savage Inc is filed, Raemy can set up UK Stripe under a simple UK Ltd. Fastest path: file Modern Savage Ltd (UK) simultaneously - same £50 Companies House fee.</p>
+      </div>
+      <div class="status-card green">
+        <span class="badge badge-green">SHIPPING</span>
+        <h3>Lightning Nutra - Product</h3>
+        <p>Adult + Kids Shake samples shipped via UPS (1ZR0622J6637359957) - UK customs pending. Superhero add-on ships tomorrow (May 27). Powder density test May 27 - confirms bag dimensions for Salty Packaging order.</p>
+      </div>
+      <div class="status-card amber">
+        <span class="badge badge-amber">WAITING</span>
+        <h3>Salty Packaging - Pouch Order</h3>
+        <p>Quote in hand (NZD). Blocking: powder density test (tomorrow) needed to confirm bag sizing. Then: Jesse sends FL manufacturer address to Melissa, Salty processes order. 2-week production lead time after artwork receipt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DECISION -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-label">The One Decision</div>
+    <h2>Shopify or Stripe-Only?</h2>
+    <p style="max-width: 700px;">Raemy forwarded this question from Ice Miller / Rodl (your Atlanta CPA). Rodl handles bookkeeping and uses QuickBooks. The answer shapes your entire checkout and accounting infrastructure.</p>
+
+    <div class="decision-box">
+      <h3>Recommendation: Shopify + Stripe</h3>
+      <p>Use Shopify as your storefront and subscription layer. Use Stripe as the payment processor behind it. Shopify natively syncs with QuickBooks via its accounting integrations - saving Rodl hours every month in reconciliation.</p>
+      <p class="action">Reply to Raemy: "Yes, add Shopify. We'll use Shopify + Stripe together, with native QuickBooks sync for Rodl."</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card recommended">
+        <div class="rec-badge">Recommended</div>
+        <h3>Shopify + Stripe</h3>
+        <ul>
+          <li><span class="pro">+</span> QuickBooks sync automatic (critical for Rodl CPA)</li>
+          <li><span class="pro">+</span> Built for subscription products (Recharge app)</li>
+          <li><span class="pro">+</span> Multi-currency out of the box (USD + GBP)</li>
+          <li><span class="pro">+</span> Customer portal: subscribers manage their own orders</li>
+          <li><span class="pro">+</span> Industry standard for supplement brands (Lineage uses it)</li>
+          <li><span class="pro">+</span> Inventory sync with Lightning Nutra shipments</li>
+          <li><span class="pro">+</span> Abandoned cart recovery built in</li>
+          <li><span class="con">-</span> Shopify monthly cost (~$79/month Shopify Basic)</li>
+          <li><span class="con">-</span> If website is already custom-built, Calvin needs migration work</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h3>Stripe-Only</h3>
+        <ul>
+          <li><span class="pro">+</span> Simpler if website already has Stripe wired in</li>
+          <li><span class="pro">+</span> Lower monthly cost</li>
+          <li><span class="con">-</span> No native QuickBooks sync - Rodl reconciles manually</li>
+          <li><span class="con">-</span> Subscription management via Stripe Billing (less intuitive)</li>
+          <li><span class="con">-</span> No customer portal without custom build</li>
+          <li><span class="con">-</span> Multi-currency requires custom configuration</li>
+          <li><span class="con">-</span> No built-in inventory/order management</li>
+          <li><span class="con">-</span> Rodl will likely ask for manual exports every month</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+      <strong>Note on website:</strong> If modernsavage.co is already on Shopify, this is a non-question - just confirm and move on. If it's a custom build, Calvin needs to scope migration effort. Either way, Ice Miller / Rodl need your answer to finalise the bookkeeping setup before incorporation documents are signed.
+    </p>
+  </div>
+</section>
+
+<!-- PAYMENT ARCHITECTURE -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <h2>Full Payment Stack - How It Fits Together</h2>
+    <p>Once Modern Savage Inc (Delaware) is incorporated, here's the clean setup:</p>
+
+    <div style="margin: 2.5rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+      <div style="background: rgba(255,255,255,0.06); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--earth);">
+        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-light); margin-bottom: 0.5rem;">US Commerce</div>
+        <div style="font-weight: 600; color: white; margin-bottom: 0.5rem;">Shopify + Stripe</div>
+        <div style="font-size: 0.85rem; color: var(--sand);">Under Modern Savage Inc (Delaware). Stripe account linked to US entity EIN. USD pricing. QuickBooks via Shopify sync for Rodl.</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.06); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--earth);">
+        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-light); margin-bottom: 0.5rem;">UK Commerce</div>
+        <div style="font-weight: 600; color: white; margin-bottom: 0.5rem;">Shopify + UK Stripe</div>
+        <div style="font-size: 0.85rem; color: var(--sand);">Under Modern Savage Ltd (UK) or UK subsidiary. GBP pricing at £59/month. 20% VAT included. Raemy to confirm entity before setting up.</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.06); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--earth);">
+        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-light); margin-bottom: 0.5rem;">Subscriptions</div>
+        <div style="font-weight: 600; color: white; margin-bottom: 0.5rem;">Recharge (Shopify app)</div>
+        <div style="font-size: 0.85rem; color: var(--sand);">Industry standard for supplement subscriptions. Handles autoship, pause/skip, dunning. Connects to Shopify + Klaviyo seamlessly.</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.06); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--earth);">
+        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-light); margin-bottom: 0.5rem;">Bookkeeping</div>
+        <div style="font-weight: 600; color: white; margin-bottom: 0.5rem;">Rodl (Atlanta) + QuickBooks</div>
+        <div style="font-size: 0.85rem; color: var(--sand);">Shopify auto-syncs to QuickBooks. Rodl handles monthly US P&L. Zander Sterling (Chris Cornelius) handles UK tax. Clean separation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 35 DAY SPRINT -->
+<section>
+  <div class="container">
+    <div class="section-label">Operational Sprint</div>
+    <h2>35-Day Countdown by Owner</h2>
+    <p style="margin-bottom: 0.5rem;">Each row is a hard dependency - the next week's work depends on this being done.</p>
+
+    <table class="sprint-table">
+      <thead>
+        <tr>
+          <th>Window</th>
+          <th>Action</th>
+          <th>Owner</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>This week<br><small>May 26-30</small></td>
+          <td>Reply to Raemy: Shopify or Stripe-only decision</td>
+          <td><span class="owner-tag jesse">Jesse</span></td>
+          <td>Ice Miller needs this before finalising Delaware corp documents</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Confirm modernsavage.com domain status with CJ</td>
+          <td><span class="owner-tag jesse">Jesse</span></td>
+          <td>Expires June 24 - need to know acquisition is locked before June 1</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Powder density test for Salty Packaging bag sizing</td>
+          <td><span class="owner-tag raemy">Drew/Andrew</span></td>
+          <td>Done May 27. Salty Packaging can't confirm pouch dimensions without it</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Send Lightning Nutra FL address to Melissa (Salty)</td>
+          <td><span class="owner-tag jesse">Jesse</span></td>
+          <td>Melissa still needs delivery address to complete freight quote</td>
+        </tr>
+        <tr>
+          <td>Week of Jun 2</td>
+          <td>Sign Ice Miller Delaware corp documents</td>
+          <td><span class="owner-tag jesse">Jesse</span> <span class="owner-tag raemy">Raemy</span></td>
+          <td>Modern Savage Inc existence gates US Stripe, EIN, bank account</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Confirm UK entity structure (UK Ltd vs Bear Witness subsidiary)</td>
+          <td><span class="owner-tag raemy">Raemy</span></td>
+          <td>UK Stripe requires a UK-registered entity - IoM won't work</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Place Salty Packaging order (after density test confirms bag size)</td>
+          <td><span class="owner-tag jesse">Jesse</span></td>
+          <td>2-week production = order by ~June 12 for early July delivery</td>
+        </tr>
+        <tr>
+          <td>Week of Jun 9</td>
+          <td>Set up US Stripe under Modern Savage Inc</td>
+          <td><span class="owner-tag jesse">Jesse</span> <span class="owner-tag raemy">Raemy</span></td>
+          <td>No payments until Stripe is live. EIN from Ice Miller needed first</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Install Shopify + Recharge, connect to existing site/domain</td>
+          <td><span class="owner-tag calvin">Calvin</span></td>
+          <td>Subscription checkout must be live before soft launch June 29</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Confirm press outreach is live (started May 26 per launch calendar)</td>
+          <td><span class="owner-tag calvin">Calvin</span></td>
+          <td>6-week press lead time means outreach must be running now</td>
+        </tr>
+        <tr>
+          <td>Week of Jun 16</td>
+          <td>Set up UK Stripe, GBP pricing on Shopify</td>
+          <td><span class="owner-tag raemy">Raemy</span></td>
+          <td>UK customers need GBP checkout by June 29</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Confirm product shipment from Lightning Nutra on track</td>
+          <td><span class="owner-tag cj">CJ</span></td>
+          <td>Ship date must be confirmed in writing - landed by June 27 for July 1</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Send influencer seeding packages (20 targets)</td>
+          <td><span class="owner-tag calvin">Calvin</span></td>
+          <td>2-week delivery window before July 1 launch. Must ship by mid-June</td>
+        </tr>
+        <tr>
+          <td>Jun 24</td>
+          <td>modernsavage.com transfer complete</td>
+          <td><span class="owner-tag cj">CJ</span></td>
+          <td>Hard deadline - domain expires this day. Must be in BGV hands by then</td>
+        </tr>
+        <tr>
+          <td>Jun 29</td>
+          <td>Soft launch - Founding Savage email to waitlist</td>
+          <td><span class="owner-tag calvin">Calvin</span></td>
+          <td>Founding Savage window: 48 hours before public launch</td>
+        </tr>
+        <tr>
+          <td>Jul 1</td>
+          <td>Public launch - full site live, payments active, US + UK</td>
+          <td><span class="owner-tag jesse">Jesse</span></td>
+          <td>Target date confirmed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TODAY'S ACTIONS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-label">Morning Priorities</div>
+    <h2>What Jesse Does Today</h2>
+
+    <ul class="checklist">
+      <li class="urgent">
+        <span class="tag">REPLY RAEMY</span>
+        Shopify vs Stripe decision
+        <span class="note">Reply to Raemy's forwarded email: "Yes, use Shopify + Stripe. QuickBooks sync for Rodl is the right call." She'll update Ice Miller to finalise documents.</span>
+      </li>
+      <li class="urgent">
+        <span class="tag">REPLY MELISSA</span>
+        Send Lightning Nutra FL delivery address to melissa@saltoftheearthpackaging.nz
+        <span class="note">Drew's address: ACF Pharma / Lightning Nutra, FL. This has been open since May 21 - unblocks the freight quote.</span>
+      </li>
+      <li class="urgent">
+        <span class="tag">CHECK CJ</span>
+        Confirm modernsavage.com acquisition status via MediaOptions
+        <span class="note">Expires June 24 - need written confirmation that acquisition is active and budget is approved.</span>
+      </li>
+      <li>
+        <span class="tag">APPROVE METRICOOL</span>
+        May 26 + May 27 + multiple May 31 posts pending in app
+        <span class="note">dhika@kucreatives.com queued several posts overnight. May 26 post has same-day deadline.</span>
+      </li>
+      <li>
+        <span class="tag">CAVENDISH</span>
+        Bear Witness Ltd - Raemy has raised your invoice and handled the OPS account transfer. No action needed.
+        <span class="note">Raemy confirmed "Supplied" for your June 1 invoice and "Sorted now I believe" for the OPS top-up. BGV agreement being suspended per Rick's proposal - 7 invoices then loan balance to £1K.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- UK LAUNCH MECHANICS -->
+<section>
+  <div class="container">
+    <div class="section-label">UK Launch</div>
+    <h2>UK-Specific Mechanics</h2>
+    <p>UK is simultaneous with US on July 1. Three distinct requirements.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+      <div style="background: var(--white); border-radius: 8px; padding: 1.5rem;">
+        <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth); margin-bottom: 0.7rem;">PRICING</div>
+        <h3>£59/month UK price</h3>
+        <p style="font-size: 0.9rem;">Based on £59 recommendation from prior brief. Includes 20% VAT (standard-rated - HMRC confirmed). Net of VAT: £49.17 received. Compare: $69 US = ~£55 - slight premium in GBP is reasonable given UK market.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 8px; padding: 1.5rem;">
+        <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth); margin-bottom: 0.7rem;">CUSTOMS</div>
+        <h3>Organ Blend = POAO</h3>
+        <p style="font-size: 0.9rem;">Product of Animal Origin (POAO) classification confirmed. Requires specialist customs broker + IPAFFS pre-notification + USDA health certificate. George Baker Shipping (Felixstowe) is the recommended broker - appoint asap if not done.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 8px; padding: 1.5rem;">
+        <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth); margin-bottom: 0.7rem;">ENTITY</div>
+        <h3>UK Ltd needed for Stripe</h3>
+        <p style="font-size: 0.9rem;">Bear Witness (IoM) can't hold a UK Stripe account. Options: (1) file Modern Savage Ltd (UK) now - £50, same-day online. Or (2) use GSET Health Ltd (existing BGV entity). Raemy to confirm before June 9.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Modern Savage - Commerce Infrastructure Brief - Prepared by Junior (26 May 2026)</div>
+  <div style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">Internal brief - not for distribution. Covers Delaware incorporation, payment architecture, 35-day sprint.</div>
+</footer>
+
+</body>
+</html>
