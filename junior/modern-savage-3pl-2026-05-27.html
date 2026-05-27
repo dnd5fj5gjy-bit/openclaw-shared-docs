@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — 3PL Selection Brief | T-35</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --green-ok: #2D6A4F;
+    --red-block: #9B2335;
+    --amber-warn: #B5600C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--charcoal); font-size: 16px; }
+  a { color: var(--earth); }
+
+  nav {
+    position: fixed; top: 0; width: 100%;
+    background: var(--forest-deep); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  nav .brand { font-family: 'DM Serif Display', serif; color: var(--cream); font-size: 1.05rem; }
+  nav .meta { color: var(--sand); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; }
+
+  .hero {
+    background: var(--forest-deep);
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+  }
+  .hero .label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth-light); margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif; color: var(--white);
+    font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 1rem;
+  }
+  .hero .sub {
+    color: var(--sand); font-size: 1.1rem; font-weight: 300; max-width: 620px; margin: 0 auto 2rem;
+  }
+  .hero .urgency {
+    display: inline-block; background: rgba(176, 60, 20, 0.25);
+    border: 1px solid rgba(220, 80, 30, 0.4); border-radius: 4px;
+    padding: 0.7rem 1.5rem; color: #F4A460; font-size: 0.9rem; font-weight: 600;
+  }
+
+  section { padding: 4.5rem 2rem; }
+  .container { max-width: 1050px; margin: 0 auto; }
+  .section-alt { background: var(--white); }
+  .section-dark { background: var(--forest-deep); }
+  .section-dark h2, .section-dark h3 { color: var(--white); }
+  .section-dark p, .section-dark li { color: var(--sand); }
+  .section-dark .sec-label { color: var(--earth-light); }
+
+  .sec-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--earth); margin-bottom: 0.7rem;
+  }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.2; }
+  h3 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin-bottom: 0.7rem; }
+  p { line-height: 1.75; color: #3D3D3D; margin-bottom: 0.9rem; }
+
+  /* RESOLVED BAR */
+  .resolved-bar {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .resolved-chip {
+    background: rgba(45, 106, 79, 0.12); border: 1px solid rgba(45, 106, 79, 0.35);
+    border-radius: 4px; padding: 0.5rem 1rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--green-ok);
+  }
+  .resolved-chip .tick { margin-right: 0.4rem; }
+
+  /* TIMELINE */
+  .timeline { margin: 2rem 0; }
+  .tl-row {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid var(--cream-dark);
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-date {
+    flex-shrink: 0; width: 90px;
+    font-size: 0.82rem; font-weight: 700; color: var(--earth);
+    padding-top: 0.15rem;
+  }
+  .tl-item { flex: 1; }
+  .tl-item .action { font-weight: 600; font-size: 0.95rem; color: var(--charcoal); margin-bottom: 0.2rem; }
+  .tl-item .note { font-size: 0.85rem; color: #666; }
+  .tl-urgent { background: rgba(176, 60, 20, 0.06); border-radius: 4px; padding: 0.8rem 1rem; }
+  .tl-urgent .action { color: var(--red-block); }
+
+  /* OPTION CARDS */
+  .option-grid { display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem; }
+  .option-card {
+    background: var(--white); border-radius: 8px;
+    border: 2px solid var(--cream-dark); padding: 2rem;
+    position: relative;
+  }
+  .option-card.recommended {
+    border-color: var(--earth);
+  }
+  .rec-badge {
+    position: absolute; top: -12px; left: 1.5rem;
+    background: var(--earth); color: white; font-size: 0.7rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.75rem; border-radius: 3px;
+  }
+  .option-card h3 { margin-bottom: 0.3rem; }
+  .option-tagline { font-size: 0.88rem; color: #666; margin-bottom: 1.2rem; }
+
+  .fact-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .fact {
+    background: var(--cream); border-radius: 4px; padding: 0.6rem 0.8rem;
+  }
+  .fact .fl { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #777; }
+  .fact .fv { font-size: 0.9rem; font-weight: 600; color: var(--charcoal); margin-top: 0.15rem; }
+
+  .verdict {
+    margin-top: 1.2rem; padding: 0.9rem 1rem;
+    border-left: 3px solid var(--earth);
+    background: rgba(192, 122, 69, 0.07);
+    font-size: 0.9rem; font-weight: 500; color: var(--charcoal);
+  }
+  .verdict .vl { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth); margin-bottom: 0.3rem; }
+
+  /* BLOCKER TABLE */
+  .blocker-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  .blocker-table th {
+    text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #888; border-bottom: 2px solid var(--cream-dark);
+    padding: 0.6rem 0.8rem;
+  }
+  .blocker-table td { padding: 0.9rem 0.8rem; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem; vertical-align: top; }
+  .blocker-table tr:last-child td { border-bottom: none; }
+  .status-done { color: var(--green-ok); font-weight: 600; }
+  .status-open { color: var(--red-block); font-weight: 600; }
+  .status-near { color: var(--amber-warn); font-weight: 600; }
+  .status-active { color: #1565C0; font-weight: 600; }
+
+  /* DECISIONS */
+  .decision-list { margin-top: 1.5rem; counter-reset: d; }
+  .decision-item {
+    counter-increment: d;
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .decision-item:last-child { border-bottom: none; }
+  .d-num {
+    flex-shrink: 0; width: 36px; height: 36px;
+    background: rgba(192, 122, 69, 0.25); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--earth-light);
+    content: counter(d);
+  }
+  .d-content .d-title { font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+  .d-content .d-by { font-size: 0.82rem; color: var(--sand); }
+
+  /* WHAT TO SEND */
+  .send-box {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px; padding: 1.5rem; margin-top: 1.2rem;
+  }
+  .send-box h3 { color: var(--white); margin-bottom: 1rem; }
+  .send-box ul { list-style: none; padding: 0; }
+  .send-box li {
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.9rem; color: var(--sand);
+  }
+  .send-box li:last-child { border-bottom: none; }
+  .send-box li::before { content: "→ "; color: var(--earth-light); font-weight: 700; }
+
+  footer {
+    background: var(--forest-deep); text-align: center;
+    padding: 2rem; color: var(--sand); font-size: 0.82rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  @media (max-width: 680px) {
+    .resolved-bar { gap: 0.8rem; }
+    .fact-grid { grid-template-columns: 1fr 1fr; }
+    .tl-date { width: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Modern Savage</div>
+  <div class="meta">3PL Selection Brief &nbsp;·&nbsp; T-35 &nbsp;·&nbsp; May 27, 2026</div>
+</nav>
+
+<div class="hero">
+  <div class="label">Fulfilment Decision — Action Required</div>
+  <h1>3PL Selection Brief</h1>
+  <p class="sub">Commerce architecture is locked. QuickBooks is solved. The last unaddressed operational blocker is fulfilment. Here is the decision and the recommendation.</p>
+  <div class="urgency">⚡ Sign a 3PL by Friday May 29 to make July 1 safe</div>
+</div>
+
+<!-- RESOLVED -->
+<section>
+  <div class="container">
+    <div class="sec-label">What is now resolved</div>
+    <h2>Architecture Decisions: All Closed</h2>
+    <p>Felix confirmed this morning. No more open architectural questions.</p>
+
+    <div class="resolved-bar">
+      <div class="resolved-chip"><span class="tick">✓</span> Custom backend (Next.js/Vercel/Supabase)</div>
+      <div class="resolved-chip"><span class="tick">✓</span> No Shopify — saves ~2-3% per transaction</div>
+      <div class="resolved-chip"><span class="tick">✓</span> QuickBooks: Stripe QBO connector (official, 1-click setup)</div>
+      <div class="resolved-chip"><span class="tick">✓</span> Delaware entity: Ice Miller finishing docs now</div>
+      <div class="resolved-chip"><span class="tick">✓</span> Founding Tribe list: Bear's email went out May 26</div>
+    </div>
+
+    <p>Once the entity docs arrive from Ice Miller, Raemy sets up the Stripe account — that is a one-day task. The QuickBooks connector goes live when the Stripe account is live. The site is already built and tested by Felix.</p>
+    <p>The only remaining operational question: <strong>who fulfils the orders?</strong></p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section-alt">
+  <div class="container">
+    <div class="sec-label">Critical Path</div>
+    <h2>What Has to Happen When</h2>
+
+    <div class="timeline">
+      <div class="tl-row tl-urgent">
+        <div class="tl-date">May 29</div>
+        <div class="tl-item">
+          <div class="action">3PL contract signed</div>
+          <div class="note">Onboarding begins. ShipBob takes 2-3 weeks to receive and process inventory.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">May 30</div>
+        <div class="tl-item">
+          <div class="action">Stripe account set up</div>
+          <div class="note">Entity will be ready by then. Raemy + Felix, 1-day task.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Jun 2</div>
+        <div class="tl-item">
+          <div class="action">Lightning Nutra ship date confirmed</div>
+          <div class="note">Samples arrived. Density test running now. Bag sizing to Salty follows.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Jun 17-25</div>
+        <div class="tl-item">
+          <div class="action">Inventory arrives at 3PL warehouse</div>
+          <div class="note">Based on current Lightning Nutra timeline. 3PL needs 3-5 days to receive and barcode.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Jun 27</div>
+        <div class="tl-item">
+          <div class="action">Soft launch — test orders</div>
+          <div class="note">Founding Tribe subscribers get first access. First real shipments go out.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Jul 1</div>
+        <div class="tl-item">
+          <div class="action">Full public launch</div>
+          <div class="note">BG email list activated. Bear social goes live.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">If the 3PL contract is not signed by May 30, you are entering July 1 with no fulfilment infrastructure. That means manual packaging and shipping for the first wave, which breaks fast above 50 orders.</p>
+  </div>
+</section>
+
+<!-- OPTIONS -->
+<section>
+  <div class="container">
+    <div class="sec-label">3PL Comparison</div>
+    <h2>The Options</h2>
+
+    <div class="option-grid">
+
+      <!-- SHIPBOB -->
+      <div class="option-card recommended">
+        <div class="rec-badge">Recommended</div>
+        <h3>ShipBob</h3>
+        <div class="option-tagline">The DTC supplement standard. US + UK on one contract.</div>
+        <div class="fact-grid">
+          <div class="fact"><div class="fl">Markets</div><div class="fv">US + UK (both)</div></div>
+          <div class="fact"><div class="fl">Supplement expertise</div><div class="fv">Yes — FDA-compliant</div></div>
+          <div class="fact"><div class="fl">Pick & pack</div><div class="fv">~$3-5 per order</div></div>
+          <div class="fact"><div class="fl">Storage</div><div class="fv">~$40/pallet/month</div></div>
+          <div class="fact"><div class="fl">Custom API</div><div class="fv">Full REST — Felix connects it</div></div>
+          <div class="fact"><div class="fl">Subscriptions</div><div class="fv">Native support</div></div>
+          <div class="fact"><div class="fl">Onboarding</div><div class="fv">2-3 weeks</div></div>
+          <div class="fact"><div class="fl">Contact</div><div class="fv">partner@shipbob.com</div></div>
+        </div>
+        <div class="verdict">
+          <div class="vl">Verdict</div>
+          Single contract, both markets. No Shopify dependency. Felix wires the REST API directly into the custom backend. This is the obvious choice for a US-primary, UK-secondary DTC supplement brand on a custom stack.
+        </div>
+      </div>
+
+      <!-- SHIPMONK -->
+      <div class="option-card">
+        <h3>ShipMonk</h3>
+        <div class="option-tagline">Strong US option. No UK warehouse.</div>
+        <div class="fact-grid">
+          <div class="fact"><div class="fl">Markets</div><div class="fv">US only</div></div>
+          <div class="fact"><div class="fl">DTC experience</div><div class="fv">Strong, subscription-native</div></div>
+          <div class="fact"><div class="fl">Custom API</div><div class="fv">Yes</div></div>
+          <div class="fact"><div class="fl">UK fulfilment</div><div class="fv">None — international shipping only</div></div>
+        </div>
+        <div class="verdict">
+          <div class="vl">Verdict</div>
+          Good if you want to delay UK fulfilment. UK customers will wait 7-14 days. Fine for a soft launch, less ideal once Bear's UK audience activates at scale.
+        </div>
+      </div>
+
+      <!-- HUBOO -->
+      <div class="option-card">
+        <h3>Huboo</h3>
+        <div class="option-tagline">UK specialist. Best for UK market, no US.</div>
+        <div class="fact-grid">
+          <div class="fact"><div class="fl">Markets</div><div class="fv">UK + EU</div></div>
+          <div class="fact"><div class="fl">DTC experience</div><div class="fv">Strong for UK brands</div></div>
+          <div class="fact"><div class="fl">Custom API</div><div class="fv">Yes</div></div>
+          <div class="fact"><div class="fl">US fulfilment</div><div class="fv">None</div></div>
+        </div>
+        <div class="verdict">
+          <div class="vl">Verdict</div>
+          Best UK experience if you want two separate 3PLs (ShipBob US + Huboo UK). More contracts, more complexity. Only worth it if UK order volume justifies it post-launch.
+        </div>
+      </div>
+
+      <!-- SHIPSALOT -->
+      <div class="option-card">
+        <h3>ShipsAlot (Susan U)</h3>
+        <div class="option-tagline">Was in conversation in April — status unknown.</div>
+        <div class="fact-grid">
+          <div class="fact"><div class="fl">Status</div><div class="fv">Unknown — check if active</div></div>
+          <div class="fact"><div class="fl">Markets</div><div class="fv">US</div></div>
+        </div>
+        <div class="verdict">
+          <div class="vl">Verdict</div>
+          If Susan has already sent a quote and it is competitive, compare it against ShipBob on price. If the conversation has gone cold, ShipBob is the default.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOCKER STATUS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="sec-label">Full Blocker Status — May 27</div>
+    <h2>Where Everything Stands</h2>
+
+    <table class="blocker-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Delaware entity (Modern Savage Inc)</td>
+          <td><span class="status-near">Near done</span></td>
+          <td>Ice Miller finishing documents. Bear + Jesse as directors. Rodl as Atlanta CPA/registered agent.</td>
+        </tr>
+        <tr>
+          <td>QuickBooks integration</td>
+          <td><span class="status-done">Resolved</span></td>
+          <td>Stripe QBO official connector. Confirmed by Felix May 27.</td>
+        </tr>
+        <tr>
+          <td>Commerce stack</td>
+          <td><span class="status-done">Resolved</span></td>
+          <td>Custom Next.js/Vercel/Supabase. No Shopify.</td>
+        </tr>
+        <tr>
+          <td>Stripe account</td>
+          <td><span class="status-near">Blocked on entity</span></td>
+          <td>1-day task once Ice Miller delivers. Raemy + Felix.</td>
+        </tr>
+        <tr>
+          <td><strong>3PL selection</strong></td>
+          <td><span class="status-open">OPEN — urgent</span></td>
+          <td>No 3PL confirmed. Need decision by May 29.</td>
+        </tr>
+        <tr>
+          <td>modernsavage.com domain</td>
+          <td><span class="status-open">Open</span></td>
+          <td>Still parked on GiantPanda. Expires June 24. CJ + MediaOptions.</td>
+        </tr>
+        <tr>
+          <td>Lightning Nutra ship date</td>
+          <td><span class="status-near">Near resolved</span></td>
+          <td>Samples in transit. Density test today. Ship date expected this week.</td>
+        </tr>
+        <tr>
+          <td>Salty Packaging order</td>
+          <td><span class="status-near">Waiting on density test</span></td>
+          <td>Bag sizing unconfirmed until density test. Melissa ready to quote.</td>
+        </tr>
+        <tr>
+          <td>Founding Tribe email list</td>
+          <td><span class="status-active">Active</span></td>
+          <td>Bear's welcome email sent May 26. BG list mobilised.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DECISIONS + WHAT TO SEND -->
+<section class="section-dark">
+  <div class="container">
+    <div class="sec-label">Jesse's Three Decisions This Week</div>
+    <h2>Action Items</h2>
+
+    <div class="decision-list">
+      <div class="decision-item">
+        <div class="d-num">1</div>
+        <div class="d-content">
+          <div class="d-title">3PL: Sign with ShipBob — or confirm ShipsAlot if that conversation is live</div>
+          <div class="d-by">By Friday May 29. This unblocks July 1 fulfilment.</div>
+        </div>
+      </div>
+      <div class="decision-item">
+        <div class="d-num">2</div>
+        <div class="d-content">
+          <div class="d-title">Stripe: Confirm with Raemy once Ice Miller docs arrive</div>
+          <div class="d-by">End of this week. Bear's ITIN is on file — Raemy can handle it.</div>
+        </div>
+      </div>
+      <div class="decision-item">
+        <div class="d-num">3</div>
+        <div class="d-content">
+          <div class="d-title">Domain: Push CJ on MediaOptions status</div>
+          <div class="d-by">Hard deadline: modernsavage.com secured by June 17 (7 days before launch minimum).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="send-box">
+      <h3>What to send ShipBob in your first email</h3>
+      <ul>
+        <li>DTC supplement brand, July 1 hard launch date</li>
+        <li>Two SKUs: adult blend (~600g monthly subscription) + kids blend (~280g monthly subscription)</li>
+        <li>Launch volume: 500-1,000 orders in month 1 scaling to 2-5K by month 3</li>
+        <li>Warehouses needed: US primary, UK secondary</li>
+        <li>Integration: custom REST API (not Shopify — our own checkout)</li>
+        <li>Ask for: pricing proposal, onboarding timeline, and API documentation for our developer</li>
+        <li>Contact: partner@shipbob.com or shipbob.com/get-started</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Junior — Bear Grylls Ventures &nbsp;·&nbsp; May 27, 2026 &nbsp;·&nbsp; T-35 to July 1 &nbsp;·&nbsp; Confidential
+</footer>
+
+</body>
+</html>
