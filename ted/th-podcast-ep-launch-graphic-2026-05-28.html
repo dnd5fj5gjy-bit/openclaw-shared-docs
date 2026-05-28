@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, initial-scale=1">
+<title>Ted's Health Podcast — Episode Launch Graphic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --navy-2:#102A4C;
+    --steel:#1E4A7A;
+    --accent:#C9A14A;      /* muted gold accent */
+    --ice:#E8EEF5;
+    --muted:#9DB2CB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1080px;height:1080px;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:radial-gradient(120% 120% at 80% 0%, #143258 0%, var(--navy) 55%, #07152A 100%);
+    color:#fff;
+    width:1080px;height:1080px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* subtle waveform texture top-right */
+  .glow{
+    position:absolute;width:760px;height:760px;border-radius:50%;
+    background:radial-gradient(circle, rgba(201,161,74,0.18) 0%, rgba(201,161,74,0) 65%);
+    top:-220px;right:-220px;
+  }
+  .frame{
+    position:absolute;inset:46px;
+    border:1.5px solid rgba(201,161,74,0.38);
+    border-radius:22px;
+    padding:64px 70px;
+    display:flex;flex-direction:column;
+    height:calc(1080px - 92px);
+  }
+  /* HEADER */
+  .top{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:18px;}
+  .mark{
+    width:58px;height:58px;border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),#A87E2E);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat';font-weight:900;font-size:30px;color:var(--navy);
+    box-shadow:0 6px 20px rgba(0,0,0,.35);
+  }
+  .brand-name{font-family:'Montserrat';font-weight:800;font-size:26px;letter-spacing:.04em;}
+  .brand-name span{color:var(--accent);}
+  .show-tag{
+    font-family:'Montserrat';font-weight:600;font-size:15px;
+    letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
+  }
+  /* NEW EP FLAG */
+  .flag{
+    margin-top:54px;display:inline-flex;align-items:center;gap:12px;
+    background:var(--accent);color:var(--navy);
+    font-family:'Montserrat';font-weight:800;font-size:18px;letter-spacing:.18em;
+    text-transform:uppercase;padding:13px 22px;border-radius:8px;align-self:flex-start;
+  }
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--navy);}
+  /* EPISODE LABEL */
+  .ep-no{
+    margin-top:40px;font-family:'Montserrat';font-weight:700;font-size:22px;
+    letter-spacing:.20em;text-transform:uppercase;color:var(--accent);
+  }
+  /* TITLE */
+  .title{
+    margin-top:18px;font-family:'Montserrat';font-weight:900;
+    font-size:74px;line-height:1.02;letter-spacing:-.01em;
+    max-width:880px;
+  }
+  /* HOOK */
+  .hook{
+    margin-top:30px;font-size:30px;line-height:1.4;color:var(--ice);
+    font-weight:400;max-width:840px;
+  }
+  .hook strong{color:#fff;font-weight:600;}
+  /* spacer pushes guest+cta to bottom */
+  .spacer{flex:1;}
+  /* GUEST STRIP */
+  .guest{
+    display:flex;align-items:center;gap:22px;
+    padding-top:30px;border-top:1px solid rgba(255,255,255,.12);
+  }
+  .avatar{
+    width:84px;height:84px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--steel),#0E2746);
+    border:2px solid var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat';font-weight:800;font-size:30px;color:var(--ice);
+  }
+  .guest-meta .role{font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .guest-meta .name{font-family:'Montserrat';font-weight:700;font-size:30px;margin-top:4px;}
+  /* CTA */
+  .cta{
+    margin-top:34px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .listen{
+    display:flex;align-items:center;gap:14px;
+    font-family:'Montserrat';font-weight:700;font-size:21px;letter-spacing:.04em;
+  }
+  .play{
+    width:50px;height:50px;border-radius:50%;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .play::after{content:"";border-left:16px solid var(--navy);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px;}
+  .where{font-size:17px;color:var(--muted);font-weight:500;text-align:right;line-height:1.5;}
+  .where b{color:var(--ice);font-weight:600;}
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="brand">
+        <div class="mark">TH</div>
+        <div class="brand-name">Ted's <span>Health</span></div>
+      </div>
+      <div class="show-tag">The Podcast</div>
+    </div>
+
+    <div class="flag"><span class="dot"></span>New Episode</div>
+
+    <div class="ep-no">Episode 4</div>
+    <h1 class="title">[EPISODE TITLE]</h1>
+    <p class="hook">[ONE-LINE HOOK — the single most compelling question or claim from the episode. Keep it specific, plain, no overclaiming.]</p>
+
+    <div class="spacer"></div>
+
+    <div class="guest">
+      <div class="avatar">JA</div>
+      <div class="guest-meta">
+        <div class="role">Hosted by</div>
+        <div class="name">Dr Jonathan Andrews</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="listen"><span class="play"></span> Listen now</div>
+      <div class="where">Out <b>[DATE]</b><br>Spotify · Apple · YouTube</div>
+    </div>
+  </div>
+</body>
+</html>
