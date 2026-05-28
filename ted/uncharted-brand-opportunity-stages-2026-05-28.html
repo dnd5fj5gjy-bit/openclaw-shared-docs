@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncharted Treasures — Three Stages of Brand Opportunity</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#0B1F2A;
+  --deep:#112D3C;
+  --ink:#0E1A24;
+  --gold:#C49A52;
+  --gold-light:#E6C58C;
+  --cream:#F5F0E8;
+  --rule:rgba(255,255,255,0.1);
+  --muted:rgba(245,240,232,0.7);
+  --soft:rgba(245,240,232,0.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;font-weight:300;
+  background:var(--abyss);color:var(--cream);
+  line-height:1.55;font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+}
+
+header.lead{
+  padding:3.6rem 1.6rem 2.8rem;text-align:center;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,#0B1F2A 0%,#112D3C 100%);
+}
+header.lead .tag{font-size:0.66rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem}
+header.lead h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2rem,5.4vw,2.8rem);line-height:1.1;margin-bottom:0.8rem}
+header.lead .deck{color:var(--muted);max-width:660px;margin:0 auto;font-size:0.98rem}
+header.lead .stamp{display:inline-block;margin-top:1.5rem;font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--soft)}
+
+nav.toc{
+  position:sticky;top:0;z-index:10;background:rgba(11,31,42,0.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);padding:0.7rem 1rem;
+  display:flex;gap:1rem;overflow-x:auto;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+}
+nav.toc a{color:var(--muted);text-decoration:none;white-space:nowrap;padding:0.3rem 0.1rem;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+section{padding:2.8rem 1.6rem;border-bottom:1px solid var(--rule);max-width:980px;margin:0 auto}
+section h2{
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:1.6rem;line-height:1.15;margin-bottom:1.1rem;
+}
+section h2 .num{color:var(--gold);font-size:0.58em;letter-spacing:0.2em;margin-right:0.6em;display:inline-block;vertical-align:middle;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:600}
+section p{color:var(--muted);margin-bottom:0.85rem;font-size:0.95rem}
+section p strong{color:var(--cream);font-weight:500}
+section .lead-p{font-size:1.04rem;color:var(--cream);margin-bottom:1.2rem;max-width:780px}
+
+/* The big idea band */
+.idea{background:rgba(196,154,82,0.06);border:1px solid rgba(196,154,82,0.25);border-radius:10px;padding:1.5rem 1.5rem;margin-top:1.2rem}
+.idea .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.6rem}
+.idea p{color:var(--cream);font-size:1rem;margin:0}
+.idea p+p{margin-top:0.7rem}
+
+/* Stage block */
+.stage{margin-top:0.6rem}
+.stage-head{display:flex;align-items:baseline;gap:0.9rem;border-bottom:1px solid var(--rule);padding-bottom:0.7rem;margin-bottom:1.1rem;flex-wrap:wrap}
+.stage-head .sn{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--gold);line-height:1}
+.stage-head .st{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--cream)}
+.stage-head .sw{font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-left:auto}
+.stage-lead{font-size:0.99rem;color:var(--cream);margin-bottom:1rem;max-width:800px}
+
+.sub{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:1.3rem 0 0.5rem}
+
+/* Opportunity rows */
+.opps{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.5rem}
+.opp{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.15rem;border-left:3px solid var(--gold)}
+.opp .o-name{font-family:'DM Serif Display',serif;font-size:1.06rem;color:var(--cream);margin-bottom:0.1rem}
+.opp .o-mech{font-size:0.91rem;color:var(--muted);margin:0.35rem 0 0}
+.opp .o-mech b{color:var(--gold-light);font-weight:500}
+.opp .o-for{font-size:0.83rem;color:var(--soft);margin-top:0.55rem;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.06)}
+.opp .o-for span{color:var(--gold);text-transform:uppercase;letter-spacing:0.16em;font-size:0.62rem;font-weight:600;margin-right:0.5em}
+
+/* Flow strip */
+.flow{display:flex;align-items:stretch;gap:0;margin-top:1.1rem;flex-wrap:wrap;background:rgba(196,154,82,0.05);border:1px solid rgba(196,154,82,0.22);border-radius:8px;padding:1.1rem 0.6rem}
+.flow .fstep{flex:1;min-width:140px;padding:0.4rem 0.9rem;position:relative}
+.flow .fstep:not(:last-child)::after{content:"→";position:absolute;right:-0.3rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1rem}
+.flow .fstep .fn{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.25rem}
+.flow .fstep .fb{font-size:0.86rem;color:var(--cream);line-height:1.45}
+
+/* Two sponsor cards */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.card{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1.3rem}
+.card .lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem}
+.card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.4rem;color:var(--cream)}
+.card p{color:var(--muted);font-size:0.9rem;margin:0;line-height:1.55}
+.card p b{color:var(--gold-light);font-weight:500}
+
+/* At-a-glance map */
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.mapcol{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1.3rem}
+.mapcol .lbl{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem}
+.mapcol h3{font-family:'DM Serif Display',serif;font-size:1.12rem;font-weight:400;margin-bottom:0.7rem;color:var(--cream)}
+.mapcol ul{list-style:none;padding:0;margin:0}
+.mapcol ul li{padding:0.4rem 0 0.4rem 1rem;position:relative;font-size:0.9rem;color:var(--muted);border-bottom:1px solid rgba(255,255,255,0.05)}
+.mapcol ul li:last-child{border-bottom:0}
+.mapcol ul li::before{content:"›";color:var(--gold);position:absolute;left:0;font-weight:600}
+
+.note{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.3rem;margin-top:1.2rem}
+.note .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem}
+.note p{margin:0;font-size:0.92rem;color:var(--muted)}
+.note p strong{color:var(--cream)}
+
+footer{padding:2.2rem 1.6rem;text-align:center;color:var(--soft);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<header class="lead">
+  <div class="tag">Bear Witness × Uncharted Treasures</div>
+  <h1>Three stages of brand opportunity.</h1>
+  <p class="deck">Pre-show hype, during broadcast, and post-broadcast digital — how the franchise monetises across its lifecycle, how each stage feeds the next, and exactly where the brand-partnership opportunities sit at every point.</p>
+  <div class="stamp">Bear Witness · 28 May 2026</div>
+</header>
+
+<nav class="toc">
+  <a href="#idea">The idea</a>
+  <a href="#sponsors">Two sponsor types</a>
+  <a href="#s1">Stage 1 · Pre-hype</a>
+  <a href="#s2">Stage 2 · Broadcast</a>
+  <a href="#s3">Stage 3 · Digital</a>
+  <a href="#together">How they connect</a>
+  <a href="#map">Opportunity map</a>
+</nav>
+
+<section id="idea">
+  <h2><span class="num">00</span>The idea</h2>
+  <p class="lead-p">We can start selling the opportunity before a single frame is shot. The storylines exist on paper. Bear Grylls and Brave Wilderness already have the audience. That means we can build hype now, sell that hype to brand partners now, and have it all land together when the expedition delivers.</p>
+  <p>The franchise monetises in three connected stages across its lifecycle. <strong>Pre-show hype</strong> builds and sells the anticipation before production. <strong>Broadcast</strong> turns that into in-show sponsorship across two distribution channels. <strong>Post-broadcast digital</strong> compounds it on YouTube and across the wider digital ecosystem. Each stage opens its own brand-partnership opportunities, and each one makes the next easier to sell.</p>
+  <div class="idea">
+    <div class="head">Why this works</div>
+    <p>Uncharted Treasures' own channel has no audience or performance data yet — on its own it's hard to monetise early, because partners price digital on proven views. The unlock is <strong>piggybacking the reach we already have</strong>: Brave Wilderness' established audience and Bear Grylls' short-form distribution carry the hype while the franchise builds its own following underneath it.</p>
+    <p>So we don't wait for the show to exist before we earn. We sell the hype — in the hope, and with the storylines, that it all blows up at the same time.</p>
+  </div>
+</section>
+
+<section id="sponsors">
+  <h2><span class="num">01</span>Two types of sponsor</h2>
+  <p class="lead-p">Brand opportunities across all three stages fall into two categories. Knowing which a partner is shapes what we offer them and how we price it.</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="lbl">Type A</div>
+      <h3>Conversion sponsors</h3>
+      <p>Transactional. They want measurable response — clicks, codes, sales. Best served with <b>integrated, performance-led placements</b>: dedicated segments, trackable offers, direct calls to action woven into the content.</p>
+    </div>
+    <div class="card">
+      <div class="lbl">Type B</div>
+      <h3>Mention / brand sponsors</h3>
+      <p>Less transactional. They want association, awareness and credibility from the franchise. Served with <b>brand mentions, presence and alignment</b> — named partner of the expedition, logo and reference placements, halo from the adventure.</p>
+    </div>
+  </div>
+  <div class="note">
+    <div class="head">How the ad work actually runs</div>
+    <p>Worth setting partner expectations early: the established model is that a <strong>script gets approved, then the talent produces the ad themselves in their own direction</strong> — rather than the brand handing down a finished blueprint. Budget roughly a day to two days of time per ad, end to end (script, production, edit). That creative autonomy is part of why the integrations feel authentic and perform.</p>
+  </div>
+</section>
+
+<section id="s1">
+  <h2><span class="num">02</span>Stage 1 — Pre-show hype</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">1</span>
+      <span class="st">Pre-hype</span>
+      <span class="sw">Before &amp; during production</span>
+    </div>
+    <p class="stage-lead">Generate revenue and excitement before the show exists. We write a creative hook that's relevant to the show but adjacent to it, run a hype series across the audiences we already have, and sell brand partnerships against that anticipation — all while building the content library we'll need later.</p>
+
+    <div class="sub">How it works</div>
+    <div class="opps">
+      <div class="opp">
+        <div class="o-name">A "hype series" distributed on borrowed reach</div>
+        <p class="o-mech">An adjacent-to-the-show content series — built from the storylines we already have on paper — <b>distributed across Brave Wilderness and Bear Grylls short-form channels</b>. It gets people excited about the potential and warms up the audience before any expedition footage exists.</p>
+        <p class="o-for"><span>Brand opp</span>Early-bird sponsors back the hype series itself — getting in before the show at a lower entry price, in exchange for being there at the ground floor.</p>
+      </div>
+      <div class="opp">
+        <div class="o-name">Sell the anticipation in advance</div>
+        <p class="o-mech">Get partners <b>excited and buying in before we go into production</b>. We're not selling proven views yet — we're selling the storylines, the talent, and a credible path to a moment that all lands at once.</p>
+        <p class="o-for"><span>Brand opp</span>Founding-partner / pre-launch packages — discounted, multi-stage commitments locked in before the audience (and the price) climbs.</p>
+      </div>
+      <div class="opp">
+        <div class="o-name">A funded BTS team building sellable content</div>
+        <p class="o-mech">A behind-the-scenes team and budget runs <b>in tandem with production</b>, so we're constantly generating content we can sell — not just the show itself, but the making of it. More content means more inventory, which means more brand-sponsor opportunities.</p>
+        <p class="o-for"><span>Brand opp</span>BTS and "road to the expedition" content offers a second, parallel sponsorship stream alongside the main show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="num">03</span>Stage 2 — During broadcast</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">2</span>
+      <span class="st">Broadcast</span>
+      <span class="sw">When the show airs</span>
+    </div>
+    <p class="stage-lead">When the show goes out, the pre-sold anticipation converts into in-show sponsorship. The key advantage here is control — because we hold two distribution channels, we can guarantee a sponsor their delivery one way or another.</p>
+
+    <div class="sub">How it works</div>
+    <div class="opps">
+      <div class="opp">
+        <div class="o-name">In-show sponsorship &amp; promotion</div>
+        <p class="o-mech">Partner promotion is <b>built into the show itself</b> — integrations, placements and named-partner moments inside the broadcast. This is the premium, headline inventory the pre-hype stage was selling toward.</p>
+        <p class="o-for"><span>Brand opp</span>Headline / presenting partner of the broadcast — the most visible, highest-value slot in the model.</p>
+      </div>
+      <div class="opp">
+        <div class="o-name">Two channels = a sponsor guarantee</div>
+        <p class="o-mech">We control sponsorship delivery because we have <b>two places to put it: the TV show and our YouTube series channel</b>. If a placement doesn't hit a sponsor's quota on one, we can place it on the other. That makes the offer to a brand far more dependable than a single-channel buy.</p>
+        <p class="o-for"><span>Brand opp</span>Cross-channel packages with a guaranteed-delivery promise — TV reach plus a digital make-good, sold as one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <h2><span class="num">04</span>Stage 3 — Post &amp; during-broadcast digital</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">3</span>
+      <span class="st">Digital</span>
+      <span class="sw">On YouTube &amp; digital platforms</span>
+    </div>
+    <p class="stage-lead">The show's life on YouTube and digital is where the franchise compounds. The audience built through the first two stages becomes the owned asset — and the model widens by bringing other creators under the umbrella to multiply what's there to sell.</p>
+
+    <div class="sub">How it works</div>
+    <div class="opps">
+      <div class="opp">
+        <div class="o-name">YouTube monetisation — built on borrowed reach first</div>
+        <p class="o-mech">A monetising YouTube channel <b>takes roughly nine months, often longer, to build</b>. Because the Uncharted channel starts with no audience or performance data, early ad deals tend to be flat-rate against expected views — so we <b>piggyback Brave Wilderness</b> to accelerate past the cold-start and reach meaningful monetisation faster.</p>
+        <p class="o-for"><span>Brand opp</span>Always-on digital integrations and ad-share partnerships that grow in value as the channel's proven numbers climb.</p>
+      </div>
+      <div class="opp">
+        <div class="o-name">A sub-vertical of creators under one umbrella</div>
+        <p class="o-mech">Bring <b>multiple other influencers in underneath the franchise umbrella</b> — an adventure / discovery sub-vertical that shares the brand. More creators means more content, more reach and more inventory, which maximises total monetisation across the network.</p>
+        <p class="o-for"><span>Brand opp</span>Network-level deals — a brand sponsors across several creators at once, with the franchise as the trusted umbrella.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="together">
+  <h2><span class="num">05</span>How the three connect</h2>
+  <p class="lead-p">The stages aren't separate plays — they're one continuous build. Each one creates the audience, the content and the proof that makes the next stage worth more to a brand partner.</p>
+  <div class="flow">
+    <div class="fstep"><div class="fn">Pre-hype</div><div class="fb">Borrowed reach builds anticipation; sell early founding partners</div></div>
+    <div class="fstep"><div class="fn">Broadcast</div><div class="fb">Anticipation converts to in-show sponsorship across two channels</div></div>
+    <div class="fstep"><div class="fn">Digital</div><div class="fb">The show's audience compounds on YouTube; the umbrella widens</div></div>
+    <div class="fstep"><div class="fn">Back to the top</div><div class="fb">Proven numbers reset the pre-hype price higher for the next cycle</div></div>
+  </div>
+  <div class="note">
+    <div class="head">The thread that runs through all three</div>
+    <p>Every stage is designed to be <strong>sold against before it's proven</strong> — hype before production, in-show before the audience exists, digital before the channel monetises — by borrowing the reach we already have in Bear Grylls and Brave Wilderness. The franchise's own audience builds underneath, and once it's proven, the whole thing reprices upward.</p>
+  </div>
+</section>
+
+<section id="map">
+  <h2><span class="num">06</span>The brand opportunity map</h2>
+  <p>Where a partner can come in, stage by stage.</p>
+  <div class="map">
+    <div class="mapcol">
+      <div class="lbl">Stage 1</div>
+      <h3>Pre-show hype</h3>
+      <ul>
+        <li>Hype-series sponsor (early-bird)</li>
+        <li>Founding / pre-launch partner package</li>
+        <li>Behind-the-scenes content stream</li>
+        <li>Adjacent creative-hook placement</li>
+      </ul>
+    </div>
+    <div class="mapcol">
+      <div class="lbl">Stage 2</div>
+      <h3>During broadcast</h3>
+      <ul>
+        <li>Headline / presenting partner</li>
+        <li>In-show integrations &amp; placements</li>
+        <li>Cross-channel guaranteed-delivery deal</li>
+        <li>Named-partner episode moments</li>
+      </ul>
+    </div>
+    <div class="mapcol">
+      <div class="lbl">Stage 3</div>
+      <h3>Post-broadcast digital</h3>
+      <ul>
+        <li>Always-on YouTube integrations</li>
+        <li>Ad-share growth partnerships</li>
+        <li>Network deal across the umbrella</li>
+        <li>Multi-creator sub-vertical sponsorship</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">
+    <div class="head">Across every stage</div>
+    <p>Each opportunity above is sold as either a <strong>conversion</strong> placement (performance, trackable response) or a <strong>mention / brand</strong> placement (association and awareness) — matched to what the partner is actually buying.</p>
+  </div>
+</section>
+
+<footer>
+  Bear Witness × Uncharted Treasures · Three stages of brand opportunity · 28 May 2026
+</footer>
+
+</body>
+</html>
