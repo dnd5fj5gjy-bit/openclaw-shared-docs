@@ -47,6 +47,24 @@ body {
 
 .slide > * { position: relative; z-index: 1; }
 
+
+/* ── IMAGE SLIDES ─────────────────────────────── */
+.slide[style*="background-image"] {
+  position: relative;
+}
+.slide[style*="background-image"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.slide[style*="background-image"] > * {
+  position: relative;
+  z-index: 2;
+}
+
 /* ── BACKGROUNDS BY ACT ─────────────────────────── */
 .bg-title    { background: linear-gradient(160deg, #0a0a0f 0%, #111218 60%, #0d0c0a 100%); }
 .bg-intent   { background: linear-gradient(160deg, #0d0d14 0%, #111218 100%); }
@@ -405,7 +423,7 @@ body {
 </div>
 
 <!-- SCENE 1 -->
-<div class="slide bg-dawn">
+<div class="slide bg-dawn" style="background-image: url('./frontier-images/s01-aerial-dawn.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 1</span>
     <span class="scene-time">0:00 – 0:08</span>
@@ -421,7 +439,7 @@ body {
 </div>
 
 <!-- SCENE 2 -->
-<div class="slide bg-dawn">
+<div class="slide bg-dawn" style="background-image: url('./frontier-images/s02-rider-river.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 2</span>
     <span class="scene-time">0:08 – 0:18</span>
@@ -433,21 +451,6 @@ body {
     <div class="vo-text">"…we've built our lives around what we could not live without."</div>
   </div>
   <div class="slide-counter">05 / 30</div>
-</div>
-
-<!-- SCENE 3 -->
-<div class="slide bg-dawn">
-  <div class="scene-header">
-    <span class="scene-num">Scene 3</span>
-    <span class="scene-time">0:18 – 0:25</span>
-  </div>
-  <div class="visual-desc">Closer behind the rider. Steam from the horse's breath in the cold. His gloved hand on the reins. Still no face.</div>
-  <div class="sourcing">AI-generated. Tighter angle on rider and horse, breath in cold air, gloved hand on reins, no face visible.</div>
-  <div class="vo-block">
-    <div class="vo-label">VO</div>
-    <div class="vo-text">"We followed the water. We settled where the soil was fertile. We took what the land gave us."</div>
-  </div>
-  <div class="slide-counter">06 / 30</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════ -->
@@ -462,7 +465,7 @@ body {
 </div>
 
 <!-- SCENE 4 -->
-<div class="slide bg-earth">
+<div class="slide bg-earth" style="background-image: url('./frontier-images/s04-mesopotamia.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 4</span>
     <span class="scene-time">0:25 – 0:35</span>
@@ -478,7 +481,7 @@ body {
 </div>
 
 <!-- SCENE 5 -->
-<div class="slide bg-earth">
+<div class="slide bg-earth" style="background-image: url('./frontier-images/s05-medieval.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 5</span>
     <span class="scene-time">0:35 – 0:45</span>
@@ -488,14 +491,14 @@ body {
   <div class="sourcing">AI or VFX composite. Prompt: a medieval walled town entirely made of brown dirt rising out of a plain as a horseman rides past, dirt-coloured oxen and ploughs, then crumbling back into the ground.</div>
   <div class="vo-block">
     <div class="vo-label">VO</div>
-    <div class="vo-text">"We built where the ground was good."</div>
+    <div class="vo-text">"We built where the soil was fertile and the ground held firm."</div>
   </div>
   <div style="margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.08em;">Second cello joins.</div>
   <div class="slide-counter">09 / 30</div>
 </div>
 
 <!-- SCENE 6 -->
-<div class="slide bg-earth">
+<div class="slide bg-earth" style="background-image: url('./frontier-images/s06-pylons.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 6</span>
     <span class="scene-time">0:45 – 0:55</span>
@@ -511,7 +514,7 @@ body {
 </div>
 
 <!-- SCENE 7 -->
-<div class="slide bg-collapse">
+<div class="slide bg-collapse" style="background-image: url('./frontier-images/s07-city-collapse.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 7</span>
     <span class="scene-time">0:55 – 1:05</span>
@@ -527,7 +530,7 @@ body {
 </div>
 
 <!-- SILENCE -->
-<div class="slide bg-silence" style="justify-content:center; align-items:center; text-align:center;">
+<div class="slide bg-silence" style="background-image: url('./frontier-images/s07b-silence.png'); background-size: cover; background-position: center; justify-content:center; align-items:center; text-align:center;">
   <div class="silence-text">Two beats of silence.<br>Just hooves and breath.</div>
   <div class="until-now">"Until now."</div>
   <div class="slide-counter">12 / 30</div>
@@ -545,7 +548,7 @@ body {
 </div>
 
 <!-- SCENE 8 -->
-<div class="slide bg-golden">
+<div class="slide bg-golden" style="background-image: url('./frontier-images/s08-first-glimpse.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 8</span>
     <span class="scene-time">1:05 – 1:12</span>
@@ -562,7 +565,7 @@ body {
 </div>
 
 <!-- POWER SECTION -->
-<div class="slide bg-power">
+<div class="slide bg-power" style="background-image: url('./frontier-images/s09-solar.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Power</div>
   <div class="scene-header">
     <span class="scene-num">Scene 9</span>
@@ -577,7 +580,7 @@ body {
   <div class="slide-counter">15 / 30</div>
 </div>
 
-<div class="slide bg-night">
+<div class="slide bg-night" style="background-image: url('./frontier-images/s10-night-glow.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Power</div>
   <div class="scene-header">
     <span class="scene-num">Scene 10</span>
@@ -590,7 +593,7 @@ body {
 </div>
 
 <!-- WATER SECTION -->
-<div class="slide bg-water">
+<div class="slide bg-water" style="background-image: url('./frontier-images/s11-water-machine.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Water</div>
   <div class="scene-header">
     <span class="scene-num">Scene 11</span>
@@ -605,7 +608,7 @@ body {
   <div class="slide-counter">17 / 30</div>
 </div>
 
-<div class="slide bg-water">
+<div class="slide bg-water" style="background-image: url('./frontier-images/s12-machine-detail.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Water</div>
   <div class="scene-header">
     <span class="scene-num">Scene 12</span>
@@ -620,7 +623,7 @@ body {
   <div class="slide-counter">18 / 30</div>
 </div>
 
-<div class="slide bg-water">
+<div class="slide bg-water" style="background-image: url('./frontier-images/s13-water-tap.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Water</div>
   <div class="scene-header">
     <span class="scene-num">Scene 13</span>
@@ -633,7 +636,7 @@ body {
 </div>
 
 <!-- PROTECTION SECTION -->
-<div class="slide bg-storm">
+<div class="slide bg-storm" style="background-image: url('./frontier-images/s14-shutters.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Protection</div>
   <div class="scene-header">
     <span class="scene-num">Scene 14</span>
@@ -645,7 +648,7 @@ body {
   <div class="slide-counter">20 / 30</div>
 </div>
 
-<div class="slide bg-storm">
+<div class="slide bg-storm" style="background-image: url('./frontier-images/s15-storm.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Protection</div>
   <div class="scene-header">
     <span class="scene-num">Scene 15</span>
@@ -660,7 +663,7 @@ body {
   <div class="slide-counter">21 / 30</div>
 </div>
 
-<div class="slide bg-fire">
+<div class="slide bg-fire" style="background-image: url('./frontier-images/s16-ember.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Protection</div>
   <div class="scene-header">
     <span class="scene-num">Scene 16</span>
@@ -675,7 +678,7 @@ body {
   <div class="slide-counter">22 / 30</div>
 </div>
 
-<div class="slide bg-quake">
+<div class="slide bg-quake" style="background-image: url('./frontier-images/s17-tremor.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Protection</div>
   <div class="scene-header">
     <span class="scene-num">Scene 17</span>
@@ -690,7 +693,7 @@ body {
   <div class="slide-counter">23 / 30</div>
 </div>
 
-<div class="slide bg-flood">
+<div class="slide bg-flood" style="background-image: url('./frontier-images/s18-flood.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Protection</div>
   <div class="scene-header">
     <span class="scene-num">Scene 18</span>
@@ -706,7 +709,7 @@ body {
 </div>
 
 <!-- INDEPENDENCE SECTION -->
-<div class="slide bg-indep">
+<div class="slide bg-indep" style="background-image: url('./frontier-images/s19-remote-valley.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Independence</div>
   <div class="scene-header">
     <span class="scene-num">Scene 19</span>
@@ -721,7 +724,7 @@ body {
   <div class="slide-counter">25 / 30</div>
 </div>
 
-<div class="slide bg-indep">
+<div class="slide bg-indep" style="background-image: url('./frontier-images/s20-timelapse.png'); background-size: cover; background-position: center;">
   <div class="section-tag">Independence</div>
   <div class="scene-header">
     <span class="scene-num">Scene 20</span>
@@ -748,7 +751,7 @@ body {
 </div>
 
 <!-- SCENE 21 — HERO SHOT -->
-<div class="slide bg-hero hero-scene">
+<div class="slide bg-hero hero-scene" style="background-image: url('./frontier-images/s21-hero-shot.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 21</span>
     <span class="scene-time">2:00 – 2:10</span>
@@ -765,7 +768,7 @@ body {
 </div>
 
 <!-- SCENE 22 -->
-<div class="slide bg-retreat">
+<div class="slide bg-retreat" style="background-image: url('./frontier-images/s22-aerial-retreat.png'); background-size: cover; background-position: center;">
   <div class="scene-header">
     <span class="scene-num">Scene 22</span>
     <span class="scene-time">2:10 – 2:20</span>
