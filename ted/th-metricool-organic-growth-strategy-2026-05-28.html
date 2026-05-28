@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ted's Health — Organic Social Growth Strategy (Metricool)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2C3E50;
+    --ink-dim: #6B7A89;
+    --ink-faint: #A8B2BD;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E8ECF0;
+    --line-soft: #F1F4F7;
+    --navy: #1A1A2E;
+    --accent: #2ECC71;
+    --gold: #C8A84B;
+    --warn: #E67E22;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 5rem 0 4rem;
+    margin-bottom: 3rem;
+  }
+  .hero .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8899AA;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .hero .sub {
+    color: #B8C2CC;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8899AA;
+  }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  /* Sections */
+  section { margin-bottom: 3rem; }
+  h2 {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  p { margin-bottom: 0.8rem; }
+  p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+
+  .subhead {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.8rem 0 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .subhead .tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* TL;DR box */
+  .tldr {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 3rem;
+  }
+  .tldr .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .tldr li::before {
+    content: '→';
+    color: var(--accent);
+    margin-right: 0.6rem;
+    font-weight: 700;
+  }
+
+  /* Cards */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.3rem 1.4rem;
+  }
+  .card .num {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .card .num.gold { color: var(--gold); }
+  .card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .card p {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    line-height: 1.55;
+    margin: 0 0 0.6rem;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card .eg {
+    background: var(--line-soft);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-top: 0.6rem;
+  }
+  .card .eg .lbl {
+    display: block;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Table */
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.2rem 0;
+  }
+  .table-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+    padding: 0.9rem 1.1rem 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  th, td {
+    text-align: left;
+    padding: 0.8rem 1.1rem;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  th {
+    background: var(--line-soft);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.day { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  td.fmt { color: var(--ink); font-size: 0.82rem; }
+  td.note { color: var(--ink-dim); font-size: 0.82rem; line-height: 1.5; }
+  .pillbadge {
+    display: inline-block;
+    background: var(--line-soft);
+    color: var(--ink-dim);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pillbadge.b1 { background: #EAF2FB; color: #2C5C8F; }
+  .pillbadge.b2 { background: #EAF7F0; color: #1E8449; }
+  .pillbadge.b3 { background: #FBF0E6; color: #B9770E; }
+  .pillbadge.b4 { background: #F3EDFB; color: #6C4FA0; }
+  .pillbadge.b5 { background: #FDEDEC; color: #B03A2E; }
+
+  /* Note callout */
+  .note-box {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 1rem 1.3rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    color: #6B5410;
+  }
+  .note-box strong { color: #5A4509; }
+  .note-box.flag-red { background: #FDEDEC; border-left-color: #E74C3C; color: #7B241C; }
+  .note-box.flag-red strong { color: #641E16; }
+
+  /* Feature block */
+  .feature {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1.8rem 1.9rem;
+    margin: 1.4rem 0;
+  }
+  .feature .kicker {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8899AA;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+  .feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .feature p { color: #C5CDD6; font-size: 0.92rem; margin-bottom: 0.8rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .feature strong { color: #fff; }
+
+  /* Tactics ordered list */
+  .tactics { counter-reset: t; list-style: none; margin: 1.2rem 0; display: grid; gap: 0.7rem; }
+  .tactics li {
+    counter-increment: t;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.95rem 1.1rem 0.95rem 3.1rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .tactics li::before {
+    content: counter(t);
+    position: absolute;
+    left: 1rem;
+    top: 0.9rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tactics li strong { color: var(--ink); }
+
+  /* Formula blocks */
+  .formula {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.8rem 0;
+  }
+  .formula-head {
+    background: var(--line-soft);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+  }
+  .formula-body { padding: 0.9rem 1.2rem 1.1rem; }
+  .formula-body .pat {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .formula-body .ex {
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .formula-body .ex span { color: var(--ink); font-style: normal; }
+
+  /* Week plan */
+  .week {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    margin: 1rem 0;
+  }
+  .week .wlabel {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .week h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.01em;
+  }
+  .week ul { list-style: none; }
+  .week li {
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    padding: 0.35rem 0 0.35rem 1.4rem;
+    position: relative;
+    line-height: 1.55;
+  }
+  .week li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .week li strong { color: var(--ink); }
+
+  /* Checklist */
+  .checklist {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.2rem 0;
+  }
+  .checklist h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .checklist ul { list-style: none; }
+  .checklist li {
+    padding: 0.5rem 0 0.5rem 1.8rem;
+    position: relative;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 3px;
+  }
+  .checklist li strong { color: var(--navy); }
+
+  /* Metrics grid */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin: 1.2rem 0; }
+  .metric {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+  }
+  .metric .mname { font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+  .metric .mwhy { font-size: 0.8rem; color: var(--ink-dim); line-height: 1.5; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding: 2rem 0 3rem;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+
+  strong { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ted's Health · Organic Social</div>
+    <h1>Organic Social Growth Strategy</h1>
+    <p class="sub">A practical, day-to-day plan to grow Ted's Health on social — built to be run end-to-end through Metricool. Content pillars, a weekly cadence, the exact metrics to watch, and a 30-day starter plan you can begin today.</p>
+    <div class="meta">
+      <span><strong>Owner</strong> Olly Westmacott</span>
+      <span><strong>Run via</strong> Metricool</span>
+      <span><strong>Primary channel</strong> Instagram</span>
+      <span><strong>Cadence</strong> 5 posts/week</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li><strong>Instagram is the home base</strong> (Reels-led). Repurpose every Reel to <strong>TikTok and YouTube Shorts</strong> — one shoot, three platforms, zero extra effort</li>
+      <li>Five content pillars on rotation: <strong>Myth-busting · Symptom education · Proof · Dr Andrews authority · Actionable tips</strong></li>
+      <li><strong>5 posts a week</strong>, mostly Reels and carousels, scheduled a week ahead in Metricool's calendar — so you're never posting reactively</li>
+      <li>Watch <strong>five numbers weekly</strong>: reach, saves, follows, profile taps, link/CTR to the £40 test. Run a 15-minute review every Monday</li>
+      <li>Medical-advertising discipline: <strong>educate, don't promise outcomes.</strong> No "fixes," no before/after on treatment, no guarantees</li>
+      <li>The 30-day plan below tells you exactly what to post each week — start Week 1 today</li>
+    </ul>
+  </div>
+
+  <!-- Why & channels -->
+  <section>
+    <h2>The Approach</h2>
+    <h3>Where to play, and why</h3>
+    <p class="lead">Ted's Health sells a considered decision — getting tested, talking to a doctor. Organic social doesn't close that decision; it builds the trust and awareness that make it. The job is to be the calm, credible men's-health voice that men ~30–55 already follow when the moment comes.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num gold">Primary</div>
+        <h4>Instagram</h4>
+        <p>Where the 30–55 male health audience already is, and where saves + shares compound reach. Reels for discovery, carousels for education, Stories for trust and CTA.</p>
+      </div>
+      <div class="card">
+        <div class="num">Secondary</div>
+        <h4>TikTok</h4>
+        <p>Best organic reach for cold discovery right now. Talking-head myth-busters and Dr Andrews clips travel well. Repurpose IG Reels here — no separate shoot.</p>
+      </div>
+      <div class="card">
+        <div class="num">Secondary</div>
+        <h4>YouTube Shorts</h4>
+        <p>Long shelf-life and strong search intent for "low testosterone symptoms" type queries. Same vertical clips, reposted. Pure upside for the effort.</p>
+      </div>
+    </div>
+    <div class="note-box">
+      <strong>One engine, three outputs.</strong> Build for Instagram first. Every Reel you make gets reposted to TikTok and YouTube Shorts through Metricool the same week. Don't run three strategies — run one and distribute it.
+    </div>
+  </section>
+
+  <!-- Content pillars -->
+  <section>
+    <h2>Content Pillars</h2>
+    <h3>Five things we post about</h3>
+    <p class="lead">Every post belongs to one of five pillars. Rotating them keeps the feed varied and stops it becoming one long advert. Tie the £40 test CTA in where it fits naturally — not on every post.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="num"><span class="pillbadge b1">Pillar 01</span></div>
+        <h4>Myth-busting</h4>
+        <p>Correct the things men get wrong about testosterone, TRT and men's health. High-share, high-save, defines the brand as the straight-talking voice.</p>
+        <div class="eg"><span class="lbl">TH example</span>"'TRT means you're on it for life.' — Not true." Carousel that explains it's a managed, reviewable treatment. <em>CTA: soft — decide on facts, not fear.</em></div>
+      </div>
+      <div class="card">
+        <div class="num"><span class="pillbadge b2">Pillar 02</span></div>
+        <h4>Symptom education</h4>
+        <p>Help men recognise and understand signals — low energy, low mood, poor sleep, ED, brain fog. Frames problems without diagnosing, and points to getting tested.</p>
+        <div class="eg"><span class="lbl">TH example</span>"ED is a symptom, not a verdict." Why ED can be an early flag for hormones, cardiovascular or sleep. <em>CTA: a conversation + a blood test.</em></div>
+      </div>
+      <div class="card">
+        <div class="num"><span class="pillbadge b3">Pillar 03</span></div>
+        <h4>Proof &amp; credibility</h4>
+        <p>The reasons to trust TH: doctor-led, CQC-registered, real process. Ambassador and patient voices where consented. Builds confidence without overclaiming.</p>
+        <div class="eg"><span class="lbl">TH example</span>"What actually happens when you book a test" — the calm, no-judgement process walkthrough. Ambassador stories (e.g. via the ambassador roster) where they've consented.</div>
+      </div>
+      <div class="card">
+        <div class="num"><span class="pillbadge b4">Pillar 04</span></div>
+        <h4>Dr Andrews authority</h4>
+        <p>Dr Jonathan Andrews to camera — the warm, plain-English clinical voice. Answers the questions men are too awkward to ask. This is the brand's biggest asset.</p>
+        <div class="eg"><span class="lbl">TH example</span>"The question I'm asked most in clinic…" 30-second clip answering one real patient question per week. Reuse across IG/TikTok/Shorts.</div>
+      </div>
+      <div class="card">
+        <div class="num"><span class="pillbadge b5">Pillar 05</span></div>
+        <h4>Actionable tips</h4>
+        <p>Genuinely useful, evidence-respecting habits for energy, sleep, training, recovery. Saveable, shareable, and positions TH as helpful before it's commercial.</p>
+        <div class="eg"><span class="lbl">TH example</span>"3 things that move testosterone you actually control" — sleep, resistance training, body composition. No supplement hype, no promises.</div>
+      </div>
+      <div class="card" style="border-style:dashed;">
+        <div class="num">Mix</div>
+        <h4>Rough weekly split</h4>
+        <p>Across 5 posts: <strong>1 myth-bust, 1 symptom education, 1 Dr Andrews clip, 1 tip, 1 proof/credibility.</strong> Adjust to what the numbers reward — lean into whatever pillar drives saves and profile taps.</p>
+      </div>
+    </div>
+
+    <div class="note-box flag-red">
+      <strong>Medical-advertising guardrail — read before posting.</strong> Educate, never promise. No "cure," "fix," or "guaranteed" results. No before/after imagery tied to treatment. Don't claim individual outcomes. Frame benefits as general and evidence-respecting ("low testosterone is linked to…"), and let the doctor-led process do the credibility work. When in doubt, soften the claim.
+    </div>
+  </section>
+
+  <!-- Weekly cadence -->
+  <section>
+    <h2>Weekly Cadence</h2>
+    <h3>The posting template</h3>
+    <p class="lead">Five feed posts a week plus light daily Stories. Format mix matters: Reels do the reach, carousels do the teaching and earn saves, Stories do the trust and the CTA. Build this once in Metricool as your repeating weekly skeleton.</p>
+
+    <div class="table-wrap">
+      <div class="table-title">Standard week — feed</div>
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Format</th><th>Pillar</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="day">Mon</td><td class="fmt">Reel</td><td><span class="pillbadge b1">Myth-bust</span></td><td class="note">Strongest hook of the week — myth-busters travel. Start the week loud.</td></tr>
+          <tr><td class="day">Tue</td><td class="fmt">Carousel</td><td><span class="pillbadge b2">Symptom ed.</span></td><td class="note">Teaching format — earns saves. End slide can carry a soft test CTA.</td></tr>
+          <tr><td class="day">Wed</td><td class="fmt">Reel</td><td><span class="pillbadge b4">Dr Andrews</span></td><td class="note">Talking-head clip. The authority anchor of the week.</td></tr>
+          <tr><td class="day">Thu</td><td class="fmt">Carousel / single</td><td><span class="pillbadge b5">Actionable tip</span></td><td class="note">Useful, saveable, low-commercial. Builds goodwill.</td></tr>
+          <tr><td class="day">Fri</td><td class="fmt">Reel / single</td><td><span class="pillbadge b3">Proof</span></td><td class="note">Process walkthrough or consented story. This is where the £40 test CTA fits hardest.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-title">Stories — light daily layer</div>
+      <table>
+        <thead>
+          <tr><th>Cadence</th><th>What</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="day">3–5 / week</td><td class="fmt">Re-share that day's feed post + one extra</td><td class="note">Keeps you top-of-feed and drives the post's first-hour reach.</td></tr>
+          <tr><td class="day">Weekly</td><td class="fmt">Poll / question sticker ("What stops men getting tested?")</td><td class="note">Engagement signal + free content research for next week.</td></tr>
+          <tr><td class="day">Weekly</td><td class="fmt">One direct CTA Story — "Test from £40" with the link sticker</td><td class="note">The one place a hard CTA lives without cluttering the feed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <strong>CTA discipline.</strong> Only ~2 of the 5 feed posts carry a test CTA, and always soft ("decide on facts," "get a clear baseline — from £40"). The link sticker in Stories does the direct-response work. A feed that sells on every post stops getting shared.
+    </div>
+  </section>
+
+  <!-- Metricool -->
+  <section>
+    <h2>Running It In Metricool</h2>
+    <h3>Set-up, then the weekly rhythm</h3>
+    <p class="lead">Metricool is where this whole strategy lives — one calendar, one queue, one analytics view across all three platforms. Here's the set-up once, then the loop you run every week.</p>
+
+    <div class="subhead">One-time set-up <span class="tag">~30 minutes</span></div>
+    <ol class="tactics">
+      <li><strong>Connect the accounts.</strong> Settings → Connections → add the Ted's Health Instagram (connect via the linked Facebook/Meta Business account — IG needs a Professional/Business account to schedule), then TikTok and YouTube. Reconnect tokens if any show a warning.</li>
+      <li><strong>Set best-time-to-post.</strong> Once accounts have a little history, Metricool shows recommended slots (the heat-map of when your audience is active). Use these as your default scheduling times rather than guessing.</li>
+      <li><strong>Build the weekly skeleton.</strong> In the Planner / Calendar, set up the Mon–Fri template above as recurring slots. You're filling a known shape each week, not starting from blank.</li>
+      <li><strong>Set up the auto-lists / queues.</strong> Create a posting queue per platform so Reels can be cross-posted to TikTok and Shorts in a couple of clicks from the same composer.</li>
+    </ol>
+
+    <div class="subhead">The weekly rhythm <span class="tag">batch once, schedule once, review once</span></div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num gold">Step 1</div>
+        <h4>Batch &amp; schedule (Sun/Mon)</h4>
+        <p>Load all 5 of next week's posts into the calendar in one sitting. Write caption, attach media, pick the best-time slot, tick cross-post to TikTok + Shorts. Done for the week.</p>
+      </div>
+      <div class="card">
+        <div class="num gold">Step 2</div>
+        <h4>Stories &amp; engagement (daily, 10 min)</h4>
+        <p>Post Stories, reply to comments and DMs from Metricool's Inbox. First-hour engagement is what the algorithm rewards — show up when each post goes live.</p>
+      </div>
+      <div class="card">
+        <div class="num gold">Step 3</div>
+        <h4>Review (Mon, 15 min)</h4>
+        <p>Open Analytics, check the five metrics below for the past week, note the top + bottom post, and let that shape next week's mix. That's the whole loop.</p>
+      </div>
+    </div>
+
+    <div class="subhead">The five numbers to watch every week</div>
+    <div class="metrics">
+      <div class="metric"><div class="mname">Reach</div><div class="mwhy">How many unique people saw you. The top-of-funnel growth signal — is the audience expanding?</div></div>
+      <div class="metric"><div class="mname">Saves</div><div class="mwhy">The strongest quality signal for educational content. High saves = you're genuinely useful. Make more of what gets saved.</div></div>
+      <div class="metric"><div class="mname">New follows</div><div class="mwhy">Net audience growth. Track which posts drove follows — those are your discovery winners.</div></div>
+      <div class="metric"><div class="mname">Profile taps</div><div class="mwhy">Intent signal — people checking you out. The bridge between a post landing and someone considering the test.</div></div>
+      <div class="metric"><div class="mname">Link clicks / CTR</div><div class="mwhy">Taps to tedshealth.com / the £40 test (bio link + Story sticker). The closest thing to a conversion signal organic gives you.</div></div>
+    </div>
+    <div class="note-box">
+      <strong>Don't chase likes.</strong> Likes are vanity at this stage. For a considered-purchase health brand, <strong>saves and profile taps</strong> are the leading indicators of growth that converts. If a post gets modest likes but high saves, it's a winner — make more like it.
+    </div>
+  </section>
+
+  <!-- Hooks & captions -->
+  <section>
+    <h2>Hooks, Captions &amp; Hashtags</h2>
+    <h3>Formulas you can reuse</h3>
+    <p class="lead">The first line stops the scroll; the caption earns the save. Keep the Dr Andrews voice throughout — warm, plain-English, evidence-led, no bro-science, no hype.</p>
+
+    <div class="subhead">Hook formulas</div>
+    <div class="formula">
+      <div class="formula-head">The myth flip</div>
+      <div class="formula-body">
+        <div class="pat">"[Common belief]." — Not true.</div>
+        <div class="ex">e.g. <span>"'TRT means you're on it for life.' — Not true."</span></div>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-head">The reframe</div>
+      <div class="formula-body">
+        <div class="pat">"[Symptom] is a [X], not a [Y]."</div>
+        <div class="ex">e.g. <span>"ED is a symptom, not a verdict."</span></div>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-head">The clinic line</div>
+      <div class="formula-body">
+        <div class="pat">"The question I'm asked most in clinic…"</div>
+        <div class="ex">Dr Andrews to camera — instant authority + curiosity gap.</div>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-head">The surprising number</div>
+      <div class="formula-body">
+        <div class="pat">"One blood test. A surprising amount of answers."</div>
+        <div class="ex">Concrete, specific, low-hype. Pairs with symptom education.</div>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-head">The "you're not broken"</div>
+      <div class="formula-body">
+        <div class="pat">"You don't need to feel broken to get [tested / a baseline]."</div>
+        <div class="ex">Removes the barrier — broadens the audience beyond men in crisis.</div>
+      </div>
+    </div>
+
+    <div class="subhead">Caption shape</div>
+    <ol class="tactics">
+      <li><strong>Open by restating the hook</strong> or the real-world version of it ("This is the line I hear most in clinic…").</li>
+      <li><strong>Give the actual answer</strong> — plain, evidence-respecting, no overclaiming. This is the value.</li>
+      <li><strong>One human, de-stigmatising line</strong> — "No awkwardness, no judgement. Just straight answers from a doctor."</li>
+      <li><strong>Soft CTA where it fits</strong> — "A blood test is from £40, and a doctor reads your results in context." Link in bio / 📍 tedshealth.com.</li>
+    </ol>
+
+    <div class="subhead">Hashtag approach</div>
+    <p>Use <strong>10–15 relevant tags</strong>, mixing reach levels so you can rank somewhere. Keep a saved set in Metricool and tweak per post. Avoid anything that reads spammy or makes a medical claim.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tier</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td class="day">Core (always)</td><td class="note">#MensHealth #MensHealthUK #TRT #TestosteroneReplacement #LowTestosterone #HormoneHealth #DoctorLed</td></tr>
+          <tr><td class="day">Topical (rotate)</td><td class="note">#ErectileDysfunction #EDawareness #BloodTest #TestosteroneTest #MensWellbeing #PreventiveHealth #Longevity</td></tr>
+          <tr><td class="day">Reach / broad</td><td class="note">#HealthMatters #Wellness #Midlife (1–2 only — don't dilute)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 30-day plan -->
+  <section>
+    <h2>The 30-Day Starter Plan</h2>
+    <h3>Week by week — start today</h3>
+    <p class="lead">Concrete enough to begin immediately. Each week builds a small batch of content, schedules it in Metricool, and reviews the numbers. By Day 30 you'll have a full content engine running and your first read on what works.</p>
+
+    <div class="week">
+      <div class="wlabel">Week 1 · Set up &amp; go live</div>
+      <h4>Foundations + first posts</h4>
+      <ul>
+        <li><strong>Connect</strong> IG, TikTok, YouTube in Metricool; set the best-time slots and build the Mon–Fri skeleton.</li>
+        <li><strong>Batch 5 posts</strong> from existing material — you already have the TRT myth-buster, the ED education post, and the blood-panel post drafted. Turn those into 1 Reel + 2 carousels to start.</li>
+        <li><strong>Film 1 Dr Andrews clip</strong> ("the question I'm asked most…") — one 30-sec take is enough.</li>
+        <li><strong>Schedule the week</strong>, cross-post Reels to TikTok + Shorts, and post light Stories daily.</li>
+        <li>Goal: be <strong>live and consistent</strong>, not perfect.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <div class="wlabel">Week 2 · Find the rhythm</div>
+      <h4>Full pillar rotation</h4>
+      <ul>
+        <li><strong>Run the full 5-pillar week</strong>: 1 myth-bust, 1 symptom ed., 1 Dr Andrews, 1 tip, 1 proof.</li>
+        <li><strong>Batch-film 2–3 Dr Andrews clips</strong> in one session to bank a few weeks of authority content.</li>
+        <li>Add a <strong>Story poll</strong> ("What's stopped you getting tested?") — mine the answers for Week 3 topics.</li>
+        <li><strong>First Monday review</strong>: note your highest-save and highest-reach post from Week 1.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <div class="wlabel">Week 3 · Lean into what works</div>
+      <h4>Double down + first CTA push</h4>
+      <ul>
+        <li><strong>Make 2 posts in the style of your Week 1–2 winner</strong> (whichever pillar drove saves/profile taps).</li>
+        <li><strong>Run the proof/process Reel</strong> with the clearest £40-test CTA of the month, plus a Story link-sticker push.</li>
+        <li>Use the Week 2 poll answers to write a <strong>symptom-education carousel</strong> that answers a real objection.</li>
+        <li><strong>Review</strong>: is reach trending up? Are link clicks appearing? Adjust the mix.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <div class="wlabel">Week 4 · Consolidate &amp; plan ahead</div>
+      <h4>Lock the engine</h4>
+      <ul>
+        <li><strong>Run a clean 5-post week</strong> on the format that's working best.</li>
+        <li><strong>Batch-schedule Week 5 fully in advance</strong> — prove the "always a week ahead" habit.</li>
+        <li><strong>30-day review</strong>: compare Week 1 vs Week 4 on the five metrics. Write 3 lines — what to keep, what to drop, what to test next month.</li>
+        <li>Decide the <strong>repeatable monthly shape</strong> from the evidence — this becomes the standing operating rhythm.</li>
+      </ul>
+    </div>
+
+    <div class="feature">
+      <div class="kicker">After 30 days</div>
+      <h4>You'll have a running engine and real data</h4>
+      <p>A connected, scheduled, three-platform presence; a batch-and-review habit that takes a few hours a week; and a first read on which pillar and format actually grows Ted's Health. From there it's iteration — more of what earns saves and profile taps, less of what doesn't.</p>
+      <p><strong>The one rule that matters most: consistency beats perfection.</strong> Five solid posts a week, every week, scheduled ahead in Metricool, will out-perform occasional brilliant posts every time.</p>
+    </div>
+  </section>
+
+  <!-- Week 1 checklist -->
+  <section>
+    <h2>Start Here</h2>
+    <h3>Today's checklist</h3>
+    <div class="checklist">
+      <h4>Do these first</h4>
+      <ul>
+        <li><strong>Connect</strong> the Ted's Health Instagram to Metricool (needs a Business/Professional account via Meta).</li>
+        <li><strong>Connect</strong> TikTok and YouTube while you're in there.</li>
+        <li><strong>Turn on best-time-to-post</strong> and note the recommended slots.</li>
+        <li><strong>Build the Mon–Fri weekly skeleton</strong> in the planner.</li>
+        <li><strong>Draft this week's 5 posts</strong> from the existing TH post drafts (myth-buster, ED, blood panel) + one new tip.</li>
+        <li><strong>Film one Dr Andrews 30-second clip.</strong></li>
+        <li><strong>Schedule the week</strong>, cross-post Reels to TikTok + Shorts, and set a 15-min Monday review reminder.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Ted's Health · Organic Social Growth Strategy · Run via Metricool · 28 May 2026<br>
+    Educate, don't promise · Doctor-led · Test from £40 · tedshealth.com
+  </footer>
+
+</div>
+
+</body>
+</html>
