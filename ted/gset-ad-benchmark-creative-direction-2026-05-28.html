@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Ad Benchmark &amp; Creative Direction · Sharpening the Next Batch · 28 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 920px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 840px; margin-bottom: 1rem; }
+
+  .guardrail {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 1.6rem 1.8rem;
+    border-radius: 4px;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .guardrail h3 {
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .guardrail p { color: rgba(245, 240, 232, 0.92); max-width: 880px; margin: 0; font-size: 0.97rem; }
+
+  /* Section header */
+  .section-head {
+    max-width: 1100px;
+    margin: 4rem auto 0;
+    padding: 0 2.5rem;
+  }
+  .section-head .num {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .section-head p.intro { max-width: 820px; color: var(--charcoal-light); }
+
+  /* Problem diagnosis */
+  .diagnosis {
+    max-width: 1100px;
+    margin: 1.8rem auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .symptom {
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--burgundy);
+    border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+  }
+  .symptom h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .symptom p { font-size: 0.92rem; margin: 0; }
+  .symptom .fix { display: block; margin-top: 0.7rem; font-size: 0.88rem; color: var(--forest); }
+  .symptom .fix strong { color: var(--forest); font-weight: 600; }
+
+  /* Benchmark blocks */
+  .bench {
+    max-width: 1100px;
+    margin: 1.6rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .bench .kind {
+    display: inline-block;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    margin-bottom: 0.7rem;
+  }
+  .kind.real { background: var(--forest); color: var(--cream); }
+  .kind.ref { background: var(--cream-dark); color: var(--ink); border: 1px solid var(--rule); }
+  .bench h3 {
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .bench p { max-width: 820px; margin-bottom: 0.7rem; }
+  .bench .why-good {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.2rem;
+    border-radius: 3px;
+    font-size: 0.92rem;
+    margin-top: 0.4rem;
+  }
+  .bench .why-good strong { color: var(--gold); font-weight: 600; }
+
+  /* Concept cards */
+  .concept {
+    max-width: 1100px;
+    margin: 1.6rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2.4rem 2.8rem 2rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .concept-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .concept h3 {
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+  .concept .premise {
+    color: var(--charcoal-light);
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+    max-width: 760px;
+  }
+  .concept-grid {
+    display: grid;
+    gap: 0;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    align-items: start;
+  }
+  .row:last-child { border-bottom: none; }
+  .row .lbl {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding-top: 0.15rem;
+  }
+  .row .val { font-size: 0.96rem; }
+  .row .val .hook {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--burgundy);
+    line-height: 1.3;
+  }
+  .row .val .cta-text {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* Paste-brief block */
+  .paste {
+    max-width: 1100px;
+    margin: 1.6rem auto;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+    border-left: 5px solid var(--gold);
+    padding: 2.4rem 2.6rem;
+  }
+  .paste .kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .paste h3 { color: var(--cream); font-size: 1.5rem; margin-bottom: 1rem; }
+  .paste-body {
+    background: var(--ink-deep);
+    border: 1px solid rgba(245,240,232,0.14);
+    border-radius: 4px;
+    padding: 1.6rem 1.8rem;
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.92);
+  }
+  .paste-body p { margin-bottom: 0.8rem; }
+  .paste-body p:last-child { margin-bottom: 0; }
+  .paste-body strong { color: var(--gold); font-weight: 600; }
+  .paste-body ul { padding-left: 1.3rem; margin: 0.4rem 0 0.8rem; }
+  .paste-body li { margin-bottom: 0.35rem; color: rgba(245,240,232,0.88); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 3rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Ad Benchmark &amp; Creative Direction · 28 May 2026</div>
+    <h1>The new ads feel flat. Here's the bar — and the next batch that clears it.</h1>
+    <p class="lede">Two things in one doc. First, a benchmark: what good looks like, drawn from the work Ku has already produced and a small set of named reference styles to send across as the quality bar. Second, a sharper creative direction — six concrete ad concepts with hook, visual, copy and CTA the team can open and build from. The faith tone stays authentic and plain throughout. The fix is not louder; it's more honest and more specific.</p>
+    <div class="meta">Ted · 28 May 2026 · For Olly &amp; the Ku Creatives editing team · For The Greatest Story Ever Told (Hodder Faith)</div>
+  </div>
+</header>
+
+<div class="guardrail">
+  <h3>Hard guardrails · across every concept below</h3>
+  <p><strong>No new Bear Grylls content.</strong> Bear appears only via pre-recorded / archive footage and existing audiobook narration. <strong>Hachette / Hodder AI policy applies absolutely</strong> — no AI voice, no AI imagery, no AI in creative. Backend AI only (transcription, scheduling, analytics). <strong>Tone:</strong> plain, direct, sincere. No cheesy metaphors, no hard-sell, no "transform your life" language. We invite; we don't push.</p>
+</div>
+
+<div class="preamble">
+  <p>Olly's read on the current batch — Variant A (Conviction), Variant B (Curiosity), Variant C (Invitation) and Narrative 2 (Find Your Way Back) — is that they are <em>boring</em>. The concepts are sound. The problem is execution: the ads are sitting in the safe middle of the road, which on a Meta feed is where attention goes to die. This doc keeps the strategic intent (conviction / curiosity / invitation) but rebuilds the execution so each ad earns its first 1.5 seconds and says something a scrolling person actually stops for.</p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section-head">
+  <div class="num">Section 01 · Diagnosis</div>
+  <h2>Why the current ads feel flat</h2>
+  <p class="intro">Five specific failure modes. None of these is a tone problem — the reverence is right. They're attention and craft problems, and each has a concrete fix.</p>
+</div>
+<div class="diagnosis">
+  <div class="symptom">
+    <h4>1 · The hook is a windup, not a punch</h4>
+    <p>If the first frame is a book cover, a title card, or a slow fade into "In a world where…", the viewer is already gone. A faith ad has roughly 1.5 seconds before the thumb moves.</p>
+    <span class="fix"><strong>Fix:</strong> open on the single sharpest spoken line or the most arresting image. Earn the cover by second three, never show it first.</span>
+  </div>
+  <div class="symptom">
+    <h4>2 · It tells you it's meaningful instead of being it</h4>
+    <p>Abstract copy — "a story that has shaped the world", "the greatest story ever told" — asserts significance without delivering a single concrete moment. The viewer feels marketed to.</p>
+    <span class="fix"><strong>Fix:</strong> one specific, human, undeniable detail beats any superlative. Show the thing; don't label it.</span>
+  </div>
+  <div class="symptom">
+    <h4>3 · No tension, so no reason to watch on</h4>
+    <p>The ads resolve too early. If the viewer knows where it's going by second two, there's nothing pulling them through. Reverent and predictable reads as wallpaper.</p>
+    <span class="fix"><strong>Fix:</strong> open a real question or a genuine tension (doubt, distance, a hard honest admission) and hold it. Let the resolve land late.</span>
+  </div>
+  <div class="symptom">
+    <h4>4 · Generic stock-feel visuals</h4>
+    <p>Sunsets, open Bibles, hands in light — the visual grammar every faith ad uses. It signals "religious content" and the audience auto-scrolls because they've seen it a thousand times.</p>
+    <span class="fix"><strong>Fix:</strong> texture and specificity — a real face mid-thought, a worn page, a hand pausing. Editorial, not devotional-stock.</span>
+  </div>
+  <div class="symptom">
+    <h4>5 · The CTA is the loudest thing in the ad</h4>
+    <p>If "Get the book now" arrives before the viewer cares, it kills the goodwill the rest built. We're not selling a gadget; the sell has to be quiet.</p>
+    <span class="fix"><strong>Fix:</strong> soft, single, late CTA — an invitation, not a command. The ad's job is to make them <em>want</em> the link, then offer it once.</span>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section-head">
+  <div class="num">Section 02 · Benchmark</div>
+  <h2>What good looks like — the reference set</h2>
+  <p class="intro">The bar to send to Ku, split honestly into two kinds: <strong>real Ku / BGV work</strong> we can point at directly, and <strong>recommended reference styles</strong> that describe the qualities to aim for. We are not fabricating specific Instagram posts we can't verify — where it's a style, we say so.</p>
+</div>
+
+<div class="bench">
+  <span class="kind real">Real · Ku / BGV produced</span>
+  <h3>The GSET "Narrative" cuts — "Find Your Way Back" (Task #194)</h3>
+  <p>Of the current GSET batch, the narrative-led pieces have the most going for them — they have a story spine rather than just a claim. "Find Your Way Back" is the closest thing in the existing set to the right idea: a real human arc (drifting, returning) rather than a product pitch.</p>
+  <div class="why-good"><strong>Why it's a useful reference:</strong> it leads with a human situation, not the book. Use it as the <em>direction</em> to push further — the instinct is right, it just needs a sharper hook and more honest, less polished texture to stop feeling like an ad.</div>
+</div>
+
+<div class="bench">
+  <span class="kind real">Real · Ku / BGV produced</span>
+  <h3>Ted's Health Podcast episode cuts (Task #192 and the series)</h3>
+  <p>Ku's podcast clip work for Ted's Health is a good internal benchmark for <em>craft discipline</em> — clean captions, a tight spoken-line hook, restrained motion, sound-on design. That same craft standard is exactly what the GSET ads should inherit; the difference is tone, not technique.</p>
+  <div class="why-good"><strong>Why it's a useful reference:</strong> proves the team can already cut a punchy, caption-led, hook-first short. GSET should borrow the craft and swap the energy for stillness and weight.</div>
+</div>
+
+<div class="bench">
+  <span class="kind ref">Reference style · aim for this quality</span>
+  <h3>Bear's own archive when he speaks about faith plainly</h3>
+  <p>Bear's most powerful faith moments on camera (existing interviews, the audiobook, podcast appearances) work because he is unguarded and specific — he names doubt, fear, failure. That register is the gold standard for GSET ad copy and any archive cut we use.</p>
+  <div class="why-good"><strong>Why it's the bar:</strong> honesty over polish. A real admission in a real voice out-performs any scripted line. When we cut archive, choose the most human 6 seconds, not the most quotable.</div>
+</div>
+
+<div class="bench">
+  <span class="kind ref">Reference style · aim for this quality</span>
+  <h3>Editorial publisher creative, not church-account creative</h3>
+  <p>The look to chase is closer to how a serious literary publisher promotes a major book — restrained typography, generous whitespace, one strong line, real texture — than to typical faith-page design. Think the visual confidence of a Penguin or Sunday Times book launch, applied to a faith title.</p>
+  <div class="why-good"><strong>Why it's the bar:</strong> it signals quality and respects the reader's intelligence. It also differentiates GSET from the sea of generic faith ads — the audience stops <em>because</em> it doesn't look like a faith ad at first glance.</div>
+</div>
+
+<div class="bench">
+  <span class="kind ref">Reference style · aim for this quality</span>
+  <h3>The "one honest sentence on a plain frame" format</h3>
+  <p>The single most reliable scroll-stopper for this kind of content is a stark, true sentence held on a clean frame, sound optional. No music build, no stock montage — just a line good enough to make someone pause. This is also the cheapest and fastest format for Ku to produce at volume.</p>
+  <div class="why-good"><strong>Why it's the bar:</strong> it forces the work into the words, which is where faith content lives. If the line isn't strong enough to stop a scroll on its own, no amount of edit dressing will save it.</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section-head">
+  <div class="num">Section 03 · Creative Direction</div>
+  <h2>Six concrete concepts for the next batch</h2>
+  <p class="intro">Each keeps the strategic intent of the current variants but rebuilds the execution. Built for Meta (9:16 / 1:1), 10–20 seconds, sound-on but readable muted. Hook lands in frame one. CTA is soft and single. All buildable from archive Bear, audiobook VO and licensed footage — no new shoot, no AI.</p>
+</div>
+
+<!-- CONCEPT 1 -->
+<section class="concept">
+  <div class="concept-id">Concept 01 · replaces Variant A — Conviction</div>
+  <h3>The Admission</h3>
+  <p class="premise">Conviction told honestly is more convincing than conviction asserted. Lead with Bear admitting something real, not declaring something grand.</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">"I've nearly died more times than I can count. None of it scared me like this question did."</span></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">Open tight on Bear's face mid-sentence from archive — unguarded, not performing. Hold it. No title card, no music swell. A single held frame of the worn book appears only at the end.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">On-screen caption mirrors the spoken line, one phrase at a time. No second message competing. Let the admission breathe.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"His honest answer — The Greatest Story Ever Told."</span> One line, late, soft. Link in the description.</div></div>
+  </div>
+</section>
+
+<!-- CONCEPT 2 -->
+<section class="concept">
+  <div class="concept-id">Concept 02 · replaces Variant B — Curiosity</div>
+  <h3>The Open Question</h3>
+  <p class="premise">Real curiosity needs a real question held open — not a teaser that resolves in two seconds. Make the viewer want the answer enough to tap.</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">"Two billion people build their lives on this story. Most have never actually read it."</span></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">Plain frame, strong type, the line landing word-block by word-block. Cut to a single texture shot — a real hand pausing on a page mid-turn. Hold the pause. Editorial, not devotional-stock.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">Follow with one line of genuine tension: <em>"So what's actually in it?"</em> — and stop there. Don't answer in the ad.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"Read it for yourself."</span> The link is the answer to the question the ad refused to close.</div></div>
+  </div>
+</section>
+
+<!-- CONCEPT 3 -->
+<section class="concept">
+  <div class="concept-id">Concept 03 · replaces Variant C — Invitation</div>
+  <h3>The Five-Week Door</h3>
+  <p class="premise">An invitation works when it's concrete and finite, not open-ended and vague. Offer a specific, low-commitment way in — the Matthew read-along — not "buy the book".</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">"Read the greatest story ever told — slowly, over five weeks, with a few thousand other people."</span></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">Warm, calm, human. Quiet morning light, a real reading setup — mug, page, no staging. Bear audiobook VO underneath, low. The opposite of urgent.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">Caption frames the offer plainly: <em>"A finite, shared read. Not a subscription. Not a sermon."</em> Sets expectations honestly.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"Start with us."</span> Drives to the Matthew cohort sign-up, not retail. The book sells itself once they're in.</div></div>
+  </div>
+</section>
+
+<!-- CONCEPT 4 -->
+<section class="concept">
+  <div class="concept-id">Concept 04 · evolves Narrative 2 — Find Your Way Back</div>
+  <h3>The Drift</h3>
+  <p class="premise">Push the existing narrative further. Most of the audience isn't anti-faith; they've just quietly drifted. Name that exact feeling with no judgement and they'll see themselves.</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">"You didn't decide to stop believing. You just got busy, and one day it was gone."</span></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">First-person, mundane texture — commute, screen glow, ordinary days passing fast. No church imagery. The drift is everyday life, so the visuals are everyday life.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">Turn gently at the end: <em>"The story's still here. It hasn't gone anywhere."</em> No guilt, no pressure. Recognition, then an open door.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"Find your way back to it."</span> Soft. Links to the cohort or the book — test both.</div></div>
+  </div>
+</section>
+
+<!-- CONCEPT 5 -->
+<section class="concept">
+  <div class="concept-id">Concept 05 · new · the cheap repeatable workhorse</div>
+  <h3>One True Line</h3>
+  <p class="premise">The "one honest sentence on a plain frame" format from the benchmark. Fast to produce at volume, and the strongest scroll-stopper when the line is good. Build a template, pour new lines weekly.</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">A single arresting line, frame one, strong serif on a clean ground.</span> e.g. <em>"It's survived 2,000 years of people trying to delete it."</em> / <em>"Bear Grylls read it when he had nothing left."</em></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">Locked brand template — one line, generous whitespace, one optional texture frame. No montage, no music build. Sound optional. This is the volume format.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">The line is the whole ad. Caption below adds at most one supporting clause. Test 8–10 different lines against each other to find the winners.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"The Greatest Story Ever Told."</span> Title + soft link. Same end card every time — the variable is only the line.</div></div>
+  </div>
+</section>
+
+<!-- CONCEPT 6 -->
+<section class="concept">
+  <div class="concept-id">Concept 06 · new · social proof, done honestly</div>
+  <h3>Someone Like You</h3>
+  <p class="premise">A real reader's words, plainly presented, out-pull any brand claim. Once reader testimony is flowing (per Brief 05), turn the best lines into ads. Consent-gated, never composited.</p>
+  <div class="concept-grid">
+    <div class="row"><div class="lbl">Hook</div><div class="val"><span class="hook">A real reader's first line, verbatim.</span> e.g. <em>"I'm not religious. I read it because Bear did, and I didn't expect to be moved."</em></div></div>
+    <div class="row"><div class="lbl">Visual</div><div class="val">Text-on-screen over a quiet ambient frame, audiobook tag underneath. Attribution by first name + context ("James, 41, runner"). Real, unpolished, human.</div></div>
+    <div class="row"><div class="lbl">Copy</div><div class="val">Light edit only — preserve the reader's voice. Never embellish, never invent. The unpolished quality is the point and the proof.</div></div>
+    <div class="row"><div class="lbl">CTA</div><div class="val"><span class="cta-text">"See what they found."</span> Soft link to the book or cohort.</div></div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<div class="section-head">
+  <div class="num">Section 04 · For Ku</div>
+  <h2>The brief to paste</h2>
+  <p class="intro">A short, copy-pasteable block for the ClickUp task or the comment thread — the standing creative bar for every GSET ad from here.</p>
+</div>
+
+<div class="paste">
+  <div class="kicker">Paste into ClickUp · GSET ad standing brief</div>
+  <h3>GSET ads — the bar, from now on</h3>
+  <div class="paste-body">
+    <p><strong>The problem we're fixing:</strong> recent GSET ads feel flat. They wind up before they punch, assert significance instead of showing it, resolve too early, lean on generic faith visuals (sunsets, open Bibles), and put the CTA before the viewer cares. Reverence is right — the energy and craft need to sharpen.</p>
+    <p><strong>Six rules for every GSET ad:</strong></p>
+    <ul>
+      <li><strong>Hook in frame one.</strong> Strongest spoken line or most arresting image first. Never open on the book cover or a title card — earn the cover by second three.</li>
+      <li><strong>One specific human detail beats any superlative.</strong> Show it, don't label it. Cut the words "greatest", "transform", "life-changing".</li>
+      <li><strong>Open a real tension and hold it.</strong> A genuine question, doubt or admission. Let the resolve land late so there's a reason to watch on.</li>
+      <li><strong>Editorial, not devotional-stock.</strong> Real faces mid-thought, worn pages, real texture. Closer to a literary publisher's launch than a church account. No AI imagery.</li>
+      <li><strong>Soft, single, late CTA.</strong> An invitation, not a command. Drive to the Matthew cohort sign-up where it fits, not always retail.</li>
+      <li><strong>Craft standard = your Ted's Health podcast cuts.</strong> Clean captions, tight hook, restrained motion, readable muted. Borrow that craft; swap the energy for stillness and weight.</li>
+    </ul>
+    <p><strong>Tone:</strong> plain, sincere, direct. No cheesy metaphors, no hard-sell. We invite; we don't push. <strong>Guardrails:</strong> archive Bear only (no new filming), audiobook VO and licensed footage only, no AI voice / imagery / creative anywhere.</p>
+    <p><strong>Next batch:</strong> rebuild Conviction → "The Admission", Curiosity → "The Open Question", Invitation → "The Five-Week Door", and push "Find Your Way Back" into "The Drift". Plus build the "One True Line" template as the repeatable volume workhorse, and "Someone Like You" once reader testimony is flowing.</p>
+  </div>
+</div>
+
+<footer>
+  Ted · GSET · 28 May 2026 · Ad benchmark &amp; creative direction · companion to <em>gset-creative-briefs-v3-2026-05-22.html</em><br>
+  For The Greatest Story Ever Told (Hodder Faith) · briefed to Ku Creatives by spec · No new Bear filming · Hachette AI policy applies absolutely
+</footer>
+
+</body>
+</html>
