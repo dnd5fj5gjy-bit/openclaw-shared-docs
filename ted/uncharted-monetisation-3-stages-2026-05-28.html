@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncharted Treasures — How It Monetises</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#0B1F2A;
+  --deep:#112D3C;
+  --ink:#0E1A24;
+  --gold:#C49A52;
+  --gold-light:#E6C58C;
+  --cream:#F5F0E8;
+  --rule:rgba(255,255,255,0.1);
+  --muted:rgba(245,240,232,0.7);
+  --soft:rgba(245,240,232,0.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;font-weight:300;
+  background:var(--abyss);color:var(--cream);
+  line-height:1.55;font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+}
+
+header.lead{
+  padding:3.4rem 1.6rem 2.6rem;text-align:center;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,#0B1F2A 0%,#112D3C 100%);
+}
+header.lead .tag{font-size:0.66rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem}
+header.lead h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;margin-bottom:0.7rem}
+header.lead .deck{color:var(--muted);max-width:640px;margin:0 auto;font-size:0.96rem}
+header.lead .stamp{display:inline-block;margin-top:1.4rem;font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--soft)}
+
+.internal-banner{
+  background:rgba(196,154,82,0.12);border-bottom:1px solid rgba(196,154,82,0.3);
+  padding:0.7rem 1.6rem;text-align:center;
+  font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);font-weight:600;
+}
+
+nav.toc{
+  position:sticky;top:0;z-index:10;background:rgba(11,31,42,0.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);padding:0.7rem 1rem;
+  display:flex;gap:1rem;overflow-x:auto;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+}
+nav.toc a{color:var(--muted);text-decoration:none;white-space:nowrap;padding:0.3rem 0.1rem;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+section{padding:2.6rem 1.6rem;border-bottom:1px solid var(--rule);max-width:980px;margin:0 auto}
+section h2{
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:1.55rem;line-height:1.15;margin-bottom:1.1rem;
+}
+section h2 .num{color:var(--gold);font-size:0.6em;letter-spacing:0.2em;margin-right:0.6em;display:inline-block;vertical-align:middle;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:600}
+section p{color:var(--muted);margin-bottom:0.85rem;font-size:0.95rem}
+section p strong{color:var(--cream);font-weight:500}
+section .lead-p{font-size:1.02rem;color:var(--cream);margin-bottom:1.2rem;max-width:760px}
+
+ul.bullets{list-style:none;padding:0;margin:0.6rem 0 1rem}
+ul.bullets li{position:relative;padding:0.45rem 0 0.45rem 1.1rem;color:var(--muted);font-size:0.94rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+ul.bullets li:last-child{border-bottom:0}
+ul.bullets li::before{content:"";position:absolute;left:0;top:1.05rem;width:7px;height:1px;background:var(--gold)}
+ul.bullets li strong{color:var(--cream);font-weight:500}
+ul.bullets li b{color:var(--gold-light);font-weight:500}
+
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+.card{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.2rem}
+.card .lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem}
+.card h3{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:0.4rem;color:var(--cream)}
+.card p{color:var(--muted);font-size:0.9rem;margin:0;line-height:1.55}
+
+/* Stage block */
+.stage{margin-top:1.4rem}
+.stage-head{display:flex;align-items:baseline;gap:0.9rem;border-bottom:1px solid var(--rule);padding-bottom:0.7rem;margin-bottom:1.1rem;flex-wrap:wrap}
+.stage-head .sn{font-family:'DM Serif Display',serif;font-size:2.1rem;color:var(--gold);line-height:1}
+.stage-head .st{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--cream)}
+.stage-head .sw{font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-left:auto}
+.stage-lead{font-size:0.98rem;color:var(--cream);margin-bottom:1rem;max-width:780px}
+
+/* Lever rows */
+.levers{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.6rem}
+.lever{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.15rem;border-left:3px solid var(--gold)}
+.lever .lv-name{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--cream);margin-bottom:0.15rem}
+.lever .lv-mech{font-size:0.91rem;color:var(--muted);margin:0.35rem 0 0}
+.lever .lv-mech b{color:var(--gold-light);font-weight:500}
+.lever .lv-derisk{font-size:0.84rem;color:var(--soft);margin-top:0.55rem;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.06)}
+.lever .lv-derisk span{color:var(--gold);text-transform:uppercase;letter-spacing:0.16em;font-size:0.62rem;font-weight:600;margin-right:0.5em}
+
+/* Flow strip */
+.flow{display:flex;align-items:stretch;gap:0;margin-top:1.1rem;flex-wrap:wrap;background:rgba(196,154,82,0.05);border:1px solid rgba(196,154,82,0.22);border-radius:8px;padding:1rem 0.6rem}
+.flow .fstep{flex:1;min-width:130px;padding:0.4rem 0.8rem;position:relative}
+.flow .fstep:not(:last-child)::after{content:"→";position:absolute;right:-0.3rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1rem}
+.flow .fstep .fn{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.25rem}
+.flow .fstep .fb{font-size:0.86rem;color:var(--cream);line-height:1.45}
+.flow-lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:1.1rem 0 0.1rem}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.8rem;margin-top:1rem}
+.stat{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1rem;text-align:center}
+.stat .n{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);line-height:1;margin-bottom:0.3rem}
+.stat .l{font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;line-height:1.4}
+
+.note{background:rgba(255,255,255,0.03);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.3rem;margin-top:1rem}
+.note .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem}
+.note p{margin:0;font-size:0.92rem;color:var(--muted)}
+
+.ammo{background:rgba(196,154,82,0.06);border:1px solid rgba(196,154,82,0.25);border-radius:8px;padding:1.3rem 1.4rem;margin-top:1rem}
+.ammo .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem}
+.ammo h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream)}
+.ammo ul{list-style:none;padding:0;margin:0}
+.ammo ul li{padding:0.5rem 0 0.5rem 1rem;position:relative;font-size:0.94rem;color:var(--cream);border-bottom:1px solid rgba(196,154,82,0.1)}
+.ammo ul li:last-child{border-bottom:0}
+.ammo ul li::before{content:"›";color:var(--gold);position:absolute;left:0;font-weight:600}
+
+.redlines{background:rgba(160,40,40,0.12);border:1px solid rgba(196,82,82,0.3);border-radius:8px;padding:1.2rem 1.3rem;margin-top:1rem}
+.redlines .head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:#E89595;font-weight:600;margin-bottom:0.6rem}
+.redlines h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream)}
+.redlines ul{list-style:none;padding:0;margin:0}
+.redlines ul li{padding:0.4rem 0 0.4rem 1.1rem;position:relative;color:var(--muted);font-size:0.92rem}
+.redlines ul li::before{content:"!";color:#E89595;position:absolute;left:0;font-size:0.8em;top:0.5rem;font-weight:700}
+
+footer{padding:2rem 1.6rem;text-align:center;color:var(--soft);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<div class="internal-banner">Internal Bear Witness strategy · Not for Coyote · Commercials parked for a separate conversation</div>
+
+<header class="lead">
+  <div class="tag">Bear Witness × Uncharted Treasures</div>
+  <h1>How it monetises — the three stages.</h1>
+  <p class="deck">Built on the locked Model B: year-round Coyote-hosted digital hunts build the audience all year, culminating in one flagship 8-episode broadcast season, with a repurposing engine turning everything into multi-platform content and paid media that feeds the channel. This is the revenue map — how money comes in, how each lever works, and what de-risks it.</p>
+  <div class="stamp">Internal · 28 May 2026</div>
+</header>
+
+<nav class="toc">
+  <a href="#frame">The frame</a>
+  <a href="#s1">Stage 1 · Capture</a>
+  <a href="#s2">Stage 2 · Compound</a>
+  <a href="#s3">Stage 3 · Expand</a>
+  <a href="#stack">The stack</a>
+  <a href="#costs">Costs · pending</a>
+  <a href="#handling">Handling</a>
+</nav>
+
+<section id="frame">
+  <h2><span class="num">00</span>The frame</h2>
+  <p class="lead-p"><strong>The three stages map to the franchise's three growth horizons — Capture, Compound, Expand.</strong> They are not three separate businesses; they are one continuous build where each stage funds and de-risks the next.</p>
+  <p>Stage 1 brings money in early off the launch — ad revenue, sponsorship, the broadcast licensing deal, tourism, merch. Stage 2 converts that into recurring, owned, higher-margin revenue — memberships, renewals at proven-audience rates, repeat season licensing. Stage 3 scales the moat — format and IP licensing, geographic expansion, an owned ecosystem that means a broadcaster deal is acceleration, not oxygen.</p>
+  <p>The principle underneath all three: <strong>the owned audience is the asset.</strong> Talent and broadcasters amplify; the channel, social, community and email list are what compound and what we monetise repeatedly. Year 1 spends to acquire that audience. Years 2 and 3 harvest it at rising margin.</p>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">Stage 1 · Capture</div><h3>Year 1 / launch</h3><p>Money comes in off the launch event. Mixed sources, front-loaded. Goal: fund the build and establish the brand while acquiring the owned audience.</p></div>
+    <div class="card"><div class="lbl">Stage 2 · Compound</div><h3>Year 2+</h3><p>Recurring and owned revenue off a proven audience. Higher margin, more predictable, less dependent on any single deal.</p></div>
+    <div class="card"><div class="lbl">Stage 3 · Expand</div><h3>Future</h3><p>Scale the moat. License the format, extend the IP, expand geographies. The ecosystem reduces broadcaster dependency.</p></div>
+  </div>
+</section>
+
+<section id="s1">
+  <h2><span class="num">01</span>Stage 1 — Capture · how money comes in early</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">1</span>
+      <span class="st">Capture</span>
+      <span class="sw">Year 1 / launch</span>
+    </div>
+    <p class="stage-lead">Year 1 monetises the launch moment. Revenue is mixed and front-loaded across five levers — the point is to fund the build and establish the brand while the real prize, the owned audience, is being acquired underneath it.</p>
+
+    <div class="levers">
+      <div class="lever">
+        <div class="lv-name">YouTube ad & partner revenue — year-round hunts</div>
+        <p class="lv-mech">The always-on digital hunts monetise directly through the YouTube Partner Programme: <b>pre-roll and mid-roll ad share, plus channel memberships and Super Thanks</b> as the audience grows. Volume of year-round uploads — not one annual spike — is what makes this meaningful from month one.</p>
+        <p class="lv-derisk"><span>De-risk</span>Always-on cadence means revenue isn't hostage to a single broadcast window; the channel earns between TV seasons.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Brand sponsorship & integrations</div>
+        <p class="lv-mech">Real-expedition gear, dive, travel and outdoor brands pay for <b>integration into hunts and the flagship season</b> — kit placement, sponsored segments, named-partner episodes. The real-permit, real-archaeology credibility is the sell: brands buy authentic adventure, not staged drama.</p>
+        <p class="lv-derisk"><span>De-risk</span>Bart's expert credibility and the genuine permits make this defensible to brand-safety teams in a way reconstruction shows are not.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Broadcast network licensing — the flagship season</div>
+        <p class="lv-mech">The 8-episode flagship is licensed to a network. <b>Bear's Executive Producer credit opens the doors</b> — Disney, NatGeo, Amazon, Apple — and we go in with a proven year-round audience, so it's a de-risked demand pitch, not an unproven concept. This is the single largest Year-1 line.</p>
+        <p class="lv-derisk"><span>De-risk</span>We sell engaged audience, not an idea. And because the channel earns independently, the licence is a premium, not a lifeline — which strengthens our negotiating position.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Bahamas tourism partnership</div>
+        <p class="lv-mech">The Bahamas tourism board as a <b>flagship cultural partner</b> — Long Island as the birthplace of Caribbean piracy is a destination story they want told. Co-funding, location support and co-promotion in exchange for authentic placement of the location.</p>
+        <p class="lv-derisk"><span>De-risk</span>Offsets production cost directly and earns reach at an authenticity we couldn't buy.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Launch merchandise</div>
+        <p class="lv-mech">A tight launch drop tied to the franchise identity and the find — <b>limited, on-brand, sold to the most engaged audience first</b>. Modest in Year 1; its real job is to test demand and seed the owned-store infrastructure that Stage 2 scales.</p>
+        <p class="lv-derisk"><span>De-risk</span>Print-on-demand / pre-order keeps inventory risk near zero; it validates merch appetite before any committed spend.</p>
+      </div>
+    </div>
+
+    <div class="flow-lbl">How it's going to work — Stage 1 flow</div>
+    <div class="flow">
+      <div class="fstep"><div class="fn">Build</div><div class="fb">Year-round hunts launch on YouTube, audience starts compounding</div></div>
+      <div class="fstep"><div class="fn">Monetise the build</div><div class="fb">Ad share + sponsorship integrations turn on as views grow</div></div>
+      <div class="fstep"><div class="fn">Land the flagship</div><div class="fb">Bear's EP credit + proven audience secures the network licence</div></div>
+      <div class="fstep"><div class="fn">Offset & seed</div><div class="fb">Tourism partner offsets cost; launch merch tests demand</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="num">02</span>Stage 2 — Compound · recurring & owned revenue</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">2</span>
+      <span class="st">Compound</span>
+      <span class="sw">Year 2+</span>
+    </div>
+    <p class="stage-lead">By Year 2 the audience built in Stage 1 is a predictable, owned asset — channel, social, community and email list. Stage 2 monetises that asset on repeat, at higher margin and with far less dependence on any single deal. This is where the franchise starts to look like a business rather than a launch.</p>
+
+    <div class="levers">
+      <div class="lever">
+        <div class="lv-name">Owned-audience monetisation — memberships & community</div>
+        <p class="lv-mech">The owned audience is monetised directly via a <b>community layer — YouTube channel memberships, a paid Substack / member tier, behind-the-scenes access and member-first drops</b>. The owned email list is the highest-margin re-engagement channel we have. Recurring revenue with no platform-deal dependency.</p>
+        <p class="lv-derisk"><span>De-risk</span>Recurring monthly revenue we own end-to-end — not subject to a broadcaster's schedule or an algorithm change.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Repeat annual TV season licensing</div>
+        <p class="lv-mech">The flagship becomes <b>an annual prestige beat licensed season after season</b>. Each renewal is negotiated off a larger, proven audience and a track record — so terms rise rather than reset. The relationship moves from one-off sale to a standing line.</p>
+        <p class="lv-derisk"><span>De-risk</span>Proven Season 1 performance and a year-round audience between seasons make each renewal lower-risk for the network and higher-value for us.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Sponsorship renewals at higher rates</div>
+        <p class="lv-mech">Year-1 sponsors renew against <b>real, demonstrated audience numbers rather than projections</b> — so rates step up. New brands enter at the proven-audience price. Multi-season and category-exclusive deals become possible once the numbers are real.</p>
+        <p class="lv-derisk"><span>De-risk</span>Pricing moves from speculative to evidenced; competitive tension between brands for proven slots lifts rates.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Paid-experience & expedition tie-ins</div>
+        <p class="lv-mech">The franchise's authenticity supports <b>premium real-world experiences — expedition-adjacent trips, fan dives, location experiences</b>, run with the Bahamas tourism partner. High-ticket, low-volume, and they deepen the community while they earn.</p>
+        <p class="lv-derisk"><span>De-risk</span>Demand is pre-validated by the engaged community before any experience is committed; runs on partner infrastructure, not ours.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Format licensing — first steps</div>
+        <p class="lv-mech">With a proven format, <b>early format-licensing conversations</b> become credible — selling the show structure, not just the finished episodes. This is the bridge into Stage 3 and starts here once Season 1 has performed.</p>
+        <p class="lv-derisk"><span>De-risk</span>Licensing a proven format carries far less execution risk for a buyer than commissioning a new one.</p>
+      </div>
+    </div>
+
+    <div class="flow-lbl">How it's going to work — Stage 2 flow</div>
+    <div class="flow">
+      <div class="fstep"><div class="fn">Own the audience</div><div class="fb">Channel becomes the home, not the show; email list is the asset</div></div>
+      <div class="fstep"><div class="fn">Charge for access</div><div class="fb">Memberships, member drops and experiences monetise loyalty</div></div>
+      <div class="fstep"><div class="fn">Renew at premium</div><div class="fb">TV season + sponsors renew against proven numbers, rates rise</div></div>
+      <div class="fstep"><div class="fn">Open licensing</div><div class="fb">Proven format starts the licensing conversation into Stage 3</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <h2><span class="num">03</span>Stage 3 — Expand · scale the moat</h2>
+  <div class="stage">
+    <div class="stage-head">
+      <span class="sn">3</span>
+      <span class="st">Expand</span>
+      <span class="sw">Future</span>
+    </div>
+    <p class="stage-lead">Stage 3 takes a proven, owned franchise and scales it — without proportionally scaling the cost or the broadcaster dependency. The owned ecosystem is now the moat: the franchise earns across multiple lines whether or not any single broadcaster says yes.</p>
+
+    <div class="levers">
+      <div class="lever">
+        <div class="lv-name">Franchise / format licensing to new geographies</div>
+        <p class="lv-mech">License the <b>Uncharted Treasures format to new locations and markets</b> — the structure travels, the IP stays ours. Each licensed territory pays for the format and returns franchise fees while extending the brand at no production cost to us.</p>
+        <p class="lv-derisk"><span>De-risk</span>Licensees carry production cost and local risk; we earn on proven IP. The brand grows without our capital growing with it.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">IP, merch & licensing extensions</div>
+        <p class="lv-mech">The franchise IP supports <b>a real merch line, publishing, educational tie-ins (school-network and museum / aquarium partnerships) and family-attraction or toy crossovers</b>. These extend the brand into durable, owned-IP revenue that isn't tied to any episode airing.</p>
+        <p class="lv-derisk"><span>De-risk</span>Diversified IP income decoupled from the broadcast calendar; each extension is optional and demand-tested first.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Geographic & flagship expansion</div>
+        <p class="lv-mech">Runway to <b>bigger flagship expeditions and new expedition locations under one franchise identity audiences already trust</b>. Larger spectacle commands higher licence and sponsorship value; new geographies open new tourism partners on the Bahamas template.</p>
+        <p class="lv-derisk"><span>De-risk</span>Each new location launches into an existing, trusting audience rather than from a cold start.</p>
+      </div>
+      <div class="lever">
+        <div class="lv-name">Secondary creators — light, in time</div>
+        <p class="lv-mech">In time, additional expedition leads can come under the franchise umbrella. <b>Kept deliberately light</b> — a future option, not the spine of the model and not a near-term revenue line. Mentioned for completeness, de-emphasised by design.</p>
+        <p class="lv-derisk"><span>De-risk</span>Optional and unfunded for now; nothing in the model depends on it, so it carries no downside.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1.1rem;border-color:rgba(196,154,82,0.3);background:rgba(196,154,82,0.05)">
+      <div class="head">The Stage 3 principle</div>
+      <p style="color:var(--cream)">By Stage 3 the owned ecosystem — channel, social, community, list, IP — earns across multiple lines independent of any broadcaster. <strong>A broadcaster deal becomes acceleration, not oxygen.</strong> That independence is the whole point of building owned audience first.</p>
+    </div>
+
+    <div class="flow-lbl">How it's going to work — Stage 3 flow</div>
+    <div class="flow">
+      <div class="fstep"><div class="fn">License the format</div><div class="fb">New geographies pay franchise fees, carry their own cost</div></div>
+      <div class="fstep"><div class="fn">Extend the IP</div><div class="fb">Merch, publishing, education and crossovers earn off the brand</div></div>
+      <div class="fstep"><div class="fn">Scale the flagship</div><div class="fb">Bigger expeditions, new locations, higher licence value</div></div>
+      <div class="fstep"><div class="fn">Reduce dependency</div><div class="fb">Owned ecosystem is the moat; a network deal is upside</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <h2><span class="num">04</span>The revenue stack at a glance</h2>
+  <p>Read top to bottom: each stage adds lines on top of the last and lifts the margin of the ones already running.</p>
+  <div class="grid-2">
+    <div class="card"><div class="lbl">Stage 1 · Capture</div><h3>Launch revenue</h3><p>YouTube ad/partner share · brand sponsorship & integrations · flagship network licence (largest line) · Bahamas tourism partnership · launch merch.</p></div>
+    <div class="card"><div class="lbl">Stage 2 · Compound</div><h3>Recurring & owned</h3><p>Memberships / Substack / community · annual season re-licence · sponsorship renewals at higher rates · paid experiences · early format licensing.</p></div>
+    <div class="card"><div class="lbl">Stage 3 · Expand</div><h3>Scaled IP</h3><p>Geographic format licensing · merch / publishing / education / crossovers · bigger flagship expeditions · secondary creators (light).</p></div>
+    <div class="card"><div class="lbl">Underneath all three</div><h3>The owned audience</h3><p>Channel, social, community, email list. Acquired in Year 1, harvested at rising margin thereafter. The asset that de-risks every other line.</p></div>
+  </div>
+  <div class="ammo">
+    <div class="head">The shape of it</div>
+    <h3>One sentence per stage.</h3>
+    <ul>
+      <li>Stage 1 — fund the build and land the launch deals while acquiring the audience.</li>
+      <li>Stage 2 — monetise the owned audience on repeat, renew everything at proven-audience rates.</li>
+      <li>Stage 3 — license and extend the IP so the franchise earns without a broadcaster in the room.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="costs">
+  <h2><span class="num">05</span>A note on costs</h2>
+  <div class="note">
+    <div class="head">Revenue side only · costs pending</div>
+    <p>This document maps the <strong>revenue</strong> side of the three stages. <strong>Beau Sedivy is working on the financial breakdown of the BTS production cost</strong> — once that lands, the two sit side by side for a full margin picture. Treat the figures and weighting here as the income map; the net is TBC against Beau's numbers.</p>
+  </div>
+</section>
+
+<section id="handling">
+  <h2><span class="num">06</span>How to handle this document</h2>
+  <div class="redlines">
+    <div class="head">Internal only</div>
+    <h3>This is a Bear Witness strategy doc. Not for Coyote.</h3>
+    <ul>
+      <li>Commercials are deliberately parked in conversations with Coyote — "core partner, not hired host." Do not surface this monetisation map to him.</li>
+      <li>Money is a separate, later conversation. This doc exists so Bear Witness / BGV knows the revenue model, not to negotiate against it yet.</li>
+      <li>Share internally only. If it informs a Coyote-facing doc later, that's a fresh, commercials-light document — not this one.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  Internal · Bear Witness × Uncharted Treasures · Monetisation map · 28 May 2026 · Revenue side — production costs pending (Beau)
+</footer>
+
+</body>
+</html>
