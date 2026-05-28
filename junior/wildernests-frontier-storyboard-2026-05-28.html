@@ -3,144 +3,812 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Frontier — Storyboard | Wildernests</title>
+<title>WILDERNESTS — The Frontier | Master Storyboard</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #c8a84a;
+  --cream: #f2ede4;
+  --muted: rgba(255,255,255,0.45);
+  --dim: rgba(255,255,255,0.2);
+}
+
+html { scroll-snap-type: y mandatory; overflow-y: scroll; }
+
 body {
-  background: #0a0a0a;
-  color: #e8e8e0;
+  background: #000;
+  color: #e8e4dc;
   font-family: 'Georgia', serif;
   font-size: 16px;
-  line-height: 1.7;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 60px 40px 100px;
+  line-height: 1.65;
 }
-.logo-line {
+
+/* ── SLIDE BASE ─────────────────────────────────── */
+.slide {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 8vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 1;
+  z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+/* ── BACKGROUNDS BY ACT ─────────────────────────── */
+.bg-title    { background: linear-gradient(160deg, #0a0a0f 0%, #111218 60%, #0d0c0a 100%); }
+.bg-intent   { background: linear-gradient(160deg, #0d0d14 0%, #111218 100%); }
+.bg-act1     { background: linear-gradient(160deg, #080c14 0%, #0f1420 60%, #141822 100%); }
+.bg-dawn     { background: linear-gradient(160deg, #0a0e1a 0%, #141e2e 50%, #1a2030 100%); }
+.bg-act2     { background: linear-gradient(160deg, #120e08 0%, #1a1208 60%, #1e1408 100%); }
+.bg-earth    { background: linear-gradient(160deg, #150f07 0%, #1c1308 60%, #221608 100%); }
+.bg-collapse { background: linear-gradient(160deg, #0a0805 0%, #130e06 60%, #180f05 100%); }
+.bg-silence  { background: #050403; }
+.bg-act3     { background: linear-gradient(160deg, #1a1205 0%, #241a06 60%, #1e1505 100%); }
+.bg-golden   { background: linear-gradient(160deg, #1c1408 0%, #281c08 60%, #221605 100%); }
+.bg-power    { background: linear-gradient(160deg, #181205 0%, #201808 60%, #1a1406 100%); }
+.bg-night    { background: #020202; }
+.bg-water    { background: linear-gradient(160deg, #060c14 0%, #0a1018 60%, #080e16 100%); }
+.bg-storm    { background: linear-gradient(160deg, #080808 0%, #0e0e10 60%, #080a0c 100%); }
+.bg-fire     { background: linear-gradient(160deg, #140804 0%, #1a0c05 60%, #140a04 100%); }
+.bg-quake    { background: linear-gradient(160deg, #0a0a0c 0%, #101012 60%, #0c0c10 100%); }
+.bg-flood    { background: linear-gradient(160deg, #04080e 0%, #080c14 60%, #060a12 100%); }
+.bg-indep    { background: linear-gradient(160deg, #0a0c08 0%, #0e1008 60%, #0c1008 100%); }
+.bg-act4     { background: linear-gradient(160deg, #1c1608 0%, #241a08 60%, #1c1606 100%); }
+.bg-hero     { background: linear-gradient(160deg, #1e1606 0%, #2a1e08 60%, #1e1806 100%); }
+.bg-retreat  { background: linear-gradient(160deg, #181205 0%, #1e1806 60%, #141004 100%); }
+.bg-end      { background: #000000; }
+.bg-notes    { background: linear-gradient(160deg, #0c0c0e 0%, #101012 100%); }
+
+/* ── TITLE SLIDE ────────────────────────────────── */
+.title-eyebrow {
   font-size: 11px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #555;
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 28px;
 }
-h1 {
-  font-size: 38px;
+
+.title-main {
+  font-size: clamp(36px, 7vw, 80px);
   font-weight: normal;
-  color: #f5f3ee;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.title-sub {
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: normal;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 48px;
+}
+
+.title-meta {
+  font-size: 12px;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── ACT HEADER ─────────────────────────────────── */
+.act-num {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.act-title {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: normal;
+  color: var(--cream);
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
-.sub {
+
+.act-time {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+}
+
+.act-desc {
+  max-width: 580px;
   font-size: 15px;
-  color: #888;
+  color: rgba(230,220,200,0.7);
+  line-height: 1.7;
   font-style: italic;
-  margin-bottom: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #1e1e1e;
 }
-.section { margin-bottom: 44px; }
-.label {
+
+/* ── SCENE SLIDE ─────────────────────────────────── */
+.scene-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.scene-num {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.scene-time {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.scene-label {
   font-size: 10px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #555;
-  margin-bottom: 10px;
+  color: var(--gold);
+  padding: 3px 10px;
+  border: 1px solid rgba(200,168,74,0.3);
+  border-radius: 2px;
 }
-p { font-size: 15px; color: #bbb; margin-bottom: 12px; }
-.mood-link {
+
+.visual-desc {
+  max-width: 640px;
+  font-size: clamp(15px, 2.2vw, 20px);
+  color: var(--cream);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.sourcing {
+  max-width: 560px;
+  font-size: 12px;
+  color: rgba(200,190,170,0.5);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.vo-block {
+  max-width: 560px;
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+  margin-top: 4px;
+}
+
+.vo-label {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.vo-text {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--cream);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.no-vo {
+  font-size: 12px;
+  color: rgba(200,190,170,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── SECTION DIVIDERS ───────────────────────────── */
+.section-tag {
   display: inline-block;
-  margin-top: 8px;
-  font-size: 13px;
-  color: #c8b988;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  border-bottom: 1px solid rgba(200,185,136,0.3);
-  padding-bottom: 1px;
-}
-.mood-link:hover { border-color: #c8b988; }
-.scene-list { list-style: none; padding: 0; }
-.scene-list li {
-  padding: 12px 0 12px 18px;
-  border-bottom: 1px solid #1a1a1a;
-  font-size: 14px;
-  color: #ccc;
-  position: relative;
-}
-.scene-list li:last-child { border-bottom: none; }
-.scene-list li::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 21px;
-  width: 6px; height: 1px;
-  background: #c8b988;
-}
-.scene-num {
   font-size: 10px;
-  color: #444;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  margin-right: 10px;
+  color: var(--cream);
+  opacity: 0.5;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 10px;
+  margin-bottom: 28px;
+  width: 100%;
+  max-width: 200px;
 }
-.footer {
-  margin-top: 72px;
-  padding-top: 24px;
-  border-top: 1px solid #1e1e1e;
-  font-size: 11px;
-  color: #444;
-  letter-spacing: 0.1em;
+
+/* ── SILENCE CARD ───────────────────────────────── */
+.silence-text {
+  font-size: clamp(18px, 3vw, 32px);
+  color: rgba(200,190,170,0.5);
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.until-now {
+  font-size: clamp(28px, 6vw, 72px);
+  font-weight: normal;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* ── HERO SHOT ──────────────────────────────────── */
+.hero-scene .visual-desc {
+  font-size: clamp(17px, 2.5vw, 22px);
+}
+
+/* ── END CARD ───────────────────────────────────── */
+.end-title {
+  font-size: clamp(14px, 2.5vw, 24px);
+  letter-spacing: 0.25em;
   text-transform: uppercase;
+  color: rgba(200,190,170,0.6);
+  margin-bottom: 24px;
 }
+
+.end-line {
+  font-size: clamp(28px, 5.5vw, 64px);
+  font-weight: normal;
+  color: var(--cream);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin-bottom: 48px;
+}
+
+.alt-lines {
+  list-style: none;
+  padding: 0;
+}
+
+.alt-lines li {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 6px 0;
+  font-style: italic;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.alt-lines li:last-child { border-bottom: none; }
+
+/* ── INTENT SLIDE ───────────────────────────────── */
+.intent-text {
+  max-width: 620px;
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(230,220,200,0.8);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.intent-text strong {
+  color: var(--cream);
+  font-weight: normal;
+}
+
+/* ── MOOD BOARD LINK ─────────────────────────────── */
+.ref-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(200,168,74,0.4);
+  padding-bottom: 2px;
+}
+
+.ref-link:hover { border-color: var(--gold); }
+
+/* ── SLIDE COUNTER ──────────────────────────────── */
+.slide-counter {
+  position: absolute;
+  bottom: 28px;
+  right: 8vw;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--dim);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* ── NOTES SLIDE ────────────────────────────────── */
+.note-head {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.note-text {
+  max-width: 580px;
+  font-size: 15px;
+  color: rgba(220,210,190,0.7);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.note-text strong {
+  color: var(--cream);
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 600px) {
-  body { padding: 32px 20px 72px; }
-  h1 { font-size: 28px; }
+  .slide { padding: 48px 6vw; }
+  .slide-counter { right: 6vw; }
 }
 </style>
 </head>
 <body>
 
-<div class="logo-line">Wildernests x Bear Witness — Video 2</div>
-<h1>The Frontier</h1>
-<div class="sub">Rough storyboard concept — 28 May 2026</div>
-
-<div class="section">
-  <div class="label">Concept</div>
-  <p>A lone figure moves through a vast, untouched wilderness. The Wildernests home sits in nature — not above it. Scale and landscape are the hero.</p>
-  <p>Camera stays behind the figure. Wide shots. The world is immense. The home belongs to it.</p>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TITLE SLIDE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-title">
+  <div class="title-eyebrow">Wildernests x Bear Witness — Master Storyboard</div>
+  <div class="title-main">The Frontier</div>
+  <div class="title-sub">Approximately 2:25 &nbsp;·&nbsp; 23 scenes &nbsp;·&nbsp; 4 acts</div>
+  <div class="title-meta">Built for AI-generation, stock, and existing Wildernests assets &nbsp;·&nbsp; 28 May 2026</div>
+  <a class="ref-link" href="https://pin.it/5SevUsJdQ" target="_blank">View mood board →</a>
+  <div class="slide-counter">01 / 30</div>
 </div>
 
-<div class="section">
-  <div class="label">Aesthetic &amp; Mood</div>
-  <p>Frontier. Cinematic. Quiet. Slow burn. The kind of landscape that makes you feel small in the best way.</p>
-  <a class="mood-link" href="https://pin.it/1hAhXXUyg" target="_blank">View Pinterest reference board →</a>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- CREATIVE INTENT -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-intent">
+  <div class="act-num">Creative Intent</div>
+  <div class="intent-text">
+    A two-minute teaser <strong>selling desire, not features.</strong> We follow one anonymous pioneer on horseback through a single landscape that morphs around him from prehistory to the present.
+  </div>
+  <div class="intent-text">
+    The thesis: for two hundred thousand years humans have been chained to resources, and now, for the first time, <strong>we are free of them.</strong> The home is the answer to a question civilisation has been asking since the first city was built.
+  </div>
+  <div class="intent-text" style="font-size:14px; opacity:0.7;">
+    Acts 1 &amp; 4 are strict reality — dawn through to dusk on one day. Acts 2 &amp; 3 are mythic, non-linear, operating on dream logic. <strong>We never see the rider's face.</strong>
+  </div>
+  <div class="slide-counter">02 / 30</div>
 </div>
 
-<div class="section">
-  <div class="label">Scene Outline</div>
-  <ul class="scene-list">
-    <li><span class="scene-num">01</span>Wide establishing shot — vast frontier landscape, dawn or golden hour</li>
-    <li><span class="scene-num">02</span>Lone horseman from behind, moving slowly through open terrain</li>
-    <li><span class="scene-num">03</span>Pull back to reveal the Wildernests home in the distance, nestled in the land</li>
-    <li><span class="scene-num">04</span>Close detail shots — house materiality, connection to ground, nature moving around it</li>
-    <li><span class="scene-num">05</span>Figure arrives. Stillness. The house as sanctuary in the wilderness.</li>
-    <li><span class="scene-num">06</span>Final wide — home and landscape as one</li>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ACT 1 HEADER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-act1">
+  <div class="act-num">Act 1</div>
+  <div class="act-title">The Rider</div>
+  <div class="act-time">0:00 – 0:25</div>
+  <div class="act-desc">Cold dawn. American high country. A lone rider on horseback, dog at his flank, moving along a shallow river. Reality. We never see his face.</div>
+  <div class="slide-counter">03 / 30</div>
+</div>
+
+<!-- SCENE 1 -->
+<div class="slide bg-dawn">
+  <div class="scene-header">
+    <span class="scene-num">Scene 1</span>
+    <span class="scene-time">0:00 – 0:08</span>
+  </div>
+  <div class="visual-desc">Aerial wide. Cold dawn light across endless high country. No music yet. Wind and silence. Hold the emptiness longer than feels comfortable, then drift down toward the ground.</div>
+  <div class="sourcing">Stock drone aerial — Montana, Utah, Wyoming, Colorado. Search: high country dawn, mountain plain sunrise, western landscape aerial.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO — whispered, almost lost in the wind</div>
+    <div class="vo-text">"For two hundred thousand years…"</div>
+  </div>
+  <div style="margin-top:20px; font-size:12px; color:var(--muted); letter-spacing:0.08em;">Single low cello enters.</div>
+  <div class="slide-counter">04 / 30</div>
+</div>
+
+<!-- SCENE 2 -->
+<div class="slide bg-dawn">
+  <div class="scene-header">
+    <span class="scene-num">Scene 2</span>
+    <span class="scene-time">0:08 – 0:18</span>
+  </div>
+  <div class="visual-desc">Cut to ground level. Behind the rider. His back, his hat, the dog walking by the horse's flank. He moves along a shallow river. Hooves on stone, water running.</div>
+  <div class="sourcing">AI-generated. Locked rider reference. Tracking shot — behind rider on horseback, dog alongside, slow walk along a shallow river, cold morning light, weathered Filson jacket, Stetson hat, no face visible.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"…we've built our lives around what we could not live without."</div>
+  </div>
+  <div class="slide-counter">05 / 30</div>
+</div>
+
+<!-- SCENE 3 -->
+<div class="slide bg-dawn">
+  <div class="scene-header">
+    <span class="scene-num">Scene 3</span>
+    <span class="scene-time">0:18 – 0:25</span>
+  </div>
+  <div class="visual-desc">Closer behind the rider. Steam from the horse's breath in the cold. His gloved hand on the reins. Still no face.</div>
+  <div class="sourcing">AI-generated. Tighter angle on rider and horse, breath in cold air, gloved hand on reins, no face visible.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"We followed the water. We settled where the soil held us. We hung our lives off whatever the land would give."</div>
+  </div>
+  <div class="slide-counter">06 / 30</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ACT 2 HEADER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-act2">
+  <div class="act-num">Act 2</div>
+  <div class="act-title">The Civilisations</div>
+  <div class="act-time">0:25 – 1:05</div>
+  <div class="act-desc">As the rider passes, the ground comes alive. Earth rises into the forms of human civilisation — walls, towers, cities — all made of the same brown dirt. Each one builds, lives for seconds, then collapses back as he passes. <br><br><em>Strict rule: everything is the same brown earth. Not mudbrick. Not adobe. Dirt. Only the geometry changes.</em></div>
+  <div class="slide-counter">07 / 30</div>
+</div>
+
+<!-- SCENE 4 -->
+<div class="slide bg-earth">
+  <div class="scene-header">
+    <span class="scene-num">Scene 4</span>
+    <span class="scene-time">0:25 – 0:35</span>
+    <span class="scene-label">Mesopotamia</span>
+  </div>
+  <div class="visual-desc">Riverbank. Earth stirs and rises into a Mesopotamian settlement. Walls, figures, smoke columns, animals — all formed from the same brown dirt. As the rider passes, forms lose cohesion and fall. Within two seconds: plain reeds and stone.</div>
+  <div class="sourcing">AI or VFX composite. Prompt: a Mesopotamian settlement made entirely of brown earth and dirt rising up from a riverbank as a horseman rides past, mud-coloured figures, mud-coloured walls, collapsing back into the bank.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"We gathered where the rivers ran."</div>
+  </div>
+  <div class="slide-counter">08 / 30</div>
+</div>
+
+<!-- SCENE 5 -->
+<div class="slide bg-earth">
+  <div class="scene-header">
+    <span class="scene-num">Scene 5</span>
+    <span class="scene-time">0:35 – 0:45</span>
+    <span class="scene-label">Medieval</span>
+  </div>
+  <div class="visual-desc">Open plain. Earth rises into a medieval walled town. Walls, towers, ploughs, oxen, figures in the fields — all the same brown dirt. Furrows with crops of dirt swaying above them. Dust smoke from earthen chimneys. As he rides past, the town crumbles row by row back into flat plain.</div>
+  <div class="sourcing">AI or VFX composite. Prompt: a medieval walled town entirely made of brown dirt rising out of a plain as a horseman rides past, dirt-coloured oxen and ploughs, then crumbling back into the ground.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"We built where the soil was kind."</div>
+  </div>
+  <div style="margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.08em;">Second cello joins.</div>
+  <div class="slide-counter">09 / 30</div>
+</div>
+
+<!-- SCENE 6 -->
+<div class="slide bg-earth">
+  <div class="scene-header">
+    <span class="scene-num">Scene 6</span>
+    <span class="scene-time">0:45 – 0:55</span>
+    <span class="scene-label">Industrial</span>
+  </div>
+  <div class="visual-desc">He crosses old ground. Pylons of dirt rise around him, taller than the trees. Power lines form as thin strands of suspended dirt. In the distance, a highway forms in dust and dirt-cars stream along it. Then — pylons crumble, strands fall, cars dissolve, the road itself returns to plain earth.</div>
+  <div class="sourcing">AI or VFX composite. Prompt: electricity pylons and power lines made of brown earth and dust rising up around a horseman, a highway and cars formed of dirt streaming in the distance, then everything collapsing back into the plain.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"We hung our lives off wires and roads and pipes."</div>
+  </div>
+  <div class="slide-counter">10 / 30</div>
+</div>
+
+<!-- SCENE 7 -->
+<div class="slide bg-collapse">
+  <div class="scene-header">
+    <span class="scene-num">Scene 7</span>
+    <span class="scene-time">0:55 – 1:05</span>
+    <span class="scene-label">The Modern City</span>
+  </div>
+  <div class="visual-desc">Camera lifts. Far behind him, the entire horizon rises. A full modern city of dirt. Glass towers made of brown earth. Gridlock of dirt-cars. Then — in one extended motion — tower by tower, the whole skyline begins to collapse. Falls like sand rain. Returns to plain.</div>
+  <div class="sourcing">AI or VFX composite. Prompt: a full modern city skyline made entirely of brown dirt and dust rising on the horizon behind a horseman, glass towers but all brown earth, then the entire city collapsing in a single motion back into the plain.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO — music swells, then drops sharply</div>
+    <div class="vo-text">"Every home we have ever built has been built by necessity. We have lived where the river ran and the soil gave and the roads came through, never where we longed to."</div>
+  </div>
+  <div class="slide-counter">11 / 30</div>
+</div>
+
+<!-- SILENCE -->
+<div class="slide bg-silence" style="justify-content:center; align-items:center; text-align:center;">
+  <div class="silence-text">Two beats of silence.<br>Just hooves and breath.</div>
+  <div class="until-now">"Until now."</div>
+  <div class="slide-counter">12 / 30</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ACT 3 HEADER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-act3">
+  <div class="act-num">Act 3</div>
+  <div class="act-title">The Turn</div>
+  <div class="act-time">1:05 – 2:00</div>
+  <div class="act-desc">Dream logic. The rider's journey continues in golden-hour reality, but the cutaways to the home move through different times, weathers, and conditions. The home appears many times here — but never from the ridgeline-silhouette angle reserved for Scene 21.</div>
+  <div class="slide-counter">13 / 30</div>
+</div>
+
+<!-- SCENE 8 -->
+<div class="slide bg-golden">
+  <div class="scene-header">
+    <span class="scene-num">Scene 8</span>
+    <span class="scene-time">1:05 – 1:12</span>
+    <span class="scene-label">First Glimpse</span>
+  </div>
+  <div class="visual-desc">A single dark shape on a ridge, far in the distance, barely visible against the late sky. The rider continues toward it.</div>
+  <div class="sourcing">AI or composite using existing Wildernests render. Rider in foreground, distant home as small silhouette on a ridge, late afternoon light.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"The real renegades aren't building cities anymore. We're walking back out into the land. Taking everything we need with us."</div>
+  </div>
+  <div style="margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.08em;">Piano enters quietly under the cellos.</div>
+  <div class="slide-counter">14 / 30</div>
+</div>
+
+<!-- POWER SECTION -->
+<div class="slide bg-power">
+  <div class="section-tag">Power</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 9</span>
+    <span class="scene-time">1:12 – 1:16</span>
+  </div>
+  <div class="visual-desc">Cut to the home, morning. Low sun catches a solar surface integrated into the cladding. Light pours across the structure.</div>
+  <div class="sourcing">Existing Wildernests morning render, or new AI generation using the home's design language. Hero angle on cladding/solar surface in low sun.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"The sun is our power."</div>
+  </div>
+  <div class="slide-counter">15 / 30</div>
+</div>
+
+<div class="slide bg-night">
+  <div class="section-tag">Power</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 10</span>
+    <span class="scene-time">1:16 – 1:20</span>
+  </div>
+  <div class="visual-desc">Wide aerial, night. The home glowing warm in a sea of pitch-black wilderness. No roads, no neighbours, no other lights anywhere on the horizon.</div>
+  <div class="sourcing">AI or composite. Existing Wildernests night render placed in a pitch-black landscape aerial. Critical: no other light sources visible to the horizon.</div>
+  <div class="no-vo">No VO.</div>
+  <div class="slide-counter">16 / 30</div>
+</div>
+
+<!-- WATER SECTION -->
+<div class="slide bg-water">
+  <div class="section-tag">Water</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 11</span>
+    <span class="scene-time">1:20 – 1:24</span>
+  </div>
+  <div class="visual-desc">Interior or sheltered exterior. The atmospheric water generation machine. Beautifully lit, treated with architectural reverence. The camera holds.</div>
+  <div class="sourcing" style="color:rgba(200,168,74,0.7);">Real product footage of the actual AWG machine. If existing footage isn't strong enough — capture a dedicated product shoot. This shot must read as real engineering, not AI-rendered.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"The water comes from the air itself,"</div>
+  </div>
+  <div class="slide-counter">17 / 30</div>
+</div>
+
+<div class="slide bg-water">
+  <div class="section-tag">Water</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 12</span>
+    <span class="scene-time">1:24 – 1:28</span>
+  </div>
+  <div class="visual-desc">Closer on the machine. Working. Detail shot — viewing port, flowing element, visible mechanism. The proprietary nature is the point.</div>
+  <div class="sourcing" style="color:rgba(200,168,74,0.7);">Real product footage. Detail shot of machine in operation.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"drawn down by a machine of our own making."</div>
+  </div>
+  <div class="slide-counter">18 / 30</div>
+</div>
+
+<div class="slide bg-water">
+  <div class="section-tag">Water</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 13</span>
+    <span class="scene-time">1:28 – 1:32</span>
+  </div>
+  <div class="visual-desc">Clean water flowing from a tap into a glass held in a weathered hand. Through the window, the wilderness.</div>
+  <div class="sourcing">AI or stock. Macro — water running into a glass, weathered hand, wilderness through a window in soft focus. Search: water pouring glass macro, hand glass window, slow motion water tap.</div>
+  <div class="no-vo">No VO.</div>
+  <div class="slide-counter">19 / 30</div>
+</div>
+
+<!-- PROTECTION SECTION -->
+<div class="slide bg-storm">
+  <div class="section-tag">Protection</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 14</span>
+    <span class="scene-time">1:32 – 1:37</span>
+  </div>
+  <div class="visual-desc">Exterior of the home. Sky darkening, wind rising. Armoured shutters slide silently into place across the windows, on their own.</div>
+  <div class="sourcing">AI animation of shutter mechanism over existing render. Or real product footage if automated shutters exist. Mechanical sound, low.</div>
+  <div class="no-vo">No VO. &nbsp;Mechanical sound and rising wind.</div>
+  <div class="slide-counter">20 / 30</div>
+</div>
+
+<div class="slide bg-storm">
+  <div class="section-tag">Protection</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 15</span>
+    <span class="scene-time">1:37 – 1:41</span>
+  </div>
+  <div class="visual-desc">Storm at full power. Rain sheeting against the closed shutters, lightning flashing behind. The home unmoved.</div>
+  <div class="sourcing">AI or composite. Home in heavy storm — lightning in background, rain sheeting. Stock storm plates composited over existing renders.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"Our walls hold when the wind comes,"</div>
+  </div>
+  <div class="slide-counter">21 / 30</div>
+</div>
+
+<div class="slide bg-fire">
+  <div class="section-tag">Protection</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 16</span>
+    <span class="scene-time">1:41 – 1:44</span>
+  </div>
+  <div class="visual-desc">Slow motion. A single glowing ember lands on the cladding. It darkens. Dies.</div>
+  <div class="sourcing">Macro slow-mo of ember landing on surface going dark. Stock exists. Search: ember landing slow motion, ash falling macro, fire ember surface.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"when the fire comes,"</div>
+  </div>
+  <div class="slide-counter">22 / 30</div>
+</div>
+
+<div class="slide bg-quake">
+  <div class="section-tag">Protection</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 17</span>
+    <span class="scene-time">1:44 – 1:47</span>
+  </div>
+  <div class="visual-desc">Interior. A glass of water on a counter. The surface vibrates in concentric rings, then settles. Half a second of subtle camera shake.</div>
+  <div class="sourcing">AI or stock. Macro — glass of water with concentric ripple rings, slight camera shake. The Jurassic Park reference — stock footage is cheap and easy to find.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"when the ground itself moves under us,"</div>
+  </div>
+  <div class="slide-counter">23 / 30</div>
+</div>
+
+<div class="slide bg-flood">
+  <div class="section-tag">Protection</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 18</span>
+    <span class="scene-time">1:47 – 1:50</span>
+  </div>
+  <div class="visual-desc">Wide. The home raised on its foundation. Floodwater running past beneath. The home dry, lit, unmoved.</div>
+  <div class="sourcing">Composite using existing Wildernests render with floodwater added via VFX. Or AI-generate if a clean composite isn't achievable.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"when the rivers rise."</div>
+  </div>
+  <div class="slide-counter">24 / 30</div>
+</div>
+
+<!-- INDEPENDENCE SECTION -->
+<div class="slide bg-indep">
+  <div class="section-tag">Independence</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 19</span>
+    <span class="scene-time">1:50 – 1:55</span>
+  </div>
+  <div class="visual-desc">Aerial. A remote valley. No roads, no power lines, no neighbours. No man-made elements other than the home visible in the frame.</div>
+  <div class="sourcing">Stock aerial of a remote valley with existing Wildernests render placed within it. Shot from a different angle than the Act 4 hero shot.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"No councils to ask, no grid to wait on, no permission to need."</div>
+  </div>
+  <div class="slide-counter">25 / 30</div>
+</div>
+
+<div class="slide bg-indep">
+  <div class="section-tag">Independence</div>
+  <div class="scene-header">
+    <span class="scene-num">Scene 20</span>
+    <span class="scene-time">1:55 – 2:00</span>
+  </div>
+  <div class="visual-desc">Time-lapse. Six seconds compressed. A piece of raw land at dawn becomes a home. Modules lowered by crane, walls coupling, glass set. Day rolls to dusk. By the end: chimney smoking, windows warm.</div>
+  <div class="sourcing">Use actual build time-lapse if Wildernests has it. If not, AI-generate using existing home renders as reference for the final state.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO</div>
+    <div class="vo-text">"Raised in three days. On any land that holds us."</div>
+  </div>
+  <div class="slide-counter">26 / 30</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ACT 4 HEADER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-act4">
+  <div class="act-num">Act 4</div>
+  <div class="act-title">Home</div>
+  <div class="act-time">2:00 – 2:25</div>
+  <div class="act-desc">Back to reality. The rider crests the ridge. The camera stops. The home below him in the last gold of the day.</div>
+  <div class="slide-counter">27 / 30</div>
+</div>
+
+<!-- SCENE 21 — HERO SHOT -->
+<div class="slide bg-hero hero-scene">
+  <div class="scene-header">
+    <span class="scene-num">Scene 21</span>
+    <span class="scene-time">2:00 – 2:10</span>
+    <span class="scene-label">The Hero Shot</span>
+  </div>
+  <div class="visual-desc">The rider crests the ridge. The camera — which has followed him the entire film — stops. He continues riding without us. Below him in a wide valley: the Wildernest in the last gold of the day. Smoke from the chimney. A single window already lit. Sun dropping behind the far ridge.</div>
+  <div class="sourcing" style="color:rgba(200,168,74,0.6);">AI-generated rider crest, composited with existing Wildernests golden hour render placed in valley below. This is the hero shot of the entire film. Worth multiple generation attempts and careful compositing.</div>
+  <div class="vo-block">
+    <div class="vo-label">VO — quieter now</div>
+    <div class="vo-text">"Wherever we choose to stand."</div>
+  </div>
+  <div style="margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.08em;">Warm horn enters. Brief swell.</div>
+  <div class="slide-counter">28 / 30</div>
+</div>
+
+<!-- SCENE 22 -->
+<div class="slide bg-retreat">
+  <div class="scene-header">
+    <span class="scene-num">Scene 22</span>
+    <span class="scene-time">2:10 – 2:20</span>
+  </div>
+  <div class="visual-desc">Wide aerial pulling slowly back. The rider a small figure now, the dog at the horse's flank, riding down toward the home. The landscape vast around them. The sun drops behind the far ridge.</div>
+  <div class="sourcing">AI or composite. Pulling wide aerial — small rider figure descending into valley toward distant home, sun setting. The pull-back may need to be faked through progressively wider stills animated together.</div>
+  <div class="no-vo">Music resolving.</div>
+  <div class="slide-counter">29 / 30</div>
+</div>
+
+<!-- SCENE 23 — END -->
+<div class="slide bg-end" style="justify-content:center; align-items:flex-start;">
+  <div class="scene-header">
+    <span class="scene-num">Scene 23</span>
+    <span class="scene-time">2:20 – 2:25</span>
+  </div>
+  <div class="end-title">Cut to black. White type, held quietly.</div>
+  <div class="end-line">The frontier is open again.</div>
+
+  <div style="margin-bottom:16px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Alternative closing lines</div>
+  <ul class="alt-lines">
+    <li>Come home to the land.</li>
+    <li>Where the renegades are headed.</li>
+    <li>The next era starts at the edge.</li>
+    <li>Tethered to nothing. Home to everything.</li>
   </ul>
+
+  <div style="margin-top:32px; font-size:11px; color:var(--dim); letter-spacing:0.1em; text-transform:uppercase;">Music resolves and stops.</div>
+  <div class="slide-counter">30 / 30</div>
 </div>
 
-<div class="section">
-  <div class="label">Environments in Queue</div>
-  <ul class="scene-list">
-    <li>Mountain lake — vast open water, peaks, reflection</li>
-    <li>Lush tropical beach — warmth, movement, contrast with architecture</li>
-  </ul>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- NOTES -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide bg-notes" style="scroll-snap-align:start;">
+  <div class="act-num">Notes for the editing team</div>
+  <div class="note-head" style="margin-top:8px;">Make or break</div>
+  <div class="note-text"><strong>The dust civilisations sequence determines everything.</strong> Run a quick test on Scene 5 (medieval town) before committing. If the dirt-rising-and-falling concept doesn't read clearly in motion, adapt now. If it lands, the rest follows easily.</div>
+  <div class="note-head">Character consistency</div>
+  <div class="note-text"><strong>Lock a single reference frame of the rider, dog, and horse</strong> and feed it into every generation. Most platforms accept reference frames. Plan for drift and absorb it through wider shots. The dog is small but emotionally important — a different dog appearing mid-film breaks the spell.</div>
+  <div class="note-head">Music</div>
+  <div class="note-text">Low cello opens and runs as a heartbeat throughout. Second cello joins in Act 2. Piano in Act 3 with the turn. Warm horn for the Act 4 reveal. Swell once when the rider crests the hill, then pull back to cellos and a single piano note. <strong>Commission original score if possible — it will outperform library on a film like this.</strong></div>
 </div>
-
-<div class="section">
-  <div class="label">Status</div>
-  <p>Rough concept confirmed. Team converting to proper production storyboard. Production begins once storyboard approved.</p>
-</div>
-
-<div class="footer">Wildernests x Bear Witness &nbsp;—&nbsp; Confidential &nbsp;—&nbsp; 28 May 2026</div>
 
 </body>
 </html>
