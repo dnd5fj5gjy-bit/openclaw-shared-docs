@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chosen In The Wild — Social Media Campaign Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --gold: #C9A84C;
+    --gold-light: #DEC068;
+    --sky: #4A7FA5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; font-weight: 400; color: var(--charcoal); background: var(--cream); line-height: 1.7; }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+  a { color: var(--earth); }
+
+  /* HERO */
+  .hero {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 0.35rem 1.1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    color: var(--white);
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(253,251,248,0.75);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-dates {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero-date {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 1rem 1.8rem;
+    text-align: center;
+  }
+  .hero-date .d-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 0.3rem; }
+  .hero-date .d-value { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); }
+  .hero-date .d-sub { font-size: 0.8rem; color: rgba(253,251,248,0.6); margin-top: 0.2rem; }
+
+  /* SECTION */
+  .section { padding: 5rem 2rem; }
+  .section.cream { background: var(--cream); }
+  .section.white { background: var(--white); }
+  .section.dark { background: var(--forest-deep); color: var(--white); }
+  .section.sand { background: var(--cream-dark); }
+  .inner { max-width: 960px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--earth);
+    margin-bottom: 0.8rem;
+  }
+  .section.dark .section-tag { color: var(--gold-light); }
+  .section h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1.2rem; color: var(--forest-deep); }
+  .section.dark h2 { color: var(--white); }
+  .section p { font-size: 1.05rem; max-width: 720px; margin-bottom: 1.2rem; color: #3A3A3A; }
+  .section.dark p { color: rgba(253,251,248,0.8); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; margin-top: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0.5rem; top: 0; bottom: 0;
+    width: 2px; background: var(--sand);
+  }
+  .tl-item {
+    position: relative;
+    padding: 0 0 2.5rem 2rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -1.6rem; top: 0.4rem;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--earth);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(192,122,69,0.25);
+  }
+  .tl-item.gold::before { background: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.3); }
+  .tl-item.green::before { background: var(--forest); box-shadow: 0 0 0 3px rgba(43,74,63,0.25); }
+  .tl-date { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--earth); margin-bottom: 0.3rem; }
+  .tl-item.gold .tl-date { color: var(--gold); }
+  .tl-item.green .tl-date { color: var(--forest); }
+  .tl-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--charcoal); }
+  .tl-body { font-size: 0.95rem; color: #5A5A5A; }
+  .tl-body ul { margin-top: 0.5rem; padding-left: 1.2rem; }
+  .tl-body li { margin-bottom: 0.3rem; }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.6rem;
+    border: 1px solid var(--sand);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(43,74,63,0.1); }
+  .section.dark .card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+  .section.dark .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .card h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: var(--forest-deep); }
+  .section.dark .card h3 { color: var(--white); }
+  .card p { font-size: 0.9rem; color: #5A5A5A; margin: 0; }
+  .section.dark .card p { color: rgba(253,251,248,0.65); }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.92rem; }
+  .data-table th { background: var(--forest); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .data-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(43,74,63,0.03); }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .badge.red { background: #FDE8E8; color: #C02020; }
+  .badge.amber { background: #FEF3CD; color: #9A6700; }
+  .badge.green { background: #DDF3E4; color: #1A7A3A; }
+  .badge.blue { background: #E0EFF8; color: #1A5A7A; }
+  .badge.gold { background: #FEF5E0; color: #9A7000; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; margin-top: 1.5rem; }
+  .checklist li {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--sand);
+    background: var(--white);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+  }
+  .checklist .check-num {
+    width: 24px; height: 24px; min-width: 24px;
+    background: var(--earth);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 700;
+  }
+  .checklist .check-body strong { display: block; font-weight: 600; margin-bottom: 0.15rem; }
+  .checklist .check-body span { font-size: 0.88rem; color: #5A5A5A; }
+
+  /* CROSS-PROMO BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest) 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    color: var(--white);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.12);
+    pointer-events: none;
+  }
+  .highlight-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 1rem; }
+  .highlight-box p { color: rgba(253,251,248,0.85); font-size: 0.98rem; margin-bottom: 0.8rem; }
+  .highlight-box ul { padding-left: 1.2rem; }
+  .highlight-box ul li { color: rgba(253,251,248,0.85); font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+  /* CONTACT ROW */
+  .contact-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+  .contact-card { background: var(--white); border: 1px solid var(--sand); border-radius: 10px; padding: 1.2rem 1.5rem; min-width: 200px; }
+  .contact-card .c-role { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--earth); margin-bottom: 0.3rem; }
+  .contact-card .c-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; color: var(--charcoal); }
+  .contact-card .c-email { font-size: 0.85rem; color: var(--sky); word-break: break-all; }
+
+  /* FOOTER */
+  .footer { background: var(--charcoal); color: rgba(253,251,248,0.5); text-align: center; padding: 2rem; font-size: 0.82rem; }
+  .footer strong { color: rgba(253,251,248,0.8); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Campaign Strategy - Overnight Brief</div>
+  <h1>Chosen In The Wild<br><span>Social Media Campaign</span></h1>
+  <p>Jesse is social media lead. Two dates to build toward. One audience that already loves Bear. This brief covers the campaign, the assets, and the Modern Savage angle.</p>
+  <div class="hero-dates">
+    <div class="hero-date">
+      <div class="d-label">Bear Virtual Appearance</div>
+      <div class="d-value">July 9</div>
+      <div class="d-sub">42 days from now</div>
+    </div>
+    <div class="hero-date">
+      <div class="d-label">Amazon Binge Drop</div>
+      <div class="d-value">August 9</div>
+      <div class="d-sub">73 days from now</div>
+    </div>
+    <div class="hero-date">
+      <div class="d-label">Modern Savage Launch</div>
+      <div class="d-value">July 1</div>
+      <div class="d-sub">Same audience</div>
+    </div>
+  </div>
+</div>
+
+<!-- SITUATION -->
+<div class="section cream">
+  <div class="inner">
+    <div class="section-tag">Situation</div>
+    <h2>The brief in one paragraph</h2>
+    <p>Bear Grylls has a virtual appearance on <strong>July 9</strong> for Chosen In The Wild, followed by an Amazon Prime binge launch on <strong>August 9</strong>. Jesse is the designated social media lead. The production side (Del Shoopman, EBG) is handling Bear's virtual logistics. Jesse owns the social campaign around it. Tasha Gaines at thechosen.tv is the primary contact - she's active now, Brittney Ward is OOO until June 1. The asset wish list and plans are expected from KB/Sonia shortly per the latest update (May 28).</p>
+    <p>No social campaign has been planned yet. This brief covers the full plan: timeline, platform strategy, asset requests, and the Modern Savage cross-promotion opportunity - which is real and worth capturing.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📺</div>
+        <h3>The Show</h3>
+        <p>Chosen In The Wild - Amazon Prime distribution. Bear featured. Faith-driven audience who already know and trust Bear Grylls.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <h3>Jesse's Role</h3>
+        <p>Social media lead. Jesse owns the content strategy, posting schedule, and asset coordination. Del/EBG handles Bear's actual virtual appearance logistics.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Immediate Urgency</h3>
+        <p>Tasha Gaines needs to be contacted this week for assets. Window before June 1 (when Brittney Ward returns) is cleaner. KB/Sonia sending wish list soon.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>The Real Opportunity</h3>
+        <p>The Chosen audience (Christian families, values-driven, deeply engaged) is identical to Modern Savage's target audience. July and August are back-to-back activation windows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE AUDIENCE -->
+<div class="section dark">
+  <div class="inner">
+    <div class="section-tag">Audience</div>
+    <h2>Who is the Chosen audience?</h2>
+    <p>Understanding this audience is the key to running the social campaign well. The Chosen is the world's most-funded crowdfunded media project ever - raised over $40M directly from fans before a single episode aired. It has 180+ million viewers across 190 countries. The fanbase is unlike anything in mainstream TV.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">✝</div>
+        <h3>Faith-Driven</h3>
+        <p>Deeply Christian. The show is a retelling of the life of Jesus. Audience chose to fund it - not passive consumers but active believers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👨‍👩‍👧‍👦</div>
+        <h3>Family-Oriented</h3>
+        <p>Multi-generational viewing. Parents and children watch together. Family is core identity. This is not a youth audience - it skews 25-55.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Extraordinarily Engaged</h3>
+        <p>Word-of-mouth driven. The Chosen grew entirely through organic sharing. When The Chosen audience finds something they love, they tell everyone.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Global + US-Heavy</h3>
+        <p>Strong in US evangelical communities, but global reach. US, UK, Latin America, East Africa. English-dominant but culturally wide.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 2.5rem;">
+      <h3>Why this audience is Bear's ideal</h3>
+      <p>Bear Grylls' faith is authentic and well-known. His public Christianity - the survival, the family, the service - resonates precisely because The Chosen audience can see it's real. They're not meeting Bear the TV star. They're meeting Bear the Christian father and outdoorsman.</p>
+      <p>Jesse's messaging framing: <em>Faith, family, and the wild. These are the things that matter. Bear lives them every day.</em></p>
+      <ul>
+        <li>Bear's survival content maps to their values of self-reliance, stewardship of creation, and provision for family</li>
+        <li>The Grylls family dynamic (Bear, Jesse, the boys) resonates with their family-first worldview</li>
+        <li>Modern Savage positions directly into "feed your family right" - this audience buys it</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CAMPAIGN TIMELINE -->
+<div class="section white">
+  <div class="inner">
+    <div class="section-tag">Campaign Timeline</div>
+    <h2>Phase-by-phase social plan</h2>
+    <p>Two distinct phases: the July 9 virtual appearance, and the August 9 Amazon binge. Build audience awareness through phase 1, then convert in phase 2 when the show is actually available.</p>
+
+    <div class="timeline" style="margin-top: 2.5rem;">
+
+      <div class="tl-item">
+        <div class="tl-date">Now - June 20 / Setup Phase</div>
+        <div class="tl-title">Asset collection + content prep</div>
+        <div class="tl-body">
+          Contact Tasha Gaines this week. Get approved clips, show artwork, and virtual appearance details. Brief Olly/Ku Creatives on content format. This is invisible work - no posting yet.
+          <ul>
+            <li>Email Tasha: asset request + campaign brief (see request list below)</li>
+            <li>Confirm July 9 logistics: platform (Zoom/YouTube/Instagram Live?), duration, format</li>
+            <li>KB/Sonia wish list expected - action immediately when received</li>
+            <li>Brief Olly to hold slots in Metricool from June 23 onward</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">June 23-July 8 / Pre-Appearance Phase</div>
+        <div class="tl-title">Build anticipation for July 9</div>
+        <div class="tl-body">
+          2-3 posts across this period. Tease the connection - Bear and The Chosen. Let the audience know something is coming.
+          <ul>
+            <li><strong>Post 1 (June 23-25):</strong> Bear introduces his connection to the show. Quote or short clip. Faith angle. "I've been asked..." framing.</li>
+            <li><strong>Post 2 (June 30 - July 3):</strong> Behind-the-scenes or show artwork drop. "Coming July 9."</li>
+            <li><strong>Post 3 (July 7-8):</strong> "Tomorrow" reminder. Ask audience to show up / register if it's a live format.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item gold">
+        <div class="tl-date">July 9 / APPEARANCE DAY</div>
+        <div class="tl-title">Bear's virtual appearance - maximum coverage</div>
+        <div class="tl-body">
+          This is the moment. Heavy posting day across all Bear's platforms. Jesse to be actively watching/capturing in real time if possible.
+          <ul>
+            <li>Instagram Story: live updates throughout</li>
+            <li>Instagram Post: best quote or clip from the appearance, same day</li>
+            <li>TikTok: 30-60s clip - Bear's most compelling moment</li>
+            <li>YouTube: full or extended cut if permission given</li>
+            <li>Audience engagement: reply to Chosen fan comments, amplify shares</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">July 10-31 / Post-Appearance Phase</div>
+        <div class="tl-title">Sustain and convert to Amazon Prime follow</div>
+        <div class="tl-body">
+          Keep the story alive. The show doesn't drop until August 9 - 4 weeks to fill. Don't go dark after July 9.
+          <ul>
+            <li><strong>July 11-12:</strong> Recap clip + audience reaction reel</li>
+            <li><strong>July 14-18:</strong> Deep-dive post: "Why I said yes to Chosen In The Wild" - Bear's personal message</li>
+            <li><strong>July 22-25:</strong> "Add to your Amazon watchlist" CTA post</li>
+            <li><strong>July 28-31:</strong> First countdown post: "2 weeks to the Amazon launch"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item gold">
+        <div class="tl-date">August 1-8 / Launch Week</div>
+        <div class="tl-title">Build to the Amazon binge drop</div>
+        <div class="tl-body">
+          Daily or near-daily activity. Every post has an Amazon Prime link.
+          <ul>
+            <li><strong>Aug 1:</strong> "8 days. It's coming." teaser</li>
+            <li><strong>Aug 4-5:</strong> Fan testimonials / community excitement post</li>
+            <li><strong>Aug 7-8:</strong> "Tomorrow" + link to Amazon Prime</li>
+            <li><strong>Every Story:</strong> Countdown sticker, Amazon link</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item green">
+        <div class="tl-date">August 9 / AMAZON BINGE LAUNCH</div>
+        <div class="tl-title">Full send on launch day</div>
+        <div class="tl-body">
+          This is the payoff. All platforms active. Primary call to action: watch it on Amazon.
+          <ul>
+            <li>Launch post with official artwork + Amazon Prime link</li>
+            <li>"Watch with us tonight" family viewing post from Bear or Jesse</li>
+            <li>Stories throughout the day: audience reactions, fan photos</li>
+            <li>Repost fan content - The Chosen audience will be extremely active</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">August 10+ / Post-Launch</div>
+        <div class="tl-title">Sustain and capture reviews</div>
+        <div class="tl-body">
+          Let the community do the work. Bear reposts fan reactions. One "thank you" post. Monitor Amazon reviews and fan social. Long-tail awareness.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORM STRATEGY -->
+<div class="section sand">
+  <div class="inner">
+    <div class="section-tag">Platform Strategy</div>
+    <h2>Where to post, and how</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Priority</th>
+          <th>Format</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bear Instagram<br>@beargrylls</strong></td>
+          <td><span class="badge red">Primary</span></td>
+          <td>Reels + Static Posts + Stories</td>
+          <td>Primary channel. Reels performing best. Stories for July 9 live coverage. 15M+ followers - the reach that converts Chosen fans to Bear fans.</td>
+        </tr>
+        <tr>
+          <td><strong>Bear TikTok</strong></td>
+          <td><span class="badge amber">High</span></td>
+          <td>30-60s Reels adaptations</td>
+          <td>The Chosen has built its own TikTok fanbase. Crossover is real. Use best quotes + survival moments from the show.</td>
+        </tr>
+        <tr>
+          <td><strong>Bear YouTube</strong></td>
+          <td><span class="badge amber">High</span></td>
+          <td>Long-form clip (5-10min)</td>
+          <td>If Bear's virtual appearance is recordable, a full YouTube cut is high value. The Chosen audience watches long-form. YouTube is also where the show may live long-term.</td>
+        </tr>
+        <tr>
+          <td><strong>Jesse Instagram<br>@jesse_grylls</strong></td>
+          <td><span class="badge blue">Supporting</span></td>
+          <td>Behind-the-scenes + family angle</td>
+          <td>Jesse's personal voice: "What it was like watching Dad film this." Family perspective - resonates hard with The Chosen audience who relate to the Grylls family dynamic.</td>
+        </tr>
+        <tr>
+          <td><strong>Bear X (Twitter)</strong></td>
+          <td><span class="badge green">Amplify</span></td>
+          <td>Text + links</td>
+          <td>Cross-post the Amazon link. X/Twitter has a sizeable Christian faith community. Low effort, incremental reach.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 1.5rem; font-size: 0.92rem; color: #5A5A5A;"><strong>Bear's LinkedIn</strong> - skip for this. CITW is a faith/family show. LinkedIn is professional. Forced.</p>
+  </div>
+</div>
+
+<!-- ASSETS TO REQUEST -->
+<div class="section white">
+  <div class="inner">
+    <div class="section-tag">Asset Request</div>
+    <h2>What to get from Tasha Gaines</h2>
+    <p>Email Tasha Gaines at <strong>tasha@thechosen.tv</strong> this week. She's active now - Brittney Ward is OOO until June 1, Tasha is covering. Be specific about what you need and when. The sooner the assets are in hand, the better the content can be.</p>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-num">1</div>
+        <div class="check-body">
+          <strong>Official show artwork - multiple formats</strong>
+          <span>High-res landscape (16:9 for YouTube), square (1:1 for IG feed), portrait (9:16 for Stories/Reels). Need PNG with transparent background if possible. Both "Chosen In The Wild" title treatment and episode-specific artwork.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">2</div>
+        <div class="check-body">
+          <strong>Approved social clips from the show</strong>
+          <span>30-60 second clips approved for Bear's social platforms. We need Bear's key moments - survival scenes, any faith/reflection moments. Spec: vertical 9:16 preferred, horizontal 16:9 secondary. No text overlays - Calvin/Ku Creatives will add for platform.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">3</div>
+        <div class="check-body">
+          <strong>July 9 virtual appearance logistics</strong>
+          <span>Platform (YouTube Live? Instagram Live? Zoom? Their own platform?), start time (UK timezone), expected duration, what Bear is asked to cover, whether we can clip and repost after.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">4</div>
+        <div class="check-body">
+          <strong>Amazon Prime links + tracking</strong>
+          <span>Direct Amazon URL for the show once live. UTM/affiliate link if available (so Amazon can see Bear's social is driving traffic). Also: is there a "add to watchlist" link we can use before launch?</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">5</div>
+        <div class="check-body">
+          <strong>Show synopsis + key episode descriptions</strong>
+          <span>1-paragraph show overview, plus 2-3 sentence descriptions of Bear's featured episodes. Needed for caption writing. Not public yet - under NDA if necessary.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">6</div>
+        <div class="check-body">
+          <strong>Co-brand guidelines</strong>
+          <span>Any restrictions on how we use "Chosen In The Wild" branding, The Chosen logo, Amazon Prime branding. Do we need to submit posts for approval before publishing?</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">7</div>
+        <div class="check-body">
+          <strong>Their campaign plan</strong>
+          <span>What The Chosen team is doing around July 9 and August 9 on their own channels. Are they going to repost Bear's content? Is there a coordinated push? Need to align.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- MODERN SAVAGE CROSS-PROMO -->
+<div class="section dark">
+  <div class="inner">
+    <div class="section-tag">Strategic Angle</div>
+    <h2>The Modern Savage cross-promotion play</h2>
+    <p>This is the opportunity most people would miss. The Chosen audience and Modern Savage's target audience are the same people. Both launch in the same summer window. Running a gentle bridge between them is worth real money.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>Same Audience</h3>
+        <p>Faith-driven, family-oriented Christian adults aged 25-55. Modern Savage targets "families and health-conscious adults." These are the same people.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <h3>Perfect Timing</h3>
+        <p>Modern Savage launches July 1. Bear's CITW appearance is July 9. The audience that discovers Modern Savage through the Bear launch will see Bear again in CITW one week later.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Values Alignment</h3>
+        <p>Modern Savage's "feed your family right" mission maps exactly to The Chosen audience's family stewardship values. Primal, whole food, no shortcuts. This is their language.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📧</div>
+        <h3>Email + Community</h3>
+        <p>The Founding Tribe email list being built now (Bear sent Email 1 May 26) - this audience will overlap heavily with CITW viewers. One list, two activations.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);">
+      <h3>How to execute the bridge</h3>
+      <p>Don't make it obvious. Don't say "buy Modern Savage because I'm in Chosen In The Wild." Let the values do the work:</p>
+      <ul>
+        <li><strong>In CITW content:</strong> Bear's identity as a father, protector, man of faith - the same values Modern Savage sells on. No need to mention Modern Savage explicitly until it launches.</li>
+        <li><strong>After July 1 launch:</strong> In CITW social posts, Bear can naturally reference "what I've been feeding my family this summer." One-line, no hard sell.</li>
+        <li><strong>Email list connection:</strong> July Founding Tribe email can reference CITW as a moment - "Bear has been on a big summer. Here's what we've been building."</li>
+        <li><strong>Jesse's personal channels:</strong> Jesse can make this connection explicitly. "The family values in Chosen In The Wild are the same ones behind Modern Savage." More authentic from the son than from Bear.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM + CONTACTS -->
+<div class="section cream">
+  <div class="inner">
+    <div class="section-tag">Coordination</div>
+    <h2>Who does what</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Person</th>
+          <th>Role in CITW</th>
+          <th>Jesse's Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tasha Gaines</strong><br>tasha@thechosen.tv</td>
+          <td>Primary CITW contact (covering for Brittney Ward OOO to Jun 1)</td>
+          <td>Email this week with asset request list above</td>
+        </tr>
+        <tr>
+          <td><strong>Jenny Elkins</strong><br>(production side)</td>
+          <td>Confirmed the July 9 Amazon date in latest update</td>
+          <td>FYI only - Tasha is Jesse's contact for social assets</td>
+        </tr>
+        <tr>
+          <td><strong>KB / Sonia</strong><br>(CITW production)</td>
+          <td>Sending wish list + plans soon (per May 28 update)</td>
+          <td>Receive and action immediately when it lands</td>
+        </tr>
+        <tr>
+          <td><strong>Del Shoopman</strong><br>del@thenaturalstudios.com</td>
+          <td>EBG/Natural Studios - looped Jesse in May 21. Handling Bear's virtual appearance logistics.</td>
+          <td>CC on asset email to Tasha, coordinate on July 9 logistics</td>
+        </tr>
+        <tr>
+          <td><strong>Olly Westmacott</strong><br>olly@beargryllsventures.com</td>
+          <td>Metricool content approver - all Bear social goes through Olly</td>
+          <td>Brief Olly on campaign timeline, hold slots from June 23</td>
+        </tr>
+        <tr>
+          <td><strong>Calvin / Ku Creatives</strong></td>
+          <td>Content production - Reels editing, caption writing, scheduling</td>
+          <td>Brief when assets arrive. Platform specs: IG (1:1 + 9:16 Reels), TikTok (9:16), YT (16:9). No text overlays until brief confirmed.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="contact-row">
+      <div class="contact-card">
+        <div class="c-role">Primary Contact</div>
+        <div class="c-name">Tasha Gaines</div>
+        <div class="c-email">tasha@thechosen.tv</div>
+      </div>
+      <div class="contact-card">
+        <div class="c-role">EBG / Production</div>
+        <div class="c-name">Del Shoopman</div>
+        <div class="c-email">del@thenaturalstudios.com</div>
+      </div>
+      <div class="contact-card">
+        <div class="c-role">Content Approvals</div>
+        <div class="c-name">Olly Westmacott</div>
+        <div class="c-email">olly@beargryllsventures.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIONS -->
+<div class="section white">
+  <div class="inner">
+    <div class="section-tag">This Week</div>
+    <h2>Jesse's immediate actions</h2>
+    <p>Five things, in order of urgency. Nothing on this list requires a meeting or a phone call - it's all emails and briefs.</p>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-num">1</div>
+        <div class="check-body">
+          <strong>Email Tasha Gaines (tasha@thechosen.tv)</strong>
+          <span>Asset request using the checklist above. CC Del. Ask about July 9 format and whether clips from the show can be shared for social. Do this before Brittney Ward returns June 1 - simpler with Tasha covering.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">2</div>
+        <div class="check-body">
+          <strong>Action KB/Sonia wish list when it arrives</strong>
+          <span>Per SESSION-STATE: "KB/Sonia will send wish list + plans soon." When that lands, treat it as highest priority. It will contain what CITW production needs from Bear and what they're planning.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">3</div>
+        <div class="check-body">
+          <strong>Brief Olly on July 9 and August 9</strong>
+          <span>Olly needs to hold Metricool slots from June 23. Share this brief with him. He approves all Bear social - looping him early means no bottleneck when assets arrive.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">4</div>
+        <div class="check-body">
+          <strong>Confirm July 9 virtual appearance format with Del</strong>
+          <span>Is it a live session Jesse can monitor? Is it pre-recorded? Where does it air? These details change the coverage strategy significantly. Quick ping to Del.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">5</div>
+        <div class="check-body">
+          <strong>Flag the Modern Savage overlap to Bear + Calvin</strong>
+          <span>Low-key. One message. "The CITW audience is identical to Modern Savage's target market. Let's make sure the tone of CITW content is consistent with the Modern Savage launch narrative in July." Bear will get it immediately.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Chosen In The Wild - Social Media Campaign Brief</strong><br>
+  Built by Junior - overnight May 28, 2026 - Jesse's brief. Not for distribution.
+</div>
+
+</body>
+</html>
