@@ -120,6 +120,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .vinyl-card:active{cursor:grabbing}
 .vinyl-card.dragging{opacity:0.3;transform:scale(0.9)}
 .vinyl-card.used{opacity:0.2;pointer-events:none}
+.vinyl-card.coming-soon{opacity:0.3;pointer-events:none;cursor:default}
 .vinyl-card svg{width:100%;height:100%;display:block;border-radius:50%}
 
 /* Turntable platter */
@@ -191,12 +192,12 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   width:28%;
   z-index:20;
   transform-origin:82% 12%;
-  transform:rotate(-25deg);
+  transform:rotate(18deg);
   cursor:grab;
   transition:transform .6s cubic-bezier(.34,1.56,.64,1);
 }
 .tt-tonearm:active{cursor:grabbing}
-.tt-tonearm.on-record{transform:rotate(-8deg)}
+.tt-tonearm.on-record{transform:rotate(-25deg)}
 .tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
 .tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
 
@@ -379,7 +380,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
         </div>
 
         <!-- Song 2 -->
-        <div class="vinyl-card" id="vinyl-1" draggable="true" data-song="1">
+        <div class="vinyl-card coming-soon" id="vinyl-1" draggable="false" data-song="1">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="vg1" cx="50%" cy="50%" r="50%">
@@ -397,16 +398,15 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <circle cx="100" cy="100" r="34" fill="#6B1D2A"/>
             <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
             <circle cx="100" cy="100" r="5" fill="#1A1410"/>
-            <text x="100" y="90" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Carry</text>
-            <text x="100" y="101" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Me</text>
-            <text x="100" y="112" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Home</text>
-            <text x="100" y="122" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <text x="100" y="96" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Coming</text>
+            <text x="100" y="108" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Soon</text>
+            <text x="100" y="120" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
         </div>
 
         <!-- Song 3 -->
-        <div class="vinyl-card" id="vinyl-2" draggable="true" data-song="2">
+        <div class="vinyl-card coming-soon" id="vinyl-2" draggable="false" data-song="2">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="vg2" cx="50%" cy="50%" r="50%">
@@ -424,9 +424,9 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <circle cx="100" cy="100" r="34" fill="#4a1019"/>
             <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
             <circle cx="100" cy="100" r="5" fill="#1A1410"/>
-            <text x="100" y="91" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">My</text>
-            <text x="100" y="103" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Devotion</text>
-            <text x="100" y="115" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <text x="100" y="96" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Coming</text>
+            <text x="100" y="108" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Soon</text>
+            <text x="100" y="120" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
         </div>
@@ -729,7 +729,7 @@ ttPlatter.addEventListener('drop', e => {
   const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
   loadRecord(idx);
   setTimeout(() => {
-    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.style.transform = 'rotate(-25deg)';
     tonearm.classList.add('on-record');
     startAudio(idx);
     setNowPlaying(idx);
@@ -742,7 +742,7 @@ document.querySelectorAll('.vinyl-card').forEach(card => {
     const idx = parseInt(card.dataset.song, 10);
     loadRecord(idx);
     setTimeout(() => {
-      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.style.transform = 'rotate(-25deg)';
       tonearm.classList.add('on-record');
       startAudio(idx);
       setNowPlaying(idx);
@@ -768,12 +768,11 @@ function getAngle(pivot, x, y) {
 }
 
 function clampArm(angle) {
-  return Math.min(5, Math.max(-42, angle));
+  return Math.min(22, Math.max(-30, angle));
 }
 
 function checkArmOnRecord(angle) {
-  // Arm "on record" roughly when angle between -15 and 5 deg
-  return angle > -18 && angle < 5;
+  return angle > -30 && angle < 0;
 }
 
 tonearm.addEventListener('mousedown', startArmDrag);
@@ -786,7 +785,7 @@ function startArmDrag(e) {
   armStartAngle = getAngle(pivot, e.clientX, e.clientY);
   // get current rotation
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
-  armStartAngle -= m ? parseFloat(m[1]) : -25;
+  armStartAngle -= m ? parseFloat(m[1]) : 18;
 }
 
 document.addEventListener('mousemove', moveArm);
@@ -827,13 +826,13 @@ function endArmDrag() {
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
   const angle = m ? parseFloat(m[1]) : -25;
   if (loadedSong !== null && checkArmOnRecord(angle)) {
-    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.style.transform = 'rotate(-25deg)';
     tonearm.classList.add('on-record');
     if (!isPlaying) { startAudio(loadedSong); setNowPlaying(loadedSong); }
   } else if (!checkArmOnRecord(angle)) {
     tonearm.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
     if (!isPlaying) {
-      tonearm.style.transform = 'rotate(-25deg)';
+      tonearm.style.transform = 'rotate(18deg)';
       tonearm.classList.remove('on-record');
     }
     setTimeout(() => tonearm.style.transition = '', 700);
