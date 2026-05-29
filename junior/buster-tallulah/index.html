@@ -200,6 +200,14 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
 .tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
 
+/* Usage guide */
+.tt-guide{display:flex;align-items:center;justify-content:center;gap:0;margin-top:24px}
+.tt-guide-step{text-align:center;padding:0 20px}
+.tt-guide-num{font-style:italic;font-size:10px;letter-spacing:.3em;color:var(--gold-soft);font-weight:700;margin-bottom:5px}
+.tt-guide-div{width:1px;height:30px;background:rgba(245,237,224,.12);flex-shrink:0}
+.tt-guide-text{font-style:italic;font-size:11px;color:rgba(245,237,224,.38);line-height:1.5;letter-spacing:.03em}
+.tt-guide.hidden{display:none}
+
 /* Now playing */
 .now-playing{
   margin-top:32px;
@@ -337,12 +345,6 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 <!-- TURNTABLE / SONGS -->
 <section class="turntable-section" id="record" data-tone="dark">
   <div class="tt-inner">
-    <div class="tt-header reveal">
-      <div class="section-label on-dark">The Songs</div>
-      <h2>Drop the needle.<br><em>Hear what happened.</em></h2>
-      <p>Click a record to play.</p>
-    </div>
-
     <div class="tt-stage reveal d1">
 
       <!-- VINYL SHELF -->
@@ -437,7 +439,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
           <div class="tt-platter" id="ttPlatter">
             <div class="tt-mat" id="ttMat">
-              <div class="tt-mat-label" id="matLabel">Drop a record<br>here</div>
+              <div class="tt-mat-label" id="matLabel"></div>
             </div>
             <div class="vinyl-on-platter" id="vinylOnPlatter"></div>
             <div class="tt-spindle"></div>
@@ -477,9 +479,16 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
         <!-- Now playing display -->
         <div class="now-playing" id="nowPlaying">
-          <div class="np-hint" id="npHint">Click a record to play</div>
           <div class="np-track" id="npTrack"></div>
           <div class="np-sub" id="npSub">Yellow Door Studios &middot; Sam Grade</div>
+        </div>
+        <!-- Usage guide -->
+        <div class="tt-guide" id="ttGuide">
+          <div class="tt-guide-step"><div class="tt-guide-num">01</div><div class="tt-guide-text">Select a record<br>from the shelf</div></div>
+          <div class="tt-guide-div"></div>
+          <div class="tt-guide-step"><div class="tt-guide-num">02</div><div class="tt-guide-text">Needle drops,<br>music plays</div></div>
+          <div class="tt-guide-div"></div>
+          <div class="tt-guide-step"><div class="tt-guide-num">03</div><div class="tt-guide-text">Select another<br>to change track</div></div>
         </div>
       </div>
 
@@ -633,7 +642,7 @@ const vinylOnPlatter = document.getElementById('vinylOnPlatter');
 const matLabel   = document.getElementById('matLabel');
 const npTrack    = document.getElementById('npTrack');
 const npSub      = document.getElementById('npSub');
-const npHint     = document.getElementById('npHint');
+const ttGuide    = document.getElementById('ttGuide');
 
 function buildVinylSVG(songIdx) {
   const c = songs[songIdx].label;
@@ -663,12 +672,13 @@ function setNowPlaying(songIdx) {
   npTrack.textContent = songs[songIdx].title;
   npTrack.classList.add('show');
   npSub.classList.add('show');
-  npHint.style.display = 'none';
+  ttGuide.classList.add('hidden');
 }
 
 function clearNowPlaying() {
   npTrack.classList.remove('show');
   npSub.classList.remove('show');
+  ttGuide.classList.remove('hidden');
 }
 
 function stopAudio() {
@@ -695,8 +705,6 @@ function loadRecord(songIdx) {
   matLabel.style.display = 'none';
   tonearm.classList.remove('on-record');
   clearNowPlaying();
-  npHint.textContent = 'Click a record to play';
-  npHint.style.display = 'block';
 }
 
 /* ===== DRAG & DROP - Vinyl onto platter ===== */
@@ -725,7 +733,6 @@ ttPlatter.addEventListener('drop', e => {
     tonearm.classList.add('on-record');
     startAudio(idx);
     setNowPlaying(idx);
-    npHint.style.display = 'none';
   }, 300);
 });
 
@@ -739,7 +746,6 @@ document.querySelectorAll('.vinyl-card').forEach(card => {
       tonearm.classList.add('on-record');
       startAudio(idx);
       setNowPlaying(idx);
-      npHint.style.display = 'none';
     }, 300);
   });
 });
@@ -804,8 +810,6 @@ function moveArm(e) {
       stopAudio();
       tonearm.classList.remove('on-record');
       if (loadedSong !== null) {
-        npHint.textContent = 'Move the needle back over the record to play';
-        npHint.style.display = 'block';
         clearNowPlaying();
       }
     }
