@@ -1,327 +1,362 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bear Witness — Client Growth & Offerings (29 May 2026)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #2C3E50;
-    --ink-dim: #6B7A89;
-    --ink-faint: #A8B2BD;
-    --bg: #FAFBFC;
-    --card: #FFFFFF;
-    --line: #E8ECF0;
-    --line-soft: #F1F4F7;
-    --navy: #1A1A2E;
-    --accent: #2ECC71;
-    --warn: #E67E22;
-    --highlight: #FFF8E1;
-    --highlight-line: #F0C040;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.65;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+:root{
+  --gold:#C9A24B;
+  --gold-soft:#E0C079;
+  --blue:#2E6FB0;
+  --cyan:#3FB8C4;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --warm-white:#FDFBF8;
+  --charcoal:#1A1A1A;
+  --charcoal-light:#3A3A3A;
+  --text-primary:#1A1A1A;
+  --text-muted:rgba(26,26,26,0.62);
+  --text-on-dark:rgba(255,255,255,0.85);
+  --text-on-dark-muted:rgba(255,255,255,0.55);
+  --line:rgba(26,26,26,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--text-primary);background:var(--cream);
+  line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;
+}
 
-  /* Hero */
-  .hero { background: var(--navy); color: #fff; padding: 5rem 0 4rem; margin-bottom: 3rem; }
-  .hero .eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8899AA; margin-bottom: 1.2rem; }
-  .hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.8rem; }
-  .hero .sub { color: #B8C2CC; font-size: 1rem; font-weight: 400; max-width: 660px; line-height: 1.6; }
-  .hero .meta { margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8899AA; }
-  .hero .meta span strong { color: #fff; font-weight: 600; }
+/* Hero */
+.hero{
+  min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#1a1a2e 0%,#16213e 42%,#0f3460 100%);
+  padding:7rem 2rem 6rem;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:0.10;animation:float 22s ease-in-out infinite}
+.hero-bg-shapes .s1{width:520px;height:520px;top:-120px;right:-160px;background:var(--gold)}
+.hero-bg-shapes .s2{width:360px;height:360px;bottom:-90px;left:-110px;background:var(--blue);animation-delay:-8s}
+.hero-bg-shapes .s3{width:260px;height:260px;top:42%;left:8%;background:var(--cyan);animation-delay:-15s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(22px,-30px) scale(1.05)}
+  66%{transform:translate(-16px,22px) scale(0.95)}
+}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-soft);font-weight:500;margin-bottom:1.5rem;position:relative;z-index:1}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.2vw,4.2rem);
+  color:white;line-height:1.08;max-width:900px;margin-bottom:1.4rem;position:relative;z-index:1;
+}
+.hero h1 .accent{color:var(--gold-soft);font-style:italic}
+.hero-sub{color:var(--text-on-dark);max-width:680px;font-size:1.08rem;margin-bottom:2.2rem;position:relative;z-index:1;line-height:1.75}
+.hero-meta{display:flex;gap:2rem;color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:400;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+.hero-meta strong{color:rgba(255,255,255,0.9);font-weight:500}
 
-  /* Sections */
-  section { margin-bottom: 3rem; }
-  h2 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.5rem; font-weight: 600; }
-  h3 { font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; letter-spacing: -0.01em; }
-  p { margin-bottom: 0.8rem; }
-  p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+/* Summary strip overlapping hero */
+.summary-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 auto;max-width:1080px;
+  background:var(--warm-white);border:1px solid var(--line);border-radius:12px;
+  transform:translateY(-3.2rem);position:relative;z-index:2;
+  box-shadow:0 24px 70px -34px rgba(0,0,0,0.28);
+}
+.summary-strip > div{padding:1.5rem 1.7rem;border-right:1px solid var(--line)}
+.summary-strip > div:last-child{border-right:0}
+.summary-strip .k{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.45rem}
+.summary-strip .v{font-family:'DM Serif Display',serif;font-size:1.22rem;color:var(--charcoal);line-height:1.2}
 
-  .subhead { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 1.8rem 0 0.6rem; letter-spacing: -0.01em; }
-  .subhead .tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
+/* Sections */
+section{padding:5.5rem 2rem}
+.inner{max-width:1080px;margin:0 auto}
+.tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.14;margin-bottom:1.2rem}
+.body-text{max-width:780px;color:var(--text-muted);margin-bottom:1.4rem;font-size:1.02rem}
+.body-text strong{color:var(--text-primary);font-weight:500}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--warm-white)}
+.sec-dark{background:linear-gradient(165deg,#15151f 0%,#16213e 100%);color:white}
+.sec-dark .heading{color:white}
+.sec-dark .body-text{color:var(--text-on-dark)}
+.sec-dark .body-text strong{color:white}
+.sec-dark .tag{color:var(--gold-soft)}
 
-  /* TL;DR box */
-  .tldr { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1.6rem 1.8rem; margin-bottom: 3rem; }
-  .tldr .label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; }
-  .tldr ul { list-style: none; }
-  .tldr li { padding: 0.35rem 0; font-size: 0.95rem; color: var(--ink); }
-  .tldr li::before { content: '→'; color: var(--accent); margin-right: 0.6rem; font-weight: 700; }
+/* 3-up cards */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem}
+.card{background:var(--warm-white);border:1px solid var(--line);border-radius:12px;padding:1.8rem}
+.card .card-label{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem}
+.card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:0.5rem;line-height:1.3}
+.card p{color:var(--text-muted);font-size:0.92rem;line-height:1.65}
+.sec-dark .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1)}
+.sec-dark .card .card-label{color:var(--gold-soft)}
+.sec-dark .card h3{color:white}
+.sec-dark .card p{color:var(--text-on-dark-muted)}
 
-  /* Cards */
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.3rem 1.4rem; }
-  .card .num { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-bottom: 0.5rem; }
-  .card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); }
-  .card p { font-size: 0.88rem; color: var(--ink-dim); line-height: 1.55; margin: 0; }
+/* Numbered steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-top:2rem}
+.step{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.6rem}
+.step .s-num{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold-soft);line-height:1;margin-bottom:0.7rem}
+.step h4{font-family:'DM Serif Display',serif;font-size:1.1rem;color:white;margin-bottom:0.4rem}
+.step p{color:var(--text-on-dark-muted);font-size:0.88rem;line-height:1.6}
 
-  /* Table */
-  .table-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 1.2rem 0; }
-  .table-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; padding: 0.9rem 1.1rem 0; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
-  th, td { text-align: left; padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
-  th { background: var(--line-soft); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; }
-  tr:last-child td { border-bottom: none; }
-  td.partner { font-weight: 700; color: var(--navy); }
-  td.cat { color: var(--ink-dim); font-size: 0.8rem; }
-  td.note { color: var(--ink-dim); font-size: 0.82rem; line-height: 1.5; }
-  td.price { font-weight: 700; color: var(--navy); white-space: nowrap; }
+/* Two audiences / offerings split */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:2rem}
+.panel{background:var(--warm-white);border:1px solid var(--line);border-radius:14px;padding:2rem 2.1rem}
+.panel.premium{border:1.5px solid var(--gold);box-shadow:0 18px 50px -30px rgba(201,162,75,0.5)}
+.panel .p-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.6rem}
+.panel h3{font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:0.3rem;line-height:1.2}
+.panel .p-price{font-size:0.85rem;color:var(--text-muted);font-weight:400;margin-bottom:1rem}
+.panel ul{list-style:none;margin-top:0.5rem}
+.panel li{font-size:0.93rem;color:var(--text-muted);padding:0.32rem 0 0.32rem 1.3rem;position:relative;line-height:1.55}
+.panel li::before{content:'';position:absolute;left:0;top:0.78rem;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.panel .p-best{font-size:0.85rem;color:var(--text-primary);font-weight:500;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line)}
 
-  /* Note callout */
-  .note { background: var(--highlight); border-left: 4px solid var(--highlight-line); padding: 1rem 1.3rem; border-radius: 0 6px 6px 0; margin: 1.2rem 0; font-size: 0.88rem; color: #6B5410; }
-  .note strong { color: #5A4509; }
-  .note.flag-red { background: #FDEDEC; border-left-color: #E74C3C; color: #7B241C; }
-  .note.flag-red strong { color: #641E16; }
+/* Table */
+.table-card{background:var(--warm-white);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:2rem}
+table{width:100%;border-collapse:collapse;font-size:0.95rem}
+th,td{text-align:left;padding:1.1rem 1.4rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;background:var(--cream)}
+tr:last-child td{border-bottom:0}
+td.tier{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--charcoal);white-space:nowrap}
+td.desc{color:var(--text-muted);font-size:0.92rem;line-height:1.55}
+td.shape{color:var(--text-muted);font-size:0.88rem}
+td.fig{font-family:'DM Serif Display',serif;color:var(--charcoal);white-space:nowrap}
 
-  /* Feature block */
-  .feature { background: var(--navy); color: #fff; border-radius: 10px; padding: 1.8rem 1.9rem; margin: 1.4rem 0; }
-  .feature .kicker { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8899AA; font-weight: 700; margin-bottom: 0.7rem; }
-  .feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
-  .feature p { color: #C5CDD6; font-size: 0.92rem; margin-bottom: 0.8rem; }
-  .feature p:last-child { margin-bottom: 0; }
-  .feature strong { color: #fff; }
-  .feature .pill { display: inline-block; background: rgba(46,204,113,0.18); color: #6FE0A0; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.9rem; }
+/* Callout note */
+.note{background:rgba(201,162,75,0.10);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:1.3rem 1.6rem;margin-top:2rem;font-size:0.95rem;color:var(--charcoal-light);max-width:880px}
+.note strong{color:var(--charcoal);font-weight:600}
+.sec-dark .note{background:rgba(255,255,255,0.06);border-left-color:var(--gold-soft);color:var(--text-on-dark)}
+.sec-dark .note strong{color:white}
+.note.risk{background:rgba(192,80,60,0.10);border-left-color:#C0503C}
+.note.risk strong{color:#8A2E20}
 
-  /* Tactics ordered list */
-  .tactics { counter-reset: t; list-style: none; margin: 1.2rem 0; display: grid; gap: 0.7rem; }
-  .tactics li { counter-increment: t; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.95rem 1.1rem 0.95rem 3.1rem; position: relative; font-size: 0.9rem; color: var(--ink-dim); line-height: 1.55; }
-  .tactics li::before { content: counter(t); position: absolute; left: 1rem; top: 0.9rem; width: 1.5rem; height: 1.5rem; background: var(--navy); color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .tactics li strong { color: var(--ink); }
+/* Feature block (the unlock) */
+.feature{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:2.4rem 2.6rem;margin-top:2rem;max-width:920px}
+.feature .pill{display:inline-block;background:rgba(201,162,75,0.22);color:var(--gold-soft);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;margin-bottom:1.1rem}
+.feature h3{font-family:'DM Serif Display',serif;font-size:1.6rem;color:white;margin-bottom:1rem;line-height:1.2}
+.feature p{color:var(--text-on-dark);font-size:1rem;line-height:1.75;margin-bottom:0.9rem}
+.feature p:last-child{margin-bottom:0}
+.feature strong{color:white;font-weight:500}
 
-  /* Two offerings split */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
-  @media (max-width: 700px) { .split { grid-template-columns: 1fr; } }
-  .offer-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem 1.6rem; }
-  .offer-card.premium { border: 1px solid var(--navy); }
-  .offer-card .who { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
-  .offer-card.premium .who { color: var(--navy); }
-  .offer-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .offer-card .price { font-size: 0.82rem; color: var(--ink-dim); font-weight: 600; margin-bottom: 0.9rem; }
-  .offer-card ul { list-style: none; margin-top: 0.6rem; }
-  .offer-card li { font-size: 0.88rem; color: var(--ink-dim); padding: 0.28rem 0 0.28rem 1.1rem; position: relative; }
-  .offer-card li::before { content: '•'; color: var(--ink-faint); position: absolute; left: 0; }
-  .offer-card .best { font-size: 0.78rem; color: var(--ink); font-weight: 600; margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--line-soft); }
+/* Checklist (the ask) */
+.checklist{background:var(--warm-white);border:1px solid var(--line);border-radius:14px;padding:2rem 2.2rem;margin-top:2rem;max-width:820px}
+.checklist .c-head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.2rem}
+.checklist ul{list-style:none}
+.checklist li{padding:0.7rem 0 0.7rem 2rem;position:relative;font-size:0.98rem;color:var(--charcoal-light);border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{content:'';position:absolute;left:0;top:0.95rem;width:14px;height:14px;border:1.5px solid var(--gold);border-radius:4px}
 
-  /* Role split */
-  .role-card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.3rem 1.4rem; }
-  .role-card .who { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.6rem; }
-  .role-card.support .who { color: var(--ink-faint); }
-  .role-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
-  .role-card ul { list-style: none; }
-  .role-card li { font-size: 0.88rem; color: var(--ink-dim); padding: 0.25rem 0; padding-left: 1.1rem; position: relative; }
-  .role-card li::before { content: '•'; color: var(--ink-faint); position: absolute; left: 0; }
+/* Footer */
+footer{background:var(--charcoal);color:var(--text-on-dark-muted);padding:2.6rem 2rem;text-align:center;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase}
+footer .lockup{font-family:'DM Serif Display',serif;color:white;letter-spacing:0.06em;font-size:1.1rem;text-transform:none;margin-bottom:0.5rem}
 
-  /* Checklist */
-  .checklist { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem 1.6rem; margin: 1.2rem 0; }
-  .checklist h4 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 1rem; font-weight: 700; }
-  .checklist ul { list-style: none; }
-  .checklist li { padding: 0.5rem 0 0.5rem 1.8rem; position: relative; font-size: 0.92rem; border-bottom: 1px solid var(--line-soft); }
-  .checklist li:last-child { border-bottom: none; }
-  .checklist li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; }
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
 
-  /* Pipeline steps */
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.7rem; margin: 1.4rem 0; }
-  .step { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; }
-  .step .s-num { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.4rem; }
-  .step h5 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--ink); }
-  .step p { font-size: 0.78rem; color: var(--ink-dim); line-height: 1.5; margin: 0; }
-
-  footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 2rem 0 3rem; font-size: 0.75rem; color: var(--ink-faint); text-align: center; }
-  footer a { color: var(--ink-dim); text-decoration: none; }
-  strong { font-weight: 700; }
-  .inline-key { color: var(--navy); font-weight: 700; }
+@media(max-width:820px){
+  .summary-strip{grid-template-columns:1fr 1fr;transform:translateY(-2rem)}
+  .summary-strip > div{border-bottom:1px solid var(--line)}
+  .summary-strip > div:nth-child(2){border-right:0}
+  .summary-strip > div:nth-last-child(-n+2){border-bottom:0}
+  .split2{grid-template-columns:1fr}
+  section{padding:4rem 1.4rem}
+  .hero{padding:5.5rem 1.4rem 5rem}
+  th,td{padding:0.9rem 1rem}
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Bear Witness · Client Growth &amp; Offerings</div>
-    <h1>Bear Witness — Client Growth &amp; Offerings</h1>
-    <p class="sub">Bear Witness can already deliver world-class strategy and creative. What it doesn't yet have is a repeatable way to win clients. This proposes building one — proactive, quality-led outreach to the right businesses — and a new remit for Olly to lead it.</p>
-    <div class="meta">
-      <span><strong>Proposed by</strong> Olly Westmacott</span>
-      <span><strong>For</strong> Jesse + BGV leadership</span>
-      <span><strong>Date</strong> 29 May 2026</span>
-      <span><strong>The ask</strong> Time to research + book conversations</span>
-    </div>
+<div class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
   </div>
-</header>
-
-<div class="wrap">
-
-  <!-- TL;DR -->
-  <div class="tldr">
-    <div class="label">In one screen</div>
-    <ul>
-      <li>Build a <strong>proactive client-acquisition engine</strong> — we research and approach the right businesses at volume and open a conversation that converts them to a paying client</li>
-      <li>The unlock: <strong>we're the engine, not the face.</strong> We do strategy + creative and hand off, so we're <strong>not limited to brands that align with Bear Grylls or nature</strong> — the addressable market opens right up</li>
-      <li>Two products: <strong>(1) Campaign Blueprint</strong> — strategy + all creatives, the client runs it; <strong>(2) Full Engine</strong> — we build and run it, premium price, selective intake</li>
-      <li>Tailored so it <strong>never tarnishes the Bear Witness or Bear Grylls name</strong> — and it needs <strong>none of Bear's time or content</strong></li>
-      <li><strong>The role:</strong> Olly leads it alongside his current remit — a defined initiative with a clear growth path for Bear Witness</li>
-      <li><strong>The ask:</strong> a green light to validate it properly — real research and booked conversations. <strong>Nothing gets built yet.</strong></li>
-    </ul>
+  <div class="hero-tag">Bear Witness · Internal Proposal</div>
+  <h1>Client Growth &amp; <span class="accent">Offerings</span></h1>
+  <p class="hero-sub">Bear Witness can already deliver world-class strategy and creative. What it doesn't yet have is a repeatable way to win clients. This proposes building one — proactive, quality-led outreach to the right businesses — and a new remit for Olly to lead it.</p>
+  <div class="hero-meta">
+    <span><strong>Proposed by</strong> Olly Westmacott</span>
+    <span>·</span>
+    <span><strong>For</strong> Jesse + BGV leadership</span>
+    <span>·</span>
+    <span>29 May 2026</span>
   </div>
+</div>
 
-  <!-- The opportunity -->
-  <section>
-    <h2>The Opportunity</h2>
-    <h3>Demand isn't the constraint — deal flow is</h3>
-    <p class="lead">Bear Witness can already win and deliver — Alfred and MamaBucci are live. But every client has come inbound or via a warm relationship. Nothing goes out and creates the next ten.</p>
-    <p>Delivery is sorted: senior strategy from Jesse and the team, plus effectively unlimited make capacity in-house. The missing piece is the front end that turns that into a steady flow of paying clients.</p>
-    <div class="grid-3">
+<div class="summary-strip">
+  <div><div class="k">The constraint</div><div class="v">Deal flow, not delivery</div></div>
+  <div><div class="k">The unlock</div><div class="v">Engine, not face</div></div>
+  <div><div class="k">The offer</div><div class="v">Two product tiers</div></div>
+  <div><div class="k">The ask</div><div class="v">Green light to validate</div></div>
+</div>
+
+<!-- Opportunity -->
+<section class="sec-cream">
+  <div class="inner reveal">
+    <div class="tag">The Opportunity</div>
+    <h2 class="heading">Demand isn't the constraint — deal flow is.</h2>
+    <p class="body-text">Bear Witness can already win and deliver — Alfred and MamaBucci are live. But every client has come inbound or via a warm relationship. Nothing goes out and creates the next ten.</p>
+    <p class="body-text">Delivery is sorted: senior strategy from Jesse and the team, plus effectively unlimited make capacity in-house. The missing piece is the front end that turns that into a steady flow of paying clients.</p>
+    <div class="cards3">
       <div class="card">
-        <div class="num">Today</div>
-        <h4>Inbound only</h4>
+        <div class="card-label">Today</div>
+        <h3>Inbound only</h3>
         <p>Clients arrive by referral or relationship. Good work, but the pipeline depends on luck and timing, not on a system we control.</p>
       </div>
       <div class="card">
-        <div class="num">The gap</div>
-        <h4>No outbound motion</h4>
+        <div class="card-label">The gap</div>
+        <h3>No outbound motion</h3>
         <p>Nobody owns going out, researching the right businesses, and opening the conversation that brings them onto Bear Witness.</p>
       </div>
       <div class="card">
-        <div class="num">The prize</div>
-        <h4>A scalable agency</h4>
+        <div class="card-label">The prize</div>
+        <h3>A scalable agency</h3>
         <p>A predictable client engine plus recurring revenue is what turns Bear Witness from a project shop into a real, growing business.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- The unlock -->
-  <section>
-    <h2>The Unlock</h2>
-    <h3>Engine, not face — so brand alignment stops being a limit</h3>
+<!-- The Unlock -->
+<section class="sec-dark">
+  <div class="inner reveal">
+    <div class="tag">The Unlock</div>
+    <h2 class="heading">Engine, not face — so brand alignment stops being a limit.</h2>
     <div class="feature">
       <div class="pill">Why this opens the market</div>
-      <h4>We sell the operating system, not the name</h4>
+      <h3>We sell the operating system, not the name.</h3>
       <p>We do the <strong>strategy and creative, then hand off</strong> — the Bear Grylls name never goes on the front of a client's work. So we're <strong>not limited to brands that fit Bear or the outdoors world</strong>. Any growing business that needs a marketing engine is a fair target.</p>
       <p>It also needs <strong>none of Bear's time, content or involvement</strong>. The engine runs invisibly behind the client's brand — growing revenue without touching what makes Bear Witness valuable.</p>
     </div>
-    <div class="note flag-red">
+    <div class="note risk">
       <strong>The one thing we have to get right.</strong> Hand over strategy and creatives and the client runs their own channels — clean, low-risk. Run their pages and socials ourselves and we carry their brand voice in public daily. That's where reputation risk and ops load sit — so it's gated to the premium tier: selective intake, higher price.
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Who we target -->
-  <section>
-    <h2>Who We Target</h2>
-    <h3>Two clear audiences</h3>
-    <div class="split">
-      <div class="role-card">
-        <div class="who">Audience A</div>
-        <h4>Growing businesses, no agency yet</h4>
+<!-- Who we target -->
+<section class="sec-cream">
+  <div class="inner reveal">
+    <div class="tag">Who We Target</div>
+    <h2 class="heading">Two clear audiences.</h2>
+    <div class="split2">
+      <div class="panel">
+        <div class="p-label">Audience A</div>
+        <h3>Growing businesses, no agency yet</h3>
         <ul>
           <li>Small but scaling — past the founder-doing-everything stage</li>
           <li>Not yet using an agency; marketing is ad-hoc or in one person's head</li>
-          <li>Need a proper marketing engine but can't justify hiring a full in-house team</li>
-          <li>Best fit for the Campaign Blueprint — gives them a plan and assets to run with</li>
+          <li>Need a proper marketing engine but can't justify a full in-house team</li>
+          <li>Best fit for the Campaign Blueprint — a plan and assets to run with</li>
         </ul>
       </div>
-      <div class="role-card">
-        <div class="who">Audience B</div>
-        <h4>Bigger businesses wanting to scale or shift</h4>
+      <div class="panel">
+        <div class="p-label">Audience B</div>
+        <h3>Bigger businesses scaling or shifting</h3>
         <ul>
           <li>Established, with budget, but stuck or plateaued</li>
-          <li>Wanting to scale, rebrand, or move more aggressively into digital</li>
+          <li>Wanting to scale, rebrand, or move harder into digital</li>
           <li>Have in-house people but need senior strategy and creative firepower</li>
           <li>Best fit for the Full Engine — higher value, longer relationships</li>
         </ul>
       </div>
     </div>
     <div class="note">Because we're white-label, neither audience needs to be Bear-aligned or outdoors-adjacent. The filter is simple: <strong>do they have an audience and a budget, and a marketing gap we can fill?</strong></div>
-  </section>
+  </div>
+</section>
 
-  <!-- The two offerings -->
-  <section>
-    <h2>The Offerings</h2>
-    <h3>Two products, deliberately different</h3>
-    <p class="lead">Same engine behind both. The difference is how much of the running we own — and that sets the price and the risk.</p>
-    <div class="split">
-      <div class="offer-card">
-        <div class="who">Product 1 · Volume play</div>
-        <h4>Campaign Blueprint</h4>
-        <div class="price">Lower cost · project or light retainer · scalable</div>
+<!-- The Offerings -->
+<section class="sec-white">
+  <div class="inner reveal">
+    <div class="tag">The Offerings</div>
+    <h2 class="heading">Two products, deliberately different.</h2>
+    <p class="body-text">Same engine behind both. The difference is how much of the running we own — and that sets the price and the risk.</p>
+    <div class="split2">
+      <div class="panel">
+        <div class="p-label">Product 1 · Volume play</div>
+        <h3>Campaign Blueprint</h3>
+        <div class="p-price">Lower cost · project or light retainer · scalable</div>
         <ul>
           <li>Full campaign strategy, delivered as a clear document</li>
           <li>All creatives built to support it — ready to ship</li>
           <li>The client runs and manages execution themselves</li>
           <li>Optional add-on: ongoing creative support from the editing team</li>
         </ul>
-        <div class="best">Best for Audience A. Light on our ops, easy to deliver many in parallel, low brand risk.</div>
+        <div class="p-best">Best for Audience A. Light on our ops, easy to deliver many in parallel, low brand risk.</div>
       </div>
-      <div class="offer-card premium">
-        <div class="who">Product 2 · Value play</div>
-        <h4>Full Engine</h4>
-        <div class="price">Much higher cost · recurring · selective intake</div>
+      <div class="panel premium">
+        <div class="p-label">Product 2 · Value play</div>
+        <h3>Full Engine</h3>
+        <div class="p-price">Much higher cost · recurring · selective intake</div>
         <ul>
           <li>Everything in the Blueprint, plus</li>
           <li>We run the channels — paid, social, content, the calendar</li>
           <li>We own execution end-to-end behind their brand</li>
           <li>Only taken on for the right clients we can do justice to</li>
         </ul>
-        <div class="best">Best for Audience B. Recurring revenue — the bit that compounds into a real business — but ops-heavy and carries brand risk, so it's priced and gated accordingly.</div>
+        <div class="p-best">Best for Audience B. Recurring revenue — the bit that compounds into a real business — but ops-heavy and carries brand risk, so it's priced and gated accordingly.</div>
       </div>
     </div>
-    <div class="note"><strong>The strategic point:</strong> the Blueprint builds volume and proof; the Full Engine builds recurring revenue. Lead generation comes from the first, the long-term business value from the second. We need both, and we should be honest internally about which one we're really trying to grow.</div>
-  </section>
+    <div class="note"><strong>The strategic point:</strong> the Blueprint builds volume and proof; the Full Engine builds recurring revenue. Lead generation comes from the first, the long-term business value from the second. We need both — and should be honest internally about which one we're really trying to grow.</div>
+  </div>
+</section>
 
-  <!-- Illustrative packages -->
-  <section>
-    <h2>Packages</h2>
-    <h3>An illustrative ladder</h3>
-    <p class="lead">Numbers below are illustrative — to pressure-test in research, not to commit to. The point is the shape: an easy first step that can step up without restarting the relationship.</p>
-    <div class="table-wrap">
-      <div class="table-title">Indicative tiers — for discussion only</div>
+<!-- Packages -->
+<section class="sec-cream">
+  <div class="inner reveal">
+    <div class="tag">Packages</div>
+    <h2 class="heading">An illustrative ladder.</h2>
+    <p class="body-text">Numbers below are illustrative — to pressure-test in research, not to commit to. The point is the shape: an easy first step that can step up without restarting the relationship.</p>
+    <div class="table-card">
       <table>
         <thead>
           <tr><th>Tier</th><th>What they get</th><th>Shape</th><th>Indicative</th></tr>
         </thead>
         <tbody>
-          <tr><td class="partner">Blueprint</td><td class="note">Campaign strategy + full creative suite, handed over to run</td><td class="cat">One-off project</td><td class="price">£ low–mid k</td></tr>
-          <tr><td class="partner">Blueprint + Support</td><td class="note">Blueprint plus ongoing creative production and senior counsel</td><td class="cat">Light monthly retainer</td><td class="price">~£5k / mo</td></tr>
-          <tr><td class="partner">Full Engine</td><td class="note">Strategy + creative + we run all channels behind their brand</td><td class="cat">Recurring, selective</td><td class="price">£10k+ / mo</td></tr>
+          <tr><td class="tier">Blueprint</td><td class="desc">Campaign strategy + full creative suite, handed over to run</td><td class="shape">One-off project</td><td class="fig">£ low–mid k</td></tr>
+          <tr><td class="tier">Blueprint + Support</td><td class="desc">Blueprint plus ongoing creative production and senior counsel</td><td class="shape">Light monthly retainer</td><td class="fig">~£5k / mo</td></tr>
+          <tr><td class="tier">Full Engine</td><td class="desc">Strategy + creative + we run all channels behind their brand</td><td class="shape">Recurring, selective</td><td class="fig">£10k+ / mo</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="note">The £5k/mo middle tier already matches the live Alfred engagement, which is useful evidence the shape works. The ladder lets a client say a small yes first and grow into the Full Engine without a new contract.</div>
-  </section>
+    <div class="note">The £5k/mo middle tier already matches the live Alfred engagement — useful evidence the shape works. The ladder lets a client say a small yes first and grow into the Full Engine without a new contract.</div>
+  </div>
+</section>
 
-  <!-- How the engine runs -->
-  <section>
-    <h2>The Motion</h2>
-    <h3>The one thing we borrow from tech sales — nothing else</h3>
-    <p class="lead">The only parallel to tech sales is this: we proactively open a conversation with someone and aim to convert them into a paying client. That's it. Everything else is Bear Witness — quality-led, senior in tone, never a cheap blast.</p>
+<!-- The Motion -->
+<section class="sec-dark">
+  <div class="inner reveal">
+    <div class="tag">The Motion</div>
+    <h2 class="heading">The one thing we borrow from tech sales — nothing else.</h2>
+    <p class="body-text">The only parallel to tech sales is this: we proactively open a conversation with someone and aim to convert them into a paying client. That's it. Everything else is Bear Witness — quality-led, senior in tone, never a cheap blast.</p>
     <div class="steps">
-      <div class="step"><div class="s-num">01</div><h5>Research</h5><p>In-depth work on exactly who to contact — sector, size, and a real marketing gap. The targeting is considered, not scraped.</p></div>
-      <div class="step"><div class="s-num">02</div><h5>Approach</h5><p>Cold outreach, but to a Bear Witness standard — specific, credible, and worth their attention. Done at volume off the research.</p></div>
-      <div class="step"><div class="s-num">03</div><h5>Converse</h5><p>A real conversation that diagnoses their gap and frames which product fits — Blueprint or Full Engine.</p></div>
-      <div class="step"><div class="s-num">04</div><h5>Convert</h5><p>Land them on the right tier and hand to delivery cleanly.</p></div>
-      <div class="step"><div class="s-num">05</div><h5>Grow</h5><p>Move Blueprint clients up the ladder into retained and Full Engine relationships over time.</p></div>
+      <div class="step"><div class="s-num">01</div><h4>Research</h4><p>In-depth work on exactly who to contact — sector, size, and a real marketing gap. The targeting is considered, not scraped.</p></div>
+      <div class="step"><div class="s-num">02</div><h4>Approach</h4><p>Cold outreach, but to a Bear Witness standard — specific, credible, worth their attention. Done at volume off the research.</p></div>
+      <div class="step"><div class="s-num">03</div><h4>Converse</h4><p>A real conversation that diagnoses their gap and frames which product fits — Blueprint or Full Engine.</p></div>
+      <div class="step"><div class="s-num">04</div><h4>Convert</h4><p>Land them on the right tier and hand to delivery cleanly.</p></div>
+      <div class="step"><div class="s-num">05</div><h4>Grow</h4><p>Move Blueprint clients up the ladder into retained and Full Engine relationships over time.</p></div>
     </div>
     <div class="note"><strong>Standard, not spam.</strong> Volume comes from the depth of the research — knowing exactly who to contact and why — not from blasting. Every approach has to clear the Bear Witness quality bar, because the engine carries our name even when the client work doesn't. Anything that reads as cheap or pushy is off the table.</div>
-  </section>
+  </div>
+</section>
 
-  <!-- The role -->
-  <section>
-    <h2>The Role</h2>
-    <h3>Why this is worth my time — and what I'd own</h3>
-    <p class="lead">An additional remit alongside my current Market &amp; Strategy work — it's where strategy meets commercial growth, and right now nobody owns it.</p>
-    <div class="split">
-      <div class="role-card">
-        <div class="who">What I'd own</div>
-        <h4>Lead the growth engine</h4>
+<!-- The Role -->
+<section class="sec-cream">
+  <div class="inner reveal">
+    <div class="tag">The Role</div>
+    <h2 class="heading">Why this is worth my time — and what I'd own.</h2>
+    <p class="body-text">An additional remit alongside my current Market &amp; Strategy work — it's where strategy meets commercial growth, and right now nobody owns it.</p>
+    <div class="split2">
+      <div class="panel">
+        <div class="p-label">What I'd own</div>
+        <h3>Lead the growth engine</h3>
         <ul>
           <li>Define the target audiences and build the prospect lists</li>
           <li>Own the outbound motion end-to-end — research, approach, convert</li>
@@ -330,27 +365,29 @@
           <li>Report on pipeline, conversions and revenue contribution</li>
         </ul>
       </div>
-      <div class="role-card support">
-        <div class="who">Why me</div>
-        <h4>The fit is direct</h4>
+      <div class="panel">
+        <div class="p-label">Why me</div>
+        <h3>The fit is direct</h3>
         <ul>
           <li>Market &amp; strategy is already my lane — this extends it commercially</li>
           <li>I can speak credibly to growing businesses about their marketing gap</li>
-          <li>Senior delivery (Jesse, the team, editing capacity) already exists to back me up</li>
+          <li>Senior delivery and editing capacity already exist to back me up</li>
           <li>It's a clear, ownable initiative with a measurable growth path</li>
         </ul>
       </div>
     </div>
     <div class="note"><strong>Why it's worth the time.</strong> If this works, it adds a new, scalable revenue line to Bear Witness without needing Bear's involvement and without diluting the brand. If it doesn't, we'll know cheaply — because the first phase is validation, not build. The downside is a few weeks of research; the upside is a repeatable client engine.</div>
-  </section>
+  </div>
+</section>
 
-  <!-- The ask -->
-  <section>
-    <h2>The Ask</h2>
-    <h3>A green light to validate — not to build</h3>
-    <p class="lead">Not asking to build anything yet — just the go-ahead to spend focused time proving whether this is real before we invest.</p>
+<!-- The Ask -->
+<section class="sec-dark">
+  <div class="inner reveal">
+    <div class="tag">The Ask</div>
+    <h2 class="heading">A green light to validate — not to build.</h2>
+    <p class="body-text">Not asking to build anything yet — just the go-ahead to spend focused time proving whether this is real before we invest.</p>
     <div class="checklist">
-      <h4>What a yes unlocks (the validation phase)</h4>
+      <div class="c-head">What a yes unlocks — the validation phase</div>
       <ul>
         <li>Research the two target audiences and confirm the demand is genuinely there</li>
         <li>Pressure-test the two products and the package pricing with real businesses</li>
@@ -360,14 +397,18 @@
       </ul>
     </div>
     <div class="note"><strong>Decision needed:</strong> a green light for me to spend time on the validation phase above. No spend, no build, no commitment beyond my time — just permission to find out if this is worth Bear Witness pursuing properly.</div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    Bear Witness · Client Growth &amp; Offerings · 29 May 2026<br>
-    Prepared for Jesse + BGV leadership · Validation phase — no build proposed yet
-  </footer>
+<footer>
+  <div class="lockup">Bear Witness</div>
+  <div>Client Growth &amp; Offerings · Internal Proposal · 29 May 2026</div>
+</footer>
 
-</div>
+<script>
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 
 </body>
 </html>
