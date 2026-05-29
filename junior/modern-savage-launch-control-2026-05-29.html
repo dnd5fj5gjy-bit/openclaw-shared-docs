@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Savage — Launch Control: T-33</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, 'Inter', BlinkMacSystemFont, sans-serif; background: #f8f7f4; color: #1a1a1a; line-height: 1.5; }
+
+    .header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px 48px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .header-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+    .header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+    .header-sub { font-size: 14px; color: #888; margin-top: 6px; }
+    .countdown-badge {
+      background: #c44d29;
+      color: #fff;
+      border-radius: 8px;
+      padding: 16px 24px;
+      text-align: center;
+      min-width: 120px;
+    }
+    .countdown-badge .num { font-size: 42px; font-weight: 800; line-height: 1; }
+    .countdown-badge .label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; opacity: 0.85; }
+
+    .main { max-width: 860px; margin: 0 auto; padding: 36px 24px 60px; }
+
+    /* Alert banner */
+    .alert-banner {
+      background: #fff3cd;
+      border: 1px solid #f0c040;
+      border-left: 4px solid #f0c040;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: #7a5800;
+    }
+    .alert-banner strong { color: #5a3e00; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e5e2db;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid #f0ede7;
+    }
+
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .red { background: #e53e3e; }
+    .amber { background: #f6a800; }
+    .green { background: #38a169; }
+    .blue { background: #3182ce; }
+
+    .card-title { font-size: 15px; font-weight: 600; flex: 1; }
+    .card-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-red { background: #fff0f0; color: #c53030; border: 1px solid #feb2b2; }
+    .badge-amber { background: #fffaf0; color: #c07000; border: 1px solid #fbd38d; }
+    .badge-green { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+    .badge-blue { background: #ebf8ff; color: #2b6cb0; border: 1px solid #90cdf4; }
+
+    .card-body { padding: 16px 20px 18px; }
+    .card-body p { font-size: 14px; color: #444; margin-bottom: 10px; }
+    .card-body p:last-child { margin-bottom: 0; }
+
+    .action-box {
+      background: #fafafa;
+      border: 1px solid #e5e2db;
+      border-left: 3px solid #1a1a1a;
+      border-radius: 0 6px 6px 0;
+      padding: 12px 14px;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .action-box .action-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #888; margin-bottom: 5px; }
+    .action-box p { color: #333; margin: 0; font-size: 13px; }
+
+    .warning-box {
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+      border-left: 3px solid #e53e3e;
+      border-radius: 0 6px 6px 0;
+      padding: 12px 14px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #742a2a;
+    }
+    .warning-box .warning-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #c53030; margin-bottom: 5px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+    table th { text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; padding: 6px 0; border-bottom: 1px solid #e5e2db; font-weight: 600; }
+    table td { padding: 9px 0; border-bottom: 1px solid #f0ede7; color: #333; vertical-align: top; }
+    table td:first-child { font-weight: 500; width: 38%; }
+    table td:nth-child(2) { width: 18%; }
+    table tr:last-child td { border-bottom: none; }
+
+    .pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+    .pill-red { background: #fff0f0; color: #c53030; }
+    .pill-amber { background: #fffaf0; color: #c07000; }
+    .pill-green { background: #f0fff4; color: #276749; }
+
+    .done-list { list-style: none; }
+    .done-list li { font-size: 13px; color: #444; padding: 6px 0; border-bottom: 1px solid #f0ede7; display: flex; align-items: center; gap: 8px; }
+    .done-list li:last-child { border-bottom: none; }
+    .done-list li::before { content: "✓"; color: #38a169; font-weight: 700; font-size: 12px; }
+
+    .risk-table table { margin-top: 0; }
+    .risk-table table td:nth-child(2) { width: 20%; }
+
+    .footer { padding: 20px 24px; max-width: 860px; margin: 0 auto; font-size: 12px; color: #aaa; border-top: 1px solid #e5e2db; margin-top: 8px; }
+
+    h2 { font-size: 18px; font-weight: 700; margin: 36px 0 16px; color: #1a1a1a; }
+    h2:first-of-type { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="header-title">Modern Savage</div>
+    <h1>Launch Control</h1>
+    <div class="header-sub">May 29, 2026 — UK launch Jul 1 / US launch Jul 1</div>
+  </div>
+  <div class="countdown-badge">
+    <div class="num">33</div>
+    <div class="label">days to launch</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="alert-banner">
+    <strong>Two decisions need Jesse today:</strong> (1) ShipBob sign-off — onboarding takes 2-3 weeks, today is the safe deadline. (2) Salty Packaging — their NZ-to-Florida timeline creates a launch conflict. Packaging path needs to be set now.
+  </div>
+
+  <h2>Critical — Action Today</h2>
+
+  <!-- CARD 1: Salty Packaging -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot red"></div>
+      <div class="card-title">Packaging: Salty (NZ) vs. ACF Standard</div>
+      <span class="card-badge badge-red">Decision today</span>
+    </div>
+    <div class="card-body">
+      <p>Melissa Woods (Salty, NZ) has sent two quotes: 600g Kraft pouch (Modern Savage + Mini Savage, 5K units each) and 280g pouch (Summit Stack, 5K units), 3 digital prints. She is following up for your delivery address to quote freight.</p>
+
+      <div class="warning-box">
+        <div class="warning-label">Timing conflict with July 1</div>
+        <p>Salty manufactures in New Zealand. Lead time: 2 weeks production + estimated 10-14 days international freight to Florida = <strong>~4 weeks minimum from order to ACF.</strong> If ordered today (May 29), pouches land at ACF approximately June 26-28 — leaving ACF no time to fill before July 1. ACF needs 2-4 weeks from receiving all materials.</p>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <strong style="font-size: 13px;">Two realistic paths:</strong>
+        <table style="margin-top: 8px;">
+          <tr>
+            <th>Option</th>
+            <th>Launch Date</th>
+            <th>Trade-off</th>
+          </tr>
+          <tr>
+            <td><strong>A — ACF standard packaging for launch; Salty for batch 2</strong></td>
+            <td><span class="pill pill-green">Jul 1 ✓</span></td>
+            <td style="color:#555">No eco story at launch. Simpler operationally. Order Salty now for Aug/Sep restock.</td>
+          </tr>
+          <tr>
+            <td><strong>B — Salty for launch; accept mid-July soft launch</strong></td>
+            <td><span class="pill pill-amber">~Jul 14</span></td>
+            <td style="color:#555">Full eco/compostable narrative from day one. Delays launch by ~2 weeks. Bear's Founding Tribe email already fired — subscribers expecting July.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="action-box">
+        <div class="action-label">Jesse's action</div>
+        <p>Choose A or B. If A: reply Melissa that you want samples sent to ACF (provide Drew's Florida address), and will place a batch 2 order in June. If B: reply with ACF address + confirm Calvin has artwork ready — Melissa's 2-week clock starts from artwork receipt.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 2: ShipBob -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot red"></div>
+      <div class="card-title">3PL: Sign ShipBob</div>
+      <span class="card-badge badge-red">Deadline today</span>
+    </div>
+    <div class="card-body">
+      <p>ShipBob requires 2-3 weeks for account setup and onboarding. Signed today = onboarding done ~June 19. That leaves 12 days of receiving + processing buffer before July 1 — workable but not comfortable. Delay past today = that buffer disappears.</p>
+      <p>ShipBob recommended over alternatives: supplement-native warehousing, US and UK coverage from single integration, REST API for Felix's custom backend, £/$ pricing, no long-term contract required.</p>
+      <div class="action-box">
+        <div class="action-label">Jesse's action</div>
+        <p>Sign ShipBob. Caveat: confirm ACF ship date before signing (no point paying onboarding if product arrives August). Chase Drew on ship date first if you haven't had a reply this week.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 3: ACF Samples / Density Test -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot amber"></div>
+      <div class="card-title">ACF Pharma: Samples + Ship Date Confirmation</div>
+      <span class="card-badge badge-amber">Needs chase</span>
+    </div>
+    <div class="card-body">
+      <p>UPS 1ZR0622J6637359957 — Adult + Kids Shake samples were in US customs as of May 25. Powder density test was scheduled May 26. This confirms whether the 1kg/500g bag dimensions in Salty's quote are correct.</p>
+      <p>Second shipment (Superhero Add-On stack) was due to ship May 26.</p>
+      <div class="action-box">
+        <div class="action-label">Jesse's action</div>
+        <p>Message Drew: (1) Has density test happened? Are the bag sizes right? (2) Confirmed ship date for production run? This unlocks both the packaging decision and the ShipBob timing.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>In Progress — Monitoring</h2>
+
+  <!-- CARD 4: Domain -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot amber"></div>
+      <div class="card-title">modernsavage.com Domain</div>
+      <span class="card-badge badge-amber">Expires June 24</span>
+    </div>
+    <div class="card-body">
+      <p>26 days until expiry. CJ using MediaOptions (anonymous acquisition, budget £2K). Last confirmed status: May 11, domain still parked on GiantPanda with clientRenewProhibited flag (suggests active negotiation).</p>
+      <p>18 days until you should escalate if no confirmation. Losing .com to a third party 7 days before launch would be a serious brand problem.</p>
+      <div class="action-box">
+        <div class="action-label">Ask CJ</div>
+        <p>Has MediaOptions made contact with the owner? What's the current ask? If stuck: GoDaddy broker or direct Sedo listing as backup. Hard limit: offer up to £2,500 to close before June 10.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 5: Delaware entity -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot blue"></div>
+      <div class="card-title">Modern Savage Inc (Delaware) + Stripe</div>
+      <span class="card-badge badge-blue">Nearly done</span>
+    </div>
+    <div class="card-body">
+      <p>Ice Miller (Paul Obszanski) and Raemy handling incorporation. Documents nearly ready as of May 26. Once Delaware cert issued: Felix connects Stripe + QuickBooks (custom backend confirmed ready, no Shopify dependency).</p>
+      <div class="action-box">
+        <div class="action-label">Chase</div>
+        <p>Ask Raemy: when does Ice Miller expect the cert? Stripe account can be set up the same day. This is the last piece for the commerce stack.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 6: USPTO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="status-dot amber"></div>
+      <div class="card-title">USPTO Trademark "Modern Savage"</div>
+      <span class="card-badge badge-amber">Status unknown</span>
+    </div>
+    <div class="card-body">
+      <p>Kylee MacArthur (Weinberg Gonser) offered to file under UK/foreign entity on May 7, with assignment to US entity later. Raemy was to green-light. UKIPO £265 also outstanding. Filing in the gap is a live risk — if a third party files before you, it complicates the launch considerably.</p>
+      <div class="action-box">
+        <div class="action-label">Confirm with Raemy</div>
+        <p>Has Kylee been given the green light? If not, this is week 1 on the Delaware entity — file immediately on both USPTO and UKIPO.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Launch Marketing — Status</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>Bear's Founding Tribe email</td>
+          <td><span class="pill pill-green">FIRED</span></td>
+          <td>Sent to BG mailing list May 26. ManyChat live.</td>
+        </tr>
+        <tr>
+          <td>Pre-launch emails 1-5 (Klaviyo)</td>
+          <td><span class="pill pill-amber">Ready</span></td>
+          <td>Built. Waiting on Stripe/Delaware to confirm flows.</td>
+        </tr>
+        <tr>
+          <td>Post-purchase sequence OB1-6</td>
+          <td><span class="pill pill-amber">Ready</span></td>
+          <td>Built. Same dependency.</td>
+        </tr>
+        <tr>
+          <td>Influencer seeding (20 targets)</td>
+          <td><span class="pill pill-amber">Brief ready</span></td>
+          <td>Ships A Lot + Calvin. Target send June 1.</td>
+        </tr>
+        <tr>
+          <td>Bear IG arc Phase 1 (Posts 1-4)</td>
+          <td><span class="pill pill-amber">Scheduled</span></td>
+          <td>Ku Creatives executing. Olly/CJ approving.</td>
+        </tr>
+        <tr>
+          <td>Metricool — June 6+7 posts</td>
+          <td><span class="pill pill-red">Needs approval</span></td>
+          <td>dhika sent review requests. Jesse to approve in-app.</td>
+        </tr>
+        <tr>
+          <td>Podcast pitch (Modern Wisdom / FBLM)</td>
+          <td><span class="pill pill-amber">Brief ready</span></td>
+          <td>Jesse to confirm target before outreach. Window: now.</td>
+        </tr>
+        <tr>
+          <td>Press outreach</td>
+          <td><span class="pill pill-amber">Brief ready</span></td>
+          <td>CJ/Calvin to start May 26. Confirm underway.</td>
+        </tr>
+        <tr>
+          <td>Soft launch June 29</td>
+          <td><span class="pill pill-amber">Brief ready</span></td>
+          <td>Founding Tribe early access. Calvin to execute.</td>
+        </tr>
+        <tr>
+          <td>Calvin Modern Savage SOW</td>
+          <td><span class="pill pill-red">Unsigned</span></td>
+          <td>Draft ready (local). Jesse to sign before June 1.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Risk Scenarios</h2>
+
+  <div class="card risk-table">
+    <div class="card-body">
+      <table>
+        <tr>
+          <th>Scenario</th>
+          <th>Probability</th>
+          <th>Mitigation</th>
+        </tr>
+        <tr>
+          <td>ACF ships June 17, ShipBob ready, ACF standard packaging</td>
+          <td><span class="pill pill-green">July 1 ✓</span></td>
+          <td>Sign ShipBob today. Chase Drew on ship date.</td>
+        </tr>
+        <tr>
+          <td>ACF ships late June + ShipBob delayed</td>
+          <td><span class="pill pill-amber">~July 10</span></td>
+          <td>Manage expectation with Bear list email. "First week of July."</td>
+        </tr>
+        <tr>
+          <td>Salty used for launch order (NZ manufacture)</td>
+          <td><span class="pill pill-red">July 15+</span></td>
+          <td>Only viable if you accept soft launch delay. Decide today.</td>
+        </tr>
+        <tr>
+          <td>modernsavage.com not acquired by June 20</td>
+          <td><span class="pill pill-amber">Low risk</span></td>
+          <td>Escalate via Sedo if MediaOptions stalls past June 10.</td>
+        </tr>
+        <tr>
+          <td>Delaware not done by June 15</td>
+          <td><span class="pill pill-amber">Medium</span></td>
+          <td>Chase Ice Miller via Raemy. Stripe needs 3-5 days after entity.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Done — No Action Needed</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <ul class="done-list">
+        <li>ManyChat flow (modernsavage.com, May 26)</li>
+        <li>Bear Founding Tribe email (fired May 26, BG mailing list)</li>
+        <li>Felix custom backend + Stripe QBO connector (confirmed May 27)</li>
+        <li>64-day launch calendar built</li>
+        <li>Kids Blend positioning + brief</li>
+        <li>WhatsApp Community (Founding Members) strategy brief</li>
+        <li>Klaviyo setup spec delivered to Calvin</li>
+        <li>Influencer seeding brief (20 targets)</li>
+        <li>ACF Pharma deposit paid ($82K, April 23-24)</li>
+        <li>Formula confirmed (Adult, Kids, Add-On Stack)</li>
+        <li>modernsavage.co live ($69/month, 3 products, recipe section)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Built by Junior — May 29, 2026. Sources: ACF Pharma correspondence, Salty Packaging thread, Cavendish IoM meeting notes, agent-comms.jsonl.
+</div>
+
+</body>
+</html>
