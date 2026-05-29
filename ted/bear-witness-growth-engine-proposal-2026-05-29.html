@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bear Witness — Sales-Led Growth Engine (Proposal, 29 May 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2C3E50;
+    --ink-dim: #6B7A89;
+    --ink-faint: #A8B2BD;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E8ECF0;
+    --line-soft: #F1F4F7;
+    --navy: #1A1A2E;
+    --accent: #2ECC71;
+    --warn: #E67E22;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { background: var(--navy); color: #fff; padding: 5rem 0 4rem; margin-bottom: 3rem; }
+  .hero .eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8899AA; margin-bottom: 1.2rem; }
+  .hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.8rem; }
+  .hero .sub { color: #B8C2CC; font-size: 1rem; font-weight: 400; max-width: 660px; line-height: 1.6; }
+  .hero .meta { margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8899AA; }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  /* Sections */
+  section { margin-bottom: 3rem; }
+  h2 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.5rem; font-weight: 600; }
+  h3 { font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; letter-spacing: -0.01em; }
+  p { margin-bottom: 0.8rem; }
+  p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+
+  .subhead { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 1.8rem 0 0.6rem; letter-spacing: -0.01em; }
+  .subhead .tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
+
+  /* TL;DR box */
+  .tldr { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1.6rem 1.8rem; margin-bottom: 3rem; }
+  .tldr .label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; }
+  .tldr ul { list-style: none; }
+  .tldr li { padding: 0.35rem 0; font-size: 0.95rem; color: var(--ink); }
+  .tldr li::before { content: '→'; color: var(--accent); margin-right: 0.6rem; font-weight: 700; }
+
+  /* Cards */
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.3rem 1.4rem; }
+  .card .num { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-bottom: 0.5rem; }
+  .card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); }
+  .card p { font-size: 0.88rem; color: var(--ink-dim); line-height: 1.55; margin: 0; }
+
+  /* Table */
+  .table-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 1.2rem 0; }
+  .table-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; padding: 0.9rem 1.1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  th, td { text-align: left; padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  th { background: var(--line-soft); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; }
+  tr:last-child td { border-bottom: none; }
+  td.partner { font-weight: 700; color: var(--navy); }
+  td.cat { color: var(--ink-dim); font-size: 0.8rem; }
+  td.note { color: var(--ink-dim); font-size: 0.82rem; line-height: 1.5; }
+  td.price { font-weight: 700; color: var(--navy); white-space: nowrap; }
+
+  /* Note callout */
+  .note { background: var(--highlight); border-left: 4px solid var(--highlight-line); padding: 1rem 1.3rem; border-radius: 0 6px 6px 0; margin: 1.2rem 0; font-size: 0.88rem; color: #6B5410; }
+  .note strong { color: #5A4509; }
+  .note.flag-red { background: #FDEDEC; border-left-color: #E74C3C; color: #7B241C; }
+  .note.flag-red strong { color: #641E16; }
+
+  /* Feature block */
+  .feature { background: var(--navy); color: #fff; border-radius: 10px; padding: 1.8rem 1.9rem; margin: 1.4rem 0; }
+  .feature .kicker { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8899AA; font-weight: 700; margin-bottom: 0.7rem; }
+  .feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .feature p { color: #C5CDD6; font-size: 0.92rem; margin-bottom: 0.8rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .feature strong { color: #fff; }
+  .feature .pill { display: inline-block; background: rgba(46,204,113,0.18); color: #6FE0A0; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.9rem; }
+
+  /* Tactics ordered list */
+  .tactics { counter-reset: t; list-style: none; margin: 1.2rem 0; display: grid; gap: 0.7rem; }
+  .tactics li { counter-increment: t; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.95rem 1.1rem 0.95rem 3.1rem; position: relative; font-size: 0.9rem; color: var(--ink-dim); line-height: 1.55; }
+  .tactics li::before { content: counter(t); position: absolute; left: 1rem; top: 0.9rem; width: 1.5rem; height: 1.5rem; background: var(--navy); color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .tactics li strong { color: var(--ink); }
+
+  /* Two offerings split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  @media (max-width: 700px) { .split { grid-template-columns: 1fr; } }
+  .offer-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem 1.6rem; }
+  .offer-card.premium { border: 1px solid var(--navy); }
+  .offer-card .who { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+  .offer-card.premium .who { color: var(--navy); }
+  .offer-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .offer-card .price { font-size: 0.82rem; color: var(--ink-dim); font-weight: 600; margin-bottom: 0.9rem; }
+  .offer-card ul { list-style: none; margin-top: 0.6rem; }
+  .offer-card li { font-size: 0.88rem; color: var(--ink-dim); padding: 0.28rem 0 0.28rem 1.1rem; position: relative; }
+  .offer-card li::before { content: '•'; color: var(--ink-faint); position: absolute; left: 0; }
+  .offer-card .best { font-size: 0.78rem; color: var(--ink); font-weight: 600; margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--line-soft); }
+
+  /* Role split */
+  .role-card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.3rem 1.4rem; }
+  .role-card .who { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.6rem; }
+  .role-card.support .who { color: var(--ink-faint); }
+  .role-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .role-card ul { list-style: none; }
+  .role-card li { font-size: 0.88rem; color: var(--ink-dim); padding: 0.25rem 0; padding-left: 1.1rem; position: relative; }
+  .role-card li::before { content: '•'; color: var(--ink-faint); position: absolute; left: 0; }
+
+  /* Checklist */
+  .checklist { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem 1.6rem; margin: 1.2rem 0; }
+  .checklist h4 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 1rem; font-weight: 700; }
+  .checklist ul { list-style: none; }
+  .checklist li { padding: 0.5rem 0 0.5rem 1.8rem; position: relative; font-size: 0.92rem; border-bottom: 1px solid var(--line-soft); }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; }
+
+  /* Pipeline steps */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.7rem; margin: 1.4rem 0; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; }
+  .step .s-num { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.4rem; }
+  .step h5 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--ink); }
+  .step p { font-size: 0.78rem; color: var(--ink-dim); line-height: 1.5; margin: 0; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 2rem 0 3rem; font-size: 0.75rem; color: var(--ink-faint); text-align: center; }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+  strong { font-weight: 700; }
+  .inline-key { color: var(--navy); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Bear Witness · Internal Proposal · Seeking Green Light</div>
+    <h1>A Sales-Led Growth Engine for Bear Witness</h1>
+    <p class="sub">Bear Witness can already deliver world-class strategy and creative. What it doesn't yet have is a repeatable way to win clients. This proposes building one — modelled on how a tech company sells — and a new remit for Olly to lead it.</p>
+    <div class="meta">
+      <span><strong>Proposed by</strong> Olly Westmacott</span>
+      <span><strong>For</strong> Jesse + BGV leadership</span>
+      <span><strong>Date</strong> 29 May 2026</span>
+      <span><strong>The ask</strong> Time to research + book conversations</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li>Build a <strong>proactive, sales-led acquisition engine</strong> — we approach businesses, the way a tech company onboards customers onto its product</li>
+      <li>The unlock: <strong>we're the engine, not the face.</strong> We do strategy + creative and hand off, so we're <strong>not limited to brands that align with Bear Grylls or nature</strong> — the addressable market opens right up</li>
+      <li>Two products: <strong>(1) Campaign Blueprint</strong> — strategy + all creatives, the client runs it; <strong>(2) Full Engine</strong> — we build and run it, premium price, selective intake</li>
+      <li>Tailored so it <strong>never tarnishes the Bear Witness or Bear Grylls name</strong> — and it needs <strong>none of Bear's time or content</strong></li>
+      <li><strong>The role:</strong> Olly leads it alongside his current remit — a defined initiative with a clear growth path for Bear Witness</li>
+      <li><strong>The ask:</strong> a green light to validate it properly — real research and booked conversations. <strong>Nothing gets built yet.</strong></li>
+    </ul>
+  </div>
+
+  <!-- The opportunity -->
+  <section>
+    <h2>The Opportunity</h2>
+    <h3>Demand isn't the constraint — deal flow is</h3>
+    <p class="lead">Bear Witness has already proven it can win and deliver client work — Alfred and MamaBucci are live. But every client so far has come inbound or through a warm relationship. There's no engine that goes out and creates the next ten.</p>
+    <p>If the goal is to grow Bear Witness into a serious business, the missing piece is a repeatable, outbound way to fill the pipeline — not more delivery capability. The delivery is sorted: senior strategy from Jesse and the team, and effectively unlimited make capacity through the in-house editing team. What's missing is the front end that turns that capability into a steady flow of paying clients.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">Today</div>
+        <h4>Inbound only</h4>
+        <p>Clients arrive by referral or relationship. Good work, but the pipeline depends on luck and timing, not on a system we control.</p>
+      </div>
+      <div class="card">
+        <div class="num">The gap</div>
+        <h4>No outbound motion</h4>
+        <p>Nobody owns going out, finding the right businesses, and walking them through onto Bear Witness — the way a SaaS sales team does.</p>
+      </div>
+      <div class="card">
+        <div class="num">The prize</div>
+        <h4>A scalable agency</h4>
+        <p>A predictable client engine plus recurring revenue is what turns Bear Witness from a project shop into a real, growing business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The unlock -->
+  <section>
+    <h2>The Unlock</h2>
+    <h3>Engine, not face — so brand alignment stops being a limit</h3>
+    <p class="lead">This is the insight that makes the whole thing bigger than it looks.</p>
+    <div class="feature">
+      <div class="pill">Why this opens the market</div>
+      <h4>We sell the operating system, not the name</h4>
+      <p>Because Bear Witness does the <strong>strategy consult and the creative build and then hands off</strong>, we don't put the Bear Grylls name on the front of anyone's work. That means we <strong>don't have to limit ourselves to brands that fit Bear or the outdoors / nature world</strong>. Any growing business that needs a marketing engine becomes a fair target.</p>
+      <p>It also protects the brand the other way: this requires <strong>none of Bear's time, content or personal involvement</strong>. The engine runs invisibly behind the client's brand. Done right, it grows revenue without ever touching the thing that makes Bear Witness valuable.</p>
+    </div>
+    <div class="note flag-red">
+      <strong>The one thing we have to get right.</strong> When we only build the strategy and creatives and hand them over, the client runs their own channels — clean and low-risk. The moment we also <strong>run their pages and socials</strong>, we're carrying their brand voice in public, day to day. That's where reputation risk and operational load both live — so it's gated to the premium tier, with selective intake and a higher price that pays for the care it needs.</p>
+    </div>
+  </section>
+
+  <!-- Who we target -->
+  <section>
+    <h2>Who We Target</h2>
+    <h3>Two clear audiences</h3>
+    <div class="split">
+      <div class="role-card">
+        <div class="who">Audience A</div>
+        <h4>Growing businesses, no agency yet</h4>
+        <ul>
+          <li>Small but scaling — past the founder-doing-everything stage</li>
+          <li>Not yet using an agency; marketing is ad-hoc or in one person's head</li>
+          <li>Need a proper marketing engine but can't justify hiring a full in-house team</li>
+          <li>Best fit for the Campaign Blueprint — gives them a plan and assets to run with</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="who">Audience B</div>
+        <h4>Bigger businesses wanting to scale or shift</h4>
+        <ul>
+          <li>Established, with budget, but stuck or plateaued</li>
+          <li>Wanting to scale, rebrand, or move more aggressively into digital</li>
+          <li>Have in-house people but need senior strategy and creative firepower</li>
+          <li>Best fit for the Full Engine — higher value, longer relationships</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Because we're white-label, neither audience needs to be Bear-aligned or outdoors-adjacent. The filter is simple: <strong>do they have an audience and a budget, and a marketing gap we can fill?</strong></div>
+  </section>
+
+  <!-- The two offerings -->
+  <section>
+    <h2>The Offerings</h2>
+    <h3>Two products, deliberately different</h3>
+    <p class="lead">Same engine behind both. The difference is how much of the running we own — and that difference sets the price and the risk.</p>
+    <div class="split">
+      <div class="offer-card">
+        <div class="who">Product 1 · Volume play</div>
+        <h4>Campaign Blueprint</h4>
+        <div class="price">Lower cost · project or light retainer · scalable</div>
+        <ul>
+          <li>Full campaign strategy, delivered as a clear document</li>
+          <li>All creatives built to support it — ready to ship</li>
+          <li>The client runs and manages execution themselves</li>
+          <li>Optional add-on: ongoing creative support from the editing team</li>
+        </ul>
+        <div class="best">Best for Audience A. Light on our ops, easy to deliver many in parallel, low brand risk.</div>
+      </div>
+      <div class="offer-card premium">
+        <div class="who">Product 2 · Value play</div>
+        <h4>Full Engine</h4>
+        <div class="price">Much higher cost · recurring · selective intake</div>
+        <ul>
+          <li>Everything in the Blueprint, plus</li>
+          <li>We run the channels — paid, social, content, the calendar</li>
+          <li>We own execution end-to-end behind their brand</li>
+          <li>Only taken on for the right clients we can do justice to</li>
+        </ul>
+        <div class="best">Best for Audience B. Recurring revenue — the bit that compounds into a real business — but ops-heavy and carries brand risk, so it's priced and gated accordingly.</div>
+      </div>
+    </div>
+    <div class="note"><strong>The strategic point:</strong> the Blueprint builds volume and proof; the Full Engine builds recurring revenue. Lead generation comes from the first, the long-term business value from the second. We need both, and we should be honest internally about which one we're really trying to grow.</div>
+  </section>
+
+  <!-- Illustrative packages -->
+  <section>
+    <h2>Packages</h2>
+    <h3>An illustrative ladder</h3>
+    <p class="lead">Numbers below are illustrative — to pressure-test in research, not to commit to. The point is the shape: an easy first step that can step up without restarting the relationship.</p>
+    <div class="table-wrap">
+      <div class="table-title">Indicative tiers — for discussion only</div>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>What they get</th><th>Shape</th><th>Indicative</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="partner">Blueprint</td><td class="note">Campaign strategy + full creative suite, handed over to run</td><td class="cat">One-off project</td><td class="price">£ low–mid k</td></tr>
+          <tr><td class="partner">Blueprint + Support</td><td class="note">Blueprint plus ongoing creative production and senior counsel</td><td class="cat">Light monthly retainer</td><td class="price">~£5k / mo</td></tr>
+          <tr><td class="partner">Full Engine</td><td class="note">Strategy + creative + we run all channels behind their brand</td><td class="cat">Recurring, selective</td><td class="price">£10k+ / mo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">The £5k/mo middle tier already matches the live Alfred engagement, which is useful evidence the shape works. The ladder lets a client say a small yes first and grow into the Full Engine without a new contract.</div>
+  </section>
+
+  <!-- How the engine runs -->
+  <section>
+    <h2>The Motion</h2>
+    <h3>How a tech company would sell it — our version</h3>
+    <p class="lead">This is the part that's genuinely new for Bear Witness: a deliberate, repeatable outbound motion rather than waiting for referrals.</p>
+    <div class="steps">
+      <div class="step"><div class="s-num">01</div><h5>Target</h5><p>Build a list of growing businesses in the two audiences — by sector, size and obvious marketing gap.</p></div>
+      <div class="step"><div class="s-num">02</div><h5>Approach</h5><p>Warm, consultative outreach — like a tech AE, not a cold spammer. Lead with a specific insight about their business.</p></div>
+      <div class="step"><div class="s-num">03</div><h5>Consult</h5><p>A discovery call that diagnoses their gap and frames which product fits — Blueprint or Full Engine.</p></div>
+      <div class="step"><div class="s-num">04</div><h5>Onboard</h5><p>Land them on the right tier with a clean onboarding, exactly like getting a customer live on a SaaS product.</p></div>
+      <div class="step"><div class="s-num">05</div><h5>Expand</h5><p>Grow Blueprint clients up the ladder into retained and Full Engine relationships over time.</p></div>
+    </div>
+    <div class="note"><strong>Reputation guardrail.</strong> The outreach is tailored and senior in tone — it should feel like a partner reaching out, never a volume sales blast. Anything that could read as cheap or pushy is off the table, because the engine carries the Bear Witness name even when the client work doesn't.</div>
+  </section>
+
+  <!-- The role -->
+  <section>
+    <h2>The Role</h2>
+    <h3>Why this is worth my time — and what I'd own</h3>
+    <p class="lead">This is the additional remit I'm proposing to take on alongside my current Market &amp; Strategy work — because it's exactly where strategy meets commercial growth, and right now nobody owns it.</p>
+    <div class="split">
+      <div class="role-card">
+        <div class="who">What I'd own</div>
+        <h4>Lead the growth engine</h4>
+        <ul>
+          <li>Define the target audiences and build the prospect lists</li>
+          <li>Own the outbound motion end-to-end — approach, consult, onboard</li>
+          <li>Shape and price the two products and the package ladder</li>
+          <li>Carry the relationship until a client is landed and handed to delivery</li>
+          <li>Report on pipeline, conversions and revenue contribution</li>
+        </ul>
+      </div>
+      <div class="role-card support">
+        <div class="who">Why me</div>
+        <h4>The fit is direct</h4>
+        <ul>
+          <li>Market &amp; strategy is already my lane — this extends it commercially</li>
+          <li>I can speak credibly to growing businesses about their marketing gap</li>
+          <li>Senior delivery (Jesse, the team, editing capacity) already exists to back me up</li>
+          <li>It's a clear, ownable initiative with a measurable growth path</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><strong>Why it's worth the time.</strong> If this works, it adds a new, scalable revenue line to Bear Witness without needing Bear's involvement and without diluting the brand. If it doesn't, we'll know cheaply — because the first phase is validation, not build. The downside is a few weeks of research; the upside is a repeatable client engine.</div>
+  </section>
+
+  <!-- The ask -->
+  <section>
+    <h2>The Ask</h2>
+    <h3>A green light to validate — not to build</h3>
+    <p class="lead">I'm not asking to build anything yet. I'm asking for the go-ahead to spend focused time proving whether this is real before we invest in it.</p>
+    <div class="checklist">
+      <h4>What a yes unlocks (the validation phase)</h4>
+      <ul>
+        <li>Research the two target audiences and confirm the demand is genuinely there</li>
+        <li>Pressure-test the two products and the package pricing with real businesses</li>
+        <li>Book and run a handful of real conversations with prospective clients</li>
+        <li>Come back with evidence — would they pay, for what, and at what price</li>
+        <li>Only then, if it stacks up, propose the actual build and launch</li>
+      </ul>
+    </div>
+    <div class="note"><strong>Decision needed:</strong> a green light for me to spend time on the validation phase above. No spend, no build, no commitment beyond my time — just permission to find out if this is worth Bear Witness pursuing properly.</div>
+  </section>
+
+  <footer>
+    Bear Witness · Sales-Led Growth Engine · Internal Proposal · 29 May 2026<br>
+    Prepared for Jesse + BGV leadership · Validation phase — no build proposed yet
+  </footer>
+
+</div>
+
+</body>
+</html>
