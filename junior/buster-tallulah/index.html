@@ -88,26 +88,16 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .hero-meta .item{font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--gold-soft);text-align:center}
 .hero-meta .item strong{display:block;font-style:normal;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,237,224,.48);margin-bottom:4px;font-weight:700}
 
-/* ===== DUO ===== */
-.duo{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
-.duo-hdr{text-align:center;padding:88px 32px 56px;max-width:900px;margin:0 auto}
-.duo-hdr h2{font-weight:700;font-style:italic;font-size:clamp(32px,5.2vw,66px);line-height:1.0;color:var(--cream)}
-.duo-hdr h2 em{color:var(--gold-soft)}
-.duo-hdr p{font-style:italic;font-size:clamp(15px,1.7vw,20px);color:rgba(245,237,224,.62);margin-top:18px;line-height:1.55;max-width:620px;margin-left:auto;margin-right:auto}
-.duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.duo-plate{position:relative;height:72vh;min-height:520px;overflow:hidden}
-.duo-plate .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s ease;will-change:transform}
-.duo-plate.l .img{background-image:url('assets/buster-live.jpg');background-position:center 30%;filter:contrast(1.08)}
-.duo-plate.r .img{background-image:url('assets/tallulah-live.jpg');background-position:center 28%;filter:contrast(1.08)}
-.duo-plate:hover .img{transform:scale(1.04)}
-.duo-plate .grade{position:absolute;inset:0;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(20,5,8,.14) 0%,rgba(20,5,8,.82) 100%)}
-.duo-plate.l .grade-tint{position:absolute;inset:0;mix-blend-mode:color;opacity:.17;background:linear-gradient(180deg,#6a2018 0%,#4a3010 100%)}
-.duo-plate.r .grade-tint{position:absolute;inset:0;mix-blend-mode:color;opacity:.18;background:linear-gradient(180deg,#7a5018 0%,#3a2010 100%)}
-.duo-plate .label-tag{position:absolute;top:28px;left:28px;z-index:3;font-style:italic;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;padding:6px 14px;border:1px solid rgba(232,201,122,.38)}
-.duo-plate .name-block{position:absolute;left:32px;right:32px;bottom:36px;z-index:3;color:var(--cream)}
-.duo-plate .name{font-weight:700;font-style:italic;font-size:clamp(46px,7vw,92px);line-height:.95;text-shadow:0 4px 24px rgba(0,0,0,.5)}
-.duo-plate .role{margin-top:12px;font-style:italic;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
-.duo-plate .desc{margin-top:12px;font-style:italic;font-size:clamp(14px,1.4vw,17px);color:rgba(245,237,224,.72);line-height:1.52;max-width:360px}
+/* ===== PROFILES ===== */
+.profiles{background:var(--ink);position:relative;overflow:hidden}
+.profiles-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.profile-plate{position:relative;height:72vh;min-height:520px;overflow:hidden}
+.profile-plate .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s ease;will-change:transform}
+.profile-plate:hover .img{transform:scale(1.04)}
+.profile-plate .grade{position:absolute;inset:0;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(20,5,8,0) 50%,rgba(20,5,8,.9) 100%)}
+.profile-info{position:absolute;left:32px;right:32px;bottom:36px;z-index:3;color:var(--cream)}
+.profile-name{font-weight:700;font-style:italic;font-size:clamp(46px,7vw,92px);line-height:.95;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.profile-role{margin-top:10px;font-style:italic;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
 
 /* ===== TURNTABLE SECTION ===== */
 .turntable-section{background:var(--ink);color:var(--cream);padding:100px 32px 120px;position:relative;overflow:hidden}
@@ -118,12 +108,12 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .tt-header h2 em{color:var(--gold-soft)}
 .tt-header p{font-style:italic;font-size:15px;color:rgba(245,237,224,.5);margin-top:12px;letter-spacing:.04em}
 
-.tt-stage{display:grid;grid-template-columns:240px 1fr 240px;gap:40px;align-items:center}
+.tt-stage{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:center}
 
 /* Vinyl shelf - left */
 .vinyl-shelf{display:flex;flex-direction:column;gap:24px}
 .vinyl-card{
-  position:relative;width:200px;height:200px;border-radius:50%;cursor:grab;
+  position:relative;width:150px;height:150px;border-radius:50%;cursor:grab;
   user-select:none;flex-shrink:0;
   transition:transform .2s,box-shadow .2s;
 }
@@ -131,7 +121,6 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .vinyl-card.dragging{opacity:0.3;transform:scale(0.9)}
 .vinyl-card.used{opacity:0.2;pointer-events:none}
 .vinyl-card svg{width:100%;height:100%;display:block;border-radius:50%}
-.vinyl-hint{text-align:center;margin-top:10px;font-style:italic;font-size:11px;color:rgba(245,237,224,.35);letter-spacing:.06em}
 
 /* Turntable platter */
 .tt-platter-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
@@ -224,51 +213,16 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .np-sub.show{opacity:1}
 .np-hint{font-style:italic;font-size:12px;color:rgba(245,237,224,.32);letter-spacing:.08em}
 
-/* Tracklist right */
-.tracklist-panel{display:flex;flex-direction:column;gap:0}
-.tl-item{
-  padding:22px 0;
-  border-bottom:1px solid rgba(245,237,224,.1);
-  cursor:pointer;
-  transition:background .2s;
-  position:relative;
-}
-.tl-item:first-child{border-top:1px solid rgba(245,237,224,.1)}
-.tl-item .tl-num{font-style:italic;color:var(--gold-soft);font-size:16px;font-weight:700;margin-bottom:4px}
-.tl-item .tl-name{font-weight:700;font-size:clamp(17px,2vw,22px);color:var(--cream);line-height:1.2}
-.tl-item .tl-note{font-style:italic;font-size:13px;color:rgba(245,237,224,.45);margin-top:5px}
-.tl-item .tl-status{font-style:italic;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-top:8px;opacity:.7}
-.tl-item.active .tl-name{color:var(--gold-soft)}
-
 /* ===== SHOWS ===== */
-.shows{background:var(--paper);padding:110px 0 100px;position:relative}
-.shows-hdr{text-align:center;max-width:720px;margin:0 auto 68px;padding:0 32px}
-.shows-hdr h2{font-weight:700;font-style:italic;font-size:clamp(34px,5.5vw,70px);line-height:1.0;color:var(--ink)}
-.shows-hdr h2 em{color:var(--wine)}
-.shows-hdr p{font-style:italic;font-size:clamp(15px,1.7vw,19px);color:var(--ink-soft);margin-top:14px;line-height:1.52}
-.shows-stage{position:relative;height:210px;overflow:hidden;background:#0a0407;margin-bottom:70px;border-top:1.5px solid var(--wine);border-bottom:1.5px solid var(--wine)}
-.shows-stage .img{position:absolute;inset:0;background-size:cover;background-position:center 35%;background-image:url('assets/buster-mic.jpg');filter:contrast(1.1) brightness(.8) saturate(1.05)}
-.shows-stage::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,4,7,.9) 0%,rgba(10,4,7,.18) 50%,rgba(10,4,7,.9) 100%);z-index:1}
-.shows-stage-text{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;color:var(--cream);text-align:center;padding:0 32px}
-.shows-stage-text .small{font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:12px}
-.shows-stage-text h3{font-weight:700;font-style:italic;font-size:clamp(22px,3.6vw,44px);line-height:1.06}
-.upcoming-wrap{max-width:820px;margin:0 auto 60px;padding:0 32px}
-.upcoming-label{display:inline-flex;align-items:center;gap:16px;font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:700;color:var(--wine);margin-bottom:36px}
-.upcoming-label::before,.upcoming-label::after{content:'';width:26px;height:1px;background:currentColor}
-.upcoming-empty{border:1px solid rgba(26,20,16,.18);padding:60px 44px;text-align:center;position:relative}
-.upcoming-empty::before{content:'';position:absolute;inset:7px;border:1px solid rgba(196,152,58,.18);pointer-events:none}
-.upcoming-empty .status{font-style:italic;font-size:clamp(22px,2.6vw,32px);color:var(--ink);font-weight:700;margin-bottom:16px}
-.upcoming-empty .status em{color:var(--wine)}
-.upcoming-empty p{font-style:italic;font-size:clamp(14px,1.5vw,17px);color:var(--ink-soft);line-height:1.62;max-width:440px;margin:0 auto}
-.upcoming-empty p a{color:var(--wine);text-decoration:none;border-bottom:1px solid var(--wine);font-weight:700}
-.upcoming-empty .handle{margin-top:30px;display:inline-flex;align-items:center;gap:14px;font-style:italic;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold-deep)}
-.upcoming-empty .handle::before,.upcoming-empty .handle::after{content:'';width:20px;height:1px;background:var(--gold)}
-.past-shows{max-width:820px;margin:0 auto;padding:28px 32px 0;border-top:1px solid rgba(26,20,16,.11)}
-.past-title{font-style:italic;font-size:10px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;color:rgba(26,20,16,.4);margin-bottom:20px}
-.past-show{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(26,20,16,.09)}
-.past-show:last-child{border-bottom:none}
-.past-show .venue{font-weight:700;font-style:italic;font-size:clamp(16px,1.7vw,20px);color:var(--ink)}
-.past-show .detail{font-style:italic;font-size:13px;color:rgba(26,20,16,.52);letter-spacing:.06em}
+.shows{background:var(--paper);padding:100px 0 100px;position:relative}
+.shows-inner{max-width:760px;margin:0 auto;padding:0 40px}
+.gig-grid{margin-top:36px}
+.gig{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(26,20,16,.11)}
+.gig:first-child{border-top:1px solid rgba(26,20,16,.11)}
+.gig-venue{font-weight:700;font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--ink)}
+.gig-detail{font-style:italic;font-size:13px;color:rgba(26,20,16,.45);letter-spacing:.06em}
+.gig.upcoming .gig-venue{color:rgba(26,20,16,.35)}
+.gig.upcoming .gig-detail{font-style:italic;color:rgba(26,20,16,.28)}
 
 /* ===== CONTACT ===== */
 .book{background:var(--ink);color:var(--cream);padding:90px 24px 80px;position:relative;overflow:hidden}
@@ -294,18 +248,16 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 @media(max-width:920px){
   nav{padding:10px 20px}
   .nlinks{display:none}
-  .tt-stage{grid-template-columns:1fr;gap:32px}
+  .tt-stage{grid-template-columns:1fr}
   .vinyl-shelf{flex-direction:row;justify-content:center;flex-wrap:wrap}
   .vinyl-card{width:140px;height:140px}
   .tt-unit{max-width:320px}
-  .duo-grid{grid-template-columns:1fr}
-  .duo-plate{height:60vh;min-height:420px}
-  .shows-stage{height:170px}
+  .profile-plate{height:52vh;min-height:360px}
 }
 @media(max-width:560px){
   .hero-name{font-size:clamp(40px,13vw,72px)}
   .hero-meta{flex-direction:column;gap:12px}
-  .duo-plate .name{font-size:46px}
+  .profile-name{font-size:46px}
   .matchbook{padding:36px 26px 32px}
   #spotlightWrap{display:none}
   .vinyl-card{width:110px;height:110px}
@@ -333,7 +285,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
     <span class="nm">Tallulah</span>
   </a>
   <ul class="nlinks">
-    <li><a href="#duo" data-target="duo">The Duo</a></li>
+    <li><a href="#duo" data-target="duo">Artists</a></li>
     <li><a href="#record" data-target="record">Songs</a></li>
     <li><a href="#live" data-target="live">Shows</a></li>
     <li><a href="#book" data-target="book">Contact</a></li>
@@ -360,32 +312,23 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   </div>
 </section>
 
-<!-- DUO -->
-<section class="duo" id="duo" data-tone="dark">
-  <div class="duo-hdr reveal">
-    <div class="section-label on-dark">The Duo</div>
-    <h2>Close enough<br><em>to share one mic.</em></h2>
-    <p>Old standards played loose. Soul played close. A duo that makes the room feel like it's just for you.</p>
-  </div>
-  <div class="duo-grid">
-    <div class="duo-plate l reveal">
-      <div class="img"></div>
-      <div class="grade"></div><div class="grade-tint"></div>
-      <div class="label-tag">From Shrewsbury</div>
-      <div class="name-block">
-        <div class="name">Buster</div>
-        <div class="role">Vocals &middot; Piano &middot; Writes the Songs</div>
-        <div class="desc">Self-taught. Writes at 3am. Most songs done before the room wakes up.</div>
+<!-- PROFILES -->
+<section class="profiles" id="duo" data-tone="dark">
+  <div class="profiles-grid">
+    <div class="profile-plate reveal">
+      <div class="img" style="background-image:url('assets/buster-live.jpg');background-position:center 30%;filter:contrast(1.08)"></div>
+      <div class="grade"></div>
+      <div class="profile-info">
+        <div class="profile-name">Buster</div>
+        <div class="profile-role">Vocals &middot; Piano &middot; Writes the Songs</div>
       </div>
     </div>
-    <div class="duo-plate r reveal d1">
-      <div class="img"></div>
-      <div class="grade"></div><div class="grade-tint"></div>
-      <div class="label-tag">From London</div>
-      <div class="name-block">
-        <div class="name">Tallulah</div>
-        <div class="role">Vocals</div>
-        <div class="desc">The voice that closes the room. The lyric still in your head the next day.</div>
+    <div class="profile-plate reveal d1">
+      <div class="img" style="background-image:url('assets/tallulah-live.jpg');background-position:center 28%;filter:contrast(1.08)"></div>
+      <div class="grade"></div>
+      <div class="profile-info">
+        <div class="profile-name">Tallulah</div>
+        <div class="profile-role">Vocals</div>
       </div>
     </div>
   </div>
@@ -397,7 +340,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
     <div class="tt-header reveal">
       <div class="section-label on-dark">The Songs</div>
       <h2>Drop the needle.<br><em>Hear what happened.</em></h2>
-      <p>Drag a record onto the turntable, then move the needle over to play.</p>
+      <p>Click a record to play.</p>
     </div>
 
     <div class="tt-stage reveal d1">
@@ -431,7 +374,6 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <!-- Shine -->
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
-          <div class="vinyl-hint">Little Lady</div>
         </div>
 
         <!-- Song 2 -->
@@ -459,7 +401,6 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <text x="100" y="122" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
-          <div class="vinyl-hint">Carry Me Home</div>
         </div>
 
         <!-- Song 3 -->
@@ -486,7 +427,6 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <text x="100" y="115" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
-          <div class="vinyl-hint">My Devotion</div>
         </div>
       </div>
 
@@ -537,31 +477,9 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
         <!-- Now playing display -->
         <div class="now-playing" id="nowPlaying">
-          <div class="np-hint" id="npHint">Drop a record, then move the needle over to play</div>
+          <div class="np-hint" id="npHint">Click a record to play</div>
           <div class="np-track" id="npTrack"></div>
           <div class="np-sub" id="npSub">Yellow Door Studios &middot; Sam Grade</div>
-        </div>
-      </div>
-
-      <!-- TRACKLIST -->
-      <div class="tracklist-panel" id="tracklistPanel">
-        <div class="tl-item" data-song="0" id="tl-0">
-          <div class="tl-num">01</div>
-          <div class="tl-name">Little Lady</div>
-          <div class="tl-note">First cut. Written between Shrewsbury and London.</div>
-          <div class="tl-status">Out now</div>
-        </div>
-        <div class="tl-item" data-song="1" id="tl-1">
-          <div class="tl-num">02</div>
-          <div class="tl-name">Carry Me Home</div>
-          <div class="tl-note">The road song. The slow one.</div>
-          <div class="tl-status">2026</div>
-        </div>
-        <div class="tl-item" data-song="2" id="tl-2">
-          <div class="tl-num">03</div>
-          <div class="tl-name">My Devotion</div>
-          <div class="tl-note">For the ones who stayed.</div>
-          <div class="tl-status">2026</div>
         </div>
       </div>
 
@@ -571,34 +489,20 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
 <!-- SHOWS -->
 <section class="shows" id="live">
-  <div class="shows-hdr reveal">
+  <div class="shows-inner reveal">
     <div class="section-label">Live</div>
-    <h2>The Troubadour.<br><em>Twice.</em></h2>
-    <p>Both sold out. More coming.</p>
-  </div>
-  <div class="shows-stage reveal">
-    <div class="img"></div>
-    <div class="shows-stage-text">
-      <div>
-        <div class="small">Troubadour &middot; Old Brompton Road &middot; London</div>
-        <h3>Two nights. Both sold out.</h3>
+    <div class="gig-grid">
+      <div class="gig">
+        <span class="gig-venue">The Troubadour</span>
+        <span class="gig-detail">Old Brompton Road &middot; London &middot; 2025</span>
       </div>
-    </div>
-  </div>
-  <div class="upcoming-wrap reveal">
-    <div class="upcoming-label">Upcoming Shows</div>
-    <div class="upcoming-empty">
-      <div class="status">Dates <em>coming.</em></div>
-      <p>Nothing booked yet. Write to us or follow <a href="#book">@busterandtallulah</a> and you'll be the first to know.</p>
-      <div class="handle">@busterandtallulah</div>
-    </div>
-  </div>
-  <div class="past-shows reveal">
-    <div class="past-title">Previously</div>
-    <div>
-      <div class="past-show">
-        <span class="venue">The Troubadour, London</span>
-        <span class="detail">Two nights &middot; Old Brompton Road &middot; 2025</span>
+      <div class="gig">
+        <span class="gig-venue">The Troubadour</span>
+        <span class="gig-detail">Old Brompton Road &middot; London &middot; 2025</span>
+      </div>
+      <div class="gig upcoming">
+        <span class="gig-venue">Upcoming</span>
+        <span class="gig-detail">To be announced</span>
       </div>
     </div>
   </div>
@@ -760,14 +664,11 @@ function setNowPlaying(songIdx) {
   npTrack.classList.add('show');
   npSub.classList.add('show');
   npHint.style.display = 'none';
-  document.querySelectorAll('.tl-item').forEach(el => el.classList.remove('active'));
-  document.getElementById('tl-' + songIdx).classList.add('active');
 }
 
 function clearNowPlaying() {
   npTrack.classList.remove('show');
   npSub.classList.remove('show');
-  document.querySelectorAll('.tl-item').forEach(el => el.classList.remove('active'));
 }
 
 function stopAudio() {
@@ -794,7 +695,7 @@ function loadRecord(songIdx) {
   matLabel.style.display = 'none';
   tonearm.classList.remove('on-record');
   clearNowPlaying();
-  npHint.textContent = 'Now drag the needle over the record';
+  npHint.textContent = 'Click a record to play';
   npHint.style.display = 'block';
 }
 
@@ -819,14 +720,27 @@ ttPlatter.addEventListener('drop', e => {
   ttDropzone.classList.remove('over');
   const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
   loadRecord(idx);
+  setTimeout(() => {
+    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.classList.add('on-record');
+    startAudio(idx);
+    setNowPlaying(idx);
+    npHint.style.display = 'none';
+  }, 300);
 });
 
-/* Mobile tap-to-select for vinyl cards */
+/* Click to select vinyl card - auto-plays */
 document.querySelectorAll('.vinyl-card').forEach(card => {
   card.addEventListener('click', () => {
-    if (isMobile || true) { // also allow click on desktop
-      loadRecord(parseInt(card.dataset.song, 10));
-    }
+    const idx = parseInt(card.dataset.song, 10);
+    loadRecord(idx);
+    setTimeout(() => {
+      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.classList.add('on-record');
+      startAudio(idx);
+      setNowPlaying(idx);
+      npHint.style.display = 'none';
+    }, 300);
   });
 });
 
@@ -921,22 +835,6 @@ function endArmDrag() {
     setTimeout(() => tonearm.style.transition = '', 700);
   }
 }
-
-/* Tracklist click - loads and plays directly */
-document.querySelectorAll('.tl-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const idx = parseInt(item.dataset.song, 10);
-    loadRecord(idx);
-    // snap arm to playing position
-    setTimeout(() => {
-      tonearm.style.transform = 'rotate(-8deg)';
-      tonearm.classList.add('on-record');
-      startAudio(idx);
-      setNowPlaying(idx);
-      npHint.style.display = 'none';
-    }, 300);
-  });
-});
 </script>
 </body>
 </html>
