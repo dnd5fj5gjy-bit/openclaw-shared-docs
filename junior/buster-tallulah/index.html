@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buster &amp; Tallulah</title>
 <meta name="description" content="Buster & Tallulah. A modern jazz-soul romantic duet. Recorded at Yellow Door Studios, produced by Sam Grade.">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -22,203 +20,71 @@
   --cream:#F5EDE0;
 }
 html{scroll-behavior:smooth}
-body{
-  font-family:Georgia,'Times New Roman',serif;
-  font-weight:400;line-height:1.55;font-size:18px;
-  position:relative;overflow-x:hidden;
-  background:var(--paper);
-}
-.italic{font-style:italic}
+body{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.55;font-size:18px;background:var(--paper);overflow-x:hidden}
 
 /* Film grain */
-body::after{
-  content:'';position:fixed;inset:-50%;pointer-events:none;z-index:90;
-  mix-blend-mode:overlay;opacity:.28;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15 0 0 0 0 .1 0 0 0 0 .07 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation:grain 1.4s steps(8) infinite;
-}
-@keyframes grain{
-  0%{transform:translate(0,0)}12%{transform:translate(-3%,2%)}25%{transform:translate(2%,-2%)}
-  37%{transform:translate(-1%,3%)}50%{transform:translate(3%,-1%)}62%{transform:translate(-2%,-2%)}
-  75%{transform:translate(2%,2%)}87%{transform:translate(-3%,-1%)}100%{transform:translate(0,0)}
-}
+body::after{content:'';position:fixed;inset:-50%;pointer-events:none;z-index:90;mix-blend-mode:overlay;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15 0 0 0 0 .1 0 0 0 0 .07 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1.4s steps(8) infinite}
+@keyframes grain{0%{transform:translate(0,0)}12%{transform:translate(-3%,2%)}25%{transform:translate(2%,-2%)}37%{transform:translate(-1%,3%)}50%{transform:translate(3%,-1%)}62%{transform:translate(-2%,-2%)}75%{transform:translate(2%,2%)}87%{transform:translate(-3%,-1%)}100%{transform:translate(0,0)}}
 
-/* ===== SPOTLIGHT ===== */
-#spotlightWrap{
-  position:fixed;inset:0;z-index:500;
-  pointer-events:none;
-  animation:spotIn .85s cubic-bezier(.16,1,.3,1) .2s both;
-}
-@keyframes spotIn{from{opacity:0}}
-
-#spotlightRing{
-  position:absolute;
-  border-radius:50%;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:58vmin;height:58vmin;
-  will-change:width,height;
-  box-shadow:
-    0 0 90px 38px rgba(195,140,52,.09),
-    0 0 0 300vmax rgba(0,0,0,.97);
-}
-
-
-/* Curtain centre text */
-.curtain-text{
-  position:absolute;inset:0;z-index:5;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;pointer-events:none;
-  will-change:opacity,transform;
-}
-.c-pre{
-  font-style:italic;font-size:11px;letter-spacing:.44em;text-transform:uppercase;
-  font-weight:700;color:var(--gold-soft);margin-bottom:32px;
-  display:inline-flex;align-items:center;gap:22px;
-}
+/* Spotlight intro */
+#spotlightWrap{position:fixed;inset:0;z-index:500;pointer-events:none}
+#spotlightRing{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);width:58vmin;height:58vmin;box-shadow:0 0 90px 38px rgba(195,140,52,.09),0 0 0 300vmax rgba(0,0,0,.97)}
+.curtain-text{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.c-pre{font-style:italic;font-size:11px;letter-spacing:.44em;text-transform:uppercase;font-weight:700;color:var(--gold-soft);margin-bottom:32px;display:inline-flex;align-items:center;gap:22px}
 .c-pre::before,.c-pre::after{content:'';width:52px;height:1px;background:rgba(232,201,122,.5)}
-.c-title{
-  font-weight:700;font-style:italic;
-  font-size:clamp(56px,12vw,148px);
-  line-height:.9;color:var(--cream);
-  text-shadow:0 2px 50px rgba(0,0,0,.95),0 0 100px rgba(0,0,0,.7);
-  letter-spacing:-.01em;
-}
-.c-amp{
-  font-weight:400;color:var(--gold-soft);margin:0 .06em;
-  text-shadow:0 0 40px rgba(232,201,122,.75);font-size:.82em;
-}
-.c-scroll{
-  margin-top:56px;font-style:italic;font-size:10px;letter-spacing:.42em;
-  text-transform:uppercase;color:rgba(245,237,224,.5);font-weight:700;
-}
-.c-line{
-  display:block;width:1px;height:38px;background:rgba(245,237,224,.38);
-  margin:12px auto 0;animation:cueLine 2.2s ease-in-out infinite;transform-origin:top;
-}
+.c-title{font-weight:700;font-style:italic;font-size:clamp(56px,12vw,148px);line-height:.9;color:var(--cream);text-shadow:0 2px 50px rgba(0,0,0,.95);letter-spacing:-.01em}
+.c-amp{font-weight:400;color:var(--gold-soft);margin:0 .06em;text-shadow:0 0 40px rgba(232,201,122,.75);font-size:.82em}
+.c-scroll{margin-top:56px;font-style:italic;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:rgba(245,237,224,.5);font-weight:700}
+.c-line{display:block;width:1px;height:38px;background:rgba(245,237,224,.38);margin:12px auto 0;animation:cueLine 2.2s ease-in-out infinite;transform-origin:top}
 @keyframes cueLine{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
 
-/* ===== PROGRESS BAR ===== */
-.progress{
-  position:fixed;top:0;left:0;right:0;height:2px;z-index:300;
-  background:rgba(26,20,16,.06);opacity:0;transition:opacity .6s;
-}
-.progress.show{opacity:1}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--rose));width:100%;transform:scaleX(0);transform-origin:left}
-
-/* ===== NAV ===== */
-nav{
-  position:fixed;top:2px;left:0;right:0;z-index:200;
-  padding:16px 40px;display:flex;justify-content:space-between;align-items:center;
-  transition:background .35s,padding .3s,border-color .35s,opacity .5s;
-  border-bottom:1px solid transparent;
-  opacity:0;
-}
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .35s,padding .3s,border-color .35s,opacity .5s;border-bottom:1px solid transparent;opacity:0}
 nav.show{opacity:1}
 nav.on{background:rgba(245,237,224,.95);border-bottom-color:rgba(26,20,16,.11);backdrop-filter:blur(14px);padding:12px 40px}
 nav.dark{background:rgba(26,20,16,.84);border-bottom-color:rgba(232,201,122,.11);backdrop-filter:blur(14px)}
 nav.dark .brand,nav.dark .nlinks a{color:var(--cream)}
 nav.dark .brand .amp{color:var(--gold-soft)}
-.brand{display:flex;align-items:baseline;gap:8px;color:var(--ink);text-decoration:none;transition:color .3s}
-.brand .amp{font-style:italic;font-weight:400;font-size:22px;color:var(--rose);line-height:1;transition:color .3s}
+.brand{display:flex;align-items:baseline;gap:8px;color:var(--ink);text-decoration:none}
+.brand .amp{font-style:italic;font-weight:400;font-size:22px;color:var(--rose);line-height:1}
 .brand .nm{font-weight:700;letter-spacing:.2em;font-size:12px;text-transform:uppercase}
 .nlinks{display:flex;gap:32px;list-style:none}
 .nlinks a{color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;opacity:.58;transition:opacity .2s,color .3s}
 .nlinks a:hover,.nlinks a.active{opacity:1}
-.nlinks a.active{color:var(--wine)}
-nav.dark .nlinks a.active{color:var(--gold-soft)}
 .nticket{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--cream);background:var(--wine);padding:9px 20px;text-decoration:none;border:1px solid var(--wine-deep);position:relative}
 .nticket::after{content:'';position:absolute;inset:3px;border:1px solid rgba(232,201,122,.28);pointer-events:none}
 .nticket:hover{background:var(--rose)}
 
-/* ===== SIDENAV ===== */
-.sidenav{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:16px;opacity:0;transition:opacity .5s}
-.sidenav.show{opacity:1}
-.sidenav a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;opacity:.38;transition:opacity .25s,color .25s}
-.sidenav a .lbl{opacity:0;transform:translateX(6px);transition:opacity .25s,transform .25s;white-space:nowrap}
-.sidenav a:hover{opacity:.85}
-.sidenav a:hover .lbl,.sidenav a.active .lbl{opacity:1;transform:translateX(0)}
-.sidenav a.active{opacity:1}
-.sidenav a.active .lbl{color:var(--wine)}
-.sidenav .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;transition:background .25s,border-color .25s,box-shadow .25s;flex-shrink:0}
-.sidenav a.active .dot{background:var(--wine);border-color:var(--wine);box-shadow:0 0 0 4px rgba(139,47,62,.15)}
-.sidenav.dark a{color:var(--cream)}
-.sidenav.dark a .dot{border-color:var(--cream)}
-.sidenav.dark a.active .dot{background:var(--gold-soft);border-color:var(--gold-soft);box-shadow:0 0 0 4px rgba(232,201,122,.2)}
-.sidenav.dark a.active .lbl{color:var(--gold-soft)}
-
-/* ===== SCROLL REVEAL ===== */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}
-.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
-
-/* ===== SECTION LABEL ===== */
-section{position:relative;z-index:3}
-.section-label{
-  display:inline-flex;align-items:center;gap:16px;
-  font-style:italic;font-size:11px;letter-spacing:.38em;text-transform:uppercase;
-  font-weight:700;color:var(--wine);margin-bottom:28px;
-}
+/* Section label */
+.section-label{display:inline-flex;align-items:center;gap:16px;font-style:italic;font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:700;color:var(--wine);margin-bottom:28px}
 .section-label::before,.section-label::after{content:'';width:26px;height:1px;background:currentColor}
 .section-label.on-dark{color:var(--gold-soft)}
 
+/* Reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}
+
+/* Progress */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:300;background:rgba(26,20,16,.06);opacity:0;transition:opacity .6s}
+.progress.show{opacity:1}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--rose));width:100%;transform:scaleX(0);transform-origin:left}
+
 /* ===== HERO ===== */
-.hero{
-  height:100vh;min-height:640px;
-  position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  background:#0a0407;
-}
-.hero-img{
-  position:absolute;inset:0;z-index:0;
-  background-image:url('assets/together-port.jpg');
-  background-size:cover;background-position:center 30%;
-  transform:scale(1.06);
-  filter:contrast(1.08) brightness(.85);
-  will-change:transform;
-}
-.hero-grade{
-  position:absolute;inset:0;z-index:1;mix-blend-mode:multiply;
-  background:linear-gradient(180deg,rgba(18,4,7,.38) 0%,rgba(40,10,16,.3) 50%,rgba(18,4,7,.88) 100%);
-}
-.hero-vignette{
-  position:absolute;inset:0;z-index:2;pointer-events:none;
-  box-shadow:inset 0 0 200px rgba(0,0,0,.72),inset 0 0 70px rgba(0,0,0,.5);
-}
-.hero-content{
-  position:relative;z-index:3;
-  color:var(--cream);text-align:center;padding:0 32px;max-width:1100px;
-  opacity:0;transition:opacity 1.4s ease .3s;
-}
+.hero{height:100vh;min-height:640px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0407}
+.hero-img{position:absolute;inset:0;z-index:0;background-image:url('assets/together-port.jpg');background-size:cover;background-position:center 30%;transform:scale(1.06);filter:contrast(1.08) brightness(.85)}
+.hero-grade{position:absolute;inset:0;z-index:1;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(18,4,7,.38) 0%,rgba(40,10,16,.3) 50%,rgba(18,4,7,.88) 100%)}
+.hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 200px rgba(0,0,0,.72),inset 0 0 70px rgba(0,0,0,.5)}
+.hero-content{position:relative;z-index:3;color:var(--cream);text-align:center;padding:0 32px;max-width:1100px;opacity:0;transition:opacity 1.4s ease .3s}
 .hero-content.show{opacity:1}
-.hero-eyebrow{
-  font-style:italic;font-size:12px;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--gold-soft);font-weight:700;margin-bottom:28px;
-  display:inline-flex;align-items:center;gap:20px;
-}
+.hero-eyebrow{font-style:italic;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:28px;display:inline-flex;align-items:center;gap:20px}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:46px;height:1px;background:rgba(232,201,122,.6)}
-.hero-name{
-  font-weight:700;font-style:italic;
-  font-size:clamp(52px,10.5vw,132px);
-  line-height:.92;
-  text-shadow:0 2px 40px rgba(0,0,0,.75);
-}
-.hero-name .amp{
-  font-weight:400;color:var(--gold-soft);margin:0 .04em;
-  display:inline-block;font-size:.88em;
-  text-shadow:0 0 32px rgba(232,201,122,.55);
-}
-.hero-deco{
-  display:flex;align-items:center;justify-content:center;
-  gap:14px;margin-top:28px;color:var(--gold);
-}
+.hero-name{font-weight:700;font-style:italic;font-size:clamp(52px,10.5vw,132px);line-height:.92;text-shadow:0 2px 40px rgba(0,0,0,.75)}
+.hero-name .amp{font-weight:400;color:var(--gold-soft);margin:0 .04em;display:inline-block;font-size:.88em;text-shadow:0 0 32px rgba(232,201,122,.55)}
+.hero-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px;color:var(--gold)}
 .hero-deco .line{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .hero-deco .diamond{width:6px;height:6px;background:var(--gold-soft);transform:rotate(45deg);box-shadow:0 0 10px var(--gold-soft)}
-.hero-meta{
-  margin-top:34px;display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center;
-  padding-top:26px;border-top:1px solid rgba(232,201,122,.2);
-}
+.hero-meta{margin-top:34px;display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center;padding-top:26px;border-top:1px solid rgba(232,201,122,.2)}
 .hero-meta .item{font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--gold-soft);text-align:center}
 .hero-meta .item strong{display:block;font-style:normal;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,237,224,.48);margin-bottom:4px;font-weight:700}
 
@@ -228,12 +94,6 @@ section{position:relative;z-index:3}
 .duo-hdr h2{font-weight:700;font-style:italic;font-size:clamp(32px,5.2vw,66px);line-height:1.0;color:var(--cream)}
 .duo-hdr h2 em{color:var(--gold-soft)}
 .duo-hdr p{font-style:italic;font-size:clamp(15px,1.7vw,20px);color:rgba(245,237,224,.62);margin-top:18px;line-height:1.55;max-width:620px;margin-left:auto;margin-right:auto}
-.duo-together{position:relative;width:100%;height:60vh;min-height:400px;overflow:hidden}
-.duo-together .img{position:absolute;inset:0;background-image:url('assets/together-sofa.jpg');background-size:cover;background-position:center 40%;filter:contrast(1.04) saturate(1.04)}
-.duo-together::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,5,8,.1) 0%,rgba(20,5,8,.52) 100%);z-index:1}
-.duo-together .caption-wrap{position:absolute;left:0;right:0;bottom:32px;z-index:2;text-align:center;color:var(--cream);padding:0 24px}
-.duo-together .caption-wrap .yr{font-style:italic;font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:var(--gold-soft);margin-bottom:10px}
-.duo-together .caption-wrap h3{font-weight:700;font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.1;text-shadow:0 4px 18px rgba(0,0,0,.5)}
 .duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .duo-plate{position:relative;height:72vh;min-height:520px;overflow:hidden}
 .duo-plate .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s ease;will-change:transform}
@@ -248,77 +108,137 @@ section{position:relative;z-index:3}
 .duo-plate .name{font-weight:700;font-style:italic;font-size:clamp(46px,7vw,92px);line-height:.95;text-shadow:0 4px 24px rgba(0,0,0,.5)}
 .duo-plate .role{margin-top:12px;font-style:italic;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
 .duo-plate .desc{margin-top:12px;font-style:italic;font-size:clamp(14px,1.4vw,17px);color:rgba(245,237,224,.72);line-height:1.52;max-width:360px}
-.duo-bottom{padding:52px 32px 90px;text-align:center;max-width:720px;margin:0 auto;border-top:1px solid rgba(232,201,122,.13)}
-.duo-bottom .quote{font-style:italic;font-size:clamp(20px,2.4vw,28px);color:var(--gold-soft);line-height:1.4;font-weight:400}
-.duo-bottom .quote::before{content:'\201C';color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-.2em;margin-right:.05em}
-.duo-bottom .quote::after{content:'\201D';color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-.2em;margin-left:.05em}
-.duo-bottom .cite{margin-top:16px;font-style:italic;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,237,224,.42);font-weight:700}
 
-/* ===== STORY ===== */
-.story{background:var(--paper);padding:120px 32px 120px;position:relative}
-.story::before{content:'';position:absolute;top:60px;left:50%;transform:translateX(-50%);width:44px;height:1px;background:var(--gold)}
-.story-inner{max-width:1080px;margin:0 auto}
-.story-lede{text-align:center;max-width:660px;margin:0 auto 80px}
-.story-lede h2{font-weight:700;font-style:italic;font-size:clamp(32px,4.8vw,60px);line-height:1.0;color:var(--ink)}
-.story-lede h2 em{color:var(--wine)}
-.story-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center}
-.story-photo{
-  width:100%;aspect-ratio:3/4;
-  background-image:url('assets/catamaran-greece.jpg');
-  background-size:cover;background-position:center 35%;
-  filter:sepia(.1) contrast(1.04) saturate(.92);
-  border:1px solid rgba(26,20,16,.12);position:relative;
-}
-.story-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(107,29,42,.14));mix-blend-mode:multiply}
-.story-caption{margin-top:12px;font-style:italic;font-size:12px;color:var(--gold-deep);letter-spacing:.06em}
-.story-prose{font-size:clamp(17px,1.6vw,21px);line-height:1.78;color:var(--ink-soft)}
-.story-prose p+p{margin-top:1.4em}
-.story-prose em{font-style:italic;color:var(--ink)}
-.story-kicker{margin-top:2em;font-style:italic;font-size:clamp(19px,2vw,25px);color:var(--wine);font-weight:400;line-height:1.3}
+/* ===== TURNTABLE SECTION ===== */
+.turntable-section{background:var(--ink);color:var(--cream);padding:100px 32px 120px;position:relative;overflow:hidden}
+.turntable-section::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=2200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.25) contrast(1.1);opacity:.4}
+.tt-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tt-header{text-align:center;margin-bottom:70px}
+.tt-header h2{font-weight:700;font-style:italic;font-size:clamp(32px,4.5vw,58px);line-height:1.0;color:var(--cream)}
+.tt-header h2 em{color:var(--gold-soft)}
+.tt-header p{font-style:italic;font-size:15px;color:rgba(245,237,224,.5);margin-top:12px;letter-spacing:.04em}
 
-/* ===== SONGS ===== */
-.record{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
-.record-bg{position:absolute;inset:0;z-index:0}
-.record-bg::before{
-  content:'';position:absolute;inset:0;
-  background-image:url('https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=2200&q=80&auto=format&fit=crop');
-  background-size:cover;background-position:center;
-  filter:grayscale(.7) brightness(.35) contrast(1.1);opacity:.5;
+.tt-stage{display:grid;grid-template-columns:240px 1fr 240px;gap:40px;align-items:center}
+
+/* Vinyl shelf - left */
+.vinyl-shelf{display:flex;flex-direction:column;gap:24px}
+.vinyl-card{
+  position:relative;width:200px;height:200px;border-radius:50%;cursor:grab;
+  user-select:none;flex-shrink:0;
+  transition:transform .2s,box-shadow .2s;
 }
-.record-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(107,29,42,.4),transparent 60%),linear-gradient(180deg,var(--ink) 0%,rgba(26,20,16,.85) 50%,var(--ink) 100%)}
-.record-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:100px 32px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.record-vinyl-wrap{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;max-width:460px;justify-self:center;width:100%}
-.record-vinyl{
-  width:100%;height:100%;border-radius:50%;position:relative;animation:spin 22s linear infinite;
-  background:
-    radial-gradient(circle at center,transparent 0 49%,rgba(232,201,122,.16) 49.4%,transparent 50.4%),
-    radial-gradient(circle at center,transparent 0 46.5%,rgba(0,0,0,.5) 46.5%,transparent 48%),
-    repeating-radial-gradient(circle at center,#0a0606 0px,#161010 1px,#0a0606 2px,#1c1410 3px),
-    radial-gradient(circle at 30% 30%,#2a1f18 0%,#0a0606 35%,#050202 100%);
-  box-shadow:0 40px 80px rgba(0,0,0,.75),0 0 0 4px rgba(0,0,0,.5),inset 0 0 90px rgba(0,0,0,.55),inset 0 0 8px rgba(232,201,122,.1);
-  filter:contrast(1.05);
+.vinyl-card:active{cursor:grabbing}
+.vinyl-card.dragging{opacity:0.3;transform:scale(0.9)}
+.vinyl-card.used{opacity:0.2;pointer-events:none}
+.vinyl-card svg{width:100%;height:100%;display:block;border-radius:50%}
+.vinyl-hint{text-align:center;margin-top:10px;font-style:italic;font-size:11px;color:rgba(245,237,224,.35);letter-spacing:.06em}
+
+/* Turntable platter */
+.tt-platter-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.tt-unit{position:relative;width:100%;max-width:520px;aspect-ratio:1/1}
+
+/* Table body */
+.tt-body{
+  position:absolute;inset:-8%;
+  background:radial-gradient(ellipse at 40% 30%,#3a2810 0%,#1a0e08 40%,#0d0705 100%);
+  border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.8),inset 0 1px 0 rgba(232,201,122,.08);
+  border:1px solid rgba(232,201,122,.1);
 }
-.record-vinyl::before{content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;background:conic-gradient(from 200deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,.04) 25deg,rgba(255,255,255,.12) 45deg,rgba(255,255,255,.04) 65deg,rgba(255,255,255,0) 90deg,rgba(255,255,255,0) 200deg,rgba(255,255,255,.06) 225deg,rgba(255,255,255,.14) 245deg,rgba(255,255,255,.06) 265deg,rgba(255,255,255,0) 290deg);mix-blend-mode:screen}
-.record-vinyl::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36%;height:36%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a82636 0%,#6B1D2A 50%,#4a1019 100%);box-shadow:inset 0 0 24px rgba(0,0,0,.4),0 2px 10px rgba(0,0,0,.5);border:2px solid rgba(232,201,122,.22)}
-.record-vinyl .label-inner{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36%;height:36%;border-radius:50%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-soft);text-align:center;padding:14px}
-.record-vinyl .label-inner .lt{font-style:italic;font-size:9px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:rgba(232,201,122,.75)}
-.record-vinyl .label-inner .ln{font-style:italic;font-weight:700;font-size:clamp(13px,1.6vw,18px);line-height:1.05;margin:6px 0;color:var(--gold-soft)}
-.record-vinyl .label-inner .ln .amp{font-weight:400}
-.record-vinyl .label-inner .lb{font-style:italic;font-size:9px;letter-spacing:.12em;color:rgba(232,201,122,.85)}
-.record-vinyl .spindle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:#1A1410;box-shadow:0 0 0 3px rgba(232,201,122,.5),0 0 8px rgba(0,0,0,.6);z-index:3}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.record-stylus{position:absolute;top:-6%;right:-10%;width:42%;z-index:3;transform-origin:90% 10%;transform:rotate(-18deg)}
-.record-stylus svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.6))}
-.record-text h2{font-weight:700;font-style:italic;font-size:clamp(32px,4.5vw,58px);line-height:1.0;color:var(--cream);margin-bottom:12px}
-.record-text h2 em{color:var(--gold-soft)}
-.record-text .sub{font-style:italic;font-size:15px;color:rgba(245,237,224,.62);margin-bottom:32px;line-height:1.5}
-.record-text .sub strong{color:var(--gold-soft);font-style:italic;font-weight:700}
-.tracklist{list-style:none}
-.track{display:grid;grid-template-columns:40px 1fr auto;gap:18px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(245,237,224,.11)}
-.track .tn{font-style:italic;color:var(--gold-soft);font-size:17px;font-weight:700}
-.track .tt{font-weight:700;font-size:clamp(17px,1.9vw,23px);color:var(--cream);line-height:1.2}
-.track .tt small{display:block;font-weight:400;font-style:italic;font-size:13px;color:rgba(245,237,224,.55);margin-top:6px;letter-spacing:.02em;line-height:1.4}
-.track .td{font-style:italic;font-size:13px;color:rgba(245,237,224,.48);text-align:right;letter-spacing:.04em;white-space:nowrap}
+
+/* Platter */
+.tt-platter{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:76%;height:76%;
+  border-radius:50%;
+  background:radial-gradient(circle at center,#1a1310 0%,#0d0905 60%,#050202 100%);
+  box-shadow:0 4px 40px rgba(0,0,0,.7),inset 0 0 30px rgba(0,0,0,.5),0 0 0 6px rgba(0,0,0,.4),0 0 0 8px rgba(232,201,122,.06);
+}
+
+/* Drop zone ring */
+.tt-dropzone{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:76%;height:76%;
+  border-radius:50%;
+  border:3px dashed rgba(232,201,122,.18);
+  transition:border-color .3s,box-shadow .3s;
+  pointer-events:none;
+}
+.tt-dropzone.over{border-color:rgba(232,201,122,.6);box-shadow:0 0 30px rgba(232,201,122,.15)}
+
+/* Platter mat */
+.tt-mat{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:72%;height:72%;
+  border-radius:50%;
+  background:radial-gradient(circle at center,#2a1a12 0%,#1a0f09 60%,#110a06 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.tt-mat-label{font-style:italic;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,201,122,.22);text-align:center;line-height:1.6;padding:12px}
+.tt-spindle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#1A1410;box-shadow:0 0 0 4px rgba(232,201,122,.3),0 0 12px rgba(0,0,0,.8);z-index:10}
+
+/* Vinyl on platter */
+.vinyl-on-platter{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:70%;height:70%;
+  border-radius:50%;
+  display:none;
+  animation:spinPlatter 1.8s linear infinite paused;
+}
+.vinyl-on-platter.loaded{display:block}
+.vinyl-on-platter.playing{animation-play-state:running}
+.vinyl-on-platter svg{width:100%;height:100%;display:block;border-radius:50%}
+@keyframes spinPlatter{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* Tonearm */
+.tt-tonearm{
+  position:absolute;
+  top:6%;right:6%;
+  width:28%;
+  z-index:20;
+  transform-origin:82% 12%;
+  transform:rotate(-25deg);
+  cursor:grab;
+  transition:transform .6s cubic-bezier(.34,1.56,.64,1);
+}
+.tt-tonearm:active{cursor:grabbing}
+.tt-tonearm.on-record{transform:rotate(-8deg)}
+.tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
+.tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
+
+/* Now playing */
+.now-playing{
+  margin-top:32px;
+  text-align:center;
+  min-height:60px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+}
+.np-track{font-weight:700;font-style:italic;font-size:clamp(18px,2.2vw,26px);color:var(--cream);opacity:0;transition:opacity .4s}
+.np-track.show{opacity:1}
+.np-sub{font-style:italic;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);opacity:0;transition:opacity .4s .1s}
+.np-sub.show{opacity:1}
+.np-hint{font-style:italic;font-size:12px;color:rgba(245,237,224,.32);letter-spacing:.08em}
+
+/* Tracklist right */
+.tracklist-panel{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  padding:22px 0;
+  border-bottom:1px solid rgba(245,237,224,.1);
+  cursor:pointer;
+  transition:background .2s;
+  position:relative;
+}
+.tl-item:first-child{border-top:1px solid rgba(245,237,224,.1)}
+.tl-item .tl-num{font-style:italic;color:var(--gold-soft);font-size:16px;font-weight:700;margin-bottom:4px}
+.tl-item .tl-name{font-weight:700;font-size:clamp(17px,2vw,22px);color:var(--cream);line-height:1.2}
+.tl-item .tl-note{font-style:italic;font-size:13px;color:rgba(245,237,224,.45);margin-top:5px}
+.tl-item .tl-status{font-style:italic;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-top:8px;opacity:.7}
+.tl-item.active .tl-name{color:var(--gold-soft)}
 
 /* ===== SHOWS ===== */
 .shows{background:var(--paper);padding:110px 0 100px;position:relative}
@@ -332,8 +252,6 @@ section{position:relative;z-index:3}
 .shows-stage-text{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;color:var(--cream);text-align:center;padding:0 32px}
 .shows-stage-text .small{font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:12px}
 .shows-stage-text h3{font-weight:700;font-style:italic;font-size:clamp(22px,3.6vw,44px);line-height:1.06}
-
-/* Upcoming block */
 .upcoming-wrap{max-width:820px;margin:0 auto 60px;padding:0 32px}
 .upcoming-label{display:inline-flex;align-items:center;gap:16px;font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:700;color:var(--wine);margin-bottom:36px}
 .upcoming-label::before,.upcoming-label::after{content:'';width:26px;height:1px;background:currentColor}
@@ -345,8 +263,6 @@ section{position:relative;z-index:3}
 .upcoming-empty p a{color:var(--wine);text-decoration:none;border-bottom:1px solid var(--wine);font-weight:700}
 .upcoming-empty .handle{margin-top:30px;display:inline-flex;align-items:center;gap:14px;font-style:italic;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold-deep)}
 .upcoming-empty .handle::before,.upcoming-empty .handle::after{content:'';width:20px;height:1px;background:var(--gold)}
-
-/* Past shows */
 .past-shows{max-width:820px;margin:0 auto;padding:28px 32px 0;border-top:1px solid rgba(26,20,16,.11)}
 .past-title{font-style:italic;font-size:10px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;color:rgba(26,20,16,.4);margin-bottom:20px}
 .past-show{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(26,20,16,.09)}
@@ -378,16 +294,13 @@ section{position:relative;z-index:3}
 @media(max-width:920px){
   nav{padding:10px 20px}
   .nlinks{display:none}
-  .sidenav{display:none}
+  .tt-stage{grid-template-columns:1fr;gap:32px}
+  .vinyl-shelf{flex-direction:row;justify-content:center;flex-wrap:wrap}
+  .vinyl-card{width:140px;height:140px}
+  .tt-unit{max-width:320px}
   .duo-grid{grid-template-columns:1fr}
   .duo-plate{height:60vh;min-height:420px}
-  .story-grid{grid-template-columns:1fr;gap:40px}
-  .story-photo{aspect-ratio:4/3;max-width:400px;margin:0 auto}
-  .record-inner{grid-template-columns:1fr;padding:80px 28px;gap:50px}
-  .record-vinyl-wrap{max-width:280px}
   .shows-stage{height:170px}
-  .upcoming-empty{padding:40px 28px}
-  .past-show{flex-direction:column;gap:4px}
 }
 @media(max-width:560px){
   .hero-name{font-size:clamp(40px,13vw,72px)}
@@ -395,12 +308,13 @@ section{position:relative;z-index:3}
   .duo-plate .name{font-size:46px}
   .matchbook{padding:36px 26px 32px}
   #spotlightWrap{display:none}
+  .vinyl-card{width:110px;height:110px}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== SPOTLIGHT ===== -->
+<!-- SPOTLIGHT INTRO -->
 <div id="spotlightWrap">
   <div id="spotlightRing"></div>
   <div class="curtain-text" id="curtainText">
@@ -420,7 +334,6 @@ section{position:relative;z-index:3}
   </a>
   <ul class="nlinks">
     <li><a href="#duo" data-target="duo">The Duo</a></li>
-    <li><a href="#story" data-target="story">Story</a></li>
     <li><a href="#record" data-target="record">Songs</a></li>
     <li><a href="#live" data-target="live">Shows</a></li>
     <li><a href="#book" data-target="book">Contact</a></li>
@@ -428,16 +341,7 @@ section{position:relative;z-index:3}
   <a href="#record" class="nticket">Listen</a>
 </nav>
 
-<aside class="sidenav" id="sidenav">
-  <a href="#hero" data-target="hero"><span class="dot"></span><span class="lbl">Opening</span></a>
-  <a href="#duo" data-target="duo"><span class="dot"></span><span class="lbl">The Duo</span></a>
-  <a href="#story" data-target="story"><span class="dot"></span><span class="lbl">Story</span></a>
-  <a href="#record" data-target="record"><span class="dot"></span><span class="lbl">Songs</span></a>
-  <a href="#live" data-target="live"><span class="dot"></span><span class="lbl">Shows</span></a>
-  <a href="#book" data-target="book"><span class="dot"></span><span class="lbl">Contact</span></a>
-</aside>
-
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="hero" data-tone="dark">
   <div class="hero-img" id="heroImg"></div>
   <div class="hero-grade"></div>
@@ -456,22 +360,13 @@ section{position:relative;z-index:3}
   </div>
 </section>
 
-<!-- ===== DUO ===== -->
+<!-- DUO -->
 <section class="duo" id="duo" data-tone="dark">
   <div class="duo-hdr reveal">
     <div class="section-label on-dark">The Duo</div>
     <h2>Close enough<br><em>to share one mic.</em></h2>
     <p>Old standards played loose. Soul played close. A duo that makes the room feel like it's just for you.</p>
   </div>
-
-  <div class="duo-together reveal">
-    <div class="img"></div>
-    <div class="caption-wrap">
-      <div class="yr">Greece, 2024. A catamaran. That was it.</div>
-      <h3>Buster <em>and</em> Tallulah</h3>
-    </div>
-  </div>
-
   <div class="duo-grid">
     <div class="duo-plate l reveal">
       <div class="img"></div>
@@ -494,106 +389,193 @@ section{position:relative;z-index:3}
       </div>
     </div>
   </div>
-
-  <div class="duo-bottom reveal">
-    <div class="quote">Somewhere between jazz and heartbreak.</div>
-    <div class="cite">Yellow Door Studios, 2026</div>
-  </div>
 </section>
 
-<!-- ===== STORY ===== -->
-<section class="story" id="story">
-  <div class="story-inner">
-    <div class="story-lede reveal">
-      <div class="section-label">Their Story</div>
-      <h2>Jamaica,<br><em>then everywhere else.</em></h2>
-    </div>
-    <div class="story-grid">
-      <div class="reveal">
-        <div class="story-photo"></div>
-        <div class="story-caption">Greek islands, 2023 &middot; The first set</div>
-      </div>
-      <div class="story-prose reveal d1">
-        <p>Family friends in Jamaica. Three years later, a catamaran in Greece, a fold-up keyboard, and Tallulah's voice carrying out across open water.</p>
-        <p>One evening turned into a set. The set turned into forty-eight hours in Shrewsbury. Shrewsbury turned into Yellow Door. Yellow Door turned into three songs with Sam Grade. They moved in together somewhere in between.</p>
-        <p><em>Little Lady. Carry Me Home. My Devotion.</em> One room. Two voices. Live takes. Sam Grade at the desk. 2026.</p>
-        <p class="story-kicker"><em>They're just getting started.</em></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SONGS ===== -->
-<section class="record" id="record" data-tone="dark">
-  <div class="record-bg"></div>
-  <div class="record-inner">
-    <div class="record-vinyl-wrap reveal">
-      <div class="record-vinyl">
-        <div class="label-inner">
-          <div class="lt">The Singles</div>
-          <div class="ln">Buster<span class="amp"> &amp; </span>Tallulah</div>
-          <div class="lb">2026 &middot; Yellow Door</div>
-        </div>
-        <div class="spindle"></div>
-      </div>
-      <div class="record-stylus">
-        <svg viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="brassA" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#E8C97A"/>
-              <stop offset="50%" stop-color="#C4983A"/>
-              <stop offset="100%" stop-color="#8a6822"/>
-            </linearGradient>
-            <linearGradient id="brassB" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#8a6822"/>
-              <stop offset="50%" stop-color="#E8C97A"/>
-              <stop offset="100%" stop-color="#8a6822"/>
-            </linearGradient>
-          </defs>
-          <circle cx="252" cy="32" r="28" fill="url(#brassA)" stroke="#1A1410" stroke-width="2"/>
-          <circle cx="252" cy="32" r="14" fill="#1A1410"/>
-          <circle cx="252" cy="32" r="5" fill="url(#brassA)"/>
-          <rect x="244" y="60" width="16" height="160" rx="3" fill="url(#brassB)" stroke="#1A1410" stroke-width="1.5"/>
-          <rect x="240" y="216" width="24" height="60" rx="4" fill="#1A1410"/>
-          <polygon points="252,300 240,260 264,260" fill="#1A1410"/>
-          <polygon points="252,302 247,278 257,278" fill="#E8C97A"/>
-          <line x1="246" y1="80" x2="246" y2="210" stroke="rgba(0,0,0,.4)" stroke-width="1"/>
-        </svg>
-      </div>
-    </div>
-    <div class="record-text reveal d1">
+<!-- TURNTABLE / SONGS -->
+<section class="turntable-section" id="record" data-tone="dark">
+  <div class="tt-inner">
+    <div class="tt-header reveal">
       <div class="section-label on-dark">The Songs</div>
-      <h2>Three cuts.<br><em>One room.</em></h2>
-      <p class="sub"><strong>Yellow Door Studios</strong>, London. Produced by <strong>Sam Grade</strong>. Recorded live.</p>
-      <ul class="tracklist">
-        <li class="track">
-          <span class="tn">01</span>
-          <span class="tt">Little Lady<small>First cut. Written between Shrewsbury and London.</small></span>
-          <span class="td">Out now</span>
-        </li>
-        <li class="track">
-          <span class="tn">02</span>
-          <span class="tt">Carry Me Home<small>The road song. The slow one.</small></span>
-          <span class="td">2026</span>
-        </li>
-        <li class="track">
-          <span class="tn">03</span>
-          <span class="tt">My Devotion<small>For the ones who stayed.</small></span>
-          <span class="td">2026</span>
-        </li>
-      </ul>
+      <h2>Drop the needle.<br><em>Hear what happened.</em></h2>
+      <p>Drag a record onto the turntable, then move the needle over to play.</p>
+    </div>
+
+    <div class="tt-stage reveal d1">
+
+      <!-- VINYL SHELF -->
+      <div class="vinyl-shelf" id="vinylShelf">
+        <!-- Song 1 -->
+        <div class="vinyl-card" id="vinyl-0" draggable="true" data-song="0">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg0" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg0)"/>
+            <!-- Grooves -->
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <!-- Label -->
+            <circle cx="100" cy="100" r="34" fill="#8B2F3E"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="93" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Little</text>
+            <text x="100" y="104" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Lady</text>
+            <text x="100" y="116" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <!-- Shine -->
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+          <div class="vinyl-hint">Little Lady</div>
+        </div>
+
+        <!-- Song 2 -->
+        <div class="vinyl-card" id="vinyl-1" draggable="true" data-song="1">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg1)"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#6B1D2A"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="90" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Carry</text>
+            <text x="100" y="101" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Me</text>
+            <text x="100" y="112" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Home</text>
+            <text x="100" y="122" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+          <div class="vinyl-hint">Carry Me Home</div>
+        </div>
+
+        <!-- Song 3 -->
+        <div class="vinyl-card" id="vinyl-2" draggable="true" data-song="2">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg2)"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#4a1019"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="91" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">My</text>
+            <text x="100" y="103" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Devotion</text>
+            <text x="100" y="115" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+          <div class="vinyl-hint">My Devotion</div>
+        </div>
+      </div>
+
+      <!-- TURNTABLE -->
+      <div class="tt-platter-wrap">
+        <div class="tt-unit" id="ttUnit">
+          <div class="tt-body"></div>
+
+          <div class="tt-platter" id="ttPlatter">
+            <div class="tt-mat" id="ttMat">
+              <div class="tt-mat-label" id="matLabel">Drop a record<br>here</div>
+            </div>
+            <div class="vinyl-on-platter" id="vinylOnPlatter"></div>
+            <div class="tt-spindle"></div>
+            <div class="tt-dropzone" id="ttDropzone"></div>
+          </div>
+
+          <!-- Tonearm -->
+          <div class="tt-tonearm" id="tonearm">
+            <svg viewBox="0 0 120 340" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="brassA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E8C97A"/>
+                  <stop offset="50%" stop-color="#C4983A"/>
+                  <stop offset="100%" stop-color="#8a6822"/>
+                </linearGradient>
+                <linearGradient id="brassB" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#8a6822"/>
+                  <stop offset="50%" stop-color="#E8C97A"/>
+                  <stop offset="100%" stop-color="#8a6822"/>
+                </linearGradient>
+              </defs>
+              <!-- Pivot -->
+              <circle cx="96" cy="28" r="20" fill="url(#brassA)" stroke="#1A1410" stroke-width="1.5"/>
+              <circle cx="96" cy="28" r="10" fill="#1A1410"/>
+              <circle cx="96" cy="28" r="4" fill="url(#brassA)"/>
+              <!-- Arm shaft -->
+              <rect x="89" y="46" width="12" height="200" rx="3" fill="url(#brassB)" stroke="#1A1410" stroke-width="1"/>
+              <!-- Head shell -->
+              <rect x="84" y="242" width="22" height="70" rx="4" fill="#1A1410"/>
+              <!-- Stylus -->
+              <polygon points="95,325 86,270 104,270" fill="#1A1410"/>
+              <polygon points="95,327 91,296 99,296" fill="#E8C97A"/>
+              <line x1="88" y1="58" x2="88" y2="236" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Now playing display -->
+        <div class="now-playing" id="nowPlaying">
+          <div class="np-hint" id="npHint">Drop a record, then move the needle over to play</div>
+          <div class="np-track" id="npTrack"></div>
+          <div class="np-sub" id="npSub">Yellow Door Studios &middot; Sam Grade</div>
+        </div>
+      </div>
+
+      <!-- TRACKLIST -->
+      <div class="tracklist-panel" id="tracklistPanel">
+        <div class="tl-item" data-song="0" id="tl-0">
+          <div class="tl-num">01</div>
+          <div class="tl-name">Little Lady</div>
+          <div class="tl-note">First cut. Written between Shrewsbury and London.</div>
+          <div class="tl-status">Out now</div>
+        </div>
+        <div class="tl-item" data-song="1" id="tl-1">
+          <div class="tl-num">02</div>
+          <div class="tl-name">Carry Me Home</div>
+          <div class="tl-note">The road song. The slow one.</div>
+          <div class="tl-status">2026</div>
+        </div>
+        <div class="tl-item" data-song="2" id="tl-2">
+          <div class="tl-num">03</div>
+          <div class="tl-name">My Devotion</div>
+          <div class="tl-note">For the ones who stayed.</div>
+          <div class="tl-status">2026</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== SHOWS ===== -->
+<!-- SHOWS -->
 <section class="shows" id="live">
   <div class="shows-hdr reveal">
     <div class="section-label">Live</div>
     <h2>The Troubadour.<br><em>Twice.</em></h2>
     <p>Both sold out. More coming.</p>
   </div>
-
   <div class="shows-stage reveal">
     <div class="img"></div>
     <div class="shows-stage-text">
@@ -603,7 +585,6 @@ section{position:relative;z-index:3}
       </div>
     </div>
   </div>
-
   <div class="upcoming-wrap reveal">
     <div class="upcoming-label">Upcoming Shows</div>
     <div class="upcoming-empty">
@@ -612,7 +593,6 @@ section{position:relative;z-index:3}
       <div class="handle">@busterandtallulah</div>
     </div>
   </div>
-
   <div class="past-shows reveal">
     <div class="past-title">Previously</div>
     <div>
@@ -624,7 +604,7 @@ section{position:relative;z-index:3}
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section class="book" id="book" data-tone="dark">
   <div class="book-bg"></div>
   <div class="matchbook reveal">
@@ -640,106 +620,85 @@ section{position:relative;z-index:3}
 </section>
 
 <script>
-gsap.registerPlugin(ScrollTrigger);
-
-const curtainText   = document.getElementById('curtainText');
+/* ===== SPOTLIGHT ===== */
 const spotlightWrap = document.getElementById('spotlightWrap');
 const spotlightRing = document.getElementById('spotlightRing');
+const curtainText   = document.getElementById('curtainText');
 const heroContent   = document.getElementById('heroContent');
 const nav           = document.getElementById('nav');
-const sidenav       = document.getElementById('sidenav');
 const progressBar   = document.getElementById('progressBar');
+const progressFill  = document.getElementById('progressFill');
 
 const isMobile = window.innerWidth <= 560;
 
-function revealChrome() {
-  nav.classList.add('show');
-  sidenav.classList.add('show');
-  progressBar.classList.add('show');
-  heroContent.classList.add('show');
-}
-
 if (isMobile) {
   spotlightWrap.style.display = 'none';
-  revealChrome();
+  nav.classList.add('show');
+  progressBar.classList.add('show');
+  heroContent.classList.add('show');
 } else {
-  const maxSize = Math.max(window.innerWidth, window.innerHeight) * 2.6;
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: '+=720',
-      scrub: 1.6,
-      pin: true,
-      pinSpacing: true,
-      onUpdate(self) {
-        if (self.progress > 0.78 && !heroContent.classList.contains('show')) {
-          heroContent.classList.add('show');
-        }
-        if (self.progress > 0.82) {
-          nav.classList.add('show');
-          sidenav.classList.add('show');
-          progressBar.classList.add('show');
-        }
-      },
-      onLeave() { spotlightWrap.style.visibility = 'hidden'; },
-      onEnterBack() {
-        spotlightWrap.style.visibility = 'visible';
-        nav.classList.remove('show');
-      }
-    }
-  });
+  let spotProgress = 0;
+  const maxSize = Math.max(window.innerWidth, window.innerHeight) * 2.8;
 
-  tl
-    .to(curtainText, { opacity: 0, scale: 0.97, ease: 'power1.in', duration: 0.28 }, 0)
-    .to(spotlightRing, { width: maxSize, height: maxSize, ease: 'power2.inOut', duration: 1 }, 0);
+  function onHeroScroll() {
+    const heroEl = document.getElementById('hero');
+    const scrollY = window.scrollY;
+    const heroH  = heroEl.offsetHeight;
+    spotProgress = Math.min(1, scrollY / (heroH * 0.7));
+
+    const size = 58 + spotProgress * (maxSize / (Math.max(window.innerWidth, window.innerHeight) / 100) - 58);
+    const vmin = Math.max(window.innerWidth, window.innerHeight);
+    const pxSize = 0.58 * Math.min(window.innerWidth, window.innerHeight) + spotProgress * (maxSize - 0.58 * Math.min(window.innerWidth, window.innerHeight));
+    spotlightRing.style.width  = pxSize + 'px';
+    spotlightRing.style.height = pxSize + 'px';
+    curtainText.style.opacity  = Math.max(0, 1 - spotProgress * 3.5);
+
+    if (spotProgress > 0.75) {
+      heroContent.classList.add('show');
+      nav.classList.add('show');
+      progressBar.classList.add('show');
+    }
+    if (spotProgress >= 1) {
+      spotlightWrap.style.visibility = 'hidden';
+    } else {
+      spotlightWrap.style.visibility = 'visible';
+    }
+  }
+  window.addEventListener('scroll', onHeroScroll, { passive: true });
+  onHeroScroll();
 }
 
-/* Hero parallax */
-gsap.to('#heroImg', {
-  scale: 1.13, y: -16, ease: 'none',
-  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .85 }
-});
-
 /* Progress bar */
-const progressFill = document.getElementById('progressFill');
 function updateProgress() {
   const h = document.documentElement;
   const p = (h.scrollTop || document.body.scrollTop) / ((h.scrollHeight - h.clientHeight) || 1);
   progressFill.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
 }
 window.addEventListener('scroll', updateProgress, { passive: true });
-updateProgress();
 
-/* Nav + sidenav tone tracking */
-const sections   = ['hero','duo','story','record','live','book'];
-const sectionEls = sections.map(id => document.getElementById(id));
-const sectionTones = sectionEls.map(el => (el && el.dataset.tone === 'dark') ? 'dark' : 'light');
+/* Nav tone */
+const sections    = ['hero','duo','record','live','book'];
+const sectionEls  = sections.map(id => document.getElementById(id));
+const sectionTones = sectionEls.map(el => el && el.dataset.tone === 'dark' ? 'dark' : 'light');
 
 function onScroll() {
   const y = window.scrollY + 80;
-  let activeIdx = 0;
+  let ai = 0;
   for (let i = 0; i < sectionEls.length; i++) {
-    if (sectionEls[i] && sectionEls[i].offsetTop <= y) activeIdx = i;
+    if (sectionEls[i] && sectionEls[i].offsetTop <= y) ai = i;
   }
-  const tone = sectionTones[activeIdx];
+  const tone = sectionTones[ai];
   nav.classList.toggle('dark', tone === 'dark');
-  nav.classList.toggle('on',   tone === 'light' && window.scrollY > 40);
-  sidenav.classList.toggle('dark', tone === 'dark');
-
-  const activeId = sections[activeIdx];
-  document.querySelectorAll('.sidenav a, .nlinks a').forEach(a => {
-    a.classList.toggle('active', a.dataset.target === activeId);
-  });
+  nav.classList.toggle('on', tone === 'light' && window.scrollY > 40);
+  const aid = sections[ai];
+  document.querySelectorAll('.nlinks a').forEach(a => a.classList.toggle('active', a.dataset.target === aid));
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 /* Scroll reveal */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
 }, { rootMargin: '0px 0px -5% 0px', threshold: .02 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
@@ -754,7 +713,230 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-window.addEventListener('load', () => ScrollTrigger.refresh());
+/* ===== TURNTABLE INTERACTION ===== */
+const songs = [
+  { title: 'Little Lady',   file: 'assets/little-lady.mp3',    label: '#8B2F3E' },
+  { title: 'Carry Me Home', file: 'assets/carry-me-home.mp3',  label: '#6B1D2A' },
+  { title: 'My Devotion',   file: 'assets/my-devotion.mp3',    label: '#4a1019' },
+];
+
+let loadedSong   = null;
+let isPlaying    = false;
+let audioEl      = null;
+const tonearm    = document.getElementById('tonearm');
+const ttDropzone = document.getElementById('ttDropzone');
+const vinylOnPlatter = document.getElementById('vinylOnPlatter');
+const matLabel   = document.getElementById('matLabel');
+const npTrack    = document.getElementById('npTrack');
+const npSub      = document.getElementById('npSub');
+const npHint     = document.getElementById('npHint');
+
+function buildVinylSVG(songIdx) {
+  const c = songs[songIdx].label;
+  const words = songs[songIdx].title.split(' ');
+  const lines = words.length <= 2 ? words : [words[0], words.slice(1).join(' ')];
+  const startY = 100 - (lines.length - 1) * 6.5;
+  let textEls = lines.map((w, i) =>
+    `<text x="100" y="${startY + i * 13}" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">${w}</text>`
+  ).join('');
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs><radialGradient id="pvg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#161010"/><stop offset="45%" stop-color="#0a0606"/><stop offset="100%" stop-color="#050202"/></radialGradient></defs>
+    <circle cx="100" cy="100" r="100" fill="url(#pvg)"/>
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".8"/>
+    <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.6" opacity=".7"/>
+    <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".7"/>
+    <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.6" opacity=".6"/>
+    <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".6"/>
+    <circle cx="100" cy="100" r="34" fill="${c}"/>
+    <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+    <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+    ${textEls}
+    <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+  </svg>`;
+}
+
+function setNowPlaying(songIdx) {
+  npTrack.textContent = songs[songIdx].title;
+  npTrack.classList.add('show');
+  npSub.classList.add('show');
+  npHint.style.display = 'none';
+  document.querySelectorAll('.tl-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('tl-' + songIdx).classList.add('active');
+}
+
+function clearNowPlaying() {
+  npTrack.classList.remove('show');
+  npSub.classList.remove('show');
+  document.querySelectorAll('.tl-item').forEach(el => el.classList.remove('active'));
+}
+
+function stopAudio() {
+  if (audioEl) { audioEl.pause(); audioEl.currentTime = 0; }
+  isPlaying = false;
+  vinylOnPlatter.classList.remove('playing');
+}
+
+function startAudio(songIdx) {
+  stopAudio();
+  audioEl = new Audio(songs[songIdx].file);
+  audioEl.loop = true;
+  audioEl.play().catch(() => {}); // graceful if file missing
+  isPlaying = true;
+  vinylOnPlatter.classList.add('playing');
+}
+
+function loadRecord(songIdx) {
+  loadedSong = songIdx;
+  stopAudio();
+  vinylOnPlatter.innerHTML = buildVinylSVG(songIdx);
+  vinylOnPlatter.classList.add('loaded');
+  vinylOnPlatter.classList.remove('playing');
+  matLabel.style.display = 'none';
+  tonearm.classList.remove('on-record');
+  clearNowPlaying();
+  npHint.textContent = 'Now drag the needle over the record';
+  npHint.style.display = 'block';
+}
+
+/* ===== DRAG & DROP - Vinyl onto platter ===== */
+document.querySelectorAll('.vinyl-card').forEach(card => {
+  card.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('songIdx', card.dataset.song);
+    card.classList.add('dragging');
+  });
+  card.addEventListener('dragend', () => card.classList.remove('dragging'));
+});
+
+const ttPlatter = document.getElementById('ttPlatter');
+
+ttPlatter.addEventListener('dragover', e => {
+  e.preventDefault();
+  ttDropzone.classList.add('over');
+});
+ttPlatter.addEventListener('dragleave', () => ttDropzone.classList.remove('over'));
+ttPlatter.addEventListener('drop', e => {
+  e.preventDefault();
+  ttDropzone.classList.remove('over');
+  const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
+  loadRecord(idx);
+});
+
+/* Mobile tap-to-select for vinyl cards */
+document.querySelectorAll('.vinyl-card').forEach(card => {
+  card.addEventListener('click', () => {
+    if (isMobile || true) { // also allow click on desktop
+      loadRecord(parseInt(card.dataset.song, 10));
+    }
+  });
+});
+
+/* ===== TONEARM INTERACTION ===== */
+let armDragging = false;
+let armStartX, armStartY, armStartAngle;
+const pivotPercent = { x: 0.82, y: 0.12 }; // matches SVG transform-origin
+
+function getTonearmPivot() {
+  const rect = tonearm.getBoundingClientRect();
+  return {
+    x: rect.left + rect.width * pivotPercent.x,
+    y: rect.top  + rect.height * pivotPercent.y,
+  };
+}
+
+function getAngle(pivot, x, y) {
+  return Math.atan2(y - pivot.y, x - pivot.x) * 180 / Math.PI;
+}
+
+function clampArm(angle) {
+  return Math.min(5, Math.max(-42, angle));
+}
+
+function checkArmOnRecord(angle) {
+  // Arm "on record" roughly when angle between -15 and 5 deg
+  return angle > -18 && angle < 5;
+}
+
+tonearm.addEventListener('mousedown', startArmDrag);
+tonearm.addEventListener('touchstart', e => { e.preventDefault(); startArmDrag(e.touches[0]); }, { passive: false });
+
+function startArmDrag(e) {
+  armDragging = true;
+  tonearm.classList.add('dragging-arm');
+  const pivot = getTonearmPivot();
+  armStartAngle = getAngle(pivot, e.clientX, e.clientY);
+  // get current rotation
+  const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
+  armStartAngle -= m ? parseFloat(m[1]) : -25;
+}
+
+document.addEventListener('mousemove', moveArm);
+document.addEventListener('touchmove', e => { if (armDragging) moveArm(e.touches[0]); }, { passive: true });
+
+function moveArm(e) {
+  if (!armDragging) return;
+  const pivot = getTonearmPivot();
+  const angle = getAngle(pivot, e.clientX, e.clientY) - armStartAngle;
+  const clamped = clampArm(angle);
+  tonearm.style.transform = `rotate(${clamped}deg)`;
+
+  if (loadedSong !== null && checkArmOnRecord(clamped)) {
+    if (!isPlaying) {
+      tonearm.classList.add('on-record');
+      startAudio(loadedSong);
+      setNowPlaying(loadedSong);
+    }
+  } else {
+    if (isPlaying) {
+      stopAudio();
+      tonearm.classList.remove('on-record');
+      if (loadedSong !== null) {
+        npHint.textContent = 'Move the needle back over the record to play';
+        npHint.style.display = 'block';
+        clearNowPlaying();
+      }
+    }
+  }
+}
+
+document.addEventListener('mouseup',  endArmDrag);
+document.addEventListener('touchend', endArmDrag);
+
+function endArmDrag() {
+  if (!armDragging) return;
+  armDragging = false;
+  tonearm.classList.remove('dragging-arm');
+  // Snap: if close to on-record zone and record loaded, snap onto it
+  const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
+  const angle = m ? parseFloat(m[1]) : -25;
+  if (loadedSong !== null && checkArmOnRecord(angle)) {
+    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.classList.add('on-record');
+    if (!isPlaying) { startAudio(loadedSong); setNowPlaying(loadedSong); }
+  } else if (!checkArmOnRecord(angle)) {
+    tonearm.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
+    if (!isPlaying) {
+      tonearm.style.transform = 'rotate(-25deg)';
+      tonearm.classList.remove('on-record');
+    }
+    setTimeout(() => tonearm.style.transition = '', 700);
+  }
+}
+
+/* Tracklist click - loads and plays directly */
+document.querySelectorAll('.tl-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const idx = parseInt(item.dataset.song, 10);
+    loadRecord(idx);
+    // snap arm to playing position
+    setTimeout(() => {
+      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.classList.add('on-record');
+      startAudio(idx);
+      setNowPlaying(idx);
+      npHint.style.display = 'none';
+    }, 300);
+  });
+});
 </script>
 </body>
 </html>
