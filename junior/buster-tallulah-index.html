@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buster &amp; Tallulah</title>
+<meta name="description" content="Buster & Tallulah. A modern jazz-soul romantic duet. Recorded at Yellow Door Studios, produced by Sam Grade.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F5EDE0;
+  --gold-soft:#E8C97A;
+  --gold:#C4983A;
+  --gold-deep:#8a6822;
+  --rose:#8B2F3E;
+  --wine:#6B1D2A;
+  --wine-deep:#4a1019;
+  --ink:#1A1410;
+  --ink-soft:#2c2218;
+  --cream:#F5EDE0;
+}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.55;font-size:18px;background:var(--paper);overflow-x:hidden}
+
+/* Film grain */
+body::after{content:'';position:fixed;inset:-50%;pointer-events:none;z-index:90;mix-blend-mode:overlay;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15 0 0 0 0 .1 0 0 0 0 .07 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1.4s steps(8) infinite}
+@keyframes grain{0%{transform:translate(0,0)}12%{transform:translate(-3%,2%)}25%{transform:translate(2%,-2%)}37%{transform:translate(-1%,3%)}50%{transform:translate(3%,-1%)}62%{transform:translate(-2%,-2%)}75%{transform:translate(2%,2%)}87%{transform:translate(-3%,-1%)}100%{transform:translate(0,0)}}
+
+/* Spotlight intro */
+#spotlightWrap{position:fixed;inset:0;z-index:500;pointer-events:none}
+#spotlightRing{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);width:58vmin;height:58vmin;box-shadow:0 0 90px 38px rgba(195,140,52,.09),0 0 0 300vmax rgba(0,0,0,.97)}
+.curtain-text{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.c-pre{font-style:italic;font-size:11px;letter-spacing:.44em;text-transform:uppercase;font-weight:700;color:var(--gold-soft);margin-bottom:32px;display:inline-flex;align-items:center;gap:22px}
+.c-pre::before,.c-pre::after{content:'';width:52px;height:1px;background:rgba(232,201,122,.5)}
+.c-title{font-weight:700;font-style:italic;font-size:clamp(56px,12vw,148px);line-height:.9;color:var(--cream);text-shadow:0 2px 50px rgba(0,0,0,.95);letter-spacing:-.01em}
+.c-amp{font-weight:400;color:var(--gold-soft);margin:0 .06em;text-shadow:0 0 40px rgba(232,201,122,.75);font-size:.82em}
+.c-scroll{margin-top:56px;font-style:italic;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:rgba(245,237,224,.5);font-weight:700}
+.c-line{display:block;width:1px;height:38px;background:rgba(245,237,224,.38);margin:12px auto 0;animation:cueLine 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cueLine{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .35s,padding .3s,border-color .35s,opacity .5s;border-bottom:1px solid transparent;opacity:0}
+nav.show{opacity:1}
+nav.on{background:rgba(245,237,224,.95);border-bottom-color:rgba(26,20,16,.11);backdrop-filter:blur(14px);padding:12px 40px}
+nav.dark{background:rgba(26,20,16,.84);border-bottom-color:rgba(232,201,122,.11);backdrop-filter:blur(14px)}
+nav.dark .brand,nav.dark .nlinks a{color:var(--cream)}
+nav.dark .brand .amp{color:var(--gold-soft)}
+.brand{display:flex;align-items:baseline;gap:8px;color:var(--ink);text-decoration:none}
+.brand .amp{font-style:italic;font-weight:400;font-size:22px;color:var(--rose);line-height:1}
+.brand .nm{font-weight:700;letter-spacing:.2em;font-size:12px;text-transform:uppercase}
+.nlinks{display:flex;gap:32px;list-style:none}
+.nlinks a{color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;opacity:.58;transition:opacity .2s,color .3s}
+.nlinks a:hover,.nlinks a.active{opacity:1}
+.nticket{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--cream);background:var(--wine);padding:9px 20px;text-decoration:none;border:1px solid var(--wine-deep);position:relative}
+.nticket::after{content:'';position:absolute;inset:3px;border:1px solid rgba(232,201,122,.28);pointer-events:none}
+.nticket:hover{background:var(--rose)}
+
+/* Section label */
+.section-label{display:inline-flex;align-items:center;gap:16px;font-style:italic;font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:700;color:var(--wine);margin-bottom:28px}
+.section-label::before,.section-label::after{content:'';width:26px;height:1px;background:currentColor}
+.section-label.on-dark{color:var(--gold-soft)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}
+
+/* Progress */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:300;background:rgba(26,20,16,.06);opacity:0;transition:opacity .6s}
+.progress.show{opacity:1}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--rose));width:100%;transform:scaleX(0);transform-origin:left}
+
+/* ===== HERO ===== */
+.hero{height:100vh;min-height:640px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0407}
+.hero-img{position:absolute;inset:0;z-index:0;background-image:url('assets/together-port.jpg');background-size:cover;background-position:center 30%;transform:scale(1.06);filter:contrast(1.08) brightness(.85)}
+.hero-grade{position:absolute;inset:0;z-index:1;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(18,4,7,.38) 0%,rgba(40,10,16,.3) 50%,rgba(18,4,7,.88) 100%)}
+.hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 200px rgba(0,0,0,.72),inset 0 0 70px rgba(0,0,0,.5)}
+.hero-content{position:relative;z-index:3;color:var(--cream);text-align:center;padding:0 32px;max-width:1100px;opacity:0;transition:opacity 1.4s ease .3s}
+.hero-content.show{opacity:1}
+.hero-eyebrow{font-style:italic;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:28px;display:inline-flex;align-items:center;gap:20px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:46px;height:1px;background:rgba(232,201,122,.6)}
+.hero-name{font-weight:700;font-style:italic;font-size:clamp(52px,10.5vw,132px);line-height:.92;text-shadow:0 2px 40px rgba(0,0,0,.75)}
+.hero-name .amp{font-weight:400;color:var(--gold-soft);margin:0 .04em;display:inline-block;font-size:.88em;text-shadow:0 0 32px rgba(232,201,122,.55)}
+.hero-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px;color:var(--gold)}
+.hero-deco .line{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-deco .diamond{width:6px;height:6px;background:var(--gold-soft);transform:rotate(45deg);box-shadow:0 0 10px var(--gold-soft)}
+.hero-meta{margin-top:34px;display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center;padding-top:26px;border-top:1px solid rgba(232,201,122,.2)}
+.hero-meta .item{font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--gold-soft);text-align:center}
+.hero-meta .item strong{display:block;font-style:normal;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,237,224,.48);margin-bottom:4px;font-weight:700}
+
+/* ===== PROFILES ===== */
+.profiles{background:var(--ink);position:relative;overflow:hidden}
+.profiles-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.profile-plate{position:relative;height:72vh;min-height:520px;overflow:hidden}
+.profile-plate .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s ease;will-change:transform}
+.profile-plate:hover .img{transform:scale(1.04)}
+.profile-plate .grade{position:absolute;inset:0;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(20,5,8,0) 50%,rgba(20,5,8,.9) 100%)}
+.profile-info{position:absolute;left:32px;right:32px;bottom:36px;z-index:3;color:var(--cream)}
+.profile-name{font-weight:700;font-style:italic;font-size:clamp(46px,7vw,92px);line-height:.95;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.profile-role{margin-top:10px;font-style:italic;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+
+/* ===== TURNTABLE SECTION ===== */
+.turntable-section{background:var(--ink);color:var(--cream);padding:100px 32px 120px;position:relative;overflow:hidden}
+.turntable-section::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=2200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.25) contrast(1.1);opacity:.4}
+.tt-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tt-header{text-align:center;margin-bottom:70px}
+.tt-header h2{font-weight:700;font-style:italic;font-size:clamp(32px,4.5vw,58px);line-height:1.0;color:var(--cream)}
+.tt-header h2 em{color:var(--gold-soft)}
+.tt-header p{font-style:italic;font-size:15px;color:rgba(245,237,224,.5);margin-top:12px;letter-spacing:.04em}
+
+.tt-stage{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:center}
+
+/* Vinyl shelf - left */
+.vinyl-shelf{display:flex;flex-direction:column;gap:24px}
+.vinyl-card{
+  position:relative;width:150px;height:150px;border-radius:50%;cursor:grab;
+  user-select:none;flex-shrink:0;
+  transition:transform .2s,box-shadow .2s;
+}
+.vinyl-card:active{cursor:grabbing}
+.vinyl-card.dragging{opacity:0.3;transform:scale(0.9)}
+.vinyl-card.used{opacity:0.2;pointer-events:none}
+.vinyl-card svg{width:100%;height:100%;display:block;border-radius:50%}
+
+/* Turntable platter */
+.tt-platter-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.tt-unit{position:relative;width:100%;max-width:520px;aspect-ratio:1/1}
+
+/* Table body */
+.tt-body{
+  position:absolute;inset:-8%;
+  background:radial-gradient(ellipse at 40% 30%,#3a2810 0%,#1a0e08 40%,#0d0705 100%);
+  border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.8),inset 0 1px 0 rgba(232,201,122,.08);
+  border:1px solid rgba(232,201,122,.1);
+}
+
+/* Platter */
+.tt-platter{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:76%;height:76%;
+  border-radius:50%;
+  background:radial-gradient(circle at center,#1a1310 0%,#0d0905 60%,#050202 100%);
+  box-shadow:0 4px 40px rgba(0,0,0,.7),inset 0 0 30px rgba(0,0,0,.5),0 0 0 6px rgba(0,0,0,.4),0 0 0 8px rgba(232,201,122,.06);
+}
+
+/* Drop zone ring */
+.tt-dropzone{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:76%;height:76%;
+  border-radius:50%;
+  border:3px dashed rgba(232,201,122,.18);
+  transition:border-color .3s,box-shadow .3s;
+  pointer-events:none;
+}
+.tt-dropzone.over{border-color:rgba(232,201,122,.6);box-shadow:0 0 30px rgba(232,201,122,.15)}
+
+/* Platter mat */
+.tt-mat{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:72%;height:72%;
+  border-radius:50%;
+  background:radial-gradient(circle at center,#2a1a12 0%,#1a0f09 60%,#110a06 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.tt-mat-label{font-style:italic;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,201,122,.22);text-align:center;line-height:1.6;padding:12px}
+.tt-spindle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#1A1410;box-shadow:0 0 0 4px rgba(232,201,122,.3),0 0 12px rgba(0,0,0,.8);z-index:10}
+
+/* Vinyl on platter */
+.vinyl-on-platter{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:70%;height:70%;
+  border-radius:50%;
+  display:none;
+  animation:spinPlatter 1.8s linear infinite paused;
+}
+.vinyl-on-platter.loaded{display:block}
+.vinyl-on-platter.playing{animation-play-state:running}
+.vinyl-on-platter svg{width:100%;height:100%;display:block;border-radius:50%}
+@keyframes spinPlatter{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* Tonearm */
+.tt-tonearm{
+  position:absolute;
+  top:6%;right:6%;
+  width:28%;
+  z-index:20;
+  transform-origin:82% 12%;
+  transform:rotate(-25deg);
+  cursor:grab;
+  transition:transform .6s cubic-bezier(.34,1.56,.64,1);
+}
+.tt-tonearm:active{cursor:grabbing}
+.tt-tonearm.on-record{transform:rotate(-8deg)}
+.tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
+.tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
+
+/* Usage guide */
+.tt-guide{display:flex;align-items:center;justify-content:center;gap:0;margin-top:24px}
+.tt-guide-step{text-align:center;padding:0 20px}
+.tt-guide-num{font-style:italic;font-size:10px;letter-spacing:.3em;color:var(--gold-soft);font-weight:700;margin-bottom:5px}
+.tt-guide-div{width:1px;height:30px;background:rgba(245,237,224,.12);flex-shrink:0}
+.tt-guide-text{font-style:italic;font-size:11px;color:rgba(245,237,224,.38);line-height:1.5;letter-spacing:.03em}
+.tt-guide.hidden{display:none}
+
+/* Now playing */
+.now-playing{
+  margin-top:32px;
+  text-align:center;
+  min-height:60px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+}
+.np-track{font-weight:700;font-style:italic;font-size:clamp(18px,2.2vw,26px);color:var(--cream);opacity:0;transition:opacity .4s}
+.np-track.show{opacity:1}
+.np-sub{font-style:italic;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);opacity:0;transition:opacity .4s .1s}
+.np-sub.show{opacity:1}
+.np-hint{font-style:italic;font-size:12px;color:rgba(245,237,224,.32);letter-spacing:.08em}
+
+/* ===== SHOWS ===== */
+.shows{background:var(--paper);padding:100px 0 100px;position:relative}
+.shows-inner{max-width:760px;margin:0 auto;padding:0 40px}
+.gig-grid{margin-top:36px}
+.gig{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(26,20,16,.11)}
+.gig:first-child{border-top:1px solid rgba(26,20,16,.11)}
+.gig-venue{font-weight:700;font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--ink)}
+.gig-detail{font-style:italic;font-size:13px;color:rgba(26,20,16,.45);letter-spacing:.06em}
+.gig.upcoming .gig-venue{color:rgba(26,20,16,.35)}
+.gig.upcoming .gig-detail{font-style:italic;color:rgba(26,20,16,.28)}
+
+/* ===== CONTACT ===== */
+.book{background:var(--ink);color:var(--cream);padding:90px 24px 80px;position:relative;overflow:hidden}
+.book-bg{position:absolute;inset:0;z-index:0;opacity:.28}
+.book-bg::before{content:'';position:absolute;inset:0;background-image:url('assets/together-port.jpg');background-size:cover;background-position:center 30%;filter:contrast(1.05) saturate(.9) blur(1px)}
+.book-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,20,16,.72) 0%,rgba(26,20,16,.38) 50%,var(--ink) 100%)}
+.matchbook{position:relative;z-index:2;max-width:500px;margin:0 auto;background:var(--wine);color:var(--cream);padding:50px 42px 42px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 4px 0 var(--wine-deep);border:1px solid var(--wine-deep);text-align:center}
+.matchbook::before{content:'';position:absolute;inset:8px;border:1px solid rgba(232,201,122,.36);pointer-events:none}
+.matchbook .strike{position:absolute;bottom:14px;left:14px;right:14px;height:8px;background:repeating-linear-gradient(90deg,#2a0a10 0 6px,var(--wine-deep) 6px 12px);border-radius:1px;opacity:.42}
+.matchbook .pre{color:var(--gold-soft);margin-bottom:14px;font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:700}
+.matchbook h3{font-weight:700;font-style:italic;font-size:clamp(28px,3.6vw,40px);line-height:1;margin-bottom:16px;color:var(--cream)}
+.matchbook h3 .amp{font-style:italic;color:var(--gold-soft);font-weight:400}
+.matchbook .where{font-style:italic;font-size:15px;color:rgba(245,237,224,.75);margin-bottom:26px;line-height:1.45}
+.matchbook .where::after{content:'';display:block;width:50px;height:1px;background:rgba(232,201,122,.48);margin:16px auto 0}
+.matchbook .contact{font-size:14px;letter-spacing:.04em;color:var(--cream);margin-bottom:8px}
+.matchbook .contact strong{font-style:italic;font-weight:700;color:var(--gold-soft);font-size:15px;margin-right:8px}
+.matchbook .contact a{color:var(--cream);text-decoration:none;border-bottom:1px dotted rgba(245,237,224,.42)}
+.matchbook .ig{margin-top:20px;font-style:italic;font-size:17px;color:var(--gold-soft);letter-spacing:.04em}
+.footer-credit{position:relative;z-index:2;text-align:center;margin-top:40px;font-style:italic;font-size:11px;color:rgba(232,201,122,.48);letter-spacing:.16em}
+.footer-credit::before{content:'';display:block;width:34px;height:1px;background:rgba(232,201,122,.38);margin:0 auto 12px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:920px){
+  nav{padding:10px 20px}
+  .nlinks{display:none}
+  .tt-stage{grid-template-columns:1fr}
+  .vinyl-shelf{flex-direction:row;justify-content:center;flex-wrap:wrap}
+  .vinyl-card{width:140px;height:140px}
+  .tt-unit{max-width:320px}
+  .profile-plate{height:52vh;min-height:360px}
+}
+@media(max-width:560px){
+  .hero-name{font-size:clamp(40px,13vw,72px)}
+  .hero-meta{flex-direction:column;gap:12px}
+  .profile-name{font-size:46px}
+  .matchbook{padding:36px 26px 32px}
+  #spotlightWrap{display:none}
+  .vinyl-card{width:110px;height:110px}
+}
+</style>
+</head>
+<body>
+
+<!-- SPOTLIGHT INTRO -->
+<div id="spotlightWrap">
+  <div id="spotlightRing"></div>
+  <div class="curtain-text" id="curtainText">
+    <div class="c-pre">Jazz. Soul. London.</div>
+    <div class="c-title">Buster<span class="c-amp">&amp;</span>Tallulah</div>
+    <div class="c-scroll">Scroll<span class="c-line"></span></div>
+  </div>
+</div>
+
+<div class="progress" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav id="nav">
+  <a href="#" class="brand">
+    <span class="nm">Buster</span>
+    <span class="amp italic">&amp;</span>
+    <span class="nm">Tallulah</span>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#duo" data-target="duo">Artists</a></li>
+    <li><a href="#record" data-target="record">Songs</a></li>
+    <li><a href="#live" data-target="live">Shows</a></li>
+    <li><a href="#book" data-target="book">Contact</a></li>
+  </ul>
+  <a href="#record" class="nticket">Listen</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" data-tone="dark">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-grade"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content" id="heroContent">
+    <div class="hero-eyebrow">Jazz. Soul. London.</div>
+    <div class="hero-name">Buster<span class="amp">&amp;</span>Tallulah</div>
+    <div class="hero-deco">
+      <span class="line"></span><span class="diamond"></span><span class="line"></span>
+    </div>
+    <div class="hero-meta">
+      <div class="item"><strong>Recorded at</strong>Yellow Door Studios</div>
+      <div class="item"><strong>Produced by</strong>Sam Grade</div>
+      <div class="item"><strong>Out</strong>2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section class="profiles" id="duo" data-tone="dark">
+  <div class="profiles-grid">
+    <div class="profile-plate reveal">
+      <div class="img" style="background-image:url('assets/buster-live.jpg');background-position:center 30%;filter:contrast(1.08)"></div>
+      <div class="grade"></div>
+      <div class="profile-info">
+        <div class="profile-name">Buster</div>
+        <div class="profile-role">Vocals &middot; Piano &middot; Writes the Songs</div>
+      </div>
+    </div>
+    <div class="profile-plate reveal d1">
+      <div class="img" style="background-image:url('assets/tallulah-live.jpg');background-position:center 28%;filter:contrast(1.08)"></div>
+      <div class="grade"></div>
+      <div class="profile-info">
+        <div class="profile-name">Tallulah</div>
+        <div class="profile-role">Vocals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TURNTABLE / SONGS -->
+<section class="turntable-section" id="record" data-tone="dark">
+  <div class="tt-inner">
+    <div class="tt-stage reveal d1">
+
+      <!-- VINYL SHELF -->
+      <div class="vinyl-shelf" id="vinylShelf">
+        <!-- Song 1 -->
+        <div class="vinyl-card" id="vinyl-0" draggable="true" data-song="0">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg0" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg0)"/>
+            <!-- Grooves -->
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <!-- Label -->
+            <circle cx="100" cy="100" r="34" fill="#8B2F3E"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="93" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Little</text>
+            <text x="100" y="104" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Lady</text>
+            <text x="100" y="116" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <!-- Shine -->
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+        </div>
+
+        <!-- Song 2 -->
+        <div class="vinyl-card" id="vinyl-1" draggable="true" data-song="1">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg1)"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#6B1D2A"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="90" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Carry</text>
+            <text x="100" y="101" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Me</text>
+            <text x="100" y="112" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Home</text>
+            <text x="100" y="122" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+        </div>
+
+        <!-- Song 3 -->
+        <div class="vinyl-card" id="vinyl-2" draggable="true" data-song="2">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="vg2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#161010"/>
+                <stop offset="45%" stop-color="#0a0606"/>
+                <stop offset="100%" stop-color="#050202"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#vg2)"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#4a1019"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+            <text x="100" y="91" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">My</text>
+            <text x="100" y="103" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Devotion</text>
+            <text x="100" y="115" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- TURNTABLE -->
+      <div class="tt-platter-wrap">
+        <div class="tt-unit" id="ttUnit">
+          <div class="tt-body"></div>
+
+          <div class="tt-platter" id="ttPlatter">
+            <div class="tt-mat" id="ttMat">
+              <div class="tt-mat-label" id="matLabel"></div>
+            </div>
+            <div class="vinyl-on-platter" id="vinylOnPlatter"></div>
+            <div class="tt-spindle"></div>
+            <div class="tt-dropzone" id="ttDropzone"></div>
+          </div>
+
+          <!-- Tonearm -->
+          <div class="tt-tonearm" id="tonearm">
+            <svg viewBox="0 0 120 340" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="brassA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E8C97A"/>
+                  <stop offset="50%" stop-color="#C4983A"/>
+                  <stop offset="100%" stop-color="#8a6822"/>
+                </linearGradient>
+                <linearGradient id="brassB" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#8a6822"/>
+                  <stop offset="50%" stop-color="#E8C97A"/>
+                  <stop offset="100%" stop-color="#8a6822"/>
+                </linearGradient>
+              </defs>
+              <!-- Pivot -->
+              <circle cx="96" cy="28" r="20" fill="url(#brassA)" stroke="#1A1410" stroke-width="1.5"/>
+              <circle cx="96" cy="28" r="10" fill="#1A1410"/>
+              <circle cx="96" cy="28" r="4" fill="url(#brassA)"/>
+              <!-- Arm shaft -->
+              <rect x="89" y="46" width="12" height="200" rx="3" fill="url(#brassB)" stroke="#1A1410" stroke-width="1"/>
+              <!-- Head shell -->
+              <rect x="84" y="242" width="22" height="70" rx="4" fill="#1A1410"/>
+              <!-- Stylus -->
+              <polygon points="95,325 86,270 104,270" fill="#1A1410"/>
+              <polygon points="95,327 91,296 99,296" fill="#E8C97A"/>
+              <line x1="88" y1="58" x2="88" y2="236" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Now playing display -->
+        <div class="now-playing" id="nowPlaying">
+          <div class="np-track" id="npTrack"></div>
+          <div class="np-sub" id="npSub">Yellow Door Studios &middot; Sam Grade</div>
+        </div>
+        <!-- Usage guide -->
+        <div class="tt-guide" id="ttGuide">
+          <div class="tt-guide-step"><div class="tt-guide-num">01</div><div class="tt-guide-text">Select a record<br>from the shelf</div></div>
+          <div class="tt-guide-div"></div>
+          <div class="tt-guide-step"><div class="tt-guide-num">02</div><div class="tt-guide-text">Needle drops,<br>music plays</div></div>
+          <div class="tt-guide-div"></div>
+          <div class="tt-guide-step"><div class="tt-guide-num">03</div><div class="tt-guide-text">Select another<br>to change track</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="shows" id="live">
+  <div class="shows-inner reveal">
+    <div class="section-label">Live</div>
+    <div class="gig-grid">
+      <div class="gig">
+        <span class="gig-venue">The Troubadour</span>
+        <span class="gig-detail">Old Brompton Road &middot; London &middot; 2025</span>
+      </div>
+      <div class="gig">
+        <span class="gig-venue">The Troubadour</span>
+        <span class="gig-detail">Old Brompton Road &middot; London &middot; 2025</span>
+      </div>
+      <div class="gig upcoming">
+        <span class="gig-venue">Upcoming</span>
+        <span class="gig-detail">To be announced</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="book" id="book" data-tone="dark">
+  <div class="book-bg"></div>
+  <div class="matchbook reveal">
+    <div class="pre">Book them.</div>
+    <h3>Buster<span class="amp"> &amp; </span>Tallulah</h3>
+    <div class="where">Shows. Sessions. Press.</div>
+    <div class="contact"><strong>Bookings</strong><a href="mailto:hello@busterandtallulah.com">hello@busterandtallulah.com</a></div>
+    <div class="contact"><strong>Press</strong><a href="mailto:press@busterandtallulah.com">press@busterandtallulah.com</a></div>
+    <div class="ig">@busterandtallulah</div>
+    <div class="strike"></div>
+  </div>
+  <div class="footer-credit">Recorded at Yellow Door. Produced by Sam Grade. &copy; 2026 Buster &amp; Tallulah</div>
+</section>
+
+<script>
+/* ===== SPOTLIGHT ===== */
+const spotlightWrap = document.getElementById('spotlightWrap');
+const spotlightRing = document.getElementById('spotlightRing');
+const curtainText   = document.getElementById('curtainText');
+const heroContent   = document.getElementById('heroContent');
+const nav           = document.getElementById('nav');
+const progressBar   = document.getElementById('progressBar');
+const progressFill  = document.getElementById('progressFill');
+
+const isMobile = window.innerWidth <= 560;
+
+if (isMobile) {
+  spotlightWrap.style.display = 'none';
+  nav.classList.add('show');
+  progressBar.classList.add('show');
+  heroContent.classList.add('show');
+} else {
+  let spotProgress = 0;
+  const maxSize = Math.max(window.innerWidth, window.innerHeight) * 2.8;
+
+  function onHeroScroll() {
+    const heroEl = document.getElementById('hero');
+    const scrollY = window.scrollY;
+    const heroH  = heroEl.offsetHeight;
+    spotProgress = Math.min(1, scrollY / (heroH * 0.7));
+
+    const size = 58 + spotProgress * (maxSize / (Math.max(window.innerWidth, window.innerHeight) / 100) - 58);
+    const vmin = Math.max(window.innerWidth, window.innerHeight);
+    const pxSize = 0.58 * Math.min(window.innerWidth, window.innerHeight) + spotProgress * (maxSize - 0.58 * Math.min(window.innerWidth, window.innerHeight));
+    spotlightRing.style.width  = pxSize + 'px';
+    spotlightRing.style.height = pxSize + 'px';
+    curtainText.style.opacity  = Math.max(0, 1 - spotProgress * 3.5);
+
+    if (spotProgress > 0.75) {
+      heroContent.classList.add('show');
+      nav.classList.add('show');
+      progressBar.classList.add('show');
+    } else {
+      heroContent.classList.remove('show');
+    }
+    if (spotProgress >= 1) {
+      spotlightWrap.style.visibility = 'hidden';
+    } else {
+      spotlightWrap.style.visibility = 'visible';
+    }
+  }
+  window.addEventListener('scroll', onHeroScroll, { passive: true });
+  onHeroScroll();
+}
+
+/* Progress bar */
+function updateProgress() {
+  const h = document.documentElement;
+  const p = (h.scrollTop || document.body.scrollTop) / ((h.scrollHeight - h.clientHeight) || 1);
+  progressFill.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+/* Nav tone */
+const sections    = ['hero','duo','record','live','book'];
+const sectionEls  = sections.map(id => document.getElementById(id));
+const sectionTones = sectionEls.map(el => el && el.dataset.tone === 'dark' ? 'dark' : 'light');
+
+function onScroll() {
+  const y = window.scrollY + 80;
+  let ai = 0;
+  for (let i = 0; i < sectionEls.length; i++) {
+    if (sectionEls[i] && sectionEls[i].offsetTop <= y) ai = i;
+  }
+  const tone = sectionTones[ai];
+  nav.classList.toggle('dark', tone === 'dark');
+  nav.classList.toggle('on', tone === 'light' && window.scrollY > 40);
+  const aid = sections[ai];
+  document.querySelectorAll('.nlinks a').forEach(a => a.classList.toggle('active', a.dataset.target === aid));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* Scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+}, { rootMargin: '0px 0px -5% 0px', threshold: .02 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1) {
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 10, behavior: 'smooth' }); }
+    }
+  });
+});
+
+/* ===== TURNTABLE INTERACTION ===== */
+const songs = [
+  { title: 'Little Lady',   file: 'assets/little-lady.mp3',    label: '#8B2F3E' },
+  { title: 'Carry Me Home', file: 'assets/carry-me-home.mp3',  label: '#6B1D2A' },
+  { title: 'My Devotion',   file: 'assets/my-devotion.mp3',    label: '#4a1019' },
+];
+
+let loadedSong   = null;
+let isPlaying    = false;
+let audioEl      = null;
+const tonearm    = document.getElementById('tonearm');
+const ttDropzone = document.getElementById('ttDropzone');
+const vinylOnPlatter = document.getElementById('vinylOnPlatter');
+const matLabel   = document.getElementById('matLabel');
+const npTrack    = document.getElementById('npTrack');
+const npSub      = document.getElementById('npSub');
+const ttGuide    = document.getElementById('ttGuide');
+
+function buildVinylSVG(songIdx) {
+  const c = songs[songIdx].label;
+  const words = songs[songIdx].title.split(' ');
+  const lines = words.length <= 2 ? words : [words[0], words.slice(1).join(' ')];
+  const startY = 100 - (lines.length - 1) * 6.5;
+  let textEls = lines.map((w, i) =>
+    `<text x="100" y="${startY + i * 13}" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">${w}</text>`
+  ).join('');
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs><radialGradient id="pvg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#161010"/><stop offset="45%" stop-color="#0a0606"/><stop offset="100%" stop-color="#050202"/></radialGradient></defs>
+    <circle cx="100" cy="100" r="100" fill="url(#pvg)"/>
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".8"/>
+    <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.6" opacity=".7"/>
+    <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".7"/>
+    <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.6" opacity=".6"/>
+    <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".6"/>
+    <circle cx="100" cy="100" r="34" fill="${c}"/>
+    <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+    <circle cx="100" cy="100" r="5" fill="#1A1410"/>
+    ${textEls}
+    <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
+  </svg>`;
+}
+
+function setNowPlaying(songIdx) {
+  npTrack.textContent = songs[songIdx].title;
+  npTrack.classList.add('show');
+  npSub.classList.add('show');
+  ttGuide.classList.add('hidden');
+}
+
+function clearNowPlaying() {
+  npTrack.classList.remove('show');
+  npSub.classList.remove('show');
+  ttGuide.classList.remove('hidden');
+}
+
+function stopAudio() {
+  if (audioEl) { audioEl.pause(); audioEl.currentTime = 0; }
+  isPlaying = false;
+  vinylOnPlatter.classList.remove('playing');
+}
+
+function startAudio(songIdx) {
+  stopAudio();
+  audioEl = new Audio(songs[songIdx].file);
+  audioEl.loop = true;
+  audioEl.play().catch(() => {}); // graceful if file missing
+  isPlaying = true;
+  vinylOnPlatter.classList.add('playing');
+}
+
+function loadRecord(songIdx) {
+  loadedSong = songIdx;
+  stopAudio();
+  vinylOnPlatter.innerHTML = buildVinylSVG(songIdx);
+  vinylOnPlatter.classList.add('loaded');
+  vinylOnPlatter.classList.remove('playing');
+  matLabel.style.display = 'none';
+  tonearm.classList.remove('on-record');
+  clearNowPlaying();
+}
+
+/* ===== DRAG & DROP - Vinyl onto platter ===== */
+document.querySelectorAll('.vinyl-card').forEach(card => {
+  card.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('songIdx', card.dataset.song);
+    card.classList.add('dragging');
+  });
+  card.addEventListener('dragend', () => card.classList.remove('dragging'));
+});
+
+const ttPlatter = document.getElementById('ttPlatter');
+
+ttPlatter.addEventListener('dragover', e => {
+  e.preventDefault();
+  ttDropzone.classList.add('over');
+});
+ttPlatter.addEventListener('dragleave', () => ttDropzone.classList.remove('over'));
+ttPlatter.addEventListener('drop', e => {
+  e.preventDefault();
+  ttDropzone.classList.remove('over');
+  const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
+  loadRecord(idx);
+  setTimeout(() => {
+    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.classList.add('on-record');
+    startAudio(idx);
+    setNowPlaying(idx);
+  }, 300);
+});
+
+/* Click to select vinyl card - auto-plays */
+document.querySelectorAll('.vinyl-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const idx = parseInt(card.dataset.song, 10);
+    loadRecord(idx);
+    setTimeout(() => {
+      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.classList.add('on-record');
+      startAudio(idx);
+      setNowPlaying(idx);
+    }, 300);
+  });
+});
+
+/* ===== TONEARM INTERACTION ===== */
+let armDragging = false;
+let armStartX, armStartY, armStartAngle;
+const pivotPercent = { x: 0.82, y: 0.12 }; // matches SVG transform-origin
+
+function getTonearmPivot() {
+  const rect = tonearm.getBoundingClientRect();
+  return {
+    x: rect.left + rect.width * pivotPercent.x,
+    y: rect.top  + rect.height * pivotPercent.y,
+  };
+}
+
+function getAngle(pivot, x, y) {
+  return Math.atan2(y - pivot.y, x - pivot.x) * 180 / Math.PI;
+}
+
+function clampArm(angle) {
+  return Math.min(5, Math.max(-42, angle));
+}
+
+function checkArmOnRecord(angle) {
+  // Arm "on record" roughly when angle between -15 and 5 deg
+  return angle > -18 && angle < 5;
+}
+
+tonearm.addEventListener('mousedown', startArmDrag);
+tonearm.addEventListener('touchstart', e => { e.preventDefault(); startArmDrag(e.touches[0]); }, { passive: false });
+
+function startArmDrag(e) {
+  armDragging = true;
+  tonearm.classList.add('dragging-arm');
+  const pivot = getTonearmPivot();
+  armStartAngle = getAngle(pivot, e.clientX, e.clientY);
+  // get current rotation
+  const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
+  armStartAngle -= m ? parseFloat(m[1]) : -25;
+}
+
+document.addEventListener('mousemove', moveArm);
+document.addEventListener('touchmove', e => { if (armDragging) moveArm(e.touches[0]); }, { passive: true });
+
+function moveArm(e) {
+  if (!armDragging) return;
+  const pivot = getTonearmPivot();
+  const angle = getAngle(pivot, e.clientX, e.clientY) - armStartAngle;
+  const clamped = clampArm(angle);
+  tonearm.style.transform = `rotate(${clamped}deg)`;
+
+  if (loadedSong !== null && checkArmOnRecord(clamped)) {
+    if (!isPlaying) {
+      tonearm.classList.add('on-record');
+      startAudio(loadedSong);
+      setNowPlaying(loadedSong);
+    }
+  } else {
+    if (isPlaying) {
+      stopAudio();
+      tonearm.classList.remove('on-record');
+      if (loadedSong !== null) {
+        clearNowPlaying();
+      }
+    }
+  }
+}
+
+document.addEventListener('mouseup',  endArmDrag);
+document.addEventListener('touchend', endArmDrag);
+
+function endArmDrag() {
+  if (!armDragging) return;
+  armDragging = false;
+  tonearm.classList.remove('dragging-arm');
+  // Snap: if close to on-record zone and record loaded, snap onto it
+  const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
+  const angle = m ? parseFloat(m[1]) : -25;
+  if (loadedSong !== null && checkArmOnRecord(angle)) {
+    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.classList.add('on-record');
+    if (!isPlaying) { startAudio(loadedSong); setNowPlaying(loadedSong); }
+  } else if (!checkArmOnRecord(angle)) {
+    tonearm.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
+    if (!isPlaying) {
+      tonearm.style.transform = 'rotate(-25deg)';
+      tonearm.classList.remove('on-record');
+    }
+    setTimeout(() => tonearm.style.transition = '', 700);
+  }
+}
+</script>
+</body>
+</html>
