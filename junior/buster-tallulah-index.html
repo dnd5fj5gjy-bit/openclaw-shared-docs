@@ -8,16 +8,16 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --paper:#F5EDE0;
-  --gold-soft:#E8C97A;
-  --gold:#C4983A;
-  --gold-deep:#8a6822;
-  --rose:#8B2F3E;
-  --wine:#6B1D2A;
-  --wine-deep:#4a1019;
-  --ink:#1A1410;
-  --ink-soft:#2c2218;
-  --cream:#F5EDE0;
+  --paper:#F4EDE4;
+  --gold-soft:#C4B4A4;
+  --gold:#9E8474;
+  --gold-deep:#6B5445;
+  --rose:#5C4438;
+  --wine:#3D2C22;
+  --wine-deep:#2A1E16;
+  --ink:#1A1210;
+  --ink-soft:#2A1C14;
+  --cream:#F4EDE4;
 }
 html{scroll-behavior:smooth}
 body{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.55;font-size:18px;background:var(--paper);overflow-x:hidden}
@@ -28,21 +28,21 @@ body::after{content:'';position:fixed;inset:-50%;pointer-events:none;z-index:90;
 
 /* Spotlight intro */
 #spotlightWrap{position:fixed;inset:0;z-index:500;pointer-events:none}
-#spotlightRing{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);width:58vmin;height:58vmin;box-shadow:0 0 90px 38px rgba(195,140,52,.09),0 0 0 300vmax rgba(0,0,0,.97)}
+#spotlightRing{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);width:58vmin;height:58vmin;box-shadow:0 0 90px 38px rgba(158,132,116,.09),0 0 0 300vmax rgba(0,0,0,.97)}
 .curtain-text{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
 .c-pre{font-style:italic;font-size:11px;letter-spacing:.44em;text-transform:uppercase;font-weight:700;color:var(--gold-soft);margin-bottom:32px;display:inline-flex;align-items:center;gap:22px}
-.c-pre::before,.c-pre::after{content:'';width:52px;height:1px;background:rgba(232,201,122,.5)}
+.c-pre::before,.c-pre::after{content:'';width:60px;height:2px;background:rgba(196,180,164,.5)}
 .c-title{font-weight:700;font-style:italic;font-size:clamp(56px,12vw,148px);line-height:.9;color:var(--cream);text-shadow:0 2px 50px rgba(0,0,0,.95);letter-spacing:-.01em}
-.c-amp{font-weight:400;color:var(--gold-soft);margin:0 .06em;text-shadow:0 0 40px rgba(232,201,122,.75);font-size:.82em}
+.c-amp{font-weight:400;color:var(--gold-soft);margin:0 .06em;text-shadow:0 0 40px rgba(196,180,164,.75);font-size:.82em}
 .c-scroll{margin-top:56px;font-style:italic;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:rgba(245,237,224,.5);font-weight:700}
-.c-line{display:block;width:1px;height:38px;background:rgba(245,237,224,.38);margin:12px auto 0;animation:cueLine 2.2s ease-in-out infinite;transform-origin:top}
+.c-line{display:block;width:2px;height:38px;background:rgba(245,237,224,.38);margin:12px auto 0;animation:cueLine 2.2s ease-in-out infinite;transform-origin:top}
 @keyframes cueLine{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
 
 /* Nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .35s,padding .3s,border-color .35s,opacity .5s;border-bottom:1px solid transparent;opacity:0}
 nav.show{opacity:1}
 nav.on{background:rgba(245,237,224,.95);border-bottom-color:rgba(26,20,16,.11);backdrop-filter:blur(14px);padding:12px 40px}
-nav.dark{background:rgba(26,20,16,.84);border-bottom-color:rgba(232,201,122,.11);backdrop-filter:blur(14px)}
+nav.dark{background:rgba(26,20,16,.84);border-bottom-color:rgba(196,180,164,.11);backdrop-filter:blur(14px)}
 nav.dark .brand,nav.dark .nlinks a{color:var(--cream)}
 nav.dark .brand .amp{color:var(--gold-soft)}
 .brand{display:flex;align-items:baseline;gap:8px;color:var(--ink);text-decoration:none}
@@ -52,12 +52,12 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .nlinks a{color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;opacity:.58;transition:opacity .2s,color .3s}
 .nlinks a:hover,.nlinks a.active{opacity:1}
 .nticket{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--cream);background:var(--wine);padding:9px 20px;text-decoration:none;border:1px solid var(--wine-deep);position:relative}
-.nticket::after{content:'';position:absolute;inset:3px;border:1px solid rgba(232,201,122,.28);pointer-events:none}
+.nticket::after{content:'';position:absolute;inset:3px;border:2px solid rgba(196,180,164,.3);pointer-events:none}
 .nticket:hover{background:var(--rose)}
 
 /* Section label */
 .section-label{display:inline-flex;align-items:center;gap:16px;font-style:italic;font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:700;color:var(--wine);margin-bottom:28px}
-.section-label::before,.section-label::after{content:'';width:26px;height:1px;background:currentColor}
+.section-label::before,.section-label::after{content:'';width:32px;height:2px;background:currentColor}
 .section-label.on-dark{color:var(--gold-soft)}
 
 /* Reveal */
@@ -78,13 +78,13 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .hero-content{position:relative;z-index:3;color:var(--cream);text-align:center;padding:0 32px;max-width:1100px;opacity:0;transition:opacity 1.4s ease .3s}
 .hero-content.show{opacity:1}
 .hero-eyebrow{font-style:italic;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:28px;display:inline-flex;align-items:center;gap:20px}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:46px;height:1px;background:rgba(232,201,122,.6)}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:56px;height:2px;background:rgba(196,180,164,.6)}
 .hero-name{font-weight:700;font-style:italic;font-size:clamp(52px,10.5vw,132px);line-height:.92;text-shadow:0 2px 40px rgba(0,0,0,.75)}
-.hero-name .amp{font-weight:400;color:var(--gold-soft);margin:0 .04em;display:inline-block;font-size:.88em;text-shadow:0 0 32px rgba(232,201,122,.55)}
+.hero-name .amp{font-weight:400;color:var(--gold-soft);margin:0 .04em;display:inline-block;font-size:.88em;text-shadow:0 0 32px rgba(196,180,164,.55)}
 .hero-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px;color:var(--gold)}
-.hero-deco .line{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-deco .line{height:2px;width:110px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .hero-deco .diamond{width:6px;height:6px;background:var(--gold-soft);transform:rotate(45deg);box-shadow:0 0 10px var(--gold-soft)}
-.hero-meta{margin-top:34px;display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center;padding-top:26px;border-top:1px solid rgba(232,201,122,.2)}
+.hero-meta{margin-top:34px;display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center;padding-top:26px;border-top:2px solid rgba(196,180,164,.25)}
 .hero-meta .item{font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--gold-soft);text-align:center}
 .hero-meta .item strong{display:block;font-style:normal;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,237,224,.48);margin-bottom:4px;font-weight:700}
 
@@ -131,8 +131,8 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   position:absolute;inset:-8%;
   background:radial-gradient(ellipse at 40% 30%,#3a2810 0%,#1a0e08 40%,#0d0705 100%);
   border-radius:18px;
-  box-shadow:0 30px 80px rgba(0,0,0,.8),inset 0 1px 0 rgba(232,201,122,.08);
-  border:1px solid rgba(232,201,122,.1);
+  box-shadow:0 30px 80px rgba(0,0,0,.8),inset 0 1px 0 rgba(196,180,164,.08);
+  border:1px solid rgba(196,180,164,.1);
 }
 
 /* Platter */
@@ -143,7 +143,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   width:76%;height:76%;
   border-radius:50%;
   background:radial-gradient(circle at center,#1a1310 0%,#0d0905 60%,#050202 100%);
-  box-shadow:0 4px 40px rgba(0,0,0,.7),inset 0 0 30px rgba(0,0,0,.5),0 0 0 6px rgba(0,0,0,.4),0 0 0 8px rgba(232,201,122,.06);
+  box-shadow:0 4px 40px rgba(0,0,0,.7),inset 0 0 30px rgba(0,0,0,.5),0 0 0 6px rgba(0,0,0,.4),0 0 0 8px rgba(196,180,164,.06);
 }
 
 /* Drop zone ring */
@@ -152,11 +152,11 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   transform:translate(-50%,-50%);
   width:76%;height:76%;
   border-radius:50%;
-  border:3px dashed rgba(232,201,122,.18);
+  border:3px dashed rgba(196,180,164,.18);
   transition:border-color .3s,box-shadow .3s;
   pointer-events:none;
 }
-.tt-dropzone.over{border-color:rgba(232,201,122,.6);box-shadow:0 0 30px rgba(232,201,122,.15)}
+.tt-dropzone.over{border-color:rgba(196,180,164,.6);box-shadow:0 0 30px rgba(196,180,164,.15)}
 
 /* Platter mat */
 .tt-mat{
@@ -167,8 +167,8 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   background:radial-gradient(circle at center,#2a1a12 0%,#1a0f09 60%,#110a06 100%);
   display:flex;align-items:center;justify-content:center;
 }
-.tt-mat-label{font-style:italic;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,201,122,.22);text-align:center;line-height:1.6;padding:12px}
-.tt-spindle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#1A1410;box-shadow:0 0 0 4px rgba(232,201,122,.3),0 0 12px rgba(0,0,0,.8);z-index:10}
+.tt-mat-label{font-style:italic;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(196,180,164,.22);text-align:center;line-height:1.6;padding:12px}
+.tt-spindle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#1A1410;box-shadow:0 0 0 4px rgba(196,180,164,.3),0 0 12px rgba(0,0,0,.8);z-index:10}
 
 /* Vinyl on platter */
 .vinyl-on-platter{
@@ -225,8 +225,8 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .shows{background:var(--paper);padding:100px 0 100px;position:relative}
 .shows-inner{max-width:760px;margin:0 auto;padding:0 40px}
 .gig-grid{margin-top:36px}
-.gig{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(26,20,16,.11)}
-.gig:first-child{border-top:1px solid rgba(26,20,16,.11)}
+.gig{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;border-bottom:2px solid rgba(26,20,16,.14)}
+.gig:first-child{border-top:2px solid rgba(26,20,16,.14)}
 .gig-venue{font-weight:700;font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--ink)}
 .gig-detail{font-style:italic;font-size:13px;color:rgba(26,20,16,.45);letter-spacing:.06em}
 .gig.upcoming .gig-venue{color:rgba(26,20,16,.35)}
@@ -238,19 +238,19 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .book-bg::before{content:'';position:absolute;inset:0;background-image:url('assets/together-port.jpg');background-size:cover;background-position:center 30%;filter:contrast(1.05) saturate(.9) blur(1px)}
 .book-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,20,16,.72) 0%,rgba(26,20,16,.38) 50%,var(--ink) 100%)}
 .matchbook{position:relative;z-index:2;max-width:500px;margin:0 auto;background:var(--wine);color:var(--cream);padding:50px 42px 42px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 4px 0 var(--wine-deep);border:1px solid var(--wine-deep);text-align:center}
-.matchbook::before{content:'';position:absolute;inset:8px;border:1px solid rgba(232,201,122,.36);pointer-events:none}
+.matchbook::before{content:'';position:absolute;inset:8px;border:2px solid rgba(196,180,164,.36);pointer-events:none}
 .matchbook .strike{position:absolute;bottom:14px;left:14px;right:14px;height:8px;background:repeating-linear-gradient(90deg,#2a0a10 0 6px,var(--wine-deep) 6px 12px);border-radius:1px;opacity:.42}
 .matchbook .pre{color:var(--gold-soft);margin-bottom:14px;font-style:italic;font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:700}
 .matchbook h3{font-weight:700;font-style:italic;font-size:clamp(28px,3.6vw,40px);line-height:1;margin-bottom:16px;color:var(--cream)}
 .matchbook h3 .amp{font-style:italic;color:var(--gold-soft);font-weight:400}
 .matchbook .where{font-style:italic;font-size:15px;color:rgba(245,237,224,.75);margin-bottom:26px;line-height:1.45}
-.matchbook .where::after{content:'';display:block;width:50px;height:1px;background:rgba(232,201,122,.48);margin:16px auto 0}
+.matchbook .where::after{content:'';display:block;width:50px;height:2px;background:rgba(196,180,164,.48);margin:16px auto 0}
 .matchbook .contact{font-size:14px;letter-spacing:.04em;color:var(--cream);margin-bottom:8px}
 .matchbook .contact strong{font-style:italic;font-weight:700;color:var(--gold-soft);font-size:15px;margin-right:8px}
 .matchbook .contact a{color:var(--cream);text-decoration:none;border-bottom:1px dotted rgba(245,237,224,.42)}
 .matchbook .ig{margin-top:20px;font-style:italic;font-size:17px;color:var(--gold-soft);letter-spacing:.04em}
-.footer-credit{position:relative;z-index:2;text-align:center;margin-top:40px;font-style:italic;font-size:11px;color:rgba(232,201,122,.48);letter-spacing:.16em}
-.footer-credit::before{content:'';display:block;width:34px;height:1px;background:rgba(232,201,122,.38);margin:0 auto 12px}
+.footer-credit{position:relative;z-index:2;text-align:center;margin-top:40px;font-style:italic;font-size:11px;color:rgba(196,180,164,.48);letter-spacing:.16em}
+.footer-credit::before{content:'';display:block;width:40px;height:2px;background:rgba(196,180,164,.38);margin:0 auto 12px}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:920px){
@@ -361,18 +361,18 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             </defs>
             <circle cx="100" cy="100" r="100" fill="url(#vg0)"/>
             <!-- Grooves -->
-            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
-            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
-            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="1.2" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".6"/>
             <!-- Label -->
-            <circle cx="100" cy="100" r="34" fill="#8B2F3E"/>
-            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="34" fill="#5C4438"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(196,180,164,.3)" stroke-width="1"/>
             <circle cx="100" cy="100" r="5" fill="#1A1410"/>
-            <text x="100" y="93" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Little</text>
-            <text x="100" y="104" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Lady</text>
-            <text x="100" y="116" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <text x="100" y="93" text-anchor="middle" fill="#C4B4A4" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Little</text>
+            <text x="100" y="104" text-anchor="middle" fill="#C4B4A4" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing="1">Lady</text>
+            <text x="100" y="116" text-anchor="middle" fill="rgba(196,180,164,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <!-- Shine -->
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
@@ -389,18 +389,18 @@ nav.dark .brand .amp{color:var(--gold-soft)}
               </radialGradient>
             </defs>
             <circle cx="100" cy="100" r="100" fill="url(#vg1)"/>
-            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
-            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
-            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
-            <circle cx="100" cy="100" r="34" fill="#6B1D2A"/>
-            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="1.2" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#3D2C22"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(196,180,164,.3)" stroke-width="1"/>
             <circle cx="100" cy="100" r="5" fill="#1A1410"/>
-            <text x="100" y="90" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Carry</text>
-            <text x="100" y="101" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Me</text>
-            <text x="100" y="112" text-anchor="middle" fill="#E8C97A" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Home</text>
-            <text x="100" y="122" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <text x="100" y="90" text-anchor="middle" fill="#C4B4A4" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Carry</text>
+            <text x="100" y="101" text-anchor="middle" fill="#C4B4A4" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Me</text>
+            <text x="100" y="112" text-anchor="middle" fill="#C4B4A4" font-size="7.5" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Home</text>
+            <text x="100" y="122" text-anchor="middle" fill="rgba(196,180,164,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
         </div>
@@ -416,17 +416,17 @@ nav.dark .brand .amp{color:var(--gold-soft)}
               </radialGradient>
             </defs>
             <circle cx="100" cy="100" r="100" fill="url(#vg2)"/>
-            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".8"/>
-            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".7"/>
-            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.5" opacity=".6"/>
-            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.5" opacity=".6"/>
-            <circle cx="100" cy="100" r="34" fill="#4a1019"/>
-            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+            <circle cx="100" cy="100" r="95" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".8"/>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="#181212" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".7"/>
+            <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="1.2" opacity=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="1.2" opacity=".6"/>
+            <circle cx="100" cy="100" r="34" fill="#2A1E16"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(196,180,164,.3)" stroke-width="1"/>
             <circle cx="100" cy="100" r="5" fill="#1A1410"/>
-            <text x="100" y="91" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">My</text>
-            <text x="100" y="103" text-anchor="middle" fill="#E8C97A" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Devotion</text>
-            <text x="100" y="115" text-anchor="middle" fill="rgba(232,201,122,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
+            <text x="100" y="91" text-anchor="middle" fill="#C4B4A4" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">My</text>
+            <text x="100" y="103" text-anchor="middle" fill="#C4B4A4" font-size="8" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">Devotion</text>
+            <text x="100" y="115" text-anchor="middle" fill="rgba(196,180,164,.6)" font-size="6" font-family="Georgia,serif" font-style="italic">B &amp; T</text>
             <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
           </svg>
         </div>
@@ -451,14 +451,14 @@ nav.dark .brand .amp{color:var(--gold-soft)}
             <svg viewBox="0 0 120 340" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="brassA" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#E8C97A"/>
-                  <stop offset="50%" stop-color="#C4983A"/>
-                  <stop offset="100%" stop-color="#8a6822"/>
+                  <stop offset="0%" stop-color="#C4B4A4"/>
+                  <stop offset="50%" stop-color="#9E8474"/>
+                  <stop offset="100%" stop-color="#6B5445"/>
                 </linearGradient>
                 <linearGradient id="brassB" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#8a6822"/>
-                  <stop offset="50%" stop-color="#E8C97A"/>
-                  <stop offset="100%" stop-color="#8a6822"/>
+                  <stop offset="0%" stop-color="#6B5445"/>
+                  <stop offset="50%" stop-color="#C4B4A4"/>
+                  <stop offset="100%" stop-color="#6B5445"/>
                 </linearGradient>
               </defs>
               <!-- Pivot -->
@@ -471,7 +471,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
               <rect x="84" y="242" width="22" height="70" rx="4" fill="#1A1410"/>
               <!-- Stylus -->
               <polygon points="95,325 86,270 104,270" fill="#1A1410"/>
-              <polygon points="95,327 91,296 99,296" fill="#E8C97A"/>
+              <polygon points="95,327 91,296 99,296" fill="#C4B4A4"/>
               <line x1="88" y1="58" x2="88" y2="236" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
             </svg>
           </div>
@@ -630,9 +630,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ===== TURNTABLE INTERACTION ===== */
 const songs = [
-  { title: 'Little Lady',   file: 'assets/little-lady.mp3',    label: '#8B2F3E' },
-  { title: 'Carry Me Home', file: 'assets/carry-me-home.mp3',  label: '#6B1D2A' },
-  { title: 'My Devotion',   file: 'assets/my-devotion.mp3',    label: '#4a1019' },
+  { title: 'Little Lady',   file: 'assets/little-lady.mp3',    label: '#5C4438' },
+  { title: 'Carry Me Home', file: 'assets/carry-me-home.mp3',  label: '#3D2C22' },
+  { title: 'My Devotion',   file: 'assets/my-devotion.mp3',    label: '#2A1E16' },
 ];
 
 let loadedSong   = null;
@@ -652,7 +652,7 @@ function buildVinylSVG(songIdx) {
   const lines = words.length <= 2 ? words : [words[0], words.slice(1).join(' ')];
   const startY = 100 - (lines.length - 1) * 6.5;
   let textEls = lines.map((w, i) =>
-    `<text x="100" y="${startY + i * 13}" text-anchor="middle" fill="#E8C97A" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">${w}</text>`
+    `<text x="100" y="${startY + i * 13}" text-anchor="middle" fill="#C4B4A4" font-size="9" font-family="Georgia,serif" font-style="italic" font-weight="700" letter-spacing=".5">${w}</text>`
   ).join('');
   return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <defs><radialGradient id="pvg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#161010"/><stop offset="45%" stop-color="#0a0606"/><stop offset="100%" stop-color="#050202"/></radialGradient></defs>
@@ -663,7 +663,7 @@ function buildVinylSVG(songIdx) {
     <circle cx="100" cy="100" r="65" fill="none" stroke="#181212" stroke-width="0.6" opacity=".6"/>
     <circle cx="100" cy="100" r="55" fill="none" stroke="#1c1414" stroke-width="0.6" opacity=".6"/>
     <circle cx="100" cy="100" r="34" fill="${c}"/>
-    <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(232,201,122,.3)" stroke-width="1"/>
+    <circle cx="100" cy="100" r="34" fill="none" stroke="rgba(196,180,164,.3)" stroke-width="1"/>
     <circle cx="100" cy="100" r="5" fill="#1A1410"/>
     ${textEls}
     <ellipse cx="70" cy="60" rx="18" ry="10" fill="white" opacity=".04" transform="rotate(-30 70 60)"/>
