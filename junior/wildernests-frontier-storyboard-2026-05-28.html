@@ -384,9 +384,40 @@ body {
 }
 
 /* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Stack 2-col grid to single-column flex */
+  .slide:has(.slide-bg-img) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: unset;
+    column-gap: 0;
+    padding-bottom: 56px;
+  }
+
+  .slide-bg-img {
+    grid-column: unset;
+    grid-row: unset;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+    align-self: unset;
+    border-radius: 3px;
+  }
+
+  /* Lift max-widths so text uses full column */
+  .visual-desc,
+  .vo-block,
+  .sourcing,
+  .act-desc,
+  .intent-text,
+  .note-text { max-width: 100%; }
+}
+
 @media (max-width: 600px) {
-  .slide { padding: 48px 6vw; }
-  .slide-counter { right: 6vw; }
+  .slide { padding: 36px 5vw; }
+  .slide-counter { right: 5vw; bottom: 16px; }
+  .scene-header { gap: 12px; margin-bottom: 20px; }
 }
 </style>
 </head>
