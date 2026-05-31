@@ -254,22 +254,72 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .footer-credit::before{content:'';display:block;width:34px;height:1px;background:rgba(232,201,122,.38);margin:0 auto 12px}
 
 /* ===== RESPONSIVE ===== */
+section[id]{scroll-margin-top:64px}
+
 @media(max-width:920px){
   nav{padding:10px 20px}
   .nlinks{display:none}
-  .tt-stage{grid-template-columns:1fr}
+  .tt-stage{grid-template-columns:1fr;gap:30px}
   .vinyl-shelf{flex-direction:row;justify-content:center;flex-wrap:wrap}
   .vinyl-card{width:140px;height:140px}
-  .tt-unit{max-width:320px}
+  .tt-unit{max-width:340px}
   .profile-plate{height:52vh;min-height:360px}
+  .turntable-section{padding:80px 24px 90px}
+  .tt-header{margin-bottom:50px}
+  .shows{padding:80px 0 80px}
+  .shows-inner{padding:0 28px}
+  .book{padding:80px 20px 70px}
 }
+
+@media(max-width:720px){
+  .profiles-grid{grid-template-columns:1fr}
+  .profile-plate{height:64vh;min-height:380px}
+  .hero{min-height:520px}
+}
+
 @media(max-width:560px){
+  .hero{height:100svh;min-height:480px}
   .hero-name{font-size:clamp(40px,13vw,72px)}
-  .hero-meta{flex-direction:column;gap:12px}
+  .hero-eyebrow{font-size:11px;letter-spacing:.32em;margin-bottom:22px}
+  .hero-eyebrow::before,.hero-eyebrow::after{width:30px}
+  .hero-meta{flex-direction:column;gap:12px;margin-top:28px;padding-top:22px}
+  .hero-deco .line{width:60px}
   .profile-name{font-size:46px}
+  .profile-info{left:24px;right:24px;bottom:28px}
   .matchbook{padding:36px 26px 32px}
   #spotlightWrap{display:none}
-  .vinyl-card{width:110px;height:110px}
+  .vinyl-card{width:108px;height:108px}
+  .vinyl-shelf{gap:14px}
+  .tt-unit{max-width:300px}
+  .tt-tonearm{width:32%}
+  .turntable-section{padding:60px 18px 70px}
+  .tt-header{margin-bottom:36px}
+  .tt-header h2{font-size:clamp(26px,7vw,40px)}
+  .tt-header p{font-size:13px;margin-top:10px}
+  .now-playing{margin-top:24px;min-height:50px}
+  .tt-guide{margin-top:18px}
+  .tt-guide-step{padding:0 12px}
+  .tt-guide-text{font-size:10px;line-height:1.45}
+  .tt-guide-div{height:24px}
+  .shows{padding:70px 0 70px}
+  .shows-inner{padding:0 22px}
+  .gig{flex-direction:column;align-items:flex-start;gap:6px;padding:20px 0}
+  .gig-venue{font-size:20px}
+  .book{padding:70px 18px 60px}
+}
+
+@media(max-width:400px){
+  nav{padding:8px 14px}
+  .nticket{padding:7px 14px;font-size:10px;letter-spacing:.2em}
+  .brand .nm{font-size:11px;letter-spacing:.18em}
+  .brand .amp{font-size:18px}
+  .vinyl-card{width:94px;height:94px}
+  .vinyl-shelf{gap:10px}
+  .tt-guide{flex-wrap:wrap;gap:10px 0}
+  .tt-guide-div{display:none}
+  .tt-guide-step{padding:0 10px;min-width:88px}
+  .hero-name{font-size:44px}
+  .profile-name{font-size:42px}
 }
 </style>
 </head>
@@ -623,7 +673,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const id = a.getAttribute('href');
     if (id.length > 1) {
       const el = document.querySelector(id);
-      if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 10, behavior: 'smooth' }); }
+      if (el) { e.preventDefault(); const navH = window.innerWidth <= 920 ? 54 : 64; window.scrollTo({ top: el.offsetTop - navH, behavior: 'smooth' }); }
     }
   });
 });
