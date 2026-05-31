@@ -101,7 +101,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
 /* ===== TURNTABLE SECTION ===== */
 .turntable-section{background:var(--ink);color:var(--cream);padding:100px 32px 120px;position:relative;overflow:hidden}
-.turntable-section::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=2200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:grayscale(.7) brightness(.25) contrast(1.1);opacity:.4}
+.turntable-section::before{display:none}
 .tt-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
 .tt-header{text-align:center;margin-bottom:70px}
 .tt-header h2{font-weight:700;font-style:italic;font-size:clamp(32px,4.5vw,58px);line-height:1.0;color:var(--cream)}
@@ -120,6 +120,8 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 .vinyl-card:active{cursor:grabbing}
 .vinyl-card.dragging{opacity:0.3;transform:scale(0.9)}
 .vinyl-card.used{opacity:0.2;pointer-events:none}
+.vinyl-card.coming-soon{cursor:default;pointer-events:none;opacity:0.45;position:relative}
+.vinyl-card.coming-soon::after{content:'Coming\ASoon';white-space:pre;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(26,18,16,.55);color:var(--gold-soft);font-size:10px;font-family:Georgia,serif;font-style:italic;font-weight:700;letter-spacing:.14em;text-align:center;line-height:1.4;padding:0 8px}
 .vinyl-card svg{width:100%;height:100%;display:block;border-radius:50%}
 
 /* Turntable platter */
@@ -191,12 +193,12 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   width:28%;
   z-index:20;
   transform-origin:82% 12%;
-  transform:rotate(-8deg);
+  transform:rotate(-22deg);
   cursor:grab;
   transition:transform .6s cubic-bezier(.34,1.56,.64,1);
 }
 .tt-tonearm:active{cursor:grabbing}
-.tt-tonearm.on-record{transform:rotate(-25deg)}
+.tt-tonearm.on-record{transform:rotate(15deg)}
 .tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
 .tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
 
@@ -210,11 +212,14 @@ nav.dark .brand .amp{color:var(--gold-soft)}
 
 /* Now playing */
 .now-playing{
-  margin-top:32px;
+  margin-top:52px;
   text-align:center;
   min-height:60px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
 }
+.np-progress-wrap{width:220px;height:3px;background:rgba(196,180,164,.18);margin-top:4px;opacity:0;transition:opacity .4s .2s;border-radius:2px;overflow:hidden}
+.np-progress-wrap.show{opacity:1}
+.np-progress-bar{height:100%;background:var(--gold);width:0%;transition:width .25s linear;border-radius:2px}
 .np-track{font-weight:700;font-style:italic;font-size:clamp(18px,2.2vw,26px);color:var(--cream);opacity:0;transition:opacity .4s}
 .np-track.show{opacity:1}
 .np-sub{font-style:italic;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);opacity:0;transition:opacity .4s .1s}
@@ -379,7 +384,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
         </div>
 
         <!-- Song 2 -->
-        <div class="vinyl-card" id="vinyl-1" draggable="true" data-song="1">
+        <div class="vinyl-card coming-soon" id="vinyl-1" draggable="false" data-song="1">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="vg1" cx="50%" cy="50%" r="50%">
@@ -406,7 +411,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
         </div>
 
         <!-- Song 3 -->
-        <div class="vinyl-card" id="vinyl-2" draggable="true" data-song="2">
+        <div class="vinyl-card coming-soon" id="vinyl-2" draggable="false" data-song="2">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="vg2" cx="50%" cy="50%" r="50%">
@@ -481,6 +486,7 @@ nav.dark .brand .amp{color:var(--gold-soft)}
         <div class="now-playing" id="nowPlaying">
           <div class="np-track" id="npTrack"></div>
           <div class="np-sub" id="npSub">Yellow Door Studios &middot; Sam Grade</div>
+          <div class="np-progress-wrap" id="npProgressWrap"><div class="np-progress-bar" id="npProgressBar"></div></div>
         </div>
         <!-- Usage guide -->
         <div class="tt-guide" id="ttGuide">
@@ -551,9 +557,11 @@ if (isMobile) {
   heroContent.classList.add('show');
 } else {
   let spotProgress = 0;
+  let curtainDone = false;
   const maxSize = Math.max(window.innerWidth, window.innerHeight) * 2.8;
 
   function onHeroScroll() {
+    if (curtainDone) return;
     const heroEl = document.getElementById('hero');
     const scrollY = window.scrollY;
     const heroH  = heroEl.offsetHeight;
@@ -574,9 +582,8 @@ if (isMobile) {
       heroContent.classList.remove('show');
     }
     if (spotProgress >= 1) {
-      spotlightWrap.style.visibility = 'hidden';
-    } else {
-      spotlightWrap.style.visibility = 'visible';
+      curtainDone = true;
+      spotlightWrap.style.display = 'none';
     }
   }
   window.addEventListener('scroll', onHeroScroll, { passive: true });
@@ -645,6 +652,8 @@ const matLabel   = document.getElementById('matLabel');
 const npTrack    = document.getElementById('npTrack');
 const npSub      = document.getElementById('npSub');
 const ttGuide    = document.getElementById('ttGuide');
+const npProgressWrap = document.getElementById('npProgressWrap');
+const npProgressBar  = document.getElementById('npProgressBar');
 
 function buildVinylSVG(songIdx) {
   const c = songs[songIdx].label;
@@ -674,12 +683,15 @@ function setNowPlaying(songIdx) {
   npTrack.textContent = songs[songIdx].title;
   npTrack.classList.add('show');
   npSub.classList.add('show');
+  npProgressWrap.classList.add('show');
   ttGuide.classList.add('hidden');
 }
 
 function clearNowPlaying() {
   npTrack.classList.remove('show');
   npSub.classList.remove('show');
+  npProgressWrap.classList.remove('show');
+  npProgressBar.style.width = '0%';
   ttGuide.classList.remove('hidden');
 }
 
@@ -693,7 +705,12 @@ function startAudio(songIdx) {
   stopAudio();
   audioEl = new Audio(songs[songIdx].file);
   audioEl.loop = true;
-  audioEl.play().catch(() => {}); // graceful if file missing
+  audioEl.addEventListener('timeupdate', () => {
+    if (audioEl.duration) {
+      npProgressBar.style.width = (audioEl.currentTime / audioEl.duration * 100) + '%';
+    }
+  });
+  audioEl.play().catch(() => {});
   isPlaying = true;
   vinylOnPlatter.classList.add('playing');
 }
@@ -705,6 +722,7 @@ function loadRecord(songIdx) {
   vinylOnPlatter.classList.add('loaded');
   vinylOnPlatter.classList.remove('playing');
   matLabel.style.display = 'none';
+  tonearm.style.transform = '';
   tonearm.classList.remove('on-record');
   clearNowPlaying();
 }
@@ -731,7 +749,7 @@ ttPlatter.addEventListener('drop', e => {
   const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
   loadRecord(idx);
   setTimeout(() => {
-    tonearm.style.transform = 'rotate(-25deg)';
+    tonearm.style.transform = 'rotate(15deg)';
     tonearm.classList.add('on-record');
     startAudio(idx);
     setNowPlaying(idx);
@@ -741,6 +759,7 @@ ttPlatter.addEventListener('drop', e => {
 /* Click to select vinyl card - auto-plays */
 document.querySelectorAll('.vinyl-card').forEach(card => {
   card.addEventListener('click', () => {
+    if (card.classList.contains('coming-soon')) return;
     const idx = parseInt(card.dataset.song, 10);
     loadRecord(idx);
     setTimeout(() => {
@@ -770,11 +789,11 @@ function getAngle(pivot, x, y) {
 }
 
 function clampArm(angle) {
-  return Math.min(5, Math.max(-42, angle));
+  return Math.min(22, Math.max(-42, angle));
 }
 
 function checkArmOnRecord(angle) {
-  return angle < -15 && angle > -40;
+  return angle > 5 && angle < 22;
 }
 
 tonearm.addEventListener('mousedown', startArmDrag);
@@ -787,7 +806,7 @@ function startArmDrag(e) {
   armStartAngle = getAngle(pivot, e.clientX, e.clientY);
   // get current rotation
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
-  armStartAngle -= m ? parseFloat(m[1]) : -8;
+  armStartAngle -= m ? parseFloat(m[1]) : -22;
 }
 
 document.addEventListener('mousemove', moveArm);
@@ -826,15 +845,15 @@ function endArmDrag() {
   tonearm.classList.remove('dragging-arm');
   // Snap: if close to on-record zone and record loaded, snap onto it
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
-  const angle = m ? parseFloat(m[1]) : -8;
+  const angle = m ? parseFloat(m[1]) : -22;
   if (loadedSong !== null && checkArmOnRecord(angle)) {
-    tonearm.style.transform = 'rotate(-25deg)';
+    tonearm.style.transform = 'rotate(15deg)';
     tonearm.classList.add('on-record');
     if (!isPlaying) { startAudio(loadedSong); setNowPlaying(loadedSong); }
   } else if (!checkArmOnRecord(angle)) {
     tonearm.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
     if (!isPlaying) {
-      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.style.transform = 'rotate(-22deg)';
       tonearm.classList.remove('on-record');
     }
     setTimeout(() => tonearm.style.transition = '', 700);
