@@ -191,12 +191,12 @@ nav.dark .brand .amp{color:var(--gold-soft)}
   width:28%;
   z-index:20;
   transform-origin:82% 12%;
-  transform:rotate(-25deg);
+  transform:rotate(-8deg);
   cursor:grab;
   transition:transform .6s cubic-bezier(.34,1.56,.64,1);
 }
 .tt-tonearm:active{cursor:grabbing}
-.tt-tonearm.on-record{transform:rotate(-8deg)}
+.tt-tonearm.on-record{transform:rotate(-25deg)}
 .tt-tonearm.dragging-arm{transition:none;cursor:grabbing}
 .tt-tonearm svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.7))}
 
@@ -731,7 +731,7 @@ ttPlatter.addEventListener('drop', e => {
   const idx = parseInt(e.dataTransfer.getData('songIdx'), 10);
   loadRecord(idx);
   setTimeout(() => {
-    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.style.transform = 'rotate(-25deg)';
     tonearm.classList.add('on-record');
     startAudio(idx);
     setNowPlaying(idx);
@@ -744,7 +744,7 @@ document.querySelectorAll('.vinyl-card').forEach(card => {
     const idx = parseInt(card.dataset.song, 10);
     loadRecord(idx);
     setTimeout(() => {
-      tonearm.style.transform = 'rotate(-8deg)';
+      tonearm.style.transform = 'rotate(-25deg)';
       tonearm.classList.add('on-record');
       startAudio(idx);
       setNowPlaying(idx);
@@ -774,8 +774,7 @@ function clampArm(angle) {
 }
 
 function checkArmOnRecord(angle) {
-  // Arm "on record" roughly when angle between -15 and 5 deg
-  return angle > -18 && angle < 5;
+  return angle < -15 && angle > -40;
 }
 
 tonearm.addEventListener('mousedown', startArmDrag);
@@ -788,7 +787,7 @@ function startArmDrag(e) {
   armStartAngle = getAngle(pivot, e.clientX, e.clientY);
   // get current rotation
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
-  armStartAngle -= m ? parseFloat(m[1]) : -25;
+  armStartAngle -= m ? parseFloat(m[1]) : -8;
 }
 
 document.addEventListener('mousemove', moveArm);
@@ -827,15 +826,15 @@ function endArmDrag() {
   tonearm.classList.remove('dragging-arm');
   // Snap: if close to on-record zone and record loaded, snap onto it
   const m = tonearm.style.transform.match(/rotate\(([^)]+)deg\)/);
-  const angle = m ? parseFloat(m[1]) : -25;
+  const angle = m ? parseFloat(m[1]) : -8;
   if (loadedSong !== null && checkArmOnRecord(angle)) {
-    tonearm.style.transform = 'rotate(-8deg)';
+    tonearm.style.transform = 'rotate(-25deg)';
     tonearm.classList.add('on-record');
     if (!isPlaying) { startAudio(loadedSong); setNowPlaying(loadedSong); }
   } else if (!checkArmOnRecord(angle)) {
     tonearm.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
     if (!isPlaying) {
-      tonearm.style.transform = 'rotate(-25deg)';
+      tonearm.style.transform = 'rotate(-8deg)';
       tonearm.classList.remove('on-record');
     }
     setTimeout(() => tonearm.style.transition = '', 700);
