@@ -11,198 +11,145 @@
   :root{
     --navy:#0B1F2A; --navy2:#112D3C; --gold:#C9A24B; --gold-l:#E4C879;
     --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(11,31,42,.12);
-    --burgundy:#7A2A20;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:'Outfit',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
+  .wrap{max-width:740px;margin:0 auto;padding:0 18px 70px}
 
-  .nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 -18px 0;padding:9px 14px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
-  .nav a{display:inline-block;color:var(--navy);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 10px;margin-right:4px;border-radius:30px;border:1px solid transparent;transition:all .15s}
-  .nav a:hover,.nav a:focus{background:var(--navy);color:var(--gold-l)}
+  .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 24px;padding:30px 24px 24px;border-bottom:3px solid var(--gold)}
+  .hero .eyebrow{color:var(--gold-l);font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(24px,5vw,30px);font-weight:400;line-height:1.15;margin:8px 0 4px;color:#fff}
+  .hero p{color:#cdd9e0;font-size:14px;line-height:1.5}
 
-  .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 24px;padding:34px 24px 28px;border-bottom:3px solid var(--gold)}
-  .hero .eyebrow{color:var(--gold-l);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
-  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(26px,5vw,34px);font-weight:400;line-height:1.12;margin:10px 0 6px;color:#fff}
-  .hero p{color:#cdd9e0;font-size:14.5px;max-width:60ch;line-height:1.55}
-  .hero .meta{margin-top:14px;display:inline-block;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.5);color:var(--gold-l);font-weight:600;font-size:12px;padding:5px 11px;border-radius:30px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
+  .kicker{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  h2{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:6px}
+  h2 .small{display:block;font-family:'Outfit',sans-serif;font-size:12px;color:#5c6770;letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
 
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;box-shadow:0 1px 0 rgba(11,31,42,.03);scroll-margin-top:64px}
-  .kicker{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
-  h2{font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:6px}
+  .open-text{font-size:16px;line-height:1.7;color:#27343c;background:#f4efe2;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 16px;margin:4px 0 0}
+  .open-text em{font-style:normal;font-weight:600;color:var(--navy)}
 
-  .beat-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-  .beat-head .n{flex:0 0 36px;height:36px;line-height:36px;text-align:center;background:var(--navy);color:var(--gold-l);font-family:'DM Serif Display',serif;font-size:17px;border-radius:50%;font-weight:400}
-  .beat-head .t{flex:1}
-  .beat-head .t .step-kicker{color:var(--gold);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:2px}
-  .beat-head .t h3{font-family:'DM Serif Display',serif;font-size:18px;font-weight:400;color:var(--navy);line-height:1.2}
+  ul.points{list-style:none;padding:0;margin:8px 0 0}
+  ul.points > li{padding:11px 0 11px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15.5px;line-height:1.55;color:#27343c}
+  ul.points > li:last-child{border-bottom:none}
+  ul.points > li:before{content:counter(li-num);counter-increment:li-num;position:absolute;left:0;top:11px;width:20px;height:20px;line-height:20px;text-align:center;background:var(--navy);color:var(--gold-l);font-family:'DM Serif Display',serif;font-size:12px;border-radius:50%}
+  ul.points{counter-reset:li-num}
+  ul.points > li b{color:var(--navy);font-weight:600}
+  ul.points > li .detail{display:block;color:#5c6770;font-size:13.5px;margin-top:3px;line-height:1.5}
 
-  .why{font-size:14px;color:#5c6770;font-style:italic;margin-bottom:10px;padding-left:48px}
+  .phase{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);align-items:start}
+  .phase:last-child{border-bottom:none}
+  .phase .lab{font-family:'DM Serif Display',serif;color:var(--gold);font-size:15px;line-height:1.2}
+  .phase .lab small{display:block;color:#5c6770;font-family:'Outfit',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:2px}
+  .phase .body{font-size:14.5px;color:#27343c;line-height:1.55}
+  .phase .body b{color:var(--navy)}
 
-  .say-box{background:#f4efe2;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 16px;margin:6px 0 10px;font-size:16px;line-height:1.65;color:#27343c}
-  .say-box .lab{display:block;color:var(--gold);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
-  .say-box em{font-style:normal;font-weight:700;color:var(--navy);background:#fff4d6;padding:0 4px;border-radius:3px}
-  .say-box strong{color:var(--navy);font-weight:600}
+  .close-text{font-size:16px;line-height:1.7;color:#27343c;background:#f4efe2;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 16px;margin:4px 0 0}
 
-  ul.bullets{list-style:none;padding:0;margin:6px 0 0}
-  ul.bullets li{font-size:14.5px;line-height:1.55;color:#2f3d47;padding:6px 0 6px 18px;position:relative;border-bottom:1px dashed var(--line)}
-  ul.bullets li:last-child{border-bottom:none}
-  ul.bullets li:before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-  ul.bullets li b{color:var(--navy)}
-
-  .step{display:flex;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);align-items:flex-start}
-  .step:last-child{border-bottom:none}
-  .step .n{flex:0 0 28px;height:28px;line-height:28px;text-align:center;background:var(--navy);color:var(--gold-l);font-family:'DM Serif Display',serif;font-size:13.5px;border-radius:50%;font-weight:400}
-  .step .body{flex:1}
-  .step .body b{display:block;font-family:'DM Serif Display',serif;font-size:15.5px;color:var(--navy);font-weight:400;line-height:1.25;margin-bottom:3px}
-  .step .body span{display:block;font-size:13.5px;color:#41525c;line-height:1.5}
-
-  .pacer{display:grid;grid-template-columns:auto 1fr auto;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);align-items:center}
+  .pacer{display:grid;grid-template-columns:auto 1fr auto;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);align-items:center}
   .pacer:last-child{border-bottom:none}
-  .pacer .num{font-family:'DM Serif Display',serif;color:var(--navy);font-size:14px;width:22px}
+  .pacer .num{font-family:'DM Serif Display',serif;color:var(--navy);font-size:14px;width:20px}
   .pacer .lbl{font-size:14px;color:#2f3d47}
   .pacer .lbl b{color:var(--navy);font-weight:600}
-  .pacer .t{font-family:'DM Serif Display',serif;color:var(--gold);font-size:14px}
+  .pacer .t{font-family:'DM Serif Display',serif;color:var(--gold);font-size:13.5px}
 
   .pill{display:inline-block;background:#ede7d8;color:#7a6326;font-weight:700;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0}
-  .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:22px}
+  .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:18px}
 
   @media (max-width:520px){
-    .hero{padding:30px 20px 26px}
+    .hero{padding:26px 20px 22px}
     .card{padding:18px 18px}
-    .say-box{font-size:15.5px}
-    .why{padding-left:0}
+    .phase{grid-template-columns:1fr}
+    .phase .lab{margin-bottom:2px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <nav class="nav" aria-label="Section nav">
-    <a href="#how">How this works</a>
-    <a href="#open">Open</a>
-    <a href="#act1">Act 1 · Plan</a>
-    <a href="#act2">Act 2 · Start</a>
-    <a href="#act3">Act 3 · Why us</a>
-    <a href="#close">Close</a>
-    <a href="#pace">Pacing</a>
-  </nav>
-
   <header class="hero">
     <div class="eyebrow">Bear Witness × Hodder Faith · GSET</div>
-    <h1>Talking Points — your delivery</h1>
-    <p>Deck is pre-read. Three acts: <em>here's our plan · here's how we start · here's why we can run it well.</em> ~6 minutes total, then Q+A.</p>
-    <div class="meta">Zoom · 2 June 2026 · this afternoon</div>
+    <h1>Talking points — short &amp; simple</h1>
+    <p>Three acts: <em>here's our plan · here's how we start · here's why we can run it well.</em></p>
   </header>
 
-  <!-- HOW THIS WORKS -->
-  <section class="card" id="how">
-    <div class="kicker">How this works</div>
-    <h2>The new shape of your bit</h2>
-    <ul class="bullets">
-      <li><b>They've read the deck.</b> Don't recap it. Don't read slides. Refer when useful — "as you'll have seen..."</li>
-      <li><b>Three-act structure.</b> Plan → Start → Why us. Each act lands cleanly, then onto the next.</li>
-      <li><b>~6 minutes total.</b> Tight enough to land confidently, short enough that they want more in Q+A.</li>
-      <li><b>Hold detail for Q+A.</b> Plenty to say if asked. Don't pre-empt.</li>
+  <!-- OPEN -->
+  <section class="card">
+    <div class="kicker">Open · after Jesse</div>
+    <h2>Quick intro <span class="small">~20 seconds</span></h2>
+    <div class="open-text">"Thanks Jesse. Quick context on me for those I haven't met — I'm Olly, I help with the Marketing and Strategy at BGV. Helping run some campaigns across our brand portfolio. And yeah, I'll be helping lead the day-to-day on the GSET engine."</div>
+    <div class="open-text" style="margin-top:8px">"Since you've all had the deck ahead of time, I won't go through it slide by slide. I'll just talk through the broader strategy, the thinking behind it, and the actionable next steps we'd be tackling first. Plenty of room for questions after."</div>
+  </section>
+
+  <!-- ACT 1 -->
+  <section class="card">
+    <div class="kicker">Act 1 · ~2 minutes</div>
+    <h2>This is our plan</h2>
+    <ul class="points">
+      <li><b>One engine. Six channels. One team.</b><span class="detail">YouTube, short-form, Instagram, Substack, Facebook, and the website. One retainer, one accountable team, one weekly slate.</span></li>
+      <li><b>The book has done the audience-finding work.</b><span class="detail">300k UK copies in 8 months. #1 Sunday Times debut. 4.8★ across 1,400+ reviews. The question isn't "how do we promote this book" — it's how we operate the brand for the long haul.</span></li>
+      <li><b>The strategic gap is the US.</b><span class="detail">US Christian book market is ~50× the size of the UK's, up 40% since COVID, appetite at a generational high. Bear's known in America as an explorer, not yet as a person of faith. That's the year-one job.</span></li>
+      <li><b>Three priorities, in order.</b><span class="detail">1. Close the US gap. 2. Compound the UK through the calendar. 3. Set up international rails (Brazil, Spanish, Portuguese) — foundations this year, scale year two.</span></li>
     </ul>
   </section>
 
-  <!-- OPEN -->
-  <section class="card" id="open">
-    <div class="kicker">Open · ~30 seconds, after Jesse</div>
-    <h2>Who you are, then what you're going to do</h2>
-    <p class="why" style="padding-left:0">Light role intro, then frame the next few minutes. Keep it humble — your work will do the talking.</p>
-    <div class="say-box">
-      <span class="lab">Part 1 · Role (~15s)</span>
-      "Thanks Jesse. Quick context on me for those I haven't met — I'm Olly, I help with the Marketing and Strategy at BGV. Helping run some campaigns across our brand portfolio. And yeah — I'll be helping lead the day-to-day on the GSET engine."
-    </div>
-    <div class="say-box">
-      <span class="lab">Part 2 · Frame the next few minutes (~15s)</span>
-      "Since you've all had the deck ahead of time, I won't walk through it slide by slide. What I'll do instead is talk through the broader strategy and the thinking behind it, and then the actionable next steps — the things we'd be tackling in the first few weeks. I'll keep it to around seven or eight minutes so there's plenty of room for questions after."
-    </div>
+  <!-- ACT 2 -->
+  <section class="card">
+    <div class="kicker">Act 2 · ~3 minutes — your longest</div>
+    <h2>This is how we start <span class="small">Month 1 first steps + how the year unfolds</span></h2>
+
+    <div style="font-family:'DM Serif Display',serif;color:var(--navy);font-size:15.5px;margin:6px 0 4px">Five workstreams in Month 1, in parallel:</div>
+    <ul class="points">
+      <li><b>Start YouTube long-form recording.</b><span class="detail">Two formats every week. <em>Reading episodes</em> — audiobook passages layered with soundscape, ambient audio, atmospherics. <em>Unpacking episodes</em> — theologian gives the passage context, Hebrew roots, historical setting. Theologians filmed in a 3-day batch shoot, twice a year. 52 eps per batch.</span></li>
+      <li><b>Run the short-form testing loop.</b><span class="detail">3–5 clips/platform/week — TikTok, Reels, Shorts. Never cross-posted. Geo-locked UK vs US. Source bank: audiobook stems cut into immersive moments, Bear's existing interviews (Eldredge, Brierley, Metaxas, Cain), licensed visuals where clearable. By end of M1 we know what's winning.</span></li>
+      <li><b>Begin the website rebuild.</b><span class="detail">Geo-routed retail tree (Amazon UK/US, Waterstones, B&amp;N, Bookshop.org, St Andrews), UK/US cover swap, attribution tracker. Build in M1, live end of M2.</span></li>
+      <li><b>Stand up Substack.</b><span class="detail">Standalone GSET account — separate from Bear's. Theologian transcripts edited into essays, reader letters, seasonal series, gated discussion guides. First 4 essays drafted in M1. <em>The only owned email list in the stack — algorithms can't take it away.</em></span></li>
+      <li><b>Stand up Facebook + Instagram + asset audit.</b><span class="detail">Facebook community group up, structured 5-week cohort read-along #1 by eyewitness perspective (Matthew first, then Mark, Luke, John, Acts). Instagram daily — quote cards, audiograms, theologian-of-the-week. Save/share ratio over likes. Asset bank audited and locked.</span></li>
+    </ul>
+
+    <div style="font-family:'DM Serif Display',serif;color:var(--navy);font-size:15.5px;margin:18px 0 4px">How the year unfolds:</div>
+    <div class="phase"><div class="lab">Month 1<small>Onboarding</small></div><div class="body">Build phase. Roster locked, studio booked, asset audit done, Substack drafted, FB+IG up. <b>Engine built and tested by end of month.</b></div></div>
+    <div class="phase"><div class="lab">Month 2<small>Ramp</small></div><div class="body">Theologian batch shoot in the can (52 eps). Website live. YouTube publishes first 4 eps. Short-form turns on at full cadence. Substack weekly. First cohort opens. <b>The visible step-change.</b></div></div>
+    <div class="phase"><div class="lab">Month 3+<small>Steady state</small></div><div class="body">Full deliverable volume — 8 long-forms, 36 short-form, 20 IG, weekly Substack. Monthly reporting locked. <b>First measurable signal on US traction.</b></div></div>
+    <div class="phase"><div class="lab">Month 6+<small>International</small></div><div class="body">Spanish + Portuguese architecture stood up. Brazil-targeted Substack pilot active. US book tour support if confirmed. <b>International growth visible in the dashboard.</b></div></div>
   </section>
 
-  <!-- ACT 1 — THE PLAN -->
-  <section class="card" id="act1">
-    <div class="beat-head">
-      <div class="n">1</div>
-      <div class="t">
-        <span class="step-kicker">Act 1 · ~2 minutes</span>
-        <h3>This is our plan</h3>
-      </div>
-    </div>
-    <p class="why">The strategy, in plain terms. Two halves — the shape and the priorities.</p>
-    <div class="say-box"><span class="lab">1 · The shape of the plan</span>"So the plan we're putting forward is one engine, six channels, and one team running all of it. And the reason the plan is shaped that way is because the book has already done the hard part. 300,000 UK copies in eight months, number one on the Sunday Times debut, 4.8 stars across more than 1,400 Amazon reviews. So the question for us isn't really 'how do we promote this book' anymore. It's how do we operate the brand of the biggest Christian title Hodder Faith has published in a generation, across two countries and the start of an international rollout, while staying true to what the book actually is. That's the job. One team, one weekly content slate, one accountable contact on our side and one on yours."</div>
-    <div class="say-box"><span class="lab">2 · Where the strategic gap sits</span>"The biggest strategic gap, and the biggest opportunity, is the United States. The US Christian book market is roughly fifty times the size of the UK market, it's grown 40% since COVID, and appetite is at a generational high. Bear is universally known in America, but he's known there as an explorer, not yet as a person of faith the way he's known here in the UK. The work of building that has been done in the UK. It hasn't been done in the US yet. So that's the year-one job for the engine."</div>
-    <div class="say-box"><span class="lab">3 · What each channel actually does · walk slowly here</span>"To make the engine concrete, let me walk you through what each channel actually does week by week. YouTube long-form runs two formats every week. The first is what we're calling Reading episodes — eight to twelve minutes long, where we take passages from the audiobook and layer them with editor-added soundscape, ambient audio, and atmospherics. The second is Unpacking episodes — same length, where a theologian sits with the same passage and gives you the context, the Hebrew roots, the historical setting, the scholarship. We'd use the same scholars who fact-checked the book. Short-form runs across TikTok, Reels, and Shorts — three to five clips per platform per week. The source material there is the audiobook stems cut into immersive moments, plus Bear's existing interviews — Eldredge, Brierley, Metaxas, Will Cain — plus licensed visuals where we can clear them. Geo-locked for UK and US separately, and never cross-posted. Substack is the only owned email list in the whole stack, which makes it strategically the most important channel after YouTube. Algorithms can take TikTok or Instagram away tomorrow. They can't take Substack away. We'd run weekly essays edited from the theologian transcripts, reader letters, and seasonal series. Facebook is where the cohort engine runs — structured five-week read-alongs through the book's eyewitness perspectives, starting with Matthew, then Mark, Luke, John, and Acts. Instagram is the daily presence between the bigger moments — quote cards, audiograms, theologian of the week, reader testimony spotlights. And the website is the destination — geo-routed retail links, UK and US cover swaps, and every outbound click tagged by source and geography so we can prove attribution back to retail. Each part feeds the next. A short-form winner becomes a YouTube hook. Reader testimony from Facebook becomes Substack copy. And everything converts on the site."</div>
-    <div class="say-box"><span class="lab">4 · The three priorities, in order</span>"Within all that, we've set three priorities, and we mean the order. The first is closing the US gap. That's the biggest opportunity on the table, and it's time-sensitive, because the further we get from the launch, the harder it is to claim that ground. We've already mapped a collab pipeline of US faith voices we'd want to bring in — Levi Lusko, Kathie Lee Gifford, the Liberty scholar, Jonathan Roumie when his Hodder title lands, and The Shack on its autumn relaunch. The second priority is compounding the UK. The UK is already doing the work, so the job there is sustaining what we have through the calendar — Lent, Easter, Pentecost, the June anniversary, the autumn church push, Advent. The third is setting up international. GSET sells in ten languages already but Brazil sits unmoved, so we'd put Spanish and Portuguese rails in this year as foundations. Scale lands in year two."</div>
-  </section>
-
-  <!-- ACT 2 — HOW WE START -->
-  <section class="card" id="act2">
-    <div class="beat-head">
-      <div class="n">2</div>
-      <div class="t">
-        <span class="step-kicker">Act 2 · ~2 minutes — your longest act</span>
-        <h3>This is how we start executing it</h3>
-      </div>
-    </div>
-    <p class="why">First steps. Make it concrete — five workstreams, all in parallel.</p>
-    <div class="say-box"><span class="lab">Lead in</span>"Month 1 is build and test, not full launch cadence. We stand the engine up while we test what shape of short-form actually moves the audience. Five workstreams in parallel."</div>
-    <div class="say-box"><span class="lab">Lead in</span>"Month 1 is build and test, not full launch cadence. We stand the engine up while we test what shape of short-form actually moves the audience. Five workstreams in parallel — and a few specific creative ideas worth flagging as I go."</div>
-    <div class="say-box" style="background:#fff4d6;border-left-color:var(--burgundy)"><span class="lab" style="color:var(--burgundy)">Creative texture · weave in as you walk Act 2</span>"To give you a sense of what the content actually <em>is</em>, a few concrete ideas already on the table:<br><br><strong>· Audiobook into immersive short-form.</strong> The crucifixion scenes from the audiobook. Shimon's failure. Maryam of Magdala at the tomb. Passages layered with ambient sound, atmospheric design — moments engineered to stop a scroll. That's both the spine of the Reading episodes and the source bank for daily short-form.<br><br><strong>· Theologians for the Unpacking side.</strong> Filmed in a 3-day batch shoot, twice a year. Hebrew roots, historical setting, fact-check scholarship — the same scholars who fact-checked GSET have a permanent role here. The depth dimension that earns watch-time and feeds Substack essays.<br><br><strong>· Bear's existing interviews repurposed.</strong> Eldredge, Brierley, Metaxas, Will Cain — full files become short-form variants and Substack essays. No new Bear filming required.<br><br><strong>· Named US faith voices in the collab pipeline.</strong> Levi Lusko, Kathie Lee Gifford, the Liberty scholar, Jonathan Roumie when the Hodder title lands, The Shack on its autumn relaunch for halo. They open US audiences we can't reach cold.<br><br><strong>· The book's five content pillars become the weekly mix.</strong> 'I don't know the story.' 'I want to share my faith.' 'The Bible feels impenetrable.' 'I've lost the feeling.' 'I want my kids to engage.' Each pillar gets weekly output, weighted toward US framings on US-targeted channels.<br><br><strong>· Calendar anchors as content arcs, not posts.</strong> Lent, Holy Week, Pentecost, the June anniversary, the autumn UK church push, Advent. Each gets a planned content arc, two weeks prep, raised volume across the fortnight."</div>
-    <div class="step"><div class="n">1</div><div class="body"><b>Start the YouTube long-form recording</b><span><em>Two formats, every week.</em> <strong>Reading episodes</strong> — 8–12 min audiobook passages layered with editor-added soundscape, ambient audio, atmospherics. <strong>Unpacking episodes</strong> — 8–12 min theologian-led passage context, Hebrew roots, historical setting, fact-check scholarship. Month 1: lock the roster, book the studio, schedule the 3-day batch shoot (twice a year, 52 eps per batch), audiobook stems into post-production. First Reading + Unpacking pair edited by end of month.</span></div></div>
-    <div class="step"><div class="n">2</div><div class="body"><b>Run the short-form testing loop</b><span>3–5 clips per platform per week — TikTok, Reels, Shorts. Never cross-posted. Geo-locked for UK vs US. <em>Source bank:</em> audiobook master cut into immersive vignettes, BG's existing interviews (Eldredge, Brierley, Metaxas, Cain), ChosenCon footage, licensed visuals where clearable (Passion of the Christ, RRR, The Chosen). Test hook · length · format · narrator-vs-text · UK vs US caption. By end of month we know what's winning per platform per geo.</span></div></div>
-    <div class="step"><div class="n">3</div><div class="body"><b>Begin the website rebuild</b><span><em>Domain: thegreateststoryevertoldbook.com.</em> Geo-routed retail links (Amazon UK/US, Waterstones, Barnes &amp; Noble, Bookshop.org, St Andrews), cover swaps for UK vs US editions, Substack integration, attribution tracker layer scaffolded. The site is where attention turns into a sale and feeds the velocity measurement back in. Build in M1, live by end of M2.</span></div></div>
-    <div class="step"><div class="n">4</div><div class="body"><b>Stand up Substack</b><span>Standalone GSET account, separate from Bear's personal list. <em>Content threads:</em> theologian transcripts edited into long-form essays, reader-letter columns, seasonal series tied to the calendar anchors, gated discussion guides for cohort members. Month 1: first 4 essays drafted from Eldredge, Brierley, Metaxas and Cain transcripts. Andy's editorial pass built into the workflow.</span></div></div>
-    <div class="step"><div class="n">5</div><div class="body"><b>Stand up Facebook + Instagram + audit assets</b><span><em>Facebook</em> — community group up, moderation cadence agreed, structured <strong>5-week cohort read-along #1</strong> designed by eyewitness perspective (Matthew first, then Mark, Luke, John, Acts). <em>Instagram</em> — quote cards, audiograms, reader spotlights, theologian-of-the-week; save/share ratio over likes as the read. <em>Asset bank</em> — full audit and lock by end of month so the engine has stable source material for the year.</span></div></div>
-    <div class="say-box" style="margin-top:10px"><span class="lab">The full phasing — how the engine evolves</span>"<strong>Month 1 — Onboarding.</strong> Build phase. Channel setups, website design, theologian roster locked, asset bank catalogued, Substack first essays drafted, Facebook group and page launched, first weekly check-in. By end of month: engine built and tested, format winners identified.<br><br><strong>Month 2 — Ramp.</strong> The visible step-change. Theologian batch shoot completed — 52 episodes in the can. Website goes live. YouTube publishes the first four episodes. Short-form publishing turns on across TikTok, Reels and Shorts at full cadence. Substack weekly. Bear-channel uplift posts seed initial audience. First read-along cohort opens for sign-up.<br><br><strong>Month 3 onward — Steady state.</strong> Full deliverable volume — eight long-forms, thirty-six short-form, twenty IG posts, weekly Substack. Monthly reporting cycle locked. <em>First measurable signal on engine health and US traction.</em><br><br><strong>Month 6 onward — International.</strong> GSET channels operating self-sufficiently. BG cross-promo dialled back to anchor moments only. Spanish and Portuguese channel architecture stood up. Brazil-targeted Substack pilot active. US book tour support content integrated if the tour confirms. International audience growth visible in the monthly dashboard."</div>
-  </section>
-
-  <!-- ACT 3 — WHY WE CAN EXECUTE IT WELL -->
-  <section class="card" id="act3">
-    <div class="beat-head">
-      <div class="n">3</div>
-      <div class="t">
-        <span class="step-kicker">Act 3 · ~90 seconds</span>
-        <h3>This is why we can execute it well</h3>
-      </div>
-    </div>
-    <p class="why">The credibility close. Three reasons we're the right team to actually run it.</p>
-    <div class="say-box"><span class="lab">Lead in</span>"And the last piece — why we're the right team to actually run this. Three things."</div>
-    <div class="say-box"><span class="lab">1 · We already wrote the strategy</span>"<strong>We wrote the strategy you've got in front of you.</strong> We know the brand, we know the audience, we know what works in this space because we built that thinking. No ramp-up cost to bringing us in — we start at week one, not month three."</div>
-    <div class="say-box"><span class="lab">2 · We're set up to find what works fast and double down</span>"<strong>Operationally, we're set up to find what works quickly and double down on it — not guess.</strong> The short-form testing loop in Month 1 isn't theoretical. From Week 1 we're running three to five variants per platform per week, geo-locked, against a defined matrix — hook, length, format, narrator-versus-text. By end of Month 1 we know which combinations are winning per platform, per geo. <em>Anything that clears the median earns its place in the steady-state mix. Anything that doesn't, we retire and replace.</em> We lock the winners, drop the losers, and scale up the formats that actually move the audience. The headline number on top of all that is <strong>geo-isolated velocity</strong> — US web sessions read against US retail velocity, month by month. That tells you the content is shifting copies, not just generating views."</div>
-    <div class="say-box"><span class="lab">3 · The constraints are baked in already</span>"<strong>We've built the constraints in from day one.</strong> Hachette's AI policy — no AI voice, no AI imagery, no AI in published creative; AI sits in the backend only. And Bear's bandwidth is protected — no new filming, pre-recorded only, three anchor posts a year on his personal channels. <em>We didn't have to learn those mid-engagement. They're in the model already.</em>"</div>
+  <!-- ACT 3 -->
+  <section class="card">
+    <div class="kicker">Act 3 · ~90 seconds</div>
+    <h2>This is why we can run it well</h2>
+    <ul class="points">
+      <li><b>We wrote the strategy you're holding.</b><span class="detail">We know the brand, the audience segments, what works in this space. No ramp-up cost — we start at week one, not month three.</span></li>
+      <li><b>We're set up to find what works fast and double down.</b><span class="detail">The short-form testing loop runs from Week 1 — 3–5 variants per platform per week against a defined matrix. By end of M1 we know the winners per platform per geo. We lock them, drop the losers, scale what moves the audience. The headline number we report monthly is geo-isolated velocity — US web sessions vs US retail velocity. That tells you the content is shifting copies, not just generating views.</span></li>
+      <li><b>The constraints are built in from day one.</b><span class="detail">Hachette's AI policy respected throughout — no AI voice, no AI imagery, no AI in published creative. AI backend only (transcription, scheduling, analytics). Bear's bandwidth protected — pre-recorded only, no new filming, three anchor posts a year on his channels (Easter, Christmas, anniversary), written by the team.</span></li>
+    </ul>
   </section>
 
   <!-- CLOSE -->
-  <section class="card" id="close">
-    <div class="kicker">Close · ~20 seconds</div>
+  <section class="card">
+    <div class="kicker">Close · ~15 seconds</div>
     <h2>Hand to Q+A</h2>
-    <div class="say-box"><span class="lab">Natural</span>"So — that's the plan, that's how we start, and that's why we think we can run it well. The deck has the rest of the detail — volumes, phasing, SLAs, the commercial. Happy to take questions."</div>
+    <div class="close-text">"So that's our plan, that's how we'd start executing it, and that's why we think we can run it well. The deck has the rest of the detail — volumes, phasing, SLAs, the commercial. Happy to take questions."</div>
   </section>
 
   <!-- PACING -->
-  <section class="card" id="pace">
-    <div class="kicker">Pacing — keep an eye on the clock</div>
-    <h2>About 8–9 minutes if you deliver it all</h2>
-    <p style="font-size:13.5px;color:#5c6770;margin-bottom:10px"><em>The creative texture callout in Act 2 is pickable — drop the bits that fit, skip the rest. If you need to come in shorter, trim there.</em></p>
-    <div class="pacer"><div class="num">·</div><div class="lbl"><b>Open — role + frame</b></div><div class="t">~30s</div></div>
-    <div class="pacer"><div class="num">1</div><div class="lbl"><b>Act 1 — This is our plan</b> <span style="color:#5c6770;font-size:12px">(shape · US gap · engine parts · priorities)</span></div><div class="t">~3m</div></div>
-    <div class="pacer"><div class="num">2</div><div class="lbl"><b>Act 2 — How we start + phasing</b> <span style="color:#5c6770;font-size:12px">(texture callout · 5 steps · M1→M6+ arc)</span></div><div class="t">~3.5m</div></div>
-    <div class="pacer"><div class="num">3</div><div class="lbl"><b>Act 3 — Why we run it well</b> <span style="color:#5c6770;font-size:12px">(strategy · operator · constraints)</span></div><div class="t">~90s</div></div>
-    <div class="pacer"><div class="num">·</div><div class="lbl"><b>Close + hand to Q+A</b></div><div class="t">~20s</div></div>
+  <section class="card">
+    <div class="kicker">Pacing</div>
+    <h2>About 6–7 minutes total</h2>
+    <div class="pacer"><div class="num">·</div><div class="lbl"><b>Open</b></div><div class="t">~20s</div></div>
+    <div class="pacer"><div class="num">1</div><div class="lbl"><b>Act 1 — The plan</b></div><div class="t">~2m</div></div>
+    <div class="pacer"><div class="num">2</div><div class="lbl"><b>Act 2 — How we start + phasing</b></div><div class="t">~3m</div></div>
+    <div class="pacer"><div class="num">3</div><div class="lbl"><b>Act 3 — Why we run it well</b></div><div class="t">~90s</div></div>
+    <div class="pacer"><div class="num">·</div><div class="lbl"><b>Close</b></div><div class="t">~15s</div></div>
   </section>
 
-  <div class="card" style="background:#fbf7ec;border-color:rgba(201,162,75,.4);padding:16px 18px">
+  <div class="card" style="background:#fbf7ec;border-color:rgba(201,162,75,.4);padding:14px 18px">
     <div class="kicker">Keep in mind</div>
-    <span class="pill">Deck is pre-read — don't recap</span>
-    <span class="pill">Three acts: plan · start · why us</span>
-    <span class="pill">Plain professional</span>
+    <span class="pill">Deck is pre-read</span>
+    <span class="pill">Plain &amp; direct</span>
     <span class="pill">No metaphors</span>
     <span class="pill">Hold detail for Q+A</span>
-    <span class="pill">Velocity is the number</span>
   </div>
 
   <div class="foot">Talking points for Olly · GSET × Hodder Faith call · 2 June 2026</div>
