@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSET × Hodder — Call Brief · Month 1 Actionables · 2 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F2A; --navy2:#112D3C; --gold:#C9A24B; --gold-l:#E4C879;
+    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(11,31,42,.12);
+    --burgundy:#7A2A20;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:0 18px 80px}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 -18px 0;padding:9px 14px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .nav a{display:inline-block;color:var(--navy);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 10px;margin-right:4px;border-radius:30px;border:1px solid transparent;transition:all .15s}
+  .nav a:hover,.nav a:focus{background:var(--navy);color:var(--gold-l)}
+
+  .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 26px;padding:38px 26px 32px;border-bottom:3px solid var(--gold)}
+  .hero .eyebrow{color:var(--gold-l);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.12;margin:10px 0 8px;color:#fff}
+  .hero p{color:#cdd9e0;font-size:15px;max-width:60ch;line-height:1.6}
+  .hero .meta{margin-top:16px;display:inline-block;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.5);color:var(--gold-l);font-weight:600;font-size:12.5px;padding:6px 13px;border-radius:30px}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px;margin:0 0 16px;box-shadow:0 1px 0 rgba(11,31,42,.03);scroll-margin-top:64px}
+  .kicker{color:var(--gold);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  h2{font-family:'DM Serif Display',serif;font-size:21px;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:10px}
+
+  .script{border-top:4px solid var(--gold)}
+  .script p{font-size:16.5px;line-height:1.72;color:#27343c;margin:0 0 14px}
+  .script p:last-child{margin-bottom:0}
+  .script .lede{font-weight:500;color:var(--navy);font-size:17px}
+  .script em{font-style:normal;font-weight:700;color:var(--navy);background:#FFF4D6;padding:0 4px;border-radius:3px}
+  .script strong{color:var(--navy)}
+
+  .sub-h{font-family:'DM Serif Display',serif;font-size:17px;color:var(--navy);margin:18px 0 8px;font-weight:400}
+  .sub-h:first-child{margin-top:0}
+
+  ul.bullets{list-style:none;padding:0;margin:6px 0 6px}
+  ul.bullets li{font-size:15px;line-height:1.6;color:#2f3d47;padding:6px 0 6px 18px;position:relative;border-bottom:1px dashed var(--line)}
+  ul.bullets li:last-child{border-bottom:none}
+  ul.bullets li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+  ul.bullets li b{color:var(--navy)}
+
+  .callout{background:#fbf0ec;border-left:4px solid var(--burgundy);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;font-size:14px;color:#5c1e15}
+  .callout b{color:var(--burgundy)}
+
+  /* Actionable block */
+  .actionable{border-top:1px dashed var(--line);padding:14px 0 10px;margin-top:6px}
+  .actionable:first-of-type{border-top:none;padding-top:4px;margin-top:0}
+  .actionable h3{font-family:'DM Serif Display',serif;font-size:18px;font-weight:400;color:var(--navy);margin-bottom:6px;line-height:1.25}
+  .actionable .a-row{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px;color:#2f3d47;margin-top:6px}
+  .actionable .a-row b{color:var(--navy);font-weight:700;letter-spacing:.03em;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);align-self:start;padding-top:1px}
+  .actionable .a-row span{line-height:1.55}
+  .actionable .a-narr{font-size:15px;line-height:1.6;color:#27343c}
+  .actionable .deck-ref{display:inline-block;background:#ede7d8;color:#7a6326;font-weight:700;font-size:11px;padding:3px 9px;border-radius:20px;margin-top:8px}
+
+  .decisions-list{counter-reset:dec;list-style:none;padding:0;margin:8px 0 0}
+  .decisions-list li{counter-increment:dec;position:relative;padding:12px 0 12px 38px;border-bottom:1px dashed var(--line);font-size:15px;line-height:1.55;color:#27343c}
+  .decisions-list li:last-child{border-bottom:none}
+  .decisions-list li:before{content:counter(dec);position:absolute;left:0;top:12px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--navy);color:var(--gold-l);font-family:'DM Serif Display',serif;font-size:14px;border-radius:50%;font-weight:400}
+  .decisions-list li b{color:var(--navy);display:block;margin-bottom:2px}
+
+  .qa{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+  .qa:first-of-type{border-top:none;padding-top:0;margin-top:0}
+  .q{font-weight:700;color:var(--navy);font-size:14.5px}
+  .a{font-size:14px;color:#41525c;margin-top:4px;line-height:1.55}
+
+  .ask{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border:none}
+  .ask .kicker{color:var(--gold-l)}
+  .ask h2{color:#fff}
+  .ask p,.ask li{color:#dde4ea}
+  .ask ul.bullets li{border-bottom-color:rgba(255,255,255,.12)}
+  .ask ul.bullets li b{color:var(--gold-l)}
+  .ask ul.bullets li:before{background:var(--gold-l)}
+
+  .pill{display:inline-block;background:#ede7d8;color:#7a6326;font-weight:700;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0}
+  .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:26px}
+
+  .signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+  .signal-grid .sg{background:#f4efe2;border:1px solid rgba(201,162,75,.35);border-radius:10px;padding:11px 13px}
+  .signal-grid .sg b{display:block;color:var(--navy);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+  .signal-grid .sg span{font-size:14px;color:#2f3d47;line-height:1.5}
+  @media (max-width:520px){
+    .hero{padding:32px 20px 28px}
+    .card{padding:20px 18px}
+    .script p{font-size:15.5px}
+    .signal-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav" aria-label="Section nav">
+    <a href="#open">Open</a>
+    <a href="#approach">Approach</a>
+    <a href="#month1">Month 1</a>
+    <a href="#signal">Signal</a>
+    <a href="#month2">Month 2</a>
+    <a href="#monthly">Monthly cycle</a>
+    <a href="#ask">From Hodder</a>
+    <a href="#qa">Q&amp;A</a>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Bear Witness × Hodder Faith · GSET</div>
+    <h1>Call Brief — Month 1 Actionables</h1>
+    <p>The beginning-phase plan. What we do, who does it, what cadence, and what triggers Month 2's launch. Read straight through — this is the talk-track for the Hodder call today.</p>
+    <div class="meta">⏱ Call 2 June 2026 · Anchored to Bear Witness × Hodder deck v2 · Month 1 = find the formula · Month 2 = launch</div>
+  </header>
+
+  <!-- OPEN -->
+  <section class="card script" id="open">
+    <div class="kicker">The picture</div>
+    <p class="lede">The deck Hodder are sitting with proposes BGV running the GSET marketing engine end-to-end at <strong>£5,000 / month all-in</strong>. This call is about the <em>beginning phase</em> — what we actually do in Month 1, before the Month-2 launch beat. The headline: we don't launch with a guess. We use Month 1 to find a content formula that works, then we launch with it.</p>
+    <p>The frame for the call is simple. <em>Month 1 is build + test.</em> We record the YouTube long-form content, we trial a high volume of short-form variants, we read the signal, and we lock the formula that wins. <em>Month 2 is the launch beat</em> — website live, first four Reading episodes out, short-form daily, Substack weekly, Matthew read-along open. Then each month after that we adjust based on what's working.</p>
+  </section>
+
+  <!-- THE APPROACH -->
+  <section class="card script" id="approach">
+    <div class="kicker">The approach · the through-line</div>
+    <p class="lede">"Rather than picking a format upfront and hoping it lands, we use Month 1 to find the formula. Volume first, signal second, scale third."</p>
+    <p>"The YouTube long-form is the spine — we batch-shoot it in Month 1 so we have the source library to cut from. On top of that we run a deliberate <em>short-form testing loop</em>: many variants per week, varied on the dimensions we can actually control — hook style, length, narrator vs text-on-screen, pull-out clip vs original cut, platform-native vs cross-posted. We let the data tell us what shape of content earns saves, shares and watch-through on this audience."</p>
+    <p>"When we see a format hitting the signal we're looking for — usually 2 to 3 weeks in — we lock that as the Month-2 launch formula and ramp to the deck's published volumes. Anything that didn't land gets retired. We don't keep producing in shapes the audience hasn't rewarded."</p>
+  </section>
+
+  <!-- MONTH 1 ACTIONABLES -->
+  <section class="card" id="month1">
+    <div class="kicker">Month 1 · what we actually do</div>
+    <h2>The four parallel workstreams</h2>
+    <p style="font-size:14.5px;color:#41525c;margin-bottom:6px">In execution order, but most run in parallel. Each line names what, who, cadence, and the deck commitment it ladders to.</p>
+
+    <!-- 1. YouTube recording -->
+    <div class="actionable">
+      <h3>1 · Record the YouTube long-form spine</h3>
+      <p class="a-narr">The two YouTube series — <em>Reading the Gospel</em> (Bear voice-over from the audiobook, cut over archive footage) and <em>Unpacking</em> (theologian sit-downs, paired one-to-one with each Reading episode) — are the source for everything else. Every short-form cut, every audiogram, every Substack pull-quote comes off these episodes. They have to exist before the testing loop has anything to test.</p>
+      <div class="a-row"><b>What</b><span>Reading episodes are post-production only — Bear's audiobook masters layered over archive footage + scripture overlay, 8-minute YouTube cuts (the monetisation threshold). <em>Zero new Bear filming.</em> Unpacking episodes need a <strong>3-day theologian batch shoot</strong> — all 52 episodes captured in one studio block, refreshed every six months per the deck.</span></div>
+      <div class="a-row"><b>Who</b><span>Ku Creatives do edit + post. Olly + Andy lock the theologian roster (4–6 names across Anglican / Catholic / evangelical / Orthodox) and a studio + 3 dates. Ted drafts the longlist + outreach.</span></div>
+      <div class="a-row"><b>Cadence</b><span>Wk 1 — Reading eps 1–4 enter post-production from audiobook stems. Wk 2 — theologian roster locked, studio booked (~1 month prep per SLA). Wk 3 — 3-day batch shoot completes, 52 Unpacking episodes captured. Wk 4 — first 4 Unpacking eps in edit.</span></div>
+      <div class="deck-ref">Deck Section 09 · 8 long-forms/month at steady state (4 Reading + 4 Unpacking)</div>
+    </div>
+
+    <!-- 2. Short-form testing loop -->
+    <div class="actionable">
+      <h3>2 · Run the short-form testing loop</h3>
+      <p class="a-narr">This is where the formula gets found. While the long-form is being shot and cut, we use the <em>existing</em> source library — Bear's audiobook narration, ChosenCon clips, podcast appearances (Eldredge, Brierley, Metaxas, Will Cain), Big Church Read assets, plus any locked Reading/Unpacking cuts as they land — to produce a high volume of short-form variants across IG Reels, TikTok and YouTube Shorts.</p>
+      <div class="a-row"><b>What</b><span>Five short-form formats from Brief 03 run as the testing matrix: <em>(1) Read aloud</em> — audiobook sentence over held visual; <em>(2) What most people get wrong about…</em> — theologian counter-intuitive one-liner; <em>(3) One verse, unpacked</em> — verse → 2-line explainer → resolve; <em>(4) From the archive</em> — recut Bear interview / podcast moment; <em>(5) Reader's words</em> — testimony as text-on-screen.</span></div>
+      <div class="a-row"><b>Vary</b><span>Hook (cold-open quote vs question vs claim) · length (15s / 30s / 60s) · narrator-led vs text-on-screen · platform-native cuts vs cross-posted · UK vs US caption variant.</span></div>
+      <div class="a-row"><b>Who</b><span>Ku Creatives short-form editor pours each format from the locked Brief-03 templates. Ted briefs the variant matrix weekly and tracks signal. Operational publishes go out on BGV's judgement; weekly Friday sample to Hodder for sight (not gated).</span></div>
+      <div class="a-row"><b>Volume</b><span>Ramp to the deck's <strong>36 short-form pieces per month</strong> (12 each across Shorts, TikTok, Reels) — week 1 is fewer pieces while we stand up the channels; weeks 2–4 hit cadence. Each format gets a meaningful sample size before we judge it.</span></div>
+      <div class="deck-ref">Deck Section 09 · 36 short-form / month · Brief 03 template pack</div>
+    </div>
+
+    <!-- 3. Web build + Substack + cohort -->
+    <div class="actionable">
+      <h3>3 · Build the distribution rails in parallel</h3>
+      <p class="a-narr">When the formula lands in Month 2, the rails have to be ready. Three parallel build streams in Month 1 so launch is a switch-on, not a scramble.</p>
+      <div class="a-row"><b>Web</b><span>Domain decision (likely <em>thegreateststoryevertoldbook.com</em>) + build owner confirmed Wk 1. Design Wk 1, dev Wks 2–4. Geo-routed retail link tree, Substack auto-pull, attribution layer. Soft-launches on staging end of Month 1.</span></div>
+      <div class="a-row"><b>Substack</b><span>Standalone GSET Substack stood up Wk 1 (separate from Bear's personal). First three articles drafted Wks 2–3, sent to Andy for the editorial pass he's offered. Auto-pulls onto the website.</span></div>
+      <div class="a-row"><b>Cohort kit</b><span>Matthew 5-week read-along kit built: daily passages, weekly live-thread plan, private cohort space, welcome email sequence, cohort-only Substack segment. Opens Month 2.</span></div>
+      <div class="a-row"><b>Other channels</b><span>YouTube channel handle + branding + monetisation eligibility confirmed. Facebook Page + GSET reading-community Group launched. IG account stood up + dressed.</span></div>
+      <div class="deck-ref">Deck Section 09 · 4 Substack articles + 2 reader letters/month · 20 IG feed posts/month · rolling cohort</div>
+    </div>
+
+    <!-- 4. Asset audit + brand pack -->
+    <div class="actionable">
+      <h3>4 · One-off foundations (do once, run forever)</h3>
+      <p class="a-narr">The plumbing that the engine sits on. None of this re-runs — it's commissioned in Month 1 and reused.</p>
+      <div class="a-row"><b>What</b><span>Asset audit + clearance (audiobook stems, Big Church Read, press archive, podcast bank, reader-review export, theologian contacts). <strong>Brand pack</strong> commissioned to Ku — type, palette, thumbnail templates, channel art, IG/Substack/FB templates. <strong>Audio identity</strong> — 90s pilot, signature motif, mastering chain, audiogram template (Bear's real voice only — Hachette no-AI policy applies). <strong>Reading visual treatment</strong> locked — LUT, grade, AE template the long-form editor reuses 52×.</span></div>
+      <div class="a-row"><b>Who</b><span>Hodder clears the asset bundle in writing. Olly + Jesse sign off brand pack and audio identity once. Ku builds.</span></div>
+      <div class="a-row"><b>Cadence</b><span>All four locked by end of Month 1 so Month 2 launch artefact pack (Brief 09) can be assembled.</span></div>
+      <div class="deck-ref">Deck Briefs 07 / 08 / 09 · v3 brief stack</div>
+    </div>
+  </section>
+
+  <!-- SIGNAL -->
+  <section class="card" id="signal">
+    <div class="kicker">What "we've found the formula" actually looks like</div>
+    <h2>The signal we're reading for</h2>
+    <p style="font-size:15px;color:#2f3d47;margin-bottom:8px">A format earns the Month-2 slot when it clears these on a meaningful sample. We're not chasing reach — we're chasing audience quality.</p>
+    <div class="signal-grid">
+      <div class="sg"><b>Saves &amp; shares</b><span>Save / share ratio over likes is the primary signal. Content that travels DM-to-friend is what we're trying to make.</span></div>
+      <div class="sg"><b>Watch-through</b><span>Short-form retention above platform median for the format length. Reading-the-Gospel cuts have a higher bar — the content is the point.</span></div>
+      <div class="sg"><b>Comment quality</b><span>Substantive comments (questions, scripture references, personal reflection) over emoji-only. Spot-check weekly.</span></div>
+      <div class="sg"><b>Top-of-funnel CTR</b><span>Click-through from bio / pinned comment to Substack subscribe or cohort signup. The one number that tells us we're growing the readership, not just the views.</span></div>
+    </div>
+    <div class="callout"><b>Decision rule:</b> a format gets the Month-2 slot if it clears save/share + watch-through on at least 6 posts across at least 2 platforms. A format is retired if it underperforms on the same sample. Olly signs off the locked formula end of Month 1.</div>
+  </section>
+
+  <!-- MONTH 2 -->
+  <section class="card script" id="month2">
+    <div class="kicker">Month 2 · the launch beat</div>
+    <p class="lede">"Month 2 is when the engine switches on at deck cadence. Website live. First four Reading episodes published Tue/Thu across weeks 1–2. First four Unpacking cuts weeks 3–4. Short-form daily on the locked-formula formats. Substack to weekly. Matthew cohort opens."</p>
+    <p>"The numbers we ramp to from Month 2 are the deck Section 09 commitments — <strong>8 long-form YouTubes, 36 short-form pieces, 20 Instagram feed posts, 4 Substack articles + 2 reader letters, rolling Matthew cohort.</strong> Month 2 is also the first monthly performance report to Hodder. Month 3 is steady state and the first real read on growth."</p>
+    <p>"What Hodder need ready by the start of Month 2: brand pack and audio identity signed off, theologian roster locked and shot, asset bundle cleared in writing, website domain and build owner decision made, sign-off chain on the first content slate done. If those land in Month 1 the launch beat happens on time."</p>
+  </section>
+
+  <!-- MONTHLY ADJUSTMENT CYCLE -->
+  <section class="card" id="monthly">
+    <div class="kicker">From Month 3 · the monthly adjust cycle</div>
+    <h2>How we amend each month</h2>
+    <p style="font-size:14.5px;color:#41525c;margin-bottom:6px">Once we're in steady state, every month follows the same review loop. Monthly performance report → trigger decisions → next month's content brief.</p>
+    <ul class="bullets">
+      <li><b>What we measure.</b> Per-format: saves, shares, watch-through, CTR to Substack/cohort, follower growth, comment quality. Per-channel: subscriber growth, top performers, drop-off points. Per-pillar: which of Reading / Unpacking / Short-form / Reader-testimony is doing the lifting.</li>
+      <li><b>Format swap.</b> A short-form format that drops below median for two consecutive months gets retired and replaced with a new template variant. Operational — Olly signs off the swap.</li>
+      <li><b>Content-pillar swap.</b> If a whole pillar (e.g. Reader-testimony) underperforms for two months, we reweight the calendar — fewer of that pillar, more of what's working. Surfaced in the monthly report, agreed with Hodder.</li>
+      <li><b>Voice / tone swap.</b> If commentary signal says we're missing the audience (too academic, too casual), we adjust the theologian roster mix or the audiobook excerpt selection. Olly + Andy decide.</li>
+      <li><b>Sign-off chain.</b> Operational publishes — BGV decides. Calendar anchors (Lent, Advent, etc.) — pre-approved via a brief 2 weeks ahead. Sensitive items (contested theology, brand-line crossings) — escalated to Andy.</li>
+    </ul>
+  </section>
+
+  <!-- WHAT WE NEED FROM HODDER -->
+  <section class="card ask" id="ask">
+    <div class="kicker">What we need from Hodder · this phase</div>
+    <h2>The concrete asks for Month 1</h2>
+    <p style="margin-bottom:10px;color:#cdd9e0;font-size:15px">These are the gates. None of Month 1 fully unblocks until they're settled. Push for soft yeses today on as many as possible.</p>
+    <ol class="decisions-list">
+      <li><b>Green-light on the £5k/month engine.</b> A yes-in-principle today so we start the brief stack now, formal sign-off to follow within the week.</li>
+      <li><b>Named single point of contact.</b> One person at Hodder — receives weekly samples, clears calendar anchors, sits in the approval chain. Andy or named delegate.</li>
+      <li><b>Asset bundle cleared in writing.</b> OK to cut, re-cut, monetise audiobook stems + Big Church Read + press archive + reader-review export.</li>
+      <li><b>Theologian roster — 4–6 names locked.</b> Across Anglican / Catholic / evangelical / Orthodox. Andy's introductions to the GSET fact-check scholars are the start. Roster must lock by end of Month 1 to hit the Month-2 batch shoot.</li>
+      <li><b>Website domain + build owner decision.</b> Is it <code>thegreateststoryevertoldbook.com</code>? Existing site credentials handed over? In-house dev or external? Needed Wk 1.</li>
+      <li><b>Batch-shoot dates + studio.</b> 3-day theologian shoot needs ~1 month prep per SLA. Lock the window on this call so the booking goes in this week.</li>
+      <li><b>Sign-off chain.</b> Who approves brand pack, audio identity, first four Reading episodes and the Month-2 launch slate before they go live.</li>
+    </ol>
+  </section>
+
+  <!-- Q&A -->
+  <section class="card" id="qa">
+    <div class="kicker">If they ask</div>
+    <h2>Likely Q&amp;A</h2>
+    <div class="qa"><div class="q">"What if the formula doesn't land in Month 1?"</div><div class="a">The testing loop is wide enough that we'll see something. Five formats × multiple variant dimensions across three platforms gives us at least one shape that clears the signal bar. If nothing clears it by end of Month 1, we extend the test by 2 weeks and push the launch beat to Month 2 week 3 — long-form publishing still goes out on schedule (the Reading episodes don't depend on the short-form formula). We'd flag it on the weekly check-in immediately, not at month-end.</div></div>
+    <div class="qa"><div class="q">"How much content does Month 1 actually produce?"</div><div class="a">Long-form: 4 Reading episodes in post-production + 52 Unpacking episodes captured (4 in edit by end of month). Short-form: meaningfully fewer than the 36/month steady state — call it a 50–70% volume ramp across Weeks 2–4 while we test. Substack: 3 articles drafted, first one publishes end of Month 1 or Month 2 Wk 1. The deck's full Section-09 cadence kicks in from Month 2.</div></div>
+    <div class="qa"><div class="q">"Cost vs output — are we paying full retainer in a build month?"</div><div class="a">Yes, and the deck explains why. Months 1 and 2 are front-loaded — website rebuild, Substack stand-up, 52-ep batch shoot, brand + audio one-offs, the testing loop. That's why the 3-month minimum exists. Month 3 onwards is the steady-state engine the retainer was sized for; Months 1–2 are the build investment that makes Month 3+ possible.</div></div>
+    <div class="qa"><div class="q">"Bear's commitment — is he doing anything new?"</div><div class="a">No new filming and no new recording. Everything Bear is in is pre-recorded — audiobook, Big Church Read, archive, podcast bank. He's the voice and patron, not the host of every post. That's a deliberate structural choice — it's how the engine stays sustainable across a full year.</div></div>
+    <div class="qa"><div class="q">"What does success look like at 3 months? At 6?"</div><div class="a">3 months: locked formula running at deck Section-09 volume, YouTube channel monetisation eligible, Substack to 4 articles/month, Matthew cohort completed its first run, first real growth data in the monthly report. 6 months: 100+ short-form pieces published, Reading + Unpacking running weekly, theologian batch refreshed for the next 26 weeks, second cohort (Mark) underway, audience growth trend established across all channels.</div></div>
+    <div class="qa"><div class="q">"Who owns the channels and the audience?"</div><div class="a">Hodder retain the book IP. Channel handles and Substack registered in alignment with Hodder. The marketing assets we build sit under the GSET brand on the channels we set up, operated by us under the retainer. Worth being careful here — don't promise more than what's in the deck.</div></div>
+    <div class="qa"><div class="q">"Why won't AI just do this cheaper?"</div><div class="a">It can't, on this brand. Hachette policy bans AI-generated voice, imagery and marketing creative. AI sits in our backend only — transcription, scheduling, analytics — never in published output. Every Ku editor signs off on the policy before they commission.</div></div>
+    <div class="qa"><div class="q">"What's the reporting cadence in Month 1?"</div><div class="a">Weekly Friday sample to Hodder for sight (not gated). End-of-Month-1 dashboard covering: short-form testing matrix results, formula recommendation, asset audit status, theologian roster status, build progress, the locked Month-2 launch slate for sign-off.</div></div>
+  </section>
+
+  <div class="card" style="background:#fbf7ec;border-color:rgba(201,162,75,.4)">
+    <div class="kicker">Keep in mind</div>
+    <span class="pill">Plain &amp; professional · no metaphors</span>
+    <span class="pill">Month 1 = find the formula</span>
+    <span class="pill">Month 2 = launch at deck cadence</span>
+    <span class="pill">No new Bear filming · pre-recorded only</span>
+    <span class="pill">Drive the 7 Hodder decisions</span>
+  </div>
+
+  <div class="foot">Call brief for Olly · GSET × Hodder · 2 June 2026 · anchored to Bear Witness × Hodder deck v2 (Section 09) and the v3 brief stack</div>
+
+</div>
+</body>
+</html>
