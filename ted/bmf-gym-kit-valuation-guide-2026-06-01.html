@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMF Gym Kit Valuation — Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ocean:#143B4A;
+  --ocean-deep:#0E2A36;
+  --abyss:#0A1E27;
+  --gold:#C49A52;
+  --gold-light:#E6C58C;
+  --cream:#F5F0E8;
+  --cream-dark:#E7DECF;
+  --white:#FDFBF8;
+  --charcoal:#26313A;
+  --charcoal-light:#566069;
+  --sand:#D9CCB8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--charcoal);background:var(--white);
+  line-height:1.6;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-0.01em;}
+
+/* NAV — sticky pill nav, mobile-first */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;
+  transition:background .4s ease,box-shadow .4s ease,padding .4s ease;
+}
+nav.scrolled{background:rgba(253,251,248,0.94);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,0.05);}
+.logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);transition:color .4s ease;}
+nav.scrolled .logo{color:var(--charcoal);}
+.nav-links{display:flex;gap:1.2rem;overflow-x:auto;max-width:60%;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{text-decoration:none;color:var(--white);font-size:0.78rem;font-weight:500;letter-spacing:0.04em;white-space:nowrap;transition:color .3s ease;padding:0.5rem 0;}
+nav.scrolled .nav-links a{color:var(--charcoal-light);}
+.nav-links a:hover{color:var(--gold);}
+
+/* HERO — clean navy, no holiday imagery */
+.hero{
+  min-height:90vh;position:relative;display:flex;align-items:center;justify-content:center;
+  padding:6rem 1.6rem 4rem;color:var(--white);text-align:center;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(196,154,82,0.18) 0%, rgba(20,59,74,0) 55%),
+    linear-gradient(155deg, var(--ocean) 0%, var(--ocean-deep) 55%, var(--abyss) 100%);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(245,240,232,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,240,232,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+.hero-inner{max-width:880px;margin:0 auto;width:100%;position:relative;z-index:2;}
+.hero-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--gold-light);margin-bottom:1.6rem;opacity:0;animation:fadeUp 1s ease .2s forwards;}
+.hero h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.05;margin-bottom:1.6rem;opacity:0;animation:fadeUp 1s ease .4s forwards;}
+.hero-lede{font-size:clamp(1.02rem,1.6vw,1.22rem);line-height:1.65;max-width:680px;margin:0 auto 2rem;opacity:0;animation:fadeUp 1s ease .6s forwards;color:rgba(253,251,248,0.88);}
+.hero-stamp{font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(245,240,232,0.55);opacity:0;animation:fadeUp 1s ease .8s forwards;}
+.hero-meta{display:inline-flex;gap:1.4rem;margin-top:1.6rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s ease .9s forwards;}
+.hero-meta .hm{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);font-weight:500;padding:0.5rem 0.9rem;border:1px solid rgba(196,154,82,0.35);border-radius:3px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTIONS */
+section{padding:5rem 1.4rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--gold);margin-bottom:1rem;font-weight:600;}
+.section-heading{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:1.4rem;max-width:820px;}
+.section-body{font-size:1.04rem;line-height:1.7;color:var(--charcoal-light);max-width:740px;margin-bottom:2.2rem;}
+.section-body p+p{margin-top:1rem;}
+.section-body strong{color:var(--charcoal);font-weight:600;}
+
+.cream-bg{background:var(--cream);}
+.dark-bg{background:var(--ocean-deep);color:var(--white);}
+.dark-bg .section-tag{color:var(--gold-light);}
+.dark-bg .section-heading{color:var(--white);}
+.dark-bg .section-body{color:rgba(253,251,248,0.82);}
+.dark-bg .section-body strong{color:var(--white);}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ZONE WALKTHROUGH — numbered cards */
+.zone-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;margin-top:1.5rem;}
+.zone-card{background:var(--white);border:1px solid var(--cream-dark);border-left:3px solid var(--gold);border-radius:6px;padding:1.6rem 1.5rem;position:relative;}
+.dark-bg .zone-card{background:rgba(245,240,232,0.05);border:1px solid rgba(245,240,232,0.12);border-left:3px solid var(--gold);}
+.zone-num{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);line-height:1;margin-bottom:0.6rem;}
+.zone-card h4{font-size:1.1rem;margin-bottom:0.6rem;line-height:1.25;}
+.dark-bg .zone-card h4{color:var(--white);}
+.zone-card p{font-size:0.93rem;line-height:1.6;color:var(--charcoal-light);}
+.dark-bg .zone-card p{color:rgba(253,251,248,0.78);}
+
+/* CAPTURE STRIP — what to write down */
+.capture{background:var(--white);border:1px solid var(--cream-dark);border-radius:6px;padding:1.6rem 1.6rem;margin-top:1.6rem;}
+.dark-bg .capture{background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.14);}
+.capture-head{font-size:0.68rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.9rem;}
+.dark-bg .capture-head{color:var(--gold-light);}
+.capture-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0.8rem;}
+.capture-col{background:var(--cream);padding:0.7rem 0.8rem;border-radius:4px;}
+.dark-bg .capture-col{background:rgba(10,30,39,0.4);}
+.capture-col .cl{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.capture-col .cv{font-size:0.88rem;color:var(--charcoal);margin-top:0.25rem;line-height:1.4;}
+.dark-bg .capture-col .cv{color:rgba(253,251,248,0.9);}
+
+/* CATEGORY CHECKLIST — chip rows */
+.cat-block{margin-top:1.6rem;}
+.cat-block h4{font-size:1.05rem;margin-bottom:0.7rem;color:var(--gold-light);}
+.cat-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.4rem;}
+.chip{background:rgba(245,240,232,0.05);border:1px solid rgba(245,240,232,0.18);color:rgba(253,251,248,0.88);font-size:0.85rem;padding:0.5rem 0.85rem;border-radius:20px;letter-spacing:0.01em;}
+
+/* PRICING APPROACH — two-col split */
+.price-split{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem;}
+.price-col{background:var(--white);border:1px solid var(--cream-dark);border-radius:6px;padding:1.8rem 1.6rem;}
+.price-col.replace{border-top:3px solid var(--gold);}
+.price-col.resale{border-top:3px solid var(--ocean);}
+.price-col h3{font-size:1.4rem;margin-bottom:0.4rem;}
+.price-col .ps-sub{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;}
+.price-col.resale .ps-sub{color:var(--ocean);}
+.price-col p{font-size:0.95rem;line-height:1.65;color:var(--charcoal-light);margin-bottom:0.9rem;}
+.price-col strong{color:var(--charcoal);font-weight:600;}
+.retailer-list{list-style:none;margin-top:0.6rem;}
+.retailer-list li{font-size:0.9rem;padding:0.5rem 0;border-bottom:1px solid var(--cream-dark);color:var(--charcoal);}
+.retailer-list li:last-child{border-bottom:none;}
+.retailer-list li b{color:var(--gold);font-weight:600;margin-right:0.4em;}
+
+/* HEURISTIC PILL */
+.heuristic{background:rgba(196,154,82,0.1);border:1px solid rgba(196,154,82,0.32);border-radius:6px;padding:1.4rem 1.6rem;margin-top:1.4rem;}
+.heuristic .hh{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.7rem;}
+.heuristic p{font-size:0.95rem;line-height:1.7;color:var(--charcoal);}
+.heuristic strong{font-weight:600;}
+
+/* BENCHMARK TABLE — sortable horizontal scroll on mobile */
+.table-wrap{margin-top:1.6rem;overflow-x:auto;border-radius:6px;border:1px solid rgba(245,240,232,0.14);}
+table.bench{width:100%;border-collapse:collapse;min-width:640px;font-size:0.9rem;background:transparent;}
+table.bench thead th{background:rgba(245,240,232,0.07);color:var(--gold-light);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.9rem 0.9rem;text-align:left;border-bottom:1px solid rgba(245,240,232,0.14);}
+table.bench tbody td{padding:0.85rem 0.9rem;color:rgba(253,251,248,0.88);border-bottom:1px solid rgba(245,240,232,0.08);}
+table.bench tbody tr:last-child td{border-bottom:none;}
+table.bench tbody tr:hover td{background:rgba(245,240,232,0.04);}
+table.bench .cat-row td{background:rgba(196,154,82,0.08);color:var(--gold-light);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;padding:0.55rem 0.9rem;}
+table.bench .price{color:var(--gold-light);font-weight:500;white-space:nowrap;}
+.table-note{font-size:0.8rem;color:rgba(253,251,248,0.6);margin-top:0.9rem;line-height:1.55;}
+
+/* FORMULA BLOCK */
+.formula{background:var(--white);border:1px solid var(--cream-dark);border-radius:6px;padding:2rem 1.8rem;margin-top:1.6rem;}
+.formula h4{font-size:1.15rem;margin-bottom:0.8rem;}
+.formula .eq{background:var(--cream);border-radius:4px;padding:1rem 1.2rem;font-family:'Outfit',sans-serif;font-weight:500;font-size:0.92rem;letter-spacing:0.01em;color:var(--charcoal);margin:0.6rem 0 1rem;line-height:1.7;}
+.formula p{font-size:0.95rem;line-height:1.65;color:var(--charcoal-light);}
+.formula p+p{margin-top:0.8rem;}
+
+/* OUTPUT FORMAT — example row */
+.output-block{margin-top:1.4rem;}
+.output-table{overflow-x:auto;background:var(--white);border:1px solid var(--cream-dark);border-radius:6px;}
+.output-table table{width:100%;border-collapse:collapse;min-width:780px;font-size:0.88rem;}
+.output-table th{background:var(--cream);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:0.85rem 0.85rem;text-align:left;border-bottom:1px solid var(--cream-dark);}
+.output-table td{padding:0.8rem 0.85rem;color:var(--charcoal);border-bottom:1px solid var(--cream-dark);}
+.output-table tr:last-child td{border-bottom:none;}
+
+/* CHECKLIST — final tap-friendly */
+.checklist{list-style:none;margin-top:1.4rem;}
+.checklist li{position:relative;padding:0.85rem 0 0.85rem 2.2rem;font-size:0.98rem;line-height:1.6;color:var(--charcoal);border-bottom:1px solid var(--cream-dark);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'';position:absolute;left:0;top:1rem;width:18px;height:18px;border:2px solid var(--gold);border-radius:3px;}
+
+/* FOOTER */
+footer{background:var(--abyss);color:rgba(253,251,248,0.55);padding:1.6rem 1.4rem;text-align:center;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;}
+
+@media (max-width:900px){
+  nav{padding:0.9rem 1rem;}
+  .nav-links{gap:0.9rem;max-width:65%;}
+  .nav-links a{font-size:0.74rem;}
+  section{padding:3.8rem 1.2rem;}
+  .price-split{grid-template-columns:1fr;}
+  .hero{padding:5rem 1.2rem 3rem;min-height:80vh;}
+  .hero-meta{gap:0.8rem;}
+  .hero-meta .hm{font-size:0.66rem;padding:0.4rem 0.7rem;}
+  table.bench thead th, table.bench tbody td{padding:0.7rem 0.7rem;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">BMF Kit Valuation</div>
+  <div class="nav-links">
+    <a href="#walk">Walk</a>
+    <a href="#categories">Categories</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#benchmarks">Benchmarks</a>
+    <a href="#total">Total it up</a>
+    <a href="#report">Report</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">BMF · Gym Kit Valuation · Field Guide</div>
+    <h1>Walk the gym. Count it. Price it twice.</h1>
+    <p class="hero-lede">A field-ready guide for valuing every piece of kit in the BMF gym today — built for your phone, designed to be done in one walk-around, in roughly an hour.</p>
+    <div class="hero-stamp">Ted · 1 June 2026</div>
+    <div class="hero-meta">
+      <span class="hm">Phone-first</span>
+      <span class="hm">Two values per item</span>
+      <span class="hm">UK 2026 pricing</span>
+    </div>
+  </div>
+</section>
+
+<!-- 1. INVENTORY APPROACH -->
+<section class="cream-bg" id="walk">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">01 · Inventory Approach</div>
+      <h2 class="section-heading">Walk the gym zone by zone. Don't loop.</h2>
+      <div class="section-body">
+        <p>Start at the door and work in a single loop — clockwise or anticlockwise, doesn't matter, just commit to a direction and don't double back. The mistake people make is walking the floor randomly and counting the same plates twice.</p>
+        <p>Open Notes (or a fresh spreadsheet) on your phone with one row per item. Don't aggregate "all kettlebells" — log <strong>each weight separately</strong>, because a 16kg and a 32kg are worth very different money.</p>
+      </div>
+    </div>
+
+    <div class="zone-grid reveal">
+      <div class="zone-card">
+        <div class="zone-num">1</div>
+        <h4>Strength floor</h4>
+        <p>Racks, rigs, barbells, plates, dumbbells, kettlebells, benches. The biggest-value zone — start here while you're fresh.</p>
+      </div>
+      <div class="zone-card">
+        <div class="zone-num">2</div>
+        <h4>Cardio line</h4>
+        <p>Rowers, assault bikes, ski-ergs, sleds, treadmills. Note brand + model on each — these are serialised and the brand drives 80% of the value.</p>
+      </div>
+      <div class="zone-card">
+        <div class="zone-num">3</div>
+        <h4>Functional / military</h4>
+        <p>Battle ropes, tyres, sandbags, slam balls, medicine balls, plyo boxes. BMF-signature zone — high volume, lower unit value.</p>
+      </div>
+      <div class="zone-card">
+        <div class="zone-num">4</div>
+        <h4>Bodyweight &amp; accessories</h4>
+        <p>Rings, parallettes, pull-up attachments, mats, bands, foam rollers. Easy to undercount — sweep the walls and storage hooks.</p>
+      </div>
+      <div class="zone-card">
+        <div class="zone-num">5</div>
+        <h4>Storage &amp; fixtures</h4>
+        <p>Plate trees, dumbbell racks, kettlebell stands, wall hooks, anchor points. Don't skip — racks alone can be £500–£2k of value.</p>
+      </div>
+      <div class="zone-card">
+        <div class="zone-num">6</div>
+        <h4>Back-of-house</h4>
+        <p>Storeroom, cupboards, outdoor area. Anything stashed or seasonal. Easy to forget; worth checking last so you don't get distracted mid-walk.</p>
+      </div>
+    </div>
+
+    <div class="capture reveal">
+      <div class="capture-head">What to capture per item</div>
+      <div class="capture-cols">
+        <div class="capture-col"><div class="cl">Item</div><div class="cv">Kettlebell</div></div>
+        <div class="capture-col"><div class="cl">Spec / Weight</div><div class="cv">24 kg</div></div>
+        <div class="capture-col"><div class="cl">Brand</div><div class="cv">Mirafit (if visible)</div></div>
+        <div class="capture-col"><div class="cl">Condition</div><div class="cv">New · Good · Fair · Worn</div></div>
+        <div class="capture-col"><div class="cl">Qty</div><div class="cv">4</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CATEGORIES -->
+<section class="dark-bg" id="categories">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">02 · Categories</div>
+      <h2 class="section-heading">What to expect in a BMF-style gym.</h2>
+      <div class="section-body">
+        <p>This is the master checklist — tick each category off as you cover it. If you see anything not on this list, log it under "Other" and we'll price it after.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="cat-block">
+        <h4>Free weights</h4>
+        <div class="cat-chips">
+          <span class="chip">Olympic barbells</span>
+          <span class="chip">EZ / specialty bars</span>
+          <span class="chip">Bumper plates</span>
+          <span class="chip">Cast-iron plates</span>
+          <span class="chip">Dumbbells (fixed)</span>
+          <span class="chip">Dumbbells (adjustable)</span>
+          <span class="chip">Kettlebells (cast)</span>
+          <span class="chip">Kettlebells (competition)</span>
+          <span class="chip">Collars / clips</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Racks, rigs &amp; benches</h4>
+        <div class="cat-chips">
+          <span class="chip">Squat racks</span>
+          <span class="chip">Half-rack / power rack</span>
+          <span class="chip">Wall-mounted rig</span>
+          <span class="chip">Free-standing rig</span>
+          <span class="chip">Flat bench</span>
+          <span class="chip">Adjustable bench</span>
+          <span class="chip">Glute bench</span>
+          <span class="chip">Box / step-up</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Cardio</h4>
+        <div class="cat-chips">
+          <span class="chip">Concept2 RowErg</span>
+          <span class="chip">Concept2 BikeErg</span>
+          <span class="chip">Concept2 SkiErg</span>
+          <span class="chip">Assault / air bike</span>
+          <span class="chip">Treadmill</span>
+          <span class="chip">Sled (prowler / push)</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Functional / military</h4>
+        <div class="cat-chips">
+          <span class="chip">Battle ropes</span>
+          <span class="chip">Tyres</span>
+          <span class="chip">Sandbags</span>
+          <span class="chip">Medicine balls</span>
+          <span class="chip">Slam balls</span>
+          <span class="chip">Wall balls</span>
+          <span class="chip">Plyo boxes</span>
+          <span class="chip">Jerry cans / kit bags</span>
+          <span class="chip">Climbing rope</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Bodyweight</h4>
+        <div class="cat-chips">
+          <span class="chip">Gymnastic rings</span>
+          <span class="chip">Pull-up bars</span>
+          <span class="chip">Parallettes</span>
+          <span class="chip">Dip bars</span>
+          <span class="chip">TRX / suspension</span>
+          <span class="chip">Ab wheel</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Accessories</h4>
+        <div class="cat-chips">
+          <span class="chip">Mats</span>
+          <span class="chip">Resistance bands</span>
+          <span class="chip">Foam rollers</span>
+          <span class="chip">Skipping ropes</span>
+          <span class="chip">Lifting straps</span>
+          <span class="chip">Wrist wraps</span>
+          <span class="chip">Belts</span>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <h4>Storage &amp; fixtures</h4>
+        <div class="cat-chips">
+          <span class="chip">Plate trees</span>
+          <span class="chip">Dumbbell racks</span>
+          <span class="chip">Kettlebell stands</span>
+          <span class="chip">Wall hooks / hangers</span>
+          <span class="chip">Anchor points</span>
+          <span class="chip">Floor tiles / matting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRICING APPROACH -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">03 · Pricing Approach</div>
+      <h2 class="section-heading">Two prices per item. Always.</h2>
+      <div class="section-body">
+        <p>Don't try to land on one "true" value — log <strong>replacement (new)</strong> and <strong>resale (used)</strong> separately. Replacement is for insurance and asset valuation. Resale is what you'd actually clear if you sold the lot.</p>
+      </div>
+    </div>
+
+    <div class="price-split reveal">
+      <div class="price-col replace">
+        <div class="ps-sub">Source 1</div>
+        <h3>Replacement (new)</h3>
+        <p>What a UK retailer charges <strong>today</strong>. Use these for prosumer / commercial kit — they cover 95% of what's in a BMF gym.</p>
+        <ul class="retailer-list">
+          <li><b>·</b> Mirafit — prosumer, mid-tier, broad range</li>
+          <li><b>·</b> Wolverson Fitness — competition standard</li>
+          <li><b>·</b> Strength Shop UK — heavy lifting / strongman</li>
+          <li><b>·</b> Fitness Superstore — broad retail</li>
+          <li><b>·</b> Rogue Fitness UK — premium, gold standard</li>
+          <li><b>·</b> Decathlon (Domyos) — budget end</li>
+        </ul>
+        <p style="margin-top:1rem;"><strong>Commercial-grade:</strong> Eleiko (Olympic), Hammer Strength, Watson, Pullum, Concept2 (rowers / ski-ergs / bikes).</p>
+      </div>
+      <div class="price-col resale">
+        <div class="ps-sub">Source 2</div>
+        <h3>Realistic resale (used)</h3>
+        <p>What you'd actually get if you sold it. <strong>Search "sold" listings, not asking prices</strong> — asking prices on Gumtree are aspirational.</p>
+        <ul class="retailer-list">
+          <li><b>·</b> eBay UK — filter <strong>Sold items</strong>, last 90 days</li>
+          <li><b>·</b> Gumtree — UK local pickup, biggest used market</li>
+          <li><b>·</b> Facebook Marketplace — fast-mover, local</li>
+          <li><b>·</b> Gymrats UK / used-kit Facebook groups</li>
+          <li><b>·</b> Used-Gym-Equipment.co.uk — trade-in / clearance</li>
+        </ul>
+        <p style="margin-top:1rem;">Good condition typically clears at <strong>40–60% of new</strong>. Fair / worn drops to <strong>25–40%</strong>.</p>
+      </div>
+    </div>
+
+    <div class="heuristic reveal">
+      <div class="hh">The depreciation heuristic — use this when you can't find a comp</div>
+      <p><strong>Heavy iron</strong> (plates, dumbbells, barbells, kettlebells) — holds <strong>60–70%</strong> of new. Steel doesn't wear out.</p>
+      <p style="margin-top:0.5rem;"><strong>Cardio machines</strong> (rowers, bikes, treadmills) — drops to <strong>40–50%</strong>. Hours / wear / digital displays date them. Concept2 holds best — closer to 55–65%.</p>
+      <p style="margin-top:0.5rem;"><strong>Racks &amp; rigs</strong> — <strong>50–60%</strong> if uninstalled and complete; less if it's a bespoke wall-mount that needs cutting out.</p>
+      <p style="margin-top:0.5rem;"><strong>Rubber &amp; textile</strong> (mats, ropes, bands, sandbags, plyo boxes) — drops to <strong>20–30%</strong>. Hygiene + wear kill the market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BENCHMARK TABLE -->
+<section class="dark-bg" id="benchmarks">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">04 · Benchmark Table</div>
+      <h2 class="section-heading">Typical 2026 UK pricing — fast reference.</h2>
+      <div class="section-body">
+        <p>Use these as your default if you can't find a quick comp. Ranges reflect prosumer-to-commercial spread across Mirafit / Wolverson / Strength Shop / Concept2 UK. Used = realistic eBay-sold midpoint for good condition.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table class="bench">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Spec</th>
+            <th class="price">New (£)</th>
+            <th class="price">Used (£)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4">Bars &amp; plates</td></tr>
+          <tr><td>Olympic barbell</td><td>20kg, prosumer (Mirafit/Wolverson)</td><td class="price">£140 – £260</td><td class="price">£80 – £150</td></tr>
+          <tr><td>Olympic barbell</td><td>20kg, competition (Eleiko/Rogue)</td><td class="price">£550 – £950</td><td class="price">£320 – £550</td></tr>
+          <tr><td>EZ / curl bar</td><td>Standard</td><td class="price">£55 – £110</td><td class="price">£25 – £55</td></tr>
+          <tr><td>Bumper plate pair</td><td>20kg pair</td><td class="price">£110 – £180</td><td class="price">£65 – £110</td></tr>
+          <tr><td>Bumper set</td><td>150kg (full set)</td><td class="price">£420 – £700</td><td class="price">£260 – £420</td></tr>
+          <tr><td>Cast-iron plate</td><td>per kg, prosumer</td><td class="price">£1.80 – £2.80</td><td class="price">£1.00 – £1.60</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Dumbbells &amp; kettlebells</td></tr>
+          <tr><td>Dumbbell pair</td><td>10kg, hex/rubber</td><td class="price">£55 – £90</td><td class="price">£30 – £55</td></tr>
+          <tr><td>Dumbbell pair</td><td>20kg, hex/rubber</td><td class="price">£100 – £150</td><td class="price">£60 – £95</td></tr>
+          <tr><td>Dumbbell pair</td><td>30kg, hex/rubber</td><td class="price">£150 – £220</td><td class="price">£95 – £140</td></tr>
+          <tr><td>Kettlebell</td><td>16kg, cast/coated</td><td class="price">£35 – £60</td><td class="price">£20 – £35</td></tr>
+          <tr><td>Kettlebell</td><td>24kg, cast/coated</td><td class="price">£55 – £85</td><td class="price">£30 – £55</td></tr>
+          <tr><td>Kettlebell</td><td>32kg, cast/coated</td><td class="price">£75 – £120</td><td class="price">£45 – £75</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Racks &amp; benches</td></tr>
+          <tr><td>Squat rack</td><td>Half-rack, prosumer</td><td class="price">£380 – £700</td><td class="price">£220 – £420</td></tr>
+          <tr><td>Power rack</td><td>Full cage, prosumer</td><td class="price">£600 – £1,100</td><td class="price">£340 – £650</td></tr>
+          <tr><td>Wall-mount rig section</td><td>Single 2-upright bay</td><td class="price">£260 – £500</td><td class="price">£140 – £280</td></tr>
+          <tr><td>Flat bench</td><td>Commercial</td><td class="price">£140 – £260</td><td class="price">£75 – £140</td></tr>
+          <tr><td>Adjustable bench</td><td>FID, commercial</td><td class="price">£240 – £450</td><td class="price">£130 – £260</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Cardio</td></tr>
+          <tr><td>Concept2 RowErg</td><td>Model D/RowErg, PM5</td><td class="price">£1,025 – £1,150</td><td class="price">£600 – £820</td></tr>
+          <tr><td>Concept2 BikeErg</td><td>PM5</td><td class="price">£1,025 – £1,150</td><td class="price">£600 – £820</td></tr>
+          <tr><td>Concept2 SkiErg</td><td>PM5 (no stand)</td><td class="price">£925 – £1,050</td><td class="price">£540 – £730</td></tr>
+          <tr><td>Assault / air bike</td><td>Assault AirBike / Echo equiv.</td><td class="price">£700 – £1,200</td><td class="price">£380 – £680</td></tr>
+          <tr><td>Sled / prowler</td><td>Commercial push sled</td><td class="price">£220 – £450</td><td class="price">£120 – £260</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Functional / military</td></tr>
+          <tr><td>Battle rope</td><td>15m × 38mm</td><td class="price">£75 – £130</td><td class="price">£25 – £50</td></tr>
+          <tr><td>Plyo box</td><td>3-in-1 wood</td><td class="price">£110 – £170</td><td class="price">£40 – £75</td></tr>
+          <tr><td>Slam ball</td><td>10kg</td><td class="price">£35 – £55</td><td class="price">£12 – £22</td></tr>
+          <tr><td>Medicine ball</td><td>10kg</td><td class="price">£35 – £60</td><td class="price">£12 – £22</td></tr>
+          <tr><td>Wall ball</td><td>9kg / 20lb</td><td class="price">£40 – £65</td><td class="price">£14 – £25</td></tr>
+          <tr><td>Sandbag (filled)</td><td>25kg, military style</td><td class="price">£55 – £95</td><td class="price">£18 – £35</td></tr>
+          <tr><td>Tyre</td><td>Tractor / large flip tyre</td><td class="price">£40 – £120</td><td class="price">£0 – £40</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Bodyweight &amp; accessories</td></tr>
+          <tr><td>Gymnastic rings</td><td>Wood, with straps</td><td class="price">£30 – £55</td><td class="price">£12 – £22</td></tr>
+          <tr><td>Pull-up rig (wall)</td><td>Heavy-duty, single bar</td><td class="price">£120 – £240</td><td class="price">£55 – £110</td></tr>
+          <tr><td>Parallettes (pair)</td><td>Wooden / steel</td><td class="price">£40 – £75</td><td class="price">£15 – £30</td></tr>
+          <tr><td>Skipping rope</td><td>Speed / weighted</td><td class="price">£10 – £25</td><td class="price">£3 – £8</td></tr>
+          <tr><td>Resistance band set</td><td>Loop set, 4-band</td><td class="price">£25 – £45</td><td class="price">£6 – £12</td></tr>
+          <tr><td>Foam roller</td><td>Standard high-density</td><td class="price">£18 – £35</td><td class="price">£4 – £10</td></tr>
+          <tr><td>Floor matting</td><td>per m² rubber tile</td><td class="price">£20 – £40</td><td class="price">£6 – £14</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Ranges are indicative 2026 UK pricing pulled from Mirafit / Wolverson / Strength Shop / Concept2 UK / Rogue UK retail bands and recent eBay-sold comps. Confirm anything material before locking the report — high-ticket items (Concept2, rigs, racks) are worth a quick check against today's site price.</p>
+  </div>
+</section>
+
+<!-- 5. HOW TO TOTAL IT -->
+<section class="cream-bg" id="total">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">05 · Cumulative Value</div>
+      <h2 class="section-heading">Report two numbers, not one.</h2>
+      <div class="section-body">
+        <p>The replacement total is what BMF would pay to fully rebuild the gym today — the right number for insurance, asset valuations and capex planning. The resale total is the realistic liquidation value if you walked everything out tomorrow. Both matter, for different reasons.</p>
+      </div>
+    </div>
+
+    <div class="formula reveal">
+      <h4>The two formulas</h4>
+      <div class="eq">Total replacement £ = Σ ( Qty × New unit £ )</div>
+      <div class="eq">Total resale £ = Σ ( Qty × Used unit £ × condition factor )</div>
+      <p><strong>Condition factor:</strong> New = 1.0 · Good = 0.85 · Fair = 0.65 · Worn = 0.40. Apply to the resale column only — the replacement column is always "new".</p>
+      <p><strong>BMF-branded / military-themed kit</strong> (logo'd sandbags, custom-painted tyres, BMF-branded crates) — knock another 20–30% off resale. Niche branding hurts the second-hand market. Replacement value is unaffected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PHOTO REMINDER -->
+<section class="dark-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">06 · Photo Every Zone</div>
+      <h2 class="section-heading">Snap as you go.</h2>
+      <div class="section-body">
+        <p>Take a wide shot of each zone before you start counting it — that's your audit trail and your sanity check if the spreadsheet later doesn't add up. <strong>Close-up every serial-numbered piece</strong>: Concept2 monitors, assault bikes, treadmills. Serial + model number = the resale price.</p>
+        <p>If you spot anything unusual or rare — Eleiko bars, vintage iron, BMF-custom rigs — get a clear photo and we'll price it properly afterwards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. OUTPUT FORMAT -->
+<section id="report">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">07 · Output Format</div>
+      <h2 class="section-heading">The report you'll hand back.</h2>
+      <div class="section-body">
+        <p>Build it as a single sheet — one row per line item, totals at the bottom. This is the structure to recreate on the fly in Notes or Sheets:</p>
+      </div>
+    </div>
+
+    <div class="output-block reveal">
+      <div class="output-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Condition</th>
+              <th>New unit £</th>
+              <th>Used unit £</th>
+              <th>Total new £</th>
+              <th>Total used £</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Free weights</td><td>Kettlebell 24kg</td><td>4</td><td>Good</td><td>70</td><td>42</td><td>280</td><td>143</td></tr>
+            <tr><td>Cardio</td><td>Concept2 RowErg PM5</td><td>2</td><td>Good</td><td>1,100</td><td>710</td><td>2,200</td><td>1,207</td></tr>
+            <tr><td>Functional</td><td>Battle rope 15m</td><td>1</td><td>Fair</td><td>100</td><td>38</td><td>100</td><td>25</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <ul class="checklist reveal" style="margin-top:2rem;">
+      <li>One row per item — never aggregate weights.</li>
+      <li>Condition column drives the used-value calc.</li>
+      <li>Photo each zone wide; close-up serials on cardio.</li>
+      <li>Total replacement £ and total resale £ both reported.</li>
+      <li>Flag BMF-branded items separately — they take a resale hit.</li>
+      <li>Note anything missing, broken or unsafe so it's logged.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>BMF Gym Kit Valuation · Field Guide · 1 June 2026</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
