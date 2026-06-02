@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSET Social — Pre-Call Brief · 1 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F2A; --navy2:#112D3C; --gold:#C9A24B; --gold-l:#E4C879;
+    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(11,31,42,.12);
+    --burgundy:#7A2A20;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:0 18px 80px}
+
+  /* Sticky nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 -18px 0;padding:9px 14px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .nav a{display:inline-block;color:var(--navy);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 10px;margin-right:4px;border-radius:30px;border:1px solid transparent;transition:all .15s}
+  .nav a:hover,.nav a:focus{background:var(--navy);color:var(--gold-l)}
+
+  /* Hero */
+  .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 26px;padding:38px 26px 32px;border-bottom:3px solid var(--gold)}
+  .hero .eyebrow{color:var(--gold-l);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.12;margin:10px 0 8px;color:#fff}
+  .hero p{color:#cdd9e0;font-size:15px;max-width:60ch;line-height:1.6}
+  .hero .meta{margin-top:16px;display:inline-block;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.5);color:var(--gold-l);font-weight:600;font-size:12.5px;padding:6px 13px;border-radius:30px}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px;margin:0 0 16px;box-shadow:0 1px 0 rgba(11,31,42,.03);scroll-margin-top:64px}
+  .kicker{color:var(--gold);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  h2{font-family:'DM Serif Display',serif;font-size:21px;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:10px}
+
+  /* The flowing card */
+  .script{border-top:4px solid var(--gold)}
+  .script p{font-size:16.5px;line-height:1.72;color:#27343c;margin:0 0 14px}
+  .script p:last-child{margin-bottom:0}
+  .script .lede{font-weight:500;color:var(--navy);font-size:17px}
+  .script em{font-style:normal;font-weight:700;color:var(--navy);background:#FFF4D6;padding:0 4px;border-radius:3px}
+  .script strong{color:var(--navy)}
+
+  .sub-h{font-family:'DM Serif Display',serif;font-size:17px;color:var(--navy);margin:18px 0 8px;font-weight:400}
+  .sub-h:first-child{margin-top:0}
+
+  ul.bullets{list-style:none;padding:0;margin:6px 0 6px}
+  ul.bullets li{font-size:15px;line-height:1.6;color:#2f3d47;padding:6px 0 6px 18px;position:relative;border-bottom:1px dashed var(--line)}
+  ul.bullets li:last-child{border-bottom:none}
+  ul.bullets li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+  ul.bullets li b{color:var(--navy)}
+
+  .callout{background:#fbf0ec;border-left:4px solid var(--burgundy);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;font-size:14px;color:#5c1e15}
+  .callout b{color:var(--burgundy)}
+
+  .decisions-list{counter-reset:dec;list-style:none;padding:0;margin:8px 0 0}
+  .decisions-list li{counter-increment:dec;position:relative;padding:12px 0 12px 38px;border-bottom:1px dashed var(--line);font-size:15px;line-height:1.55;color:#27343c}
+  .decisions-list li:last-child{border-bottom:none}
+  .decisions-list li:before{content:counter(dec);position:absolute;left:0;top:12px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--navy);color:var(--gold-l);font-family:'DM Serif Display',serif;font-size:14px;border-radius:50%;font-weight:400}
+  .decisions-list li b{color:var(--navy);display:block;margin-bottom:2px}
+
+  .qa{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+  .qa:first-of-type{border-top:none;padding-top:0;margin-top:0}
+  .q{font-weight:700;color:var(--navy);font-size:14.5px}
+  .a{font-size:14px;color:#41525c;margin-top:4px;line-height:1.55}
+
+  .ask{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border:none}
+  .ask .kicker{color:var(--gold-l)}
+  .ask h2{color:#fff}
+  .ask p,.ask li{color:#dde4ea}
+  .ask ul.bullets li{border-bottom-color:rgba(255,255,255,.12)}
+  .ask ul.bullets li b{color:var(--gold-l)}
+  .ask ul.bullets li:before{background:var(--gold-l)}
+
+  .pill{display:inline-block;background:#ede7d8;color:#7a6326;font-weight:700;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0}
+  .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:26px}
+
+  @media (max-width:520px){
+    .hero{padding:32px 20px 28px}
+    .card{padding:20px 18px}
+    .script p{font-size:15.5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav" aria-label="Section nav">
+    <a href="#open">Open</a>
+    <a href="#today">Where social sits</a>
+    <a href="#direction">Direction</a>
+    <a href="#commitments">Commitments</a>
+    <a href="#decisions">Decisions</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#ask">The ask</a>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Bear Witness × Hodder Faith · GSET</div>
+    <h1>Pre-Call Brief — Social Strategy</h1>
+    <p>A tight refresher and talk-track for today's call. Read it straight through, then lead on direction, commitments and the decisions you need them to make.</p>
+    <div class="meta">⏱ Call 1 June 2026 · You lead the social-engine pitch · Drive to a green-light</div>
+  </header>
+
+  <!-- THE PICTURE -->
+  <section class="card script" id="open">
+    <div class="kicker">The picture · refresher</div>
+    <p class="lede"><strong>GSET is <em>The Greatest Story Ever Told</em></strong> — Bear's 288-page Gospel narrative published by Hodder Faith, told through five eyewitness perspectives. It debuted at #1 on the Sunday Times (Hodder Faith's first ever Christian title to do that) and sits on 4.8 stars across 1,400+ Amazon reviews. The book is live. The audiobook and the Big Church Read video assets are the unlock for everything that follows.</p>
+
+    <p>The state of play is this: BGV wrote Hodder's marketing-handover doc, and we're now pitching to <em>run that engine for them</em> at <strong>£5,000 / month all-in</strong> across six channels. The deck Hodder are looking at is the <em>Bear Witness × Hodder</em> v2 build — full marketing operator, single point of contact, steady-state from Month 3. Today's call is about social specifically: what we run, how we grow it, and what we need from them to switch it on.</p>
+  </section>
+
+  <!-- WHERE SOCIAL SITS TODAY -->
+  <section class="card" id="today">
+    <div class="kicker">2 · Where social sits today</div>
+    <h2>Honest read of the current state</h2>
+    <ul class="bullets">
+      <li><b>Instagram</b> — no dedicated GSET account live. Bear's own channels carry the book at launch moments only (~3 calendar anchors per year). That's the ceiling under the current setup.</li>
+      <li><b>Substack</b> — not stood up. It's in the v2 deck (4 articles + 2 reader letters per month) but the channel doesn't exist yet.</li>
+      <li><b>Short-form (Reels / Shorts / TikTok)</b> — no dedicated GSET pipeline. Reference creative direction exists (see the 28 May ad-benchmark doc) but no posting cadence is running.</li>
+      <li><b>YouTube long-form</b> — the <em>Reading the Gospel</em> series (Bear voice-over, archive footage) and the <em>Unpacking</em> series (theologian sit-downs) are scoped in v3 briefs. Production not started — gated on the theologian batch shoot.</li>
+      <li><b>Reader-testimony format</b> — designed, not running. Needs the consent flow live before it can post.</li>
+      <li><b>Facebook Page + Group</b> — in the deck, not yet stood up.</li>
+    </ul>
+    <div class="callout"><b>The honest line:</b> the strategy is built. Almost nothing is actually running yet on dedicated GSET channels. That is precisely what the £5k/month retainer turns on. The pitch is "we switch this engine on."</div>
+  </section>
+
+  <!-- THE DIRECTION -->
+  <section class="card script" id="direction">
+    <div class="kicker">3 · The direction · read this as one flow</div>
+    <p class="lede">"The way we'd grow social for GSET is to treat the book as the start of something — not the end. The book has done its job: it's put the story at #1. What it needs now is a content engine that keeps the conversation going every week, in the places where people are already looking for something deeper."</p>
+
+    <p>"The audience we're growing is specific. <em>Faith-curious</em> readers who are open but not in church; <em>spiritually fatigued</em> adults coming back to it; <em>churched but Bible-intimidated</em> people who'd never read the Gospels straight; and the slice of Bear's existing audience who are open to faith content when it comes from him. Men 25–45 leaning into purpose is a real cluster inside that. We're not trying to reach everyone. We're trying to reach <em>the readers the book hasn't found yet</em>."</p>
+
+    <p>"The content shape is four pillars that feed each other. <strong>Reading the Gospel</strong> — short YouTube long-forms cut from the audiobook, Bear's voice over archive footage. <strong>Unpacking</strong> — paired episodes where a theologian opens up what Bear just read; we cut all 52 in a single batch shoot. <strong>Short-form</strong> — five repeatable Reel / Short / TikTok formats running daily across IG, YT and TikTok. <strong>Reader testimony</strong> — real readers, what the book changed, in a templated format with a proper consent flow."</p>
+
+    <p>"That's wrapped with a <em>Matthew read-along cohort</em> — a five-week guided read, then Mark, then Luke, then John, then Acts — which gives us a rolling community we can serve. And a <em>Substack sequence</em> that lives at the centre of it: weekly articles, reader letters, the editorial home."</p>
+
+    <p>"The cadence we'd run at steady state is in the deck: <strong>8 long-form YouTubes a month</strong> (4 Reading + 4 Unpacking), <strong>36 short-form pieces</strong> (12 each across Shorts, TikTok, Reels), <strong>20 Instagram feed posts</strong>, <strong>4 Substack articles + 2 reader letters</strong>, and the rolling read-along cohort. That's volume we can hit because we run it as one engine — same team, same brief stack, same approval flow."</p>
+
+    <p>"The one constraint we work inside: <em>no new Bear filming.</em> Everything Bear is in is pre-recorded — audiobook, Big Church Read, archive. That's by design — it's how the engine stays sustainable. Bear is the patron and voice, not the host of every post."</p>
+
+    <p>"And it all runs at <strong>£5,000 a month, all-in</strong>. Single point of contact, weekly samples to you, calendar anchors pre-approved through a brief, operational content publishes on our judgement. That's the deal we're proposing."</p>
+  </section>
+
+  <!-- COMMITMENTS / BUILDING -->
+  <section class="card" id="commitments">
+    <div class="kicker">4 · What we're committed to / building</div>
+    <h2>The v3 brief stack — what's already specced</h2>
+    <p style="font-size:14.5px;color:#41525c;margin-bottom:10px">Seven build-ready briefs sit behind the strategy. These are the deliverables for Month 1–2. If Hodder green-lights, we go to production immediately.</p>
+    <ul class="bullets">
+      <li><b>Brief 01 — Reading eps 1–4 (Matthew opening arc).</b> Bear voice-over, archive footage, 8-min YouTube cuts.</li>
+      <li><b>Brief 02 — Unpacking eps 1–4.</b> Paired theologian episodes, cut from the 52-ep batch shoot.</li>
+      <li><b>Brief 03 — Short-form template pack.</b> Five repeatable formats (hook + craft non-negotiables locked).</li>
+      <li><b>Brief 04 — Matthew cohort launch kit.</b> Five-week read-along assets, daily prompts, group prompts.</li>
+      <li><b>Brief 05 — Reader-testimony format.</b> Three output shapes, full consent flow.</li>
+      <li><b>Brief 06 — Instagram launch fortnight.</b> Ten feed posts to open the account.</li>
+      <li><b>Brief 07 — Substack launch sequence.</b> First articles + reader-letter format.</li>
+    </ul>
+    <p style="font-size:14.5px;color:#41525c;margin-top:14px"><b>Month 1</b> is onboarding: asset audit, brand pack, audio identity, web build, theologian roster lock. <b>Month 2</b> is the launch beat: website live, 52-ep batch shoot complete, first four Reading episodes published, short-form daily, Substack weekly, Matthew cohort opens. <b>Month 3+</b> is steady-state volumes.</p>
+  </section>
+
+  <!-- DECISIONS -->
+  <section class="card" id="decisions">
+    <div class="kicker">5 · Open decisions only they can make</div>
+    <h2>Drive these on the call</h2>
+    <p style="font-size:14.5px;color:#41525c;margin-bottom:6px">These are the gates. None of the build can fully unblock until they land. Push for soft yeses today on as many as you can.</p>
+    <ol class="decisions-list">
+      <li><b>Green-light on the £5k/month full engine.</b> Are we producing ahead of formal sign-off, or do we wait? A clear yes today unlocks everything else.</li>
+      <li><b>Single Hodder point of contact.</b> One name. Who do we send weekly samples to, who clears calendar anchors, who is in the approval chain.</li>
+      <li><b>Asset bundle cleared.</b> Written OK to cut, re-cut and monetise audiobook stems + Big Church Read assets.</li>
+      <li><b>Theologian roster — ~4–6 names.</b> Across Anglican / Catholic / evangelical / Orthodox. They approve the final list.</li>
+      <li><b>Website domain + build owner.</b> Is it <code>thegreateststoryevertoldbook.com</code>? In-house dev or external? Needed to hit Month 2.</li>
+      <li><b>Batch-shoot studio + dates.</b> 52-ep theologian shoot needs ~1 month prep per SLA. Lock now to hit Month 2.</li>
+      <li><b>Sign-off chain.</b> Who approves brand pack, audio identity, and the first four episodes before they go live.</li>
+    </ol>
+  </section>
+
+  <!-- Q&A -->
+  <section class="card" id="qa">
+    <div class="kicker">6 · If they ask</div>
+    <h2>Quick Q&amp;A</h2>
+    <div class="qa"><div class="q">"How is the £5k a month broken down?"</div><div class="a">Designed so every line is essential — content production across six channels, single-POC management, weekly reporting, calendar planning, community management. Excluded: paid media spend, third-party tool licences in Hodder's name, additional commissioned shoots beyond the theologian batch, translation. The breakdown is in section 11 of the deck.</div></div>
+    <div class="qa"><div class="q">"Why £5k — what makes it the right number?"</div><div class="a">It's the floor we can run the full six-channel engine on at the volumes in section 09 — 8 long-forms, 36 short-forms, 20 IG posts, weekly Substack, rolling cohort, every month. Anything lower means dropping a channel or cutting cadence. 3-month minimum, rolling monthly after that with 30 days' notice.</div></div>
+    <div class="qa"><div class="q">"When does the first measurable result land?"</div><div class="a">Month 2 is the launch beat — first four Reading episodes published, short-form daily, Substack weekly, Matthew cohort opens. First monthly report follows Month 2. Month 3 is steady-state and the first real read on growth.</div></div>
+    <div class="qa"><div class="q">"What's Bear's role / filming commitment?"</div><div class="a">Zero new filming. Everything Bear-on-screen is pre-recorded — audiobook, Big Church Read, archive. He's the voice and patron, not the host of every post. That's deliberate — it's how the engine stays sustainable across a year.</div></div>
+    <div class="qa"><div class="q">"Who owns the assets and the audience?"</div><div class="a">Hodder retain the book IP. The marketing assets we build sit under the GSET brand and live on the channels we set up — they're operated by us under the retainer. Channel handles and Substack registered in alignment with Hodder. Worth flagging on the call: don't promise more than is in the deck.</div></div>
+    <div class="qa"><div class="q">"What's the reporting cadence?"</div><div class="a">Weekly samples (not gated — published on our judgement, sample for sight). Monthly performance report. Calendar anchors pre-approved via a content brief 2 weeks out. Sensitive items (contested theology, brand-line crossings) escalated.</div></div>
+    <div class="qa"><div class="q">"Why won't AI just do this for cheaper?"</div><div class="a">It can't, on this brand. Hachette policy bans AI-generated voice, imagery and marketing creative. AI sits in our backend only — transcription, scheduling, analytics — never in the published output. We can show that policy in writing.</div></div>
+  </section>
+
+  <!-- THE ASK -->
+  <section class="card ask" id="ask">
+    <div class="kicker">7 · The ask · what to leave with</div>
+    <h2>What to ask for, explicitly</h2>
+    <ul class="bullets">
+      <li><b>A confirmed single point of contact</b> at Hodder, named on the call.</li>
+      <li><b>Green-light to start the v3 briefs.</b> Ideally a clear yes; at minimum a "produce ahead, sign-off to follow within the week."</li>
+      <li><b>Theologian roster sign-off path.</b> Who picks the final 4–6 names and by when.</li>
+      <li><b>A batch-shoot date locked</b> (or a window committed) so the 52-ep shoot can be booked this week.</li>
+      <li><b>Asset bundle cleared</b> — written OK to cut and monetise audiobook + Big Church Read.</li>
+      <li><b>A follow-up meeting in the diary</b> — Month-2 launch beat review, scheduled now while the room is warm.</li>
+    </ul>
+    <p style="margin-top:14px;color:#cdd9e0;font-size:14.5px">"Rather than walk you through the full deck now, we'll send it over right after the call. The thing I'd like to leave with today is a yes-in-principle on the engine, a named contact, and a batch-shoot window — that's enough to hit Month 2."</p>
+  </section>
+
+  <div class="card" style="background:#fbf7ec;border-color:rgba(201,162,75,.4)">
+    <div class="kicker">Keep in mind</div>
+    <span class="pill">Plain &amp; professional · no metaphors</span>
+    <span class="pill">Read direction as one flow</span>
+    <span class="pill">Drive the 7 decisions</span>
+    <span class="pill">No new Bear filming</span>
+    <span class="pill">Full deck is sent <em>after</em> the call</span>
+  </div>
+
+  <div class="foot">Pre-call brief for Olly · GSET social strategy · 1 June 2026 · anchored to Bear Witness × Hodder deck v2</div>
+
+</div>
+</body>
+</html>
