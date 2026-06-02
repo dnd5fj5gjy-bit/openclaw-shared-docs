@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — 29 Days to Launch</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #C0392B;
+    --amber: #E67E22;
+    --green: #27AE60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth-light);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  .hero-date {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-weight: 500;
+  }
+
+  /* COUNTDOWN BAR */
+  .countdown-bar {
+    background: var(--earth);
+    color: var(--white);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .count-item {
+    text-align: center;
+  }
+  .count-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    display: block;
+  }
+  .count-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  section.dark {
+    max-width: 100%;
+    background: var(--forest-deep);
+    color: var(--white);
+  }
+  section.dark .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  section.alt {
+    max-width: 100%;
+    background: var(--white);
+  }
+  section.alt .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  section.dark h2 { color: var(--white); }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    color: var(--earth);
+  }
+  section.dark h3 { color: var(--earth-light); }
+
+  p { margin-bottom: 1rem; font-weight: 400; }
+  .lead { font-size: 1.1rem; font-weight: 300; margin-bottom: 2rem; }
+
+  /* STATUS GRID */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .status-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+  .status-card.done {
+    border-left: 4px solid var(--green);
+  }
+  .status-card.urgent {
+    border-left: 4px solid var(--red);
+  }
+  .status-card.watch {
+    border-left: 4px solid var(--amber);
+  }
+  .status-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .tag-done { background: #d5f0e0; color: #1a7840; }
+  .tag-urgent { background: #fde8e8; color: #922020; }
+  .tag-watch { background: #fdf0dc; color: #9a5200; }
+
+  .status-card .title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+  .status-card .detail {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+  }
+  .status-card .deadline {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--red);
+    margin-top: 0.5rem;
+  }
+
+  /* FREIGHT BREAKDOWN */
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+  }
+  .cost-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: var(--cream-dark);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cost-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .cost-table tr:hover td { background: rgba(0,0,0,0.02); }
+  .cost-table .total td {
+    font-weight: 700;
+    border-top: 2px solid var(--charcoal);
+    border-bottom: none;
+    font-size: 1rem;
+  }
+  .cost-table .subtotal td {
+    font-weight: 600;
+    background: var(--cream);
+  }
+  .cost-note {
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+  }
+
+  /* SCENARIO CARDS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 600px) { .scenario-grid { grid-template-columns: 1fr; } }
+  .scenario-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .scenario-card.bad {
+    background: #fff0f0;
+    border: 2px solid #e8a0a0;
+  }
+  .scenario-card.good {
+    background: #f0fff5;
+    border: 2px solid #80c8a0;
+  }
+  .scenario-card .scenario-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .scenario-card.bad .scenario-label { color: var(--red); }
+  .scenario-card.good .scenario-label { color: #1a7840; }
+  .scenario-card .scenario-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .scenario-card .line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 0.88rem;
+  }
+  .scenario-card .line.total-line {
+    font-weight: 700;
+    border-top: 2px solid rgba(0,0,0,0.2);
+    border-bottom: none;
+    padding-top: 0.6rem;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+  }
+  .reclaim-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  .reclaim-note.good-note { background: rgba(39,174,96,0.1); color: #1a7840; }
+  .reclaim-note.bad-note { background: rgba(192,57,43,0.1); color: var(--red); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--sand);
+  }
+  .timeline-week {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -1.7rem;
+    top: 0.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--earth);
+  }
+  .timeline-dot.launch { background: var(--forest); width: 1rem; height: 1rem; left: -1.8rem; top: 0.3rem; }
+  .timeline-week .week-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--earth);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-week .week-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .timeline-week ul {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-week ul li {
+    font-size: 0.88rem;
+    padding: 0.3rem 0;
+    opacity: 0.85;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .timeline-week ul li::before {
+    content: '→';
+    color: var(--earth-light);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .timeline-week ul li.urgent-item { opacity: 1; font-weight: 600; color: var(--earth-light); }
+
+  /* DECISION BOX */
+  .decision-box {
+    background: var(--earth);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+  .decision-box .decision-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .decision-box .decision-q {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .option {
+    background: rgba(255,255,255,0.15);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .option .opt-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+    opacity: 0.8;
+  }
+  .option .opt-title {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+  .option .opt-desc {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    line-height: 1.4;
+  }
+  .option.recommended {
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .option.recommended::before {
+    content: 'RECOMMENDED';
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    background: var(--forest);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  /* ACTIONS */
+  .action-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+  .action-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-num {
+    background: var(--earth);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .action-body .action-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .action-body .action-desc {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  .action-body .action-who {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--earth);
+    margin-top: 0.25rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+  }
+
+  /* PILL BADGE */
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .badge.red { background: var(--red); color: white; }
+  .badge.amber { background: var(--amber); color: white; }
+  .badge.green { background: var(--green); color: white; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: rgba(192,122,69,0.1);
+    border-left: 4px solid var(--earth);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+  }
+  .highlight strong { color: var(--earth); }
+
+  /* WARN BOX */
+  .warn {
+    background: rgba(192,57,43,0.08);
+    border-left: 4px solid var(--red);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Modern Savage — Launch Intelligence Report</div>
+  <h1>29 Days to<br>July 1st</h1>
+  <p class="hero-sub">Three hard deadlines. Four open blockers. One launch window. Here's everything you need to know.</p>
+  <p class="hero-date">Prepared by Junior — June 2, 2026</p>
+</div>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <div class="count-item">
+    <span class="count-num">12</span>
+    <span class="count-label">Days to freight deadline</span>
+  </div>
+  <div class="count-item">
+    <span class="count-num">22</span>
+    <span class="count-label">Days until domain expires</span>
+  </div>
+  <div class="count-item">
+    <span class="count-num">29</span>
+    <span class="count-label">Days to launch</span>
+  </div>
+</div>
+
+<!-- WHAT'S DONE -->
+<section class="alt">
+<div class="inner">
+  <h2>What's locked in</h2>
+  <p class="lead">More is done than it might feel right now. The foundation is solid.</p>
+
+  <div class="status-grid">
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">Delaware LLC Incorporated</div>
+      <div class="detail">EIN: 42-2894916. ICE Miller confirmed June 2. Chase bank account in progress (Raemy).</div>
+    </div>
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">Formula Confirmed</div>
+      <div class="detail">Adult Blend, Kids Blend, Add-On Stack all confirmed at ACF Pharma. $82K deposit paid April 23-24. Production underway.</div>
+    </div>
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">Website Live</div>
+      <div class="detail">modernsavage.co live at $69/month. Three products. Recipe section. Pre-launch signup active.</div>
+    </div>
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">Email Sequences Built</div>
+      <div class="detail">5-email pre-launch sequence + 6-email post-purchase sequence built and ready for Klaviyo.</div>
+    </div>
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">Influencer List Ready</div>
+      <div class="detail">20 targets across carnivore, military, outdoor niches. Ships A Lot briefed for seeding logistics.</div>
+    </div>
+    <div class="status-card done">
+      <span class="status-tag tag-done">Done</span>
+      <div class="title">ManyChat + Klaviyo</div>
+      <div class="detail">Calvin has modernsavage.com login. ManyChat flow building. WhatsApp Community strategy built.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- OPEN BLOCKERS -->
+<section>
+  <h2>The four blockers</h2>
+  <p class="lead">These are the things standing between you and a July 1 launch. They are in order of urgency.</p>
+
+  <div class="status-grid">
+    <div class="status-card urgent">
+      <span class="status-tag tag-urgent">Urgent — 12 days</span>
+      <div class="title">UK Freight + Customs Decision</div>
+      <div class="detail">NTG Air &amp; Ocean quote valid until June 14. $4,296 for full container Pompano Beach to Northampton — but this excludes UK import duty and VAT. No customs broker yet.</div>
+      <div class="deadline">Hard deadline: June 14, 2026</div>
+    </div>
+    <div class="status-card urgent">
+      <span class="status-tag tag-urgent">Urgent — 22 days</span>
+      <div class="title">modernsavage.com Domain</div>
+      <div class="detail">Domain expires June 24 — one week before launch. CJ is handling via MediaOptions. Has an offer been accepted? This needs eyes on it today.</div>
+      <div class="deadline">Domain expiry: June 24, 2026</div>
+    </div>
+    <div class="status-card watch">
+      <span class="status-tag tag-watch">In progress</span>
+      <div class="title">Stripe + Payment Processing</div>
+      <div class="detail">US Stripe setup should be solvable under Modern Savage LLC (Delaware). UK Stripe needs UK VAT-registered entity. Both needed before first order.</div>
+      <div class="deadline">Needed: before July 1</div>
+    </div>
+    <div class="status-card watch">
+      <span class="status-tag tag-watch">Watch</span>
+      <div class="title">UK VAT Registration</div>
+      <div class="detail">4-8 weeks with HMRC. Needed to (a) collect VAT on UK sales legally above £90K threshold, and (b) reclaim import VAT — which changes your landed cost by ~$16K. Raemy + Sara Perry to action.</div>
+      <div class="deadline">Start now, needed by August</div>
+    </div>
+  </div>
+</section>
+
+<!-- FREIGHT BREAKDOWN -->
+<section class="dark">
+<div class="inner">
+  <h2>UK freight: the real numbers</h2>
+  <p class="lead">The $4,296 NTG quote is freight only. Here's what the UK import will actually cost — and why VAT registration changes everything.</p>
+
+  <h3>NTG Freight Quote Breakdown (already received)</h3>
+  <table class="cost-table" style="background:rgba(255,255,255,0.05);">
+    <thead>
+      <tr><th>Line item</th><th style="text-align:right">Cost (USD)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Inland pickup (Pompano Beach FL)</td><td style="text-align:right">$475</td></tr>
+      <tr><td>Fuel surcharge</td><td style="text-align:right">$298</td></tr>
+      <tr><td>Scale fee + chassis</td><td style="text-align:right">$225</td></tr>
+      <tr><td>Ocean freight</td><td style="text-align:right">$1,383</td></tr>
+      <tr><td>Export service + customs</td><td style="text-align:right">$115</td></tr>
+      <tr><td>Terminal handling UK + import service + clearance</td><td style="text-align:right">$843</td></tr>
+      <tr><td>Inland delivery (Northampton)</td><td style="text-align:right">$957</td></tr>
+      <tr class="subtotal"><td><strong>FREIGHT TOTAL (confirmed)</strong></td><td style="text-align:right"><strong>$4,296</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn" style="background:rgba(192,57,43,0.15); border-left-color:#e87070;">
+    <strong style="color:#e87070;">Not included in the quote:</strong> UK import duty (HMRC) and UK import VAT. Andrew explicitly flagged this on June 2.
+  </div>
+
+  <h3 style="margin-top:2rem;">Estimated UK import taxes (your customs broker will confirm)</h3>
+  <p style="opacity:0.8; font-size:0.9rem;">Based on HS code 2106.90.98 (food preparations) at UK Global Tariff MFN rates. Estimated product invoice value ~$70,000 (2,500 units at blended cost ~$23-24/unit).</p>
+
+  <table class="cost-table" style="background:rgba(255,255,255,0.05); margin-top:1rem;">
+    <thead>
+      <tr><th>UK Import Charge</th><th>Rate</th><th style="text-align:right">Est. Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CIF value (product + freight)</td><td>—</td><td style="text-align:right">~$74,300</td></tr>
+      <tr><td>UK Import Duty (HS 2106.90.98)</td><td>6.4% of CIF</td><td style="text-align:right">~$4,755</td></tr>
+      <tr><td>UK Import VAT</td><td>20% of (CIF + duty)</td><td style="text-align:right">~$15,811</td></tr>
+      <tr class="total"><td><strong>TOTAL UK IMPORT TAXES</strong></td><td></td><td style="text-align:right"><strong>~$20,566</strong></td></tr>
+    </tbody>
+  </table>
+  <p class="cost-note" style="color:rgba(255,255,255,0.4); margin-top:0.5rem;">* These are estimates. Your customs broker will confirm exact rates and commodity classification. Some supplement categories may attract lower duty rates.</p>
+
+  <h3 style="margin-top:2.5rem;">The scenario that changes everything: VAT registration</h3>
+
+  <div class="scenario-grid">
+    <div class="scenario-card bad">
+      <div class="scenario-label">Scenario A — No UK VAT registration</div>
+      <div class="scenario-title">You absorb the full hit</div>
+      <div class="line"><span>Freight</span><span>$4,296</span></div>
+      <div class="line"><span>Import duty</span><span>~$4,755</span></div>
+      <div class="line"><span>Import VAT (sunk cost)</span><span>~$15,811</span></div>
+      <div class="line total-line"><span>Extra cost on top of product</span><span>~$24,862</span></div>
+      <div class="reclaim-note bad-note">VAT is a permanent cost. No reclaim possible. This adds ~$10/unit to your UK COGS.</div>
+    </div>
+    <div class="scenario-card good">
+      <div class="scenario-label">Scenario B — UK VAT registered importer</div>
+      <div class="scenario-title">VAT becomes cash-flow only</div>
+      <div class="line"><span>Freight</span><span>$4,296</span></div>
+      <div class="line"><span>Import duty</span><span>~$4,755</span></div>
+      <div class="line"><span>Import VAT (reclaimable)</span><span>~$15,811</span></div>
+      <div class="line total-line"><span>Permanent extra cost</span><span>~$9,051</span></div>
+      <div class="reclaim-note good-note">VAT paid upfront, reclaimed on your next quarterly VAT return. Net cost is only freight + duty. Saves ~$15,800.</div>
+    </div>
+  </div>
+
+  <div class="highlight" style="background:rgba(192,122,69,0.15); border-left-color:var(--earth-light);">
+    <strong>The unlock:</strong> UK VAT registration changes your UK import cost from ~$25K to ~$9K. If you haven't started the VAT registration process, Raemy should file it immediately. Sara Perry at David Owen Accountancy can advise or handle.
+  </div>
+
+  <h3>Who to contact for UK customs brokerage</h3>
+  <p style="opacity:0.8; font-size:0.9rem; margin-bottom:1rem;">Michael Sherman at NTG is a US Licensed Customs Broker, but you need a UK-side agent who files HMRC import declarations and can handle VAT deferment.</p>
+
+  <p style="opacity:0.8; font-size:0.9rem;">Options:</p>
+  <ul style="list-style:none; margin-top:0.75rem; opacity:0.85; font-size:0.88rem;">
+    <li style="padding:0.5rem 0; border-bottom:1px solid rgba(255,255,255,0.1);">1. Ask <strong>Sara Perry at David Owen Accountancy</strong> (sara_perry@davidowen.co.uk) — she knows your company structure and can refer a customs agent they trust</li>
+    <li style="padding:0.5rem 0; border-bottom:1px solid rgba(255,255,255,0.1);">2. <strong>ShipBob UK</strong> (Northampton — already your likely 3PL) handles customs clearance for imported goods as part of their service</li>
+    <li style="padding:0.5rem 0;">3. Ask Andrew Kouvel directly — ACF have shipped to UK before and will know recommended brokers</li>
+  </ul>
+</div>
+</section>
+
+<!-- DECISION: UK LAUNCH TIMING -->
+<section>
+  <h2>The decision you need to make this week</h2>
+  <p class="lead">The June 14 freight deadline forces this. If you don't book NTG this week, you're not getting product to the UK by early July.</p>
+
+  <div class="decision-box">
+    <div class="decision-title">UK launch: when?</div>
+    <div class="decision-q">If you ship product now, UK orders can only be fulfilled July 8-10 (19-day transit + clearance). What's the play?</div>
+
+    <div class="options">
+      <div class="option recommended">
+        <div class="opt-label">Option A</div>
+        <div class="opt-title">Accept 7-10 day UK lag</div>
+        <div class="opt-desc">Ship product June 14-17. US launches July 1. UK customers order July 1, receive product July 8-12. Clear messaging: "UK orders ship July 8." No customer disappointment if communicated upfront.</div>
+      </div>
+      <div class="option">
+        <div class="opt-label">Option B</div>
+        <div class="opt-title">US-only July 1, UK July 15</div>
+        <div class="opt-desc">US launches full July 1. UK launch announced as "July 15 — UK shipping begins." Cleaner messaging. Product already in country. No customs scramble.</div>
+      </div>
+      <div class="option">
+        <div class="opt-label">Option C</div>
+        <div class="opt-title">Air freight small UK batch</div>
+        <div class="opt-desc">Air freight 200-300 units to UK for July 1 fulfilment. Much higher cost (~3-4x per unit). Reserve for a top 200 founding members list only.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Timeline math:</strong> If NTG is booked June 9-10, product ships ~June 14-17. Ocean transit 19 days = arrives Felixstowe ~July 3-6. UK customs clearance 1-3 days. Inland delivery to ShipBob Northampton 1 day. First UK dispatch: July 7-10. Adjust messaging accordingly.
+  </div>
+</section>
+
+<!-- WEEK BY WEEK -->
+<section class="dark">
+<div class="inner">
+  <h2>Week-by-week to July 1</h2>
+  <p class="lead" style="opacity:0.8;">What needs to happen in each window to make this launch.</p>
+
+  <div class="timeline">
+    <div class="timeline-week">
+      <div class="timeline-dot"></div>
+      <div class="week-label">This week — Jun 2-8</div>
+      <div class="week-title">Decisions and customs</div>
+      <ul>
+        <li class="urgent-item">Freight decision: book NTG or plan for UK July 15 launch</li>
+        <li class="urgent-item">Chase CJ on modernsavage.com status — has the broker received a counteroffer?</li>
+        <li>Confirm UK VAT registration is being filed (Raemy + Sara Perry)</li>
+        <li>Brief Felix on Modern Savage LLC tech setup (per Raemy's note on the EIN email)</li>
+        <li>Metricool: 15 pending posts need approving in the app</li>
+        <li>Bear Witness Slack Pro trial ends June 9 — decide: upgrade or move off Slack</li>
+      </ul>
+    </div>
+    <div class="timeline-week">
+      <div class="timeline-dot"></div>
+      <div class="week-label">Jun 9-15</div>
+      <div class="week-title">Book freight, lock domain</div>
+      <ul>
+        <li class="urgent-item">NTG booking confirmed by June 14 (hard deadline)</li>
+        <li class="urgent-item">modernsavage.com transfer in motion</li>
+        <li>UK customs broker engaged</li>
+        <li>Stripe US live under Modern Savage LLC Delaware</li>
+        <li>ShipBob UK contract signed (3PL)</li>
+      </ul>
+    </div>
+    <div class="timeline-week">
+      <div class="timeline-dot"></div>
+      <div class="week-label">Jun 16-22</div>
+      <div class="week-title">Product ships</div>
+      <ul>
+        <li>US product ships from ACF Pompano Beach (US 3PL delivery)</li>
+        <li>UK shipment departs (if booked)</li>
+        <li>modernsavage.com pointing to live site</li>
+        <li>Pre-launch email sequence begins (Klaviyo live)</li>
+        <li>Bear IG Arc Phase 2 content queued</li>
+      </ul>
+    </div>
+    <div class="timeline-week">
+      <div class="timeline-dot"></div>
+      <div class="week-label">Jun 23-29</div>
+      <div class="week-title">Pre-launch push</div>
+      <ul>
+        <li>US product received at 3PL, photo and quality check</li>
+        <li>Soft launch email June 29 to founding tribe</li>
+        <li>All social content pre-scheduled in Metricool</li>
+        <li>Press and influencer seeding activated</li>
+        <li>UK product in transit (ETA Felixstowe July 3-6)</li>
+      </ul>
+    </div>
+    <div class="timeline-week">
+      <div class="timeline-dot launch"></div>
+      <div class="week-label">Jul 1 — LAUNCH</div>
+      <div class="week-title" style="color:var(--earth-light);">Modern Savage goes live</div>
+      <ul>
+        <li class="urgent-item">US: orders live on modernsavage.com from Day 1</li>
+        <li class="urgent-item">UK: orders live July 1, dispatch begins July 8-10</li>
+        <li>Bear Grylls announcement post (Running Wild + Modern Savage aligned)</li>
+        <li>WhatsApp Community: founding members get access + codes</li>
+        <li>Calvin/Ku Creatives: activation posts live across all channels</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- IMMEDIATE ACTIONS -->
+<section class="alt">
+<div class="inner">
+  <h2>Your immediate action list</h2>
+  <p class="lead">Five things that need to happen this week. Nothing on this list is complicated — they just need a decision or a call.</p>
+
+  <ul class="action-list">
+    <li>
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Freight decision: book NTG or confirm UK July 15 launch</div>
+        <div class="action-desc">Andrew Kouvel has now copied you and Tom directly into the NTG thread (June 2, 09:15). Reply to Michael Sherman at NTG with your decision. If shipping UK: confirm the $4,296 quote and request booking. If deferring UK: reply to Andrew flagging you're US-only for July 1.</div>
+        <div class="action-who">Jesse (or Tom) — respond to Andrew by end of week</div>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Chase CJ on modernsavage.com — this cannot slip</div>
+        <div class="action-desc">The domain expires June 24. A message to CJ this week: "Where are we on modernsavage.com? Has MediaOptions received a counteroffer? What do we need to do to close this before the expiry?" The domain cannot be left to last-minute.</div>
+        <div class="action-who">Jesse to message CJ this week</div>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Confirm UK VAT registration is started</div>
+        <div class="action-desc">Without UK VAT registration, your UK import cost is ~$15,800 higher (non-reclaimable VAT). Raemy should file the application immediately via Sara Perry at David Owen Accountancy. It takes 4-8 weeks — you need it started now to have it in place before UK orders process at scale.</div>
+        <div class="action-who">Raemy Singh + Sara Perry (sara_perry@davidowen.co.uk)</div>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Brief Felix on Modern Savage LLC tech setup</div>
+        <div class="action-desc">Raemy's note on the Delaware EIN email: "Jesse you can get Felix started on whatever tech/platform setup he needs for the entity." This likely means: Shopify store entity, Stripe US account under Modern Savage LLC, ACF customer portal. Felix needs clarity on what to set up under the new Delaware entity vs what was already under Bear Witness.</div>
+        <div class="action-who">Jesse to brief Felix (bgvai@beargryllsventures.com)</div>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Action the Metricool backlog</div>
+        <div class="action-desc">~15 posts from dhika@kucreatives.com are pending review in the Metricool app — June 3, 6, 8, and 9 posts. These are time-sensitive: June 3 posts need approval today or they miss their window. Open the Metricool app and approve or reject each batch.</div>
+        <div class="action-who">Jesse in Metricool app — ideally today</div>
+      </div>
+    </li>
+  </ul>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Modern Savage 29-Day Launch Report — Prepared by Junior, June 2, 2026</p>
+  <p style="margin-top:0.5rem; opacity:0.6; font-size:0.75rem;">For Jesse Grylls / Bear Grylls Ventures — Confidential</p>
+</footer>
+
+</body>
+</html>
