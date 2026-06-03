@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Ad Audit + Fresh Variations · 3 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A1A2E; --navy2:#23233F; --gold:#C9A24B; --gold-l:#E4C879;
+    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(26,26,46,.12);
+    --earth:#8B7355; --rust:#A0522D; --sage:#6B7F5E; --blood:#8B2500;
+    --done:#3a7a4e; --partial:#b08800; --outstanding:#8B2500;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  /* Fixed nav */
+  nav.topnav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(8px);background:rgba(26,26,46,.0);transition:background .25s ease, padding .25s ease;padding:18px 32px}
+  nav.topnav.scrolled{background:rgba(26,26,46,.92);padding:12px 32px;border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.topnav .brand{color:#fff;font-family:'DM Serif Display',serif;font-size:18px;letter-spacing:.02em;display:inline-block}
+  nav.topnav .links{float:right;display:flex;gap:22px}
+  nav.topnav .links a{color:#cfd6dd;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:color .15s ease}
+  nav.topnav .links a:hover{color:var(--gold-l)}
+  @media (max-width:760px){ nav.topnav .links{display:none} }
+
+  /* Hero */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 8vw;background:
+     radial-gradient(ellipse at 75% 35%, rgba(201,162,75,.18) 0%, transparent 55%),
+     linear-gradient(150deg,var(--navy) 0%,var(--navy2) 100%);
+     color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .hero .eyebrow{color:var(--gold-l);font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;opacity:0;transform:translateY(14px);animation:fadeUp .9s .15s ease forwards}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,76px);font-weight:400;line-height:1.05;margin:14px 0 10px;max-width:980px;opacity:0;transform:translateY(18px);animation:fadeUp .9s .3s ease forwards}
+  .hero h1 em{font-style:italic;color:var(--gold-l)}
+  .hero p.sub{color:#cdd9e0;font-size:clamp(15px,1.6vw,19px);max-width:680px;line-height:1.6;opacity:0;transform:translateY(18px);animation:fadeUp .9s .5s ease forwards}
+  .hero .meta{position:absolute;bottom:38px;left:8vw;right:8vw;display:flex;justify-content:space-between;align-items:center;color:#8a97a0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:0;animation:fadeUp .9s .9s ease forwards}
+  .hero .meta .right{color:var(--gold-l)}
+
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  /* Sections */
+  section.block{padding:7rem 8vw;max-width:1200px;margin:0 auto}
+  section.alt{background:#fff;max-width:100%;padding:7rem 8vw}
+  section.alt .inner{max-width:1200px;margin:0 auto}
+  section.dark{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;max-width:100%;padding:7rem 8vw}
+  section.dark .inner{max-width:1200px;margin:0 auto}
+  section.dark h2, section.dark .lab{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  .lab{display:block;color:var(--gold);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  h2.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:18px;max-width:880px}
+  section.dark h2.section-title{color:#fff}
+  p.section-lead{font-size:17px;color:#3d4853;max-width:780px;line-height:1.7;margin-bottom:42px}
+  section.dark p.section-lead{color:#cdd9e0}
+
+  /* TL;DR */
+  .tldr{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:30px 34px;margin:0 0 50px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
+  .tldr .lab{color:var(--navy);margin-bottom:8px}
+  .tldr p{font-size:16px;color:#2c3540;line-height:1.7}
+  .tldr p + p{margin-top:10px}
+
+  /* Status table */
+  .audit-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+  .audit-row{display:grid;grid-template-columns:60px 1fr 130px 110px;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px}
+  .audit-row .num{font-family:'DM Serif Display',serif;color:var(--navy);font-size:22px}
+  .audit-row .title{font-weight:600;color:var(--navy);font-size:15.5px}
+  .audit-row .title .desc{display:block;color:#5b6671;font-weight:400;font-size:13px;margin-top:3px;line-height:1.5}
+  .audit-row .pillar{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7a6326;font-weight:700;background:#ede7d8;padding:5px 10px;border-radius:20px;text-align:center;white-space:nowrap}
+  .audit-row .status{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;text-align:center;padding:6px 8px;border-radius:6px;color:#fff}
+  .audit-row .status.done{background:var(--done)}
+  .audit-row .status.partial{background:var(--partial)}
+  .audit-row .status.outstanding{background:var(--outstanding)}
+  .audit-row .status.unknown{background:#5b6671}
+  @media (max-width:780px){
+    .audit-row{grid-template-columns:46px 1fr;gap:10px;padding:14px 16px}
+    .audit-row .pillar,.audit-row .status{grid-column:2 / -1;text-align:left;justify-self:start;margin-top:6px}
+  }
+
+  /* Repetition list */
+  .rep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:14px}
+  .rep-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--blood);border-radius:10px;padding:22px 24px}
+  section.dark .rep-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-top:3px solid var(--gold)}
+  .rep-card .h{font-family:'DM Serif Display',serif;color:var(--navy);font-size:19px;margin-bottom:8px;line-height:1.25}
+  section.dark .rep-card .h{color:#fff}
+  .rep-card p{font-size:14.5px;color:#3d4853;line-height:1.6}
+  section.dark .rep-card p{color:#cdd9e0}
+  .rep-card .tag{display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blood);font-weight:700;margin-bottom:8px}
+  section.dark .rep-card .tag{color:var(--gold-l)}
+
+  /* Variations */
+  .var-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 38px;margin:0 0 24px;box-shadow:0 1px 0 rgba(11,31,42,.03);position:relative;overflow:hidden}
+  .var-card::before{content:attr(data-n);position:absolute;top:18px;right:24px;font-family:'DM Serif Display',serif;color:var(--gold);opacity:.45;font-size:46px;line-height:1}
+  .var-card .lab{margin-bottom:6px}
+  .var-card h3{font-family:'DM Serif Display',serif;color:var(--navy);font-size:26px;font-weight:400;line-height:1.2;margin-bottom:18px;max-width:78%}
+  .var-card .row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .var-card .row:last-of-type{border-bottom:none}
+  .var-card .row .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;padding-top:3px}
+  .var-card .row .v{font-size:15.5px;color:#1c2a33;line-height:1.65}
+  .var-card .row .v em{font-style:normal;font-weight:600;color:var(--navy);background:#fff4d6;padding:0 4px;border-radius:3px}
+  .var-card .row .v.copy{font-family:'Outfit',sans-serif;font-size:16.5px;color:var(--navy);line-height:1.6;font-weight:500}
+  .var-card .why{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:#5b6671;font-style:italic;line-height:1.6}
+  @media (max-width:720px){
+    .var-card{padding:26px 24px}
+    .var-card h3{font-size:22px;max-width:100%}
+    .var-card .row{grid-template-columns:1fr;gap:4px}
+  }
+
+  /* Next step */
+  .next-card{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border-radius:14px;padding:42px 46px;margin-top:20px}
+  .next-card h3{font-family:'DM Serif Display',serif;font-size:30px;font-weight:400;color:#fff;margin-bottom:14px;line-height:1.2}
+  .next-card p{color:#cdd9e0;font-size:16px;line-height:1.75;margin-bottom:12px}
+  .next-card ul{list-style:none;margin:18px 0 0;padding:0}
+  .next-card ul li{padding:12px 0 12px 28px;position:relative;color:#e4eaef;font-size:15.5px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,.08)}
+  .next-card ul li:last-child{border-bottom:none}
+  .next-card ul li::before{content:"";position:absolute;left:0;top:18px;width:14px;height:2px;background:var(--gold)}
+  .next-card ul li b{color:var(--gold-l);font-weight:600}
+
+  /* Footer */
+  footer{padding:34px 8vw;text-align:center;color:#8a97a0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+  footer span{color:var(--gold-l)}
+
+  /* Small helpers */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 30px}
+  .legend .l{display:flex;align-items:center;gap:8px;font-size:12px;color:#5b6671;font-weight:600;letter-spacing:.04em}
+  .legend .sw{width:14px;height:14px;border-radius:3px}
+  .legend .sw.done{background:var(--done)}
+  .legend .sw.partial{background:var(--partial)}
+  .legend .sw.outstanding{background:var(--outstanding)}
+  .legend .sw.unknown{background:#5b6671}
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <span class="brand">Modern Savage — Ad Audit</span>
+  <span class="links">
+    <a href="#done">Done</a>
+    <a href="#outstanding">Outstanding</a>
+    <a href="#repetition">Repetition</a>
+    <a href="#variations">Variations</a>
+    <a href="#next">Next step</a>
+  </span>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Modern Savage · Pre-launch · 3 June 2026</div>
+  <h1>Ad audit + <em>fresh variations</em><br>off the shoot footage.</h1>
+  <p class="sub">A read across what's been delivered, what's still outstanding from the Bear Witness 10-ad brief, where the set has started repeating itself — and eight new image-led concepts that use existing BG photography and on-image copy to break the pattern.</p>
+  <div class="meta">
+    <span>For Olly · prepared by Ted</span>
+    <span class="right">Pre-launch creative review</span>
+  </div>
+</header>
+
+<!-- ─── TL;DR ──────────────────────────────────── -->
+<section class="block" id="tldr">
+  <div class="reveal">
+    <div class="tldr">
+      <span class="lab">In one read</span>
+      <p>The 10-ad Bear Witness brief is the right backbone, but as a delivered set it's leaning hard on one register: VO over stock footage, kitchen / shelf imagery, supplement-shelf hook, same end-card. Jago's first cuts have leaned into that same shoot footage, so the set looks like one ad in ten outfits.</p>
+      <p>This doc is two halves. First, an honest audit of what's been delivered vs what's still outstanding from the original brief — flagging where the set has gone repetitive. Second, <b>eight new image-led variation briefs</b> built around still photography of Bear (existing assets only, no new filming) with on-image copy. Distinctly different visual register from the shoot-footage ads, and broader in hook, format and audience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 1 — DONE ──────────────────────────────────── -->
+<section class="alt" id="done">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section 1 · What's been done</span>
+      <h2 class="section-title">The delivered set, by ad.</h2>
+      <p class="section-lead">The Bear Witness brief has 10 ads across the funnel. Status reflects what we can see in delivery — flag any I've got wrong and I'll update.</p>
+
+      <div class="legend">
+        <span class="l"><span class="sw done"></span> Delivered</span>
+        <span class="l"><span class="sw partial"></span> Cut not finished</span>
+        <span class="l"><span class="sw outstanding"></span> Outstanding</span>
+        <span class="l"><span class="sw unknown"></span> Status TBC</span>
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-row">
+          <span class="num">01</span>
+          <span class="title">The Supplement Shelf<span class="desc">TOF · Cluttered shelf hook → "8 supplements, maybe 2 are working" → one-scoop close.</span></span>
+          <span class="pillar">P2 · Replace shelf</span>
+          <span class="status done">Delivered</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">02</span>
+          <span class="title">Read the Label<span class="desc">TOF · Synthetic-ingredient teardown, label close-ups, "your body doesn't recognise this" beat.</span></span>
+          <span class="pillar">P3 · Real food</span>
+          <span class="status done">Delivered</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">03</span>
+          <span class="title">The Gummy Vitamin Truth<span class="desc">TOF · Parental angle, sugar / synthetic colour callout, segue into Kids Blend.</span></span>
+          <span class="pillar">P4 · Family table</span>
+          <span class="status done">Delivered</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">04</span>
+          <span class="title">Running at 70%<span class="desc">TOF · "Most adults are nutrient-deficient and don't know it" → real-food fix.</span></span>
+          <span class="pillar">P3 · Real food</span>
+          <span class="status partial">Cut not finished</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">05</span>
+          <span class="title">One Scoop<span class="desc">MOF · Direct product intro, scoop-into-glass, what's in the bag.</span></span>
+          <span class="pillar">P2 · Replace shelf</span>
+          <span class="status done">Delivered</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">06</span>
+          <span class="title">The Family Mission<span class="desc">MOF · Bear + Jesse story, "built by our family for yours", one-brand logic.</span></span>
+          <span class="pillar">P1 · One family</span>
+          <span class="status outstanding">Outstanding</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">07</span>
+          <span class="title">For the Kids<span class="desc">MOF · Kids Blend deep-dive, colostrum, allergen transparency.</span></span>
+          <span class="pillar">P4 · Family table</span>
+          <span class="status outstanding">Outstanding</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">08</span>
+          <span class="title">Bear's Word<span class="desc">BOF · Bear direct-to-camera credibility, "30 years eating this way".</span></span>
+          <span class="pillar">P5 · Proof not promises</span>
+          <span class="status partial">Cut not finished</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">09</span>
+          <span class="title">What's in the Scoop<span class="desc">BOF · Static carousel · ingredient deep-dive 5-6 slides.</span></span>
+          <span class="pillar">P5 · Proof not promises</span>
+          <span class="status outstanding">Outstanding</span>
+        </div>
+        <div class="audit-row">
+          <span class="num">10</span>
+          <span class="title">The Switch<span class="desc">BOF · "I switched off the shelf onto one bag, here's what happened" testimonial frame.</span></span>
+          <span class="pillar">P2 · Replace shelf</span>
+          <span class="status outstanding">Outstanding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2 — OUTSTANDING ──────────────────────────────────── -->
+<section class="block" id="outstanding">
+  <div class="reveal">
+    <span class="lab">Section 2 · What's outstanding</span>
+    <h2 class="section-title">Four ads from the brief haven't landed yet.</h2>
+    <p class="section-lead">These are the ones Olly was asking about — the ones Jago hasn't delivered. Two of them (06 and 07) are the family-pillar workhorses, which is the lane the brand is meant to own. Worth getting these done before launch, but several can be re-conceived as image-led posts instead of shoot-footage edits, which is exactly where the variation set below comes in.</p>
+
+    <div class="audit-grid">
+      <div class="audit-row">
+        <span class="num">06</span>
+        <span class="title">The Family Mission<span class="desc">Priority. The Bear-and-Jesse founding story is the brand's single biggest credibility asset and we don't have it cut yet. Can be repurposed as still + overlay if shoot footage is thin (see Variation #1).</span></span>
+        <span class="pillar">P1 · One family</span>
+        <span class="status outstanding">Outstanding</span>
+      </div>
+      <div class="audit-row">
+        <span class="num">07</span>
+        <span class="title">For the Kids<span class="desc">Priority. Kids Blend has the most differentiated story (colostrum, allergen-honest) and zero ad coverage today. Currently the gap in the funnel.</span></span>
+        <span class="pillar">P4 · Family table</span>
+        <span class="status outstanding">Outstanding</span>
+      </div>
+      <div class="audit-row">
+        <span class="num">09</span>
+        <span class="title">What's in the Scoop<span class="desc">Static carousel — doesn't need shoot footage at all. This is a pure design-and-copy job, easy unlock. (See Variation #4.)</span></span>
+        <span class="pillar">P5 · Proof not promises</span>
+        <span class="status outstanding">Outstanding</span>
+      </div>
+      <div class="audit-row">
+        <span class="num">10</span>
+        <span class="title">The Switch<span class="desc">Conversion ad — would benefit from an actual user voice (an early seeder), so the holdup is sensible. Image-led "before / after the shelf" variation can run in the meantime.</span></span>
+        <span class="pillar">P2 · Replace shelf</span>
+        <span class="status outstanding">Outstanding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 3 — REPETITION ──────────────────────────────────── -->
+<section class="dark" id="repetition">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section 3 · Where the set has gone repetitive</span>
+      <h2 class="section-title">It reads as one ad in different outfits.</h2>
+      <p class="section-lead">Olly's instinct is right — the delivered cuts share too much visual and structural DNA. Five specific repeats worth naming:</p>
+
+      <div class="rep-grid">
+        <div class="rep-card">
+          <span class="tag">Repeat · Hook</span>
+          <div class="h">"Shelf clutter" is doing too much.</div>
+          <p>Ads 01, 05 and (implicitly) 10 all open on the same shelf-of-bottles image as the scroll-stopper. The teardown beat lands once. By the third ad the viewer recognises the move.</p>
+        </div>
+        <div class="rep-card">
+          <span class="tag">Repeat · Footage</span>
+          <div class="h">Same shoot footage cut three ways.</div>
+          <p>Same kitchen, same morning light, same scoop-into-glass beat appearing across 01, 02, 03, 05. The product cutaway is doing its job, but the b-roll is.  Looks like the same edit re-titled.</p>
+        </div>
+        <div class="rep-card">
+          <span class="tag">Repeat · VO register</span>
+          <div class="h">VO-led, no on-screen Bear.</div>
+          <p>By design (brief: "no face-to-camera, VO + stock + product"). Right call for some ads, but means we never anchor a viewer on Bear's face — losing the strongest unfair advantage we have.</p>
+        </div>
+        <div class="rep-card">
+          <span class="tag">Repeat · End-card</span>
+          <div class="h">Identical CTA frame.</div>
+          <p>Same product still + URL closer on every cut. Means a feed-scroller seeing two MS ads in a row gets identical last frames — kills frequency efficiency.</p>
+        </div>
+        <div class="rep-card">
+          <span class="tag">Repeat · Format</span>
+          <div class="h">Eight of ten are 30-40s video reels.</div>
+          <p>Only one carousel (Ad 09) and one in-feed-leaning piece in the brief. Image posts and statics are completely absent — yet they're the cheapest, fastest things to ship and the most easily varied.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 4 — VARIATIONS ──────────────────────────────────── -->
+<section class="block" id="variations">
+  <div class="reveal">
+    <span class="lab">Section 4 · Fresh variations</span>
+    <h2 class="section-title">Eight image-led variations off existing BG photography.</h2>
+    <p class="section-lead">Each of these uses an existing photograph of Bear — from the archive, not a new shoot — with on-image copy as the hook. The format is a still image post (or a 1-2 second still-with-subtle-motion reel cover), not a shoot-footage edit. Distinct hooks, distinct framings, distinct audiences. All copy is plain professional — no metaphors. Each variation includes a one-line "why it's different" pointer so the contrast against the existing set is explicit.</p>
+  </div>
+
+  <!-- VAR 1 -->
+  <div class="var-card reveal" data-n="01">
+    <span class="lab">Variation 01 · Founders</span>
+    <h3>Father &amp; son · "We didn't licence this. We built it."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"This isn't a partnership. It's our family's standard."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing portrait of <em>Bear and Jesse together</em> — outdoors, candid, eye-level. Deep navy or black duotone treatment, gold serif overlay text top-left, small Modern Savage wordmark bottom-right. No product in the image.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">I've put my name on supplements before. This one I built. Me and Jesse, from scratch, for our family first. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">MOF · covers the still-outstanding Ad 06 "Family Mission" lane without a video edit.</span></div>
+    <div class="why">Why it's different — no kitchen, no shelf, no scoop. Founder credibility is anchored on Bear's face for the first time in the set.</div>
+  </div>
+
+  <!-- VAR 2 -->
+  <div class="var-card reveal" data-n="02">
+    <span class="lab">Variation 02 · The number</span>
+    <h3>One scoop · "Six organs. One bag. No tablets."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"6 organs · 28 servings · 0 synthetics"</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">BG portrait — head-and-shoulders, looking off-camera, warm natural light from an existing field shoot. Large serif numbers stacked top-right, each with a one-word descriptor underneath in small caps. Bear sits in the bottom-left third — face, no product.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Everything in here comes from real food. Six grass-fed organs, real protein, gut-health stack. One scoop replaces a counter full of bottles. Launches July.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">MOF · the "what's in it" pitch as a 3-second readable still.</span></div>
+    <div class="why">Why it's different — replaces the "shelf of bottles" hook with a clean numerical proof point. No supplement-shelf imagery anywhere on screen.</div>
+  </div>
+
+  <!-- VAR 3 -->
+  <div class="var-card reveal" data-n="03">
+    <span class="lab">Variation 03 · The line</span>
+    <h3>Field portrait · "Eating this way for thirty years."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"30 years eating this way. One bag is the closest I've found."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing wilderness / expedition photograph of Bear — mid-action, in environment. Type set in italic serif overlaid as a quote, attributed "— Bear Grylls" in small caps underneath. Bottom-right corner: Modern Savage wordmark.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">In the field, you learn fast what your body actually needs. Organs, protein, real food. Modern Savage is that in a scoop. No theatre.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">BOF · stand-in for Ad 08 "Bear's Word" while shoot-footage cut is finalised.</span></div>
+    <div class="why">Why it's different — the only ad in the set that uses outdoor / expedition imagery. Repositions Bear as field practitioner, not kitchen presenter.</div>
+  </div>
+
+  <!-- VAR 4 -->
+  <div class="var-card reveal" data-n="04">
+    <span class="lab">Variation 04 · Carousel</span>
+    <h3>Read the ingredients · static 6-slide carousel.</h3>
+    <div class="row"><span class="k">Hook (slide 1)</span><span class="v copy">"What's actually in a scoop. Read it."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Slide 1: portrait of Bear holding the bag (existing studio shot or composited if needed), title overlay. Slides 2–6: one ingredient per slide — Primal Protein, Organ Blend, Pre/Pro stack, Superfood Greens, Antioxidant blend. Each slide: clean cream background, one big serif word (the ingredient), one short paragraph, one source line.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Real-food nutrition with nothing to hide. Swipe to read every ingredient and where it comes from. Modern Savage launches July, UK + US.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">BOF · covers Ad 09 "What's in the Scoop" — was outstanding, doesn't need video.</span></div>
+    <div class="why">Why it's different — the only static-design piece. Built for trust and dwell-time, not scroll-stopping. Cheapest to ship, highest informational density.</div>
+  </div>
+
+  <!-- VAR 5 -->
+  <div class="var-card reveal" data-n="05">
+    <span class="lab">Variation 05 · For mums</span>
+    <h3>The Kids Blend ad we still don't have.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"Same standard as the adult bag. Smaller scoop."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing photograph of Bear with one of his sons — candid, warm light, outdoor or kitchen. Type overlay positioned to one side, not centred. Kids Blend wordmark + allergen note ("Contains milk · colostrum") in small caps at bottom — making the transparency part of the design.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Same real-food philosophy as the adult bag, dosed for smaller bodies. Half organ load, added colostrum for gut and immune. Honest on the label — contains milk.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">MOF · the still-outstanding Ad 07 "For the Kids" lane.</span></div>
+    <div class="why">Why it's different — the only ad that speaks directly to parents with a child visible. Allergen transparency is part of the creative, not a footnote.</div>
+  </div>
+
+  <!-- VAR 6 -->
+  <div class="var-card reveal" data-n="06">
+    <span class="lab">Variation 06 · Compare</span>
+    <h3>Side-by-side · the shelf vs the bag.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"Before. After."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Split layout — left half: a real photographed cluttered supplement counter (existing stills, not the brief's video shelf). Right half: portrait of Bear holding a single bag of Modern Savage. Big serif "Before / After" labels. Numbers underneath: 8 products → 1; £100/mo → £62; synthetic forms → whole-food forms.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">One product instead of eight. Real food instead of synthetic. Same job, done properly. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">TOF / MOF · stand-in conversion for Ad 10 "The Switch" until a user voice is ready.</span></div>
+    <div class="why">Why it's different — the only ad that visualises the swap as a single still. Numerical proof points instead of VO storytelling.</div>
+  </div>
+
+  <!-- VAR 7 -->
+  <div class="var-card reveal" data-n="07">
+    <span class="lab">Variation 07 · Quiet authority</span>
+    <h3>Iron · a quiet women's-health post.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"The form of iron your body was built to absorb."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing portrait of Bear in a more reflective register — softer light, indoor, looking down or off. No bag in shot. Overlay copy small and elegant, not loud. Sub-line underneath the hook: "Heme iron. From grass-fed liver. Not synthetic tablets." Modern Savage wordmark small bottom-right.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Iron deficiency is one of the most common shortfalls, especially in women. Most synthetic tablets are hard on the gut. Heme iron from real liver is what the body was built to use — and it's in every scoop.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">TOF · educational. Covers script 53/70 "Iron" without filming.</span></div>
+    <div class="why">Why it's different — the only ad addressing women specifically. Quiet, authoritative tone — opposite of the louder shelf-clutter hooks.</div>
+  </div>
+
+  <!-- VAR 8 -->
+  <div class="var-card reveal" data-n="08">
+    <span class="lab">Variation 08 · The standard</span>
+    <h3>One sentence · brand statement.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"Everything our family needs. In one scoop."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">A single existing photograph of Bear — chosen to be the brand's "if you only see one image, see this one" image. Deep navy background bleed or dark gradient. Type set big, centred, in serif. No product. No URL. Just the line and a small Modern Savage wordmark at the bottom. Built to be the pinned post, the launch announcement, the cover frame.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Launching July. One brand, the whole family. Real food. No synthetics. Built by us, for ours and yours.</span></div>
+    <div class="row"><span class="k">Funnel</span><span class="v">Brand · the anchor post the rest of the feed sits underneath.</span></div>
+    <div class="why">Why it's different — not selling anything. The post that defines what the brand stands for in one frame. None of the existing ten do this job.</div>
+  </div>
+</section>
+
+<!-- ─── SECTION 5 — NEXT STEP ──────────────────────────────────── -->
+<section class="alt" id="next">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section 5 · Recommended next step</span>
+      <h2 class="section-title">If you have ten minutes, here's the call.</h2>
+      <p class="section-lead">The set isn't broken, it's narrow. Two practical moves get it to launch-ready without commissioning new Bear filming.</p>
+
+      <div class="next-card">
+        <h3>Pick the variations you want, lock the photo pool, brief Jago.</h3>
+        <p>This doc has eight variations. Realistically the set needs three to five new pieces, not all eight. The ones I'd push hardest: <b>Variation 01</b> (founder still), <b>Variation 04</b> (carousel — fastest unlock, closes Ad 09), and <b>Variation 05</b> (Kids Blend — closes the most exposed gap in the funnel).</p>
+        <ul>
+          <li><b>You pick which variations to ship</b> — anywhere between three and all eight. Reply with numbers.</li>
+          <li><b>Pull the photo pool</b> — confirm which existing Bear photographs we have rights to. If the archive is thin, that's the constraint to flag now, not later.</li>
+          <li><b>Brief Jago on stills + overlay</b>, not shoot footage. Different skill, but the work is mostly typography and crop — not video editing. Day's work per variation, not a week's.</li>
+          <li><b>Hold Ad 10 ("The Switch")</b> until an early seeder voice is available. Variation 06 covers the lane in the meantime.</li>
+          <li><b>Re-brief Jago on end-card variation</b> — five different end frames, not one. Cheap fix to the frequency repetition problem.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Modern Savage</span> · Ad audit + variations · 3 June 2026 · Prepared for Olly by Ted
+</footer>
+
+<script>
+  // Fixed nav background on scroll
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // IntersectionObserver scroll-reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
