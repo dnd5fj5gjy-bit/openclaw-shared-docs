@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ted's Health — IG Weeks 5-8 (Metricool) · 3 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1F2A36;
+    --ink-dim: #5C6B7A;
+    --ink-faint: #99A4B0;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E5EAF0;
+    --line-soft: #F1F4F8;
+    --navy: #11162B;
+    --navy-2: #1A2243;
+    --accent: #2ECC71;
+    --gold: #C8A84B;
+    --warn: #E67E22;
+    --red: #C0392B;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  .wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* Nav */
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+    color: #fff;
+  }
+  nav.topnav.scrolled {
+    background: rgba(17,22,43,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+    padding: 10px 28px;
+  }
+  nav.topnav .brand { font-family: var(--serif); font-size: 1.05rem; letter-spacing: .01em; }
+  nav.topnav .links { display: flex; gap: 1.4rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+  nav.topnav .links a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color .2s; }
+  nav.topnav .links a:hover { color: #fff; }
+  @media (max-width: 720px) { nav.topnav .links { display: none; } }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(1200px 600px at 80% 10%, rgba(200,168,75,0.18), transparent 60%),
+      radial-gradient(900px 500px at 10% 90%, rgba(46,204,113,0.12), transparent 60%),
+      linear-gradient(180deg, #0C1126 0%, #11162B 60%, #1A2243 100%);
+    color: #fff;
+    padding: 9rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #C8A84B;
+    margin-bottom: 1.6rem;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin-bottom: 1.2rem;
+    max-width: 18ch;
+  }
+  .hero .sub {
+    color: #C5CDD6;
+    font-size: 1.08rem;
+    font-weight: 300;
+    max-width: 640px;
+    line-height: 1.65;
+  }
+  .hero .meta {
+    margin-top: 2.4rem;
+    display: flex;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8899AA;
+  }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  section.band { padding: 5.5rem 0; }
+  section.band.cream { background: #F4F0E8; }
+  section.band.dark { background: var(--navy); color: #fff; }
+  section.band.dark .eyebrow { color: var(--gold); }
+  section.band.dark h2.serif { color: #fff; }
+  section.band.dark p.lead { color: #C5CDD6; }
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  h2.serif {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  p.lead {
+    font-size: 1.05rem;
+    color: var(--ink-dim);
+    margin-bottom: 2rem;
+    max-width: 720px;
+    line-height: 1.65;
+  }
+  .subhead {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin: 2.4rem 0 1rem;
+    letter-spacing: -0.005em;
+  }
+  section.band.dark .subhead { color: #fff; }
+
+  .tldr {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.8rem 2rem;
+    margin: 0 auto;
+    max-width: 880px;
+    margin-top: -3rem;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 30px 60px -30px rgba(17,22,43,0.35);
+  }
+  .tldr .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .tldr li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .pillbadge {
+    display: inline-block;
+    background: var(--line-soft);
+    color: var(--ink-dim);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 4px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pillbadge.b1 { background: #EAF2FB; color: #2C5C8F; }
+  .pillbadge.b2 { background: #EAF7F0; color: #1E8449; }
+  .pillbadge.b3 { background: #FBF0E6; color: #B9770E; }
+  .pillbadge.b4 { background: #F3EDFB; color: #6C4FA0; }
+  .pillbadge.b5 { background: #FDEDEC; color: #B03A2E; }
+  .pillbadge.b6 { background: #FFF6E0; color: #8A6D1B; }
+  .pillbadge.b7 { background: #E7F1F1; color: #1F6F6F; }
+  .pillbadge.fmt-r { background:#0E1A2B; color:#fff; }
+  .pillbadge.fmt-c { background:#23344D; color:#fff; }
+  .pillbadge.fmt-s { background:#5C6B7A; color:#fff; }
+
+  .post {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.3rem 1.4rem;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.2rem;
+  }
+  @media (max-width: 700px) { .post { grid-template-columns: 1fr; } }
+  .post .pleft {
+    border-right: 1px solid var(--line);
+    padding-right: 1.2rem;
+  }
+  @media (max-width: 700px) {
+    .post .pleft { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 .8rem; }
+  }
+  .post .pday { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; }
+  .post .pnum { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); line-height: 1; margin: .25rem 0 .5rem; }
+  .post .ppills { display: flex; flex-wrap: wrap; gap: 4px; }
+  .post .slot-time { font-size:.72rem; color: var(--ink-dim); margin-top:.6rem; letter-spacing:.04em; }
+  .post .slot-time strong { color: var(--ink); }
+  .post .pright h4 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.25rem; color: var(--navy); margin-bottom: .5rem; line-height: 1.25;
+  }
+  .post .hook {
+    font-size: .92rem; font-weight: 700; color: var(--navy);
+    background: var(--highlight); border-left: 3px solid var(--highlight-line);
+    padding: .55rem .8rem; border-radius: 0 4px 4px 0; margin-bottom: .8rem;
+  }
+  .post .caption {
+    font-size: .88rem; color: var(--ink); line-height: 1.6;
+    background: var(--line-soft); padding: .8rem 1rem; border-radius: 6px; margin-bottom: .8rem;
+  }
+  .post .caption .clbl, .post .visual .clbl, .post .tags .clbl, .post .meta3 .clbl {
+    display: block;
+    font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700; margin-bottom: .35rem;
+  }
+  .post .visual {
+    font-size: .85rem; color: var(--ink-dim); margin-bottom: .7rem; line-height: 1.55;
+  }
+  .post .meta3 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .6rem;
+    margin-bottom: .7rem;
+  }
+  @media (max-width: 700px) { .post .meta3 { grid-template-columns: 1fr; } }
+  .post .meta3 .mblock {
+    font-size: .82rem; color: var(--ink-dim); line-height: 1.5;
+    background: #FBFCFD; border: 1px solid var(--line); padding: .55rem .8rem; border-radius: 5px;
+  }
+  .post .meta3 .mblock strong { color: var(--ink); }
+  .post .tags {
+    font-size: .78rem; color: var(--ink-dim); font-family: var(--sans);
+  }
+  .post .tags code {
+    background: #F1F4F8; padding: .1rem .35rem; border-radius: 3px; font-size: .76rem;
+    color: var(--ink); font-family: 'SF Mono', Menlo, monospace; margin-right: .15rem; display: inline-block; margin-bottom: .15rem;
+  }
+  .week-header {
+    font-family: var(--serif);
+    font-size: 1.8rem; color: var(--navy);
+    margin: 2.4rem 0 .4rem; font-weight: 400;
+  }
+  .week-header .wlabel {
+    display: block;
+    font-family: var(--sans);
+    font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: .3rem;
+  }
+  .week-header .wdesc {
+    font-family: var(--sans);
+    font-size: .92rem; font-weight: 400; color: var(--ink-dim);
+    margin-top: .3rem; max-width: 640px;
+  }
+
+  .story-table {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; margin: 1.4rem 0;
+  }
+  .story-table table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .story-table th, .story-table td {
+    text-align: left; padding: .85rem 1.1rem;
+    border-bottom: 1px solid var(--line-soft); vertical-align: top;
+  }
+  .story-table th {
+    background: var(--line-soft); font-size: .65rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-dim); font-weight: 700;
+  }
+  .story-table td.slot { font-weight: 700; color: var(--navy); white-space: nowrap; font-size: .82rem; }
+  .story-table td.note { color: var(--ink-dim); font-size: .82rem; line-height: 1.55; }
+  .story-table tr:last-child td { border-bottom: none; }
+
+  .note-box {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 1.1rem 1.4rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.4rem 0;
+    font-size: .9rem; color: #6B5410; line-height: 1.6;
+  }
+  .note-box strong { color: #5A4509; }
+  .note-box.flag-red { background: #FDEDEC; border-left-color: var(--red); color: #7B241C; }
+  .note-box.flag-red strong { color: #641E16; }
+  .note-box.flag-dark {
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--gold);
+    color: #DCD3B8;
+  }
+  .note-box.flag-dark strong { color: #fff; }
+
+  .anchor-card {
+    background: linear-gradient(135deg, #11162B 0%, #1A2243 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 2.4rem 2.4rem;
+    margin: 1.4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .anchor-card::after {
+    content: '';
+    position: absolute; right: -60px; top: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(200,168,75,0.25), transparent 70%);
+    border-radius: 50%;
+  }
+  .anchor-card .kicker {
+    font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: .8rem;
+  }
+  .anchor-card h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.9rem; color: #fff; margin-bottom: .8rem; line-height: 1.15;
+  }
+  .anchor-card p { color: #C5CDD6; font-size: .95rem; line-height: 1.65; margin-bottom: 1.1rem; max-width: 640px; }
+  .anchor-card ul { list-style: none; max-width: 640px; }
+  .anchor-card ul li {
+    position: relative; padding: .35rem 0 .35rem 1.4rem;
+    color: #DDE3EA; font-size: .9rem; line-height: 1.55;
+  }
+  .anchor-card ul li::before {
+    content: '→'; position: absolute; left: 0; top: .35rem;
+    color: var(--gold); font-weight: 700;
+  }
+
+  .cluster-grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin: 1.4rem 0;
+  }
+  .cluster {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.3rem 1.4rem;
+  }
+  .cluster .cnum {
+    font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: .55rem;
+  }
+  .cluster h4 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.2rem; color: var(--navy); margin-bottom: .4rem;
+  }
+  .cluster p {
+    font-size: .85rem; color: var(--ink-dim); line-height: 1.55; margin-bottom: .5rem;
+  }
+  .cluster .cposts {
+    font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 0;
+    padding: 2.6rem 0 3.6rem;
+    font-size: .76rem;
+    color: var(--ink-faint);
+    text-align: center;
+    background: #F4F0E8;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <div class="brand">Ted's Health · IG Weeks 5-8</div>
+  <div class="links">
+    <a href="#angles">New Angles</a>
+    <a href="#schedule">Weeks 5-8</a>
+    <a href="#anchor">Week-8 Anchor</a>
+    <a href="#stories">DM Cadence</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ted's Health · Instagram · Metricool · Part 2</div>
+    <h1>The next month.</h1>
+    <p class="sub">Weeks 5-8 of the TH IG engine. Same 7-day skeleton, 28 fresh posts, four new angle clusters that expand on weeks 1-4 without retreading them. Plus a week-8 monthly anchor and the refined daily Story cadence Olly can run every week from here.</p>
+    <div class="meta">
+      <span><strong>Owner</strong> Olly Westmacott</span>
+      <span><strong>Run via</strong> Metricool</span>
+      <span><strong>Window</strong> 6 Jul – 31 Jul 2026</span>
+      <span><strong>Pairs with</strong> Weeks 1-4 doc (3 Jun 2026)</span>
+      <span><strong>Issued</strong> 3 Jun 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap-narrow">
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li><strong>Same skeleton, new angles.</strong> Mon Reel myth-bust · Tue Carousel symptom-ed · Wed Reel Dr Andrews · Thu Tip · Fri Reel proof+CTA · weekend stories-only. Unchanged on purpose.</li>
+      <li><strong>Four new clusters across the 28 posts:</strong> lifestyle synergy with TRT, partner-spousal POV, composite anonymous patient journeys, bloodwork literacy.</li>
+      <li><strong>Format mix:</strong> 16 Reels · 8 Carousels · 4 Singles. Reels stay the discovery engine; carousels carry the saves.</li>
+      <li><strong>One CTA per week, Friday only.</strong> Other four days build trust, saves and authority. Discipline holds across the month.</li>
+      <li><strong>Week-8 monthly anchor:</strong> a 3-part "Read Your Bloods" mini-series Wed-Fri — the engine's peak moment.</li>
+      <li><strong>Refined daily Story cadence below</strong> — five fixed slots, different topic each weekday, repeats weekly.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- NEW ANGLE CLUSTERS -->
+<section class="band" id="angles">
+  <div class="wrap reveal">
+    <div class="eyebrow">01 · What's new this month</div>
+    <h2 class="serif">Four new angle clusters.</h2>
+    <p class="lead">Weeks 1-4 covered the foundations — TRT myths, basic symptom education, doctor authority, CQC credibility. Weeks 5-8 expand into territory the category mostly avoids, while staying inside the same regulated, doctor-led tone.</p>
+
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="cnum">Cluster 01</div>
+        <h4>Lifestyle synergy with TRT</h4>
+        <p>Sleep, lifting, recovery and nutrition that compound with treatment — not as substitutes for it. Addresses the "do I have to give up X?" question men ask in DMs.</p>
+        <div class="cposts">Posts: 29 · 32 · 34 · 36 · 44 · 49</div>
+      </div>
+      <div class="cluster">
+        <div class="cnum">Cluster 02</div>
+        <h4>Partner / spousal POV</h4>
+        <p>The careful "the people around you often spot it first" angle. Handled with respect — no stereotyping, no "fix your husband" energy. Aimed at men forwarding it to themselves.</p>
+        <div class="cposts">Posts: 37 · 38 · 47 · 56</div>
+      </div>
+      <div class="cluster">
+        <div class="cnum">Cluster 03</div>
+        <h4>Composite patient journeys</h4>
+        <p>Anonymous, illustrative "this is the shape we see" stories. Composite — not real individuals, not testimonials. Demonstrates pattern recognition without overclaiming outcomes.</p>
+        <div class="cposts">Posts: 33 · 41 · 45 · 53</div>
+      </div>
+      <div class="cluster">
+        <div class="cnum">Cluster 04</div>
+        <h4>Bloodwork literacy</h4>
+        <p>Teaching men to read a panel — total T, free T, SHBG, oestradiol, lipids. The mini-series in week 8 (the monthly anchor) sits here. Builds long-term trust and saves.</p>
+        <div class="cposts">Posts: 30 · 35 · 42 · 50 · 54 · 55 (week-8 anchor)</div>
+      </div>
+    </div>
+
+    <div class="note-box flag-red">
+      <strong>Medical-advertising guardrail — unchanged.</strong> Educate, never promise. No "cure," "fix," "guarantee" or "results in X days." No before/after tied to treatment. No individual outcome claims. Composite patient stories must be explicitly labelled as illustrative. When in doubt, soften.
+    </div>
+  </div>
+</section>
+
+<!-- 28 POSTS -->
+<section class="band cream" id="schedule">
+  <div class="wrap reveal">
+    <div class="eyebrow">02 · Four weeks · 28 posts</div>
+    <h2 class="serif">Weeks 5-8, ready to schedule.</h2>
+    <p class="lead">Numbering picks up from 28 (the weeks 1-4 doc ends at post 28; this doc runs 29-56). Dates assume the week starting <strong>Mon 6 Jul 2026</strong>. Format and slot timings match the locked skeleton exactly.</p>
+
+    <!-- WEEK 5 -->
+    <h3 class="week-header">
+      <span class="wlabel">Week 5 · 6–10 Jul</span>
+      The lifestyle-synergy week
+      <span class="wdesc">Open the month with the answer to the most-asked DM: "If I go on TRT, do I still need to do X?" Yes — and here's how the two compound.</span>
+    </h3>
+
+    <!-- 29 W5 Mon -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Mon · 06 Jul</div>
+        <div class="pnum">29</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b1">Myth-bust</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"TRT does the work for you" — actually it's the opposite.</h4>
+        <div class="hook">Frame 1 overlay: "If you think TRT is a shortcut — read this." Dr Andrews to camera, 25s.</div>
+        <div class="caption"><span class="clbl">Caption</span>The myth: TRT lets you skip the boring stuff — sleep, training, food, alcohol. The reality from the clinic: the men who get the most out of TRT are the ones still doing the boring stuff. Treatment amplifies a body that's looking after itself. It doesn't carry a body that isn't. If a clinic is selling it as a shortcut, they're not setting you up to succeed. Get the baseline first, the conversation second. From £40. Link in bio.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Soft authority — baseline test mention only.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · pull from monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews to camera, same lighting/framing as weeks 1-4 doctor pillar. Warm shirt, no white coat. Burned captions, navy + gold lower-third.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TRT</code><code>#TestosteroneReplacement</code><code>#MensHealthUK</code><code>#DoctorLed</code><code>#LifestyleMedicine</code><code>#MensHealth</code><code>#HormoneHealth</code><code>#MenOver40</code><code>#TRTUK</code><code>#StrengthTraining</code></div>
+      </div>
+    </div>
+
+    <!-- 30 W5 Tue -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Tue · 07 Jul</div>
+        <div class="pnum">30</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 6</span><span class="pillbadge b2">Symptom Ed</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The bloodwork glossary — six terms worth knowing.</h4>
+        <div class="hook">Cover: "Six bloodwork terms every man should know — before he reads his own panel." Slides 2-6: total T, free T, SHBG, oestradiol, LH, lipids. Final: "Save this for the day you get your numbers back."</div>
+        <div class="caption"><span class="clbl">Caption</span>The first time you see your own panel, it can feel like reading a foreign language. It isn't — it's six or seven terms repeated in different combinations. This carousel walks through the ones that matter most for men's hormonal health, what each one is actually measuring, and why "in range" doesn't mean "optimal for you." Save for when you next get bloods back — yours or someone else's.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save-driver — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — 6-frame editorial carousel.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>6-frame, 1080x1350. Cream + navy alternating. One serif term per slide, plain-English explanation underneath. No clinical jargon dressing. Final slide soft CTA only.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#LowTestosterone</code><code>#MenOver40</code><code>#MensHealth</code><code>#PreventiveHealth</code><code>#DoctorLed</code><code>#MidlifeHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 31 W5 Wed -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Wed · 08 Jul</div>
+        <div class="pnum">31</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b4">Dr Andrews</span></div>
+        <div class="slot-time"><strong>18:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Will TRT shrink my testicles?" — the honest, slightly awkward answer.</h4>
+        <div class="hook">Frame 1: "The question men Google but never ask out loud." Dr Andrews, 35s, plain-English answer.</div>
+        <div class="caption"><span class="clbl">Caption</span>The honest answer: yes, some testicular volume change is common on standard TRT, because external testosterone suppresses the body's own signal to produce. It can usually be managed — adjuncts like hCG exist precisely for this, and we discuss them upfront, not when you bring it up six months in. The point isn't "don't worry about it." The point is: ask the question, get a real answer, and decide on facts. That's the entire model.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Authority — no hard CTA, end-card only.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews seated consult-room frame. Calm tone. Captions burned. End card: soft TH lockup.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TRT</code><code>#DoctorLed</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#hCG</code><code>#TestosteroneReplacement</code><code>#MenOver40</code><code>#GPVoice</code><code>#TRTUK</code></div>
+      </div>
+    </div>
+
+    <!-- 32 W5 Thu -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Thu · 09 Jul</div>
+        <div class="pnum">32</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 5</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The "four lifts that move the dial" audit.</h4>
+        <div class="hook">Cover: "Four lifts — that's it. Most men over-complicate this." Slides 2-5: squat, hinge, press, row. Slide 6: how often, how heavy, why it links to T.</div>
+        <div class="caption"><span class="clbl">Caption</span>You don't need a programme written by an Olympic coach. You need four movement patterns done consistently with progressive load. Squat. Hinge. Press. Row. Twice a week each, take the weight up over time, don't skip. Resistance training is one of the cleanest natural levers for testosterone we've got — and it compounds with treatment if you're on it. Save this carousel and pin it to your training plan.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Utility-only — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — real-gym photography preferred.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>5-frame carousel, navy + cream. Real men lifting in a real gym (not glossy, not influencer-shot). Big serif headline per slide, two-line body.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#StrengthTraining</code><code>#MensFitness</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#TestosteroneNaturally</code><code>#MidlifeFitness</code><code>#MenOver40</code><code>#LiftHeavy</code><code>#HormoneHealth</code><code>#TRT</code></div>
+      </div>
+    </div>
+
+    <!-- 33 W5 Fri -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Fri · 10 Jul</div>
+        <div class="pnum">33</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b3">Proof</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The shape of a typical first consult — composite walk-through.</h4>
+        <div class="hook">Frame 1: "What a first consult actually looks like — composite, no real patient." Dr Andrews + screen recording walk-through, 40s.</div>
+        <div class="caption"><span class="clbl">Caption</span>A composite — built from the shape of consults we run, not any one man's story. He's 43, sleeping seven hours but waking tired, training the same and getting less back, libido drifted. GP said "in range." His bloods with us showed total T low-normal, free T low, SHBG high — the picture his GP's number alone missed. We talk through options, he goes away to think. He may come back. He may not. Both are fine. The £40 was the bit that made the rest possible.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40 baseline test, end-card link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews + screen-rec of mocked dashboard. Brief Ku for mock.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews voice-over composite. On-screen: a clearly-labelled "illustrative panel" mockup, not a real patient screenshot. Use a watermark / disclaimer in lower-third for the full duration: "Composite · illustrative."</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TedsHealth</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#DoctorLed</code><code>#HormoneHealth</code><code>#LowTestosterone</code><code>#BloodTest</code><code>#MensHealth</code><code>#PreventiveHealth</code><code>#MenOver40</code></div>
+      </div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <h3 class="week-header">
+      <span class="wlabel">Week 6 · 13–17 Jul</span>
+      The partner-POV &amp; recovery week
+      <span class="wdesc">The careful "the people around you spot it first" angle, paired with recovery-side tips. Aimed at men forwarding posts to themselves and partners forwarding posts onward.</span>
+    </h3>
+
+    <!-- 34 W6 Mon -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Mon · 13 Jul</div>
+        <div class="pnum">34</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b1">Myth-bust</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Recovery is for athletes" — no, it's for any man over 35.</h4>
+        <div class="hook">Frame 1: "You don't have to be an athlete to need recovery — you just have to be over 35." Dr Andrews, 25s.</div>
+        <div class="caption"><span class="clbl">Caption</span>"Recovery" became a marketing word that mostly meant £400 sauna blankets. Strip the gimmickry out and the medical reality is plain: cortisol regulation, sleep architecture and parasympathetic load have a direct hand in how your hormones behave. You don't need a kit list. You need a regular sleep window, a couple of slower training days, and enough downtime that your nervous system isn't permanently flagged amber. That's recovery. It's the boring layer underneath every supplement claim.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Soft authority — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews seated, calm. Burned captions. Same consistent framing as previous Mon myth-busts. End frame: soft TH lockup.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#Recovery</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#SleepHealth</code><code>#HormoneHealth</code><code>#MenOver35</code><code>#MenOver40</code><code>#DoctorLed</code><code>#TestosteroneNaturally</code><code>#MidlifeHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 35 W6 Tue -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Tue · 14 Jul</div>
+        <div class="pnum">35</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 7</span><span class="pillbadge b2">Symptom Ed</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"In range" — the seven words doing the most damage to men's health.</h4>
+        <div class="hook">Cover: "Why 'in range' is the most misleading phrase in men's bloodwork." 7 slides: how reference ranges are built, what they miss, what to ask for.</div>
+        <div class="caption"><span class="clbl">Caption</span>Reference ranges are built to flag frank disease, not to tell you whether you feel like yourself. They're wide on purpose, often population-averaged, and rarely age-banded the way they should be. A man at the bottom of "normal" can feel very different to a man at the top. This carousel breaks down how ranges are constructed and the three questions to ask a clinician next time you're told you're "fine." Save it.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save-driver — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — editorial 7-frame carousel.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>7-frame, 1080x1350. Cream + navy. Slide 3: simple horizontal reference-range bar graphic with a dot at the bottom and a dot at the top — visual contrast does the work. Final slide soft CTA.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TestosteroneTest</code><code>#BloodTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#LowTestosterone</code><code>#NHS</code><code>#DoctorLed</code><code>#MensHealth</code><code>#MenOver40</code><code>#PreventiveHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 36 W6 Wed -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Wed · 15 Jul</div>
+        <div class="pnum">36</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b4">Dr Andrews</span></div>
+        <div class="slot-time"><strong>18:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Do I have to stop drinking on TRT?"</h4>
+        <div class="hook">Frame 1: "Question from this week's DMs: 'Do I have to stop drinking on TRT?'" Dr Andrews, 30s.</div>
+        <div class="caption"><span class="clbl">Caption</span>Short answer: no, you don't have to stop. Honest answer: heavy or frequent drinking will work against what TRT is trying to do — alcohol disrupts sleep, suppresses natural testosterone production, raises oestradiol and adds to body-comp drift. None of that means abstinence. It means the men who feel best on treatment tend to be drinking less than they used to, not more. Plain trade-off, not a sermon.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Authority — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews close-frame. Calm, conversational tone. Captions burned. End card soft.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TRT</code><code>#AlcoholAndHealth</code><code>#MensHealthUK</code><code>#DoctorLed</code><code>#HormoneHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#TestosteroneReplacement</code><code>#GPVoice</code><code>#WellbeingUK</code></div>
+      </div>
+    </div>
+
+    <!-- 37 W6 Thu -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Thu · 16 Jul</div>
+        <div class="pnum">37</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 6</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The "people around you noticed first" conversation guide.</h4>
+        <div class="hook">Cover: "If someone close to you said 'you've not been yourself' — read this." 6 slides: what they're often picking up on, why men dismiss it, how to take the conversation seriously without making it dramatic.</div>
+        <div class="caption"><span class="clbl">Caption</span>The pattern from our clinic intake: partners, brothers and close friends often notice the shift before the man does. Less drive. Shorter fuse. Tired in a different way. Not a single dramatic moment — a quiet drift. If someone close to you has said it more than once, that's worth listening to. Not because they're diagnosing you. Because they're closer to the baseline you've forgotten.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save + share-driver — no hard link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — calm editorial 6-frame.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>6-frame, cream + navy. Quiet domestic photography (no models, no stock-y couples). Final slide: soft CTA + line "Share with the person who'd send this to you."</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#MensHealth</code><code>#MensHealthUK</code><code>#MensMentalHealth</code><code>#HormoneHealth</code><code>#MenOver40</code><code>#LowTestosterone</code><code>#WellbeingUK</code><code>#MidlifeHealth</code><code>#StigmaFree</code><code>#DoctorLed</code></div>
+      </div>
+    </div>
+
+    <!-- 38 W6 Fri -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Fri · 17 Jul</div>
+        <div class="pnum">38</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b3">Proof</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"What the partner of a patient said in the follow-up call."</h4>
+        <div class="hook">Frame 1: "Composite, not a real patient — the kind of thing partners say at follow-up." Dr Andrews voice-over, 35s.</div>
+        <div class="caption"><span class="clbl">Caption</span>One of the most common moments at the three-month review isn't the patient saying "I feel different" — it's their partner saying "you're more here." That second observation is harder to fake and easier to trust. We can't publish any one person's story without consent we don't have to give. We can say it's the pattern. From £40 to start the same process.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40 baseline test, end-card link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews to camera + B-roll. Composite — flag visibly.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews talking head + cutaway B-roll (a phone call, a kitchen window light, no actors mid-shot). Lower-third lockup the full duration: "Composite · illustrative · not a real patient." End frame: navy CTA lockup.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TedsHealth</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#DoctorLed</code><code>#MensHealth</code><code>#TRT</code><code>#MenOver40</code><code>#PreventiveHealth</code><code>#WellbeingUK</code></div>
+      </div>
+    </div>
+
+    <!-- WEEK 7 -->
+    <h3 class="week-header">
+      <span class="wlabel">Week 7 · 20–24 Jul</span>
+      The ED &amp; cardio-vascular week (revisited)
+      <span class="wdesc">Return to ED with a different lens — the cardiovascular angle. Done with discretion. Audience: men quietly searching this at 11pm.</span>
+    </h3>
+
+    <!-- 39 W7 Mon -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Mon · 20 Jul</div>
+        <div class="pnum">39</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b1">Myth-bust</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"ED pills are the whole answer" — they're treating the symptom, not the cause.</h4>
+        <div class="hook">Frame 1: "If a clinic just sends you the pills — they're skipping the most important bit." Dr Andrews, 28s.</div>
+        <div class="caption"><span class="clbl">Caption</span>PDE5 inhibitors (the "blue pill" family) work — that's not in question. What's in question is the model that posts them out without asking why a 42-year-old man needs them in the first place. ED in a younger man is often a cardiovascular or hormonal signal worth investigating, not a stand-alone issue worth medicating around. We'll prescribe where it's right. We'll always investigate first. That's the difference.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Authority — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews to camera. Cool grey background. Captions burned. No suggestive imagery, no winking — straight clinical.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#ErectileDysfunction</code><code>#EDawareness</code><code>#MensHealthUK</code><code>#DoctorLed</code><code>#CardiovascularHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#HormoneHealth</code><code>#TedsHealth</code><code>#GPVoice</code></div>
+      </div>
+    </div>
+
+    <!-- 40 W7 Tue -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Tue · 21 Jul</div>
+        <div class="pnum">40</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 6</span><span class="pillbadge b2">Symptom Ed</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"ED can be the first warning your heart gives you."</h4>
+        <div class="hook">Cover: "Why ED in your 40s is taken seriously by cardiologists — and why it should be by you." 6 slides: the vascular link, the timeline (often years ahead of cardiac events), what to investigate.</div>
+        <div class="caption"><span class="clbl">Caption</span>This one's worth getting right. The same vessels that supply the penis also supply the heart, and they're smaller — so they show vascular trouble first. Multiple cardiology bodies treat new-onset ED in middle-aged men as a cardiovascular red flag worth investigating, often years before a cardiac event would otherwise present. Not a guarantee of anything. A signal worth not ignoring. Save this and don't sit on it.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save-driver — no hard link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — restrained editorial 6-frame.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>6-frame, calm cream + navy. No anatomical imagery. Type-led. Final slide signposts both TH (for hormonal investigation) and GP (for cardiovascular workup) — dual signposting is the right play.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#ErectileDysfunction</code><code>#CardiovascularHealth</code><code>#MensHealthUK</code><code>#MensHealth</code><code>#PreventiveHealth</code><code>#DoctorLed</code><code>#MenOver40</code><code>#HeartHealth</code><code>#HormoneHealth</code><code>#WellbeingUK</code></div>
+      </div>
+    </div>
+
+    <!-- 41 W7 Wed -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Wed · 22 Jul</div>
+        <div class="pnum">41</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b4">Dr Andrews</span></div>
+        <div class="slot-time"><strong>18:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The composite consult: the man whose ED led us to find something else.</h4>
+        <div class="hook">Frame 1: "Composite, not a real patient. But this shape — we see it." Dr Andrews, 40s.</div>
+        <div class="caption"><span class="clbl">Caption</span>A composite, illustrative. 46, fit-looking, runs three times a week. Came in about ED, expected a prescription. Bloods plus a basic vascular check flagged borderline blood pressure and a lipid panel that needed his GP's attention more than ours did. He went back to NHS care for that, came back to us for the hormonal piece. Two different services, the right order. The reason we do the workup is so we can send men where they actually need to go — including out of our model when that's the right answer.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Authority — no link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot. Composite — flag.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews seated. Lower-third lockup the full duration: "Composite · illustrative · not a real patient." End card soft.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#ErectileDysfunction</code><code>#DoctorLed</code><code>#MensHealthUK</code><code>#CardiovascularHealth</code><code>#MensHealth</code><code>#PreventiveHealth</code><code>#MenOver40</code><code>#TedsHealth</code><code>#HormoneHealth</code><code>#GPVoice</code></div>
+      </div>
+    </div>
+
+    <!-- 42 W7 Thu -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Thu · 23 Jul</div>
+        <div class="pnum">42</div>
+        <div class="ppills"><span class="pillbadge fmt-s">Single image</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The "five things to bring to your blood test" list.</h4>
+        <div class="hook">Single graphic, navy + gold: "Booked a blood test? Bring these five things with you." Numbered list, clean.</div>
+        <div class="caption"><span class="clbl">Caption</span>Most men show up to bloods having done none of the prep that makes the test more useful: 1) test in the morning, before 10am ideally; 2) fast 8-10 hours where possible; 3) no heavy training the day before; 4) note any supplements you're on; 5) write down how you've actually been feeling for the doctor's call. The test costs the same either way — the prep determines whether the read is clean. Save this for booking day.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Utility-only — no hard CTA.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Olly creates in Canva (single graphic).</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Single 1080x1350. Navy bg, gold serif headline, light-grey numbered list. Designed-not-illustrated. Simple.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#PreventiveHealth</code><code>#HormoneHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#DoctorLed</code><code>#TedsHealth</code><code>#MidlifeHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 43 W7 Fri -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Fri · 24 Jul</div>
+        <div class="pnum">43</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b3">Proof</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"The boring bit: how a Ted's Health doctor reads your panel."</h4>
+        <div class="hook">Frame 1: "Where the £40 actually gets you something a dashboard can't." Dr Andrews screen-recording walk-through, 45s.</div>
+        <div class="caption"><span class="clbl">Caption</span>Lots of clinics will sell you a finger-prick kit. The thing that's harder to commoditise is the read. Total T against age. Free T against SHBG. Oestradiol context. Lipids and metabolic markers if relevant. Cross-checked against what you told us about how you feel. That's the bit that changes what you do next. From £40 — and a doctor on the other end of it, not a chart. Link in bio.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40 baseline test, end-card link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews + screen-rec of mocked panel. Brief Ku for mock.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews voice-over with on-screen panel mockup. Highlight markers as he names them. End frame: "Test from £40 · doctor read · tedshealth.com."</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TedsHealth</code><code>#TestosteroneTest</code><code>#BloodTest</code><code>#DoctorLed</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver35</code><code>#TRT</code></div>
+      </div>
+    </div>
+
+    <!-- WEEK 8 -->
+    <h3 class="week-header">
+      <span class="wlabel">Week 8 · 27–31 Jul</span>
+      The monthly anchor week — "Read Your Bloods"
+      <span class="wdesc">The month's peak. Wed-Thu-Fri form a connected 3-part mini-series on reading a panel. Mon &amp; Tue prime the audience. See anchor section below.</span>
+    </h3>
+
+    <!-- 44 W8 Mon -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Mon · 27 Jul</div>
+        <div class="pnum">44</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b1">Myth-bust</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"You don't need to understand your own bloods" — yes, you actually do.</h4>
+        <div class="hook">Frame 1: "If you can't read your own panel, someone else gets to decide for you." Dr Andrews, 25s. Teases Wed-Fri series.</div>
+        <div class="caption"><span class="clbl">Caption</span>A surprising number of men hand over a blood panel to a clinician and assume they shouldn't understand it themselves. You should. You don't need a medical degree — you need the six terms that matter and a sense of what they mean for you. This week: a three-part mini-series, Wed-Thu-Fri, walking through exactly that. Follow + turn notifications on if that's useful.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Series tease — follow + notify.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · monthly batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews to camera. Burned captions. End frame teases the series with three thumbnail tiles labelled Part 1 / Part 2 / Part 3.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#DoctorLed</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#HealthLiteracy</code><code>#TedsHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 45 W8 Tue -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Tue · 28 Jul</div>
+        <div class="pnum">45</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 6</span><span class="pillbadge b2">Symptom Ed</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"The three composite men we see most often."</h4>
+        <div class="hook">Cover: "Three composite men. Three different bloods stories. None of them what they expected." Slides 2-4: three illustrative profiles. Slide 5: what they had in common. Slide 6: anchor-series tease.</div>
+        <div class="caption"><span class="clbl">Caption</span>Composites, not real patients. The three shapes we see most: the 38-year-old who thinks he's "just getting older" and has total T at the bottom of range; the 47-year-old who's "in range" but free T tells a different story; the 52-year-old whose oestradiol is doing more work than his testosterone. Three different stories, one shared lesson: a single number doesn't tell you what to do. The full read does. Save for this week's mini-series.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save + tease series.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — clean editorial 6-frame. Lower-third flag on composite slides.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>6-frame, cream + navy. Each composite slide uses a silhouette + age + a three-number summary panel. "Composite · illustrative" disclaimer visible. Final slide: series banner.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TestosteroneTest</code><code>#BloodTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#LowTestosterone</code><code>#DoctorLed</code><code>#MensHealth</code><code>#MenOver40</code><code>#PreventiveHealth</code><code>#TedsHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 46 W8 Wed — ANCHOR PART 1 -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Wed · 29 Jul</div>
+        <div class="pnum">46</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b4">Dr Andrews</span></div>
+        <div class="slot-time"><strong>18:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>Read Your Bloods · Part 1 — Total T &amp; Free T, in plain English.</h4>
+        <div class="hook">Frame 1: "Read Your Bloods · Part 1 of 3. Total T and Free T — what they actually mean." Dr Andrews + on-screen graphic, 60s.</div>
+        <div class="caption"><span class="clbl">Caption</span>Part 1 of 3 this week. Total testosterone is the headline. Free testosterone is the bit your body can actually use. Both matter; reading one without the other is incomplete. This Reel walks through the numbers, what a healthy range looks like for a 40-something man, and why "total T at 18 nmol/L" doesn't tell you the full story on its own. Part 2 tomorrow: SHBG and oestradiol. Save the set.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Series — follow + save. Soft CTA.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews + on-screen graphic. Brief Ku for animated panel highlight.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews to camera + lower-third animated reference-range bar that fills as he speaks. End frame: "Part 1 of 3 · Read Your Bloods" series tile.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#TestosteroneTest</code><code>#FreeTestosterone</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#DoctorLed</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#TedsHealth</code></div>
+      </div>
+    </div>
+
+    <!-- 47 W8 Thu — ANCHOR PART 2 -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Thu · 30 Jul</div>
+        <div class="pnum">47</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 7</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>Read Your Bloods · Part 2 — SHBG, oestradiol &amp; the context layer.</h4>
+        <div class="hook">Cover: "Read Your Bloods · Part 2 of 3 — the markers most dashboards skip past." 7 slides: SHBG explained, oestradiol explained, why context changes the read, when each becomes relevant.</div>
+        <div class="caption"><span class="clbl">Caption</span>Part 2 of 3. Two markers most consumer-tier blood reports treat as footnotes — and most experienced clinicians treat as essential context. SHBG (sex hormone-binding globulin) determines how much of your testosterone is actually available. Oestradiol context tells you how the body's metabolising what it's got. Skip these and you'll mis-read the headline number. This carousel walks through both — save it. Part 3 tomorrow: how to put the whole picture together.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Series — save + follow. Soft CTA.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — editorial 7-frame with consistent series tile branding.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>7-frame, cream + navy. "Part 2 of 3" tile in top-right of every slide. Type-led, restrained. Final slide: Part 3 tease.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#SHBG</code><code>#Oestradiol</code><code>#HormoneHealth</code><code>#MensHealthUK</code><code>#TestosteroneTest</code><code>#DoctorLed</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver40</code></div>
+      </div>
+    </div>
+
+    <!-- 48 W8 Fri — ANCHOR PART 3 + CTA -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Fri · 31 Jul</div>
+        <div class="pnum">48</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b3">Proof</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>Read Your Bloods · Part 3 — putting it all together (and what £40 gets you).</h4>
+        <div class="hook">Frame 1: "Read Your Bloods · Part 3 of 3. The whole picture — and where Ted's Health fits." Dr Andrews + composite panel walk-through, 60s.</div>
+        <div class="caption"><span class="clbl">Caption</span>Part 3 of 3. Total T, free T, SHBG, oestradiol — read together, the picture forms. This Reel walks through an illustrative composite panel end-to-end, the same way a doctor would on the £40 follow-up call. Then it stops, because the next bit is yours. Whether you book with us or with anyone else: the move worth making is reading your own bloods, with someone qualified, in context. Link in bio — composite panel guide is also pinned in Highlights all month.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40 + Highlights pin. Strongest CTA of the month.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews + screen-rec mocked composite panel. Brief Ku.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews voice-over composite panel. "Composite · illustrative" disclaimer the full duration. End frame: "Read Your Bloods · series saved to Highlights · tedshealth.com · from £40."</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TedsHealth</code><code>#BloodTest</code><code>#TestosteroneTest</code><code>#DoctorLed</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#HealthLiteracy</code></div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Posts 49-56 — extras.</strong> The 28-post brief is fulfilled by posts 29-48 (Mon-Fri × 4 weeks) plus 8 alternates / fillers below — same role as the alternates in the weeks 1-4 doc. Use them to fill in if a planned post falls through, or rotate into a possible week 9-10 extension.
+    </div>
+
+    <!-- ALTERNATES -->
+    <h3 class="week-header">
+      <span class="wlabel">Backlog · 8 alternates</span>
+      Fillers, swap-ins &amp; extensions
+      <span class="wdesc">Hold these as alternates. Drop in if a planned post falls through, or use them as the spine of a weeks 9-10 extension built on the same rules.</span>
+    </h3>
+
+    <!-- 49 Alt Mon -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Mon</div>
+        <div class="pnum">49</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b1">Myth-bust</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Cardio kills testosterone" — no, but chronic over-doing it can.</h4>
+        <div class="hook">Frame 1: "Does cardio kill your T? The straight answer." Dr Andrews, 25s.</div>
+        <div class="caption"><span class="clbl">Caption</span>The honest answer: regular moderate cardio is good for you and good for your hormones. Chronic, under-fuelled high-volume endurance training is a different beast — it can suppress T over time. The dose makes the poison. Walking, cycling, two or three steady-state sessions a week alongside lifting: net positive. Twenty hours a week of zone-3 with under-eating: that's the case where it gets messy. Most men aren't doing the second one.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Soft authority.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews to camera. Captions burned. Same framing as other Mon myth-busts.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#Cardio</code><code>#MensFitness</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#TestosteroneNaturally</code><code>#StrengthTraining</code><code>#HormoneHealth</code><code>#MenOver40</code><code>#MidlifeFitness</code><code>#DoctorLed</code></div>
+      </div>
+    </div>
+
+    <!-- 50 Alt Tue -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Tue</div>
+        <div class="pnum">50</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 5</span><span class="pillbadge b2">Symptom Ed</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"What a £40 panel doesn't cover — and what to do about it."</h4>
+        <div class="hook">Cover: "What the £40 panel covers — and the bits worth knowing it doesn't." 5 slides, plain breakdown, anti-overclaiming.</div>
+        <div class="caption"><span class="clbl">Caption</span>Useful to be upfront about what a baseline panel does and doesn't tell you. It covers hormonal markers really well. It doesn't cover thyroid in depth, full lipid stratification, micronutrients, or anything imaging-based. For some men that's exactly enough; for others it's the first step before a wider workup with their GP. We'll always tell you which you are. No upsell, no scare. Save for booking day.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save-driver.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — clean 5-frame.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>5-frame, cream + navy. Comparison slide ("covered" vs "not covered") does the work. Final slide GP signpost where appropriate + soft TH CTA.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#BloodTest</code><code>#TestosteroneTest</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#DoctorLed</code><code>#PreventiveHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#TedsHealth</code><code>#NHS</code></div>
+      </div>
+    </div>
+
+    <!-- 51 Alt Wed -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Wed</div>
+        <div class="pnum">51</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b4">Dr Andrews</span></div>
+        <div class="slot-time"><strong>18:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"The strangest question a patient asked me this month."</h4>
+        <div class="hook">Frame 1: "The strangest question I was asked in clinic this month — and the answer." Dr Andrews, 35s.</div>
+        <div class="caption"><span class="clbl">Caption</span>Personal-register clip from Dr Andrews. The point isn't the question — the point is the men asking the unusual ones are the ones thinking about their health properly. The clinic-floor mood is more curious than nervous. We'd rather you ask the awkward one early than sit on it for six months.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Soft authority.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · batch shoot · briefed live around what's actually come up that month.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews close-frame, warmer light. Captions burned.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#DoctorLed</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#MenOver40</code><code>#StigmaFree</code><code>#TRT</code><code>#TedsHealth</code><code>#GPVoice</code><code>#WellbeingUK</code></div>
+      </div>
+    </div>
+
+    <!-- 52 Alt Thu -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Thu</div>
+        <div class="pnum">52</div>
+        <div class="ppills"><span class="pillbadge fmt-s">Single image</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>07:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>The sleep-window rule — same time, every night, for two weeks.</h4>
+        <div class="hook">Single graphic: "The cheapest sleep intervention there is. Same window, every night, two weeks." Big serif.</div>
+        <div class="caption"><span class="clbl">Caption</span>Not "8 hours." Not "track your REM." Just: same sleep window, every night, for two weeks. Cortisol architecture and the natural T pulse depend on consistency more than total duration. Most men reach for the duration metric and ignore the consistency one. Try the consistency one first. Costs nothing.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Utility-only.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Olly creates in Canva.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Single 1080x1350. Navy bg, gold serif headline. Clean type. Designed-not-illustrated.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#SleepHealth</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#TestosteroneNaturally</code><code>#WellbeingUK</code><code>#MidlifeHealth</code><code>#SleepBetter</code><code>#MenOver40</code><code>#HormoneHealth</code><code>#TRT</code></div>
+      </div>
+    </div>
+
+    <!-- 53 Alt Fri -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Fri</div>
+        <div class="pnum">53</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b3">Proof</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"The three things we look for before we'd ever start a man on TRT."</h4>
+        <div class="hook">Frame 1: "Three things we check before TRT — even if your bloods look low." Dr Andrews, 35s.</div>
+        <div class="caption"><span class="clbl">Caption</span>A low T number alone doesn't equal a TRT decision. We'll look at clinical symptoms (not just the number), at trajectory (one bloods read or repeated?), and at whether the lifestyle levers have been tried first. Plenty of men leave that first conversation with a sleep plan and a recheck date, not a prescription. That's a feature, not a flaw — and it's why "from £40" is a real entry point, not a funnel.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40 + end-card link.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Dr Andrews · batch shoot.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Dr Andrews seated consult-room. Captions burned. End frame: "We say no when it's the right answer · tedshealth.com."</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#TRT</code><code>#DoctorLed</code><code>#CQCRegistered</code><code>#MensHealthUK</code><code>#TedsHealth</code><code>#HormoneHealth</code><code>#MensHealth</code><code>#MenOver40</code><code>#EvidenceBased</code><code>#TestosteroneTest</code></div>
+      </div>
+    </div>
+
+    <!-- 54 Alt — Engagement -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Tue</div>
+        <div class="pnum">54</div>
+        <div class="ppills"><span class="pillbadge fmt-c">Carousel · 5</span><span class="pillbadge b6">Engagement</span></div>
+        <div class="slot-time"><strong>12:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Rank these from 'I trust this' to 'I'd never click it' — men's health edition."</h4>
+        <div class="hook">Cover: "Rank these from 'I trust it' to 'absolutely not.'" Slides 2-5: four common men's-health offers (TikTok ad, GP NHS, online dashboard-only, doctor-led clinic). Final: "DM us your ranking — we'll send the honest breakdown."</div>
+        <div class="caption"><span class="clbl">Caption</span>An honest question for the audience: rank these four where you'd get bloods done. 1) The clinic that ads to you on TikTok. 2) Your NHS GP. 3) An online dashboard-only finger-prick. 4) A doctor-led clinic like ours. DM us your ranking — no judgment. We'll send the straight breakdown of what each one is good and bad at. We learn more from your answers than the post does.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>DM-driver.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Brief Ku — clean numbered 5-frame, designed for screenshot replies.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>5 slides, clean numbered list aesthetic. Restrained — no winking at competitors visually.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#MensHealth</code><code>#MensHealthUK</code><code>#TestosteroneTest</code><code>#BloodTest</code><code>#TedsHealth</code><code>#DoctorLed</code><code>#HormoneHealth</code><code>#MenOver40</code><code>#PreventiveHealth</code><code>#NHS</code></div>
+      </div>
+    </div>
+
+    <!-- 55 Alt — Patient Voice -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Fri</div>
+        <div class="pnum">55</div>
+        <div class="ppills"><span class="pillbadge fmt-r">Reel</span><span class="pillbadge b7">Patient Voice</span></div>
+        <div class="slot-time"><strong>17:30 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"Why I waited two years before booking — and what made me stop waiting."</h4>
+        <div class="hook">Frame 1: "Why I waited two years to book. Consented patient, no outcome claims." Real man, 40s, talking head.</div>
+        <div class="caption"><span class="clbl">Caption</span>James booked his first bloods two years after he first thought about it. He talked us through why he waited (cost felt like a thing, he didn't want to "make a fuss," he assumed his GP would say no), and what eventually made him pick a date. No claim about how he feels different. No before-and-after. Just one man's reason for finally moving from "I should" to "I did." Worth a watch if you're sitting where he was.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Friday CTA — £40, end-card link push.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Real consented UK male patient · 35-45 · brief Olly to schedule.</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Talking head, real UK man, warm light, natural setting. Captions burned. End frame: soft CTA only.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#PatientStory</code><code>#MensHealth</code><code>#MensHealthUK</code><code>#PreventiveHealth</code><code>#TestosteroneTest</code><code>#TedsHealth</code><code>#DoctorLed</code><code>#MenOver40</code><code>#HormoneHealth</code><code>#WellbeingUK</code></div>
+      </div>
+    </div>
+
+    <!-- 56 Alt — Partner POV -->
+    <div class="post">
+      <div class="pleft">
+        <div class="pday">Alt · Sun (story-led, can swap to Mon)</div>
+        <div class="pnum">56</div>
+        <div class="ppills"><span class="pillbadge fmt-s">Single image</span><span class="pillbadge b5">Tip</span></div>
+        <div class="slot-time"><strong>10:00 BST</strong></div>
+      </div>
+      <div class="pright">
+        <h4>"For the partner who's wondering whether to say something."</h4>
+        <div class="hook">Single graphic: "For the partner who's wondering whether to say something." Three-line gentle prompt. Designed to be screenshotted and sent.</div>
+        <div class="caption"><span class="clbl">Caption</span>For the person who follows us because they're quietly worried about someone else. Not because you want to diagnose him. Because you've noticed something and you're trying to work out how to bring it up. The honest answer: kindly, factually, once. Show him this if it helps. Don't push it after that. The point is the door's been opened, not that he walks through it today.</div>
+        <div class="meta3">
+          <div class="mblock"><span class="clbl">CTA pattern</span>Save + share-driver.</div>
+          <div class="mblock"><span class="clbl">Asset source</span>Olly creates in Canva (single graphic).</div>
+        </div>
+        <div class="visual"><span class="clbl">Visual</span>Single 1080x1350. Cream bg, navy serif headline, simple type. No imagery of a couple. Restrained.</div>
+        <div class="tags"><span class="clbl">Hashtags (10)</span><code>#MensHealth</code><code>#MensHealthUK</code><code>#HormoneHealth</code><code>#WellbeingUK</code><code>#MensMentalHealth</code><code>#MenOver40</code><code>#MidlifeHealth</code><code>#StigmaFree</code><code>#DoctorLed</code><code>#TedsHealth</code></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WEEK-8 ANCHOR -->
+<section class="band dark" id="anchor">
+  <div class="wrap reveal">
+    <div class="eyebrow">03 · The Week-8 Anchor</div>
+    <h2 class="serif">"Read Your Bloods" — the month's peak.</h2>
+    <p class="lead">A single bigger moment in the calendar to give the engine a discoverable spike. Three connected posts Wed-Fri of week 8, primed Mon-Tue, archived to Highlights for the month after. Designed to be screenshot-shareable, save-able and re-pinnable.</p>
+
+    <div class="anchor-card">
+      <div class="kicker">Monthly Anchor · Week 8</div>
+      <h3>Read Your Bloods — a 3-part mini-series.</h3>
+      <p>Three posts. One narrative arc. Each post stands alone but together they form the single most useful piece of content the channel publishes all month — the kind of content men screenshot and send to friends. Pinned to the bio Highlights as a permanent layer for the next 30 days.</p>
+      <ul>
+        <li><strong>Part 1 (Wed, post 46) — Total T &amp; Free T.</strong> Reel, Dr Andrews + animated range bar. 60s.</li>
+        <li><strong>Part 2 (Thu, post 47) — SHBG &amp; oestradiol.</strong> Carousel, 7 frames. Most save-friendly piece of the three.</li>
+        <li><strong>Part 3 (Fri, post 48) — The composite panel walk-through + £40 CTA.</strong> Reel, Dr Andrews + screen-rec mocked panel. 60s. Strongest CTA of the month.</li>
+      </ul>
+      <p style="margin-top:1.4rem;"><strong style="color:#fff;">Series treatment.</strong> Consistent "Part X of 3" tile on every asset, same colour-coded series banner, same end-card. Pinned to Highlights at week's end under a new "Read Your Bloods" tab. Re-shared to Stories once a week for the following month as a soft re-prime.</p>
+    </div>
+
+    <div class="note-box flag-dark">
+      <strong>Why an anchor.</strong> Calendar consistency keeps the engine alive but doesn't generate spikes. A monthly anchor — bigger production value, connected narrative, multiple touchpoints — gives the channel a discoverable peak the algorithm can land new audience on. Bias the next monthly anchor toward whatever Part 1-3 over-performed on (likely Carousel · Part 2 based on category benchmarks).
+    </div>
+  </div>
+</section>
+
+<!-- DM CADENCE -->
+<section class="band cream" id="stories">
+  <div class="wrap reveal">
+    <div class="eyebrow">04 · The Refined Daily Story Cadence</div>
+    <h2 class="serif">Five fixed Story slots. Different topic each weekday. Repeats every week.</h2>
+    <p class="lead">The weeks 1-4 doc set three slots a day. After a month's iteration, the right cadence is five — same time of day every day, but the weekday determines the topic. Olly fills five known shapes per day; no decision-making, ~7 minutes total.</p>
+
+    <div class="story-table">
+      <table>
+        <thead>
+          <tr><th>Slot</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="slot">08:00 · Re-share</td>
+            <td class="note">Mon Reel re-share</td>
+            <td class="note">Tue Carousel re-share</td>
+            <td class="note">Wed Reel re-share</td>
+            <td class="note">Thu Tip re-share</td>
+            <td class="note">Fri Reel re-share</td>
+          </tr>
+          <tr>
+            <td class="slot">11:00 · Authority</td>
+            <td class="note">"Real DM we got" screenshot + answer</td>
+            <td class="note">Dr Andrews highlight clip (15s pull)</td>
+            <td class="note">One-line clinic factoid (CQC, GMC, doctor count)</td>
+            <td class="note">Press / external mention re-share</td>
+            <td class="note">Composite-patient one-liner</td>
+          </tr>
+          <tr>
+            <td class="slot">13:00 · Engagement sticker</td>
+            <td class="note">Poll — binary myth ("True or false?")</td>
+            <td class="note">Question box — open-ended ("What's stopping you?")</td>
+            <td class="note">Quiz — multi-choice ("Which marker is which?")</td>
+            <td class="note">Slider — "How do you sleep / lift / etc on 1-10?"</td>
+            <td class="note">Poll — "Friday: are you booking or saving?"</td>
+          </tr>
+          <tr>
+            <td class="slot">17:30 · Behind-the-scenes</td>
+            <td class="note">Dr Andrews between consults (15s)</td>
+            <td class="note">Kit-pack / dispatch B-roll</td>
+            <td class="note">Real consult-room moment (no patient)</td>
+            <td class="note">Olly POV ("what we're working on")</td>
+            <td class="note">Friday end-of-week mood frame</td>
+          </tr>
+          <tr>
+            <td class="slot">19:30 · The day's CTA</td>
+            <td class="note">"Test from £40" + link sticker (soft)</td>
+            <td class="note">"Test from £40" + link sticker (soft)</td>
+            <td class="note">"Test from £40" + link sticker (soft)</td>
+            <td class="note">"Test from £40" + link sticker (soft)</td>
+            <td class="note">"Test from £40" + link sticker (strong — the day's main CTA)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Sat &amp; Sun.</strong> Two slots only — 10:00 highlight re-share, 19:00 soft "ask us anything" question box. Quiet by design. Don't break the deliberate weekend low.
+    </div>
+
+    <div class="note-box">
+      <strong>Highlights.</strong> Six permanent highlights after week 8: <strong>1) How it works · 2) £40 test · 3) Dr Andrews · 4) Real questions · 5) Press / proof · 6) Read Your Bloods (anchor).</strong> Drop the best 1-2 Stories from each week into the matching highlight at the end of the week.
+    </div>
+  </div>
+</section>
+
+<!-- HOW THIS PAIRS -->
+<section class="band">
+  <div class="wrap reveal" style="max-width:880px;">
+    <div class="eyebrow">05 · How this pairs with weeks 1-4</div>
+    <h2 class="serif">Same engine. Eight weeks loaded.</h2>
+    <p class="lead">With weeks 1-4 and weeks 5-8 batched together, Olly has 56 written posts and a fully-defined Story cadence covering 6 Jun through 31 Jul. The Metricool weekly rhythm doesn't change — Sunday batch-load, daily first-hour engagement, Mon-morning review. The pillar weights and slot times stay locked. The only thing different about weeks 5-8 is the angle inventory.</p>
+
+    <div class="note-box">
+      <strong>What to brief Ku now.</strong> The three composite panel mock-ups (posts 33, 43, 48) and the "Read Your Bloods" series tile/banner system. Both are reusable and unlock the back half of the month — brief them on the same Ku ticket so visuals come back together. Everything else is solvable Sunday-of.
+    </div>
+
+    <div class="note-box flag-red">
+      <strong>Composite patient guardrail.</strong> Every composite post (33, 38, 41, 45, 48) must carry a visible "Composite · illustrative · not a real patient" lower-third for the asset's full duration. This is non-negotiable — composites without the disclaimer read as testimonials, which is the regulator-attracting line we don't cross.
+    </div>
+  </div>
+</section>
+
+<footer>
+  Ted's Health · IG Weeks 5-8 (Metricool) · Issued 3 Jun 2026 · Run via Metricool · Pairs with weeks 1-4 doc<br>
+  Educate, don't promise · Doctor-led · CQC-registered · Test from £40 · tedshealth.com
+</footer>
+
+<script>
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
