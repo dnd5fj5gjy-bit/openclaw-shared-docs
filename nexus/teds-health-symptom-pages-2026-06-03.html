@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — Symptom Pages Content Playbook</title>
+<style>
+  :root {
+    --navy: #0d2137;
+    --teal: #0a7c6c;
+    --teal-light: #e6f5f2;
+    --amber: #e8a020;
+    --grey: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #fff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1e293b; line-height: 1.65; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4060 100%);
+    color: white; padding: 60px 40px; text-align: center;
+  }
+  .cover h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; }
+  .cover .sub { font-size: 1.1rem; color: #94b8d0; margin-top: 12px; }
+  .cover .meta { margin-top: 28px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .cover .meta span { background: rgba(255,255,255,0.1); padding: 8px 18px; border-radius: 999px; font-size: 0.85rem; }
+  .cover .pill-teal { background: var(--teal); color: white; padding: 6px 14px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-bottom: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  h2 { font-size: 1.7rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+  h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; margin-top: 28px; }
+  h4 { font-size: 1rem; font-weight: 600; color: var(--teal); margin-bottom: 6px; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8rem; }
+  p { margin-bottom: 14px; color: #334155; }
+  ul, ol { margin: 12px 0 16px 24px; }
+  li { margin-bottom: 6px; color: #334155; }
+
+  .strategy-box {
+    background: var(--teal-light); border-left: 4px solid var(--teal);
+    padding: 20px 24px; border-radius: 8px; margin: 24px 0;
+  }
+  .strategy-box strong { color: var(--teal); }
+
+  .alert-box {
+    background: #fff7ed; border-left: 4px solid var(--amber);
+    padding: 16px 20px; border-radius: 8px; margin: 20px 0;
+  }
+  .alert-box strong { color: #b45309; }
+
+  .page-card {
+    background: white; border: 1px solid var(--border); border-radius: 12px;
+    margin: 28px 0; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .page-card-header {
+    background: var(--navy); color: white; padding: 18px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .page-card-header h3 { color: white; margin: 0; font-size: 1.1rem; }
+  .page-card-header .url { color: #94b8d0; font-size: 0.8rem; font-family: monospace; }
+  .priority-badge { padding: 4px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .p-high { background: #dc2626; color: white; }
+  .p-med { background: var(--amber); color: white; }
+  .p-low { background: #64748b; color: white; }
+
+  .page-card-body { padding: 24px; }
+  .page-card-body h4 { color: var(--teal); font-size: 0.75rem; margin-top: 18px; }
+  .page-card-body h4:first-child { margin-top: 0; }
+
+  .copy-block {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    padding: 16px; margin: 10px 0; font-size: 0.95rem;
+    font-family: 'Georgia', serif; line-height: 1.7;
+  }
+
+  .seo-row { display: grid; grid-template-columns: 120px 1fr; gap: 8px; margin: 8px 0; align-items: start; }
+  .seo-label { font-size: 0.75rem; font-weight: 600; color: var(--grey); text-transform: uppercase; padding-top: 2px; }
+  .seo-value { font-size: 0.9rem; background: #f1f5f9; padding: 8px 12px; border-radius: 6px; font-family: monospace; color: #1e293b; }
+
+  .cta-pill { display: inline-block; background: var(--teal); color: white; padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; margin: 4px; }
+  .cta-pill.secondary { background: transparent; border: 1.5px solid var(--teal); color: var(--teal); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 640px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .stat-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+  .stat-card .number { font-size: 2rem; font-weight: 800; color: var(--teal); }
+  .stat-card .label { font-size: 0.82rem; color: var(--grey); margin-top: 4px; }
+
+  .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+  .comparison-table th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; }
+  .comparison-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .comparison-table tr:nth-child(even) td { background: var(--bg); }
+  .comparison-table .check { color: var(--teal); font-weight: 700; }
+  .comparison-table .cross { color: #dc2626; }
+
+  .toc { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin: 28px 0; }
+  .toc h3 { margin-top: 0; font-size: 1rem; color: var(--grey); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem; margin-bottom: 14px; }
+  .toc ol { margin-left: 18px; }
+  .toc li { margin-bottom: 8px; font-weight: 500; }
+  .toc .sub-items { font-weight: 400; color: var(--grey); font-size: 0.85rem; margin-top: 2px; }
+
+  .footer { background: var(--navy); color: #94b8d0; text-align: center; padding: 32px; font-size: 0.82rem; margin-top: 60px; }
+  .footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="pill-teal">Nexus — Ted's Health Build</div>
+  <h1>Symptom Pages Content Playbook</h1>
+  <p class="sub">Complete page specs for 11 missing pages — ready to hand to a copywriter or developer</p>
+  <div class="meta">
+    <span>📅 June 2026</span>
+    <span>🔗 Nexus</span>
+    <span>🎯 9 symptom pages + hub + pricing</span>
+    <span>⚡ Based on Arc TRT competitive gap analysis</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TOC -->
+<div class="section">
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><strong>Strategic context</strong> — why these pages matter and the one moat to protect
+      <div class="sub-items">Arc TRT comparison · SEO opportunity · Keyword mapping</div>
+    </li>
+    <li><strong>Symptom hub page</strong> — /trt-symptoms/
+      <div class="sub-items">Structure · Full copy · Internal linking · SEO</div>
+    </li>
+    <li><strong>9 individual symptom pages</strong> — full specs for each
+      <div class="sub-items">Brain fog · Low energy · Low mood · Poor sleep · Anxiety · Low libido · Erectile issues · Muscle loss · Weight gain</div>
+    </li>
+    <li><strong>Pricing page</strong> — /pricing/
+      <div class="sub-items">GP referral framing · Plan structure · Trust signals</div>
+    </li>
+    <li><strong>Clinical team page</strong> — /our-team/
+      <div class="sub-items">Dr Jonathan Andrews · Ryann Egang · Profile template</div>
+    </li>
+    <li><strong>Implementation guide</strong> — 30-day build queue + quick wins</div>
+    </li>
+  </ol>
+</div>
+</div>
+
+<!-- SECTION 1: STRATEGY -->
+<div class="section">
+<h2>1. Strategic Context</h2>
+
+<p>Arc TRT launched in April 2026. They came in with a clean, conversion-optimised site and built a specific content structure Ted's Health currently doesn't have: symptom-specific landing pages, transparent pricing, and named clinician profiles. These are not nice-to-haves — they are the three assets that capture organic search intent and convert it to booked consultations.</p>
+
+<div class="grid3">
+  <div class="stat-card">
+    <div class="number">9</div>
+    <div class="label">Symptom pages Arc TRT has, Ted's has zero</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">4</div>
+    <div class="label">Clinician profile pages building trust at Arc TRT</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">£159/mo</div>
+    <div class="label">Arc TRT entry price — clearly published, zero friction</div>
+  </div>
+</div>
+
+<div class="strategy-box">
+  <strong>The moat Ted's must protect:</strong> Arc TRT built its site for direct-to-consumer, self-referral conversions. Ted's Health has a GP referral pathway — NHS credibility and clinical continuity that Arc TRT cannot replicate. Every page below must mention this. It is the structural differentiator.
+</div>
+
+<h3>What Arc TRT Has That Ted's Doesn't</h3>
+<table class="comparison-table">
+  <thead><tr><th>Asset</th><th>Arc TRT</th><th>Ted's Health</th><th>Revenue impact</th></tr></thead>
+  <tbody>
+    <tr><td>Symptom landing pages (SEO capture)</td><td class="check">✓ 9 pages</td><td class="cross">✗ Zero</td><td>High — long-tail search traffic</td></tr>
+    <tr><td>Transparent pricing page</td><td class="check">✓ 4 tiers published</td><td class="cross">✗ No pricing page</td><td>High — removes friction for price-aware buyers</td></tr>
+    <tr><td>Named clinician profiles</td><td class="check">✓ 4 profiles</td><td class="cross">✗ No dedicated team page</td><td>Med — trust signal for high-consideration purchase</td></tr>
+    <tr><td>Clear /get-started funnel</td><td class="check">✓</td><td class="cross">✗</td><td>Med — reduces drop-off</td></tr>
+    <tr><td>GP referral pathway</td><td class="cross">✗</td><td class="check">✓ Ted's moat</td><td>High — NHS credibility, recurring referrals</td></tr>
+    <tr><td>Celebrity ambassador (Steve Redgrave)</td><td class="cross">✗</td><td class="check">✓</td><td>High — awareness + trust</td></tr>
+    <tr><td>Blog / educational content</td><td class="cross">✗ Near-zero</td><td class="check">✓ 10+ posts</td><td>Med — SEO foundation exists</td></tr>
+  </tbody>
+</table>
+
+<div class="alert-box">
+  <strong>Keyword opportunity:</strong> "low testosterone brain fog", "TRT anxiety", "testosterone and sleep problems", "testosterone and low mood" — these terms get significant search volume and are completely unclaimed by Ted's Health. One page per symptom = one SEO foothold per high-intent search.
+</div>
+</div>
+
+<!-- SECTION 2: HUB PAGE -->
+<div class="section">
+<h2>2. Symptom Hub Page</h2>
+
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>TRT Symptoms Hub</h3>
+      <div class="url">tedshealth.com/trt-symptoms/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+
+    <h4>SEO Metadata</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Low Testosterone Symptoms in Men | Ted's Health TRT Clinic</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Recognise the signs of low testosterone — from brain fog and fatigue to low mood and muscle loss. Ted's Health connects you with NHS-affiliated doctors who can diagnose and treat low T from home.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Could Low Testosterone Be Behind How You're Feeling?</div></div>
+    <div class="seo-row"><div class="seo-label">Target keywords</div><div class="seo-value">low testosterone symptoms · signs of low T · testosterone deficiency symptoms UK · TRT symptoms</div></div>
+
+    <h4>Intro Copy</h4>
+    <div class="copy-block">
+      <p>Low testosterone rarely announces itself clearly. It tends to arrive quietly — a gradual dulling of energy, a flatness in mood, a body that doesn't quite respond the way it used to. Many men live with these symptoms for years before connecting them to their hormone levels.</p>
+      <p>The nine symptoms below are among the most common signs of low testosterone. Each one has its own page with a fuller explanation and what treatment looks like. If several of these resonate, a simple blood test is all it takes to get a clear picture.</p>
+      <p><strong>Sir Steve Redgrave — five Olympic gold medals, world-class athlete — spent years managing symptoms he didn't know were connected to testosterone.</strong> "I found that's where something like Ted's Health plays a role," he said. "You feel comfortable talking about things you wouldn't normally."</p>
+    </div>
+
+    <h4>Symptom Grid (9 cards, each linking to dedicated page)</h4>
+    <div class="copy-block">
+      Cards (icon + short descriptor + link to /trt-symptoms/[slug]):
+      <ul>
+        <li><strong>Brain Fog</strong> — "Struggling to concentrate, think clearly, or stay sharp"</li>
+        <li><strong>Low Energy</strong> — "Constant tiredness that sleep doesn't fix"</li>
+        <li><strong>Low Mood</strong> — "Persistent flatness, irritability, or lost motivation"</li>
+        <li><strong>Poor Sleep</strong> — "Trouble falling asleep, staying asleep, or waking unrefreshed"</li>
+        <li><strong>Anxiety</strong> — "A background sense of tension or dread with no clear cause"</li>
+        <li><strong>Low Sex Drive</strong> — "Reduced libido or interest in intimacy"</li>
+        <li><strong>Erectile Issues</strong> — "Difficulty maintaining erections, especially in the morning"</li>
+        <li><strong>Muscle Loss</strong> — "Losing strength or muscle mass despite staying active"</li>
+        <li><strong>Weight Gain</strong> — "Putting on weight, especially around the middle, for no obvious reason"</li>
+      </ul>
+    </div>
+
+    <h4>GP Referral Trust Strip</h4>
+    <div class="copy-block">
+      <strong>Referred by your GP? You're in the right place.</strong><br>
+      Ted's Health works directly with GP practices across the UK. If your doctor has referred you, your consultation is already pre-authorised — simply book online and our clinical team will have your background notes before you speak.
+    </div>
+
+    <h4>Trust Signals Section</h4>
+    <div class="copy-block">
+      — CQC Registered<br>
+      — LegitScript Verified<br>
+      — NHS-Affiliated Clinicians<br>
+      — Endorsed by Sir Steve Redgrave, 5x Olympic Champion<br>
+      — UK-Based Medical Team
+    </div>
+
+    <h4>CTAs</h4>
+    <span class="cta-pill">Start with a blood test →</span>
+    <span class="cta-pill secondary">Speak to a doctor</span>
+
+    <h4>Internal Linking</h4>
+    <ul>
+      <li>Each symptom card → /trt-symptoms/[symptom-slug]</li>
+      <li>Trust strip → /partner-with-us (GP referral detail)</li>
+      <li>Blood test CTA → /order-blood-test (or equivalent)</li>
+    </ul>
+
+  </div>
+</div>
+</div>
+
+<!-- SECTION 3: SYMPTOM PAGES -->
+<div class="section">
+<h2>3. Individual Symptom Pages</h2>
+<p>Each page follows the same structural template. Full copy provided for all nine — ready to edit and publish.</p>
+
+<!-- TEMPLATE NOTE -->
+<div class="strategy-box">
+  <strong>Page template structure for all 9 pages:</strong>
+  Breadcrumb → H1 (symptom) → 2-3 intro paragraphs → "Is this testosterone?" section → "What treatment looks like" section → Steve Redgrave quote (where relevant) → FAQ accordion (6-8 Qs) → GP referral strip → CTA. Keep pages under 600 words of body copy — this is a conversion page, not an article.
+</div>
+
+<!-- PAGE 1: BRAIN FOG -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Brain Fog &amp; Low Testosterone</h3>
+      <div class="url">tedshealth.com/trt-symptoms/brain-fog/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Brain Fog and Low Testosterone | TRT Treatment UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Finding it hard to concentrate, think clearly, or stay sharp? Brain fog is a recognised symptom of low testosterone. Find out how TRT may help — speak to a Ted's Health doctor today.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Brain Fog</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">brain fog low testosterone · testosterone brain fog · TRT brain fog UK · low T cognitive symptoms</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Brain fog is one of those symptoms that's hard to describe until you've experienced it. Not a headache. Not tiredness, exactly. More like a persistent mental dimness — struggling to find words, losing your train of thought mid-sentence, reading the same paragraph twice without it landing.</p>
+      <p>Testosterone plays a role in several brain functions: mood regulation, motivation, and cognitive processing. When levels drop, some men notice a change in how sharp they feel — not dramatically, but enough that it starts affecting work, relationships, and confidence.</p>
+      <p>That said, brain fog has multiple causes. Stress, poor sleep, thyroid function, diet, and other conditions can all contribute. A blood test is the only reliable way to know whether hormone levels are part of what's happening for you.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">Is this testosterone?</h3>
+      <p>Low testosterone rarely causes brain fog on its own — it tends to compound. Energy drops, motivation fades, sleep becomes disrupted. The cumulative effect on mental clarity can be significant. If brain fog is one of several symptoms you're experiencing, it's worth checking.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>If a blood test confirms low testosterone, our doctors will discuss whether TRT is appropriate for you. Many men report improvements in mental clarity and focus as hormone levels are restored — typically within 6 to 12 weeks. Treatment is delivered at home: injections, gels, or pellets depending on what suits you best, with regular monitoring throughout.</p>
+    </div>
+
+    <h4>FAQ Items</h4>
+    <div class="copy-block">
+      <strong>Q: How quickly does TRT improve brain fog?</strong><br>Most men notice improvements in clarity and focus within 6–12 weeks of starting treatment, though this varies by individual.<br><br>
+      <strong>Q: Could my brain fog be caused by something other than testosterone?</strong><br>Yes — thyroid issues, sleep apnoea, anaemia, depression, and nutritional deficiencies can all cause similar symptoms. Our doctors assess the full picture before recommending any treatment.<br><br>
+      <strong>Q: Do I need a GP referral?</strong><br>No. You can self-refer directly through Ted's Health. If your GP has already referred you, we can work with your existing notes to fast-track your consultation.
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: LOW ENERGY -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Low Energy &amp; Fatigue</h3>
+      <div class="url">tedshealth.com/trt-symptoms/low-energy/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Low Energy and Testosterone Deficiency | TRT Treatment UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Persistent fatigue that sleep doesn't fix could be a sign of low testosterone. Ted's Health connects you with NHS-affiliated doctors who specialise in men's hormonal health.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Low Energy</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">low energy testosterone · fatigue low T · testosterone deficiency tiredness UK · TRT for fatigue</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>There's normal tired — after a hard week, a bad night, a busy month — and then there's the other kind. The kind where you wake up already drained. Where the afternoon feels like wading through concrete. Where things you used to do without thinking now require effort you can't quite find.</p>
+      <p>Testosterone supports your body's energy systems — metabolism, red blood cell production, and the motivation circuits in the brain. When it falls significantly, the fatigue that follows can feel different from everyday tiredness. More persistent. Less responsive to rest.</p>
+      <p>Sir Steve Redgrave — five Olympic gold medals, a man who spent decades pushing his body to its physical limits — experienced it too. "I found myself asking why things felt so much harder," he's said of the period before treatment. He's now an advocate for men taking their hormonal health seriously.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">Is this testosterone?</h3>
+      <p>Fatigue caused by low testosterone is usually part of a wider picture — low mood, reduced motivation, disrupted sleep, and a general sense that your body is operating below what it should. If you recognise two or three of these alongside the tiredness, a blood test is the sensible next step.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>TRT works by restoring testosterone to a level your body recognises as functional. Most men report meaningful improvements in energy and motivation within 6–10 weeks. Ted's Health appointments are conducted by video, blood tests are done at home, and treatment is delivered to your door — no commute to a clinic required.</p>
+    </div>
+
+    <h4>FAQ Items</h4>
+    <div class="copy-block">
+      <strong>Q: Can TRT help if my testosterone is "in the normal range"?</strong><br>NHS ranges are broad. A level that's technically "in range" may still be low for you as an individual. Our doctors look at your symptoms alongside your results, not the number in isolation.<br><br>
+      <strong>Q: Is it safe to take TRT long term?</strong><br>Yes, when properly monitored. Ted's Health builds in regular blood tests and clinical reviews throughout your treatment to keep everything in check.
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: LOW MOOD -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Low Mood &amp; Depression</h3>
+      <div class="url">tedshealth.com/trt-symptoms/low-mood/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Low Mood, Depression and Low Testosterone | TRT UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Persistent low mood, irritability, or emotional flatness could be linked to testosterone levels. Ted's Health offers discreet, clinically supervised TRT from home.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Low Mood</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">low mood testosterone · testosterone and depression · TRT for low mood UK · hormonal depression men</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Low mood in men can be hard to identify, let alone talk about. It's rarely dramatic. More often it's a slow flattening — less enjoyment from things that used to matter, a shorter fuse, a background irritability that's difficult to explain or justify.</p>
+      <p>Testosterone is involved in the regulation of dopamine and serotonin — the neurotransmitters most associated with mood, motivation, and emotional resilience. When levels drop, some men notice a shift in emotional tone that sits somewhere between depression and disinterest.</p>
+      <p>This isn't weakness. It's biology. And it's worth investigating.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">Is this testosterone?</h3>
+      <p>Low mood linked to testosterone tends to accompany other physical symptoms — fatigue, reduced sex drive, brain fog, poor sleep. If mood is the only concern, other factors are more likely the cause. If it's part of a cluster of symptoms, hormone testing is a sensible first step.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>Restoring testosterone to your functional level can have a meaningful impact on mood for men whose low mood is hormone-related. This is something Ted's Health assesses carefully — our doctors won't prescribe TRT as a substitute for appropriate mental health support, but they will help you understand whether hormones are contributing to what you're experiencing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: POOR SLEEP -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Sleep Problems &amp; Testosterone</h3>
+      <div class="url">tedshealth.com/trt-symptoms/sleep-problems/</div>
+    </div>
+    <span class="priority-badge p-med">Priority 2</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Sleep Problems and Low Testosterone | TRT Treatment UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Waking through the night, struggling to fall asleep, or never feeling rested? Poor sleep and low testosterone often go hand in hand. Find out what's behind it.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Sleep Problems</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">low testosterone insomnia · TRT sleep problems · testosterone sleep quality UK · poor sleep men hormones</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Most men with low testosterone notice that sleep changes first. Not dramatically — but the quality shifts. Falling asleep takes longer. Waking at 3am becomes normal. The deep, restorative sleep that leaves you feeling genuinely recovered seems further away.</p>
+      <p>Testosterone and sleep are closely linked. The body produces most of its testosterone during deep sleep, particularly in the early hours of the morning. When sleep deteriorates, testosterone production drops. When testosterone drops, sleep quality often worsens. It can become a self-reinforcing cycle.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">Is this testosterone?</h3>
+      <p>Sleep problems rarely have a single cause. Stress, sleep apnoea, alcohol, and lifestyle all play a role. But if disrupted sleep accompanies other low-T symptoms — fatigue during the day, low mood, reduced drive — it's worth checking whether hormones are part of the picture.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>Many men treated for low testosterone report meaningful improvements in sleep quality, often within the first few weeks. Our doctors will review the full context before making any recommendation — TRT is not the right answer for every sleep problem, but if it is for yours, Ted's Health can help.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: ANXIETY -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Anxiety &amp; Low Testosterone</h3>
+      <div class="url">tedshealth.com/trt-symptoms/anxiety/</div>
+    </div>
+    <span class="priority-badge p-med">Priority 2</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Anxiety and Low Testosterone in Men | TRT Treatment UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Anxiety can sometimes be linked to low testosterone levels. Ted's Health offers a discreet, clinically supervised approach to men's hormonal health — from home.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Anxiety</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">testosterone anxiety · low T and anxiety · TRT for anxiety UK · hormonal anxiety men</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Anxiety in men often presents differently than it's typically described. Less panic, more a persistent background tension. A vague sense that something is wrong. Heightened irritability. Difficulty relaxing, even when there's nothing to be stressed about.</p>
+      <p>Testosterone influences the stress response system. Low levels can increase cortisol sensitivity and reduce the brain's ability to regulate its response to perceived threats. For some men, addressing low testosterone forms part of a broader improvement in anxiety symptoms.</p>
+      <p>It's important to be honest about this: TRT is not a treatment for anxiety. But for men whose anxiety is accompanied by other low-testosterone symptoms, normalising hormone levels can sometimes shift the baseline significantly.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>Our doctors assess the whole picture. If anxiety is the primary concern, they'll tell you directly whether TRT is likely to be relevant for you — and if not, help point you toward appropriate support. We don't prescribe treatment for the sake of it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: LOW LIBIDO -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Low Sex Drive / Libido</h3>
+      <div class="url">tedshealth.com/trt-symptoms/low-libido/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Low Sex Drive and Testosterone | TRT Treatment UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">A significant drop in sex drive is one of the most common signs of low testosterone in men. Find out if hormones are the cause — and what can be done about it.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Low Sex Drive</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">low libido testosterone · TRT for low sex drive UK · testosterone and libido · low sex drive men over 40</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Testosterone is the primary hormonal driver of libido in men. When levels fall, sex drive usually follows — often gradually enough that it takes time to notice how much has changed.</p>
+      <p>A reduced interest in sex isn't unusual at any age and isn't always hormonal. Relationship dynamics, stress, fatigue, and medication can all affect libido. But if the drop feels tied to a broader decline — less energy, lower mood, brain fog — low testosterone is worth ruling in or out.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>Libido is typically one of the first things men report improving after TRT begins. Many notice a change within the first 4–6 weeks. Ted's Health doctors will confirm whether your testosterone levels are likely to be contributing before recommending treatment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7: ERECTILE ISSUES -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Erectile Issues</h3>
+      <div class="url">tedshealth.com/trt-symptoms/erectile-issues/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Erectile Issues and Low Testosterone | TRT UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Difficulty with erections can be linked to low testosterone. Ted's Health offers discreet, doctor-led assessment and treatment from home — no clinic visit required.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Erectile Issues</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">erectile dysfunction testosterone UK · low T erectile issues · TRT for ED UK · testosterone erection problems</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Erectile difficulties are more common than most men acknowledge — and more often hormonal than people assume. While erectile dysfunction can have vascular or psychological causes, low testosterone is a significant contributing factor in many cases, particularly when other symptoms are present.</p>
+      <p>Testosterone supports nitric oxide production, which is required for healthy erectile function. Low levels don't just reduce libido — they can directly affect the physical mechanism of erection, including morning erections, which are often one of the first things to change.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>If a blood test confirms low testosterone, TRT often improves erectile function — though not always as a standalone solution. Our doctors assess the full picture, including whether cardiovascular factors or other conditions need addressing alongside hormone levels. Ted's Health also offers ED treatment if appropriate.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 8: MUSCLE LOSS -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Muscle Loss &amp; Reduced Strength</h3>
+      <div class="url">tedshealth.com/trt-symptoms/muscle-loss/</div>
+    </div>
+    <span class="priority-badge p-med">Priority 2</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Muscle Loss and Low Testosterone | TRT for Men UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Losing muscle despite staying active? Low testosterone reduces the body's ability to build and maintain muscle. Find out if TRT is right for you.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Muscle Loss</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">testosterone muscle loss UK · TRT muscle gain men · low T strength loss · testosterone body composition</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Testosterone is the key hormonal driver of muscle protein synthesis — the process by which your body builds and maintains muscle tissue. When levels fall, maintaining muscle becomes progressively harder, even with consistent training and diet.</p>
+      <p>Many men notice it in their 40s: the same training that used to produce results no longer seems to. Recovery takes longer. Strength gains plateau or reverse. Body fat increases even without significant changes in diet. These are not signs that the body is failing — they're often signs that hormone levels need assessing.</p>
+      <p>Sir Steve Redgrave — arguably Britain's greatest endurance athlete — built a career on precisely calibrated physical performance. When hormonal decline set in, even elite-level conditioning didn't protect against it.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>TRT supports muscle maintenance and recovery by restoring the hormonal environment the body needs. Results vary by individual and are not a substitute for training — but many men find that the same effort they were putting in before begins producing results again.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 9: WEIGHT GAIN -->
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Unexplained Weight Gain</h3>
+      <div class="url">tedshealth.com/trt-symptoms/weight-gain/</div>
+    </div>
+    <span class="priority-badge p-med">Priority 2</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Weight Gain and Low Testosterone in Men | TRT UK | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Unexplained weight gain, particularly around the middle, can be a sign of low testosterone. Ted's Health offers clinically supervised TRT delivered entirely from home.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Weight Gain</div></div>
+    <div class="seo-row"><div class="seo-label">Keywords</div><div class="seo-value">testosterone weight gain men UK · low T belly fat · TRT for weight loss UK · hormonal weight gain men</div></div>
+
+    <h4>Body Copy</h4>
+    <div class="copy-block">
+      <p>Unexplained weight gain — particularly accumulation of fat around the abdomen — is one of the more frustrating symptoms of low testosterone. It's frustrating because it persists despite a reasonable diet and regular exercise, and because the conventional advice ("eat less, move more") often fails to address the underlying hormonal driver.</p>
+      <p>Testosterone and fat metabolism are closely connected. Low testosterone promotes fat storage, particularly visceral fat. Visceral fat, in turn, increases oestrogen levels, which suppresses testosterone further. For some men, this becomes a cycle that's difficult to break through lifestyle changes alone.</p>
+
+      <h3 style="font-size:1rem; color:#0d2137; margin:18px 0 8px;">What treatment looks like</h3>
+      <p>TRT is not a weight-loss treatment. But for men whose weight gain is driven by hormonal imbalance, restoring testosterone levels can improve body composition, energy for exercise, and metabolic rate — making the lifestyle changes more effective. Our doctors will give you an honest assessment of how much of what you're experiencing is likely to be hormonal.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /section symptom pages -->
+
+<!-- SECTION 4: PRICING PAGE -->
+<div class="section">
+<h2>4. Pricing Page</h2>
+
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Pricing &amp; Plans</h3>
+      <div class="url">tedshealth.com/pricing/</div>
+    </div>
+    <span class="priority-badge p-high">Priority 1</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">TRT Treatment Cost UK | What Does Ted's Health Cost? | Ted's Health</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Transparent pricing for TRT treatment at Ted's Health. Monthly plans from [£X], including blood tests, clinical reviews, and ongoing support from NHS-affiliated doctors.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">Clear Pricing, No Surprises</div></div>
+
+    <h4>Intro Copy</h4>
+    <div class="copy-block">
+      <p>Private healthcare has a reputation for being expensive and opaque. We think that's wrong. Our pricing is published here, in full, so you know exactly what you're paying for before you commit to anything.</p>
+      <p>Every Ted's Health plan includes clinical oversight from NHS-affiliated doctors, at-home blood testing, and doorstep medication delivery — no clinic visits, no waiting rooms.</p>
+    </div>
+
+    <h4>Plan Structure Recommendation</h4>
+    <div class="copy-block">
+      Suggest three tiers (edit pricing to match Ted's Health commercial model):<br><br>
+      <strong>Starter — from £[X]/month</strong><br>
+      Initial blood test + consultation · Treatment plan · 2 clinical reviews per year · Doorstep delivery<br><br>
+      <strong>Complete — from £[X]/month</strong><br>
+      Everything in Starter + quarterly blood tests · Priority clinical access · Named doctor<br><br>
+      <strong>GP Referral Pathway</strong> [not a paid tier — separate section]<br>
+      If your GP has referred you, your initial assessment is already pre-authorised. Contact us to start — we'll align with your GP practice and take it from there.
+    </div>
+
+    <h4>Trust Comparison Table</h4>
+    <div class="copy-block">
+      Contrast columns: Ted's Health vs "Other online TRT clinics"<br>
+      — NHS-affiliated clinical team: ✓ vs sometimes<br>
+      — GP referral pathway: ✓ vs ✗<br>
+      — CQC registered: ✓ vs check<br>
+      — Named doctor continuity: ✓ vs often rotated<br>
+      — At-home blood tests included: ✓ vs sometimes extra cost<br>
+      — No hard-sell approach: ✓ vs variable
+    </div>
+
+    <h4>FAQ Items</h4>
+    <div class="copy-block">
+      <strong>Q: Is the initial blood test included in the plan price?</strong><br>Yes. Your first blood test and consultation are included when you sign up for a plan.<br><br>
+      <strong>Q: Can I cancel?</strong><br>Yes. There's no minimum term — you can pause or cancel your plan at any time with one month's notice.<br><br>
+      <strong>Q: What if my GP has already referred me?</strong><br>Contact us directly. We work with GP practices across the UK and can coordinate with your referral to fast-track your assessment.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 5: TEAM PAGE -->
+<div class="section">
+<h2>5. Clinical Team Page</h2>
+
+<div class="page-card">
+  <div class="page-card-header">
+    <div>
+      <h3>Our Clinical Team</h3>
+      <div class="url">tedshealth.com/our-team/</div>
+    </div>
+    <span class="priority-badge p-med">Priority 2</span>
+  </div>
+  <div class="page-card-body">
+    <h4>SEO</h4>
+    <div class="seo-row"><div class="seo-label">Title</div><div class="seo-value">Meet Our Doctors | Ted's Health Clinical Team</div></div>
+    <div class="seo-row"><div class="seo-label">Description</div><div class="seo-value">Ted's Health is staffed by NHS-affiliated clinicians specialising in men's hormonal health. Meet the doctors and nurses behind your care.</div></div>
+    <div class="seo-row"><div class="seo-label">H1</div><div class="seo-value">The People Behind Your Care</div></div>
+
+    <h4>Intro Copy</h4>
+    <div class="copy-block">
+      <p>TRT is a long-term treatment. That means the relationship with your clinical team matters. At Ted's Health, you see the same doctor each time — not a different face every appointment.</p>
+      <p>Our team works part-time within the NHS and part-time with Ted's Health. That dual grounding matters: they understand both the clinical standards that NHS medicine demands and the gaps in men's healthcare that those systems can't always fill.</p>
+    </div>
+
+    <h4>Dr Jonathan Andrews — Medical Director</h4>
+    <div class="copy-block">
+      <strong>Credentials:</strong> Medical Director, Ted's Health. NHS urgent care physician.<br><br>
+      <strong>Profile copy template:</strong><br>
+      "Dr Andrews leads clinical practice at Ted's Health. He combines his work in NHS urgent care with a specialist interest in men's hormonal health — a combination that gives him a grounded, no-nonsense view of when TRT is genuinely appropriate and when it isn't. He conducts initial consultations for all new patients."<br><br>
+      <strong>Photo requirement:</strong> Professional headshot, clinic or neutral background.<br>
+      <strong>Link to:</strong> /book-consultation (with Dr Andrews pre-selected if booking system allows)
+    </div>
+
+    <h4>Ryann Egang — Registered Adult Nurse</h4>
+    <div class="copy-block">
+      <strong>Credentials:</strong> Registered Adult Nurse, Ted's Health. NHS part-time.<br><br>
+      <strong>Profile copy template:</strong><br>
+      "Ryann handles clinical follow-ups, ongoing monitoring, and the day-to-day questions that come up once treatment starts. Having a nurse you can actually reach — someone who knows your case — is one of the parts of Ted's Health that patients consistently mention. She works part-time within the NHS alongside her role here."<br><br>
+      <strong>Photo requirement:</strong> Professional headshot, consistent with Dr Andrews' shot.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 6: IMPLEMENTATION -->
+<div class="section">
+<h2>6. Implementation Guide</h2>
+
+<h3>30-Day Build Queue</h3>
+
+<table class="comparison-table">
+  <thead><tr><th>Week</th><th>Page(s)</th><th>Priority</th><th>Est. effort</th><th>Why now</th></tr></thead>
+  <tbody>
+    <tr><td>Week 1</td><td>Symptom hub + Brain Fog + Low Energy + Low Libido + Erectile Issues</td><td class="check">HIGH</td><td>1 day dev + 2h copy review</td><td>Highest search volume; Arc TRT is indexing these now</td></tr>
+    <tr><td>Week 2</td><td>Low Mood + Pricing page</td><td class="check">HIGH</td><td>1 day dev + 1h copy</td><td>Pricing page removes a major friction point immediately</td></tr>
+    <tr><td>Week 3</td><td>Sleep Problems + Anxiety + Muscle Loss + Weight Gain</td><td>MED</td><td>Half day dev</td><td>Completes the symptom cluster</td></tr>
+    <tr><td>Week 4</td><td>Our Team page + individual clinician profiles</td><td>MED</td><td>2h dev + photo shoot</td><td>Trust signal; differentiates from anonymous online clinics</td></tr>
+  </tbody>
+</table>
+
+<h3>Quick Wins (No Dev Needed)</h3>
+<ul>
+  <li><strong>Add symptom links to homepage</strong> — Link "brain fog, fatigue, low mood" text in the homepage hero directly to the new symptom pages. Can be done in the CMS without dev work.</li>
+  <li><strong>Add GP referral strip to all existing pages</strong> — One consistent HTML strip at the bottom of every page: "Referred by your GP? You're in the right place. [Book your consultation →]"</li>
+  <li><strong>Update homepage meta description</strong> — Currently generic; add symptom keywords to catch more long-tail search.</li>
+  <li><strong>Internal link blog posts to symptom pages</strong> — The existing blog posts ("what is TRT", "low testosterone levels by age" etc.) should all link to the new symptom pages once live.</li>
+</ul>
+
+<div class="strategy-box">
+  <strong>SEO note:</strong> These pages should index within 2–4 weeks of going live. The internal linking from the existing blog (which already has some domain authority) will help. Submit an updated sitemap immediately after launch. The Steve Redgrave page should link to at least 3 symptom pages — it already has some backlink equity worth distributing.
+</div>
+
+<div class="alert-box">
+  <strong>What not to copy from Arc TRT:</strong> Their FAQ sections are decent but generic — designed to reassure, not convert. Ted's Health's differentiation is GP credibility and NHS continuity. Every page's FAQ should include at least one question that surfaces the GP referral pathway ("Do I need a GP referral?") because that's an answer that makes Ted's Health different, not just comparable.
+</div>
+
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>Nexus — Ted's Health Symptom Pages Playbook</strong><br>
+  Built June 2026 · Based on Arc TRT competitive analysis (June 2026) · Ready for copywriter/developer handoff<br>
+  Working directory: <code>~/agents/nexus/workspace/docs/</code>
+</div>
+
+</body>
+</html>
