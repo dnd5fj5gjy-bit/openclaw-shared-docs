@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Creative Briefs Pack v5 · Reach Surfaces · 3 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 920px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 820px; margin-bottom: 1rem; }
+
+  .guardrail {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 1.6rem 1.8rem;
+    border-radius: 4px;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .guardrail h3 {
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .guardrail p { color: rgba(245, 240, 232, 0.92); max-width: 880px; margin: 0; font-size: 0.97rem; }
+
+  .month2 {
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .month2 strong { color: var(--burgundy); }
+
+  /* Brief block */
+  .brief {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2.8rem 3rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .brief-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .brief h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .brief .subtitle {
+    color: var(--charcoal-light);
+    font-size: 1.02rem;
+    margin-bottom: 1.6rem;
+    max-width: 740px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    background: var(--cream-dark);
+    padding: 1.2rem 1.4rem;
+    border-radius: 4px;
+    margin: 1.3rem 0 1.8rem;
+  }
+  .meta-grid div { font-size: 0.86rem; }
+  .meta-grid .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  .meta-grid .val { color: var(--ink); font-weight: 500; }
+
+  .brief h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin: 1.6rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .brief p { margin-bottom: 0.85rem; max-width: 820px; }
+  .brief ul, .brief ol { padding-left: 1.4rem; margin-bottom: 0.6rem; max-width: 820px; }
+  .brief li { margin-bottom: 0.4rem; }
+
+  .pipeline {
+    background: var(--cream);
+    border: 1px dashed var(--rule);
+    padding: 1.1rem 1.4rem;
+    border-radius: 3px;
+    margin: 0.6rem 0 1rem;
+    font-size: 0.94rem;
+  }
+  .pipeline strong { font-weight: 500; color: var(--ink); }
+
+  .signoff {
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .signoff strong { color: var(--ink); font-weight: 500; }
+
+  /* Shortlist tables (used by Brief 16 / 18) */
+  .shortlist {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin: 0.4rem 0 1rem;
+    font-size: 0.9rem;
+  }
+  .shortlist .row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 2.2fr;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .shortlist .row:last-child { border-bottom: none; }
+  .shortlist .row.head {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--rule);
+  }
+  .shortlist .row .name { color: var(--ink); font-weight: 500; }
+  .shortlist .row .note { color: var(--charcoal-light); }
+
+  /* Phasing strip */
+  .phasing {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem 2.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+  }
+  .phasing h2 { color: var(--cream); margin-bottom: 1.6rem; font-size: 1.7rem;}
+  .phasing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+  .phasing-col {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.2rem;
+  }
+  .phasing-col h4 {
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  .phasing-col ul { padding-left: 1rem; }
+  .phasing-col li { font-size: 0.9rem; margin-bottom: 0.4rem; color: rgba(245, 240, 232, 0.88); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Creative Briefs · v5 · Reach Surfaces</div>
+    <h1>Six new surfaces. The places the engine borrows reach from people who already have the audience.</h1>
+    <p class="lede">v5 extends v2 and v4. v2 stood up the eight core workstreams; v3 detailed the launch fortnight; v4 added the rolling systems the engine leans on. v5 covers the borrowed-reach surfaces — podcast guest tours, the YouVersion / Bible-app plan, apologetics-creator co-marketing, the reader-generated-content engine, bookstore co-marketing, and the schools / chaplaincy / RE pack. Same template. Each brief is a surface someone owns end-to-end.</p>
+    <div class="meta">Ted · 3 June 2026 · Extends v2 / 19 May · v4 / 3 June · For Olly &amp; the BGV team</div>
+  </div>
+</header>
+
+<div class="guardrail">
+  <h3>Hard guardrail · across every brief</h3>
+  <p><strong>Hachette / Hodder AI policy applies absolutely.</strong> No AI-generated voice. No AI-generated imagery. No AI in covers or marketing creative. AI permitted only for backend processes (transcription, scheduling, analytics, draft outlining) — never the published artefact. <strong>No new Bear filming.</strong> Every clip, frame and voiceover that features Bear is pulled from the existing archive. Where a brief uses a Bear audio clip or photo, the asset is logged against the archive bundle and signed off by Bear's social team before publish.</p>
+</div>
+
+<div class="month2">
+  <strong>Month 2 is still the launch beat.</strong> v5 briefs do not move that anchor. Brief 16 (podcast tour) opens in Month 2 once the Reading episodes have a trailer surface to point at. Brief 17 (YouVersion plan) ships its first plan into Lent — a Month 4–5 anchor, with submission in Month 2. Brief 18 (apologetics co-marketing) is a continuous outbound function from Month 2. Brief 19 (UGC engine) opens the moment Brief 05 / v3 B05 testimony curation is live. Brief 20 (bookstore co-marketing) runs continuously from Month 1 trade-side and pulses against the v4 Brief 11 anchors. Brief 21 (schools / chaplaincy pack) lands once the cohort kits exist — Month 4 at the earliest, Month 6 realistically.
+</div>
+
+<div class="preamble">
+  <p>v5's six surfaces are not new content workstreams — they are new <em>distribution</em> surfaces that ride on the assets v2 / v3 / v4 already produce. Volumes in each meta block are steady-state floors at the phase they activate. None of these surfaces require a Bear appearance; all are sized to in-house Ku Creatives make capacity and the existing partnerships-lead and community-lead headcount in v4 Briefs 13 + 15. Brief by volume and spec, never by £ envelope.</p>
+  <p>Each brief assumes the v2 foundations: the Bear archive bundle, the brand identity system (v2 B07), the audio motif &amp; mastering chain (v2 B08), the website + attribution layer (v2 B06), the voice + content-pillar guide. Each brief assumes the v4 spine: the measurement loop (B15), the church-partner CRM (B13), the calendar anchors (B11). Where a v5 brief produces a feeder asset, it routes back into a v2 / v4 workstream cleanly.</p>
+</div>
+
+<!-- BRIEF 16 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 16 · Podcast guest tour · borrowed audio reach</div>
+  <h2>The Christian Podcaster Playbook</h2>
+  <p class="subtitle">Olly hosts a structured 12-month guest tour on existing Christian-faith podcasts. The book is the hook; the host is the asset. No new Bear footage required — Olly speaks as the publisher-side custodian of the engine, with theologian guests stitched in where the host wants depth.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">2 guest spots/mo (UK + US) · 24/year · plus 4 theologian co-spots</span></div>
+    <div><span class="label">Host slot</span><span class="val">Olly primary · theologian co-guest where the host invites depth</span></div>
+    <div><span class="label">Owner</span><span class="val">Partnerships lead (v4 B13) + Olly · supports: short-form editor</span></div>
+    <div><span class="label">Outbound</span><span class="val">30 pitches/mo from a 200-podcast tracked list</span></div>
+  </div>
+
+  <h3>Why this surface, why now</h3>
+  <p>Christian-faith podcasting is the single highest-trust discovery channel for a Bible-adjacent book. A host endorsement converts more strongly than any paid creative we can buy. The cost is time, not money. Olly is the right voice — he can speak to the publisher case, the engine, the read-along community and the testimony arc without ever needing to be Bear. Where a host wants the theological angle, one of the theologian roster (per v2 B01 / v3 B02) joins as a second guest.</p>
+
+  <h3>The 200-podcast tracked list — how it's built</h3>
+  <ul>
+    <li><strong>Tier A · Anchor hosts (15 shows):</strong> the biggest Christian-faith conversational shows in UK + US. These get a tailored personal pitch from Olly, not a templated one.</li>
+    <li><strong>Tier B · Pastor + leader podcasts (60 shows):</strong> denominational and parachurch podcasts where pastors and small-group leaders listen. Templated pitch, hand-personalised opener.</li>
+    <li><strong>Tier C · Apologetics + theology (40 shows):</strong> shows that book theologian guests as a matter of course. Pitch fronted with the theologian co-guest hook.</li>
+    <li><strong>Tier D · Lay-Christian conversation (45 shows):</strong> creator-led shows for the cohort audience (read-along, testimony, lived faith).</li>
+    <li><strong>Tier E · Crossover faith-curious (40 shows):</strong> mainstream shows that occasionally book faith guests (general-interest, cultural commentary, author interviews).</li>
+  </ul>
+
+  <h3>Tier A shortlist · 15 anchor hosts to land in Y1</h3>
+  <div class="shortlist">
+    <div class="row head"><div>Show / host</div><div>Region</div><div>Why it matters</div></div>
+    <div class="row"><div class="name">Premier Unbelievable? / Justin Brierley</div><div>UK</div><div class="note">Highest-trust apologetics-meets-belief conversation in UK Christian audio. Tier-A theologian co-spot.</div></div>
+    <div class="row"><div class="name">Things Unseen / Justin Brierley</div><div>UK</div><div class="note">Brierley's solo show — quieter, deeper conversations. Goes well with the read-along framing.</div></div>
+    <div class="row"><div class="name">Ask N.T. Wright Anything</div><div>UK / US</div><div class="note">If we land Wright into the theologian roster, this becomes a natural cross-promo too.</div></div>
+    <div class="row"><div class="name">The Bible Project Podcast</div><div>US</div><div class="note">The single biggest popular-Bible audio property in the English-speaking world.</div></div>
+    <div class="row"><div class="name">Holy Post / Phil Vischer · Skye Jethani</div><div>US</div><div class="note">Cultural-Christian commentary. The book ties into the "is this a moment for the Gospels" thread they run often.</div></div>
+    <div class="row"><div class="name">For The Church Podcast (Midwestern)</div><div>US</div><div class="note">Pastor-facing, used by church staff and small-group leaders.</div></div>
+    <div class="row"><div class="name">Pastors' Talk / 9Marks</div><div>US</div><div class="note">Reformed-pastor audience — cohort and church-partner pipeline.</div></div>
+    <div class="row"><div class="name">The Russell Moore Show</div><div>US</div><div class="note">CT-hosted, broad evangelical reach, very high editorial credibility.</div></div>
+    <div class="row"><div class="name">Bible Society podcasts (UK)</div><div>UK</div><div class="note">Institutional credibility plus a built-in book-buyer audience.</div></div>
+    <div class="row"><div class="name">SPCK / Hodder cross-promo shows</div><div>UK</div><div class="note">In-house publisher channels are usually the easiest first wins. Run early.</div></div>
+    <div class="row"><div class="name">Mockingbird Cast</div><div>US</div><div class="note">Literary-Christian crossover audience — pairs well with the audiobook angle.</div></div>
+    <div class="row"><div class="name">The Trinity Forum Conversations</div><div>US</div><div class="note">Higher-brow Christian-intellectual audience. Theologian-led pitch.</div></div>
+    <div class="row"><div class="name">Cup of Tea Podcast / Theos</div><div>UK</div><div class="note">UK think-tank reach, gets coverage into the Christian press.</div></div>
+    <div class="row"><div class="name">Carey Nieuwhof Leadership Podcast</div><div>US</div><div class="note">Church-leader audience. Frame the pitch as "what publishers got right with this campaign".</div></div>
+    <div class="row"><div class="name">Mere Fidelity</div><div>US / UK</div><div class="note">Cross-Atlantic theology-three-way. Theologian co-guest plays well here.</div></div>
+  </div>
+
+  <h3>The pitch shape (template)</h3>
+  <ul>
+    <li><strong>One-line subject:</strong> "[Show name] guest — Greatest Story Ever Told, Hodder Faith".</li>
+    <li><strong>Opening 30 words:</strong> who Olly is, what the book is (one line, plain), why this show specifically.</li>
+    <li><strong>Three angles offered:</strong> publisher-side story (how a Gospel narrative becomes a #1), the read-along community angle, the theological angle (theologian co-guest).</li>
+    <li><strong>Practical:</strong> Olly's availability, audio quality (Riverside / studio), no AI in any artefact, willingness to record an exclusive 30-second teaser for the host.</li>
+  </ul>
+
+  <h3>What Olly says — talk-track frame (no metaphors)</h3>
+  <ul>
+    <li>What the book is and where it sits — Sunday Times #1, Hodder Faith, the Gospel narrative recast.</li>
+    <li>Why publishers built this engine around it — the audience for the Gospels is bigger than the publishing system has historically resourced.</li>
+    <li>What the read-along community does — how thousands of readers move through the Gospels together, what they say back.</li>
+    <li>Where Christian listeners can join — the cohort, the Substack, the bookstore (geo-routed).</li>
+    <li>What he won't do: speak for Bear's personal faith journey. That belongs to Bear. He speaks for the engine.</li>
+  </ul>
+
+  <h3>What the guest tour produces for the wider engine</h3>
+  <ul>
+    <li>Each guest spot yields three short-form cuts (Brief 02 / v3 B03 lanes) — host-permission obtained in the booking step.</li>
+    <li>Each guest spot yields one Substack reader letter (v2 B04 / v3 B07 lane) — "what listeners asked, what we said back".</li>
+    <li>Quarterly highlight reel — 90s sizzle of the best guest moments — feeds Brief 10 paid creative slate.</li>
+    <li>The host-relationship CRM is the same Airtable/Notion CRM v4 Brief 13 stands up — no parallel system.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 1 — partnerships lead compiles the full 200-list with show contacts. Month 2 — first 30 pitches sent (Tier A personally, Tiers B–D templated). Month 3 onwards — 30 pitches/mo cadence; 2 confirmed spots/mo target; quarterly review of pitch-to-booking conversion. Short-form editor takes each recorded episode within 7 days, ships three cuts to the social calendar.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Tier-A pitch copy approved by Hodder POC on first send. Theologian co-guest selections cleared with Hodder editorial. Any host who asks for a Bear pre-record is politely declined and offered an archive clip instead.</div>
+</section>
+
+<!-- BRIEF 17 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 17 · YouVersion + Bible-app plans · platform reach</div>
+  <h2>The YouVersion Plan Pipeline</h2>
+  <p class="subtitle">YouVersion is the largest installed Bible-reader base in the world (~600m installs, plan completion runs into the hundreds of millions). A plan featuring GSET, branded to Hodder Faith, is a once-per-anchor distribution win that no paid budget can match. We submit four plans in Year 1, one per major anchor.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">4 YouVersion plans/year (Lent · Easter · Advent · Pentecost) + 1 Bible.com partner</span></div>
+    <div><span class="label">Owner</span><span class="val">Substack editor + partnerships lead (v4 B13) + editorial lead</span></div>
+    <div><span class="label">Submission</span><span class="val">YouVersion partnerships review · typical 6–8 wk cycle</span></div>
+    <div><span class="label">Asset reuse</span><span class="val">Cohort companion essays + Reading transcript scripture — repurposed, not new</span></div>
+  </div>
+
+  <h3>Why this is a one-shot reach lever</h3>
+  <p>YouVersion plans surface inside the daily-use UI of the most-used Bible app in the world. A featured plan placement (or even a non-featured plan with a partner-driven push) can route tens of thousands of plan completers into a discoverable book title. The plans cost almost nothing to make — they are 7-day or 21-day devotional sequences, ~250 words per day, with a scripture anchor. We have all the raw material already: the cohort companion essays from v3 B04 / v4 B12 are exactly the right shape.</p>
+
+  <h3>The four Y1 plans — exactly what each one is</h3>
+  <ul>
+    <li><strong>Lent · "40 days through the Gospels"</strong> — 40-day plan, one passage per day from across the four Gospels, with the GSET book quoted as the daily reflection. Targets Lent anchor (v4 B11). Submitted by Month 2 for late-Feb / early-Mar publish.</li>
+    <li><strong>Easter · "7 days in the Passion"</strong> — 7-day plan covering Palm Sunday → Easter Sunday, with the four Gospel accounts cross-referenced. Daily reflection drawn from GSET's Passion narrative. Submitted by Month 3.</li>
+    <li><strong>Pentecost · "10 days in Acts 1–2"</strong> — 10-day plan covering the ascension to Pentecost, tied to the v4 B12 Acts cohort. Submitted by Month 4.</li>
+    <li><strong>Advent · "24 days of the Nativity story"</strong> — 24-day plan covering Matthew's and Luke's Nativity accounts. Daily reflection from GSET. Submitted by Month 6.</li>
+  </ul>
+
+  <h3>What each plan delivers</h3>
+  <ul>
+    <li>~250 words of devotional reflection per day, ending with a scripture passage and one "now what" line.</li>
+    <li>End-of-plan card with the book cover, a one-line "if this changed something for you, read the full book" prompt, and a partnership-managed link out to the geo-routed retail tree (v2 B06).</li>
+    <li>Sharable image cards from the brand pack (v2 B07) — YouVersion permits one branded close card per plan.</li>
+    <li>A "next plan" pointer — Lent ends pointing at Easter, Easter pointing at the Acts plan, etc.</li>
+  </ul>
+
+  <h3>Second-tier Bible-app partnerships (one in Y1)</h3>
+  <ul>
+    <li><strong>Dwell · Bible audio app</strong> — natural fit for the audiobook-derived narration. Pitch: a 7-day Dwell plan using the Reading audio tracks as the daily listen.</li>
+    <li><strong>Lectio 365 / 24-7 Prayer</strong> — UK-native daily-prayer app with strong cohort overlap. Pitch: a Holy Week supplement.</li>
+    <li><strong>Glorify / Hallow (selectively)</strong> — broader-reach prayer apps. Hallow is Catholic-skewed; Glorify is interdenominational. Pitch shape: a feast-day supplement.</li>
+    <li>Pick one for Y1. Don't chase three at once — partnerships lead has one slot of bandwidth here.</li>
+  </ul>
+
+  <h3>The submission discipline</h3>
+  <ul>
+    <li>Each plan goes through Hodder editorial sign-off before YouVersion submission — these are devotional reflections framed alongside scripture, not marketing copy.</li>
+    <li>No AI in any text per Hachette policy. Plans are written by the Substack editor + editorial lead.</li>
+    <li>YouVersion has its own theological-content review — leave 6–8 weeks for it; never submit late.</li>
+    <li>Every plan ships with the Brief 15 attribution surface — completers click → tagged → measurable retail action.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Substack editor adapts 1 cohort companion essay slate into 1 YouVersion plan in ~6 working days. Editorial lead reviews. Hodder POC signs off. Partnerships lead submits, manages the YouVersion comms thread. On publish — short-form lane runs a 3-day "we're on YouVersion this week" push. Quarterly: Brief 15 reports plan-attributed retail conversions back into the monthly deck.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Each plan text approved by Hodder editorial. Branded close card approved by brand owner (v2 B07). End-of-plan retail link approved by Hodder POC.</div>
+</section>
+
+<!-- BRIEF 18 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 18 · Apologetics &amp; creator co-marketing · borrowed video reach</div>
+  <h2>The Apologetics &amp; Faith-Creator Co-Marketing Engine</h2>
+  <p class="subtitle">Twelve named Christian creators — apologists, theologians, faith YouTubers — whose audience overlaps almost exactly with the GSET target reader. We run a structured co-marketing programme: shared shorts, referenced episodes, joint Substack pieces. Not paid. Reciprocal.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">12 named partners · 1 active co-piece/mo across the slate</span></div>
+    <div><span class="label">Owner</span><span class="val">Partnerships lead (v4 B13) + community lead · creative support from short-form editor</span></div>
+    <div><span class="label">Currency</span><span class="val">Reciprocal mentions · gifted books · co-published Substack pieces · clip rights</span></div>
+    <div><span class="label">No-cash</span><span class="val">No paid placements · no influencer deals · reciprocity only</span></div>
+  </div>
+
+  <h3>Why a reciprocal model, not a paid one</h3>
+  <p>Paid endorsements in the Christian-creator space degrade trust quickly — listeners can tell, and the host's audience punishes it. A reciprocal "we cite each other's good work" model is slower but compounds. It also keeps us inside the Hachette guardrail: no paid creator deals, no influencer payments, just visible mutual respect between people working the same field.</p>
+
+  <h3>The 12-creator named slate (Y1)</h3>
+  <div class="shortlist">
+    <div class="row head"><div>Creator</div><div>Audience size</div><div>Why they fit GSET</div></div>
+    <div class="row"><div class="name">Cliffe Knechtle / Give Me An Answer</div><div>1m+ YT</div><div class="note">Conversational Christian apologetics. Heavy lapsed-reader overlap.</div></div>
+    <div class="row"><div class="name">John Lennox</div><div>institutional</div><div class="note">Oxford-mathematician credibility, large faith-curious audience. Theologian co-piece angle.</div></div>
+    <div class="row"><div class="name">Alisa Childers</div><div>~400k YT</div><div class="note">Strong female-Christian audience, the cohort demographic.</div></div>
+    <div class="row"><div class="name">Sean McDowell</div><div>~280k YT</div><div class="note">Apologetics + Bible-engagement audience. Reliable cross-promoter.</div></div>
+    <div class="row"><div class="name">Mike Winger</div><div>~600k YT</div><div class="note">Long-form Bible teaching. Unpacking-episode audience overlap.</div></div>
+    <div class="row"><div class="name">Allen Parr / The Beat</div><div>~1m YT</div><div class="note">Bible-teaching channel with mainstream Christian reach.</div></div>
+    <div class="row"><div class="name">Glen Scrivener / Speak Life</div><div>UK · ~100k</div><div class="note">UK-native, Anglican, very high editorial quality. Substack co-piece natural.</div></div>
+    <div class="row"><div class="name">Sam Allberry</div><div>UK / US</div><div class="note">Author-pastor in the Hodder / SPCK orbit. Already publisher-adjacent.</div></div>
+    <div class="row"><div class="name">Preston Sprinkle / Theology in the Raw</div><div>~150k podcast</div><div class="note">Hosts long conversations — cohort + theologian co-guest angle.</div></div>
+    <div class="row"><div class="name">Esau McCaulley</div><div>institutional</div><div class="note">Author-academic, NYT contributor, broad cross-Christian reach. Substack co-piece angle.</div></div>
+    <div class="row"><div class="name">Tim Mackie / BibleProject</div><div>institutional</div><div class="note">If reachable — even a single co-piece moves the needle.</div></div>
+    <div class="row"><div class="name">Andy Bannister / Solas (UK)</div><div>UK · institutional</div><div class="note">UK apologetics-evangelism org. Strong RE / schools overlap, feeds Brief 21.</div></div>
+  </div>
+
+  <h3>What "co-marketing" actually means in practice</h3>
+  <ul>
+    <li><strong>Cited clip:</strong> we cite their work in an Unpacking episode (v2 B01), they cite our episode in a clip of theirs. Each side gets a tagged short-form piece.</li>
+    <li><strong>Substack co-piece:</strong> a joint or guest-authored Substack post. Their audience reads it on our list; our audience reads it on theirs. ~1/quarter.</li>
+    <li><strong>Gifted books:</strong> a quarterly outbound of physical copies + cohort kit + a personal note from Olly. No expectation, no ask.</li>
+    <li><strong>Clip permissions:</strong> a standing reciprocal-clip licence — they may use up to 60s of our episodes with credit; we may do the same with theirs.</li>
+    <li><strong>Conference / event:</strong> if any creator is speaking at an event Brief 13 partnerships lead is attending, in-person warmth is the highest-ROI step.</li>
+  </ul>
+
+  <h3>The cadence</h3>
+  <ul>
+    <li>Month 1 — partnerships lead opens conversation with all 12; sets up the reciprocal-clip licence as the entry agreement.</li>
+    <li>Months 2–12 — one active co-piece per month across the slate (12/year). Track in v4 B13 CRM under a separate "creator" pipeline.</li>
+    <li>Quarterly review — which partners are reciprocating vs not. Quietly de-prioritise non-reciprocators after two quarters; do not chase.</li>
+    <li>Year-end — public "people whose work we drew on" credit roll on the Substack. Free, valuable to them, reinforces trust.</li>
+  </ul>
+
+  <h3>What we will not do</h3>
+  <ul>
+    <li>No paid placements. No influencer fee. No "sponsored mention" on any of their channels.</li>
+    <li>No exclusivity asks — they keep working with whoever they want, we keep working with whoever we want.</li>
+    <li>No back-channel pressure. If a creator declines or goes quiet, we move on without comment.</li>
+    <li>No public-callout of creators who don't reciprocate — it's their right, and the engine's reputation matters more than any single placement.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 1 — partnerships lead opens warm intros via Hodder + BGV existing networks. Each month — community lead identifies one creator-overlap moment (their clip our audience would love, or vice versa); short-form editor builds the co-piece; partnerships lead routes the ask. Quarterly Substack co-piece is calendared a quarter in advance.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Reciprocal-clip licence drafted by Hodder legal once, then reused. Each co-piece (Substack, clip) approved by Hodder POC + the creator on each side. Gifted-books outbound is operational.</div>
+</section>
+
+<!-- BRIEF 19 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 19 · Reader-generated content · the UGC engine</div>
+  <h2>The Reader-Generated Content Engine</h2>
+  <p class="subtitle">Reader testimony (Brief 05 / v3 B05) is one slice of a bigger asset class. Readers send us photos with the book, quote cards they've made, snippets of where they're reading it. The engine doesn't just capture testimony — it captures, curates, asks-permission-from and re-publishes a steady stream of reader-made artefacts.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">~40 reader pieces collected/mo · 8 republished/mo · 4 featured</span></div>
+    <div><span class="label">Owner</span><span class="val">Community lead · supports: short-form editor + Substack editor</span></div>
+    <div><span class="label">Surfaces</span><span class="val">IG main feed · IG stories · Substack monthly round-up · cohort weekly thread</span></div>
+    <div><span class="label">Consent</span><span class="val">DM-template + email consent flow per v3 B05 · extended to photo + quote rights</span></div>
+  </div>
+
+  <h3>Why UGC compounds and why we run it as a system, not a moment</h3>
+  <p>Reader-made artefacts do three things paid media cannot. They demonstrate the book is being read, not just bought. They give the next reader a sense of who else is in the room. And they feed our short-form lane with the highest-converting hook type we have — a real person, in their kitchen, holding the book. The bottleneck is not supply. The bottleneck is curation, permission and the discipline to publish on a calendar instead of when it strikes us.</p>
+
+  <h3>The four reader-asset types we systematically collect</h3>
+  <ul>
+    <li><strong>Reader photos with the book</strong> — kitchen, commute, church pew, bedside. Goal: one tag per day visible across IG + Substack mentions.</li>
+    <li><strong>Reader quote cards</strong> — passages they've highlighted and made their own visual of. Reposted with credit; sometimes redrawn into our brand pack for amplification.</li>
+    <li><strong>Reader testimonies / stories</strong> — the v3 B05 flow. Continues as-is. UGC engine consumes this stream and routes the very best into the monthly featured slot.</li>
+    <li><strong>Reader voice notes</strong> — short audio of readers reading their favourite passage aloud. Lives on Substack as a monthly "the book in their voices" round-up.</li>
+  </ul>
+
+  <h3>The capture flow (where readers send things to)</h3>
+  <ul>
+    <li><strong>One inbox:</strong> <code>readers@thegreateststoryevertoldbook.com</code>. Linked on the website, on every Substack, in every IG bio.</li>
+    <li><strong>One IG tag:</strong> <code>#greatestStoryRead</code>. Surfaced by IG-monitor lane (Brief 03 / v3 B06 owner).</li>
+    <li><strong>One DM flow:</strong> standing template — community lead replies to every tagged post within 24hrs, thanks, asks consent.</li>
+    <li><strong>One cohort post each week:</strong> "what passage caught you this week?" prompt in the cohort weekly thread (Brief 12 / v3 B04).</li>
+  </ul>
+
+  <h3>The consent + rights flow (do this right, do it once)</h3>
+  <ul>
+    <li>One DM-template consent ask per asset type — extends the v3 B05 testimony consent flow to cover photos, quote cards and voice clips.</li>
+    <li>Reader signs a one-page consent form (Hodder template) granting non-exclusive perpetual rights for marketing use — no payment, with-credit, attribution as they prefer (full name / first name / anon).</li>
+    <li>Consent stored in the v4 B13 CRM under a "reader-assets" pipeline. Audit-clean.</li>
+    <li>Anyone under 18 — full guardian consent flow, escalated to Hodder POC. No exceptions.</li>
+  </ul>
+
+  <h3>The republishing calendar</h3>
+  <ul>
+    <li><strong>IG main feed (Brief 03):</strong> 8 reader-asset posts/mo blended into the steady-state 20 posts/mo. Two per week. Always credited, always tagged.</li>
+    <li><strong>IG stories:</strong> ~1 reader-tag re-share per day. Cheap, friendly, builds the "we see you" signal.</li>
+    <li><strong>Substack monthly round-up (Brief 04 / v2 B04):</strong> "From the readers · [Month]" post — four featured pieces with the reader's own words, sent to the full Substack list.</li>
+    <li><strong>Cohort weekly thread (Brief 12):</strong> closing thread of each cohort showcases that cohort's best reader assets.</li>
+    <li><strong>Brief 10 paid:</strong> top-performing reader testimony / quote card is permission-extended to paid use, runs as a bottom-of-funnel creative.</li>
+  </ul>
+
+  <h3>What this surface produces back into the engine</h3>
+  <ul>
+    <li>The week's highest-converting short-form hook (in our data so far, by 2x over editor-cut equivalents).</li>
+    <li>The Substack list's highest single open-rate post of the month, every month.</li>
+    <li>A continuous credibility flywheel for church partners (v4 B13) and bookstore partners (Brief 20) — "look at the reader response".</li>
+    <li>Trust signal for new readers landing cold on the website — visible community, not just marketing copy.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Daily — community lead works the inbox + tag + DM queue (~30 mins/day). Weekly — Mon morning, community lead curates the week's incoming, runs consent asks, hands eight republish-ready assets to the Substack editor and short-form editor. Monthly — round-up post ships first Friday. Quarterly — UGC programme review feeds the Brief 15 monthly deck.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Consent flow + rights form approved by Hodder legal in Month 1, then operational. Republishing of any asset that references a third party (church, brand, family member) routed through Hodder POC. Featured reader of the month celebrated, never coerced — no quid-pro-quo.</div>
+</section>
+
+<!-- BRIEF 20 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 20 · Bookstore + church-bookstore co-marketing · trade-channel reach</div>
+  <h2>The Bookstore Co-Marketing Programme</h2>
+  <p class="subtitle">Hodder Faith already has trade relationships with the chains. v5 adds a marketing layer on top — co-marketing assets we hand free to bookstores so they have a reason to promote GSET above the dozens of other Christian titles on their shelves. Continuous from Month 1, spikes on every v4 B11 anchor.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">~40 named bookstores in the programme by end Y1 · 6 anchor pulses</span></div>
+    <div><span class="label">Owner</span><span class="val">Partnerships lead (v4 B13) co-working with Hodder trade team</span></div>
+    <div><span class="label">Assets shipped</span><span class="val">In-store posters · shelf-talkers · event kit · digital co-promo pack · POS QR</span></div>
+    <div><span class="label">Channels</span><span class="val">UK chains (Eden / 10ofThose / Aslan / Wesley Owen) · US (Lifeway / Christianbook / Mardel) · indies</span></div>
+  </div>
+
+  <h3>Where this surface fits next to Hodder's existing trade work</h3>
+  <p>Hodder's trade team owns the commercial relationship — pricing, stocking, returns. We do not touch any of that. What we add is the marketing layer trade teams rarely have bandwidth for: actually-good in-store assets, a co-branded digital pack the bookstore can use on their own socials, and an event kit if a store wants to run a read-along of its own. Every asset is co-branded Hodder + the bookstore — the engine is invisible in the artefact.</p>
+
+  <h3>The 40-bookstore named list (build by end Month 2)</h3>
+  <ul>
+    <li><strong>UK chains (priority):</strong> Eden.co.uk (10 store-fronts), 10ofThose, Aslan Christian Books, Wesley Owen partners, Faith Mission Book Shops, SPCK Online (sometimes physical).</li>
+    <li><strong>UK independents (~15):</strong> handpicked from the Christian-bookshop network — anchor cities first (London, Manchester, Edinburgh, Belfast, Cardiff, Birmingham). Source from Hodder trade list.</li>
+    <li><strong>US chains (priority):</strong> Lifeway (digital + remaining physicals), Christianbook.com, Mardel, Family Christian (selective), Cokesbury.</li>
+    <li><strong>US independents (~10):</strong> Hearts &amp; Minds (PA), Eighth Day Books (KS), Veritas Press, plus the Indiebound Christian-fiction-friendly stores. Source via the American Booksellers Association Christian list.</li>
+    <li><strong>Church-bookstore extension:</strong> the v4 B13 partner CRM surfaces churches with bookstores attached — opt them into the programme on the same terms.</li>
+  </ul>
+
+  <h3>The free in-store / digital asset pack</h3>
+  <ul>
+    <li><strong>Two poster designs (A3 + A2):</strong> one quote-led, one book-cover-led, both co-brandable with the store's logo.</li>
+    <li><strong>Shelf-talker / shelf-card:</strong> 5×3 inch printed card with reader-testimony quote + "ask in store about a read-along".</li>
+    <li><strong>Window-display image set:</strong> high-res licensed images from the v2 B07 brand pack, sized for window prints.</li>
+    <li><strong>Digital co-promo pack:</strong> 6 image cards + 3 caption templates + 1 video cut, ready for the bookstore's own IG + Facebook channels. Co-branded.</li>
+    <li><strong>QR card:</strong> small in-store QR sticker → cohort sign-up page, geo-routed (Brief 06 attribution).</li>
+    <li><strong>Run-it-yourself read-along pack:</strong> any bookstore can host its own 5-week Matthew read-along using the v4 B13 + Brief 12 cohort run-it-yourself kit.</li>
+  </ul>
+
+  <h3>The anchor pulses (alongside v4 B11)</h3>
+  <ul>
+    <li><strong>Lent:</strong> shelf-talker refresh + digital pack themed to "40 days through the Gospels".</li>
+    <li><strong>Easter:</strong> window-display Easter set + the YouVersion plan promo (Brief 17).</li>
+    <li><strong>19 June anniversary:</strong> "one year on" anniversary set — sticker + window + testimony card.</li>
+    <li><strong>Autumn church push:</strong> the cohort kit + a "big church read" co-promo set for any partner bookstore that wants to host.</li>
+    <li><strong>Advent:</strong> Nativity-themed window-set + Advent companion devotional pack (Brief 13's family devotional).</li>
+    <li><strong>+1 ad-hoc pulse:</strong> any bookstore that hits a sales threshold gets a "thank you" reader-quote-of-the-quarter exclusive print.</li>
+  </ul>
+
+  <h3>Two-way measurement (Brief 15)</h3>
+  <ul>
+    <li>Every QR code is uniquely tagged per bookstore — Brief 15 dashboard reports per-store scan + cohort signup attribution.</li>
+    <li>Hodder trade team feeds back per-store sell-through data monthly; we map it against the asset shipping log.</li>
+    <li>Top-performing bookstores get the next anchor pulse first; underperforming stores get a check-in call, not a quiet de-prioritisation.</li>
+  </ul>
+
+  <h3>What this surface costs</h3>
+  <ul>
+    <li>Asset design — absorbed by Ku Creatives existing capacity (Brief 07 / v2 B07 owns the brand pack).</li>
+    <li>Print + shipping — sits with Hodder trade budget, not the £5k/mo retainer.</li>
+    <li>Partnerships lead time — ~6 hrs/mo continuous, +2 days per anchor pulse. Folded into the v4 B13 12hrs/wk allocation.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 1 — partnerships lead builds the 40-store named list with Hodder trade team. Month 2 — first asset pack designed + shipped to first 10 priority stores. Months 3+ — programme runs continuously; each v4 B11 anchor triggers a refreshed pack. Quarterly — sell-through review with Hodder trade lead.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Every co-branded asset signed off by Hodder trade team before ship. QR routing approved by Brief 15 + web lead. Any in-store event kit usage by a bookstore signed off by Hodder POC.</div>
+</section>
+
+<!-- BRIEF 21 -->
+<section class="brief reveal">
+  <div class="brief-id">Brief 21 · Schools · chaplaincy · RE-teacher pack · institutional youth reach</div>
+  <h2>The Schools, Chaplaincy &amp; RE-Teacher Pack</h2>
+  <p class="subtitle">A free, curriculum-aligned classroom pack for UK + US RE teachers, chaplains and youth pastors. Not a sales pitch — a genuinely useful teaching aid that puts the book in front of the 14–18 demographic via the people they trust. Slowest of the v5 surfaces; biggest long-term compounding upside.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">1 free pack/year · 4 webinar sessions/year · ~500 teachers on the list by end Y1</span></div>
+    <div><span class="label">Owner</span><span class="val">Partnerships lead (v4 B13) + editorial lead · curriculum advisor (paid consultant, ad-hoc)</span></div>
+    <div><span class="label">Format</span><span class="val">PDF lesson pack + slide deck + 4 Reading episode clips · all free + ungated</span></div>
+    <div><span class="label">Distribution</span><span class="val">RE-teacher associations (NATRE, RE Today) · CofE Education Office · chaplaincy networks · US Christian-schools associations</span></div>
+  </div>
+
+  <h3>Why the schools surface — and why we land it last</h3>
+  <p>14-to-18 is the most-deferred Bible-engagement demographic and the one with the highest lifetime value to a publisher building a 10-year list. RE teachers, school chaplains and youth pastors are the gatekeepers, and they are starved of well-designed free resources. The trade-off is patience — institutional adoption runs on terms (autumn / spring / summer), and the trust takes a year to build. We do not over-promise this surface; we set it up properly in Year 1 and let it compound.</p>
+
+  <h3>What the free pack contains</h3>
+  <ul>
+    <li><strong>One PDF lesson pack (40–60 pages):</strong> six lesson plans aligned to UK GCSE RE specifications + US Christian-schools curricula, drawn from across the four Gospels. Each lesson — learning objective, key passage, classroom discussion prompts, writing exercise, optional clip.</li>
+    <li><strong>One slide deck (Google Slides + PowerPoint):</strong> editable, branded, ready to drop into a classroom session.</li>
+    <li><strong>Four Reading episode clips (3–5 mins each):</strong> classroom-cleared (no inappropriate language, no controversial sermon-led overlays), with discussion-prompt cards.</li>
+    <li><strong>One teacher's-introduction guide (~6 pages):</strong> the context for the book, the publisher case, suggested ways to use the pack across one term.</li>
+    <li><strong>One classroom-display poster (A2):</strong> sharable image, no overt selling, just a quote.</li>
+    <li><strong>Ungated + free</strong> — single landing page, no email-wall, just download. Optional teacher mailing list signup as a soft prompt.</li>
+  </ul>
+
+  <h3>The four annual webinar sessions</h3>
+  <ul>
+    <li><strong>Autumn term · "Using the Gospels in the RE classroom"</strong> — 45-min webinar for RE teachers, hosted by editorial lead + a guest theologian.</li>
+    <li><strong>Spring term · "Chaplaincy &amp; the Gospel narrative"</strong> — for school chaplains specifically; how to use the book in chaplaincy programmes.</li>
+    <li><strong>Easter term · "The Passion narrative across four Gospels"</strong> — Easter-anchored teaching session, also useful as a Holy Week preparation for chaplains.</li>
+    <li><strong>Summer term · "Year-end reflection"</strong> — short Q&amp;A with teachers who used the pack; soft launch of next year's refreshed version.</li>
+  </ul>
+
+  <h3>The institutional distribution paths</h3>
+  <ul>
+    <li><strong>UK · NATRE (National Association of Teachers of Religious Education)</strong> — pitch a free-resource feature in their members' newsletter + REtoday magazine.</li>
+    <li><strong>UK · CofE Education Office</strong> — for Church of England schools network; ~4,700 schools in scope.</li>
+    <li><strong>UK · Catholic Education Service</strong> — for Catholic schools; selective fit (some Gospel-narrative framing may need a denominational sign-off).</li>
+    <li><strong>UK · Scripture Union</strong> — youth-ministry network with strong school chaplaincy reach.</li>
+    <li><strong>US · Association of Christian Schools International (ACSI)</strong> — ~25,000 member schools globally.</li>
+    <li><strong>US · Christian School Educators &amp; Christian Educators Association International</strong> — direct teacher reach.</li>
+    <li><strong>Both · Premier Education / Youth For Christ chaplaincy networks</strong> — for school chaplains specifically.</li>
+  </ul>
+
+  <h3>What we will not do</h3>
+  <ul>
+    <li>No paid promotion into any school or RE channel. The pack stands on its quality or it doesn't get picked up.</li>
+    <li>No requirement for any school to buy the book. The pack is genuinely usable without a single class set ordered.</li>
+    <li>No data capture from minors. Teacher signups only, opt-in, no marketing back into the classroom.</li>
+    <li>No "Bear visits a school" tease. The schools pack is built on the assumption Bear does not appear, ever — which is consistent with the project_gset_bear_role rule.</li>
+  </ul>
+
+  <h3>Curriculum-fit discipline</h3>
+  <ul>
+    <li>Pack designed with a paid curriculum advisor (~5 days consulting, Hodder budget — sits outside the £5k/mo retainer).</li>
+    <li>Each lesson tagged to specific UK GCSE RE specifications (AQA · Edexcel · OCR · Eduqas) and to the ACSI Bible curriculum framework in the US.</li>
+    <li>Reviewed by a serving RE teacher and a serving school chaplain before release — they get credited in the pack masthead.</li>
+    <li>Refreshed annually — once per year is enough; teachers value stability.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 4 — curriculum advisor scoped, editorial lead drafts pack outline. Month 5 — first-draft pack written; institutional outreach begins to NATRE, CofE Ed Office, ACSI. Month 6 — first review pass by an RE teacher + chaplain. Month 7 — Hodder editorial sign-off. Month 8 — pack publishes for autumn term. Months 8–12 — webinar series begins; mailing list builds; first usage data feeds Brief 15.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Pack content approved by Hodder editorial. Denominational positioning approved by Hodder POC (Catholic / Anglican / non-conformist language calibrated). Curriculum-fit signed off by paid curriculum advisor before release.</div>
+</section>
+
+<!-- Phasing strip -->
+<div class="phasing">
+  <h2>When each v5 brief activates against the v2 / v4 phasing.</h2>
+  <div class="phasing-grid">
+    <div class="phasing-col">
+      <h4>Month 1 · Onboarding</h4>
+      <ul>
+        <li>Brief 16 200-podcast list compiled, Tier A pitch copy written</li>
+        <li>Brief 18 12-creator slate opened, reciprocal-clip licence drafted</li>
+        <li>Brief 19 reader-asset consent flow + inbox + IG tag stood up</li>
+        <li>Brief 20 40-bookstore list built with Hodder trade team</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 2 · Launch</h4>
+      <ul>
+        <li>Brief 16 first 30 podcast pitches go out</li>
+        <li>Brief 17 first YouVersion plan (Lent · "40 days through the Gospels") submitted</li>
+        <li>Brief 19 first month of curated reader content ships across IG + Substack</li>
+        <li>Brief 20 first asset pack designed + shipped to first 10 priority stores</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Months 3–5 · Steady state</h4>
+      <ul>
+        <li>Brief 16 hitting 2 guest spots/mo · short-form cuts shipping</li>
+        <li>Brief 17 Easter + Pentecost plans submitted</li>
+        <li>Brief 18 one co-piece/mo cadence locked in</li>
+        <li>Brief 19 monthly Substack reader round-up live</li>
+        <li>Brief 20 first anchor pulse (Lent) ships into bookstores</li>
+        <li>Brief 21 curriculum advisor scoped, pack drafting begins (Month 4–5)</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 6+ · Scale + institutional</h4>
+      <ul>
+        <li>Brief 17 Advent plan submitted; one Bible-app partnership opened</li>
+        <li>Brief 18 first year-end "people we drew on" Substack credit roll planned</li>
+        <li>Brief 21 first review pass on schools pack (Month 6) → autumn-term publish (Month 8)</li>
+        <li>Brief 21 webinar series begins autumn term</li>
+        <li>Brief 20 anniversary, autumn church push and Advent bookstore pulses run on calendar</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Ted · GSET · 3 June 2026 · v5 of the creative briefs pack · extends <em>gset-creative-briefs-v2-2026-05-19.html</em> + <em>gset-creative-briefs-v4-2026-06-03.html</em><br>
+  Companion to <em>GSET_Bear_Witness_Pitch.html</em> · sized to deck Section 09 monthly volumes · Hachette AI policy applies absolutely · no new Bear filming
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
