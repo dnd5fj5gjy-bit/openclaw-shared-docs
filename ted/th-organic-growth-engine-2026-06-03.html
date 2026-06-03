@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ted's Health · Organic Growth Engine (3 June 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1F2A36;
+    --ink-dim: #5C6B7A;
+    --ink-faint: #99A4B0;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E5EAF0;
+    --line-soft: #F1F4F8;
+    --navy: #11162B;
+    --navy-2: #1A2243;
+    --accent: #2ECC71;
+    --gold: #C8A84B;
+    --warn: #E67E22;
+    --red: #C0392B;
+    --ig: #E1306C;
+    --linkedin: #0A66C2;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  .wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* Nav */
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+    color: #fff;
+  }
+  nav.topnav.scrolled {
+    background: rgba(17,22,43,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+    padding: 10px 28px;
+  }
+  nav.topnav .brand { font-family: var(--serif); font-size: 1.05rem; letter-spacing: .01em; }
+  nav.topnav .links { display: flex; gap: 1.4rem; font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; }
+  nav.topnav .links a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color .2s; }
+  nav.topnav .links a:hover { color: #fff; }
+  @media (max-width: 820px) { nav.topnav .links { display: none; } }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(1200px 600px at 80% 10%, rgba(10,102,194,0.22), transparent 60%),
+      radial-gradient(900px 500px at 10% 90%, rgba(225,48,108,0.18), transparent 60%),
+      linear-gradient(180deg, #0C1126 0%, #11162B 60%, #1A2243 100%);
+    color: #fff;
+    padding: 10rem 0 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.6rem; font-weight: 600;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5.8vw, 5rem);
+    font-weight: 400; letter-spacing: -0.015em;
+    line-height: 1.02; margin-bottom: 1.4rem; max-width: 22ch;
+  }
+  .hero .sub {
+    color: #C5CDD6; font-size: 1.15rem; font-weight: 300;
+    max-width: 700px; line-height: 1.65;
+  }
+  .hero .meta {
+    margin-top: 2.6rem; display: flex; gap: 2.2rem; flex-wrap: wrap;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8899AA;
+  }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  /* Section bands */
+  section.band { padding: 6rem 0; }
+  section.band.cream { background: #F4F0E8; }
+  section.band.dark { background: var(--navy); color: #fff; }
+  section.band.dark .eyebrow { color: var(--gold); }
+  section.band.dark h2.serif { color: #fff; }
+  section.band.dark p.lead { color: #C5CDD6; }
+  .eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--ink-dim); margin-bottom: 0.7rem; font-weight: 600;
+  }
+  h2.serif {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    font-weight: 400; color: var(--navy);
+    margin-bottom: 1rem; letter-spacing: -0.01em; line-height: 1.1;
+  }
+  p.lead {
+    font-size: 1.08rem; color: var(--ink-dim);
+    margin-bottom: 2rem; max-width: 760px; line-height: 1.65;
+  }
+  .subhead {
+    font-family: var(--serif);
+    font-size: 1.6rem; font-weight: 400; color: var(--navy);
+    margin: 2.4rem 0 1rem; letter-spacing: -0.005em;
+  }
+  section.band.dark .subhead { color: #fff; }
+
+  /* TL;DR */
+  .tldr {
+    background: #fff; border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); border-radius: 6px;
+    padding: 2rem 2.2rem; margin: 0 auto; max-width: 880px;
+    margin-top: -3.5rem; position: relative; z-index: 5;
+    box-shadow: 0 30px 60px -30px rgba(17,22,43,0.4);
+  }
+  .tldr .label {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 1rem;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding: 0.4rem 0 0.4rem 1.4rem; position: relative;
+    font-size: 0.98rem; color: var(--ink); line-height: 1.55;
+  }
+  .tldr li::before {
+    content: '→'; position: absolute; left: 0; top: 0.4rem;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* Positioning card */
+  .position-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    padding: 2.2rem 2.4rem; margin: 1.5rem 0 0;
+    box-shadow: 0 1px 0 rgba(17,22,43,0.03);
+  }
+  .position-card .label {
+    font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700; margin-bottom: .7rem;
+  }
+  .position-card .pline {
+    font-family: var(--serif); font-size: 1.75rem; line-height: 1.3;
+    color: var(--navy); font-weight: 400;
+  }
+
+  /* Diagram */
+  .diagram {
+    display: grid; grid-template-columns: 1fr 0.2fr 1fr;
+    gap: 0; align-items: stretch;
+    margin: 2.5rem 0 1rem;
+  }
+  @media (max-width: 820px) { .diagram { grid-template-columns: 1fr; gap: 1rem; } }
+  .channel-block {
+    background: #fff; border-radius: 14px;
+    padding: 2rem 2rem 2.2rem;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .channel-block.ig {
+    border-top: 5px solid var(--ig);
+  }
+  .channel-block.li {
+    border-top: 5px solid var(--linkedin);
+  }
+  .channel-block .ckicker {
+    font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: .55rem;
+  }
+  .channel-block.ig .ckicker { color: var(--ig); }
+  .channel-block.li .ckicker { color: var(--linkedin); }
+  .channel-block h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.65rem; color: var(--navy); margin-bottom: .5rem; line-height: 1.2;
+  }
+  .channel-block .ch-aud {
+    font-size: .82rem; color: var(--ink-dim); margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .channel-block .ch-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1rem;
+    margin-bottom: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  }
+  .channel-block .ch-meta div {
+    font-size: .75rem; color: var(--ink-dim);
+  }
+  .channel-block .ch-meta strong {
+    display: block; color: var(--navy); font-size: .68rem; letter-spacing: .15em;
+    text-transform: uppercase; font-weight: 700; margin-bottom: .15rem;
+  }
+  .channel-block .ch-summary {
+    font-size: .9rem; color: var(--ink); line-height: 1.6; margin-bottom: 1.2rem;
+  }
+  .channel-block .ch-pillars {
+    font-size: .82rem; color: var(--ink-dim); line-height: 1.6; padding-left: 1.1rem; margin-bottom: 1.4rem;
+  }
+  .channel-block .ch-pillars li { margin-bottom: .25rem; }
+  .channel-block .ch-pillars li strong { color: var(--navy); font-weight: 700; }
+  .channel-block .ch-links {
+    display: flex; flex-direction: column; gap: .55rem;
+  }
+  .channel-block .ch-links a {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--line-soft); color: var(--navy);
+    text-decoration: none; padding: .85rem 1rem; border-radius: 8px;
+    font-size: .85rem; font-weight: 600;
+    border: 1px solid transparent; transition: background .2s, border-color .2s, transform .15s;
+  }
+  .channel-block.ig .ch-links a:hover { background: #FCE4EC; border-color: var(--ig); transform: translateY(-1px); }
+  .channel-block.li .ch-links a:hover { background: #E3EEFA; border-color: var(--linkedin); transform: translateY(-1px); }
+  .channel-block .ch-links a .arr { color: var(--ink-faint); font-weight: 700; }
+
+  .connector {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  @media (max-width: 820px) { .connector { display: none; } }
+  .connector .arrow {
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--ig), var(--linkedin));
+    position: relative;
+  }
+  .connector .arrow::before,
+  .connector .arrow::after {
+    content: ''; position: absolute; top: 50%;
+    width: 10px; height: 10px;
+    border: 2px solid var(--linkedin); border-left: none; border-bottom: none;
+    transform: translateY(-50%) rotate(45deg);
+    right: 0;
+  }
+  .connector .arrow::after {
+    left: 0; right: auto;
+    border: 2px solid var(--ig); border-right: none; border-top: none;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .connector .badge {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--navy); color: #fff;
+    font-size: .58rem; letter-spacing: .25em; text-transform: uppercase;
+    padding: .35rem .8rem; border-radius: 30px; font-weight: 700; white-space: nowrap;
+  }
+
+  /* Connective tissue cards */
+  .mech-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 1.5rem 0;
+  }
+  .mech-card {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 12px; padding: 1.4rem 1.6rem;
+  }
+  section.band.dark .mech-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+  section.band.dark .mech-card h4 { color: #fff; }
+  section.band.dark .mech-card p { color: #C5CDD6; }
+  .mech-card .num {
+    font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700; margin-bottom: .55rem;
+  }
+  .mech-card h4 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.2rem; color: var(--navy); margin-bottom: .5rem;
+  }
+  .mech-card p {
+    font-size: .87rem; color: var(--ink-dim); line-height: 1.6;
+  }
+
+  /* Weekly grid */
+  .weekly {
+    display: grid; grid-template-columns: 90px repeat(5, 1fr);
+    gap: 6px; margin: 1.5rem 0;
+  }
+  @media (max-width: 820px) { .weekly { grid-template-columns: 1fr; } }
+  .weekly .h, .weekly .cell {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 8px; padding: .8rem .9rem;
+    font-size: .8rem; line-height: 1.45;
+  }
+  .weekly .h {
+    background: var(--navy); color: #fff;
+    font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+    font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .weekly .channel-lbl {
+    background: var(--line-soft); color: var(--navy); font-weight: 700;
+    display: flex; align-items: center; font-size: .75rem; letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .weekly .cell.ig { border-left: 3px solid var(--ig); }
+  .weekly .cell.li { border-left: 3px solid var(--linkedin); }
+  .weekly .cell .label {
+    font-weight: 700; color: var(--navy); display: block; margin-bottom: .2rem; font-size: .82rem;
+  }
+  .weekly .cell .sub-label { color: var(--ink-dim); font-size: .75rem; }
+  .weekly .cell.rest { background: var(--line-soft); color: var(--ink-faint); }
+
+  /* Roles table */
+  .table-wrap {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; margin: 1.4rem 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td {
+    text-align: left; padding: .95rem 1.2rem;
+    border-bottom: 1px solid var(--line-soft); vertical-align: top;
+  }
+  th {
+    background: var(--line-soft); font-size: .65rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-dim); font-weight: 700;
+  }
+  td.who { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  td.note { color: var(--ink-dim); font-size: .85rem; line-height: 1.55; }
+  tr:last-child td { border-bottom: none; }
+
+  /* Metrics */
+  .metrics {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin: 1.6rem 0;
+  }
+  .metric {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 1.4rem 1.5rem;
+  }
+  .metric .mname {
+    font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: .35rem;
+  }
+  .metric .mwhy { font-size: .82rem; color: #B8C2CC; line-height: 1.55; }
+  .metric .mch {
+    font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: .55rem;
+  }
+  .metric .target {
+    margin-top: .8rem; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+  }
+
+  /* Roadmap */
+  .timeline {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin: 1.6rem 0;
+  }
+  .tcell {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 1.5rem 1.6rem;
+  }
+  .tcell .tlabel {
+    font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: .55rem;
+  }
+  .tcell h4 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.25rem; color: var(--navy); margin-bottom: .55rem;
+  }
+  .tcell ul {
+    font-size: .85rem; color: var(--ink-dim); line-height: 1.6; padding-left: 1.1rem;
+  }
+  .tcell ul li { margin-bottom: .3rem; }
+  .tcell ul li strong { color: var(--navy); }
+  .tcell.live { border-top: 4px solid var(--accent); }
+  .tcell.next { border-top: 4px solid var(--gold); }
+  .tcell.later { border-top: 4px solid var(--ink-faint); }
+
+  /* Doc cards (built section) */
+  .doc-list { display: grid; gap: 10px; margin: 1rem 0 0; }
+  .doc-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--line-soft); padding: .9rem 1.1rem; border-radius: 8px;
+    text-decoration: none; color: var(--navy);
+    border-left: 3px solid transparent; transition: background .2s, border-color .2s;
+  }
+  .doc-item:hover { background: #fff; border-color: var(--gold); }
+  .doc-item .di-name { font-size: .88rem; font-weight: 600; }
+  .doc-item .di-date { font-size: .72rem; color: var(--ink-dim); letter-spacing: .08em; }
+
+  .note-box {
+    background: var(--highlight); border-left: 4px solid var(--highlight-line);
+    padding: 1.2rem 1.5rem; border-radius: 0 6px 6px 0; margin: 1.4rem 0;
+    font-size: .92rem; color: #6B5410; line-height: 1.65;
+  }
+  .note-box strong { color: #5A4509; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 0; padding: 2.8rem 0 3.8rem;
+    font-size: .78rem; color: var(--ink-faint); text-align: center;
+    background: #F4F0E8;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s ease, transform .75s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <div class="brand">TH · Organic Growth Engine</div>
+  <div class="links">
+    <a href="#system">The System</a>
+    <a href="#channels">Channels</a>
+    <a href="#mechanics">Cross-Channel</a>
+    <a href="#cadence">Cadence</a>
+    <a href="#roles">Roles</a>
+    <a href="#measure">Measure</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ted's Health · Organic Growth · 3 June 2026</div>
+    <h1>Ted's Health Organic Growth Engine.</h1>
+    <p class="sub">One coherent system for TH's organic growth — a consumer engine on Instagram, a partner engine on LinkedIn, and the mechanics that connect them. Two months of pre-scheduled content, four B2B pillars, three posts a week on each surface, and the measurement that tells Olly whether the engine is working.</p>
+    <div class="meta">
+      <span><strong>Owner</strong> Olly Westmacott</span>
+      <span><strong>Channels live</strong> Instagram &amp; LinkedIn</span>
+      <span><strong>Content shipped</strong> 56 IG posts + 20 LinkedIn posts</span>
+      <span><strong>Issued</strong> 3 Jun 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap-narrow">
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li><strong>One engine, two surfaces.</strong> Instagram speaks to patients and lay men. LinkedIn speaks to healthcare buyers and partners. Same brand, different voice, same regulatory posture underneath.</li>
+      <li><strong>Already built and ready to run:</strong> 8 weeks of IG (56 posts) and a 20-post LinkedIn starter set. All paste-ready into Metricool / LinkedIn native scheduler.</li>
+      <li><strong>Cadence is small, repeatable, durable:</strong> 5 IG feed posts + daily stories Mon–Fri; 3 LinkedIn posts Mon · Wed · Fri. Designed to run on ~6 hours/week of Olly's time, not consume him.</li>
+      <li><strong>Connective tissue:</strong> Dr Andrews content runs on both channels with different voices. Partner-side proof lands on LinkedIn first and becomes IG carousels. The £40 test CTA lives on IG; the partner-brief DM lives on LinkedIn.</li>
+      <li><strong>Five numbers, monthly</strong> — the rolled-up scorecard sits at the bottom of this page. Everything else is noise.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- POSITIONING + SYSTEM -->
+<section class="band" id="system">
+  <div class="wrap-narrow reveal">
+    <div class="eyebrow">01 · The Strategic Spine</div>
+    <h2 class="serif">One brand. Two audiences. Same posture.</h2>
+    <p class="lead">Ted's Health is a regulated men's-health clinical service that grows organically by being credible in the rooms it shows up in. Two rooms matter: the room where patients are, and the room where partners are. Each room gets its own surface — but the operator behind both is the same operator.</p>
+
+    <div class="position-card">
+      <div class="label">The strategic one-liner</div>
+      <div class="pline">"A regulated men's-health clinic credible enough to be the patient's choice on Instagram and the partner's white-label engine on LinkedIn — built around the same protocol, the same doctor, the same governance pack."</div>
+    </div>
+
+    <div class="note-box">
+      <strong>Why this matters operationally.</strong> Two separate strategies would have meant two voices, two governance positions, two budgets. One engine with two surfaces means every clinical asset (Dr Andrews to camera, a protocol explainer, a patient-safety note) earns its place twice. The work compounds.
+    </div>
+  </div>
+</section>
+
+<!-- THE TWO CHANNELS -->
+<section class="band cream" id="channels">
+  <div class="wrap reveal">
+    <div class="eyebrow">02 · The Two Channels</div>
+    <h2 class="serif">At a glance.</h2>
+    <p class="lead">The two surfaces, side by side. Audience, voice, cadence, where the work lives, and the documents that run each one. Click into either to drop straight into the operational pack.</p>
+
+    <div class="diagram">
+      <div class="channel-block ig">
+        <div class="ckicker">Surface 01 · Consumer</div>
+        <h3>Instagram</h3>
+        <div class="ch-aud">Men 30–55, partners of men, the consumer audience.</div>
+        <div class="ch-summary">Weekly 7-day cadence, 2 months pre-scheduled. The regulated-credibility voice in plain language — myth-busts, symptom education, Dr Andrews to camera, useful tips, proof. The £40 test CTA lives here.</div>
+        <ul class="ch-pillars">
+          <li><strong>Mon</strong> · Reel · Myth-bust</li>
+          <li><strong>Tue</strong> · Carousel · Symptom Education</li>
+          <li><strong>Wed</strong> · Reel · Dr Andrews to camera</li>
+          <li><strong>Thu</strong> · Tip · Sleep / Training / Recovery</li>
+          <li><strong>Fri</strong> · Reel · Proof + £40 CTA</li>
+        </ul>
+        <div class="ch-meta">
+          <div><strong>Cadence</strong>5 feed/wk + daily stories</div>
+          <div><strong>Voice</strong>Plain, useful, regulated</div>
+          <div><strong>Conversion</strong>£40 starter test</div>
+          <div><strong>Scheduler</strong>Metricool</div>
+        </div>
+        <div class="ch-links">
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-ig-metricool-weekly-2026-06-03.html">
+            <span>Weeks 1–4 · Weekly Calendar + 28 Posts</span>
+            <span class="arr">→</span>
+          </a>
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-ig-metricool-weeks-5-8-2026-06-03.html">
+            <span>Weeks 5–8 · 28 More Posts</span>
+            <span class="arr">→</span>
+          </a>
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-metricool-organic-growth-strategy-2026-05-28.html">
+            <span>Underlying Strategy (28 May)</span>
+            <span class="arr">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="arrow"></div>
+        <div class="badge">Feed each other</div>
+      </div>
+
+      <div class="channel-block li">
+        <div class="ckicker">Surface 02 · Partner / B2B</div>
+        <h3>LinkedIn</h3>
+        <div class="ch-aud">Healthcare buyers — pharmacy founders, clinic operators, diagnostics leads, gym chains, member bodies.</div>
+        <div class="ch-summary">3 posts/week on the TH company page. Same regulatory posture as Instagram, different voice — operator-to-operator. Built to pre-warm the cold outreach in the WL playbook. The partner-brief DM lives here.</div>
+        <ul class="ch-pillars">
+          <li><strong>P01</strong> · WL Programme Thought Leadership</li>
+          <li><strong>P02</strong> · Regulated-Clinical Authority</li>
+          <li><strong>P03</strong> · Category POV</li>
+          <li><strong>P04</strong> · Team / Behind-the-Scenes</li>
+        </ul>
+        <div class="ch-meta">
+          <div><strong>Cadence</strong>3 posts/wk Mon · Wed · Fri</div>
+          <div><strong>Voice</strong>Operator-to-operator</div>
+          <div><strong>Conversion</strong>Partner DM / discovery</div>
+          <div><strong>Scheduler</strong>LinkedIn native</div>
+        </div>
+        <div class="ch-links">
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-linkedin-brief-set-2026-06-03.html">
+            <span>TH Company LinkedIn — Brief Set + 20 Posts</span>
+            <span class="arr">→</span>
+          </a>
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-wl-personal-outreach-2026-06-03.html">
+            <span>WL Outreach Playbook (the cold side)</span>
+            <span class="arr">→</span>
+          </a>
+          <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/olly-linkedin-brief-set-2026-06-03.html">
+            <span>Olly's Personal LinkedIn (amplifier)</span>
+            <span class="arr">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-CHANNEL MECHANICS -->
+<section class="band dark" id="mechanics">
+  <div class="wrap reveal">
+    <div class="eyebrow">03 · Cross-Channel Mechanics</div>
+    <h2 class="serif">How IG and LinkedIn feed each other.</h2>
+    <p class="lead">Two surfaces are only one engine if the work compounds. These are the four mechanics that take a single piece of work and earn its place on both channels.</p>
+
+    <div class="mech-grid">
+      <div class="mech-card">
+        <div class="num">Mechanic 01</div>
+        <h4>Dr Andrews cross-cast</h4>
+        <p>Every Dr Andrews Wednesday Reel is shot to camera as a clinical-authority asset. The same shoot produces a LinkedIn-native quote-card / longer caption version. One filming session, two channel-specific edits, both voices.</p>
+      </div>
+      <div class="mech-card">
+        <div class="num">Mechanic 02</div>
+        <h4>Partner proof lands on LinkedIn first</h4>
+        <p>Signed partner stories, integration milestones, governance-pack updates — these break on LinkedIn (where the buyer audience reads it as proof). Two weeks later they become a single-card carousel on Instagram (where the consumer audience reads it as credibility).</p>
+      </div>
+      <div class="mech-card">
+        <div class="num">Mechanic 03</div>
+        <h4>Patient stories land on Instagram first</h4>
+        <p>Composite anonymous patient journeys (the IG weeks-5-8 cluster) live natively on Instagram. The ones that resonate become Pillar 02 LinkedIn posts framed as "what the patient pathway actually looks like — for a buyer thinking about whether to put their brand on it".</p>
+      </div>
+      <div class="mech-card">
+        <div class="num">Mechanic 04</div>
+        <h4>Olly's personal account is the bridge</h4>
+        <p>Olly's personal LinkedIn (separate doc) is the bridge surface. He reshares TH company-page posts with operator framing, and his personal IG presence — where it exists — backs the brand without competing with it. The personal account is the amplifier, not a third channel.</p>
+      </div>
+    </div>
+
+    <div class="note-box" style="background:rgba(255,255,255,0.05);border-left-color:var(--gold);color:#DCD3B8;margin-top:2rem;">
+      <strong style="color:#fff;">The rule.</strong> No content is created for one channel without the question "is the cross-cast obvious?" being asked. If the answer is no, the content still ships — but the question gets asked, so the easy compounding wins are not missed.
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY CADENCE -->
+<section class="band" id="cadence">
+  <div class="wrap reveal">
+    <div class="eyebrow">04 · The Week, At A Glance</div>
+    <h2 class="serif">One grid. Both channels.</h2>
+    <p class="lead">The complete weekly publishing rhythm across IG and LinkedIn. The grid runs Mon–Fri; weekends are stories-only on IG and engagement-only on LinkedIn. Built to be runnable on a Sunday-evening batch + 20 min/day of engagement.</p>
+
+    <div class="weekly">
+      <div class="h">Channel</div>
+      <div class="h">Mon</div>
+      <div class="h">Tue</div>
+      <div class="h">Wed</div>
+      <div class="h">Thu</div>
+      <div class="h">Fri</div>
+
+      <div class="channel-lbl">Instagram</div>
+      <div class="cell ig">
+        <span class="label">Reel · Myth-bust</span>
+        <span class="sub-label">07:30 BST</span>
+      </div>
+      <div class="cell ig">
+        <span class="label">Carousel · Symptom Ed</span>
+        <span class="sub-label">12:30 BST</span>
+      </div>
+      <div class="cell ig">
+        <span class="label">Reel · Dr Andrews</span>
+        <span class="sub-label">18:00 BST</span>
+      </div>
+      <div class="cell ig">
+        <span class="label">Tip · Sleep/Training</span>
+        <span class="sub-label">07:30 BST</span>
+      </div>
+      <div class="cell ig">
+        <span class="label">Reel · Proof + £40 CTA</span>
+        <span class="sub-label">17:30 BST</span>
+      </div>
+
+      <div class="channel-lbl">LinkedIn</div>
+      <div class="cell li">
+        <span class="label">Programme or POV</span>
+        <span class="sub-label">07:30 BST · Olly byline</span>
+      </div>
+      <div class="cell rest">
+        <span class="label">Engagement only</span>
+        <span class="sub-label">5–10 partner-page comments</span>
+      </div>
+      <div class="cell li">
+        <span class="label">Clinical authority</span>
+        <span class="sub-label">07:30 BST · Dr Andrews byline</span>
+      </div>
+      <div class="cell rest">
+        <span class="label">Reshare + engagement</span>
+        <span class="sub-label">Olly's personal account amplifies</span>
+      </div>
+      <div class="cell li">
+        <span class="label">Category POV / Team</span>
+        <span class="sub-label">07:30 BST · mixed byline</span>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>The Saturday/Sunday rule.</strong> Saturday is IG stories-only (Q&amp;A box, polls). Sunday evening is Olly's batching block — 60 min IG review, 60 min LinkedIn drafting, 30 min schedule into Metricool / LinkedIn. ~2.5 hours sets up the entire week.
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="band cream" id="roles">
+  <div class="wrap reveal">
+    <div class="eyebrow">05 · Roles</div>
+    <h2 class="serif">Who owns what.</h2>
+    <p class="lead">Five people touch the engine. Each one has a clear scope. The cadence breaks the moment two people own the same thing.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:22%">Who</th><th style="width:30%">Owns</th><th>What they actually do, weekly</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="who">Olly Westmacott</td>
+            <td class="note">Engine owner · publisher · partner conversations</td>
+            <td class="note">Sunday batch (~2.5h). Publishes IG via Metricool. Approves LinkedIn drafts before publish. Reshares from his personal account on Thu. Replies to inbound DMs (both channels). Runs the WL discovery calls that drop out the bottom.</td>
+          </tr>
+          <tr>
+            <td class="who">Dr Jonathan Andrews</td>
+            <td class="note">Clinical voice · authority anchor</td>
+            <td class="note">One Wednesday IG Reel/month batch-shot. One bylined LinkedIn post/week (or fortnightly if capacity tight). Available for occasional Stories Q&amp;A. Sign-off on any clinical claim before it ships.</td>
+          </tr>
+          <tr>
+            <td class="who">Ted (this agent)</td>
+            <td class="note">Drafting · scheduling assist · content backlog</td>
+            <td class="note">Drafts LinkedIn posts to brief. Drafts IG captions + visual specs to brief. Maintains the 8-week IG calendar. Tops up the LinkedIn pipeline so there are always 4 weeks queued. Files everything to the Central Hub.</td>
+          </tr>
+          <tr>
+            <td class="who">Ku Creatives</td>
+            <td class="note">Video + static production</td>
+            <td class="note">Edits Dr Andrews Reels from raw batch shoots. Produces IG carousel statics. Hiring-post / team-shot statics for LinkedIn when needed. Briefed by volume + spec, not by £.</td>
+          </tr>
+          <tr>
+            <td class="who">Calvin Lefferts</td>
+            <td class="note">Commercial close + LinkedIn programme posts (occasional)</td>
+            <td class="note">Reshares programme-milestone LinkedIn posts once a partnership has signed. Available to be tagged on partner-fit posts when commercial conversations are active. Owns the commercial call that drops out of Olly's discovery.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>The discipline that protects the engine.</strong> Olly publishes IG personally — he is the brand's editor. Dr Andrews's voice is non-fungible. Ted drafts but does not publish. Ku produces but does not brief. Calvin closes but does not run the page. These boundaries are what keep the engine running on 6 hrs/week instead of 16.
+    </div>
+  </div>
+</section>
+
+<!-- MEASUREMENT -->
+<section class="band dark" id="measure">
+  <div class="wrap reveal">
+    <div class="eyebrow">06 · Measurement</div>
+    <h2 class="serif">Five numbers, monthly.</h2>
+    <p class="lead">Rolled up across both channels. Reviewed in Olly's Friday slot. Everything else is noise — these five tell us if the engine is working.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="mch">IG</div>
+        <div class="mname">£40 starter-test conversions</div>
+        <div class="mwhy">The only IG conversion that matters. Volume + cost-per-conversion. The Friday £40 CTA post is the pump.</div>
+        <div class="target">90-day target: meaningful baseline + month-on-month growth</div>
+      </div>
+      <div class="metric">
+        <div class="mch">IG</div>
+        <div class="mname">Saves + Profile Taps</div>
+        <div class="mwhy">Leading indicator of usefulness. Saves outrank likes for our category. Profile taps signal the post earned a "who are these people?" check.</div>
+        <div class="target">90-day target: rising weekly trendline</div>
+      </div>
+      <div class="metric">
+        <div class="mch">LinkedIn</div>
+        <div class="mname">Followers + Profile Views from target accounts</div>
+        <div class="mwhy">New page followers and Dr Andrews / Olly profile views whose employer sits on the 30-target WL list or in the wider buyer ecosystem.</div>
+        <div class="target">90-day target: 40+ target-account followers</div>
+      </div>
+      <div class="metric">
+        <div class="mch">LinkedIn</div>
+        <div class="mname">Inbound DMs from healthcare orgs</div>
+        <div class="mwhy">Inbound DMs to the page or to Olly's personal account from anyone at a healthcare operator. The clean signal that LinkedIn is doing its B2B job.</div>
+        <div class="target">90-day target: 8+ inbound DMs</div>
+      </div>
+      <div class="metric">
+        <div class="mch">Cross-channel</div>
+        <div class="mname">Discovery calls attributed to organic</div>
+        <div class="mwhy">WL discovery calls booked where the first touchpoint was a post, comment or DM on either channel (vs cold email or warm intro). Logged in the WL tracker's source field.</div>
+        <div class="target">90-day target: 3+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="band" id="roadmap">
+  <div class="wrap reveal">
+    <div class="eyebrow">07 · Roadmap</div>
+    <h2 class="serif">What's built, what's next, what's later.</h2>
+    <p class="lead">A clean ledger so the engine never feels half-built. The "next" column is what gets attention after the existing surfaces are running steady-state. The "later" column is what we'd consider once organic IG + LinkedIn are throwing off compounding numbers — flagged, not promised.</p>
+
+    <div class="timeline">
+      <div class="tcell live">
+        <div class="tlabel">Built · Live · Running</div>
+        <h4>Shipped</h4>
+        <ul>
+          <li><strong>IG weeks 1–4</strong> · 28 posts ready in Metricool</li>
+          <li><strong>IG weeks 5–8</strong> · 28 posts ready in Metricool</li>
+          <li><strong>IG underlying strategy</strong> · 28 May doc</li>
+          <li><strong>TH company LinkedIn</strong> · brief set + 20 posts</li>
+          <li><strong>Olly personal LinkedIn</strong> · brief set (amplifier)</li>
+          <li><strong>TH WL Outreach Playbook</strong> · the cold-outreach engine LinkedIn pre-warms</li>
+          <li><strong>This hub</strong> · the front door</li>
+        </ul>
+      </div>
+      <div class="tcell next">
+        <div class="tlabel">Next 30–60 days</div>
+        <h4>Queued</h4>
+        <ul>
+          <li><strong>Dr Andrews batch shoot</strong> · 8 Wednesday Reels in one session, edits 1 week</li>
+          <li><strong>LinkedIn Showcase Page</strong> · "Ted's Health for Partners" sub-page</li>
+          <li><strong>IG DM-magnet PDF</strong> · the £40 test explainer triggered by bio-link DMs</li>
+          <li><strong>LinkedIn employee-advocacy onboarding</strong> · brief 5–8 TH/BGV operators on the reshare playbook</li>
+          <li><strong>IG weeks 9–12</strong> · ready before week 8 publishes (Ted backlog discipline)</li>
+        </ul>
+      </div>
+      <div class="tcell later">
+        <div class="tlabel">90+ days · evaluate first</div>
+        <h4>Possible (flagged, not promised)</h4>
+        <ul>
+          <li><strong>YouTube long-form</strong> · Dr Andrews protocol explainers, evaluate after batch-shoot capacity is known</li>
+          <li><strong>TikTok</strong> · cross-post existing IG Reels as a test lane, no original content commitment</li>
+          <li><strong>Substack / Beehiiv</strong> · monthly partner-newsletter to LinkedIn-acquired emails — only once LinkedIn is producing 50+ inbound DMs/quarter</li>
+          <li><strong>Podcast guest engine</strong> · place Dr Andrews on 1 men's-health adjacent podcast/month — evaluate against time-cost</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subhead">30 · 60 · 90 day milestones</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:18%">Window</th><th>Milestone</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="who">Day 30</td>
+            <td class="note">IG weeks 1–4 published. LinkedIn weeks 1–2 (8 posts) live with employee amplification working. First inbound LinkedIn DM from a target account. £40 test baseline established.</td>
+          </tr>
+          <tr>
+            <td class="who">Day 60</td>
+            <td class="note">IG weeks 5–8 published. LinkedIn weeks 3–4 live (16 posts total). 3+ target-account followers visible on LinkedIn. Showcase Page live. First IG ↔ LinkedIn cross-cast (Dr Andrews piece) shipped on both.</td>
+          </tr>
+          <tr>
+            <td class="who">Day 90</td>
+            <td class="note">IG weeks 9–12 queued. LinkedIn weeks 5+ rotating through the four pillars. First discovery call attributed to organic. £40 conversions growing month-on-month. Decision point on YouTube / Substack add-ons based on capacity surplus.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead">All TH growth docs in one place</div>
+    <div class="doc-list">
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-ig-metricool-weekly-2026-06-03.html" class="doc-item">
+        <span class="di-name">TH IG · Metricool Weekly + Weeks 1–4 (28 posts)</span>
+        <span class="di-date">3 Jun 2026</span>
+      </a>
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-ig-metricool-weeks-5-8-2026-06-03.html" class="doc-item">
+        <span class="di-name">TH IG · Metricool Weeks 5–8 (28 posts)</span>
+        <span class="di-date">3 Jun 2026</span>
+      </a>
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-metricool-organic-growth-strategy-2026-05-28.html" class="doc-item">
+        <span class="di-name">TH IG · Underlying Organic Growth Strategy</span>
+        <span class="di-date">28 May 2026</span>
+      </a>
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-linkedin-brief-set-2026-06-03.html" class="doc-item">
+        <span class="di-name">TH Company LinkedIn · Brief Set + 20 Posts</span>
+        <span class="di-date">3 Jun 2026</span>
+      </a>
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/olly-linkedin-brief-set-2026-06-03.html" class="doc-item">
+        <span class="di-name">Olly Personal LinkedIn · Playbook + 20 Posts (amplifier)</span>
+        <span class="di-date">3 Jun 2026</span>
+      </a>
+      <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/th-wl-personal-outreach-2026-06-03.html" class="doc-item">
+        <span class="di-name">TH WL · Personal Outreach Playbook (the cold engine)</span>
+        <span class="di-date">3 Jun 2026</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Ted's Health · Organic Growth Engine · 3 June 2026<br>
+  The front door — share this URL to share the whole system.
+</footer>
+
+<script>
+  const nav = document.getElementById('topnav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
