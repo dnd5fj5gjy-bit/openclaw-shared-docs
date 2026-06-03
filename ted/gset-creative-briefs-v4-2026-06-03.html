@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GSET — Creative Briefs Pack v4 · Engine Extensions · 3 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #E8DFD2;
+    --off-white: #FBF8F3;
+    --charcoal: #2A2A2A;
+    --charcoal-light: #4A4A4A;
+    --muted: #6B6B6B;
+    --ink: #1E2A38;
+    --ink-deep: #16202C;
+    --burgundy: #7A2A20;
+    --burgundy-deep: #5C1E15;
+    --forest: #2C5F4A;
+    --gold: #B8863B;
+    --rule: rgba(42, 42, 42, 0.12);
+    --rule-light: rgba(42, 42, 42, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--charcoal);
+  }
+  em { color: var(--burgundy); font-style: italic; }
+  code { font-family: 'Outfit', monospace; background: var(--cream-dark); padding: 0.08rem 0.35rem; border-radius: 2px; font-size: 0.9em; }
+
+  /* Hero */
+  .hero {
+    background: var(--ink-deep);
+    color: var(--cream);
+    padding: 6rem 2.5rem 4rem;
+    border-bottom: 4px solid var(--burgundy);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-bottom: 1.1rem;
+    max-width: 920px;
+  }
+  .hero p.lede {
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.82);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .hero .meta {
+    margin-top: 2.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.55);
+  }
+
+  .preamble {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+  }
+  .preamble p { max-width: 820px; margin-bottom: 1rem; }
+
+  .guardrail {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 1.6rem 1.8rem;
+    border-radius: 4px;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .guardrail h3 {
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .guardrail p { color: rgba(245, 240, 232, 0.92); max-width: 880px; margin: 0; font-size: 0.97rem; }
+
+  .month2 {
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 1.6rem auto 0;
+    max-width: 1100px;
+  }
+  .month2 strong { color: var(--burgundy); }
+
+  /* Brief block */
+  .brief {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--off-white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 2.8rem 3rem 2.4rem;
+    box-shadow: 0 1px 0 var(--rule-light);
+  }
+  .brief-id {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .brief h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .brief .subtitle {
+    color: var(--charcoal-light);
+    font-size: 1.02rem;
+    margin-bottom: 1.6rem;
+    max-width: 740px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    background: var(--cream-dark);
+    padding: 1.2rem 1.4rem;
+    border-radius: 4px;
+    margin: 1.3rem 0 1.8rem;
+  }
+  .meta-grid div { font-size: 0.86rem; }
+  .meta-grid .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  .meta-grid .val { color: var(--ink); font-weight: 500; }
+
+  .brief h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin: 1.6rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .brief p { margin-bottom: 0.85rem; max-width: 820px; }
+  .brief ul, .brief ol { padding-left: 1.4rem; margin-bottom: 0.6rem; max-width: 820px; }
+  .brief li { margin-bottom: 0.4rem; }
+
+  .pipeline {
+    background: var(--cream);
+    border: 1px dashed var(--rule);
+    padding: 1.1rem 1.4rem;
+    border-radius: 3px;
+    margin: 0.6rem 0 1rem;
+    font-size: 0.94rem;
+  }
+  .pipeline strong { font-weight: 500; color: var(--ink); }
+
+  .signoff {
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .signoff strong { color: var(--ink); font-weight: 500; }
+
+  /* Phasing strip */
+  .phasing {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem 2.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+  }
+  .phasing h2 { color: var(--cream); margin-bottom: 1.6rem; font-size: 1.7rem;}
+  .phasing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+  .phasing-col {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.2rem;
+  }
+  .phasing-col h4 {
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  .phasing-col ul { padding-left: 1rem; }
+  .phasing-col li { font-size: 0.9rem; margin-bottom: 0.4rem; color: rgba(245, 240, 232, 0.88); }
+
+  footer {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">GSET · Creative Briefs · v4 · Engine Extensions</div>
+    <h1>Six more rolling systems. The bits the core engine leans on but doesn't yet own.</h1>
+    <p class="lede">v4 extends the v2 brief pack. v2 stood up the eight core workstreams; v3 detailed the launch fortnight. v4 fills in the engine's missing rolling systems — paid distribution, seasonal anchors, the four cohorts after Matthew, church-partner outreach, international expansion, and the measurement loop. Same format. Same template. Each brief is a system someone owns end-to-end.</p>
+    <div class="meta">Ted · 3 June 2026 · Extends v2 / 19 May · For Olly &amp; the BGV team</div>
+  </div>
+</header>
+
+<div class="guardrail">
+  <h3>Hard guardrail · across every brief</h3>
+  <p><strong>Hachette / Hodder AI policy applies absolutely.</strong> No AI-generated voice. No AI-generated imagery. No AI in covers or marketing creative. AI permitted only for backend processes (transcription, scheduling, analytics, draft outlining) — never the published artefact. <strong>No new Bear filming.</strong> Every clip, frame and voiceover that features Bear is pulled from the existing archive. Every editor signs both lines off before commission.</p>
+</div>
+
+<div class="month2">
+  <strong>Month 2 is still the launch beat.</strong> v4 briefs do not move that anchor. Brief 10 (paid) goes live in Month 2 once organic baselines exist; Brief 11 (anchors) governs every seasonal moment from Lent onwards; Brief 12 (cohorts) takes over once Matthew (v2 B05 / v3 B04) closes; Brief 13 (church partners) runs continuously from Month 1; Brief 14 (international) opens in Month 6; Brief 15 (measurement) is live by end of Month 1 and runs forever after.
+</div>
+
+<div class="preamble">
+  <p>The six workstreams below extend the deck's Section 09 monthly volumes — they do not replace them. Volumes in each meta block are steady-state floors at the phase they activate. Calendar anchors raise the relevant volumes for the relevant fortnight; over-performance triggers a rebalance conversation, never a price uplift. Everything is sized to in-house Ku Creatives make capacity — brief by volume and spec, never by £ envelope.</p>
+  <p>Each brief assumes the v2 foundations: the Bear archive bundle, the brand identity system (v2 B07), the audio motif &amp; mastering chain (v2 B08), the website + attribution layer (v2 B06), the voice + content-pillar guide. Where a v4 brief produces a feeder asset, it routes back into a v2 workstream cleanly.</p>
+</div>
+
+<!-- BRIEF 10 -->
+<section class="brief">
+  <div class="brief-id">Brief 10 · Paid media · the distribution layer</div>
+  <h2>Meta + YouTube Paid System</h2>
+  <p class="subtitle">The paid funnel that buys reach against the organic engine. Live from Month 2 once a first organic signal exists. Always testing, always within the AI guardrail.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">12 ad variants live at any time · 4 fresh creatives/mo</span></div>
+    <div><span class="label">Platforms</span><span class="val">Meta (FB+IG) · YouTube TrueView/In-feed</span></div>
+    <div><span class="label">Owner</span><span class="val">Paid lead + short-form editor (creative) + analyst (Brief 15)</span></div>
+    <div><span class="label">Spend</span><span class="val">Hodder budget — sits outside £5k/mo retainer · we manage</span></div>
+  </div>
+
+  <h3>The funnel shape</h3>
+  <ul>
+    <li><strong>Top — reach + sub:</strong> short-form variants from Brief 02 with retail-region geo-routing. Goal: cheap subscribed reach into Substack + YouTube + IG.</li>
+    <li><strong>Mid — consideration:</strong> 60–90s narrative cuts of the Reading episodes (audiobook moments + scripture overlay), pointing at the full episode and Substack.</li>
+    <li><strong>Bottom — retail conversion:</strong> testimony-led cards + audiogram excerpts pointing at the geo-routed retail tree on the website. Tagged with the attribution scheme from v2 B06.</li>
+  </ul>
+
+  <h3>The creative production rhythm</h3>
+  <ul>
+    <li>Four fresh ad creatives per month — two narrative (Reading-led), one testimony (from Brief 05 curation), one theologian one-liner (from Unpacking).</li>
+    <li>Each creative shipped in 9:16 + 1:1 + 16:9, UK + US text-card variants, three hook variants.</li>
+    <li>Always re-cut from existing material — never bespoke filmed. Paid creative is a recombination job, not a production job.</li>
+    <li>Hachette guardrail re-applied: no AI voice, no AI image, no AI-generated B-roll, no trending audio.</li>
+  </ul>
+
+  <h3>The testing protocol</h3>
+  <ul>
+    <li>2-week cycles: launch fresh batch Mon week 1, review Fri week 2. Kill ≤0.6x ROAS, double-down on ≥1.6x.</li>
+    <li>Hook-length-platform matrix mirrors Brief 03 short-form testing — paid amplifies the formats that organic already validated.</li>
+    <li>Geo-locked from Day 1: UK and US run as separate ad accounts/regions with separate budget pots.</li>
+    <li>Calendar anchors (Lent, Easter, anniversary, US push, Advent) trigger spend pulses — see Brief 11 for the volume uplift.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Mon — analyst (Brief 15) hands paid lead the week's top organic signals. Tue–Wed — short-form editor cuts the four fresh creatives + variants. Thu — paid lead loads, geo-tags, schedules. Fri — last-week review + kill/scale decisions. Continuous Hodder visibility via the weekly dashboard auto-email.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Operational on creative once Brief 11 anchors are pre-approved. Spend allocation reviewed monthly with Hodder POC. New retail destinations (i.e. anything not in the current retail tree) require POC approval before linking.</div>
+</section>
+
+<!-- BRIEF 11 -->
+<section class="brief">
+  <div class="brief-id">Brief 11 · Calendar anchors · seasonal uplift</div>
+  <h2>Lent · Easter · Pentecost · Anniversary · Autumn Church Push · Advent</h2>
+  <p class="subtitle">The six moments in the year that demand more output, not different output. Each anchor has a pre-approved content brief and a volume uplift on top of the Section 09 floor.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Anchors / year</span><span class="val">6 (Lent · Easter · Pentecost · 19 Jun anniversary · autumn · Advent)</span></div>
+    <div><span class="label">Uplift volume</span><span class="val">+50% short-form, +1 long-form, +2 Substack /anchor fortnight</span></div>
+    <div><span class="label">Owner</span><span class="val">Editorial lead + community lead (cohort tie-ins)</span></div>
+    <div><span class="label">Approval</span><span class="val">Each anchor's content brief signed off 2 weeks prior — Section 08 rule</span></div>
+  </div>
+
+  <h3>The six anchors — what each one is</h3>
+  <ul>
+    <li><strong>Lent (40 days, late Feb–Apr):</strong> daily devotional short-form series. Companion 40-day Substack track (gated to subscribers). Cohort tie-in: Matthew or current Gospel.</li>
+    <li><strong>Holy Week + Easter (8 days):</strong> the biggest moment. 8-piece Substack series, daily short-form, one Reading special (Passion narrative), one Unpacking ("What the four Gospels say differently about the resurrection"). Paid spend pulse from Brief 10.</li>
+    <li><strong>Pentecost (1 week):</strong> 7-piece Substack series on the Acts opening + early church. Cohort tie-in if Acts cohort is mid-flight.</li>
+    <li><strong>19 June anniversary (publication day):</strong> launch-day commemoration. Year-1 results piece on Substack, "reader of the year" testimony reel, one short Bear-channel uplift post (existing footage), retail spend pulse. The yearly Bear-channel moment per the project_gset_bear_role rule.</li>
+    <li><strong>Autumn church push (Sep–Oct):</strong> Big Church Read / church discussion guide drop. Free PDF cohort guides released. Outreach pulse via Brief 13.</li>
+    <li><strong>Advent (24 days):</strong> daily Substack devotional series. Daily short-form pulled from Reading episodes covering the Nativity. One Bear-channel uplift post (Christmas Eve) — the second yearly Bear moment.</li>
+  </ul>
+
+  <h3>What an anchor uplift looks like in practice</h3>
+  <ul>
+    <li>Steady-state monthly: 8 long-form, 36 short-form, 20 IG, 4+2 Substack. Anchor fortnight: 9 long-form, 54 short-form, 25+ IG, 6+ Substack.</li>
+    <li>Daily seasonal series (Lent, Advent) run inside the short-form lane as a dedicated daily track — they don't replace the discovery short-form, they sit beside it.</li>
+    <li>Each anchor has a free email-gated PDF discussion guide attached, released to the Substack list 48hrs early.</li>
+    <li>Brief 10 paid spend pulses by +40–60% across the anchor fortnight, weighted to the bottom-of-funnel testimony creative.</li>
+  </ul>
+
+  <h3>The pre-approval content brief — what gets signed off</h3>
+  <ul>
+    <li>Theological line for the anchor (e.g. Easter framing, Pentecost emphasis) — locked with Hodder editorial 2 weeks ahead.</li>
+    <li>Volume table for the fortnight per workstream.</li>
+    <li>Specific scripture moments / Reading-episode cuts used across the anchor.</li>
+    <li>Whether Bear's own channels get an uplift post (anniversary + Christmas Eve only — confirm clip selection with Bear's social team).</li>
+    <li>Paid spend pulse and creative slate.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> 6 weeks ahead — editorial lead drafts anchor content brief. 4 weeks ahead — Hodder editorial pass. 2 weeks ahead — anchor brief locked, sign-off recorded, all editors briefed. Anchor fortnight — uplift volumes ship per the brief, daily reporting to the dashboard. Anchor +1 week — post-mortem note added to Brief 15 monthly report.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Each anchor content brief pre-approved by Hodder POC per Section 08. Bear-channel uplift posts confirmed with Bear's social team before scheduling.</div>
+</section>
+
+<!-- BRIEF 12 -->
+<section class="brief">
+  <div class="brief-id">Brief 12 · Cohort series · Mark → Acts</div>
+  <h2>The Four Cohorts After Matthew</h2>
+  <p class="subtitle">Matthew is the launch cohort (v3 Brief 04). This is the rolling system that runs Mark, Luke, John and Acts after it — each a 5-week structured read, each compounding subscriber depth.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">1 cohort always live · 5 weeks each · Mark → Luke → John → Acts</span></div>
+    <div><span class="label">Cadence</span><span class="val">~6-week gap between cohorts (5 wks live + 1 wk reset)</span></div>
+    <div><span class="label">Owner</span><span class="val">Community lead + Substack editor (cohort companion posts)</span></div>
+    <div><span class="label">Reuse</span><span class="val">Matthew kit (v3 B04) is the template — same shape, fresh scripture</span></div>
+  </div>
+
+  <h3>The repeating five-week structure</h3>
+  <ul>
+    <li><strong>Wk 1 — Open:</strong> sign-up window closes, welcome email sequence fires (5 emails, day 1–5), first weekly live thread Thursday.</li>
+    <li><strong>Wks 2–4 — Read:</strong> daily passage emails (Substack cohort-only segment), two cohort companion essays per week, weekly live thread Thursday, mid-cohort short-form pulse.</li>
+    <li><strong>Wk 5 — Close:</strong> graduation thread, "what this Gospel changed for you" testimony curation pulse (feeds Brief 05), early sign-up window opens for the next cohort.</li>
+    <li><strong>+1 reset week:</strong> swap kit assets (banner, calendar, weekly threads, passage emails) for next Gospel. Roll learnings from last cohort's post-mortem into next kit.</li>
+  </ul>
+
+  <h3>The four cohort kits</h3>
+  <ul>
+    <li><strong>Mark — "The urgent Gospel":</strong> framed for first-time readers and busy professionals — 16 chapters, fastest read. Cohort emphasis on pace, action verbs, the shortest Gospel as the entry point.</li>
+    <li><strong>Luke — "The Gospel of the outsider":</strong> framed for the spiritually-fatigued + the Bible-intimidated. Cohort emphasis on the parables (Good Samaritan, Prodigal Son), women and outsiders in Luke's account.</li>
+    <li><strong>John — "The Gospel of meaning":</strong> framed for the lapsed and the philosophically-inclined. Cohort emphasis on the I AM statements, signs, and the prologue.</li>
+    <li><strong>Acts — "The story keeps going":</strong> framed as the bridge from Gospel to lived faith. Cohort emphasis on Pentecost, Paul, the early church. Sequenced for autumn so it overlaps the Pentecost anchor.</li>
+  </ul>
+
+  <h3>Each kit's contents (cloned from Matthew template)</h3>
+  <ul>
+    <li>Cohort landing page (Substack section), banner artwork (Brief 07 templated), 5-week reading calendar PDF</li>
+    <li>35 daily passage emails (one per day, 200–300 words framing + the passage)</li>
+    <li>5 weekly thread prompts, 10 cohort companion essays (Substack cohort-only), graduation thread + testimony prompt</li>
+    <li>Welcome email sequence (5 emails) + early sign-up reminder sequence (3 emails for the next cohort)</li>
+    <li>Short-form pulse pack: 5 cohort-themed clips per cohort, ahead of week 1 (re-cut from Reading episodes covering that Gospel)</li>
+  </ul>
+
+  <h3>Year-1 cohort calendar (illustrative)</h3>
+  <ul>
+    <li>Month 2 — Matthew opens (v3 B04 kit)</li>
+    <li>Month 4 — Mark opens</li>
+    <li>Month 6 — Luke opens (anchored against autumn church push)</li>
+    <li>Month 8 — John opens</li>
+    <li>Month 10 — Acts opens (anchored against the next Pentecost if calendar permits)</li>
+    <li>Year 2 — repeat with refreshed companion essays + testimonies</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> 6 weeks before each cohort opens — community lead and Substack editor clone the Matthew template, swap scripture + companion essays, brief Brief 07 designer for banner refresh. 4 weeks ahead — Hodder editorial pass on companion essays. 2 weeks ahead — early sign-up opens to current cohort + Substack list. Week 5 of previous cohort — sign-up opens publicly + short-form pulse fires.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Each cohort's companion essay slate edited by Hodder per Section 08. Cohort calendar pre-approved annually with Hodder POC.</div>
+</section>
+
+<!-- BRIEF 13 -->
+<section class="brief">
+  <div class="brief-id">Brief 13 · Church partnerships · institutional outreach</div>
+  <h2>Big Church Read + Church Partner Engine</h2>
+  <p class="subtitle">The institutional channel — pastors, small-group leaders, church comms managers, theological colleges. Continuous from Month 1, scaling steadily. Not paid media. Earned relationships and free useful tools.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Volume</span><span class="val">10 partner conversations/mo · 4 free tools/year · 1 monthly leaders' digest</span></div>
+    <div><span class="label">Owner</span><span class="val">Partnerships lead (part-time, ~12 hrs/wk) + community lead</span></div>
+    <div><span class="label">Free tools</span><span class="val">Discussion guides · sermon companion · cohort kit · Lent/Advent guides</span></div>
+    <div><span class="label">Channels</span><span class="val">Email · LinkedIn · church-leader Facebook group · industry events</span></div>
+  </div>
+
+  <h3>What "partnership" means in practice</h3>
+  <ul>
+    <li>Free email-gated discussion guides for the book, released at each calendar anchor (Lent, Easter, Pentecost, Advent) — ungated for any church that wants to use them.</li>
+    <li>Cohort kit shareable with churches running their own read-along (the v3 B04 / Brief 12 kit, repackaged as a "run this in your church" pack).</li>
+    <li>Sermon companion notes — one-page outline notes for each Gospel, designed for pastors preparing sermons on those passages.</li>
+    <li>Monthly leaders' digest email (separate Substack section / list) — what's coming, free resources, reader stories from other churches.</li>
+    <li>Theological college outreach — offering free copies + discussion guides for "Gospels in popular culture" / "evangelism in contemporary publishing" modules.</li>
+  </ul>
+
+  <h3>The outreach cadence</h3>
+  <ul>
+    <li><strong>10 partner conversations/month:</strong> warm outbound to UK + US pastors, denominational comms leads, parachurch organisations (UCB, Premier, Hope Together, Alpha, US equivalents). Track in a simple CRM (Airtable / Notion) — name, denomination, region, last touch, status.</li>
+    <li><strong>1 monthly leaders' digest:</strong> sent first Monday of the month to the partner list + opt-in church leaders. ~600 words, plain, no merch.</li>
+    <li><strong>Quarterly partner spotlight:</strong> Substack reader-letter format featuring a church or leader who's used the book. Feeds Brief 04.</li>
+    <li><strong>1 industry event/quarter:</strong> conference attendance or sponsored side-room — partnerships lead represents. Existing Bear archive talks usable as session content.</li>
+  </ul>
+
+  <h3>The four free tools / year</h3>
+  <ul>
+    <li><strong>Lent discussion guide</strong> — 40 sessions, mapped to the Lent Substack track</li>
+    <li><strong>Easter sermon companion</strong> — Passion narrative across the four Gospels, with cross-references</li>
+    <li><strong>Cohort run-it-yourself pack</strong> — full 5-week kit for any church to run a Matthew (or any Gospel) read-along</li>
+    <li><strong>Advent family devotional</strong> — 24 days, designed for use in homes and small groups, plus a church-service liturgy version</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> ongoing — partnerships lead works the CRM weekly, books calls, tracks status. Mon week 1 — monthly leaders' digest ships. Quarterly — partner spotlight + free tool releases. Continuous — feedback from partners feeds testimony curation (Brief 05) and Substack reader letters (v2 B04).
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Partner outreach copy and free tools approved by Hodder POC on first release; subsequent personalised emails operational. Endorsement asks (e.g. denominational leader quote) routed through Hodder.</div>
+</section>
+
+<!-- BRIEF 14 -->
+<section class="brief">
+  <div class="brief-id">Brief 14 · International · Spanish · Portuguese · Brazil pilot</div>
+  <h2>International Expansion — The Month 6 Stand-Up</h2>
+  <p class="subtitle">The deck's Month 6+ phase. Three new language/region pilots without a separate retainer line. Lean — translated content, partner-led distribution, lightweight local channels.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Activate</span><span class="val">Month 6 (Spanish + Portuguese channels) · Month 7 (Brazil Substack pilot)</span></div>
+    <div><span class="label">Volume Y1</span><span class="val">4 long-form/mo per language · 12 short-form/mo per language · monthly Substack</span></div>
+    <div><span class="label">Owner</span><span class="val">International producer (PT-time per language) + translation partner</span></div>
+    <div><span class="label">Translation</span><span class="val">Excluded from £5k/mo retainer · Hodder budget line per deck Section 11</span></div>
+  </div>
+
+  <h3>What each language stands up</h3>
+  <ul>
+    <li><strong>YouTube channel</strong> — translated audiobook tracks (where rights permit) over the existing Reading visual template. Translated end-card scripture overlays.</li>
+    <li><strong>Substack section</strong> — translated thematic articles (2/mo) + one translated theologian essay. Original locale-specific reader letters where possible.</li>
+    <li><strong>Short-form lane</strong> — 12 clips/mo per language, translated captions + region-specific text cards, scheduled to local prime times.</li>
+    <li><strong>Local partnership</strong> — at least one institutional partner per region (publishing imprint, church network, theological college) identified by month 5.</li>
+  </ul>
+
+  <h3>What Brazil-pilot looks like</h3>
+  <ul>
+    <li>Substack-led, not video-led. Cheaper to test, faster to read demand.</li>
+    <li>Translated thematic articles + Pentecost / Easter anchor companions in PT-BR.</li>
+    <li>Local reader-testimony curation (Brief 05 process, PT-BR consent flow).</li>
+    <li>Decision point at Month 9 — if Substack growth crosses a defined threshold, stand up the YouTube channel; if not, archive cleanly.</li>
+  </ul>
+
+  <h3>Quality + voice</h3>
+  <ul>
+    <li>Translation by humans, not AI (Hachette policy applies absolutely — published copy never AI-generated).</li>
+    <li>Native speaker / theological reviewer in each language signs off the launch slate before publish.</li>
+    <li>Voice rules from v2 B04 carry across translated: warm, direct, invitational, never preachy.</li>
+    <li>Imagery and brand identity (v2 B07) cloned exactly — no regional re-brand.</li>
+  </ul>
+
+  <h3>What we are explicitly not doing</h3>
+  <ul>
+    <li>Not standing up paid media in international regions until organic baselines exist (mirror UK/US logic from Brief 10).</li>
+    <li>Not commissioning new Bear filming for any region — archive only.</li>
+    <li>Not launching all three regions on day 1 — Spanish and Portuguese in Month 6, Brazil pilot in Month 7 to keep producer load real.</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 4 — international producer scoped + translation partner shortlisted. Month 5 — local partnerships identified, launch slate translated. Month 6 — Spanish + Portuguese channels open with 4 episodes + 12 clips + first Substack post live. Month 7 — Brazil Substack pilot opens. Month 9 — Brazil decision point.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> International launch slate approved by Hodder POC. Translation partner contracts sit with Hodder (not BGV). Ongoing translated content operational once launch slate is locked.</div>
+</section>
+
+<!-- BRIEF 15 -->
+<section class="brief">
+  <div class="brief-id">Brief 15 · Measurement · the reporting loop</div>
+  <h2>The Monthly Hodder Report + Always-On Dashboard</h2>
+  <p class="subtitle">The engine has to be legible to Hodder — not as a vanity scoreboard, but as the case for what's working and what should change. Built in Month 1, live by end of Month 1, runs forever after.</p>
+
+  <div class="meta-grid">
+    <div><span class="label">Cadence</span><span class="val">Weekly auto-email · monthly report deck · quarterly review meeting</span></div>
+    <div><span class="label">Owner</span><span class="val">Analyst (part-time, ~12 hrs/wk) + Olly review</span></div>
+    <div><span class="label">Stack</span><span class="val">Looker / Metabase + Substack API + YouTube Studio API + Meta Insights API</span></div>
+    <div><span class="label">SLA</span><span class="val">Weekly email Mon AM · monthly deck first Tue of new month</span></div>
+  </div>
+
+  <h3>The four signals that matter</h3>
+  <ul>
+    <li><strong>Subscribed reach</strong> — Substack subs, YT subs, IG follows, FB Page + Group members. Net new, not vanity total. Cohort breakdowns.</li>
+    <li><strong>Engagement quality</strong> — Substack open rate + paid conversion rate, YT average view duration + retention, IG save+share ratio. Comment quality flagged by community lead.</li>
+    <li><strong>Retail attribution</strong> — UTM-tagged clicks from each surface (v2 B06), conversion rate where the retailer surfaces it (Amazon Attribution where possible). Weekly geo split.</li>
+    <li><strong>Cohort completion</strong> — read-along signups, week-4 retention, graduation rate, testimony volume produced.</li>
+  </ul>
+
+  <h3>What the weekly email contains</h3>
+  <ul>
+    <li>Top-line numbers — 4 signals above, last 7 days vs trailing 28d average</li>
+    <li>One "what's working" callout — fastest-growing format or piece</li>
+    <li>One "what's not" callout — biggest miss + the hypothesis for next week</li>
+    <li>Calendar anchor / cohort status if mid-flight</li>
+    <li>One specific decision the analyst would make if running the engine alone — flagged so Hodder sees the operational instinct, not just the data</li>
+  </ul>
+
+  <h3>What the monthly deck contains</h3>
+  <ul>
+    <li>Section 09 volumes shipped vs target (per workstream)</li>
+    <li>Engagement deltas vs last month — what moved and why</li>
+    <li>Retail attribution summary — UK + US split, per-channel attribution share</li>
+    <li>Cohort report — sign-ups, completion, testimonies</li>
+    <li>Brief 10 paid efficiency — spend, ROAS, fresh creative slate</li>
+    <li>Next month's adjust calls — what we're changing, what we're holding</li>
+    <li>One open question for Hodder — what we'd like a steer on</li>
+  </ul>
+
+  <h3>The quarterly review meeting</h3>
+  <ul>
+    <li>30 min, virtual, Olly + Hodder POC + analyst</li>
+    <li>Three slides only: what worked, what didn't, what's next</li>
+    <li>Output: one written decision memo signed off by both sides, filed in the content library</li>
+  </ul>
+
+  <h3>What we don't measure (deliberately)</h3>
+  <ul>
+    <li>Vanity reach metrics that don't tie back to engagement or retail</li>
+    <li>Per-post performance below the trend line — noise, not signal</li>
+    <li>Cross-platform follower overlap until Year 2 — premature for what it costs to compute</li>
+  </ul>
+
+  <div class="pipeline">
+    <strong>Production pipeline:</strong> Month 1 wk 2 — dashboard stack stood up, APIs connected. Month 1 wk 3 — first internal dry-run weekly email. Month 1 wk 4 — first weekly email shipped to Hodder POC. End of Month 2 — first full monthly deck shipped. Month 3 — first quarterly review meeting scheduled.
+  </div>
+  <div class="signoff"><strong>Sign-off:</strong> Dashboard + weekly + monthly templates pre-approved by Hodder POC in Month 1. Ongoing reports operational. Quarterly review decisions co-signed.</div>
+</section>
+
+<!-- Phasing strip -->
+<div class="phasing">
+  <h2>When each v4 brief activates against the v2 phasing.</h2>
+  <div class="phasing-grid">
+    <div class="phasing-col">
+      <h4>Month 1 · Onboarding</h4>
+      <ul>
+        <li>Brief 13 partnerships lead onboarded, CRM stood up</li>
+        <li>Brief 15 dashboard stack built, APIs connected</li>
+        <li>Brief 11 anchor calendar drafted with editorial lead</li>
+        <li>Brief 10 paid account structures opened (no spend yet)</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 2 · Launch</h4>
+      <ul>
+        <li>Brief 15 first weekly email + monthly deck ship</li>
+        <li>Brief 10 first paid creatives go live</li>
+        <li>Brief 13 first leaders' digest ships</li>
+        <li>Brief 11 first anchor brief locked (next calendar anchor)</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Months 3–5 · Steady state</h4>
+      <ul>
+        <li>Brief 12 Mark cohort opens (Month 4)</li>
+        <li>Brief 11 anchors run as they arrive</li>
+        <li>Brief 13 monthly partner cadence locked in</li>
+        <li>Brief 15 quarterly review #1 held</li>
+      </ul>
+    </div>
+    <div class="phasing-col">
+      <h4>Month 6+ · International</h4>
+      <ul>
+        <li>Brief 14 Spanish + Portuguese channels open</li>
+        <li>Brief 12 Luke cohort opens (autumn church push)</li>
+        <li>Brief 13 autumn free tool drop</li>
+        <li>Brief 14 Brazil pilot decision at Month 9</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Ted · GSET · 3 June 2026 · v4 of the creative briefs pack · extends <em>gset-creative-briefs-v2-2026-05-19.html</em><br>
+  Companion to <em>GSET_Bear_Witness_Pitch.html</em> · sized to deck Section 09 monthly volumes · Hachette AI policy applies absolutely · no new Bear filming
+</footer>
+
+</body>
+</html>
