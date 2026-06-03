@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TH White-Label — Personal Outreach Playbook (Going Live · 3 June 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2C3E50;
+    --ink-dim: #6B7A89;
+    --ink-faint: #A8B2BD;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --line: #E8ECF0;
+    --line-soft: #F1F4F7;
+    --navy: #1A1A2E;
+    --accent: #2ECC71;
+    --warn: #E67E22;
+    --highlight: #FFF8E1;
+    --highlight-line: #F0C040;
+    --red-bg: #FDEDEC;
+    --red-line: #E74C3C;
+    --red-ink: #7B241C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { background: var(--navy); color: #fff; padding: 5rem 0 4rem; margin-bottom: 3rem; }
+  .hero .eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8899AA; margin-bottom: 1.2rem; }
+  .hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.8rem; }
+  .hero .sub { color: #B8C2CC; font-size: 1.05rem; font-weight: 400; max-width: 680px; line-height: 1.6; }
+  .hero .meta { margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8899AA; }
+  .hero .meta span strong { color: #fff; font-weight: 600; }
+
+  /* Sections */
+  section { margin-bottom: 3rem; }
+  h2 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.5rem; font-weight: 600; }
+  h3 { font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; letter-spacing: -0.01em; }
+  p { margin-bottom: 0.8rem; }
+  p.lead { font-size: 1.05rem; color: var(--ink-dim); margin-bottom: 1.5rem; }
+
+  .subhead { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 1.8rem 0 0.6rem; letter-spacing: -0.01em; }
+  .subhead .tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
+
+  /* TL;DR */
+  .tldr { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1.6rem 1.8rem; margin-bottom: 2rem; }
+  .tldr .label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; }
+  .tldr ul { list-style: none; }
+  .tldr li { padding: 0.35rem 0; font-size: 0.95rem; color: var(--ink); }
+  .tldr li::before { content: '→'; color: var(--accent); margin-right: 0.6rem; font-weight: 700; }
+
+  /* Decisions callout */
+  .decisions { background: var(--highlight); border-left: 4px solid var(--highlight-line); border-radius: 0 6px 6px 0; padding: 1.4rem 1.6rem; margin-bottom: 3rem; }
+  .decisions .label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8B6914; font-weight: 700; margin-bottom: 0.8rem; }
+  .decisions ol { padding-left: 1.2rem; }
+  .decisions li { padding: 0.25rem 0; font-size: 0.92rem; color: #5A4509; }
+  .decisions li strong { color: #3A2D04; }
+
+  /* Cards */
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.9rem; margin: 1.5rem 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.3rem 1.4rem; }
+  .card .num { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin-bottom: 0.5rem; }
+  .card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); }
+  .card p { font-size: 0.88rem; color: var(--ink-dim); line-height: 1.55; margin: 0; }
+  .card .big { font-size: 1.6rem; font-weight: 800; color: var(--navy); margin: 0.2rem 0; letter-spacing: -0.02em; }
+
+  /* Table */
+  .table-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 1.2rem 0; }
+  .table-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; padding: 0.9rem 1.1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  th, td { text-align: left; padding: 0.75rem 1.1rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  th { background: var(--line-soft); font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; }
+  tr:last-child td { border-bottom: none; }
+  td.partner { font-weight: 700; color: var(--navy); }
+  td.cat { color: var(--ink-dim); font-size: 0.8rem; }
+  td.note { color: var(--ink-dim); font-size: 0.82rem; line-height: 1.5; }
+  td.touch { font-size: 0.8rem; color: var(--ink); }
+  td.center { text-align: center; }
+
+  .flag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.12rem 0.45rem; border-radius: 3px; font-weight: 700; white-space: nowrap; }
+  .flag.cert { background: #EAF7F0; color: #1E8449; }
+  .flag.warm { background: #E8F0FA; color: #1A5490; }
+  .flag.cold { background: var(--line-soft); color: var(--ink-dim); }
+  .flag.intro { background: #FEF5E7; color: #B9770E; }
+  .flag.hold { background: #FDEDEC; color: #B03A2E; }
+
+  /* Message templates */
+  .templates { display: grid; gap: 1rem; margin: 1.2rem 0; }
+  .msg { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .msg-head { background: var(--line-soft); padding: 0.7rem 1.2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); font-weight: 700; gap: 1rem; flex-wrap: wrap; }
+  .msg-head .timing { background: var(--navy); color: #fff; padding: 0.2rem 0.6rem; border-radius: 3px; font-size: 0.65rem; letter-spacing: 0.1em; }
+  .msg-subject { padding: 0.8rem 1.4rem 0; font-size: 0.78rem; color: var(--ink-dim); font-weight: 600; }
+  .msg-subject strong { color: var(--ink); }
+  .msg-body { padding: 0.8rem 1.4rem 1.3rem; font-size: 0.9rem; color: var(--ink); line-height: 1.7; white-space: pre-wrap; font-family: 'Montserrat', sans-serif; }
+
+  /* Note callout */
+  .note { background: var(--highlight); border-left: 4px solid var(--highlight-line); padding: 1rem 1.3rem; border-radius: 0 6px 6px 0; margin: 1.2rem 0; font-size: 0.88rem; color: #6B5410; }
+  .note strong { color: #5A4509; }
+  .note.flag-red { background: var(--red-bg); border-left-color: var(--red-line); color: var(--red-ink); }
+  .note.flag-red strong { color: #641E16; }
+
+  /* Feature block */
+  .feature { background: var(--navy); color: #fff; border-radius: 10px; padding: 1.8rem 1.9rem; margin: 1.4rem 0; }
+  .feature .kicker { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8899AA; font-weight: 700; margin-bottom: 0.7rem; }
+  .feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .feature p { color: #C5CDD6; font-size: 0.92rem; margin-bottom: 0.8rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .feature strong { color: #fff; }
+  .feature .pill { display: inline-block; background: rgba(46,204,113,0.18); color: #6FE0A0; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.9rem; }
+
+  /* Numbered steps */
+  .tactics { counter-reset: t; list-style: none; margin: 1.2rem 0; display: grid; gap: 0.7rem; }
+  .tactics li { counter-increment: t; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.95rem 1.1rem 0.95rem 3.1rem; position: relative; font-size: 0.9rem; color: var(--ink-dim); line-height: 1.55; }
+  .tactics li::before { content: counter(t); position: absolute; left: 1rem; top: 0.9rem; width: 1.5rem; height: 1.5rem; background: var(--navy); color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .tactics li strong { color: var(--ink); }
+
+  /* Discovery script block */
+  .script { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem 1.6rem; margin: 1rem 0; }
+  .script-row { display: grid; grid-template-columns: 80px 1fr; gap: 1.2rem; padding: 0.85rem 0; border-bottom: 1px solid var(--line-soft); }
+  .script-row:last-child { border-bottom: none; }
+  .script-row .time { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; padding-top: 0.15rem; }
+  .script-row .step h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--navy); }
+  .script-row .step p, .script-row .step ul { font-size: 0.87rem; color: var(--ink-dim); line-height: 1.6; }
+  .script-row .step ul { margin-left: 1rem; }
+  .script-row .step li { padding: 0.15rem 0; }
+  .script-row .step .said { font-style: italic; color: var(--ink); border-left: 2px solid var(--line); padding-left: 0.8rem; margin: 0.5rem 0; }
+
+  /* Objection table specifics */
+  .obj-tbl td.obj { font-weight: 700; color: var(--navy); width: 28%; }
+  .obj-tbl td.ans { color: var(--ink); font-size: 0.85rem; }
+
+  /* Two-column split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  @media (max-width: 700px) { .split { grid-template-columns: 1fr; } }
+
+  /* Checklist */
+  .checklist { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem 1.6rem; margin: 1.2rem 0; }
+  .checklist h4 { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 1rem; font-weight: 700; }
+  .checklist ul { list-style: none; }
+  .checklist li { padding: 0.5rem 0 0.5rem 1.8rem; position: relative; font-size: 0.92rem; border-bottom: 1px solid var(--line-soft); }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; }
+
+  /* Tracker preview table */
+  .tracker { font-size: 0.78rem; }
+  .tracker th { font-size: 0.6rem; }
+  .tracker td { padding: 0.55rem 0.7rem; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 2rem 0 3rem; font-size: 0.75rem; color: var(--ink-faint); text-align: center; }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+
+  strong { font-weight: 700; }
+  .inline-key { color: var(--navy); font-weight: 700; }
+
+  /* Section anchor links */
+  .anchor-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 2rem; }
+  .anchor-nav a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); background: var(--line-soft); padding: 0.4rem 0.7rem; border-radius: 4px; text-decoration: none; font-weight: 700; }
+  .anchor-nav a:hover { background: var(--navy); color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ted's Health · White-Label · Going Live</div>
+    <h1>Personal Outreach Playbook</h1>
+    <p class="sub">The operational pack to run Olly's own outbound from Monday. Priority 30 targets, the four-touch sequences, the discovery script, the objection map, the cadence, and the exact moment to hand a conversation to Calvin.</p>
+    <div class="meta">
+      <span><strong>Owner</strong> Olly Westmacott</span>
+      <span><strong>Built</strong> 3 June 2026</span>
+      <span><strong>Live at once</strong> 8–10 conversations</span>
+      <span><strong>Win</strong> a booked strategy call</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="label">In one screen</div>
+    <ul>
+      <li><strong>30 priority targets</strong> across LegitScript-certified pharmacies, men's-health clinics, diagnostics, cannabis clinics, premium gym groups and one representative body</li>
+      <li><strong>Channel mix:</strong> 11 warm email · 12 LinkedIn-first · 4 warm intro via Calvin/BGV · 3 supermarket BD (parallel slower track)</li>
+      <li><strong>4-touch sequence over ~16 days</strong>, then park. Cap <strong>8–10 active</strong> at any one time so every reply gets a same-day reply</li>
+      <li><strong>Olly runs the call</strong>; hand to Calvin only when the partner has confirmed (a) compliance fit, (b) genuine commercial intent, (c) a named decision-maker on the other end</li>
+      <li><strong>Track every touch</strong> in the Notion / sheet template at the bottom — single source of truth, updated as you go</li>
+    </ul>
+  </div>
+
+  <!-- Decisions needed -->
+  <div class="decisions">
+    <div class="label">Decisions Olly needs to make before Monday</div>
+    <ol>
+      <li><strong>Rev-share floor</strong> — what number can you quote on the call? Pull from Calvin. Without this, every discovery call stalls at the same point.</li>
+      <li><strong>Time-to-live</strong> — from signature to a partner running on TH-WL. Calvin + engineering give the honest number.</li>
+      <li><strong>Pilot terms</strong> — are we willing to lead with a free pilot + rev-share, no upfront? (Strongly recommended — removes the biggest objection.)</li>
+      <li><strong>Calendly / scheduling link</strong> for the 30-minute partner strategy call. Lives in every Touch 1 and Touch 3.</li>
+      <li><strong>Email signature + "from" address</strong> — olly@bgventures.com or olly@tedshealth.com? Pick one and stay consistent for deliverability.</li>
+      <li><strong>Confirm territory holds:</strong> Mosh (Australia) and Optiman (Ireland) — in or out of Wave 1?</li>
+    </ol>
+  </div>
+
+  <!-- Anchor nav -->
+  <div class="anchor-nav">
+    <a href="#targets">1 · Targets</a>
+    <a href="#channel">2 · Channel mix</a>
+    <a href="#sequences">3 · Sequences</a>
+    <a href="#discovery">4 · Discovery call</a>
+    <a href="#objections">5 · Objections</a>
+    <a href="#cadence">6 · Cadence</a>
+    <a href="#handover">7 · Calvin handover</a>
+    <a href="#tracker">8 · Tracker</a>
+  </div>
+
+  <!-- 1. TARGET LIST -->
+  <section id="targets">
+    <h2>1 · Target List</h2>
+    <h3>Priority 30 — Wave 1</h3>
+    <p class="lead">Pulled from the LegitScript research (12 certified + the most-likely-positive of the 10 unknowns), plus the adjacent verticals where the white-label thesis already holds: men's-health clinics, diagnostics, cannabis clinics, premium male gym groups and one rep-body anchor. Olly sources the named decision-maker per row before sending.</p>
+
+    <div class="grid-4">
+      <div class="card"><div class="num">Certified</div><div class="big">11</div><p>LegitScript-certified — lowest onboarding friction. Lead the week.</p></div>
+      <div class="card"><div class="num">Strong fit</div><div class="big">9</div><p>Clinics &amp; diagnostics with the patient base and the gap.</p></div>
+      <div class="card"><div class="num">Adjacent</div><div class="big">7</div><p>Cannabis clinics, gym groups, member bodies — same logic.</p></div>
+      <div class="card"><div class="num">Slow track</div><div class="big">3</div><p>Supermarkets — separate BD lane, not in the 8–10 cap.</p></div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-title">Tier 1 — LegitScript-certified (warmest, lowest-friction) · 11 targets</div>
+      <table>
+        <thead><tr><th>#</th><th>Partner</th><th>Contact-person target</th><th>Channel</th><th>Why they fit (1 line)</th><th>Warmth</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="partner">Click Pharmacy</td><td class="note">Adeem Younis (Founder/MD)</td><td class="touch">Warm email</td><td class="note">Compliant prescribing pharmacy — clean WL backend match, men's health already in range</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>2</td><td class="partner">MedExpress</td><td class="note">Hussain Abdeh (Superintendent Pharmacist)</td><td class="touch">Warm email</td><td class="note">Established online pharmacy; LS-cert + prescribing infra in place</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>3</td><td class="partner">Pharmica</td><td class="note">Sanjay Patel (Co-founder/CEO)</td><td class="touch">LinkedIn → email</td><td class="note">Men's-health &amp; ED already in their range — bolt-on logic obvious</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>4</td><td class="partner">Simple Online Pharmacy</td><td class="note">Adam Hunter (CEO) — absorbed Dr Felix</td><td class="touch">Warm email</td><td class="note">Larger combined audience post-Dr Felix; treatment-focused online pharmacy</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>5</td><td class="partner">SimplyMeds Online</td><td class="note">Asif Khan (Superintendent Pharmacist)</td><td class="touch">Warm email</td><td class="note">Compliant online pharmacy with prescribing</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>6</td><td class="partner">The Independent Pharmacy</td><td class="note">Andy Boysan (Co-founder/Superintendent)</td><td class="touch">Warm email</td><td class="note">Sizeable independent online pharmacy; long-standing brand</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>7</td><td class="partner">Treated</td><td class="note">Daniel Hurst (Founder/CEO)</td><td class="touch">Warm email</td><td class="note">Broad treatment range incl. men's health — strong brand fit, founder-led</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>8</td><td class="partner">Well Pharmacy</td><td class="note">Seb James (CEO) — large multiple</td><td class="touch">Warm intro</td><td class="note">UK chain at scale; real cert means real compatibility. Pursue only via intro.</td><td><span class="flag intro">Intro needed</span></td></tr>
+          <tr><td>9</td><td class="partner">Mojo</td><td class="note">Tarek Pertew (CEO/Co-founder)</td><td class="touch">LinkedIn → email</td><td class="note">Direct men's / sexual health audience overlap</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>10</td><td class="partner">Mosh <span class="flag hold">AU</span></td><td class="note">Gabriel Baker (Co-founder/CEO)</td><td class="touch">LinkedIn</td><td class="note">Strong topical fit but Australia-based — confirm territory intent before sending</td><td><span class="flag hold">Hold</span></td></tr>
+          <tr><td>11</td><td class="partner">ZAVA <span class="flag hold">Competitor</span></td><td class="note">—</td><td class="touch">—</td><td class="note">Runs Asda Online Doctor &amp; sells WL itself. Benchmark only — do not approach.</td><td><span class="flag hold">Excluded</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-title">Tier 2 — strong fit, not certified · 9 targets</div>
+      <table>
+        <thead><tr><th>#</th><th>Partner</th><th>Contact-person target</th><th>Channel</th><th>Why they fit (1 line)</th><th>Warmth</th></tr></thead>
+        <tbody>
+          <tr><td>12</td><td class="partner">Men's Health Clinic</td><td class="note">Mike Kocsis (Founder/MD)</td><td class="touch">LinkedIn → email</td><td class="note">Same patient &amp; conditions; highest topical overlap of any target</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>13</td><td class="partner">Optiman Clinics <span class="flag hold">IE</span></td><td class="note">Dr Hugh Hidvegi (Medical Director)</td><td class="touch">LinkedIn</td><td class="note">Direct fit — Ireland's men's health clinic. Confirm territory.</td><td><span class="flag hold">Hold</span></td></tr>
+          <tr><td>14</td><td class="partner">Androfill</td><td class="note">Mark Smith (Founder)</td><td class="touch">LinkedIn → email</td><td class="note">Men's-focused aesthetics clinic — adjacent audience, no hormone arm</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>15</td><td class="partner">Medichecks</td><td class="note">Helen Marsden (CEO)</td><td class="touch">Warm email</td><td class="note">Owns the trigger (hormone results), no treatment pathway — classic demand-leak</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>16</td><td class="partner">Thriva</td><td class="note">Hamish Grierson (Co-founder/CEO)</td><td class="touch">LinkedIn → email</td><td class="note">Home-test audience, no hormone treatment arm — clean partnership angle</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>17</td><td class="partner">Randox Health</td><td class="note">Dr Peter FitzGerald (Founder/MD)</td><td class="touch">Warm intro</td><td class="note">Large diagnostics base; treatment pathway gap. Better via intro.</td><td><span class="flag intro">Intro needed</span></td></tr>
+          <tr><td>18</td><td class="partner">Bluecrest Wellness</td><td class="note">Dominique Kent (CEO)</td><td class="touch">LinkedIn → email</td><td class="note">Health-screening audience with men in it; no treatment arm</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>19</td><td class="partner">Doctor Fox</td><td class="note">Dr Tony Steele (Founder)</td><td class="touch">Warm email</td><td class="note">GPhC-registered since 2010; prescribing infra exists, no LS-cert</td><td><span class="flag cold">Cold</span></td></tr>
+          <tr><td>20</td><td class="partner">The STI Clinic</td><td class="note">Dr Anand Patel (Medical Director)</td><td class="touch">LinkedIn</td><td class="note">Sexual-health audience overlaps men's-health demand</td><td><span class="flag cold">Cold</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-title">Tier 3 — adjacent verticals (same logic, different category) · 7 targets</div>
+      <table>
+        <thead><tr><th>#</th><th>Partner</th><th>Contact-person target</th><th>Channel</th><th>Why they fit (1 line)</th><th>Warmth</th></tr></thead>
+        <tbody>
+          <tr><td>21</td><td class="partner">Releaf</td><td class="cat">Cannabis clinic</td><td class="note">Graham Woodward (CEO)</td><td class="touch">LinkedIn → email</td><td class="note">Digital-first clinic, large male patient base, founder-led &amp; commercially nimble</td></tr>
+          <tr><td>22</td><td class="partner">Mamedica</td><td class="cat">Cannabis clinic</td><td class="note">Dr Jon Robson (Co-founder)</td><td class="touch">LinkedIn → email</td><td class="note">Established UK operator with own integrated pharmacy</td></tr>
+          <tr><td>23</td><td class="partner">Alternaleaf</td><td class="cat">Cannabis clinic</td><td class="note">Sebastian Robinson (UK lead)</td><td class="touch">LinkedIn</td><td class="note">Telehealth-first cannabis clinic, scaling fast in UK</td></tr>
+          <tr><td>24</td><td class="partner">Third Space</td><td class="cat">Premium gym group</td><td class="note">Colin Waggett (CEO)</td><td class="touch">Warm intro</td><td class="note">London premium gyms, high-earning male base — co-brand member benefit fits</td></tr>
+          <tr><td>25</td><td class="partner">Equinox UK</td><td class="cat">Premium gym</td><td class="note">UK GM (LinkedIn search)</td><td class="touch">Warm intro</td><td class="note">Premium male-skewed members; wellness add-ons already in their playbook</td></tr>
+          <tr><td>26</td><td class="partner">Ted's Grooming Room</td><td class="cat">Barbershop chain</td><td class="note">Niraj Chande (Founder/CEO)</td><td class="touch">LinkedIn</td><td class="note">Captive male footfall across UK sites — POS / referral pilot, no tech build</td></tr>
+          <tr><td>27</td><td class="partner">Rugby Players' Association (RPA)</td><td class="cat">Rep body</td><td class="note">Commercial / Partnerships Lead</td><td class="touch">Warm intro (BGV/Bear)</td><td class="note">Captive ex-pro-player base = exact TH demographic. Co-branded member benefit angle.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-title">Slow track — supermarkets (separate BD lane, NOT in the 8–10 cap) · 3 targets</div>
+      <table>
+        <thead><tr><th>#</th><th>Partner</th><th>Contact-person target</th><th>Channel</th><th>Why they fit (1 line)</th><th>Warmth</th></tr></thead>
+        <tbody>
+          <tr><td>28</td><td class="partner">Sainsbury's</td><td class="note">Health &amp; Wellness Category Lead</td><td class="touch">Warm intro</td><td class="note">Pharmacy gap since LloydsPharmacy exit (2023) — clearest white space</td></tr>
+          <tr><td>29</td><td class="partner">Waitrose</td><td class="note">Health &amp; Beauty Lead</td><td class="touch">Warm intro</td><td class="note">Premium, health-conscious base; no online clinic. Brand fits TH quality.</td></tr>
+          <tr><td>30</td><td class="partner">Ocado</td><td class="note">New Categories Lead</td><td class="touch">Warm intro</td><td class="note">Pure-online tech-forward grocer — natural fit for a digital clinic add-on</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><strong>Contact-data caveat:</strong> contact-person targets above are the role to find, with the most likely name where public sources are clear. Confirm via LinkedIn before sending — do not blast names that aren't verified.</div>
+  </section>
+
+  <!-- 2. CHANNEL MIX -->
+  <section id="channel">
+    <h2>2 · Channel Mix</h2>
+    <h3>Pick the channel by warmth, not by personal preference</h3>
+    <p class="lead">You're one person; you cannot run all 30 in parallel. The channel sets the cadence the target expects — match it.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Channel</th><th>When to use</th><th>Count</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Warm email to founder/MD</td><td class="note">Tier 1 LegitScript-certified founders where you can find a verified address; Medichecks; Doctor Fox</td><td class="center"><strong>11</strong></td><td class="note">Peer-to-peer, no algorithm in the way, full message in front of them, easy to forward internally</td></tr>
+          <tr><td class="partner">LinkedIn DM first, email after</td><td class="note">Tier 2 clinics, cannabis clinics, founders without easy email; anyone where LinkedIn relationship-first opens warmer</td><td class="center"><strong>12</strong></td><td class="note">Lower prior relationship; LinkedIn lets you reference their business specifically and shows you're real</td></tr>
+          <tr><td class="partner">Warm intro via Calvin / BGV / Bear network</td><td class="note">Well Pharmacy, Randox, Third Space, Equinox, RPA, all 3 supermarkets</td><td class="center"><strong>4 + 3</strong></td><td class="note">Corporate or enterprise — cold is a slow institutional sell, warm is fast. Map first, send second.</td></tr>
+          <tr><td class="partner">Event / face-to-face</td><td class="note">Any partner Olly will encounter at the Sept Health Summit booth or another BGV-relevant event</td><td class="center"><strong>opportunistic</strong></td><td class="note">A 90-second in-person opener beats any sequence. Diary the opportunities now.</td></tr>
+          <tr><td class="partner">Cold call</td><td class="note">Reserved — only after a Touch 2 / 3 has landed and they've half-engaged but not booked</td><td class="center"><strong>0</strong></td><td class="note">Not the opening move. Personal but quality-led; cold-calling unannounced principals reads pushy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><strong>The 8–10 cap is the constraint.</strong> Stagger new Touch 1s across the week so the reply load is even. When a target advances to discovery call / negotiation it still counts against the cap until won or parked.</div>
+  </section>
+
+  <!-- 3. SEQUENCES -->
+  <section id="sequences">
+    <h2>3 · Sequences</h2>
+    <h3>Four touches over ~16 days, per channel</h3>
+    <p class="lead">All copy verbatim — personalise the bracketed lines per target. Plain and professional. No metaphors. The BGV name comes in at Touch 2 where it earns its place; Touch 1 leads on the business case.</p>
+
+    <div class="subhead">Channel A · Warm email (Tier 1 / founders)</div>
+    <div class="templates">
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 1 — Initial</span><span class="timing">Day 0 · Email</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> A men's-health revenue line for [Company] — quick idea</div>
+        <div class="msg-body">Hi [Name],
+
+I lead partnerships at Ted's Health — a CQC-registered, GMC-doctor-led men's health service covering TRT, hormone optimisation, ED and blood testing. Medical director is Dr Jonathan Andrews.
+
+I've been looking at [Company] because you've built the audience and the trust, and you're LegitScript-certified, which is the hard part. What you may not have is a men's-health prescribing pathway behind your brand. We run that as white-label infrastructure — your brand on the front, our clinical engine underneath. You don't need to become a clinic.
+
+Worth a 30-minute partner strategy call to see if it fits? I can work around you next week.
+
+Best,
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 2 — Follow-up + context</span><span class="timing">+4 days</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> Re: A men's-health revenue line for [Company]</div>
+        <div class="msg-body">Hi [Name] — short follow-up. The reason I think this is worth 30 minutes specifically for [Company]: the men in your audience are already searching for testosterone and ED answers. Without a pathway, that demand quietly leaves your brand for a D2C competitor. White-label lets you keep the relationship and the recurring revenue.
+
+For context, Ted's Health sits inside BGV (Bear Grylls Ventures) — same group as Modern Savage and Bear's wider portfolio. The clinical side is independent and regulated; Dr Jonathan Andrews runs it.
+
+Happy to send a one-pager first if that's easier than a call. Which is better for you?
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 3 — Value / proof</span><span class="timing">+5 days</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> What sits behind the Ted's Health white-label</div>
+        <div class="msg-body">Hi [Name] — in case useful before we speak, here's what the partnership actually puts behind your brand: CQC registration, GMC doctors trained in TRT/ED/hormone protocols, a branded intake-to-prescribing pathway, MHRA-compliant pharmacy and repeat-prescription management.
+
+The things that take 12 months and a clinical team to build — already running.
+
+You bring the audience; we bring the operating system. Still happy to grab 30 minutes whenever suits — [scheduling link].
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 4 — Breakup</span><span class="timing">+7 days · no reply</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> Closing the loop</div>
+        <div class="msg-body">Hi [Name] — I'll leave it here so I'm not cluttering your inbox. If a men's-health revenue line under your own brand becomes relevant down the line, the door's open — just reply to this and we'll pick it up.
+
+Wishing you and [Company] well.
+
+Olly</div>
+      </div>
+    </div>
+
+    <div class="subhead">Channel B · LinkedIn-first (Tier 2 + adjacent)</div>
+    <p>Compress to 3–4 sentences in Touch 1 because LinkedIn truncates. Reference something specific about their business in the opening line — not a generic compliment. Move to email by Touch 3 if they've connected but not replied.</p>
+    <div class="templates">
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 1 — Connect note</span><span class="timing">Day 0 · LinkedIn (300 char limit)</span></div>
+        <div class="msg-body">Hi [Name] — saw [specific thing about their business]. I lead partnerships at Ted's Health, a CQC-registered men's-health service. We white-label our prescribing engine behind partner brands. Would value 30 minutes to see if it fits [Company]. Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 2 — On accept</span><span class="timing">Same day as connection accepted</span></div>
+        <div class="msg-body">Thanks for connecting [Name]. To put a bit more on the table: men in [Company]'s audience are already searching for testosterone, ED, hormone answers. Without a clinical pathway, that demand leaves the brand for a D2C competitor.
+
+We sit inside BGV (Bear Grylls Ventures), regulated independently, with Dr Jonathan Andrews as medical director and LegitScript-aligned compliance. The white-label puts our CQC/GMC pathway behind your brand — you keep the patient relationship and a revenue share, we handle the clinical side.
+
+Worth a 30-min partner strategy call? I can work around you.</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 3 — Move to email</span><span class="timing">+5 days · email if you have it</span></div>
+        <div class="msg-subject"><strong>Subject:</strong> Following up from LinkedIn — Ted's Health white-label</div>
+        <div class="msg-body">Hi [Name] — picking this up here in case email lands better. Same ask as the LinkedIn note: a 30-minute partner strategy call to walk through whether the Ted's Health white-label fits [Company].
+
+The short version: we put a CQC-registered, GMC-led men's-health clinic behind your brand. You keep the audience relationship and the upside; we handle scripts, prescribing, pharmacy and repeats.
+
+Calendar link: [scheduling link]. Or just reply with a couple of windows and I'll send an invite.
+
+Olly</div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-head"><span>Touch 4 — Breakup</span><span class="timing">+7 days · no reply</span></div>
+        <div class="msg-body">[Name] — I'll close the loop here. If a men's-health line under [Company]'s brand becomes useful later, drop me a message and we'll pick it up. All the best.</div>
+      </div>
+    </div>
+
+    <div class="subhead">Channel C · Warm intro (via Calvin / BGV / Bear network)</div>
+    <p>The intro itself is the work. You don't write a sequence — you write the brief the introducer forwards, and then you take the call. Send Calvin (or whoever the connector is) this exact paragraph to forward:</p>
+    <div class="templates">
+      <div class="msg">
+        <div class="msg-head"><span>Forwardable intro paragraph</span><span class="timing">For Calvin / BGV / Bear to send</span></div>
+        <div class="msg-body">[Name] — quick intro to Olly Westmacott who runs partnerships at Ted's Health (our CQC-registered men's-health service inside BGV, medical director Dr Jonathan Andrews). They white-label the clinical engine behind partner brands — clinic, retailer, member body. I think there's an obvious fit with [Company] and 30 minutes between you two would be worth it. Olly, [Name] — over to you.</div>
+      </div>
+    </div>
+    <p>After the intro lands, Touch 1 is a same-day thank-you + the 30-minute ask, then run the warm-email cadence above from Touch 2 onwards if no booking inside 4 days.</p>
+  </section>
+
+  <!-- 4. DISCOVERY CALL SCRIPT -->
+  <section id="discovery">
+    <h2>4 · Discovery Call</h2>
+    <h3>10-minute structure (block 30 in the diary, keep 20 in reserve)</h3>
+    <p class="lead">The call's one job is to qualify whether this is real and earn a second meeting with the right people on it. Don't pitch the commercials in the first call — pitch the fit, then arrange Calvin.</p>
+
+    <div class="script">
+      <div class="script-row">
+        <div class="time">0:00–1:00</div>
+        <div class="step">
+          <h5>Open</h5>
+          <p>Thank them, frame the call, set the time.</p>
+          <p class="said">"Thanks for the 30 minutes — I'll keep us to ten and leave the rest as buffer. What I'd like to do: a few questions on your side first, then I'll walk through how the white-label actually works, and we'll agree the right next step. Sound good?"</p>
+        </div>
+      </div>
+      <div class="script-row">
+        <div class="time">1:00–4:00</div>
+        <div class="step">
+          <h5>Qualify — 4 questions, listen hard</h5>
+          <ul>
+            <li>What does the men's-health side of your business look like today — anything live, anything planned?</li>
+            <li>Roughly what share of your audience is male, and what age band?</li>
+            <li>If a member or patient asked you tomorrow about TRT or ED, where do they go?</li>
+            <li>What would have to be true for you to put a men's-health clinic behind your brand in the next 6–12 months?</li>
+          </ul>
+          <p>You're listening for: (a) demand they already see, (b) the gap they admit to, (c) whether they have authority or whether you need to talk to someone else.</p>
+        </div>
+      </div>
+      <div class="script-row">
+        <div class="time">4:00–7:00</div>
+        <div class="step">
+          <h5>The pivot — what the WL actually is</h5>
+          <p>Three sentences, no slides yet:</p>
+          <p class="said">"Ted's Health is CQC-registered with GMC doctors, MHRA-compliant pharmacy, and a live prescribing pathway for TRT, ED and hormone optimisation. The white-label is exactly that — your brand on the front, our clinical engine underneath. The patient only ever sees your brand; we handle clinicians, scripts, pharmacy and repeats."</p>
+          <p>Then connect it to what they just told you. Use their language back at them. "You said [X] — that's the gap white-label fills, and here's what that looks like in practice…"</p>
+        </div>
+      </div>
+      <div class="script-row">
+        <div class="time">7:00–9:00</div>
+        <div class="step">
+          <h5>Handle the obvious objections live</h5>
+          <p>One or two will come up in every call — handle them in the room with the objection map below. Don't dodge commercials if they ask: give the rev-share floor, say full numbers are Calvin's call on the next session.</p>
+        </div>
+      </div>
+      <div class="script-row">
+        <div class="time">9:00–10:00</div>
+        <div class="step">
+          <h5>Close — book the second meeting</h5>
+          <p>One ask, specific.</p>
+          <p class="said">"Based on what you've said, I think the right next step is a 45-minute commercial session with Calvin Lefferts who runs the white-label side — he'll walk through partnership terms, time-to-live and the integration. I can hold three slots next week and email them this afternoon. Are you the right person for that call, or should I include someone else?"</p>
+          <p>Get the second meeting in the diary on the call. If they need internal sign-off, agree the date you'll have an answer.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>What you do NOT do on the discovery call:</strong> walk through a deck, quote firm commercials, promise integration timelines, name other partners. All of those belong on the Calvin call.</div>
+  </section>
+
+  <!-- 5. OBJECTIONS -->
+  <section id="objections">
+    <h2>5 · Objection Map</h2>
+    <h3>The eight you'll hear — crisp answers</h3>
+    <p class="lead">Read these out loud once before Monday. Each answer is one or two sentences — say it, then ask a follow-up so the call doesn't stall on the objection.</p>
+
+    <div class="table-wrap">
+      <table class="obj-tbl">
+        <thead><tr><th>Objection</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="obj">"We already prescribe."</td>
+            <td class="ans">Most of our partners do too, in some categories. The white-label fills the gap on the men's-health pathway specifically — TRT, hormone optimisation, ED — where the clinical protocols and ongoing management are different from general prescribing. Where's that pathway today for you?</td>
+          </tr>
+          <tr>
+            <td class="obj">"Compliance / regulatory risk."</td>
+            <td class="ans">We carry the regulatory load — CQC registration, GMC doctors, MHRA-compliant pharmacy, all in our name. The patient sees your brand; the clinical responsibility sits with us. We can share the regulatory pack on the Calvin call.</td>
+          </tr>
+          <tr>
+            <td class="obj">"Will my patients still trust me?"</td>
+            <td class="ans">The patient relationship stays with you — comms, retention, brand. We're invisible to them; they see your clinical pathway. We hold the medical responsibility; you hold the relationship.</td>
+          </tr>
+          <tr>
+            <td class="obj">"What about my brand?"</td>
+            <td class="ans">Your brand on every screen — intake, consultation interface, prescription dispatch, repeat reminders. We provide the engine; the wrapper is yours. We can mock a [Company]-branded demo storefront for the Calvin call so you can see exactly what it'd look like.</td>
+          </tr>
+          <tr>
+            <td class="obj">"The rev share is too low."</td>
+            <td class="ans">Worth doing the maths on what it replaces. You're not running a clinic — no clinicians on payroll, no pharmacy licence, no regulatory overhead, no clinical PI. Recurring rev on patients you'd otherwise lose to D2C. Calvin will walk through the numbers properly on the next call.</td>
+          </tr>
+          <tr>
+            <td class="obj">"What's the integration lift?"</td>
+            <td class="ans">Lighter than people assume. We've designed it so partners can start as a referral / co-branded path and graduate to full white-label without re-platforming. Calvin will give an honest time-to-live for [Company]'s setup specifically.</td>
+          </tr>
+          <tr>
+            <td class="obj">"Why Ted's Health vs Zava / Phlo / building it ourselves?"</td>
+            <td class="ans">Zava and Phlo are general telehealth WLs — we're a specialist men's-health clinic, which is the harder and higher-margin piece. Building in-house is 12 months and a clinical team before patient one. We're a clinical engine you can be live on inside [time-to-live].</td>
+          </tr>
+          <tr>
+            <td class="obj">"Send us a deck / put it in writing."</td>
+            <td class="ans">Happy to — I'll send the partner one-pager today. The next-step ask is the same: a 45-minute Calvin call so we can talk specifics for [Company]. Should I hold something next week while you read?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6. CADENCE -->
+  <section id="cadence">
+    <h2>6 · Cadence &amp; Measurement</h2>
+    <h3>Weekly rhythm — keep it boring, keep it consistent</h3>
+
+    <div class="table-wrap">
+      <div class="table-title">Olly's weekly outreach rhythm</div>
+      <table>
+        <thead><tr><th>Day</th><th>Block</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Monday AM (60 min)</td><td class="cat">Pipeline review + new sends</td><td class="note">Review tracker · move stages · identify 2–3 new Touch 1s to send · personalise &amp; send</td></tr>
+          <tr><td class="partner">Tue / Wed / Thu</td><td class="cat">Touches + replies</td><td class="note">Same-day reply to anything live · Touch 2/3/4 sends per cadence · book discovery calls into the diary</td></tr>
+          <tr><td class="partner">Discovery calls</td><td class="cat">Throughout the week</td><td class="note">Take the call · log notes within 30 min · if qualified, brief Calvin same day</td></tr>
+          <tr><td class="partner">Friday AM (30 min)</td><td class="cat">Update + handover</td><td class="note">Update tracker · post one-line weekly status to team-comms · queue Calvin handovers</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead">Targets per week</div>
+    <div class="grid-4">
+      <div class="card"><div class="num">New Touch 1s</div><div class="big">3</div><p>Three fresh openers per week. Faster fills the pipe past the 8–10 cap.</p></div>
+      <div class="card"><div class="num">Active live</div><div class="big">8–10</div><p>Hard cap. Every reply gets a same-day, personal response.</p></div>
+      <div class="card"><div class="num">Discovery calls</div><div class="big">1–2</div><p>Realistic Week 1–4. Ramps as the pipe matures.</p></div>
+      <div class="card"><div class="num">Calvin handovers</div><div class="big">1</div><p>Per fortnight is healthy in the first 8 weeks.</p></div>
+    </div>
+
+    <div class="subhead">The funnel — what to actually count</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Definition</th><th>Health benchmark · first 8 wks</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Contacted</td><td class="note">Touch 1 sent</td><td class="touch">24+ total (3/wk × 8 wks)</td></tr>
+          <tr><td class="partner">Engaged</td><td class="note">Any reply other than "no" / unsubscribe</td><td class="touch">~30% — 7+ engaged</td></tr>
+          <tr><td class="partner">Discovery call booked</td><td class="note">Diary slot held</td><td class="touch">~40% of engaged — 3+</td></tr>
+          <tr><td class="partner">Qualified to Calvin</td><td class="note">Discovery call done, criteria met (see §7)</td><td class="touch">~60% of calls — 2+</td></tr>
+          <tr><td class="partner">Commercial agreement</td><td class="note">Heads of terms signed</td><td class="touch">~30% of Calvin calls — 1 in 8 wks is the goal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><strong>Escalation triggers.</strong> Flag to Calvin / the team if: (a) a Tier 1 target replies with a senior name on copy, (b) a target asks specific commercial questions you can't answer, (c) two consecutive weeks pass without a single discovery call booked — funnel needs unblocking.</div>
+  </section>
+
+  <!-- 7. CALVIN HANDOVER -->
+  <section id="handover">
+    <h2>7 · Olly → Calvin Handover</h2>
+    <h3>The exact moment a conversation graduates</h3>
+    <p class="lead">Olly owns the front of the funnel and the relationship; Calvin owns the commercial close. The handover is its own checkpoint, not a default. A premature handover wastes Calvin's time and signals the wrong urgency to the partner.</p>
+
+    <div class="feature">
+      <div class="pill">All three must be true</div>
+      <h4>Qualification criteria — only hand over when</h4>
+      <p><strong>1 · Compliance fit confirmed.</strong> Partner is LegitScript-certified, regulated equivalent, or has the route to compliance (e.g. cannabis clinic with existing GMC prescribing). Not a vague "we'll sort it."</p>
+      <p><strong>2 · Genuine commercial intent.</strong> Partner has said, on the discovery call, that this is a real consideration for the next 6–12 months and they want to see numbers. Not "interesting, let's stay in touch."</p>
+      <p><strong>3 · Named decision-maker confirmed.</strong> Either you're already speaking with the founder/CEO/MD, or they've named the person who decides and committed to bringing them on the Calvin call.</p>
+    </div>
+
+    <div class="subhead">The handover message — what Olly sends Calvin</div>
+    <div class="msg">
+      <div class="msg-head"><span>Internal · Slack or email to Calvin</span><span class="timing">Within 24h of discovery call</span></div>
+      <div class="msg-subject"><strong>Subject:</strong> WL handover — [Company] — ready for commercial call</div>
+      <div class="msg-body">Calvin — handing over [Company] for the commercial call.
+
+THE PARTNER
+[Company] · [website] · [LegitScript / compliance status]
+Decision-maker: [Name, role] · attending the call: yes / will bring [name, role]
+
+THE FIT
+Audience: [size, male share, primary demand signal]
+Current men's-health offer: [none / partial / in-house]
+The gap our WL fills: [one line in their words]
+
+THE CONVERSATION SO FAR
+First contact: [date, channel] · Discovery call: [date]
+What they said yes to: [the explicit intent line they gave]
+What they asked I couldn't answer: [the commercial questions for you]
+
+THE ASK FROM YOU
+A 45-min commercial session next week. I've held [3 slots] — see calendar invite.
+Lead with: rev-share structure, time-to-live, integration lift, regulatory pack.
+Avoid: [anything sensitive the partner flagged]
+
+DOCS
+Discovery notes: [link] · One-pager sent: [date] · Partner-branded demo: [link if built]
+
+Over to you — I'll stay in copy through the commercial call, then hand fully on signed HoTs.
+
+Olly</div>
+    </div>
+
+    <div class="subhead">What Olly keeps doing after handover</div>
+    <ol class="tactics">
+      <li><strong>Stay in copy through the Calvin call</strong> — the partner expects continuity, and Calvin may need real-time context only Olly has.</li>
+      <li><strong>Own the relationship until HoTs are signed.</strong> Calvin owns the commercial doc; Olly owns the partner.</li>
+      <li><strong>Full handover at signature.</strong> Once heads of terms are signed, Calvin / ops take it from there. Olly transitions to a relationship-only touch point.</li>
+    </ol>
+  </section>
+
+  <!-- 8. TRACKER -->
+  <section id="tracker">
+    <h2>8 · Tracker Template</h2>
+    <h3>One row per opportunity — paste into Notion or sheet</h3>
+    <p class="lead">The whole pipeline lives here. Update on every touch. If it's not in the tracker, it didn't happen.</p>
+
+    <div class="table-wrap">
+      <div class="table-title">Columns</div>
+      <table class="tracker">
+        <thead>
+          <tr>
+            <th>#</th><th>Partner</th><th>Tier</th><th>Channel</th><th>Decision-maker</th><th>Stage</th><th>Last contact</th><th>Next action</th><th>Next date</th><th>Owner</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="partner">Click Pharmacy</td>
+            <td>1 · Cert</td>
+            <td>Warm email</td>
+            <td>Adeem Younis</td>
+            <td>Touch 2 sent</td>
+            <td>2026-06-05</td>
+            <td>Touch 3 if no reply</td>
+            <td>2026-06-10</td>
+            <td>Olly</td>
+            <td>LinkedIn shows MD active in last 7d — open rate likely good</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="partner">MedExpress</td>
+            <td>1 · Cert</td>
+            <td>Warm email</td>
+            <td>Hussain Abdeh</td>
+            <td>Touch 1 sent</td>
+            <td>2026-06-03</td>
+            <td>Touch 2</td>
+            <td>2026-06-07</td>
+            <td>Olly</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="partner">Releaf</td>
+            <td>3 · Cannabis</td>
+            <td>LinkedIn</td>
+            <td>Graham Woodward</td>
+            <td>Discovery booked</td>
+            <td>2026-06-04</td>
+            <td>Take call</td>
+            <td>2026-06-09</td>
+            <td>Olly</td>
+            <td>Brought up TRT vertical unprompted on connect</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="partner">RPA</td>
+            <td>3 · Rep body</td>
+            <td>Warm intro</td>
+            <td>TBC partnerships</td>
+            <td>Intro path mapping</td>
+            <td>—</td>
+            <td>Ask Bear's office for RPA contact</td>
+            <td>2026-06-06</td>
+            <td>Olly</td>
+            <td>Co-branded member-benefit framing, not WL resale</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead">Stage definitions (use these exactly — don't invent new ones)</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Means</th></tr></thead>
+        <tbody>
+          <tr><td class="partner">Sourcing DM</td><td class="note">Need to find/confirm the named decision-maker before sending anything</td></tr>
+          <tr><td class="partner">Touch 1 / 2 / 3 / 4 sent</td><td class="note">Where we are in the sequence</td></tr>
+          <tr><td class="partner">Replied — pending</td><td class="note">They've engaged; ball is in our court</td></tr>
+          <tr><td class="partner">Discovery booked</td><td class="note">30-min call in diary, not yet taken</td></tr>
+          <tr><td class="partner">Discovery done</td><td class="note">Call taken; awaiting qualify decision</td></tr>
+          <tr><td class="partner">Qualified — Calvin queued</td><td class="note">Meets all three handover criteria; Calvin call being booked</td></tr>
+          <tr><td class="partner">Calvin call held</td><td class="note">Commercial session done; awaiting HoTs</td></tr>
+          <tr><td class="partner">HoTs signed</td><td class="note">Won — relationship handed to ops</td></tr>
+          <tr><td class="partner">Parked — revisit</td><td class="note">Sequence complete, no yes; revisit in 3 months or on a fresh hook</td></tr>
+          <tr><td class="partner">Dead — out</td><td class="note">Explicit no, brand mismatch, regulatory blocker. Don't reopen.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><strong>Hygiene rule.</strong> If a row hasn't moved in 14 days and the stage isn't "Parked" or "Dead," it needs an action this Friday. The tracker is only useful if it's honest.</div>
+  </section>
+
+  <!-- ACTION CHECKLIST -->
+  <section>
+    <h2>Action</h2>
+    <h3>What gets done before Monday</h3>
+    <div class="checklist">
+      <h4>Going-live checklist</h4>
+      <ul>
+        <li>Pull rev-share floor + time-to-live + pilot terms from Calvin</li>
+        <li>Confirm scheduling link + sending email + signature</li>
+        <li>Confirm Mosh (AU) and Optiman (IE) territory decisions</li>
+        <li>Verify decision-maker names for the first 5 sends (Click, MedExpress, Pharmica, Simple Online Pharmacy, Treated)</li>
+        <li>Stand up the tracker (Notion or sheet) using the columns + stages above</li>
+        <li>Map BGV/Bear network for warm-intro paths into Well Pharmacy, Randox, Third Space, Equinox, RPA, 3 supermarkets</li>
+        <li>Send first 3 Touch 1s (Click + MedExpress + Pharmica), stagger Tue / Wed / Thu</li>
+        <li>Brief Calvin on the playbook + share the handover-message template so he's expecting them</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Ted's Health · White-Label Programme · Personal Outreach Playbook · Going Live · 3 June 2026<br>
+    Dashboard · <a href="https://dnd5fj5gjy-bit.github.io/th-wl-dashboard/">th-wl-dashboard</a> · Supersedes the 28 May strategy doc for operational use
+  </footer>
+
+</div>
+
+</body>
+</html>
