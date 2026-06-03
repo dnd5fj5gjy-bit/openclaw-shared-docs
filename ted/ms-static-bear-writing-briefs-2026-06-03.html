@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage — Static Bear-with-Writing Briefs · 3 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A1A2E; --navy2:#23233F; --gold:#C9A24B; --gold-l:#E4C879;
+    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(26,26,46,.12);
+    --earth:#8B7355; --rust:#A0522D; --sage:#6B7F5E; --blood:#8B2500;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  /* Fixed nav */
+  nav.topnav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(8px);background:rgba(26,26,46,.0);transition:background .25s ease, padding .25s ease;padding:18px 32px}
+  nav.topnav.scrolled{background:rgba(26,26,46,.92);padding:12px 32px;border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.topnav .brand{color:#fff;font-family:'DM Serif Display',serif;font-size:18px;letter-spacing:.02em;display:inline-block}
+  nav.topnav .links{float:right;display:flex;gap:22px}
+  nav.topnav .links a{color:#cfd6dd;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:color .15s ease}
+  nav.topnav .links a:hover{color:var(--gold-l)}
+  @media (max-width:760px){ nav.topnav .links{display:none} }
+
+  /* Hero */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 8vw;background:
+     radial-gradient(ellipse at 75% 35%, rgba(201,162,75,.18) 0%, transparent 55%),
+     linear-gradient(150deg,var(--navy) 0%,var(--navy2) 100%);
+     color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .hero .eyebrow{color:var(--gold-l);font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;opacity:0;transform:translateY(14px);animation:fadeUp .9s .15s ease forwards}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,76px);font-weight:400;line-height:1.05;margin:14px 0 10px;max-width:980px;opacity:0;transform:translateY(18px);animation:fadeUp .9s .3s ease forwards}
+  .hero h1 em{font-style:italic;color:var(--gold-l)}
+  .hero p.sub{color:#cdd9e0;font-size:clamp(15px,1.6vw,19px);max-width:680px;line-height:1.6;opacity:0;transform:translateY(18px);animation:fadeUp .9s .5s ease forwards}
+  .hero .meta{position:absolute;bottom:38px;left:8vw;right:8vw;display:flex;justify-content:space-between;align-items:center;color:#8a97a0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:0;animation:fadeUp .9s .9s ease forwards}
+  .hero .meta .right{color:var(--gold-l)}
+
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  /* Sections */
+  section.block{padding:7rem 8vw;max-width:1200px;margin:0 auto}
+  section.alt{background:#fff;max-width:100%;padding:7rem 8vw}
+  section.alt .inner{max-width:1200px;margin:0 auto}
+  section.dark{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;max-width:100%;padding:7rem 8vw}
+  section.dark .inner{max-width:1200px;margin:0 auto}
+  section.dark h2, section.dark .lab{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  .lab{display:block;color:var(--gold);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  h2.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:18px;max-width:880px}
+  section.dark h2.section-title{color:#fff}
+  p.section-lead{font-size:17px;color:#3d4853;max-width:780px;line-height:1.7;margin-bottom:42px}
+  section.dark p.section-lead{color:#cdd9e0}
+
+  /* TL;DR */
+  .tldr{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:30px 34px;margin:0 0 50px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
+  .tldr .lab{color:var(--navy);margin-bottom:8px}
+  .tldr p{font-size:16px;color:#2c3540;line-height:1.7}
+  .tldr p + p{margin-top:10px}
+
+  /* Matrix at top */
+  .matrix{display:grid;grid-template-columns:60px 2fr 1.6fr 1.4fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin-top:18px}
+  .matrix .mh{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#7a6326;font-weight:700;padding:14px 6px;border-bottom:1px solid var(--line)}
+  .matrix .mr{font-size:14.5px;color:#1c2a33;padding:14px 6px;border-bottom:1px solid var(--line);line-height:1.45}
+  .matrix .mr.n{font-family:'DM Serif Display',serif;color:var(--navy);font-size:18px;text-align:center}
+  .matrix .mr.t{font-weight:600;color:var(--navy)}
+  .matrix > div:nth-last-child(-n+4){border-bottom:none}
+  @media (max-width:780px){
+    .matrix{grid-template-columns:46px 1fr;gap:6px}
+    .matrix .mh:nth-child(3),.matrix .mh:nth-child(4){display:none}
+    .matrix .mr{padding:8px 6px}
+    .matrix .mr.t::after{content:attr(data-ctx);display:block;font-weight:400;color:#5b6671;font-size:13px;margin-top:3px}
+  }
+
+  /* Variations */
+  .var-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 38px;margin:0 0 24px;box-shadow:0 1px 0 rgba(11,31,42,.03);position:relative;overflow:hidden}
+  .var-card::before{content:attr(data-n);position:absolute;top:18px;right:24px;font-family:'DM Serif Display',serif;color:var(--gold);opacity:.45;font-size:46px;line-height:1}
+  .var-card .lab{margin-bottom:6px}
+  .var-card h3{font-family:'DM Serif Display',serif;color:var(--navy);font-size:26px;font-weight:400;line-height:1.2;margin-bottom:18px;max-width:78%}
+  .var-card .row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .var-card .row:last-of-type{border-bottom:none}
+  .var-card .row .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;padding-top:3px}
+  .var-card .row .v{font-size:15.5px;color:#1c2a33;line-height:1.65}
+  .var-card .row .v em{font-style:normal;font-weight:600;color:var(--navy);background:#fff4d6;padding:0 4px;border-radius:3px}
+  .var-card .row .v.copy{font-family:'Outfit',sans-serif;font-size:16.5px;color:var(--navy);line-height:1.6;font-weight:500}
+  .var-card .row .v.copy.serif{font-family:'DM Serif Display',serif;font-style:italic;font-size:20px;color:var(--navy);font-weight:400}
+  .var-card .row .v.copy.scrawl{font-family:'Caveat',cursive;font-size:24px;color:var(--blood);line-height:1.3;font-weight:600}
+  .var-card .row .v.copy.stamp{font-family:'Special Elite',monospace;font-size:15px;color:var(--rust);letter-spacing:.04em}
+  .var-card .row .v.copy.caps{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:14.5px;color:var(--navy)}
+  .var-card .why{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:#5b6671;font-style:italic;line-height:1.6}
+  @media (max-width:720px){
+    .var-card{padding:26px 24px}
+    .var-card h3{font-size:22px;max-width:100%}
+    .var-card .row{grid-template-columns:1fr;gap:4px}
+  }
+
+  /* Asks card */
+  .asks{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blood);border-radius:10px;padding:28px 32px;margin-top:30px}
+  .asks .lab{color:var(--blood);margin-bottom:8px}
+  .asks h3{font-family:'DM Serif Display',serif;color:var(--navy);font-size:22px;font-weight:400;line-height:1.2;margin-bottom:14px}
+  .asks ul{list-style:none;margin:10px 0 0;padding:0}
+  .asks ul li{padding:11px 0 11px 26px;position:relative;color:#2c3540;font-size:15px;line-height:1.6;border-bottom:1px solid var(--line)}
+  .asks ul li:last-child{border-bottom:none}
+  .asks ul li::before{content:"?";position:absolute;left:0;top:11px;width:18px;height:18px;background:var(--blood);color:#fff;text-align:center;font-size:11px;font-weight:800;border-radius:50%;line-height:18px}
+  .asks ul li b{color:var(--navy);font-weight:600}
+
+  /* Next step */
+  .next-card{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border-radius:14px;padding:42px 46px;margin-top:20px}
+  .next-card h3{font-family:'DM Serif Display',serif;font-size:30px;font-weight:400;color:#fff;margin-bottom:14px;line-height:1.2}
+  .next-card p{color:#cdd9e0;font-size:16px;line-height:1.75;margin-bottom:12px}
+  .next-card ul{list-style:none;margin:18px 0 0;padding:0}
+  .next-card ul li{padding:12px 0 12px 28px;position:relative;color:#e4eaef;font-size:15.5px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,.08)}
+  .next-card ul li:last-child{border-bottom:none}
+  .next-card ul li::before{content:"";position:absolute;left:0;top:18px;width:14px;height:2px;background:var(--gold)}
+  .next-card ul li b{color:var(--gold-l);font-weight:600}
+
+  /* Footer */
+  footer{padding:34px 8vw;text-align:center;color:#8a97a0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+  footer span{color:var(--gold-l)}
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <span class="brand">Modern Savage — Static Briefs (Batch 2)</span>
+  <span class="links">
+    <a href="#tldr">In one read</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#briefs">Briefs</a>
+    <a href="#asks">Open questions</a>
+    <a href="#next">Next step</a>
+  </span>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Modern Savage · Static post briefs · Batch 2 · 3 June 2026</div>
+  <h1>Bear, in stills.<br><em>Ten new image-led briefs.</em></h1>
+  <p class="sub">A second batch of static post briefs for Ku Creatives — built on existing Bear photography (no new filming, no Jago shoot footage) with on-image writing as the hook. Ten new angles, deliberately distinct from the eight in the first batch: different environments, different copy registers, different typographic treatments.</p>
+  <div class="meta">
+    <span>For Olly · prepared by Ted</span>
+    <span class="right">Pairs with audit doc · 3 Jun 2026</span>
+  </div>
+</header>
+
+<!-- ─── TL;DR ──────────────────────────────────── -->
+<section class="block" id="tldr">
+  <div class="reveal">
+    <div class="tldr">
+      <span class="lab">In one read</span>
+      <p>Yesterday's audit doc gave you eight image-led variations to break the shoot-footage repetition. This is the next layer — <b>ten more</b>, each picked to occupy an environment, copy register and type treatment the existing twelve ads (Jago set + Batch 1) don't touch yet.</p>
+      <p>Each brief specifies: the Bear photo context (jungle / desert / arctic / urban / training / family / camp / candid), the on-image copy verbatim, the type treatment (serif quote, sans caps statement, handwritten scrawl, stamp/sticker, headline + small-caps), the MS product or pillar it lands on, and the placement it's built for. <b>The deliberate variety is the deliverable</b> — Ku gets a brief set that can't possibly look like one ad in ten outfits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MATRIX ──────────────────────────────────── -->
+<section class="alt" id="matrix">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Quick reference</span>
+      <h2 class="section-title">The variety, at a glance.</h2>
+      <p class="section-lead">Ten briefs, each pinned to a distinct environment and a distinct copy register. If you only ship five, picking down this list will keep the visual range wide. Detailed briefs below.</p>
+
+      <div class="matrix">
+        <div class="mh">No.</div>
+        <div class="mh">Brief</div>
+        <div class="mh">Photo context</div>
+        <div class="mh">Type treatment</div>
+
+        <div class="mr n">09</div>
+        <div class="mr t" data-ctx="Jungle · Borneo / Sumatra archive">The jungle question</div>
+        <div class="mr">Jungle · humid greens</div>
+        <div class="mr">Big serif question</div>
+
+        <div class="mr n">10</div>
+        <div class="mr t" data-ctx="Desert / arid archive">Desert dare</div>
+        <div class="mr">Desert · ochre / dust</div>
+        <div class="mr">Stamp / sticker overlay</div>
+
+        <div class="mr n">11</div>
+        <div class="mr t" data-ctx="Arctic / snow archive">Arctic instruction</div>
+        <div class="mr">Arctic · white-out</div>
+        <div class="mr">Sans-serif caps tile</div>
+
+        <div class="mr n">12</div>
+        <div class="mr t" data-ctx="Around the family table — existing photo">Family table</div>
+        <div class="mr">Domestic / warm light</div>
+        <div class="mr">Headline + small-caps</div>
+
+        <div class="mr n">13</div>
+        <div class="mr t" data-ctx="Training / kettlebell / pull-up archive">The training shot</div>
+        <div class="mr">Training / movement</div>
+        <div class="mr">Data tile (4 stats)</div>
+
+        <div class="mr n">14</div>
+        <div class="mr t" data-ctx="Urban / suit / city archive">Urban contrast</div>
+        <div class="mr">City / urban</div>
+        <div class="mr">Handwritten scrawl</div>
+
+        <div class="mr n">15</div>
+        <div class="mr t" data-ctx="Camp / fire / dawn archive">Camp dawn</div>
+        <div class="mr">Camp / fire / dawn</div>
+        <div class="mr">Italic serif quote</div>
+
+        <div class="mr n">16</div>
+        <div class="mr t" data-ctx="Candid — eating in the field">Candid · eating</div>
+        <div class="mr">Candid · in-field</div>
+        <div class="mr">Caption strip · stamp</div>
+
+        <div class="mr n">17</div>
+        <div class="mr t" data-ctx="Coastal / shoreline / open-water archive">Coastal claim</div>
+        <div class="mr">Coastal / open water</div>
+        <div class="mr">Sans-serif big claim</div>
+
+        <div class="mr n">18</div>
+        <div class="mr t" data-ctx="Reflective / interior / book-in-hand">Quiet faith</div>
+        <div class="mr">Interior · reflective</div>
+        <div class="mr">Small italic serif</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRIEFS ──────────────────────────────────── -->
+<section class="block" id="briefs">
+  <div class="reveal">
+    <span class="lab">Section · The ten briefs</span>
+    <h2 class="section-title">One Bear photo · one piece of writing · one job to do.</h2>
+    <p class="section-lead">Numbered 09–18 so they extend the audit doc's series cleanly. Ku Creatives can pick these up directly — each brief carries enough to ship a static without further input. Copy is plain professional throughout, no metaphors.</p>
+  </div>
+
+  <!-- VAR 9 -->
+  <div class="var-card reveal" data-n="09">
+    <span class="lab">Brief 09 · Jungle question</span>
+    <h3>Jungle · "When did your supplement shelf last grow in soil?"</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">"When did your supplement shelf last grow in soil?"</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>jungle / rainforest</em> photograph of Bear — wet leaves, deep greens, humid light. Bear in the lower-third, looking into the frame or off-camera. Type: big DM Serif italic, set across the top half of the image, white with a soft drop shadow. No product. No URL. Subtle Modern Savage wordmark bottom-right.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Large italic serif question · single line if crop allows, two lines max.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">A question worth sitting with. Most supplements are built in a lab, not grown. Modern Savage is whole-food nutrition from real ingredients, real sources. Launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P3 Real food, not lab food · TOF awareness.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG / FB feed (1:1 + 4:5). Strong as a paid TOF test against the shelf-clutter hook.</span></div>
+    <div class="why">Why it's different — Batch 1 had no jungle imagery and no question-form hooks. This is the only ad that asks rather than states.</div>
+  </div>
+
+  <!-- VAR 10 -->
+  <div class="var-card reveal" data-n="10">
+    <span class="lab">Brief 10 · Desert dare</span>
+    <h3>Desert · "Try replacing what you take for two weeks."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy stamp">TRY REPLACING WHAT YOU TAKE FOR TWO WEEKS.</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>desert / arid</em> Bear photograph — ochre tones, dust, hard sun. Bear walking out of frame or mid-stride. Type treated as a <em>stamped sticker</em> overlay — Special Elite font, slight tilt, looks like it's been pressed onto the photograph rather than typeset over it.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Stamp / sticker · monospaced caps, slightly rotated, paper-cream block behind the type so it reads as a physical sticker.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Two weeks. One bag instead of your current stack. Notice what changes — your morning, your gut, what the bottles were actually doing. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P2 Replace the shelf · MOF / BOF.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed + Story (4:5 and 9:16). The stamp treatment travels well to Stories.</span></div>
+    <div class="why">Why it's different — first instruction-register hook in the set (most are statements). Stamp treatment is a new typographic register entirely.</div>
+  </div>
+
+  <!-- VAR 11 -->
+  <div class="var-card reveal" data-n="11">
+    <span class="lab">Brief 11 · Arctic instruction</span>
+    <h3>Arctic · "Cold weather, hot food, real fuel."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy caps">COLD WEATHER · HOT FOOD · REAL FUEL</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>arctic / snow / mountain expedition</em> photograph of Bear — white-out conditions, frost on beard, breath visible. Type set as a single horizontal Montserrat caps line across the bottom-third, gold underline rule between each phrase. High contrast — black or navy plate behind the line so it reads cleanly on snow.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Sans-serif caps tile · three short phrases separated by middle-dot.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">What you put in your body matters more, not less, when conditions get harder. Real food, dense nutrition, no synthetics. Modern Savage is the bag we built for that. Launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P5 Proof not promises · TOF / brand.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed + Reels static cover. The white-on-white challenge means it will hold the eye in a busy feed.</span></div>
+    <div class="why">Why it's different — first arctic imagery, first three-beat caps lockup. Visual register is "field credentials" without saying it.</div>
+  </div>
+
+  <!-- VAR 12 -->
+  <div class="var-card reveal" data-n="12">
+    <span class="lab">Brief 12 · Family table</span>
+    <h3>Around the table · "We pass the same bag round our table."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy">"We pass the same bag round our table."<br><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7a6326;font-weight:700;display:inline-block;margin-top:8px">— ADULT BLEND · KIDS BLEND · ONE STANDARD</span></span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing photograph of <em>Bear with his family around a table</em> — warm domestic light, food on the table, no posed product placement. If a posed shot doesn't exist in the archive, a candid family shot in a kitchen or garden works too. Type: serif headline overlaid in the negative space, small-caps strap line underneath.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Headline serif quote + small-caps strap line · two-tier hierarchy.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">One brand, two bags, one standard. Adults get the full organ blend, kids get a smaller scoop with colostrum added. Same real food, same family table. Contains milk — honest on the label.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P1 One family, one brand · MOF · sells Adult + Kids together.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (4:5) — the strongest single image for "one brand, the whole family" pillar.</span></div>
+    <div class="why">Why it's different — Batch 1 V05 had Bear with one son. This is the whole family unit at a table — the brand's deepest visual asset and we haven't used it once yet. <b>Olly to confirm we have rights to a family-table photo before we brief this one.</b></div>
+  </div>
+
+  <!-- VAR 13 -->
+  <div class="var-card reveal" data-n="13">
+    <span class="lab">Brief 13 · Training</span>
+    <h3>Training shot · the data tile.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy caps">21G PROTEIN · 6 ORGANS · 1B CFU · 0 FILLERS</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>training</em> photo of Bear — kettlebell, pull-up bar, push-up, climbing rope, something physical and unposed. Sweaty / mid-movement, not lifestyle-clean. Type: four data tiles stacked along the right side, each a small caps line with a gold rule above the number. Bear takes left two-thirds of the frame, tiles fill the right strip.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Data tiles · four stacked stat blocks, each with the number in DM Serif and the descriptor in small caps Montserrat.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">The numbers behind one scoop. Real protein, the full organ stack, gut-health bacteria, nothing synthetic. Built for the body you actually use. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P3 Real food, not lab food · MOF.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (1:1) + carousel slide-one. Designed to be screen-grabbed and forwarded.</span></div>
+    <div class="why">Why it's different — Batch 1 V02 had numbers too, but as a stacked top-right block on a portrait. This is a different layout (right strip), different photo (training, not portrait), different stats (protein / CFU / fillers, not organs / servings / synthetics).</div>
+  </div>
+
+  <!-- VAR 14 -->
+  <div class="var-card reveal" data-n="14">
+    <span class="lab">Brief 14 · Urban contrast</span>
+    <h3>Urban / suit · the handwritten scrawl.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy scrawl">same body whether I'm in a suit or in a swamp.</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>urban / suited / city</em> photograph of Bear — a rarer register, deliberately. Crisp clean grade, formal context. Type: a single handwritten line in Caveat across the lower half, white or off-white, like it's been scrawled directly onto the image. Modern Savage wordmark bottom-right.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Handwritten scrawl · Caveat or similar, looks personal not designed.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">What you put in doesn't change when the context does. Real food, real fuel — whatever room you're in. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P5 Proof not promises · TOF · brand-personality post.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (1:1) — performs well as a pinned-style post, breaks the wilderness-only Bear stereotype.</span></div>
+    <div class="why">Why it's different — first urban / non-wilderness Bear image in the set, and the only handwritten-type post. Shows the audience the brand isn't only for survivalists.</div>
+  </div>
+
+  <!-- VAR 15 -->
+  <div class="var-card reveal" data-n="15">
+    <span class="lab">Brief 15 · Camp dawn</span>
+    <h3>Camp · the italic serif quote, at dawn.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">"What you eat in the morning sets the day."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>camp / fire / dawn</em> photograph of Bear — warm orange light, smoke, low sun, kettle on. Type: italic DM Serif quote in the negative space (sky / smoke), attributed in small caps underneath. No product, no URL. Modern Savage wordmark small bottom-right.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Italic serif quote · attribution in small caps. Same family as Batch 1 V03 but a completely different photo register (dawn / camp, not action / expedition).</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">The first thing in the body matters most. One scoop, real food, every morning. That's the bag we built. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P3 Real food · TOF · daily-ritual angle.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (4:5) + Story (9:16). Particularly strong as a morning-slot post.</span></div>
+    <div class="why">Why it's different — same type family as Batch 1 V03 by design (to build the brand's serif-quote signature), but the photo is unmistakably dawn / camp, not mid-action expedition. Builds a recognisable quote-format Bear can return to weekly.</div>
+  </div>
+
+  <!-- VAR 16 -->
+  <div class="var-card reveal" data-n="16">
+    <span class="lab">Brief 16 · Candid · eating</span>
+    <h3>Candid in the field · the caption strip.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy stamp">BEAR · IN THE FIELD · EATING WHAT HE BUILDS.</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">A genuinely <em>candid</em> photograph — Bear eating in the field, mid-bite, unguarded. Looks like a behind-the-scenes still, not a posed shot. Type: a single Special Elite caption strip across the bottom of the image, paper-cream plate behind the type, like a documentary still caption.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Caption strip · monospaced, lower-third, looks like a film-still caption.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">No production. No styling. Bear eating the same way he has for thirty years — and the same way Modern Savage was built. Launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P5 Proof not promises · TOF · documentary register.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (4:5) + Reels static cover. Reads as a real moment, not an ad.</span></div>
+    <div class="why">Why it's different — the only "documentary" treatment in the set. Tells viewers this isn't a celebrity licence without ever saying so.</div>
+  </div>
+
+  <!-- VAR 17 -->
+  <div class="var-card reveal" data-n="17">
+    <span class="lab">Brief 17 · Coastal claim</span>
+    <h3>Coastal · "Nothing in this bag was made in a lab."</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy caps">NOTHING IN THIS BAG WAS MADE IN A LAB.</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>coastal / shoreline / open-water</em> photograph of Bear — wide horizon, sea-grey or sea-blue palette. Bear small in the frame, lots of negative sky. Type: single big Montserrat 800 caps line set huge across the upper-third, breaking onto two lines if needed. White on cool grey-blue.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Sans-serif big claim · one sentence, set as a billboard.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">Whole-food nutrition. Real ingredients, real sources, no synthetic forms. The bag we'd want our families on. Modern Savage launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P3 Real food / P2 Replace the shelf · TOF.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed + FB feed (1:1, 4:5). Cool palette gives the feed contrast against the warm jungle / desert / camp grades.</span></div>
+    <div class="why">Why it's different — first coastal / open-water image in the set. Cool palette intentionally — gives the feed a wider colour range, not all warm earth tones.</div>
+  </div>
+
+  <!-- VAR 18 -->
+  <div class="var-card reveal" data-n="18">
+    <span class="lab">Brief 18 · Quiet · faith-adjacent</span>
+    <h3>Reflective · the smallest type in the set.</h3>
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">"Look after the body you've been given."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">Existing <em>quiet / reflective</em> photograph of Bear — interior or low-light outdoor, contemplative register. Could be book in hand, head down, or a moment of stillness. Type set <em>small</em> and centred, italic DM Serif, plenty of whitespace around it. The deliberate restraint is the point. No product, no URL. Modern Savage wordmark tiny, bottom-centre.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Small italic serif · centred · the quietest post in the brand.</span></div>
+    <div class="row"><span class="k">Caption (3-line)</span><span class="v">A simple line, worth coming back to. Modern Savage is built on the same idea — give the body what it was designed to run on. Launches July.</span></div>
+    <div class="row"><span class="k">Pillar / funnel</span><span class="v">P5 Proof not promises · Brand · faith-adjacent audience without overclaiming.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v">IG feed (1:1) — anchor post, low-volume, high-dwell. Strong Sunday slot.</span></div>
+    <div class="why">Why it's different — first deliberately quiet post in the set. Touches Bear's Christianity / faith-adjacent territory (named in the brand deck) without quoting scripture or alienating the secular audience.</div>
+  </div>
+</section>
+
+<!-- ─── ASKS ──────────────────────────────────── -->
+<section class="alt" id="asks">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section · Open questions for Olly</span>
+      <h2 class="section-title">Three decisions I need from you before Ku starts.</h2>
+      <p class="section-lead">All three are quick — but each one gates a subset of the briefs above. Reply with answers and Ku gets a clean brief pack.</p>
+
+      <div class="asks">
+        <span class="lab">Open questions</span>
+        <h3>Three yes/no calls.</h3>
+        <ul>
+          <li><b>Family table photo (Brief 12).</b> Do we have rights to a usable photo of Bear at a table with the family? If not, swap to a candid kitchen / outdoor family shot, or drop the brief and lean harder on Batch 1 V05 (Kids Blend with one son).</li>
+          <li><b>Training photo (Brief 13).</b> Same question — is there an archive training shot we have rights to use commercially? If not, drop and we re-use one of the existing field photos with the same data-tile treatment.</li>
+          <li><b>Urban / suit photo (Brief 14).</b> Less certain we have one in the archive. If not available, we keep the handwritten-scrawl treatment but apply it over a candid wilderness shot instead — still hits the "personal hand" register.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEXT STEP ──────────────────────────────────── -->
+<section class="dark" id="next">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section · Recommended next step</span>
+      <h2 class="section-title">Pick the briefs, confirm the photo pool, send to Ku.</h2>
+      <p class="section-lead">Combined with Batch 1, you now have eighteen image-led briefs. Realistically the feed needs eight to twelve unique statics across launch — picking down both batches gets you there cleanly.</p>
+
+      <div class="next-card">
+        <h3>The ones I'd push hardest from this batch.</h3>
+        <p>If you want a short list to start: <b>Brief 09</b> (jungle question — strongest TOF scroll-stopper), <b>Brief 12</b> (family table — biggest brand asset we haven't used), <b>Brief 15</b> (camp dawn — repeatable weekly format), <b>Brief 17</b> (coastal big claim — colour-palette balance for the feed). That gives Ku a four-piece commission while we confirm the photo pool for the rest.</p>
+        <ul>
+          <li><b>Reply with brief numbers</b> you want shipped from this batch (and any from Batch 1 you haven't picked yet).</li>
+          <li><b>Answer the three photo-rights questions</b> above so Ku doesn't start work on a brief we can't source.</li>
+          <li><b>Brief Ku by environment groups</b> — jungle / desert / arctic / coastal can be one task; family / candid / camp / urban another. Keeps the editor's head in one register at a time.</li>
+          <li><b>Hold the data-tile (Brief 13) for the Adult Blend launch week</b> — it's the post that does the heaviest commercial lift, save it for when the bag is live.</li>
+          <li><b>Re-use the Caveat / scrawl and Special Elite / stamp treatments</b> sparingly — they're high-personality. One of each per month, not weekly.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Modern Savage</span> · Static Bear-with-writing briefs · Batch 2 · 3 June 2026 · Prepared for Olly by Ted
+</footer>
+
+<script>
+  // Fixed nav background on scroll
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // IntersectionObserver scroll-reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
