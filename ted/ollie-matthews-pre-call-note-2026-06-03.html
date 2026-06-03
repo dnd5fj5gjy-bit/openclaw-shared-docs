@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OJay Health · A few thoughts ahead of our call</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#3F8F76;
+  --accent-soft:#7FB8A1;
+  --accent-dark:#1F5E4D;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --warm-white:#FDFBF8;
+  --charcoal:#1A1A1A;
+  --charcoal-light:#3A3A3A;
+  --text-primary:#1A1A1A;
+  --text-muted:rgba(26,26,26,0.6);
+  --text-on-dark:rgba(255,255,255,0.85);
+  --text-on-dark-muted:rgba(255,255,255,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--text-primary);background:var(--cream);
+  line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.hero{
+  min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#0f1e1a 0%,#16332a 45%,#1F5E4D 100%);
+  padding:7rem 2rem 5rem;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:0.08;animation:float 22s ease-in-out infinite}
+.hero-bg-shapes .s1{width:500px;height:500px;top:-120px;right:-160px;background:var(--accent-soft)}
+.hero-bg-shapes .s2{width:340px;height:340px;bottom:-100px;left:-110px;background:var(--accent);animation-delay:-7s}
+.hero-bg-shapes .s3{width:230px;height:230px;top:40%;left:8%;background:#D5C6A0;animation-delay:-14s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-30px) scale(1.05)}
+  66%{transform:translate(-15px,20px) scale(0.95)}
+}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:1.5rem;position:relative;z-index:1}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);
+  color:white;line-height:1.1;max-width:880px;margin-bottom:1.4rem;position:relative;z-index:1;
+}
+.hero h1 .accent{color:var(--accent-soft);font-style:italic}
+.hero-sub{color:var(--text-on-dark);max-width:680px;font-size:1.05rem;margin-bottom:2rem;position:relative;z-index:1;line-height:1.75}
+.hero-meta{display:flex;gap:2rem;color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:400;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+
+section{padding:5.5rem 2rem}
+.inner{max-width:1080px;margin:0 auto}
+.tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.2;margin-bottom:1.2rem}
+.body-text{max-width:760px;color:var(--text-muted);margin-bottom:1.4rem;font-size:1rem}
+.body-text strong{color:var(--text-primary);font-weight:500}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--warm-white)}
+.sec-dark{background:var(--charcoal);color:white}
+.sec-dark .tag{color:var(--accent-soft)}
+.sec-dark .heading{color:white}
+.sec-dark .body-text{color:var(--text-on-dark)}
+.sec-dark .body-text strong{color:white}
+
+.summary-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 auto;max-width:1080px;
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  transform:translateY(-3rem);position:relative;z-index:2;
+  box-shadow:0 20px 60px -30px rgba(0,0,0,0.18);
+}
+.summary-strip > div{padding:1.4rem 1.6rem;border-right:1px solid rgba(0,0,0,0.06)}
+.summary-strip > div:last-child{border-right:0}
+.summary-strip .k{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.4rem}
+.summary-strip .v{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--charcoal);line-height:1.25}
+
+.note-block{
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  padding:2.2rem 2.4rem;margin-top:2rem;max-width:880px;
+}
+.note-block p{color:var(--charcoal-light);font-size:1.02rem;line-height:1.8;margin-bottom:1rem}
+.note-block p:last-child{margin-bottom:0}
+.note-block .sig{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent-dark);margin-top:1.4rem}
+
+.reframe{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;
+}
+.reframe .col{
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;padding:2rem;
+}
+.reframe .col .col-tag{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;margin-bottom:0.6rem}
+.reframe .col.bad .col-tag{color:#A04545}
+.reframe .col.good .col-tag{color:var(--accent)}
+.reframe .col h3{font-family:'DM Serif Display',serif;font-size:1.35rem;line-height:1.25;margin-bottom:0.8rem}
+.reframe .col p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+
+.steps{
+  display:grid;grid-template-columns:1fr;gap:0;margin-top:1.5rem;
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+.steps .row{
+  display:grid;grid-template-columns:80px 1fr;gap:2rem;
+  padding:1.6rem 0;border-bottom:1px solid rgba(0,0,0,0.08);
+  align-items:start;
+}
+.steps .row .num{
+  font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1;padding-top:0.2rem;
+}
+.steps .row h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.4rem;line-height:1.3}
+.steps .row p{color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:0.4rem}
+.steps .row .why{font-size:0.82rem;color:var(--accent-dark);letter-spacing:0.02em;font-weight:500}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem}
+.cards .card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:1.8rem;
+}
+.cards .card .card-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:0.6rem}
+.cards .card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:white;margin-bottom:0.5rem;line-height:1.3}
+.cards .card p{color:var(--text-on-dark-muted);font-size:0.92rem;line-height:1.7}
+
+.paths{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;
+}
+.paths .path{
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:2.2rem;
+  display:flex;flex-direction:column;
+}
+.paths .path .path-tag{font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.6rem}
+.paths .path h3{font-family:'DM Serif Display',serif;font-size:1.4rem;line-height:1.25;margin-bottom:0.8rem}
+.paths .path .path-sub{color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:1.2rem}
+.paths .path ul{list-style:none;padding:0;margin:0 0 1.2rem}
+.paths .path ul li{
+  padding:0.55rem 0 0.55rem 1.4rem;position:relative;font-size:0.92rem;line-height:1.6;color:var(--charcoal-light);
+  border-bottom:1px dashed rgba(0,0,0,0.08);
+}
+.paths .path ul li:last-child{border-bottom:0}
+.paths .path ul li::before{
+  content:"";position:absolute;left:0;top:1.05rem;width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.paths .path .verdict{
+  margin-top:auto;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.08);
+  font-size:0.85rem;color:var(--accent-dark);font-weight:500;letter-spacing:0.02em;
+}
+
+.sequence{
+  background:linear-gradient(165deg,#1F5E4D 0%,#16332a 100%);
+  color:white;border-radius:10px;padding:2.5rem;margin-top:2.5rem;
+}
+.sequence .seq-tag{font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:0.8rem}
+.sequence h3{font-family:'DM Serif Display',serif;font-size:1.6rem;line-height:1.25;margin-bottom:0.8rem;color:white}
+.sequence p{color:var(--text-on-dark);font-size:0.98rem;line-height:1.75;max-width:780px}
+.sequence p strong{color:white;font-weight:500}
+
+.closing{
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  padding:2.2rem 2.4rem;margin-top:2rem;
+}
+.closing p{color:var(--charcoal-light);font-size:1.02rem;line-height:1.8;margin-bottom:1rem}
+.closing p:last-child{margin-bottom:0}
+.closing .sig{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent-dark);margin-top:1.4rem}
+
+footer{
+  background:var(--charcoal);color:var(--text-on-dark-muted);
+  padding:2.4rem 2rem;text-align:center;
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+}
+footer .lockup{color:white;letter-spacing:0.24em;font-weight:500;margin-bottom:0.4rem}
+
+@media(max-width:780px){
+  .summary-strip{grid-template-columns:1fr 1fr;transform:translateY(-2rem)}
+  .summary-strip > div{border-bottom:1px solid rgba(0,0,0,0.06)}
+  .summary-strip > div:nth-child(2){border-right:0}
+  .summary-strip > div:nth-last-child(-n+2){border-bottom:0}
+  .reframe{grid-template-columns:1fr}
+  .paths{grid-template-columns:1fr}
+  .sequence{padding:1.8rem}
+  .steps .row{grid-template-columns:1fr;gap:0.4rem}
+  section{padding:4rem 1.4rem}
+  .hero{padding:5.5rem 1.4rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+  <div class="hero-tag">A note ahead of our call · For Ollie</div>
+  <h1>A few <span class="accent">thoughts</span> on what you're really looking for.</h1>
+  <p class="hero-sub">Saves us both time on the call. Read this beforehand and we can spend our time on the bits you want to push back on, rather than me walking you through it from cold.</p>
+  <div class="hero-meta">
+    <span>From Olly Westmacott · BGV</span>
+    <span>·</span>
+    <span>3 June 2026</span>
+  </div>
+</div>
+
+<div class="summary-strip">
+  <div><div class="k">What you have</div><div class="v">A credible 1-1 practice</div></div>
+  <div><div class="k">What you asked for</div><div class="v">An investor + steady clients</div></div>
+  <div><div class="k">My honest read</div><div class="v">You need a system, not capital</div></div>
+  <div><div class="k">Where to start</div><div class="v">Productise &amp; run one funnel</div></div>
+</div>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">Before we get into it</div>
+    <h2 class="heading">A quick word on why I wrote this.</h2>
+    <div class="note-block">
+      <p>Mate — I had a proper think about what you sent me, and rather than show up to the call cold I wanted to put my honest read on paper first. That way you've got time to digest it, push back where you disagree, and we can spend the call on the bits that actually matter to you rather than me walking you through it from scratch.</p>
+      <p>None of this is fixed. It's how I'd look at it if it were my business. If I'm wrong about something, I want to know — that's half the point of the conversation.</p>
+      <div class="sig">— Olly</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">Where you actually are</div>
+    <h2 class="heading">What you've got is more than you're giving yourself credit for.</h2>
+    <p class="body-text">OJay Health is a credible, established 1-1 functional health coaching practice. You've got the proper credentials, a strong founder story, sixteen named-client testimonials including recognisable names, and a working lead magnet in the Optimal Health Test. The product is solid. The brand is solid.</p>
+    <p class="body-text">What you don't have yet is a <strong>repeatable marketing system</strong>. Right now everything depends on you personally being visible, posting, replying, taking calls. So when you get busy or tired, the pipeline goes quiet. That's the thing behind the message — it isn't really a lack of capital, it's a lack of structure.</p>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">The honest reframe</div>
+    <h2 class="heading">Investor might be the wrong frame here.</h2>
+    <p class="body-text">Worth pressure-testing what you'd actually get from an investor before going to look for one. The maths usually doesn't land for a service business that depends on the founder's time — and what you're describing wanting them to fund, you can fund yourself out of monthly profit.</p>
+
+    <div class="reframe">
+      <div class="col bad">
+        <div class="col-tag">What "find an investor" really means</div>
+        <h3>Giving up ownership to buy a marketer.</h3>
+        <p>Investors want equity in exchange for capital, and they want a return. A 1-1 coaching practice doesn't scale without you in it — so there's no obvious exit, which makes it unattractive to most investors and expensive to anyone who is willing. You'd dilute the business you built to fund something you can run for under £2k a month.</p>
+      </div>
+      <div class="col good">
+        <div class="col-tag">What you actually need</div>
+        <h3>A funded marketing function, paid from profit.</h3>
+        <p>Productise the offer so it converts without you in every call. Run one clean funnel end-to-end. Hire one operator on a retainer or profit-share to run it. You keep 100% of the business, and the system pays for itself within a few months. The "marketing engine" you're describing — you just labelled it "investor."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">First steps · next 30 days</div>
+    <h2 class="heading">Where I'd start, in this order.</h2>
+    <p class="body-text">Five concrete moves. Each one removes a specific blocker. The point is you don't have to wait for capital or hire a whole team — these are all things you can start this week.</p>
+
+    <div class="steps">
+      <div class="row">
+        <div class="num">01</div>
+        <div>
+          <h3>Publish pricing on the site.</h3>
+          <p>Right now the site sends every interested person to "Book a call" with no price. That filters out everyone who isn't ready to commit to an unknown number, and it makes you personally sell every single lead. Publish three tiers — even just a starting-from price — so high-intent people self-qualify before they get to you.</p>
+          <div class="why">Why first: this single change halves your sales-call load and doubles call-show quality.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="num">02</div>
+        <div>
+          <h3>Build the funnel around the Optimal Health Test.</h3>
+          <p>The lead magnet already exists and it's good. What's missing is what happens after someone takes it. Add a five-email nurture sequence that walks them from "I scored badly" to "book the call," plus an automatic call-booking link inside the result page. This is the spine of the whole system.</p>
+          <div class="why">Why next: you already have the asset — you just need to build the conveyor belt behind it.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="num">03</div>
+        <div>
+          <h3>Pick one channel. Run it properly.</h3>
+          <p>Instagram is the right channel for your audience of high-performing men. Three posts a week, one format (reels works), one hook style, one CTA pointing to the Optimal Health Test. Stop scattering across LinkedIn, Facebook, blog. One channel done well beats four done badly every time.</p>
+          <div class="why">Why: focus is the only thing that creates compounding. Spreading thin is what's making it feel overwhelming.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="num">04</div>
+        <div>
+          <h3>Hire one operator — not a whole team.</h3>
+          <p>A part-time VA or content-led freelancer at £800–£1,500 / month who runs the IG calendar, replies to DMs, follows up unbooked leads, and reports weekly. Pay them retainer plus a small per-client kicker. You stay the face; they run the engine. This is what "an investor would let me hire" really looks like — you just fund it from cashflow.</p>
+          <div class="why">Why: removes the founder bottleneck without ceding ownership. Reversible if it doesn't work.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="num">05</div>
+        <div>
+          <h3>Track one number weekly.</h3>
+          <p>Leads → calls booked → clients signed, every Monday. That's it. No dashboards. The point is to give you a single signal of whether the system is working, so you stop feeling reactive and start feeling in control. Decisions about what to change come from this number, not from how busy you feel.</p>
+          <div class="why">Why last: until 1–4 are in place, there's nothing to measure. Once they are, this is the steering wheel.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">The bigger question</div>
+    <h2 class="heading">If you actually want scale, you have to productise.</h2>
+    <p class="body-text">The above gets you a steady client flow inside 1-1 coaching. But if the real ambition is the kind of business an investor would back, that means moving beyond pure 1-1 — a group programme, a course, a productised diagnostic package — anything that doesn't trade your hours for revenue. That's a different conversation, and a much bigger one. Worth flagging here so you can think about it, but probably not the focus of our first call.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Stay 1-1</div>
+        <h3>System gets you steady clients.</h3>
+        <p>What's in the first-steps section. Six months of focused execution and you have a calm, predictable practice without giving up ownership.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Add a tier above</div>
+        <h3>Group programme.</h3>
+        <p>A six-month cohort version of your coaching at a lower price point. Lets you serve 20+ people at once. Now the business has leverage.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Add a tier below</div>
+        <h3>Self-serve diagnostic + course.</h3>
+        <p>The Optimal Health Test plus an automated course as a £200–£500 entry product. Becomes a funnel into the higher tiers and a standalone revenue line.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Only then</div>
+        <h3>Investor conversation makes sense.</h3>
+        <p>Once there's a productised tier that scales without you, the business has an exit and an investor has something to back. Until then, profits fund growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">Two paths worth considering</div>
+    <h2 class="heading">Grow it on your own terms, plug into ours, or both.</h2>
+    <p class="body-text">Two clean options. Most people end up at a hybrid, but they only get there if they see both laid out. Path A is the foundation either way — Path B doesn't work without it.</p>
+
+    <div class="paths">
+      <div class="path">
+        <div class="path-tag">Path A</div>
+        <h3>Grow OJay Health on your own terms.</h3>
+        <p class="path-sub">The five-step system above. No investor, no dilution. You use cashflow to fund growth and stay 100% owner.</p>
+        <ul>
+          <li>Publish pricing — stop being the only filter</li>
+          <li>Build the funnel behind the Optimal Health Test</li>
+          <li>Pick one channel (IG short form) and run it weekly</li>
+          <li>Hire one part-time operator at ~£1k/m + kicker</li>
+          <li>Track leads → calls → clients every Monday</li>
+        </ul>
+        <div class="verdict">My take: this is the floor. Six months of focused execution and you have a calm, predictable practice — and a base from which any next move is cheap to fund.</div>
+      </div>
+      <div class="path">
+        <div class="path-tag">Path B</div>
+        <h3>White-label with Ted's Health.</h3>
+        <p class="path-sub">You plug OJay into BGV's regulated men's health infrastructure. We provide the clinical engine; you keep your brand, your audience, your customer relationship.</p>
+        <ul>
+          <li>Adds a productised, prescription-grade tier above 1-1 coaching</li>
+          <li>Captures clients you currently lose to "I'd need TRT for that"</li>
+          <li>No CQC build, no GMC hiring, no fulfilment headache</li>
+          <li>Recurring revenue share that scales without your hours</li>
+          <li>Compliance, doctors, intake, CRM — all handled</li>
+        </ul>
+        <div class="verdict">My take: this is the scale tier. The thing an investor would have funded — except you don't need an investor because it's already built.</div>
+      </div>
+    </div>
+
+    <div class="sequence">
+      <div class="seq-tag">The smart play</div>
+      <h3>Path A first. Then Path B as the lever.</h3>
+      <p>My honest answer is you probably want both, in order. <strong>Path A is the foundation — you need a working funnel, a clear offer and one operator running it before anything bolts on top.</strong> Once that's humming (call it 60–90 days), <strong>Path B becomes the productised scale tier</strong>: same funnel, same audience, but now an OJay × Ted's Health clinical pathway sits above the 1-1 coaching. That stack is what gives you a constant client stream, a scalable revenue line, and the freedom to either reinvest in growth or — if you still want to — have a much more interesting conversation with an investor, because now there's something investable to back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">For our call</div>
+    <h2 class="heading">What would be useful to talk through.</h2>
+    <div class="closing">
+      <p>Come to the call with the bits you push back on. Where am I being too quick, where am I missing something obvious about your business or your situation, what doesn't fit.</p>
+      <p>The two specific things I'd love your read on: <strong>(1)</strong> if you ran Path A for the next 90 days, what's the one thing in it you'd find hardest to do — and is that a "won't" or a "don't know how"; <strong>(2)</strong> the white-label tier under Ted's Health — is that interesting enough to dig into properly on a second call, or is it not for you.</p>
+      <p>Either way, looking forward to it.</p>
+      <div class="sig">— Olly</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="lockup">Olly Westmacott · BGV</div>
+  <div>For Ollie Matthews · 3 June 2026</div>
+</footer>
+
+</body>
+</html>
