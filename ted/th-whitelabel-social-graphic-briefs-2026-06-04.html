@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health White-Label — Social Graphic Briefs · 4 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A1A2E; --navy2:#23233F; --gold:#C9A24B; --gold-l:#E4C879;
+    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(26,26,46,.12);
+    --steel:#3a4a5e; --blood:#8B2500;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  nav.topnav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(8px);background:rgba(26,26,46,.0);transition:background .25s ease, padding .25s ease;padding:18px 32px}
+  nav.topnav.scrolled{background:rgba(26,26,46,.92);padding:12px 32px;border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.topnav .brand{color:#fff;font-family:'DM Serif Display',serif;font-size:18px;letter-spacing:.02em;display:inline-block}
+  nav.topnav .links{float:right;display:flex;gap:22px}
+  nav.topnav .links a{color:#cfd6dd;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:color .15s ease}
+  nav.topnav .links a:hover{color:var(--gold-l)}
+  @media (max-width:760px){ nav.topnav .links{display:none} }
+
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 8vw;background:
+     radial-gradient(ellipse at 75% 35%, rgba(201,162,75,.18) 0%, transparent 55%),
+     linear-gradient(150deg,var(--navy) 0%,var(--navy2) 100%);
+     color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .hero .eyebrow{color:var(--gold-l);font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;opacity:0;transform:translateY(14px);animation:fadeUp .9s .15s ease forwards}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,76px);font-weight:400;line-height:1.05;margin:14px 0 10px;max-width:980px;opacity:0;transform:translateY(18px);animation:fadeUp .9s .3s ease forwards}
+  .hero h1 em{font-style:italic;color:var(--gold-l)}
+  .hero p.sub{color:#cdd9e0;font-size:clamp(15px,1.6vw,19px);max-width:720px;line-height:1.6;opacity:0;transform:translateY(18px);animation:fadeUp .9s .5s ease forwards}
+  .hero .meta{position:absolute;bottom:38px;left:8vw;right:8vw;display:flex;justify-content:space-between;align-items:center;color:#8a97a0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:0;animation:fadeUp .9s .9s ease forwards}
+  .hero .meta .right{color:var(--gold-l)}
+
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  section.block{padding:7rem 8vw;max-width:1200px;margin:0 auto}
+  section.alt{background:#fff;max-width:100%;padding:7rem 8vw}
+  section.alt .inner{max-width:1200px;margin:0 auto}
+  section.dark{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;max-width:100%;padding:7rem 8vw}
+  section.dark .inner{max-width:1200px;margin:0 auto}
+  section.dark h2, section.dark .lab{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  .lab{display:block;color:var(--gold);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  h2.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:18px;max-width:880px}
+  section.dark h2.section-title{color:#fff}
+  p.section-lead{font-size:17px;color:#3d4853;max-width:780px;line-height:1.7;margin-bottom:42px}
+  section.dark p.section-lead{color:#cdd9e0}
+
+  .tldr{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:30px 34px;margin:0 0 50px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
+  .tldr .lab{color:var(--navy);margin-bottom:8px}
+  .tldr p{font-size:16px;color:#2c3540;line-height:1.7}
+  .tldr p + p{margin-top:10px}
+
+  .matrix{display:grid;grid-template-columns:60px 1.6fr 1.4fr 1.4fr 1.2fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin-top:18px}
+  .matrix .mh{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#7a6326;font-weight:700;padding:14px 6px;border-bottom:1px solid var(--line)}
+  .matrix .mr{font-size:14.5px;color:#1c2a33;padding:14px 6px;border-bottom:1px solid var(--line);line-height:1.45}
+  .matrix .mr.n{font-family:'DM Serif Display',serif;color:var(--navy);font-size:18px;text-align:center}
+  .matrix .mr.t{font-weight:600;color:var(--navy)}
+  .matrix > div:nth-last-child(-n+5){border-bottom:none}
+  @media (max-width:780px){
+    .matrix{grid-template-columns:46px 1fr;gap:6px}
+    .matrix .mh:nth-child(3),.matrix .mh:nth-child(4),.matrix .mh:nth-child(5){display:none}
+    .matrix .mr{padding:8px 6px}
+    .matrix .mr.t::after{content:attr(data-ctx);display:block;font-weight:400;color:#5b6671;font-size:13px;margin-top:3px}
+  }
+
+  .var-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 38px;margin:0 0 24px;box-shadow:0 1px 0 rgba(11,31,42,.03);position:relative;overflow:hidden}
+  .var-card::before{content:attr(data-n);position:absolute;top:18px;right:24px;font-family:'DM Serif Display',serif;color:var(--gold);opacity:.45;font-size:46px;line-height:1}
+  .var-card .lab{margin-bottom:6px}
+  .var-card h3{font-family:'DM Serif Display',serif;color:var(--navy);font-size:26px;font-weight:400;line-height:1.2;margin-bottom:18px;max-width:78%}
+  .var-card .row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .var-card .row:last-of-type{border-bottom:none}
+  .var-card .row .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;padding-top:3px}
+  .var-card .row .v{font-size:15.5px;color:#1c2a33;line-height:1.65}
+  .var-card .row .v em{font-style:normal;font-weight:600;color:var(--navy);background:#fff4d6;padding:0 4px;border-radius:3px}
+  .var-card .row .v.copy{font-family:'Outfit',sans-serif;font-size:16.5px;color:var(--navy);line-height:1.6;font-weight:500}
+  .var-card .row .v.copy.serif{font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);font-weight:400;line-height:1.25}
+  .var-card .row .v.copy.serif em{font-style:italic;background:none;color:var(--gold);padding:0}
+  .var-card .row .v.copy.caps{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:14.5px;color:var(--navy)}
+  .var-card .row .v.copy.mono{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--navy);background:#f1ecdf;padding:10px 14px;border-radius:6px;display:inline-block;line-height:1.55}
+  .var-card .why{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:#5b6671;font-style:italic;line-height:1.6}
+  @media (max-width:720px){
+    .var-card{padding:26px 24px}
+    .var-card h3{font-size:22px;max-width:100%}
+    .var-card .row{grid-template-columns:1fr;gap:4px}
+  }
+
+  /* Mockup tile inside each brief — gives Ku a visual reference */
+  .mock{margin:20px 0 6px;background:linear-gradient(150deg,var(--navy),var(--navy2));border-radius:12px;padding:28px;color:#fff;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+  .mock::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.22) 0%,transparent 60%);top:-80px;right:-80px;pointer-events:none}
+  .mock .mtag{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-l);font-weight:700;margin-bottom:18px;position:relative;z-index:1}
+  .mock .mtitle{font-family:'DM Serif Display',serif;font-size:30px;line-height:1.15;font-weight:400;position:relative;z-index:1;max-width:80%}
+  .mock .mtitle em{font-style:italic;color:var(--gold-l)}
+  .mock .mbase{display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#9ba6b3;font-weight:600;position:relative;z-index:1;margin-top:24px}
+  .mock .mbase b{color:#fff;font-weight:700}
+  /* mockup variants */
+  .mock.b2 .mtitle{font-family:'Montserrat',sans-serif;font-weight:800;font-size:24px;line-height:1.2;letter-spacing:-.005em;text-transform:none}
+  .mock.b2 .stack{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;position:relative;z-index:1}
+  .mock.b2 .pill{background:rgba(255,255,255,.08);border:1px solid rgba(201,162,75,.35);border-radius:8px;padding:10px 12px}
+  .mock.b2 .pill .n{font-family:'DM Serif Display',serif;color:var(--gold-l);font-size:20px;line-height:1;margin-bottom:4px}
+  .mock.b2 .pill .d{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#cfd6dd;font-weight:600}
+  .mock.b3{background:linear-gradient(150deg,#0e1422,#1A1A2E)}
+  .mock.b3 .phone{background:#fff;color:var(--navy);border-radius:18px;padding:18px 20px;width:62%;margin:14px 0 18px;position:relative;z-index:1;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  .mock.b3 .phone .url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#7a6326;margin-bottom:10px}
+  .mock.b3 .phone .ph{font-family:'DM Serif Display',serif;font-size:20px;line-height:1.2;margin-bottom:8px}
+  .mock.b3 .phone .pb{font-size:11.5px;color:#5b6671;line-height:1.5}
+  .mock.b3 .label{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:22px;color:#fff;max-width:32%;z-index:1;line-height:1.2}
+  .mock.b3 .label em{font-style:italic;color:var(--gold-l)}
+
+  .asks{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blood);border-radius:10px;padding:28px 32px;margin-top:30px}
+  .asks .lab{color:var(--blood);margin-bottom:8px}
+  .asks h3{font-family:'DM Serif Display',serif;color:var(--navy);font-size:22px;font-weight:400;line-height:1.2;margin-bottom:14px}
+  .asks ul{list-style:none;margin:10px 0 0;padding:0}
+  .asks ul li{padding:11px 0 11px 26px;position:relative;color:#2c3540;font-size:15px;line-height:1.6;border-bottom:1px solid var(--line)}
+  .asks ul li:last-child{border-bottom:none}
+  .asks ul li::before{content:"?";position:absolute;left:0;top:11px;width:18px;height:18px;background:var(--blood);color:#fff;text-align:center;font-size:11px;font-weight:800;border-radius:50%;line-height:18px}
+  .asks ul li b{color:var(--navy);font-weight:600}
+
+  .next-card{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;border-radius:14px;padding:42px 46px;margin-top:20px}
+  .next-card h3{font-family:'DM Serif Display',serif;font-size:30px;font-weight:400;color:#fff;margin-bottom:14px;line-height:1.2}
+  .next-card p{color:#cdd9e0;font-size:16px;line-height:1.75;margin-bottom:12px}
+  .next-card ul{list-style:none;margin:18px 0 0;padding:0}
+  .next-card ul li{padding:12px 0 12px 28px;position:relative;color:#e4eaef;font-size:15.5px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,.08)}
+  .next-card ul li:last-child{border-bottom:none}
+  .next-card ul li::before{content:"";position:absolute;left:0;top:18px;width:14px;height:2px;background:var(--gold)}
+  .next-card ul li b{color:var(--gold-l);font-weight:600}
+
+  footer{padding:34px 8vw;text-align:center;color:#8a97a0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+  footer span{color:var(--gold-l)}
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <span class="brand">TH White-Label — Social Briefs</span>
+  <span class="links">
+    <a href="#tldr">In one read</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#briefs">Briefs</a>
+    <a href="#asks">Open questions</a>
+    <a href="#next">Next step</a>
+  </span>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Ted's Health · White-label social graphic briefs · 4 June 2026</div>
+  <h1>Three ways to put the <em>white-label</em> on the page.</h1>
+  <p class="sub">Three static graphic briefs for Ku Creatives — built to introduce Ted's Health White-Label to a B2B / operator audience on social (TH company LinkedIn primary, IG/FB feed secondary). Each brief is a distinct angle, a distinct visual register, a distinct job in the funnel.</p>
+  <div class="meta">
+    <span>For Olly · prepared by Ted</span>
+    <span class="right">Standalone brief set · 4 Jun 2026</span>
+  </div>
+</header>
+
+<!-- ─── TL;DR ──────────────────────────────────── -->
+<section class="block" id="tldr">
+  <div class="reveal">
+    <div class="tldr">
+      <span class="lab">In one read</span>
+      <p>White-Label has had no consistent social presence so far. Three angles cover the audience cleanly: <b>the upgrade</b> (for ambassadors and creators sitting on a health audience), <b>the engine</b> (for clinicians and operators who'd otherwise have to build the regulatory stack themselves), and <b>the proof</b> (rimo.co as the live "this is what your platform looks like" reference).</p>
+      <p>Each brief specifies: the on-image copy, the visual concept (no new shoots — uses stock + UI mockups + existing TH brand assets), the type treatment, the caption, the platform/audience, and the placement. Channel priority: <b>TH company LinkedIn</b> (B2B operator audience), with IG/FB feed reposts where the format permits. Each card includes a rough mockup tile so the creative direction is unambiguous before Ku starts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MATRIX ──────────────────────────────────── -->
+<section class="alt" id="matrix">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Quick reference</span>
+      <h2 class="section-title">Three angles, at a glance.</h2>
+      <p class="section-lead">If only one ships this week, pick 01 — it's the highest-leverage hook and the cheapest to produce. Detailed briefs below.</p>
+
+      <div class="matrix">
+        <div class="mh">No.</div>
+        <div class="mh">Brief</div>
+        <div class="mh">Angle</div>
+        <div class="mh">Audience</div>
+        <div class="mh">Treatment</div>
+
+        <div class="mr n">01</div>
+        <div class="mr t" data-ctx="The upgrade — ambassador to operator">The upgrade</div>
+        <div class="mr">Ambassador → operator. Stop renting our brand.</div>
+        <div class="mr">Ambassadors, creators, content-led health figures with an audience.</div>
+        <div class="mr">Big serif headline · gold underline rule · TH wordmark.</div>
+
+        <div class="mr n">02</div>
+        <div class="mr t" data-ctx="The engine — what's actually under the hood">The engine</div>
+        <div class="mr">Clinic-in-a-box. Skip 18 months of build.</div>
+        <div class="mr">Clinicians, GPs going private, men's-health operators.</div>
+        <div class="mr">Stack diagram · four labelled pill blocks · sans caps lockup.</div>
+
+        <div class="mr n">03</div>
+        <div class="mr t" data-ctx="The proof — rimo.co as the live reference">The proof</div>
+        <div class="mr">rimo.co — what your platform looks like.</div>
+        <div class="mr">Warm leads in the pipeline who need to see it real.</div>
+        <div class="mr">Phone mockup · live URL bar · serif callout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRIEFS ──────────────────────────────────── -->
+<section class="block" id="briefs">
+  <div class="reveal">
+    <span class="lab">Section · The three briefs</span>
+    <h2 class="section-title">One angle · one visual · one job to do.</h2>
+    <p class="section-lead">Each brief carries enough for Ku to ship a static without further input. Copy is plain professional throughout — no metaphors, no clever framing. Tone follows the BPS / Bear Witness quality bar: navy, gold accent, considered whitespace, designed-not-decorated.</p>
+  </div>
+
+  <!-- BRIEF 01 ──────────────────────────────────── -->
+  <div class="var-card reveal" data-n="01">
+    <span class="lab">Brief 01 · The upgrade</span>
+    <h3>"Stop renting our brand. Start running your own."</h3>
+
+    <div class="mock">
+      <div class="mtag">Ted's Health · White-Label</div>
+      <div class="mtitle">Stop renting our brand. <em>Start running your own.</em></div>
+      <div class="mbase"><span>For ambassadors &amp; operators</span><span><b>tedshealth.com/whitelabel</b></span></div>
+    </div>
+
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">"Stop renting our brand. <em>Start running your own.</em>"</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">1:1 navy gradient tile (#1A1A2E → #23233F). Single soft gold radial glow top-right. DM Serif Display headline left-aligned, mid-frame, the second sentence in italic gold (#E4C879). Below the headline, a thin 1px gold underline rule (~120px) sets a quiet beat before the strap line. Bottom row: small-caps audience tag left, URL right. No photography in v1 — this graphic earns attention on type alone. Optional v1b: a faint <em>blueprint-style line drawing</em> of a brand-front website behind the headline at ~8% opacity.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">DM Serif Display, 64–72pt, mixed-case. Italic for the second sentence. Strap line: Montserrat 11pt, .28em tracking, all caps. No drop shadow.</span></div>
+    <div class="row"><span class="k">Caption (LinkedIn · 4 lines)</span><span class="v">Ted's Health has spent the last few months building a white-label of the platform behind the brand. Same prescribers, same pharmacy chain, same compliance wrap — your domain, your brand, your customers. If you've got the audience, you can stop sending it to someone else's funnel. Comment "WL" or DM the team — we'll send the partner pack.</span></div>
+    <div class="row"><span class="k">Audience / pillar</span><span class="v">Ambassador-to-operator pipeline. Top of the WL funnel. Speaks to: existing TH ambassadors, men's-health content creators, gym owners, podcasters with health audiences.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v"><em>Primary:</em> TH company LinkedIn (1:1 single image).<br><em>Secondary:</em> Olly's personal LinkedIn (same asset, different caption: first-person reframe).<br><em>Repurpose:</em> IG feed (4:5 reshape — drop the URL, keep the hook + strap line).</span></div>
+    <div class="row"><span class="k">Files to deliver</span><span class="v copy mono">01a · LinkedIn 1200×1200 (.png + .psd / .fig)<br>01b · IG feed 1080×1350 (.png)<br>01c · Story 1080×1920 (.png) — hook + URL only</span></div>
+    <div class="why">Why this one — it's the single sharpest framing of what white-label actually changes for an ambassador. Zero photography cost, ships fastest, and tests the hypothesis that operator-upgrade language outperforms generic "platform" language on cold audiences.</div>
+  </div>
+
+  <!-- BRIEF 02 ──────────────────────────────────── -->
+  <div class="var-card reveal" data-n="02">
+    <span class="lab">Brief 02 · The engine</span>
+    <h3>"The clinic underneath."</h3>
+
+    <div class="mock b2">
+      <div class="mtag">Ted's Health · The engine under your brand</div>
+      <div class="mtitle">The clinic underneath.</div>
+      <div class="stack">
+        <div class="pill"><div class="n">UK</div><div class="d">Regulated prescribers</div></div>
+        <div class="pill"><div class="n">Rx</div><div class="d">Pharmacy &amp; fulfilment</div></div>
+        <div class="pill"><div class="n">Bld</div><div class="d">Blood-test partners</div></div>
+        <div class="pill"><div class="n">∞</div><div class="d">Repeat-script logic</div></div>
+      </div>
+      <div class="mbase"><span>What's behind your front-end</span><span><b>tedshealth.com/whitelabel</b></span></div>
+    </div>
+
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">The clinic underneath.</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">1:1 navy tile, same palette as Brief 01 for series consistency. Headline upper-left in DM Serif. Underneath, a <em>four-block grid</em> showing the stack as labelled pill cards: <b>UK regulated prescribers · Pharmacy &amp; fulfilment · Blood-test partners · Repeat-script logic.</b> Each pill: gold thin border, navy background, large gold serif glyph or two-letter mark top-left of the pill, small-caps label underneath. Reads like a system architecture diagram, not a sales graphic — that's the point.</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Headline: DM Serif 48pt. Pill numbers/glyphs: DM Serif 20pt, gold. Pill labels: Montserrat caps 10.5pt, .18em tracking. Footer URL: monospaced (JetBrains Mono) 11pt — reinforces the technical register.</span></div>
+    <div class="row"><span class="k">Caption (LinkedIn · 5 lines)</span><span class="v">Most people thinking about launching a telehealth brand stall at the same gate: building the clinical engine takes 18 months and a regulated pharmacy chain you don't have. White-label removes that gate. You bring the brand and the audience; we bring the prescribers, the pharmacy, the blood-test partners, and the repeat-script logic that actually keeps a TRT or ED book retained. The reference deployment is rimo.co. The first external pilot is Effect Dr. If you've been quietly mapping out a men's-health platform of your own, this is the conversation.</span></div>
+    <div class="row"><span class="k">Audience / pillar</span><span class="v">Clinicians considering going private, GPs with men's-health interest, existing operators who've struggled with regulatory build, partnership-curious gym chains. Mid-funnel — for audiences who already know what telehealth is and are evaluating build vs partner.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v"><em>Primary:</em> TH company LinkedIn (1:1).<br><em>Secondary:</em> LinkedIn document post — same graphic as page 1 of a 4-page mini-deck (one pillar per page), high-saving format.<br><em>Repurpose:</em> IG feed 4:5 — keep stack, drop the footer URL row.</span></div>
+    <div class="row"><span class="k">Files to deliver</span><span class="v copy mono">02a · LinkedIn 1200×1200 (.png + .psd / .fig)<br>02b · LinkedIn carousel/doc 1080×1350 — 4 frames, one pillar each (.pdf)<br>02c · IG feed 1080×1350 (.png)</span></div>
+    <div class="why">Why this one — it shifts the conversation from "we have a product" to "we have infrastructure". That's the right frame for the operator/clinician audience, who are evaluating partners by depth not slickness. Also the foundation graphic for any future series of stack-deep posts.</div>
+  </div>
+
+  <!-- BRIEF 03 ──────────────────────────────────── -->
+  <div class="var-card reveal" data-n="03">
+    <span class="lab">Brief 03 · The proof</span>
+    <h3>"rimo.co — what your platform looks like."</h3>
+
+    <div class="mock b3">
+      <div class="mtag">Ted's Health · White-Label · Live now</div>
+      <div class="phone">
+        <div class="url">▸ rimo.co</div>
+        <div class="ph">Men's health, on your terms.</div>
+        <div class="pb">TRT · ED · Hormone optimisation · Blood testing. Consultation in minutes, prescription in days, delivered to your door.</div>
+      </div>
+      <div class="label">"This is what your <em>platform</em> looks like."</div>
+    </div>
+
+    <div class="row"><span class="k">Hook (on-image copy)</span><span class="v copy serif">"This is what your <em>platform</em> looks like."</span></div>
+    <div class="row"><span class="k">Visual concept</span><span class="v">1:1 navy tile. Left two-thirds: a clean phone-frame mockup showing the <em>rimo.co</em> home page (URL bar visible — "rimo.co" — to make it real, not a wireframe). Right third: serif call-out headline, italic "platform" in gold. Top-left small-caps tag: "Live now". Bottom right: TH wordmark in white. Photography-free, mockup-first: a phone or browser screenshot of rimo.co (confirm with Calvin/Thomas which view to feature — home, consult flow, or dashboard).</span></div>
+    <div class="row"><span class="k">Type treatment</span><span class="v">Call-out: DM Serif 40pt, italic for "platform", gold. URL bar inside the phone: JetBrains Mono 11pt — looks like a real browser tab, not graphic-design type.</span></div>
+    <div class="row"><span class="k">Caption (LinkedIn · 4 lines)</span><span class="v">When we say white-label, we mean it ships looking like the partner's brand from the first click. rimo.co is the live reference — a fully running men's-health platform on the Ted's Health clinical engine, with rimo's brand on the front and our prescribers, pharmacy and blood partners underneath. If you want to see what your version would look like, the partner walk-through is a 30-minute call. Comment "WL" or DM the team.</span></div>
+    <div class="row"><span class="k">Audience / pillar</span><span class="v">Warm leads in the WL pipeline (the 61 in the dashboard) who've heard the pitch and need a concrete reference. Also useful as a "what is this actually" answer for anyone landing on the TH page cold.</span></div>
+    <div class="row"><span class="k">Placement</span><span class="v"><em>Primary:</em> TH company LinkedIn (1:1).<br><em>Secondary:</em> Reply-asset — kept on hand to drop into LinkedIn DMs, email follow-ups, the WL dashboard outreach flow.<br><em>Repurpose:</em> Story 9:16 — phone fills the frame, call-out wraps top + bottom.</span></div>
+    <div class="row"><span class="k">Files to deliver</span><span class="v copy mono">03a · LinkedIn 1200×1200 (.png + .psd / .fig)<br>03b · Story 1080×1920 (.png)<br>03c · DM-asset 1080×1080 with rounded corners (.png)</span></div>
+    <div class="why">Why this one — proof is what unblocks the warm leads. The first two briefs sell the idea; this one shows the idea already shipped. Also reusable as a sales asset long after the social run is done.</div>
+  </div>
+</section>
+
+<!-- ─── ASKS ──────────────────────────────────── -->
+<section class="alt" id="asks">
+  <div class="inner">
+    <div class="reveal">
+      <span class="lab">Section · Open questions before brief</span>
+      <h2 class="section-title">Confirm these before Ku starts.</h2>
+      <p class="section-lead">Five quick decisions that affect the deliverable but are not Ted's calls to make.</p>
+
+      <div class="asks">
+        <span class="lab">Open questions for Olly</span>
+        <h3>Five confirmations needed</h3>
+        <ul>
+          <li><b>URL.</b> Is <em>tedshealth.com/whitelabel</em> the right landing on the footer of each graphic, or is there a dedicated partner page / form URL we should use instead?</li>
+          <li><b>rimo.co view.</b> For Brief 03, which screen do we want shown in the phone mockup — home page, consult flow, or partner dashboard? Calvin/Thomas to confirm.</li>
+          <li><b>Channel priority.</b> Confirmed primary channel is TH company LinkedIn — assuming yes, but flagging it. If Olly's personal LinkedIn is the primary instead, captions need a first-person rewrite.</li>
+          <li><b>CTA wording.</b> "Comment 'WL' or DM the team" is the placeholder. If the WL inbox / form is the preferred capture, swap accordingly.</li>
+          <li><b>Effect Dr mention.</b> Brief 02 caption names Effect Dr as the first external pilot. Confirm we're comfortable saying that publicly yet, or strip the reference.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEXT ──────────────────────────────────── -->
+<section class="block" id="next">
+  <div class="reveal">
+    <span class="lab">Section · What happens next</span>
+    <h2 class="section-title">Next step.</h2>
+
+    <div class="next-card">
+      <h3>Olly: confirm or redirect, then ship to Ku.</h3>
+      <p>This brief set is sized to be submitted to Ku Creatives in one go — three statics, all variants and sizes itemised, mockups visualised inline so the creative direction is unambiguous. Ku can ship the full set in a single make cycle.</p>
+      <ul>
+        <li><b>1.</b> Olly clears the five open questions above (15-minute job).</li>
+        <li><b>2.</b> Ted resubmits this doc as a Ku ClickUp task with the answers baked in.</li>
+        <li><b>3.</b> Ku produces Briefs 01–03 in the deliverable formats listed under each card.</li>
+        <li><b>4.</b> Round of feedback → final → schedule into Metricool. Suggested run order: 01 (Mon) · 02 (Wed) · 03 (Fri) of a single week.</li>
+        <li><b>5.</b> Two-week read on engagement &amp; inbound — feeds Batch 2 (patient-pathway angle, partner-economics angle, ambassador-testimonial angle).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Prepared by <span>Ted</span> for Olly · 4 June 2026 · Ted's Health White-Label Social — Brief Set 01
+</footer>
+
+<script>
+  // scrolled nav
+  const nav = document.getElementById('topnav');
+  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
