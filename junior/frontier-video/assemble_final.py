@@ -389,6 +389,16 @@ def main():
     print(f"\nDONE: {OUT_FILE}")
     print(f"Size: {size_mb:.1f}MB | Duration: {dur:.0f}s ({dur/60:.1f} min)")
 
+    # Send final video to Jesse via Telegram
+    print("\nSending to Jesse via Telegram...")
+    caption = f"Wildernests Frontier - final video. {dur/60:.1f} min, {size_mb:.0f}MB. Image-chained, Bill voice, cinematic grade."
+    subprocess.run([
+        "python3", str(Path.home() / "agents/shared/tools/send_telegram.py"),
+        "--agent", "junior", "--chat-id", "7989359858",
+        "--file", str(OUT_FILE),
+        "--caption", caption
+    ])
+
 
 if __name__ == "__main__":
     main()
