@@ -344,14 +344,27 @@ def main():
     # Final assembly with optional background music
     print("\n=== Final mix ===")
     if MUSIC_FILE.exists():
-        # Mix VO with background music (music at -18dB under VO)
+        # Get music duration to calculate fade-out point
+        music_dur_r = subprocess.run(
+            ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+             "-of", "csv=p=0", str(MUSIC_FILE)],
+            capture_output=True, text=True
+        )
+        music_dur = float(music_dur_r.stdout.strip() or 120)
+        fade_start = max(0, music_dur - 10)
+
+        # Mix VO with background music — music at low volume, fades out 10s before end
         cmd = [
             "ffmpeg", "-y",
             "-i", vconcat,
             "-i", aconcat,
             "-i", str(MUSIC_FILE),
             "-filter_complex",
-            "[1:a]volume=1.0[vo];[2:a]volume=0.15[music];[vo][music]amix=inputs=2:duration=first[audio]",
+            (
+                f"[1:a]volume=1.0[vo];"
+                f"[2:a]volume=0.12,afade=t=out:st={fade_start}:d=10[music];"
+                f"[vo][music]amix=inputs=2:duration=first[audio]"
+            ),
             "-map", "0:v", "-map", "[audio]",
             "-c:v", "copy", "-c:a", "aac", "-shortest",
             str(OUT_FILE)
