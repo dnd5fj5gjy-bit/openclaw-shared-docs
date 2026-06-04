@@ -6,6 +6,7 @@ Run this once all clips in clips/ are ready.
 """
 import subprocess, os, sys, json
 from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
 
 BASE = Path(__file__).parent
 CLIPS_DIR = BASE / "clips"
