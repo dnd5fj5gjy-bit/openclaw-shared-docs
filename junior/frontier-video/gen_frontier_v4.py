@@ -25,18 +25,14 @@ STATE_FILE = os.path.join(OUT_DIR, "state.json")
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# Core visual lock — repeated in every prompt to maintain consistency
+# Core visual lock — kept tight (API limit: 1000 chars per prompt)
 BASE = (
-    "Cinematic landscape 16:9. "
-    "Continuous tracking shot from directly behind the same lone rider on horseback — "
-    "rider wears a dark weathered frontier duster coat and wide-brim hat, back to camera, never showing face. "
-    "The same black and white border collie trots alongside on the right of the horse. "
-    "They move slowly forward along the muddy bank of a narrow winding river. "
-    "Shot on 35mm film, Kodak Vision3 stock, real outdoor location, natural available light. "
-    "Desaturated muted color grade, overcast sky, prestige feature film aesthetic. "
-    "Photorealistic — NOT CGI, NOT animation, NOT video game, NOT rendered. "
-    "Real mud, real water, real weathered textures, organic film grain, anamorphic lens. "
-    "Camera low and close behind the rider, maintaining identical framing to previous shot."
+    "Cinematic 16:9. Tracking shot from directly behind lone rider on horseback — "
+    "dark frontier duster coat, wide-brim hat, back to camera, face never shown. "
+    "Black and white border collie alongside right of horse. Narrow muddy winding river. "
+    "35mm film, desaturated muted grade, overcast sky. "
+    "Photorealistic, NOT CGI, NOT video game, NOT rendered. "
+    "Film grain, anamorphic lens. Low close behind-rider framing throughout."
 )
 
 # (scene_id, duration, prompt)
@@ -45,17 +41,17 @@ SCENES = [
         "s01",
         8,
         BASE + " "
-        "Completely untouched wilderness, no structures, no human presence. "
-        "Narrow winding river through ancient primordial plains, tall reeds and wild grass. "
-        "Pre-dawn blue-grey mist lifting off the water. The earth completely unformed.",
+        "Completely untouched ancient wilderness. No structures, no human presence. "
+        "Narrow river through primordial plains, tall reeds and wild grass on muddy banks. "
+        "Pre-dawn blue-grey mist on the water. The earth unformed and empty.",
     ),
     (
         "s02",
         8,
         BASE + " "
-        "First faint signs of human presence — crude reed shelters barely visible on the far bank, "
-        "a thin wisp of smoke rising. Narrow muddy river, flat ancient plains. "
-        "The mud banks show faint traces of early settlement. Cool grey dawn.",
+        "First faint human traces — crude reed shelters on far bank, thin wisp of smoke. "
+        "Narrow muddy river, flat ancient plains. Mud banks hold faint marks of early settlement. "
+        "Cool grey dawn. The rider moves through without stopping.",
     ),
 ]
 # s04 and s05 held back — generate only s01+s02 as continuity test for Jesse approval
