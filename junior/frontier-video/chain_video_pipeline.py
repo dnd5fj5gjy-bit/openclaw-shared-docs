@@ -21,15 +21,13 @@ os.makedirs(FRAMES_DIR, exist_ok=True)
 # Use fast model for throughput — quality comes from prompt engineering
 MODEL = "veo3.1_fast"
 
-# Roger Deakins-level cinematography prompt style
-# Key: natural lighting, real materials, specific lens work, no CGI or synthetic look
+# Cinematic realism prompting — key: describe photographic qualities not people/brands
 STYLE = (
-    "shot on ARRI Alexa Mini LF, 40mm Cooke S7i lens, f2.8, "
-    "natural available light only, real outdoor location, "
-    "photorealistic 4K, organic film grain, subtle lens distortion, "
-    "Emmanuel Lubezki cinematography style, no CGI, no digital artifacts, "
-    "no text, no watermarks, deep shadows with lifted blacks, "
-    "high micro-contrast, real material textures — wood grain, rust, wet stone, dry grass"
+    "large format cinema camera, anamorphic prime lens, natural available light only, "
+    "real outdoor location, photorealistic 4K, organic film grain, "
+    "no CGI, no digital artifacts, no text, no watermarks, "
+    "deep shadows with lifted blacks, high micro-contrast, "
+    "real material textures — raw steel, wet concrete, dry prairie grass, aged timber"
 )
 
 # Home scenes — sequential chaining (s08 establishes the home, s09-s23 chain from previous)
