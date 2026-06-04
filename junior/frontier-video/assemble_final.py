@@ -395,7 +395,7 @@ def main():
     subprocess.run([
         "python3", str(Path.home() / "agents/shared/tools/send_telegram.py"),
         "--agent", "junior", "--chat-id", "7989359858",
-        "--file", str(OUT_FILE),
+        "--file", str(OUT_FILE), "--video",
         "--caption", caption
     ])
 
