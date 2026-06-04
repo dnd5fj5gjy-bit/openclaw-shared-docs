@@ -18,15 +18,18 @@ FRAMES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frames")
 os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(FRAMES_DIR, exist_ok=True)
 
-# High quality model — full veo3.1 (not fast) for cinematic realism
-MODEL = "veo3.1"
+# Use fast model for throughput — quality comes from prompt engineering
+MODEL = "veo3.1_fast"
 
-# Cinematic style — more specific photographic language for realism
+# Roger Deakins-level cinematography prompt style
+# Key: natural lighting, real materials, specific lens work, no CGI or synthetic look
 STYLE = (
-    "cinematic ARRI Alexa camera, anamorphic 2.39:1 lens, 24fps, "
-    "natural film grain, no CGI, no text, no watermarks, "
-    "shot on location, photojournalistic realism, "
-    "deep shadows, volumetric light, ultra-sharp foreground detail"
+    "shot on ARRI Alexa Mini LF, 40mm Cooke S7i lens, f2.8, "
+    "natural available light only, real outdoor location, "
+    "photorealistic 4K, organic film grain, subtle lens distortion, "
+    "Emmanuel Lubezki cinematography style, no CGI, no digital artifacts, "
+    "no text, no watermarks, deep shadows with lifted blacks, "
+    "high micro-contrast, real material textures — wood grain, rust, wet stone, dry grass"
 )
 
 # Home scenes — sequential chaining (s08 establishes the home, s09-s23 chain from previous)
