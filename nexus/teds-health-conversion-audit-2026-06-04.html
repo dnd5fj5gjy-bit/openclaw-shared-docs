@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — Conversion Audit & SEO Readiness | June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 40px 60px; }
+  .header h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .header p { color: #718096; font-size: 0.95rem; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 8px; }
+  .badge-red { background: #742a2a; color: #feb2b2; }
+  .badge-yellow { background: #744210; color: #fbd38d; }
+  .badge-green { background: #1a4731; color: #9ae6b4; }
+  .badge-blue { background: #1a365d; color: #90cdf4; }
+  .badge-purple { background: #44337a; color: #d6bcfa; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 60px; }
+  .section { margin-bottom: 50px; }
+  .section h2 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 6px; padding-bottom: 12px; border-bottom: 1px solid #2d3748; }
+  .section h3 { font-size: 1rem; font-weight: 600; color: #a0aec0; margin: 20px 0 10px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8rem; }
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+  .stat-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 20px; text-align: center; }
+  .stat-card .num { font-size: 2rem; font-weight: 800; color: #fff; }
+  .stat-card .label { font-size: 0.8rem; color: #718096; margin-top: 4px; }
+  .stat-card.urgent .num { color: #fc8181; }
+  .stat-card.warn .num { color: #f6ad55; }
+  .stat-card.good .num { color: #68d391; }
+  .priority-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .priority-table th { text-align: left; padding: 10px 14px; background: #1a1f2e; color: #718096; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #2d3748; }
+  .priority-table td { padding: 14px; border-bottom: 1px solid #1a1f2e; vertical-align: top; font-size: 0.9rem; }
+  .priority-table tr:hover td { background: #1a1f2e; }
+  .priority-table .rank { font-size: 1.2rem; font-weight: 800; color: #4299e1; text-align: center; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+  .compare-card { background: #1a1f2e; border-radius: 8px; padding: 24px; border: 1px solid #2d3748; }
+  .compare-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .compare-card.teds h4 { color: #90cdf4; }
+  .compare-card.arc h4 { color: #f6ad55; }
+  .check-list { list-style: none; }
+  .check-list li { padding: 6px 0; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px; }
+  .check-list li::before { content: '✓'; color: #68d391; font-weight: 700; flex-shrink: 0; }
+  .check-list li.miss::before { content: '✗'; color: #fc8181; }
+  .check-list li.warn::before { content: '⚠'; color: #f6ad55; }
+  .issue-card { background: #1a1f2e; border-left: 3px solid #742a2a; border-radius: 0 6px 6px 0; padding: 14px 18px; margin-bottom: 10px; }
+  .issue-card .title { font-weight: 600; color: #fc8181; font-size: 0.9rem; margin-bottom: 4px; }
+  .issue-card .desc { color: #a0aec0; font-size: 0.85rem; }
+  .issue-card.warn { border-left-color: #744210; }
+  .issue-card.warn .title { color: #f6ad55; }
+  .funnel { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .funnel-step { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 16px 20px; margin-bottom: 2px; display: flex; align-items: flex-start; gap: 16px; }
+  .funnel-step .step-num { background: #2d3748; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #4299e1; flex-shrink: 0; font-size: 0.9rem; }
+  .funnel-step .step-body { flex: 1; }
+  .funnel-step .step-title { font-weight: 600; color: #e2e8f0; font-size: 0.9rem; }
+  .funnel-step .step-url { font-size: 0.75rem; color: #4299e1; font-family: monospace; }
+  .funnel-step .step-issues { margin-top: 8px; }
+  .funnel-step .step-issue { font-size: 0.8rem; color: #fc8181; margin-top: 3px; display: flex; gap: 6px; }
+  .funnel-step .step-issue::before { content: '→'; }
+  .funnel-arrow { text-align: center; color: #4a5568; font-size: 1.2rem; line-height: 1; margin: -1px 0; }
+  .schema-block { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
+  .schema-block .schema-title { padding: 10px 16px; background: #171923; font-size: 0.8rem; font-weight: 600; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #2d3748; }
+  .schema-block pre { padding: 16px; font-family: 'Fira Code', 'Monaco', monospace; font-size: 0.8rem; color: #a0aec0; overflow-x: auto; white-space: pre-wrap; }
+  .steps-list { counter-reset: step-counter; list-style: none; }
+  .steps-list li { counter-increment: step-counter; padding: 10px 16px 10px 52px; position: relative; border-bottom: 1px solid #1a1f2e; font-size: 0.9rem; color: #a0aec0; }
+  .steps-list li::before { content: counter(step-counter); position: absolute; left: 16px; top: 50%; transform: translateY(-50%); background: #2d3748; color: #4299e1; font-weight: 700; font-size: 0.8rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .moat-row { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #1a1f2e; }
+  .moat-row .moat-label { font-weight: 600; color: #68d391; font-size: 0.9rem; min-width: 220px; }
+  .moat-row .moat-desc { color: #a0aec0; font-size: 0.85rem; }
+  .cta-box { background: linear-gradient(135deg, #1a365d 0%, #1a1f2e 100%); border: 1px solid #2b6cb0; border-radius: 8px; padding: 24px 28px; margin-top: 32px; }
+  .cta-box h3 { color: #90cdf4; font-size: 1rem; margin-bottom: 8px; }
+  .cta-box p { color: #a0aec0; font-size: 0.85rem; }
+  .footer { border-top: 1px solid #1a1f2e; padding: 24px 60px; color: #4a5568; font-size: 0.8rem; display: flex; justify-content: space-between; }
+  .effort-high { background: #742a2a; color: #feb2b2; padding: 2px 7px; border-radius: 3px; font-size: 0.72rem; font-weight: 600; }
+  .effort-med { background: #744210; color: #fbd38d; padding: 2px 7px; border-radius: 3px; font-size: 0.72rem; font-weight: 600; }
+  .effort-low { background: #1a4731; color: #9ae6b4; padding: 2px 7px; border-radius: 3px; font-size: 0.72rem; font-weight: 600; }
+  .impact-high { color: #68d391; font-weight: 600; font-size: 0.85rem; }
+  .impact-med { color: #f6ad55; font-weight: 600; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ted's Health — Conversion Audit & SEO Readiness</h1>
+  <p>
+    <span class="badge badge-blue">Nexus</span>
+    <span class="badge badge-purple">Internal</span>
+    <span>June 4, 2026 &nbsp;·&nbsp; tedshealth.com vs arctrt.co.uk</span>
+  </p>
+</div>
+
+<div class="container">
+
+  <!-- EXEC SUMMARY -->
+  <div class="section">
+    <h2>Executive Summary</h2>
+    <div class="summary-grid">
+      <div class="stat-card urgent">
+        <div class="num">1</div>
+        <div class="label">Critical tracking gap (cross-domain)</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="num">7</div>
+        <div class="label">Friction points in patient funnel</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="num">8</div>
+        <div class="label">Prioritised fixes identified</div>
+      </div>
+      <div class="stat-card good">
+        <div class="num">6</div>
+        <div class="label">Structural moats Arc cannot replicate</div>
+      </div>
+    </div>
+    <p style="color:#a0aec0; font-size:0.9rem; margin-top:16px;">
+      Ted's Health has strong brand, credibility, and content assets — but a conversion funnel that leaks quietly. The most urgent fix costs 2 hours and is probably making every paid campaign look like it doesn't work. The symptom pages (already specced on June 3) and a dedicated <code style="background:#1a1f2e;padding:2px 6px;border-radius:3px;">/get-started</code> page close the structural gap with Arc TRT. The Search Console registration is the precondition for measuring any of it.
+    </p>
+  </div>
+
+  <!-- PATIENT JOURNEY MAP -->
+  <div class="section">
+    <h2>Patient Journey — Current State</h2>
+    <p style="color:#718096;font-size:0.85rem;margin-bottom:16px;">Traced from organic search → conversion. Friction points marked in red.</p>
+
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Discovery — Organic Search</div>
+          <div class="step-url">Google: "testosterone replacement therapy UK" / "low testosterone symptoms"</div>
+          <div class="step-issues">
+            <div class="step-issue" style="color:#f6ad55;">Ted's ranking position unknown — Google Search Console not registered</div>
+            <div class="step-issue">No symptom-specific landing pages to capture bottom-of-funnel searches</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Landing — Homepage</div>
+          <div class="step-url">https://www.tedshealth.com/</div>
+          <div class="step-issues">
+            <div class="step-issue">No price signal — visitor doesn't know if this costs £50 or £500/month</div>
+            <div class="step-issue">Two equal CTAs (Start + Login) — ambiguous for a first-time visitor</div>
+            <div class="step-issue">No trust stat above fold (no "X patients treated" or "Y reviews")</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Exploration — Treatment / How It Works</div>
+          <div class="step-url">https://www.tedshealth.com/testosterone-replacement-therapy &nbsp;·&nbsp; /how-it-works</div>
+          <div class="step-issues">
+            <div class="step-issue">Good symptom list on TRT page but no dedicated symptom sub-pages (Arc has 9)</div>
+            <div class="step-issue">How It Works: "Step 1 is blood testing" — with no price shown, this is the biggest drop-off</div>
+            <div class="step-issue">GP notification — Ted's key differentiator — is not prominently featured in the flow</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Trust Check — About / Redgrave / Reviews</div>
+          <div class="step-url">https://www.tedshealth.com/about-us &nbsp;·&nbsp; /sir-steve-redgrave</div>
+          <div class="step-issues">
+            <div class="step-issue">Only 2 clinicians visible (Dr Andrews + Ryann Egang) — no individual profile pages</div>
+            <div class="step-issue">No review count or verified patient testimonials on treatment pages</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step" style="border-left: 3px solid #742a2a;">
+        <div class="step-num" style="background:#742a2a; color:#feb2b2;">!</div>
+        <div class="step-body">
+          <div class="step-title" style="color:#fc8181;">Conversion — Cross-Domain Break ⚠</div>
+          <div class="step-url" style="color:#fc8181;">https://connect.tedshealth.com/signup &nbsp;←&nbsp; DIFFERENT DOMAIN</div>
+          <div class="step-issues">
+            <div class="step-issue">Patient jumps from tedshealth.com → connect.tedshealth.com — context break</div>
+            <div class="step-issue">If GA4 cross-domain linking is NOT configured: all conversions show as new sessions from "direct"</div>
+            <div class="step-issue">Every paid campaign (Google Ads, Meta) would show 100% bounce with no conversions visible</div>
+            <div class="step-issue">App is a JS SPA — no server-side rendering, invisible to search engines</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEAD-TO-HEAD COMPARISON -->
+  <div class="section">
+    <h2>Head-to-Head: Ted's Health vs Arc TRT</h2>
+    <div class="compare-grid">
+      <div class="compare-card teds">
+        <h4>Ted's Health</h4>
+        <ul class="check-list">
+          <li>Homepage + treatment pages</li>
+          <li>How It Works page</li>
+          <li>About Us (2 clinicians)</li>
+          <li>Sir Steve Redgrave page</li>
+          <li>Blog (10+ posts)</li>
+          <li>Supplements offering</li>
+          <li>ED treatment service</li>
+          <li>GP-compatible pathway</li>
+          <li class="miss">No /pricing page</li>
+          <li class="miss">No /get-started page</li>
+          <li class="miss">No individual clinician profiles</li>
+          <li class="miss">No symptom landing pages (0 of 9)</li>
+          <li class="miss">No blood test purchase on site</li>
+          <li class="warn">Cross-domain funnel (attribution risk)</li>
+        </ul>
+      </div>
+      <div class="compare-card arc">
+        <h4>Arc TRT</h4>
+        <ul class="check-list">
+          <li>/pricing — 3 transparent tiers</li>
+          <li>/get-started — 2 clear paths</li>
+          <li>4 individual clinician pages</li>
+          <li>9 symptom landing pages</li>
+          <li>/testing-kits — blood tests for sale</li>
+          <li>Single-domain funnel</li>
+          <li>Consistent "Get Started" nav CTA</li>
+          <li class="miss">Thin blog (1 post visible)</li>
+          <li class="miss">No BGV / celebrity endorsement</li>
+          <li class="miss">No GP-compatible pathway</li>
+          <li class="miss">No supplements / ED / broader health</li>
+          <li class="miss">New brand (launched April 2026)</li>
+          <li class="miss">16 reviews vs Ted's established base</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIORITY FIX LIST -->
+  <div class="section">
+    <h2>Prioritised Fix List</h2>
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th style="width:40px;">#</th>
+          <th style="width:80px;">Effort</th>
+          <th style="width:80px;">Impact</th>
+          <th>Fix</th>
+          <th style="width:140px;">Time Est.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><span class="effort-low">LOW</span></td>
+          <td><span class="impact-high">HIGH</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Fix cross-domain Analytics tracking</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Configure GA4 cross-domain measurement between tedshealth.com and connect.tedshealth.com. Without this, every paid conversion is invisible — the account shows 100% bounce because GA loses the session at the subdomain switch.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">2 hrs (developer)</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><span class="effort-low">LOW</span></td>
+          <td><span class="impact-high">HIGH</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Register on Google Search Console + submit sitemap</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Verify tedshealth.com, submit sitemap.xml, enable performance tracking. Required before any SEO campaign launches — without it, keyword data and crawl errors are invisible. Full checklist below.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">1 hr (Felix or dev)</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><span class="effort-low">LOW</span></td>
+          <td><span class="impact-high">HIGH</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Add price anchor to homepage + TRT page</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Add "Treatment from £X/month" below the primary CTA. The biggest unconverted-visitor anxiety is cost uncertainty. Arc shows 3 pricing tiers. Ted's needs at least a floor price visible before the signup click.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">1 hr (copy + dev)</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td><span class="effort-med">MED</span></td>
+          <td><span class="impact-high">HIGH</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Build /get-started conversion page</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Dedicated page with two paths: (A) Order a blood test, (B) Upload existing results. Removes the binary "signup or nothing" choice. Mirrors Arc's architecture. Makes the first commitment smaller and reversible.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">1 week</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td><span class="effort-med">MED</span></td>
+          <td><span class="impact-high">HIGH</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Build 9 symptom landing pages</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Content already specced in the June 3 playbook (brain fog, low energy, muscle loss, low libido, ED, anxiety, sleep, weight gain, low mood). These capture bottom-of-funnel searches that the generic TRT page never ranks for. Arc is indexing these now.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">2–3 weeks (copy written)</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td><span class="effort-med">MED</span></td>
+          <td><span class="impact-med">MED</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Add trust stat bar above fold</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Add a bar with: "X patients treated · Y verified reviews · Z GPs partner with Ted's Health." Arc TRT shows "3000+ patients treated." Immediate credibility signal for first-time visitors before they scroll.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">3 days</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td><span class="effort-med">MED</span></td>
+          <td><span class="impact-med">MED</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Individual clinician profile pages</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Create /doctors/jonathan-andrews and /doctors/ryann-egang with credentials, specialisms, patient approach, photo. Arc has 4 individual pages. Ted's has 0. Each captures "dr name TRT" searches + enables Physician schema markup.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">1 week</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td><span class="effort-low">LOW</span></td>
+          <td><span class="impact-med">MED</span></td>
+          <td>
+            <strong style="color:#e2e8f0;">Add JSON-LD schema markup</strong><br>
+            <span style="color:#a0aec0;font-size:0.83rem;">Add MedicalOrganization schema to homepage, Physician schema to clinician pages, FAQPage schema to FAQ pages. Enables rich results in Google SERPs and medical eligibility signals. Copy-paste templates below.</span>
+          </td>
+          <td style="color:#718096;font-size:0.83rem;">2 hrs (dev)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TED'S MOATS -->
+  <div class="section">
+    <h2>Ted's Health Structural Moats</h2>
+    <p style="color:#718096;font-size:0.85rem;margin-bottom:16px;">Things Arc TRT cannot replicate quickly — worth leaning into harder.</p>
+    <div class="moat-row">
+      <div class="moat-label">GP Partnership Pathway</div>
+      <div class="moat-desc">Ted's works alongside the NHS/GP. Arc TRT does not mention this. For patients who want TRT without abandoning their NHS relationship, Ted's is the only structured option. This should be on the homepage, not buried in the funnel.</div>
+    </div>
+    <div class="moat-row">
+      <div class="moat-label">Bear Grylls / BGV Brand Authority</div>
+      <div class="moat-desc">Brand trust a startup cannot replicate. The BGV connection signals serious institutional backing. Not currently featured on the homepage at all — it's organic context but not an explicit trust signal.</div>
+    </div>
+    <div class="moat-row">
+      <div class="moat-label">Sir Steve Redgrave Endorsement</div>
+      <div class="moat-desc">Full-page case study. A credible, relevant, well-known patient story. One of the most powerful conversion assets Ted's has — linked from the nav but not prominently featured in the purchase flow.</div>
+    </div>
+    <div class="moat-row">
+      <div class="moat-label">Broader Men's Health (ED + Supplements)</div>
+      <div class="moat-desc">Arc TRT is pure TRT. Ted's covers TRT, ED, and supplements — three revenue streams vs one. Patients who don't qualify for TRT still have options. This reduces wasted acquisition spend.</div>
+    </div>
+    <div class="moat-row">
+      <div class="moat-label">Established Blog Authority</div>
+      <div class="moat-desc">10+ posts vs Arc's 1. Content authority compounds over time. Arc cannot instantly replicate 2 years of indexed content. The blog is an asset but not yet linked into the conversion flow.</div>
+    </div>
+    <div class="moat-row" style="border-bottom:none;">
+      <div class="moat-label">Partner With Us Programme</div>
+      <div class="moat-desc">Ted's has a B2B partnership pathway Arc lacks. GPs, gyms, and wellness brands can refer patients. This is a structural distribution moat — but the page currently has no visible CTA or application form.</div>
+    </div>
+  </div>
+
+  <!-- SEARCH CONSOLE CHECKLIST -->
+  <div class="section">
+    <h2>Google Search Console — Setup Checklist</h2>
+    <p style="color:#718096;font-size:0.85rem;margin-bottom:16px;">Estimated time: 45 minutes. Requires access to Felix's Google account and the tedshealth.com domain registrar.</p>
+    <ol class="steps-list">
+      <li>Go to <strong>search.google.com/search-console</strong> → click <strong>Add property</strong> → choose <strong>Domain</strong> → enter <code style="background:#1a1f2e;padding:2px 6px;border-radius:3px;">tedshealth.com</code></li>
+      <li>Google shows a DNS TXT record (e.g. <code style="background:#1a1f2e;padding:2px 6px;border-radius:3px;">google-site-verification=XXXXXX</code>) — log in to your domain registrar (likely Namecheap, GoDaddy, or Cloudflare), add this TXT record to the DNS</li>
+      <li>Click <strong>Verify</strong> in Search Console — DNS propagates in 5–60 minutes</li>
+      <li>Once verified, go to <strong>Sitemaps</strong> → enter <code style="background:#1a1f2e;padding:2px 6px;border-radius:3px;">sitemap.xml</code> → click Submit (confirm the sitemap exists first: try visiting https://www.tedshealth.com/sitemap.xml)</li>
+      <li>Go to <strong>Settings → URL prefix</strong>, add both <code>https://www.tedshealth.com</code> and <code>https://tedshealth.com</code> (without www) so you get both in one view</li>
+      <li>Under <strong>Settings → Ownership</strong>, add the developer's Google account as an owner so they can access it independently</li>
+      <li>Enable <strong>email alerts</strong> in Preferences → turn on all alert types (coverage, manual actions, security issues)</li>
+      <li>After 48 hours: check <strong>Coverage</strong> report for any pages returning 404 or excluded from index. Fix any errors found.</li>
+      <li>After 7 days: check <strong>Performance</strong> report. Note which queries are generating impressions — this is the baseline before the symptom page build.</li>
+      <li>After symptom pages launch: submit <code>sitemap.xml</code> again to force re-crawl of new URLs</li>
+    </ol>
+    <div class="issue-card warn" style="margin-top:16px;">
+      <div class="title">Also check: does tedshealth.com have a sitemap?</div>
+      <div class="desc">Visit https://www.tedshealth.com/sitemap.xml and https://www.tedshealth.com/robots.txt. If sitemap doesn't exist, ask the dev team to generate one from the CMS (most platforms like WordPress, Webflow, Squarespace do this automatically).</div>
+    </div>
+  </div>
+
+  <!-- SCHEMA TEMPLATES -->
+  <div class="section">
+    <h2>Schema Markup Templates (copy-paste ready)</h2>
+    <p style="color:#718096;font-size:0.85rem;margin-bottom:16px;">Add inside a <code style="background:#1a1f2e;padding:2px 6px;border-radius:3px;">&lt;script type="application/ld+json"&gt;</code> tag in the <code>&lt;head&gt;</code> of each page. Fill in the bracketed placeholders.</p>
+
+    <div class="schema-block">
+      <div class="schema-title">Homepage — MedicalOrganization</div>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Ted's Health",
+  "url": "https://www.tedshealth.com",
+  "logo": "https://www.tedshealth.com/[logo-path].png",
+  "description": "Expert men's health services including testosterone replacement therapy and ED treatment in the UK.",
+  "medicalSpecialty": "General",
+  "availableService": [
+    {"@type": "MedicalTherapy", "name": "Testosterone Replacement Therapy"},
+    {"@type": "MedicalTherapy", "name": "Erectile Dysfunction Treatment"},
+    {"@type": "MedicalTherapy", "name": "Men's Health Supplements"}
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://www.instagram.com/[handle]",
+    "https://twitter.com/[handle]"
+  ]
+}</pre>
+    </div>
+
+    <div class="schema-block">
+      <div class="schema-title">Clinician Page — Physician (repeat for each doctor)</div>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Dr Jonathan Andrews",
+  "url": "https://www.tedshealth.com/doctors/jonathan-andrews",
+  "affiliation": {
+    "@type": "MedicalOrganization",
+    "name": "Ted's Health",
+    "url": "https://www.tedshealth.com"
+  },
+  "medicalSpecialty": "General",
+  "description": "[Insert 2-sentence bio]",
+  "image": "https://www.tedshealth.com/[photo-path].jpg",
+  "alumniOf": {"@type": "CollegeOrUniversity", "name": "[Medical school]"},
+  "knowsAbout": ["Testosterone Replacement Therapy", "Men's Health", "Low Testosterone"]
+}</pre>
+    </div>
+
+    <div class="schema-block">
+      <div class="schema-title">Symptom Pages — FAQPage (add to each /trt-symptoms/[symptom] page)</div>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can low testosterone cause [SYMPTOM]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[150-word answer drawn from the symptom page spec]"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does TRT help with [SYMPTOM]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[150-word answer explaining mechanism and evidence]"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long before TRT improves [SYMPTOM]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[Timeline answer — typically 4-6 weeks for some symptoms, 3-6 months for full effect]"
+      }
+    }
+  ]
+}</pre>
+    </div>
+
+    <div class="schema-block">
+      <div class="schema-title">How It Works Page — HowTo</div>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to start TRT with Ted's Health",
+  "description": "A personalised journey to better health through TRT.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Comprehensive blood testing",
+      "text": "Order your at-home blood test. Our kit tests testosterone and key health markers."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Expert doctor consultation",
+      "text": "Review results with one of our registered doctors in a private video consultation."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Confirmatory blood test",
+      "text": "A second blood test confirms results before any treatment begins."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Personalised treatment and monitoring",
+      "text": "Receive your personalised treatment plan with ongoing monitoring by our team."
+    }
+  ]
+}</pre>
+    </div>
+  </div>
+
+  <!-- WHAT NEXUS BUILT -->
+  <div class="section">
+    <h2>Connected Deliverables (Ted's Health Arc)</h2>
+    <p style="color:#718096;font-size:0.85rem;margin-bottom:16px;">This audit is the fourth output in a connected intelligence arc. All are linked.</p>
+    <table class="priority-table">
+      <thead>
+        <tr><th>Date</th><th>Deliverable</th><th>What it gives you</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#718096;font-size:0.83rem;">May 27</td>
+          <td><strong style="color:#e2e8f0;">Arc TRT Competitive Brief</strong></td>
+          <td style="color:#a0aec0;font-size:0.83rem;">Who Arc TRT is, who founded it, where they launched, their strategy</td>
+        </tr>
+        <tr>
+          <td style="color:#718096;font-size:0.83rem;">June 2</td>
+          <td><strong style="color:#e2e8f0;">Content Gap Analysis</strong></td>
+          <td style="color:#a0aec0;font-size:0.83rem;">31 Ted's pages vs 38 Arc pages — structural gaps identified (symptom pages, clinicians, pricing)</td>
+        </tr>
+        <tr>
+          <td style="color:#718096;font-size:0.83rem;">June 3</td>
+          <td><strong style="color:#e2e8f0;">Symptom Pages Playbook</strong></td>
+          <td style="color:#a0aec0;font-size:0.83rem;">11 production-ready page specs with full copy, SEO metadata, FAQs, CTAs</td>
+        </tr>
+        <tr>
+          <td style="color:#718096;font-size:0.83rem;">June 4</td>
+          <td><strong style="color:#e2e8f0;">Conversion Audit (this doc)</strong></td>
+          <td style="color:#a0aec0;font-size:0.83rem;">Patient journey map, 8 prioritised fixes, Search Console checklist, schema templates</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cta-box">
+    <h3>Recommended next steps (in order)</h3>
+    <p>
+      <strong style="color:#90cdf4;">Today (1 hour):</strong> Register tedshealth.com on Google Search Console using the checklist above. This is the precondition for measuring everything else.<br><br>
+      <strong style="color:#90cdf4;">This week (2 hours):</strong> Fix GA4 cross-domain tracking with the dev team. Every paid campaign is flying blind until this is done.<br><br>
+      <strong style="color:#90cdf4;">This week (1 hour):</strong> Add a price floor ("Treatment from £X/month") to the homepage and TRT page. Lowest-effort highest-impact copy change.<br><br>
+      <strong style="color:#90cdf4;">Next 3 weeks:</strong> Build the 9 symptom pages (content already written in the June 3 playbook) + the /get-started conversion page.
+    </p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Nexus — Ted's Health Conversion Audit · June 4, 2026 · Internal</span>
+  <span>Previous: Symptom Pages Playbook (June 3) · Content Gap (June 2) · Arc TRT Brief (May 27)</span>
+</div>
+
+</body>
+</html>
