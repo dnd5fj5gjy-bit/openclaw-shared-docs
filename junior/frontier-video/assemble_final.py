@@ -208,23 +208,51 @@ def process_scene_clip(scene_id, duration, has_vo, title_text, title_pos, idx):
     vf_parts.append(f"fade=t=in:st=0:d={fi}")
     vf_parts.append(f"fade=t=out:st={fo_start}:d={fo}")
 
-    # 5. Title overlay
-    if title_text and title_pos:
-        title_filter = title_overlay_filter(title_text, title_pos, duration)
-        if title_filter:
-            vf_parts.append(title_filter)
-
     vf_str = ",".join(vf_parts)
 
-    cmd = [
-        "ffmpeg", "-y",
-        "-i", src_v,
-        "-t", str(duration),
-        "-vf", vf_str,
-        "-c:v", "libx264", "-preset", "fast", "-crf", "18",
-        "-pix_fmt", "yuv420p", "-r", "24",
-        "-an", out_v
-    ]
+    # Check if title overlay needed
+    title_png = None
+    if title_text and title_pos:
+        title_png = str(TMP_DIR / f"{idx:02d}_{scene_id}_title.png")
+        render_title_png(title_text, title_pos, title_png)
+
+    # Build ffmpeg command (with or without title overlay)
+    if title_png:
+        # Two-pass: first apply grade/letterbox/fade, then overlay title PNG
+        tmp_graded = str(TMP_DIR / f"{idx:02d}_{scene_id}_graded.mp4")
+        cmd_grade = [
+            "ffmpeg", "-y", "-i", src_v,
+            "-t", str(duration),
+            "-vf", vf_str,
+            "-c:v", "libx264", "-preset", "ultrafast", "-crf", "20",
+            "-pix_fmt", "yuv420p", "-r", "24", "-an", tmp_graded
+        ]
+        r = run(cmd_grade, check=False)
+        if r.returncode != 0:
+            print(f"  [grade err] {scene_id}: {r.stderr[-200:]}")
+            return None, None
+
+        fo_text = max(0, duration - 0.8)
+        cmd = [
+            "ffmpeg", "-y",
+            "-i", tmp_graded,
+            "-i", title_png,
+            "-filter_complex",
+            f"[0:v][1:v]overlay=0:0:enable='between(t,0.5,{fo_text})'",
+            "-c:v", "libx264", "-preset", "fast", "-crf", "18",
+            "-pix_fmt", "yuv420p", "-an", out_v
+        ]
+    else:
+        cmd = [
+            "ffmpeg", "-y",
+            "-i", src_v,
+            "-t", str(duration),
+            "-vf", vf_str,
+            "-c:v", "libx264", "-preset", "fast", "-crf", "18",
+            "-pix_fmt", "yuv420p", "-r", "24",
+            "-an", out_v
+        ]
+
     r = run(cmd, check=False)
     if r.returncode != 0:
         print(f"  [vf err] {scene_id}: {r.stderr[-300:]}")
