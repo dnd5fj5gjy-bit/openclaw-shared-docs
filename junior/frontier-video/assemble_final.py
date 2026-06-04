@@ -114,40 +114,59 @@ def cinematic_grade_filter():
     return "curves=r='0/0 .5/.48 1/1':g='0/0 .5/.5 1/1':b='0/0.02 .5/.52 1/1'"
 
 
-def title_overlay_filter(title_text, position, duration):
-    """Generate ffmpeg drawtext filter for title overlays."""
+FONT_SANS = "/System/Library/Fonts/HelveticaNeue.ttc"
+CREAM = (242, 237, 228)
+GOLD  = (200, 168, 74)
+
+def load_font(path, size):
+    try:
+        return ImageFont.truetype(path, size)
+    except Exception:
+        return ImageFont.load_default()
+
+
+def render_title_png(title_text, position, out_path):
+    """Render title overlay as transparent RGBA PNG using Pillow."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
     lines = title_text.split("\n")
 
+    def centered_text(text, font, y, color):
+        bbox = draw.textbbox((0, 0), text, font=font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) // 2, y), text, fill=color, font=font)
+
     if position == "title":
-        # WILDERNESTS large + THE FRONTIER smaller below
-        if len(lines) == 2:
-            return (
-                f"drawtext=text='{lines[0]}':font=Helvetica:fontsize=90:fontcolor=white@0.92:"
-                f"x=(w-text_w)/2:y=(h/2)-80:"
-                f"enable='between(t,1,{duration-1})',"
-                f"drawtext=text='{lines[1]}':font=Helvetica:fontsize=26:fontcolor=0xC8A84A@0.85:"
-                f"x=(w-text_w)/2:y=(h/2)+40:"
-                f"enable='between(t,1,{duration-1})'"
-            )
+        f1 = load_font(FONT_SANS, 90)
+        f2 = load_font(FONT_SANS, 26)
+        centered_text(lines[0], f1, H // 2 - 80, CREAM + (235,))
+        if len(lines) > 1:
+            centered_text(lines[1], f2, H // 2 + 40, GOLD + (217,))
 
     elif position == "act":
-        # Small gold act label, centered, upper third
-        text = title_text.replace("\n", " ")
-        return (
-            f"drawtext=text='{text}':font=Helvetica:fontsize=18:fontcolor=0xC8A84A@0.8:"
-            f"x=(w-text_w)/2:y=h/3:"
-            f"enable='between(t,0.5,{duration-1})'"
-        )
+        text = " ".join(lines)
+        f = load_font(FONT_SANS, 18)
+        centered_text(text, f, H * 36 // 100, GOLD + (204,))
 
     elif position == "end_title":
-        # WILDERNESTS large, centered
-        return (
-            f"drawtext=text='{lines[0]}':font=Helvetica:fontsize=110:fontcolor=white@0.92:"
-            f"x=(w-text_w)/2:y=(h-text_h)/2:"
-            f"enable='between(t,1,{duration-1})'"
-        )
+        f = load_font(FONT_SANS, 110)
+        bbox = draw.textbbox((0, 0), lines[0], font=f)
+        tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        draw.text(((W - tw) // 2, (H - th) // 2), lines[0], fill=CREAM + (235,), font=f)
 
-    return None
+    img.save(out_path, "PNG")
+
+
+def title_overlay_args(title_png, duration):
+    """Return ffmpeg args to overlay a transparent PNG on the video."""
+    # Use movie filter to load PNG, overlay on video with fade in/out
+    fi_end = min(1.0, duration * 0.15)
+    fo_start = max(0, duration - 1.0)
+    return [
+        "-i", title_png,
+        "-filter_complex",
+        f"[0:v][1:v]overlay=0:0:enable='between(t,{fi_end},{duration-0.2})',fade=t=in:st=0:d=0.5,fade=t=out:st={fo_start}:d=0.8"
+    ]
 
 
 def process_scene_clip(scene_id, duration, has_vo, title_text, title_pos, idx):
