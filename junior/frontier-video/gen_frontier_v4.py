@@ -57,25 +57,8 @@ SCENES = [
         "a thin wisp of smoke rising. Narrow muddy river, flat ancient plains. "
         "The mud banks show faint traces of early settlement. Cool grey dawn.",
     ),
-    (
-        "s04",
-        8,
-        BASE + " "
-        "Ancient mud-brick structures rise organically from the muddy riverbanks around the rider — "
-        "low domed forms and crumbling arched walls made of the same mud as the earth itself, "
-        "some half-dissolved into the shallow river, indistinguishable from the ground. "
-        "Real weathered mud-brick, real erosion. Flat overcast light. Dust and silence.",
-    ),
-    (
-        "s05",
-        8,
-        BASE + " "
-        "Crumbling stone walls and overgrown cobbled paths on the muddy narrow riverbanks — "
-        "a collapsed mill foundation dissolving back into the earth, terraced hillsides eroding. "
-        "Real moss, real weathered stone returning to ground. Grey overcast sky. "
-        "The rider and dog the only living things moving.",
-    ),
 ]
+# s04 and s05 held back — generate only s01+s02 as continuity test for Jesse approval
 
 
 def load_state():
