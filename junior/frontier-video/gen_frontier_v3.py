@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Frontier Video — v3 rebuild with Jesse's corrections:
-- Smaller, narrower river (not wide/dramatic)
-- Civilizations rise and fall from mud organically — structures emerging from
-  and dissolving back into the muddy earth, as in Jesse's reference clips
+- Smaller, narrower river
+- Civilizations rise and fall from mud organically
+- NO CGI, NO video game aesthetic — photographic film realism only
 """
 
 import requests
@@ -31,8 +31,11 @@ BASE = (
     "rider wears a dark weathered frontier duster coat and wide-brim hat, never showing face. "
     "A black and white border collie trots alongside on the right of the horse. "
     "They move slowly forward along the muddy bank of a narrow winding river. "
-    "Desaturated muted color grade, overcast moody sky, prestige Western cinematic aesthetic. "
-    "Photorealistic, anamorphic lens, film grain, deep shadows, no CGI, no text, no watermarks. "
+    "Shot on 35mm film, Kodak Vision3 stock, real outdoor location, natural available light only. "
+    "Desaturated muted color grade, overcast sky, prestige feature film aesthetic. "
+    "Photorealistic documentary footage — NOT CGI, NOT animation, NOT video game, NOT digital art, "
+    "NOT rendered, NOT Unreal Engine. Real textures, real mud, real water, real light. "
+    "Organic film grain, anamorphic lens distortion, deep practical shadows. "
     "Camera stays low and close behind the rider throughout."
 )
 
@@ -41,35 +44,35 @@ SCENES = [
         "s01",
         8,
         BASE + " "
-        "Completely untouched wilderness. No structures, no signs of human presence. "
-        "Narrow winding river through ancient primordial plains, tall reeds and wild grass on the muddy banks. "
-        "Mountains far in the distance. Pre-dawn blue-grey mist. The earth untouched.",
+        "Completely untouched wilderness, no structures, no human presence. "
+        "Narrow winding river through ancient plains, tall reeds and wild grass on the muddy banks. "
+        "Mountains far in the distance. Pre-dawn blue-grey mist lifting off the water.",
     ),
     (
         "s02",
         8,
         BASE + " "
-        "First faint signs of human presence — simple reed shelters barely visible on the far bank, "
-        "a whisper of smoke. Narrow muddy river, flat ancient plains. "
-        "The mud of the banks holds the faint impression of early settlement. Cool grey dawn.",
+        "First faint signs of human presence — crude reed shelters barely visible on the far bank, "
+        "a thin wisp of smoke. Narrow muddy river, flat ancient plains stretching away. "
+        "The mud banks show faint traces of early settlement. Cool grey dawn light.",
     ),
     (
         "s04",
         8,
         BASE + " "
-        "Ancient mud-brick structures rise organically from the muddy riverbanks around the rider — "
-        "low domed forms and crumbling arched walls emerging from and dissolving back into the wet earth, "
-        "some half-submerged in the shallow river, some barely distinguishable from the mud itself. "
-        "A civilization forming from the ground and returning to it. Flat overcast light, dust, silence.",
+        "Ancient mud-brick structures rise organically from the muddy riverbanks — "
+        "low domed forms and crumbling arched walls made of the same mud as the earth itself, "
+        "indistinguishable from the ground they emerge from, some half-dissolved into the shallow river. "
+        "Real weathered mud-brick, real erosion, real decay. Flat overcast light. Dust and silence.",
     ),
     (
         "s05",
         8,
         BASE + " "
-        "Medieval stone structures rise from the muddy banks — walls, a mill foundation, cobbled path — "
-        "but all dissolving back, overgrown, crumbling into the earth. "
-        "The narrow river winds through terraced hillsides. Grey sky. An agricultural world eroding away. "
-        "The rider and dog are the only living things moving.",
+        "Crumbling stone walls and overgrown cobbled paths on the narrow riverbanks — "
+        "a collapsed mill foundation dissolving into the mud, terraced hillsides eroding. "
+        "Real moss, real weathered stone, real decay returning to earth. "
+        "Grey overcast sky. The rider and dog the only living things moving in the frame.",
     ),
 ]
 
