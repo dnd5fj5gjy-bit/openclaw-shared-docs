@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Launch Decisions | June 5, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e8e8e8;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .header {
+    border-bottom: 2px solid #2a2a2a;
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  .badge {
+    display: inline-block;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .decision-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .decision-card.urgent { border-left: 3px solid #e55; }
+  .decision-card.clear { border-left: 3px solid #3d8; }
+  .decision-card.watch { border-left: 3px solid #fa0; }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    gap: 16px;
+  }
+  .card-title { font-size: 18px; font-weight: 600; color: #fff; }
+  .card-subtitle { font-size: 13px; color: #666; margin-top: 3px; }
+  .verdict-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .verdict-pass { background: #1a3a1a; color: #4c4; border: 1px solid #2a5a2a; }
+  .verdict-book { background: #1a2a3a; color: #4af; border: 1px solid #2a4a6a; }
+  .verdict-watch { background: #3a2a00; color: #fa0; border: 1px solid #5a4000; }
+  .verdict-push { background: #3a1a1a; color: #f55; border: 1px solid #5a2a2a; }
+
+  .numbers-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .number-box {
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+  }
+  .number-box .val {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+  }
+  .number-box .lbl {
+    font-size: 11px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .timeline-bar {
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .timeline-bar .tl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    color: #bbb;
+  }
+  .tl-date { color: #666; min-width: 80px; font-size: 12px; }
+  .tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-red { background: #e55; }
+  .dot-green { background: #3d8; }
+  .dot-yellow { background: #fa0; }
+  .dot-grey { background: #444; }
+  .tl-label {}
+
+  .analysis-block {
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #aaa;
+  }
+  .analysis-block p { margin-bottom: 8px; }
+  .analysis-block p:last-child { margin-bottom: 0; }
+  .highlight { color: #fff; font-weight: 600; }
+  .red { color: #e55; }
+  .green { color: #3d8; }
+  .yellow { color: #fa0; }
+
+  .action-list { margin: 14px 0; }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .action-num {
+    background: #1e1e1e;
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .action-num.hot { background: #3a1a1a; color: #f55; }
+  .action-num.medium { background: #2a2200; color: #fa0; }
+  .action-num.low { background: #1a2a1a; color: #3d8; }
+  .action-body { color: #ccc; }
+  .action-body .who { color: #666; font-size: 12px; margin-top: 2px; }
+
+  .status-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 14px; }
+  .status-table th {
+    text-align: left;
+    padding: 8px 12px;
+    color: #555;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .status-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #141414;
+    color: #bbb;
+    vertical-align: top;
+  }
+  .status-table tr:last-child td { border-bottom: none; }
+  .st-done { color: #3d8; font-weight: 600; }
+  .st-warn { color: #fa0; font-weight: 600; }
+  .st-block { color: #e55; font-weight: 600; }
+  .st-na { color: #555; }
+
+  .callout {
+    background: #101820;
+    border: 1px solid #1a3050;
+    border-left: 3px solid #4af;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #99ccff;
+  }
+  .callout strong { color: #4af; }
+
+  h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #555;
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  h3:first-of-type { margin-top: 0; }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 36px 0;
+  }
+
+  .footer {
+    color: #444;
+    font-size: 12px;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .card-header { flex-direction: column; }
+    .numbers-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="badge">Modern Savage</div>
+    <h1>Launch Decision Brief</h1>
+    <div class="subtitle">June 5, 2026 &mdash; 26 days to July 1 &mdash; Built by Junior overnight</div>
+  </div>
+
+  <!-- DECISION 1: SALTY PACKAGING -->
+  <div class="decision-card clear">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Salty Packaging (NZ)</div>
+        <div class="card-subtitle">Melissa's freight quote arrived this morning</div>
+      </div>
+      <div class="verdict-tag verdict-pass">BATCH 2 - Skip July 1</div>
+    </div>
+
+    <div class="numbers-row">
+      <div class="number-box">
+        <span class="val">$3,600</span>
+        <span class="lbl">Air freight (NZD)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">~$2,100</span>
+        <span class="lbl">Air freight (USD)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">$0.14</span>
+        <span class="lbl">Per unit (15K units)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">3-4 wks</span>
+        <span class="lbl">Mfg + shipping time</span>
+      </div>
+    </div>
+
+    <h3>Why it can't make July 1</h3>
+    <div class="timeline-bar">
+      <div class="tl-row">
+        <span class="tl-date">Jun 5 (today)</span>
+        <span class="tl-dot dot-yellow"></span>
+        <span class="tl-label">Order confirmed to Salty (if Jesse acts today)</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-date">Jun 19</span>
+        <span class="tl-dot dot-yellow"></span>
+        <span class="tl-label">Manufacturing complete (2-week lead time)</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-date">Jun 26-28</span>
+        <span class="tl-dot dot-red"></span>
+        <span class="tl-label">Pouches arrive Miami (5-7 days air freight from Auckland)</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-date">Jun 15 needed</span>
+        <span class="tl-dot dot-red"></span>
+        <span class="tl-label">Latest pouches needed for ACF fill to ship before July 1</span>
+      </div>
+    </div>
+
+    <div class="analysis-block">
+      <p>Even if Jesse orders today, pouches arrive Miami <span class="red">June 26-28 at the earliest</span> - two weeks too late for ACF to fill and ship by July 1. Lightning Nutra ships June 17 to July 15. If pouches aren't there by mid-June, the fill is delayed or proceeds with ACF standard packaging.</p>
+      <p><span class="highlight">The economics are attractive</span> - $0.14/unit incremental freight is negligible. The problem is purely timing. Home compostable kraft is a genuine brand differentiator worth waiting for.</p>
+    </div>
+
+    <h3>Recommendation</h3>
+    <div class="callout">
+      <strong>July 1 launch:</strong> Proceed with ACF standard packaging. Keep first order clean and on-time.<br><br>
+      <strong>Batch 2 (Sept/Oct):</strong> Order Salty now to secure slot and have packaging ready for the second production run. Order today = delivered Miami ~late August, ready for October.<br><br>
+      <strong>Reply to Melissa:</strong> Confirm Tuesday call, tell her July 1 is too tight but you want her for Batch 2. Lock in the relationship while you can - she's already discounted the quote for brand alignment.
+    </div>
+
+    <h3>Draft reply</h3>
+    <div class="analysis-block">
+      <p>"Hi Melissa, congratulations on a gorgeous product. The freight quote works well - $0.14/unit is entirely viable. The problem is timing: we're filling in Florida around June 15 and pouches from Auckland can't arrive before June 26. So we're going to use our manufacturer's standard packaging for the July 1 launch.</p>
+      <p>That said, we genuinely want Salty for our second order. We're projecting a September/October Batch 2. If we ordered within the next few weeks, can you confirm we'd be ready to deliver Miami by August? Happy to do Tuesday if that works. Best, Jesse"</p>
+    </div>
+  </div>
+
+  <!-- DECISION 2: NTG FREIGHT (UK) -->
+  <div class="decision-card urgent">
+    <div class="card-header">
+      <div>
+        <div class="card-title">NTG Freight - UK Shipment</div>
+        <div class="card-subtitle">Quote valid until June 14 - 9 days left</div>
+      </div>
+      <div class="verdict-tag verdict-push">DECIDE BY JUN 14</div>
+    </div>
+
+    <div class="numbers-row">
+      <div class="number-box">
+        <span class="val">$4,296</span>
+        <span class="lbl">NTG freight (DAP)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">0%</span>
+        <span class="lbl">UK import duty (supplements)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">~$21-25K</span>
+        <span class="lbl">UK import VAT (est.)</span>
+      </div>
+      <div class="number-box">
+        <span class="val">19 days</span>
+        <span class="lbl">Transit to Northampton</span>
+      </div>
+    </div>
+
+    <h3>The UK VAT question</h3>
+    <div class="analysis-block">
+      <p>UK dietary supplements (HS 2106.90) typically carry <span class="green">0% import duty</span>. The real cost is <span class="highlight">UK import VAT at 20%</span>.</p>
+      <p>On a ~$120K shipment (product value) + $4.3K freight = $124.3K CIF:</p>
+      <p>Import VAT = <span class="highlight">~$24,860 USD</span></p>
+      <p><span class="green">If Bear Witness Ltd is UK VAT-registered:</span> VAT is fully recoverable on the next VAT return. Net cost to you: ~$4.3K freight + minimal duty = ~$4,500 total.</p>
+      <p><span class="red">If NOT VAT-registered:</span> VAT is a sunk cost - adds ~$25K to the UK launch cost. This changes the unit economics significantly.</p>
+      <p>Previous analysis (May 29 brief) put this at <span class="highlight">$9K net (VAT registered) vs $25K net (not registered)</span>.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Jesse's action before June 14:</strong> Confirm with Raemy whether the UK import entity (Bear Witness Ltd or equivalent) is UK VAT registered. If yes, book NTG. If not, weigh whether UK launch can wait until registration is complete (takes 4-8 weeks to register, could receive VAT number sooner).
+    </div>
+  </div>
+
+  <!-- DECISION 3: DOMAIN -->
+  <div class="decision-card watch">
+    <div class="card-header">
+      <div>
+        <div class="card-title">modernsavage.com Domain</div>
+        <div class="card-subtitle">Expires June 24 - 19 days. CJ/MediaOptions handling.</div>
+      </div>
+      <div class="verdict-tag verdict-watch">HARD DEADLINE</div>
+    </div>
+
+    <div class="analysis-block">
+      <p>Last status: CJ working via MediaOptions (anonymous acquisition, never reveal BGV or June 24 deadline). Budget: £2,000.</p>
+      <p>No update in email since this was assigned. If CJ hasn't confirmed acquisition or placed a bid by <span class="highlight">Monday June 8</span>, Jesse should push directly.</p>
+      <p>The domain is currently parked on GiantPanda with <span class="red">clientRenewProhibited</span> - which means the current owner cannot renew or transfer without registry intervention. This is actually useful: it means the owner must sell or lose it on June 24. CJ's broker should be capitalising on this urgency.</p>
+      <p>Fallback: if acquisition fails, register <span class="highlight">modernsavage.co.uk</span> immediately as UK fallback. US: consider modern-savage.com or modernsavageofficial.com.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- LAUNCH STATUS TABLE -->
+  <div class="decision-card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">July 1 Launch Readiness</div>
+        <div class="card-subtitle">Overall status as of June 5</div>
+      </div>
+    </div>
+
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Delaware incorporation + EIN</td>
+          <td class="st-done">DONE - EIN 42-2894916</td>
+          <td>Raemy/ICE Miller</td>
+        </tr>
+        <tr>
+          <td>Manufacturing deposit ($82K)</td>
+          <td class="st-done">DONE - sent Apr 23-24</td>
+          <td>ACF Pharma</td>
+        </tr>
+        <tr>
+          <td>Shopify site + email flows</td>
+          <td class="st-done">DONE - live Apr 21, flows built</td>
+          <td>Calvin</td>
+        </tr>
+        <tr>
+          <td>ManyChat WhatsApp flow</td>
+          <td class="st-done">DONE - Calvin building</td>
+          <td>Calvin</td>
+        </tr>
+        <tr>
+          <td>Bear IG social arc (Phase 1)</td>
+          <td class="st-done">DONE - running via Metricool</td>
+          <td>Olly/Calvin</td>
+        </tr>
+        <tr>
+          <td>Chase bank account (US entity)</td>
+          <td class="st-warn">IN PROGRESS - Raemy setting up</td>
+          <td>Raemy</td>
+        </tr>
+        <tr>
+          <td>Stripe payments setup</td>
+          <td class="st-warn">UNCLEAR - not confirmed live</td>
+          <td>Jesse/Raemy</td>
+        </tr>
+        <tr>
+          <td>modernsavage.com domain</td>
+          <td class="st-block">AT RISK - expires Jun 24, CJ negotiating</td>
+          <td>CJ/MediaOptions</td>
+        </tr>
+        <tr>
+          <td>Lightning Nutra ship date</td>
+          <td class="st-warn">Jun 17 - Jul 15 window</td>
+          <td>ACF/Lightning Nutra</td>
+        </tr>
+        <tr>
+          <td>US fulfillment (ShipBob)</td>
+          <td class="st-warn">OUTSTANDING - May 29 deadline passed, no confirmation</td>
+          <td>Jesse</td>
+        </tr>
+        <tr>
+          <td>UK freight (NTG)</td>
+          <td class="st-block">DECIDE BY JUN 14 - quote expires</td>
+          <td>Jesse/Raemy</td>
+        </tr>
+        <tr>
+          <td>USPTO "Modern Savage" trademark</td>
+          <td class="st-warn">STATUS UNKNOWN - Kylee MacArthur offered to file May 7</td>
+          <td>Raemy/Kylee</td>
+        </tr>
+        <tr>
+          <td>Packaging (launch)</td>
+          <td class="st-done">ACF standard - confirmed decision path</td>
+          <td>ACF</td>
+        </tr>
+        <tr>
+          <td>Influencer seeding (20 targets)</td>
+          <td class="st-na">Ships A Lot / Calvin, June 1</td>
+          <td>Calvin</td>
+        </tr>
+        <tr>
+          <td>Pricing confirmed</td>
+          <td class="st-warn">Brief built (recommends £59/mo) - awaiting Jesse confirm</td>
+          <td>Jesse</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- PRIORITY ACTIONS THIS WEEK -->
+  <div class="decision-card">
+    <div class="card-header">
+      <div class="card-title">Jesse's Actions This Week</div>
+    </div>
+
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-num hot">1</div>
+        <div class="action-body">
+          <strong>Confirm VAT status with Raemy</strong> - is Bear Witness Ltd UK VAT registered? Determines whether NTG freight costs $4.5K or $25K net. Needs answer before June 14.
+          <div class="who">By: Mon Jun 8 - Jesse ask Raemy</div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num hot">2</div>
+        <div class="action-body">
+          <strong>Domain status from CJ</strong> - where is modernsavage.com negotiation? Deadline June 24. If no progress by Monday, escalate.
+          <div class="who">By: Mon Jun 8 - Jesse check with CJ</div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num hot">3</div>
+        <div class="action-body">
+          <strong>Reply to Melissa (Salty)</strong> - draft reply above: thank her, explain July 1 timing, confirm Batch 2 interest, accept Tuesday call.
+          <div class="who">By: Fri Jun 6 - Jesse (or approve Junior to draft and send)</div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num medium">4</div>
+        <div class="action-body">
+          <strong>Confirm ShipBob</strong> - US fulfillment partner still unconfirmed. May 29 deadline passed. Calvin/Jesse need to lock this before product ships.
+          <div class="who">By: Jun 9 - Jesse confirm or reject ShipBob</div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num medium">5</div>
+        <div class="action-body">
+          <strong>Confirm pricing</strong> - £59/month recommendation still awaiting Jesse sign-off. Calvin needs this to configure checkout.
+          <div class="who">By: Jun 10 - Jesse decision</div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num low">6</div>
+        <div class="action-body">
+          <strong>Stripe live status</strong> - confirm with Raemy whether Bear Witness Stripe is live for payments. Should be processing before soft launch June 29.
+          <div class="who">By: Jun 14 - Raemy/Jesse</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUMINOX SIDEBAR -->
+  <div class="decision-card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Luminox - Oscar Email (Today)</div>
+        <div class="card-subtitle">Separate from Modern Savage - FYI</div>
+      </div>
+    </div>
+    <div class="analysis-block">
+      <p>Oscar Absalom (Luminox Global Marketing Manager) emailed at 09:26 BST - apologised for missing last week's catch-up (his wife gave birth - second child). Wants to reschedule to Tuesday June 9, either 11am-1pm or 3-5pm.</p>
+      <p>CJ had deferred point 4C (pre-agreed social media cadence) to Jesse. Jesse needs to give his view on this in the meeting.</p>
+      <p><span class="highlight">Suggested reply:</span> "Congratulations Oscar - wonderful news on the new arrival. Tuesday works well, 11am BST is good for me. See you then."</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Built by Junior overnight June 4/5 &mdash; Based on Melissa's 09:09 BST freight quote + existing launch state &mdash; 26 days to July 1
+  </div>
+
+</div>
+</body>
+</html>
