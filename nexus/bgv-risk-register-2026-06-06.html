@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BGV Portfolio Risk Register — 2026-06-06</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #111; line-height: 1.55; }
+  h1 { margin-bottom: 0.2rem; }
+  .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { background: #fafafa; font-weight: 600; }
+  td.score { font-weight: 700; font-variant-numeric: tabular-nums; }
+  tr.stale td.score { color: #b54708; }
+  .summary { background: #f7f7f7; border-left: 3px solid #888; padding: 0.9rem 1rem; margin-bottom: 1.4rem; }
+  code { background: #f3f3f3; padding: 0 0.3rem; border-radius: 3px; font-size: 0.88rem; }
+  .high { color: #b42318; font-weight: 600; }
+  .footer { color: #888; font-size: 0.82rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+<h1>BGV Portfolio Risk Register</h1>
+<div class="meta">Generated 2026-06-06 by Nexus. 8 open risks, aggregate score 96.</div>
+
+<div class="summary">
+  <strong>High-severity (score &ge; 15):</strong>
+  <span class="high">2 open</span>.
+  Both sit on Ted's Health and both are time-boxed — analytics blindspot and SEO indexing race against Arc TRT.
+  Scoring: probability (1–5) &times; impact (1–5), max 25.
+  Review cadence: 30 days. Risks past review window flagged as stale.
+</div>
+
+<table>
+  <thead>
+    <tr><th>Score</th><th>Brand / Area</th><th>Risk</th><th>Status</th><th>P / I</th><th>Mitigation</th><th>Owner</th><th>Age</th></tr>
+  </thead>
+  <tbody>
+
+        <tr class="ok">
+          <td class="score">20</td>
+          <td>teds-health</td>
+          <td>Ted's Health GA4 cross-domain tracking gap</td>
+          <td><code>open</code></td>
+          <td>P=4 / I=5</td>
+          <td>Verify in GA4 admin: Data Streams &rarr; Configure tag settings &rarr; Configure your domains. Add both domains. Re-run conversion path test.</td>
+          <td>felix</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">20</td>
+          <td>teds-health</td>
+          <td>Arc TRT racing to index symptom landing pages</td>
+          <td><code>open</code></td>
+          <td>P=5 / I=4</td>
+          <td>Symptom pages playbook published 2026-06-03 with copy-ready specs. Ship 3 highest-volume pages this week (brain-fog, energy-levels, low-mood) to start indexing.</td>
+          <td>felix</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">12</td>
+          <td>agent-system</td>
+          <td>M365 token refresh single point of failure</td>
+          <td><code>open</code></td>
+          <td>P=3 / I=4</td>
+          <td>Add daily 'whoami' health check on Junior's m365_graph.py credentials. Alert Felix on Telegram if auth fails. Document re-auth flow in CLAUDE.md.</td>
+          <td>junior</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">10</td>
+          <td>agent-system</td>
+          <td>Cross-agent context leakage</td>
+          <td><code>open</code></td>
+          <td>P=2 / I=5</td>
+          <td>Run isolation-audit.py on weekly cadence. Add hook on share-knowledge.py to log provenance. Quarterly read of ISOLATION-PROTOCOL.md by all agents.</td>
+          <td>nexus</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">9</td>
+          <td>agent-system</td>
+          <td>openclaw.json single-comma syntax error</td>
+          <td><code>open</code></td>
+          <td>P=3 / I=3</td>
+          <td>Ask Felix for explicit approval to remove the comma. Until then, audit all tools that read this file to ensure they use the regex workaround, not json.load().</td>
+          <td>felix</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">9</td>
+          <td>agent-system</td>
+          <td>Anthropic edge ECONNRESET on long generations</td>
+          <td><code>open</code></td>
+          <td>P=3 / I=3</td>
+          <td>Checkpoint-to-disk discipline added to CLAUDE.md 2026-05-02. Audit nightly-build scripts for incremental writes. Consider task_heartbeat.py adoption fleet-wide.</td>
+          <td>nexus</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">8</td>
+          <td>agent-system</td>
+          <td>Listener daemon — concurrent watchdog instances</td>
+          <td><code>open</code></td>
+          <td>P=2 / I=4</td>
+          <td>Auto-recover via agent_health_check.sh on every heartbeat. Pidfile lock when restarting listener. Watchdog single-instance guard.</td>
+          <td>nexus</td>
+          <td>0d</td>
+        </tr>
+
+        <tr class="ok">
+          <td class="score">8</td>
+          <td>modern-savage</td>
+          <td>Competitor scraper brittleness (ms_competitor_tracker)</td>
+          <td><code>open</code></td>
+          <td>P=4 / I=2</td>
+          <td>Add a per-competitor 'expected signals' sanity check &mdash; if zero text snippets extracted, flag as broken. Re-run nightly with alert on &gt;2 consecutive empty results.</td>
+          <td>nexus</td>
+          <td>0d</td>
+        </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+  Tool: <code>workspace/tools/risk_register.py</code>. CLI: <code>add / list / get / rank / review / promote / close / stats / briefing / report</code>.
+  Briefing wired into <code>wakeup.py</code> so top-3 open risks surface every session.
+  Re-generate this report any time with <code>python3 workspace/tools/risk_register.py report</code>.
+</div>
+</body>
+</html>
