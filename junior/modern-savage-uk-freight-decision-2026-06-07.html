@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage: UK Freight Decision — June 7, 2026</title>
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --red: #B03A2E;
+    --green: #1A7B4B;
+    --amber: #C07A00;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  header {
+    background: var(--forest-deep);
+    color: white;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  header .subtitle {
+    color: #a8c5bb;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .alert-bar {
+    background: var(--red);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  section:last-child { border-bottom: none; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.7rem;
+    color: var(--forest-deep);
+    margin-bottom: 1.2rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin: 1.5rem 0 0.5rem;
+  }
+  p { margin-bottom: 0.9rem; }
+
+  .tldr {
+    background: var(--forest-deep);
+    color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .tldr h2 { color: white; margin-bottom: 1rem; }
+  .tldr p { color: #c5ddd7; margin-bottom: 0.5rem; }
+  .tldr strong { color: white; }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.2rem 0;
+  }
+  .tl-date {
+    font-weight: 700;
+    color: var(--forest);
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding-top: 2px;
+  }
+  .tl-event {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .tl-event:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-date:last-child { border-bottom: none; }
+
+  .bad { color: var(--red); font-weight: 700; }
+  .good { color: var(--green); font-weight: 700; }
+  .amber { color: var(--amber); font-weight: 700; }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  @media (max-width: 640px) {
+    .options-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.7rem; }
+  }
+  .option-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 2px solid var(--cream-dark);
+  }
+  .option-card.recommended {
+    border-color: var(--forest);
+    background: #f0f6f4;
+  }
+  .option-card h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge.rec { background: var(--forest); color: white; }
+  .badge.risky { background: var(--red); color: white; }
+  .badge.costly { background: var(--amber); color: white; }
+  .badge.fallback { background: var(--cream-dark); color: var(--charcoal); }
+
+  .stat-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.2rem 0;
+  }
+  .stat-box {
+    background: white;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+  }
+  .stat-box .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .stat-box .label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .action-list {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.2rem;
+  }
+  .action-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+    align-items: flex-start;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    background: var(--earth);
+    color: white;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .action-text { flex: 1; }
+  .action-text strong { display: block; font-size: 0.95rem; }
+  .action-text small { font-size: 0.85rem; color: #666; }
+
+  .note-box {
+    background: #FFF8E1;
+    border-left: 4px solid var(--amber);
+    padding: 1rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.2rem 0;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    background: var(--forest-deep);
+    color: #a8c5bb;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<div class="alert-bar">
+  NTG Freight Quote Expires June 14 - Decision Needed This Week
+</div>
+
+<header>
+  <div class="container">
+    <h1>Modern Savage: UK Launch Freight</h1>
+    <p class="subtitle">July 1 feasibility assessment - built overnight June 7, 2026</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <div class="tldr">
+      <h2>Bottom line</h2>
+      <p><strong>UK July 1 launch via sea freight is not possible.</strong> Transit is 19 days. Even booked today, the product doesn't clear UK customs until July 3-7.</p>
+      <p><strong>Recommendation:</strong> Phased launch. US July 1 (direct from ACF Florida). UK July 15 (NTG sea freight, book Monday). This saves $15-25K vs air freight and is honest to customers.</p>
+      <p><strong>Action Monday:</strong> Confirm with Bear/Andrew to proceed with NTG. Get UK customs broker lined up. Book no later than June 10 to minimize UK delay.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="number">19</div>
+        <div class="label">Sea transit days (FL to UK)</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">June 14</div>
+        <div class="label">NTG quote expiry</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">$4,296</div>
+        <div class="label">NTG quote (FCL, 10 pallets)</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">July 1</div>
+        <div class="label">US launch (unaffected)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Timeline Math</h2>
+    <p>NTG quote is DAP (Delivered at Place) - Pompano Beach FL to Northampton NN5 7UW. 20' full container, 10 pallets, dietary supplements. Transit: 19 days.</p>
+
+    <h3>If booked Monday June 9</h3>
+    <div class="timeline-grid">
+      <div class="tl-date">June 9</div>
+      <div class="tl-event">Book NTG freight (Monday)</div>
+      <div class="tl-date">June 11-12</div>
+      <div class="tl-event">Container stuffed, vessel cut-off at Pompano Beach/Miami port</div>
+      <div class="tl-date">June 12-14</div>
+      <div class="tl-event">Departs Miami port</div>
+      <div class="tl-date">July 1-3</div>
+      <div class="tl-event">Arrives Northampton NN5 7UW <span class="bad">— already past UK July 1 launch</span></div>
+      <div class="tl-date">July 5-7</div>
+      <div class="tl-event">Customs cleared, stock handed to UK 3PL <span class="amber">— UK launch window: July 7-10</span></div>
+    </div>
+
+    <h3>If booked last day (June 14)</h3>
+    <div class="timeline-grid">
+      <div class="tl-date">June 14</div>
+      <div class="tl-event">Book NTG freight (last possible day)</div>
+      <div class="tl-date">June 16-17</div>
+      <div class="tl-event">Vessel cut-off, departs Miami</div>
+      <div class="tl-date">July 5-7</div>
+      <div class="tl-event">Arrives Northampton</div>
+      <div class="tl-date">July 9-12</div>
+      <div class="tl-event"><span class="bad">UK launch: July 10-15 earliest</span></div>
+    </div>
+
+    <div class="note-box">
+      Bear messaged Andrew Kouvel on June 5 asking for a quick chat and update on the NTG quote. It's not yet clear whether Bear has given Andrew a green light. Jesse and Tom are also copied on the thread. This needs to be resolved Monday morning to avoid losing more days.
+    </div>
+  </section>
+
+  <section>
+    <h2>Your Options</h2>
+
+    <div class="options-grid">
+      <div class="option-card recommended">
+        <span class="badge rec">Recommended</span>
+        <h3>A: Phased Launch - US July 1, UK July 15</h3>
+        <p>Book NTG sea freight Monday. US launches July 1 direct from ACF Florida. UK follows July 15 with sea freight product. Two-week lag is honest and manageable.</p>
+        <p><strong>Cost:</strong> $4,296 freight + UK customs/VAT (~$18-22K on goods value)</p>
+        <p><strong>Messaging:</strong> "Launching first in the US, UK shipment arrives July 15"</p>
+        <p class="good">Saves $15-25K vs air. Low risk. Honest.</p>
+      </div>
+
+      <div class="option-card">
+        <span class="badge costly">Costly</span>
+        <h3>B: Air Freight to UK</h3>
+        <p>Ship by air freight from Florida to UK. 5-7 day transit. Depart June 21-23, arrive June 28-30, clear customs July 1-3. UK launch possible July 3-5.</p>
+        <p><strong>Cost:</strong> $18-28K estimated (10 pallets, dietary supplements, Miami to LHR)</p>
+        <p><strong>Time to launch:</strong> UK July 3-5 (not July 1 even with air)</p>
+        <p class="amber">Saves 1.5 weeks vs sea, costs $15-25K extra. Only worth it if UK July 1 is a hard mandate.</p>
+      </div>
+
+      <div class="option-card">
+        <span class="badge risky">Risky</span>
+        <h3>C: Announce UK July 1 + Backorder</h3>
+        <p>Take UK orders July 1, fulfill when stock arrives ~July 10-15. Customers wait 2 weeks for delivery.</p>
+        <p>Works only if UK landing page is clear about ship date. Risk: negative reviews if unclear. Shopify/Klaviyo can handle pre-orders.</p>
+        <p class="bad">Not recommended for launch. Trust risk at a critical first impression moment.</p>
+      </div>
+
+      <div class="option-card">
+        <span class="badge fallback">Fallback</span>
+        <h3>D: Push Full Launch to July 15</h3>
+        <p>Delay US and UK both to July 15. Unified global launch, no split messaging.</p>
+        <p>Costs 2 weeks of momentum. Loses the July 1 Bear social push window. Running Wild finale social traction (Colman Domingo June 9) dissipates.</p>
+        <p class="amber">Last resort. US is ready July 1 - don't delay it for UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>UK Customs - What You Need</h2>
+    <p>Andrew Kouvel flagged that UK customs duties and VAT are NOT included in the NTG quote. You need a UK customs broker to handle entry before stock can move to the UK 3PL.</p>
+
+    <h3>What to budget</h3>
+    <div class="timeline-grid">
+      <div class="tl-date">Import duty</div>
+      <div class="tl-event">Dietary supplements (HS 2106.90): 0-5.5% depending on exact classification. Andrew or a customs broker can confirm. At $82K goods value: $0-4,500.</div>
+      <div class="tl-date">UK VAT</div>
+      <div class="tl-event">20% standard rate on supplements in powder form. On $82K goods: ~$16,400. You reclaim this via UK VAT registration (Sara Perry at David Owen handles this).</div>
+      <div class="tl-date">Broker fee</div>
+      <div class="tl-event">~£500-1,500 one-time for customs entry + HMRC classification. One-time cost.</div>
+    </div>
+
+    <div class="note-box">
+      VAT is recoverable once Modern Savage is VAT-registered in the UK. Sara Perry (David Owen Accountancy) is handling UK VAT registration - check status. If not yet registered, UK customs VAT becomes an upfront cash cost you recover later.
+    </div>
+
+    <h3>How to get a broker</h3>
+    <p>Two paths: (1) Ask Andrew Kouvel - he has worked with NTG and likely has a UK broker contact. (2) Tom at BGV can engage an import agent - Kuehne+Nagel and DSV both have UK customs arms. Budget 1-2 days to get a quote.</p>
+  </section>
+
+  <section>
+    <h2>Monday Morning Actions</h2>
+
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text">
+          <strong>Call or WhatsApp Andrew Kouvel - confirm NTG booking</strong>
+          <small>Bear already messaged Andrew June 5 asking for an update. Find out if Andrew has a green light. If not, give it. Cell: 631.484.7042 | drew@acfpharma.com</small>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text">
+          <strong>Decide: phased launch (US July 1, UK July 15) or air freight</strong>
+          <small>Phased is the right call unless UK July 1 is a hard mandate. Set the UK launch date now so Calvin can update the landing page and comms calendar.</small>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">
+          <strong>Loop in Tom to source UK customs broker</strong>
+          <small>Needed before NTG can deliver to the UK 3PL. Ask Andrew if NTG has a UK broker they work with (common for freight forwarders).</small>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">4</div>
+        <div class="action-text">
+          <strong>Confirm UK VAT registration status with Sara Perry</strong>
+          <small>sara_perry@davidowen.co.uk - is Modern Savage (or Bear Witness Ltd) UK VAT-registered? This determines whether the 20% VAT on goods import is an upfront cash hit or reclaimed quickly.</small>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">5</div>
+        <div class="action-text">
+          <strong>Tell Calvin: UK launch date is July 15</strong>
+          <small>Metricool content calendar needs to reflect this. UK-specific posts should shift 2 weeks. US posts proceed as planned July 1.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>US Launch (July 1) - Still on Track</h2>
+    <p>The UK freight situation does not affect the US launch. ACF Pharma ships direct from Pompano Beach FL to US customers or US 3PL. This is an entirely separate logistics chain.</p>
+    <p>The July 1 US launch is unaffected. Running Wild Colman Domingo ep airs June 9 - that social momentum feeds directly into the US pre-launch push. US customers can order from July 1 with immediate fulfillment.</p>
+    <p>UK customers should see a UK-specific landing page explaining the July 15 ship date. Pre-registration works fine - just be clear about the date.</p>
+  </section>
+
+</div>
+
+<footer>
+  Built by Junior - June 7, 2026 - Modern Savage freight brief
+</footer>
+
+</body>
+</html>
