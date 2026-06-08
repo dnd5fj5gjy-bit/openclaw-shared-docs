@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- published -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — GA4 Cross-Domain Fix | June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; padding: 32px; max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
+  h2 { font-size: 1.2rem; font-weight: 600; color: #cbd5e1; margin: 40px 0 16px; border-bottom: 1px solid #2d3748; padding-bottom: 8px; }
+  h3 { font-size: 0.95rem; font-weight: 600; color: #94a3b8; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .meta { color: #64748b; font-size: 0.85rem; margin-bottom: 32px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .badge-nexus { background: #1e3a5f; color: #38bdf8; }
+  .badge-risk { background: #3b1818; color: #ef4444; }
+  .badge-ok { background: #1a3b1a; color: #22c55e; }
+  p { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+  .alert { background: #2d1a1a; border: 1px solid #ef4444; border-left: 4px solid #ef4444; border-radius: 4px; padding: 16px; margin-bottom: 24px; }
+  .alert p { color: #fca5a5; }
+  .alert strong { color: #f8fafc; }
+  .info-box { background: #1e2330; border: 1px solid #2d3748; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .info-box p { color: #94a3b8; font-size: 0.88rem; }
+  .step { background: #1e2330; border: 1px solid #2d3748; border-radius: 8px; padding: 24px; margin-bottom: 16px; position: relative; }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #38bdf8; color: #0f1117; font-weight: 700; font-size: 0.85rem; margin-right: 10px; flex-shrink: 0; }
+  .step-title { display: flex; align-items: center; margin-bottom: 12px; }
+  .step-title h3 { margin: 0; font-size: 1rem; color: #f8fafc; text-transform: none; letter-spacing: 0; }
+  .effort { font-size: 0.75rem; color: #64748b; margin-left: auto; }
+  code { background: #1a1f2e; color: #7dd3fc; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.82rem; padding: 2px 6px; border-radius: 3px; }
+  pre { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 16px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; color: #e2e8f0; padding: 0; font-size: 0.82rem; line-height: 1.6; }
+  .kv-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  .kv-table td { padding: 8px 12px; border-bottom: 1px solid #2d3748; font-size: 0.85rem; vertical-align: top; }
+  .kv-table td:first-child { color: #94a3b8; width: 40%; font-weight: 500; }
+  .kv-table td:last-child { color: #e2e8f0; font-family: 'SF Mono', monospace; font-size: 0.78rem; }
+  .checklist { list-style: none; padding: 0; margin: 12px 0; }
+  .checklist li { padding: 6px 0; color: #94a3b8; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist li::before { content: '☐'; color: #38bdf8; flex-shrink: 0; }
+  .checklist li.done::before { content: '✓'; color: #22c55e; }
+  .divider { height: 1px; background: #2d3748; margin: 32px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+  .col-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 16px; }
+  .col-card h4 { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .col-card p { color: #94a3b8; font-size: 0.82rem; }
+  strong { color: #e2e8f0; }
+</style>
+</head>
+<body>
+
+<h1>Ted's Health — GA4 Cross-Domain Fix</h1>
+<div class="meta">
+  <span class="badge badge-nexus">Nexus</span>&nbsp;
+  <span class="badge badge-risk">Risk #1 — Score 20/25</span>&nbsp;&nbsp;
+  June 8, 2026 &nbsp;·&nbsp; For: Ted's Health developer
+</div>
+
+<div class="alert">
+  <p>
+    <strong>Why this matters urgently:</strong> Every time a patient moves from
+    <code>tedshealth.com</code> to <code>connect.tedshealth.com</code> (the signup flow),
+    Google Analytics loses the session. From GA4's perspective, this looks like
+    <strong>100% bounce rate on paid campaigns</strong> and <strong>zero attributed conversions</strong>.
+    If Ted's is running Google Ads or Meta, the platforms are bidding blind —
+    they have no conversion signal to optimise against.
+    This is not a minor tracking gap. It is the difference between knowing whether marketing works and guessing.
+  </p>
+</div>
+
+<h2>The Problem — Exactly What's Happening</h2>
+
+<div class="info-box">
+  <p>
+    GA4 uses a first-party cookie tied to the domain (<code>_ga</code>, <code>_ga_XXXXXXXX</code>).
+    When a user lands on <code>tedshealth.com</code>, GA4 writes those cookies with <code>domain=tedshealth.com</code>.
+    The moment they navigate to <code>connect.tedshealth.com</code>, the browser cannot read those cookies
+    — it's a different origin. GA4 creates a brand-new session marked as "(direct)" traffic with no referral,
+    effectively hiding where the user came from.
+  </p>
+  <p>
+    The fix is <strong>cross-domain measurement</strong>: GA4 appends a URL parameter (<code>_gl</code>)
+    to links crossing the domain boundary. The receiving page reads that parameter and merges the session.
+    The result: one continuous session from first click to conversion, with the original source (Google Ads, Meta, organic) intact.
+  </p>
+</div>
+
+<div class="two-col">
+  <div class="col-card">
+    <h4>Before fix</h4>
+    <p>User from Google Ad → tedshealth.com (session: source=cpc/google) → connect.tedshealth.com (new session: source=direct). Conversion attributed to "(direct)".</p>
+  </div>
+  <div class="col-card">
+    <h4>After fix</h4>
+    <p>User from Google Ad → tedshealth.com → connect.tedshealth.com (same session continues). Conversion attributed to "cpc / google". Google Ads gets the signal.</p>
+  </div>
+</div>
+
+<h2>Implementation — Step by Step</h2>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">1</span>
+    <h3>Find your GA4 Measurement ID</h3>
+    <span class="effort">2 mins</span>
+  </div>
+  <p>In GA4: Admin → Data Streams → your web stream. Copy the Measurement ID (format: <code>G-XXXXXXXXXX</code>).</p>
+  <p>You will need this in every step below. Write it down now.</p>
+</div>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">2</span>
+    <h3>Configure cross-domain in GA4 Admin</h3>
+    <span class="effort">5 mins</span>
+  </div>
+  <p>GA4 Admin → Data Streams → your stream → Configure tag settings → Configure your domains.</p>
+  <p>Add both domains:</p>
+  <table class="kv-table">
+    <tr><td>Domain 1</td><td>tedshealth.com</td></tr>
+    <tr><td>Domain 2</td><td>connect.tedshealth.com</td></tr>
+    <tr><td>Match type</td><td>Contains</td></tr>
+  </table>
+  <p>Save. This tells GA4 that navigation between these two domains should be treated as one session.</p>
+</div>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">3</span>
+    <h3>Option A: Via Google Tag Manager (preferred)</h3>
+    <span class="effort">20 mins</span>
+  </div>
+
+  <h3>3a — Create the GA4 Configuration Tag</h3>
+  <p>In GTM: Tags → New → Google Tag. Set Tag ID to your <code>G-XXXXXXXXXX</code>.</p>
+  <p>Under <strong>Configuration Settings → Cross-domain linking</strong>, add:</p>
+  <table class="kv-table">
+    <tr><td>Accept incoming</td><td>Enabled (checked)</td></tr>
+    <tr><td>Decorate forms</td><td>Enabled (checked)</td></tr>
+    <tr><td>Decorate links</td><td>Enabled (checked)</td></tr>
+    <tr><td>Domains</td><td>tedshealth.com, connect.tedshealth.com</td></tr>
+  </table>
+  <p>Trigger: All Pages.</p>
+
+  <h3>3b — Deploy to both properties</h3>
+  <p>
+    If the main site (<code>tedshealth.com</code>) and the signup app (<code>connect.tedshealth.com</code>)
+    are separate codebases, <strong>GTM must be installed on both</strong>.
+    The cross-domain parameter only works end-to-end when both domains have the same GA4 tag running.
+  </p>
+  <p>Confirm GTM is present on <code>connect.tedshealth.com</code> by opening the signup page,
+  opening DevTools → Network, filtering for <code>googletagmanager</code>.
+  If you don't see it — install GTM on the app before proceeding.</p>
+
+  <h3>3c — GTM Container JSON (importable)</h3>
+  <p>If starting from scratch, here is a minimal importable GTM container with the correct cross-domain configuration.
+     Import via GTM Admin → Import Container → select file → merge.</p>
+  <pre><code>{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "tag": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "1",
+        "name": "GA4 Config — Ted's Health (cross-domain)",
+        "type": "googtag",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "type": "LIST",
+            "key": "configSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "linker" },
+                  {
+                    "type": "MAP",
+                    "key": "parameterValue",
+                    "map": [
+                      { "type": "BOOLEAN", "key": "decorate_forms", "value": "true" },
+                      { "type": "BOOLEAN", "key": "accept_incoming", "value": "true" },
+                      {
+                        "type": "LIST",
+                        "key": "domains",
+                        "list": [
+                          { "type": "MAP", "map": [
+                              { "type": "TEMPLATE", "key": "domain", "value": "tedshealth.com" }
+                          ]},
+                          { "type": "MAP", "map": [
+                              { "type": "TEMPLATE", "key": "domain", "value": "connect.tedshealth.com" }
+                          ]}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      }
+    ],
+    "trigger": [],
+    "variable": [],
+    "builtInVariable": []
+  }
+}</code></pre>
+  <p><strong>Replace <code>G-XXXXXXXXXX</code></strong> with your actual Measurement ID before importing.</p>
+</div>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">4</span>
+    <h3>Option B: Direct gtag.js implementation (no GTM)</h3>
+    <span class="effort">15 mins</span>
+  </div>
+  <p>If not using GTM, add this to the <code>&lt;head&gt;</code> of both <code>tedshealth.com</code> and <code>connect.tedshealth.com</code>:</p>
+  <pre><code>&lt;!-- Google tag (gtag.js) --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX', {
+    // Cross-domain: treat these two domains as one property
+    'linker': {
+      'domains': ['tedshealth.com', 'connect.tedshealth.com'],
+      'decorate_forms': true,
+      'accept_incoming': true
+    }
+  });
+&lt;/script&gt;</code></pre>
+  <p><strong>Important:</strong> both sites must use the same <code>G-XXXXXXXXXX</code> ID for the cross-domain linker to work.</p>
+</div>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">5</span>
+    <h3>Track the signup conversion event</h3>
+    <span class="effort">30 mins</span>
+  </div>
+  <p>Cross-domain tracking preserves the session, but you also need to fire a conversion event when a patient completes signup.
+     This tells GA4 (and Google Ads) that a conversion happened.</p>
+
+  <h3>Option A: Fire from the app on successful signup</h3>
+  <pre><code>// In connect.tedshealth.com app — fire after successful account creation
+gtag('event', 'sign_up', {
+  method: 'email',
+  // Add any custom dimensions useful for reporting
+  patient_type: 'new',
+  source_form: 'trt_consultation_request'
+});
+
+// Also fire 'generate_lead' for Google Ads optimisation
+gtag('event', 'generate_lead', {
+  value: 150,       // estimated LTV / consultation value in GBP
+  currency: 'GBP'
+});</code></pre>
+
+  <h3>Option B: Via GTM trigger on signup confirmation URL</h3>
+  <p>If the signup app redirects to a thank-you URL on completion (e.g. <code>/signup/complete</code>), create a GTM trigger:</p>
+  <table class="kv-table">
+    <tr><td>Trigger type</td><td>Page View</td></tr>
+    <tr><td>Fires on</td><td>Page URL contains <code>/signup/complete</code> (or whatever the success URL is)</td></tr>
+    <tr><td>Tag</td><td>GA4 Event — event name: <code>sign_up</code></td></tr>
+  </table>
+  <p>Then mark <code>sign_up</code> as a conversion in GA4 Admin → Events → mark as conversion.</p>
+</div>
+
+<div class="step">
+  <div class="step-title">
+    <span class="step-num">6</span>
+    <h3>Link GA4 to Google Ads</h3>
+    <span class="effort">10 mins</span>
+  </div>
+  <p>If Ted's is running Google Ads, link the two so conversion data flows back to the bidding system:</p>
+  <ul class="checklist">
+    <li>GA4 Admin → Product Links → Google Ads Links → Link</li>
+    <li>Select the Google Ads account</li>
+    <li>Enable "Enable Personalised Advertising" and "Import GA4 conversions"</li>
+    <li>In Google Ads: Tools → Conversions → import from GA4 → select <code>sign_up</code></li>
+  </ul>
+  <p>Once linked, Google's Smart Bidding can optimise for actual signups rather than clicks.</p>
+</div>
+
+<div class="divider"></div>
+
+<h2>Verification Checklist</h2>
+<div class="info-box">
+  <p>After implementing, verify everything is working before declaring done.</p>
+  <ul class="checklist" style="margin-top: 12px;">
+    <li>Open <code>tedshealth.com</code>. Check Network tab for requests to <code>analytics.google.com</code>. You should see a hit with <code>tid=G-XXXXXXXXXX</code>.</li>
+    <li>Click any link that goes to <code>connect.tedshealth.com</code>. The URL should have a <code>_gl=</code> parameter appended automatically. This confirms the linker is working.</li>
+    <li>Open GA4 → Realtime report. Navigate from main site to signup app. You should see ONE user, not two separate sessions.</li>
+    <li>Check that the <code>sign_up</code> event fires on successful registration. Visible in GA4 Realtime → Events.</li>
+    <li>If using Google Ads: after 48 hours, conversions should appear in Google Ads campaign reports.</li>
+    <li>In GA4 → Reports → Acquisition → Traffic Acquisition: "Organic Search" and "Paid Search" should now show conversions, not just sessions.</li>
+  </ul>
+</div>
+
+<h2>Google Search Console — Precondition for SEO Measurement</h2>
+<div class="info-box">
+  <p>
+    None of the SEO monitoring above is possible without Search Console registered. It is a 10-minute task with no developer required.
+    Once verified, it unlocks: keyword positions, click data, crawl errors, indexing status, Core Web Vitals.
+    Without it, Ted's Health has no way to know what's ranking or why organic traffic changes.
+  </p>
+  <ul class="checklist" style="margin-top: 12px;">
+    <li>Go to <a href="https://search.google.com/search-console/welcome" style="color: #38bdf8;">search.google.com/search-console</a></li>
+    <li>Add property → URL prefix → enter <code>https://www.tedshealth.com</code></li>
+    <li>Verify via Google Tag Manager (recommended — no DNS or file upload needed)</li>
+    <li>Submit sitemap: enter <code>https://www.tedshealth.com/sitemap.xml</code></li>
+    <li>Wait 48–72 hours for initial data to appear</li>
+  </ul>
+</div>
+
+<h2>Estimated Impact of Fixing This</h2>
+<div class="two-col">
+  <div class="col-card">
+    <h4>Measurement clarity</h4>
+    <p>Marketing campaigns will show real conversion rates. Currently showing ~0% because all conversions appear as (direct) bounces.</p>
+  </div>
+  <div class="col-card">
+    <h4>Paid media efficiency</h4>
+    <p>Google Ads Smart Bidding can start optimising toward actual signups. Without this signal, campaigns are effectively spending in the dark.</p>
+  </div>
+  <div class="col-card">
+    <h4>Attribution clarity</h4>
+    <p>Felix can see which channels (organic, paid, referral) actually drive consultations — not just traffic.</p>
+  </div>
+  <div class="col-card">
+    <h4>Time to implement</h4>
+    <p>Total developer time: ~2 hours. Non-negotiable precondition for any paid media scale-up on Ted's Health.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<p style="color: #3d4a5c; font-size: 0.75rem; margin-top: 16px;">
+  Generated by Nexus · Ted's Health Risk Register item <code>5bec9ebc</code> · June 8, 2026
+</p>
+
+</body>
+</html>
