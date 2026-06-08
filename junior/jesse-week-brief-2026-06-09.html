@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesse's Week: June 9-14, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #C0392B;
+    --amber: #D4A017;
+    --green: #27AE60;
+    --red-bg: #FDF0EE;
+    --amber-bg: #FDF8EC;
+    --green-bg: #EEF8F2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .hero {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth-light);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  /* Alert strip */
+  .alert-strip {
+    background: #C0392B;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Sections */
+  section {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  section:last-child { border-bottom: none; }
+  section.dark {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 2.5rem 1.25rem;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 1rem;
+  }
+  section.dark .section-label { color: var(--earth-light); }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: var(--forest-deep);
+  }
+  section.dark h2 { color: var(--white); }
+
+  /* Decision cards */
+  .decision-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .decision-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--earth);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+  }
+  .decision-card.urgent { border-left-color: var(--red); }
+  .decision-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--earth);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .decision-card.urgent .decision-num { background: var(--red); }
+  .decision-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--charcoal);
+  }
+  .decision-body {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.55;
+  }
+  .decision-action {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--earth);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .decision-card.urgent .decision-action { color: var(--red); }
+
+  /* Day cards */
+  .days-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .day-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.25rem;
+    background: var(--cream-dark);
+  }
+  .day-header.hot { background: #FAEAEA; }
+  .day-header.packed { background: #FEF6E8; }
+  .day-date {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--forest-deep);
+    line-height: 1;
+    min-width: 2rem;
+    text-align: center;
+  }
+  .day-header.hot .day-date { color: var(--red); }
+  .day-header.packed .day-date { color: #B8680A; }
+  .day-info {}
+  .day-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+  }
+  .day-tag {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 0.1rem;
+  }
+  .day-header.hot .day-tag { color: var(--red); font-weight: 600; }
+  .day-header.packed .day-tag { color: #B8680A; font-weight: 600; }
+  .day-body {
+    padding: 0.875rem 1.25rem;
+  }
+  .day-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.625rem;
+    align-items: flex-start;
+    font-size: 0.875rem;
+  }
+  .day-item:last-child { margin-bottom: 0; }
+  .day-time {
+    font-weight: 700;
+    color: var(--forest);
+    min-width: 45px;
+    font-size: 0.8rem;
+    padding-top: 2px;
+  }
+  .day-time.alert { color: var(--red); }
+  .day-item-text { color: #444; line-height: 1.5; }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    vertical-align: middle;
+    margin-left: 0.35rem;
+  }
+  .badge-action { background: #FAEAEA; color: var(--red); }
+  .badge-auto { background: var(--green-bg); color: var(--green); }
+  .badge-overlap { background: #FEF6E8; color: #B8680A; }
+  .badge-deadline { background: var(--red); color: white; }
+
+  /* Background items */
+  .bg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .bg-item {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .bg-check {
+    color: var(--earth-light);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Salty prep */
+  .prep-box {
+    background: var(--forest);
+    border-radius: 8px;
+    padding: 1.25rem;
+    color: var(--white);
+    margin-top: 1rem;
+  }
+  .prep-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--earth-light);
+  }
+  .prep-item {
+    font-size: 0.875rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.85);
+  }
+  .prep-item:last-child { border-bottom: none; }
+
+  /* Footer */
+  .footer {
+    background: var(--forest-deep);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+  .footer strong { color: rgba(255,255,255,0.8); }
+
+  @media (max-width: 500px) {
+    .hero { padding: 2rem 1rem 1.75rem; }
+    section { padding: 2rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="alert-strip">
+  NTG freight quote expires June 14 - final call to Andrew Kouvel by Friday June 12
+</div>
+
+<div class="hero">
+  <div class="hero-label">Prepared by Junior - June 8, 2026</div>
+  <h1>Your Week: June 9-14</h1>
+  <p class="hero-sub">4 calls, 3 decisions, 1 hard deadline. Back from Mull and straight into it.</p>
+</div>
+
+<!-- DECISIONS -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">Act This Week</div>
+    <h2>Decisions Needed From You</h2>
+    <div class="decision-list">
+
+      <div class="decision-card urgent">
+        <div class="decision-num">1</div>
+        <div>
+          <div class="decision-title">Oscar Absalom - Luminox reschedule reply</div>
+          <div class="decision-body">Oscar replied this morning (07:29 BST Jun 8): his wife had their second baby Friday, and he's OOO <strong>Thursdays and Fridays</strong> for the next few weeks. Your Friday request doesn't work. He's asking for Tuesday or Wednesday, this week or next. <br><br>
+          Options: <strong>Wednesday June 10</strong> (morning, before your 13:00 BGV Zoom), or <strong>Tuesday June 16</strong> next week.<br><br>
+          Note: worth congratulating him on the new baby when you reply.</div>
+          <div class="decision-action">Reply by Tuesday morning</div>
+        </div>
+      </div>
+
+      <div class="decision-card urgent">
+        <div class="decision-num">2</div>
+        <div>
+          <div class="decision-title">NTG freight - green-light Andrew Kouvel</div>
+          <div class="decision-body">NTG Air & Ocean quote: $4,296 DAP for 20' FCL (10 pallets) from Pompano Beach FL to Northampton NN5 7UW. 19-day sea transit. Quote valid until June 14 (Sunday) = <strong>you must email Andrew by Friday June 12</strong>.<br><br>
+          UK duties and VAT are NOT included in the quote - Tom or Raemy needs to get a customs broker estimate before you commit, but don't let that block the green-light if you're happy with the freight cost. Separate line item.<br><br>
+          Andrew's email: drew@acfpharma.com | 631.484.7042</div>
+          <div class="decision-action">Email Andrew by Friday June 12</div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-num">3</div>
+        <div>
+          <div class="decision-title">Luminox 4C - input to CJ</div>
+          <div class="decision-body">The only remaining clause in the Luminox 2nd amendment. André Bernheim has deferred it to Oscar and Maria who are back from public holiday now. CJ asked you for your view on the "pre-agreed social media cadence."<br><br>
+          Background: the amendment already specifies 6 feed posts/year (IG+TikTok), 6 YouTube integrations, 6 email interviews. 4C is asking whether these deliverables come with a specific monthly/quarterly schedule - i.e., spread evenly, or can they cluster around launches.<br><br>
+          Simplest answer: tell CJ you're happy to commit to the existing 6/6/6 as the cadence, delivered flexibly around product launches and content opportunities, not tied to specific calendar months.</div>
+          <div class="decision-action">2-line message to CJ before your Wed Zoom</div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-num">4</div>
+        <div>
+          <div class="decision-title">June 11 Mama Buci / Mettle overlap</div>
+          <div class="decision-body">Two calls clash Thursday June 11: Mama Buci Marketing Strategy (14:30-15:15 BST) and Mettle community pilot kick-off (15:00-16:00 BST). 15-minute overlap at 15:00.<br><br>
+          Mama Buci is an active commercial deal discussion with CJ and Stuart Mullins. Mettle is a community project you committed to help with (Neil Smith). Suggest: finish Mama Buci at 15:00 sharp and join Mettle 10 minutes late (15:10). Or ask CJ to handle the Mettle kick-off on your behalf briefly.</div>
+          <div class="decision-action">Decide before Thursday</div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-num">5</div>
+        <div>
+          <div class="decision-title">modernsavage.com domain - check CJ status</div>
+          <div class="decision-body">Domain expires June 24 - 16 days from today. CJ has been using MediaOptions to acquire anonymously. Last update: WHOIS still showing GiantPanda parked, with clientRenewProhibited flag (suggests negotiation in progress). Budget approved at £2,000.<br><br>
+          No update since May 11. This is the hardest remaining launch risk. Ask CJ directly: what's the status?</div>
+          <div class="decision-action">Ask CJ on your Wed BGV Zoom</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section>
+  <div class="container">
+    <div class="section-label">Day by Day</div>
+    <h2>The Week Ahead</h2>
+    <div class="days-grid">
+
+      <div class="day-card">
+        <div class="day-header hot">
+          <div class="day-date">9</div>
+          <div class="day-info">
+            <div class="day-name">Tuesday</div>
+            <div class="day-tag">Running Wild season finale airs tonight</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-item">
+            <div class="day-time">Morning</div>
+            <div class="day-item-text">Reply to Oscar Absalom with a Tue/Wed slot (congratulate on new baby) <span class="badge badge-action">Action</span></div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">~21:00 ET</div>
+            <div class="day-item-text">Running Wild Season 9 Finale, Colman Domingo guest, airs on Fox. Calvin and Olly have the social plan. Spot-check Calvin executed the post. <span class="badge badge-auto">Auto</span></div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">Any time</div>
+            <div class="day-item-text">Metricool - batch approve Calvin's June 7-14 post backlog (~30+) <span class="badge badge-action">Action</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-date">10</div>
+          <div class="day-info">
+            <div class="day-name">Wednesday</div>
+            <div class="day-tag">BGV Zoom 13:00 BST</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-item">
+            <div class="day-time">Morning</div>
+            <div class="day-item-text">If Oscar available: 30-min Luminox catch-up <span class="badge badge-action">Possible</span></div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">13:00</div>
+            <div class="day-item-text">BGV catch-up Zoom with Em Lovell. Raise: domain status, any EBG updates, Chris St George rescheduling update from Em.</div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">Pre-call</div>
+            <div class="day-item-text">Send CJ your Luminox 4C view (2 lines) so he's briefed <span class="badge badge-action">Action</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header packed">
+          <div class="day-date">11</div>
+          <div class="day-info">
+            <div class="day-name">Thursday</div>
+            <div class="day-tag">Overlap alert: Mama Buci 14:30 / Mettle 15:00</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-item">
+            <div class="day-time">14:30</div>
+            <div class="day-item-text">Mama Buci Marketing Strategy - Jesse / Martin / CJ. Zoom: 891 5020 9492, pwd 237951. Active deal - key session with Stuart Mullins.</div>
+          </div>
+          <div class="day-item">
+            <div class="day-time alert">15:00 !</div>
+            <div class="day-item-text">Mettle community pilot kick-off (Google Meet). Overlaps by 15 min. <span class="badge badge-overlap">Overlap</span> Leave Mama Buci at 15:00 sharp or join Mettle at 15:10.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header packed">
+          <div class="day-date">12</div>
+          <div class="day-info">
+            <div class="day-name">Friday</div>
+            <div class="day-tag">3 calls + NTG freight deadline</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-item">
+            <div class="day-time alert">Pre 09:00</div>
+            <div class="day-item-text">Email Andrew Kouvel to green-light NTG freight booking (before June 14 expiry) <span class="badge badge-deadline">Deadline</span></div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">09:00</div>
+            <div class="day-item-text">Salty Packaging call - Melissa Woods (NZ). Confirmed. Calendar invite incoming from Melissa. Agenda below.</div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">13:00</div>
+            <div class="day-item-text">UT regroup - Jesse / Olly / Coyote / Beau (Brave Wilderness / Uncharted Treasures).</div>
+          </div>
+          <div class="day-item">
+            <div class="day-time">17:00</div>
+            <div class="day-item-text">Wildernests weekly - Jesse / Alex / Gunnar (Joe). Active Tattarang diligence context: Taki wants P&L call + remote tech tour. Good week to align with Alex on this.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SALTY PREP -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-label">Friday 09:00 BST - Salty Packaging</div>
+    <h2>Melissa Woods Call Prep</h2>
+    <p style="font-size:0.9rem;color:#555;margin-bottom:1rem;">Melissa is warm and collaborative. She's been persistent - genuine interest in making this work. Jesse confirmed Friday and said he's excited. Calendar invite incoming from her.</p>
+    <div class="prep-box">
+      <h4>Agenda Points</h4>
+      <div class="prep-item"><strong>1.</strong> Confirm Batch 2 timeline and quantities - target: enough lead time to ship before end of Q4 2026</div>
+      <div class="prep-item"><strong>2.</strong> Miami freight quote - Melissa is quoting this in parallel (NZ to Miami for 15,000 pouches)</div>
+      <div class="prep-item"><strong>3.</strong> Samples status - Jesse hasn't seen them yet. Melissa dispatched them Tuesday NZ time to Preston Farmhouse (SN8 2HF). Check if they've arrived</div>
+      <div class="prep-item"><strong>4.</strong> NZ regenerative beef farmer Dave - Melissa mentioned an introduction. Worth asking about - potential Modern Savage sourcing story (grass-fed beef, NZ provenance)</div>
+      <div class="prep-item"><strong>5.</strong> UK regulatory labelling requirements for kraft pouches (food supplement labelling - does Melissa have experience with UK market?)</div>
+    </div>
+    <p style="font-size:0.8rem;color:#888;margin-top:0.75rem;">Context: ACF standard packaging locked in for July 1 launch. Salty confirmed for Batch 2. This call is about building the relationship and confirming Batch 2 specs.</p>
+  </div>
+</section>
+
+<!-- RUNNING IN BACKGROUND -->
+<section class="dark">
+  <div class="container">
+    <div class="section-label">No Action Needed</div>
+    <h2>Running in Background</h2>
+    <div class="bg-list">
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Colman Domingo social (June 9):</strong> Calvin and Olly have the brief - 5 post templates, timing, FOX toolkit. They're executing. Just spot-check the posts went out Tuesday evening.</div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Chris St George meeting:</strong> Ivan can't make July 7. Em is finding a new date for all four (Jesse, Chris, Ivan, others). Jesse confirmed July 7-10 window. Em to propose. No action needed.</div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Delaware incorporation complete:</strong> EIN 42-2894916 confirmed. Raemy setting up Chase bank account. Felix to start tech/platform setup when ready - flag to him when Raemy confirms Chase is open.</div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Bear x Fane Instagram collab:</strong> Confirmed and aligned. Posts live June 5 (Harrogate + Southampton March 2027 shows). Thread fully closed.</div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Tattarang (Wildernests):</strong> Taki is in active diligence - P&L shared by Alex. They want a P&L review call and remote tech tour. Alex is running these. Good to raise status on Friday Wildernests call.</div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-check">&#10003;</div>
+        <div><strong>Melissa Woods calendar invite:</strong> She confirmed Friday Jun 12 09:00 BST / 20:00 NZST - invite incoming. Should land in your calendar by Tuesday.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section>
+  <div class="container">
+    <div class="section-label">At a Glance</div>
+    <h2>Modern Savage Launch Status</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:0.5rem;">
+
+      <div style="background:var(--white);border-radius:8px;padding:1.25rem;border-top:3px solid var(--green);">
+        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:0.5rem;">On Track</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--forest-deep);">US July 1</div>
+        <div style="font-size:0.8rem;color:#666;margin-top:0.35rem;">ACF Florida direct. Manufacturing underway. Delaware entity live.</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:8px;padding:1.25rem;border-top:3px solid var(--amber);">
+        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.5rem;">Action Needed</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--forest-deep);">UK July 15</div>
+        <div style="font-size:0.8rem;color:#666;margin-top:0.35rem;">NTG freight must be booked this week. UK customs broker needed.</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:8px;padding:1.25rem;border-top:3px solid var(--red);">
+        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:0.5rem;">Critical Risk</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--forest-deep);">Domain: 16 days</div>
+        <div style="font-size:0.8rem;color:#666;margin-top:0.35rem;">modernsavage.com expires June 24. CJ/MediaOptions status unknown. Escalate Wednesday.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  Built by <strong>Junior</strong> &nbsp;|&nbsp; June 8, 2026 &nbsp;|&nbsp; For Jesse's eyes only
+</div>
+
+</body>
+</html>
