@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - UK Import Reality Check | June 9, 2026</title>
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #B83232;
+    --amber: #C07A45;
+    --green: #2B6B47;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Outfit', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  /* NAV */
+  nav {
+    background: var(--forest-deep);
+    color: var(--cream);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; }
+  nav .date { font-size: 0.85rem; opacity: 0.7; }
+
+  /* HERO */
+  .hero {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .hero .label {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto 1.2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* SECTIONS */
+  section { padding: 3.5rem 2rem; max-width: 860px; margin: 0 auto; }
+
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--forest-deep);
+    margin-bottom: 1.2rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 0.6rem;
+    margin-top: 1.6rem;
+  }
+  p { margin-bottom: 1rem; }
+
+  /* ALERT BOXES */
+  .alert {
+    border-left: 5px solid;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.5rem;
+  }
+  .alert-red { border-color: var(--red); background: #FFF0F0; }
+  .alert-amber { border-color: var(--amber); background: #FFF8F0; }
+  .alert-green { border-color: var(--green); background: #F0FAF3; }
+  .alert .alert-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+  }
+  .alert-red .alert-title { color: var(--red); }
+  .alert-amber .alert-title { color: #8B5A0A; }
+  .alert-green .alert-title { color: var(--green); }
+
+  /* COST TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  th {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--cream); }
+  tr:nth-child(odd) td { background: var(--white); }
+  .highlight td { font-weight: 700; background: #EBF5EE !important; color: var(--forest-deep); }
+  .sunk td { font-weight: 700; background: #FFF8E8 !important; }
+  .total-row td { font-weight: 700; font-size: 1rem; border-top: 2px solid var(--forest-deep); background: var(--cream-dark) !important; }
+  .right { text-align: right; }
+
+  /* ACTION LIST */
+  .actions {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 3rem 2rem;
+  }
+  .actions h2 { color: var(--white); }
+  .action-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    align-items: flex-start;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    background: var(--earth);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-body .action-title { font-weight: 700; font-size: 1.0rem; margin-bottom: 0.25rem; }
+  .action-body .action-who { font-size: 0.85rem; opacity: 0.75; margin-bottom: 0.35rem; }
+  .action-body p { font-size: 0.92rem; opacity: 0.9; margin-bottom: 0; }
+
+  /* SEPARATOR */
+  .separator { height: 4px; background: var(--earth); max-width: 80px; margin: 0 auto 1rem; }
+
+  /* SCENARIO CARDS */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+  @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 2px solid;
+  }
+  .card-red { border-color: var(--red); background: #FFF8F8; }
+  .card-green { border-color: var(--green); background: #F2FAF5; }
+  .card-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .card-red .card-title { color: var(--red); }
+  .card-green .card-title { color: var(--green); }
+  .card-amount { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; font-family: 'DM Serif Display', Georgia, serif; }
+  .card ul { list-style: none; padding: 0; font-size: 0.9rem; }
+  .card ul li { padding: 0.25rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .card ul li:last-child { border-bottom: none; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">MODERN SAVAGE - UK IMPORT BRIEF</span>
+  <span class="date">June 9, 2026 - INTERNAL</span>
+</nav>
+
+<div class="hero">
+  <div class="label">Time-Sensitive - NTG Deadline Friday</div>
+  <h1>UK Import Reality Check</h1>
+  <p>Before you confirm the NTG booking this week, here is what it actually costs to land Modern Savage in the UK - and the compliance issue nobody has flagged yet.</p>
+</div>
+
+<section>
+  <div class="separator"></div>
+  <h2>The Short Version</h2>
+
+  <div class="alert alert-red">
+    <div class="alert-title">Critical: POAO Issue</div>
+    Modern Savage contains freeze-dried bovine organ meats. These are classified as <strong>Products of Animal Origin (POAO)</strong> under UK customs law. This triggers additional import requirements - health certificates, border inspection posts, APHA registration - that a standard freight booking does not cover. This needs resolving <em>before</em> you confirm NTG.
+  </div>
+
+  <div class="alert alert-amber">
+    <div class="alert-title">Financial: VAT Registration Decision</div>
+    Without UK VAT registration, you pay ~<strong>£11,600 in unrecoverable import VAT</strong> on the first 2,500-unit shipment. With VAT registration and Postponed VAT Accounting, that VAT is deferred and fully recoverable. The difference is real money on every shipment.
+  </div>
+
+  <div class="alert alert-green">
+    <div class="alert-title">Path Forward</div>
+    Engage a UK customs broker experienced in POAO food supplements <em>today</em>. They handle both problems: POAO compliance and acting as fiscal representative to manage the VAT. Drew Kouvel at ACF needs one question answered before NTG is booked.
+  </div>
+</section>
+
+<section style="background: var(--white); max-width: 100%; padding: 3.5rem 2rem;">
+<div style="max-width: 860px; margin: 0 auto;">
+  <h2>The POAO Problem Explained</h2>
+  <p>Modern Savage Adult Blend contains: <strong>Grass Fed Freeze Dried Bovine Liver, Heart, Spleen, Kidney, Lung + Bison Liver</strong>, plus Beef Protein Isolate and Bovine Collagen Peptides.</p>
+  <p>Under UK law (FSA and APHA rules), any supplement containing animal tissues - including freeze-dried organ meats - is classified as a Product of Animal Origin. The FSA specifically lists "meat products: any animal tissues such as thymus glands or ground bone material" as examples requiring POAO import treatment.</p>
+
+  <h3>What POAO import rules mean in practice:</h3>
+  <ul style="list-style: none; padding: 0;">
+    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark);">1. <strong>Approved Border Control Post (BCP)</strong> - goods must enter through a port with veterinary inspection capability (Felixstowe, Southampton, Tilbury etc.)</li>
+    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark);">2. <strong>IPAFFS pre-notification</strong> - Animal and Plant Health Agency (APHA) must be notified at least 1 working day before arrival</li>
+    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark);">3. <strong>Health certificate</strong> - required from the US competent authority (USDA/FDA) for the specific product category</li>
+    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark);">4. <strong>Approved establishment list</strong> - Lightning Nutra/ACF Pharma's facility must be on APHA's approved list for exporting POAO to the UK. If not listed, the shipment will be stopped at the border.</li>
+    <li style="padding: 0.5rem 0;">5. <strong>TSE (BSE) regulations</strong> - bovine products from USA are subject to Transmissible Spongiform Encephalopathy rules, which may require specific declarations</li>
+  </ul>
+
+  <div class="alert alert-amber" style="margin-top: 1.5rem;">
+    <div class="alert-title">The Critical Question for Drew Kouvel</div>
+    "Is Lightning Nutra listed on the UK APHA approved establishment list for exporting Products of Animal Origin (specifically freeze-dried bovine organ supplements) to Great Britain? Do you have a USDA health certificate process for UK exports?"<br><br>
+    If the answer is no, sea freight to UK in July 15 is not possible until they get approved. This is a binary blocker.
+  </div>
+</div>
+</section>
+
+<section>
+  <h2>The Cost Numbers</h2>
+  <p>Based on 2,500 units (Adult Blend), NTG sea freight quote, and current HMRC tariff rates. All figures USD unless noted.</p>
+
+  <h3>Duty and VAT calculation</h3>
+
+  <table>
+    <tr>
+      <th>Item</th>
+      <th class="right">Amount</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Goods value (2,500 units @ $24.45)</td>
+      <td class="right">$61,125</td>
+      <td>ACF Pharma cost</td>
+    </tr>
+    <tr>
+      <td>NTG sea freight (DAP Northampton)</td>
+      <td class="right">$4,296</td>
+      <td>NTG quote, valid to June 14</td>
+    </tr>
+    <tr>
+      <td>Insurance (estimate)</td>
+      <td class="right">$300</td>
+      <td></td>
+    </tr>
+    <tr class="sunk">
+      <td>CIF value (for customs purposes)</td>
+      <td class="right">$65,721</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>UK customs duty (12% third country rate)</td>
+      <td class="right">$7,887</td>
+      <td>Commodity code 2106.90 - NOT recoverable</td>
+    </tr>
+    <tr>
+      <td>UK import VAT (20%)</td>
+      <td class="right">$14,722</td>
+      <td>Applied to CIF + duty</td>
+    </tr>
+    <tr class="total-row">
+      <td>Total import taxes</td>
+      <td class="right">$22,609 / ~£17,850</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <p style="font-size: 0.85rem; color: #666;">Exchange rate used: £1 = $1.267. Customs duty code assumed 2106.9092; broker should confirm exact code.</p>
+
+  <h3>Scenario comparison: VAT registered vs not</h3>
+
+  <div class="cards">
+    <div class="card card-red">
+      <div class="card-title">NOT VAT Registered</div>
+      <div class="card-amount">£17,850</div>
+      <ul>
+        <li>Duty at border: £6,230 (sunk)</li>
+        <li>VAT at border: £11,620 (sunk)</li>
+        <li>VAT is NOT recoverable</li>
+        <li>Upfront cash hit: full £17,850</li>
+        <li>Per-unit landed cost (ex-freight): ~£29</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <div class="card-title">VAT Registered + PVA</div>
+      <div class="card-amount">£6,230</div>
+      <ul>
+        <li>Duty at border: £6,230 (sunk - unavoidable)</li>
+        <li>VAT deferred via PVA: £11,620</li>
+        <li>VAT reclaimed on first VAT return</li>
+        <li>Upfront cash: £6,230 only</li>
+        <li>Per-unit landed cost (ex-freight): ~£20</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top: 1rem;"><strong>The saving from being VAT registered: ~£11,620 on this shipment alone.</strong> On future shipments it compounds. Worth registering now even if it doesn't fully land by July 15.</p>
+
+  <h3>Additional costs to factor in</h3>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th class="right">Estimate</th>
+    </tr>
+    <tr>
+      <td>UK customs broker fee</td>
+      <td class="right">£400-900</td>
+    </tr>
+    <tr>
+      <td>POAO border inspection fee (if triggered)</td>
+      <td class="right">£200-600</td>
+    </tr>
+    <tr>
+      <td>IPAFFS APHA notification</td>
+      <td class="right">~£50</td>
+    </tr>
+    <tr>
+      <td>UK fulfilment (ShipBob UK or equivalent)</td>
+      <td class="right">£2-3/order + storage</td>
+    </tr>
+  </table>
+</section>
+
+<section style="background: var(--cream-dark); max-width: 100%; padding: 3.5rem 2rem;">
+<div style="max-width: 860px; margin: 0 auto;">
+  <h2>VAT Registration Options</h2>
+  <p>Bear Witness LLC is a US entity with no UK establishment. Here are the options, fastest first:</p>
+
+  <h3>Option A - UK Customs Broker as Fiscal Representative (Fastest)</h3>
+  <p>A UK customs broker can act as your <strong>Importer of Record</strong> and fiscal representative. They import the goods in their name, deal with APHA and VAT, then invoice you the total landed cost. You do not need UK VAT registration for the first shipment. Setup time: days, not weeks.</p>
+  <p><strong>Best for:</strong> July 15 launch. Get goods in, start selling, sort VAT registration in parallel.</p>
+
+  <h3>Option B - Register Bear Witness LLC for UK VAT (Correct Long-Term Path)</h3>
+  <p>Any non-UK business making taxable supplies in the UK must register for VAT - there is no threshold for overseas businesses. Once registered, you can use <strong>Postponed VAT Accounting (PVA)</strong> to defer import VAT to your quarterly VAT return, then reclaim it as input VAT if you're selling in the UK (which you are).</p>
+  <p><strong>Timeline:</strong> 4-8 weeks for HMRC to process a non-established taxable person application. Apply via HMRC's VAT1 form now.</p>
+  <p><strong>Best for:</strong> All shipments after the first. Saves ~£11,600+ per 2,500-unit shipment on VAT alone.</p>
+
+  <h3>Option C - UK Subsidiary / Holding Entity</h3>
+  <p>Incorporate a UK company (Bear Witness Ltd UK or Modern Savage Ltd UK), VAT register it, use it as the importer. More structure, more overhead. Probably overkill for launch volume - revisit when monthly UK sales exceed £10K.</p>
+</div>
+</section>
+
+<section>
+  <h2>Customs Broker Options</h2>
+  <p>You need a UK broker who handles food supplements with animal-origin ingredients from the USA. Ask each one specifically: "Do you handle POAO imports of food supplement powders from USA? Can you manage APHA and IPAFFS? Can you act as fiscal representative?"</p>
+
+  <h3>Recommended contacts:</h3>
+
+  <table>
+    <tr>
+      <th>Broker</th>
+      <th>Why Relevant</th>
+      <th>Contact</th>
+    </tr>
+    <tr>
+      <td><strong>clearBorder</strong></td>
+      <td>Explicit UK supplement import specialists. Have published FSA compliance guidance for POAO supplements.</td>
+      <td>clearborder.co.uk</td>
+    </tr>
+    <tr>
+      <td><strong>Global Import Agent</strong></td>
+      <td>Specifically markets UK supplement imports as a service line. Likely set up for IOR/fiscal rep role.</td>
+      <td>globalimportagent.com</td>
+    </tr>
+    <tr>
+      <td><strong>BIFA member directory</strong></td>
+      <td>Find a specialist via bifa.org - filter for food/animal products. BIFA members must hold professional indemnity.</td>
+      <td>bifa.org/members</td>
+    </tr>
+  </table>
+
+  <p style="font-size: 0.9rem; margin-top: 1rem;"><strong>Ask Drew Kouvel first:</strong> ACF/Lightning Nutra likely already exports to other countries. They may have a preferred UK broker or know their POAO status. Start there before cold-calling brokers.</p>
+</section>
+
+<div class="actions">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <h2>This Week's Actions</h2>
+    <p style="opacity: 0.8; margin-bottom: 2rem;">Ordered by urgency. NTG deadline is Friday June 12.</p>
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Email Drew Kouvel - POAO question</div>
+        <div class="action-who">Today - Jesse or CJ</div>
+        <p>"Drew, before I confirm the NTG UK booking - is Lightning Nutra on the UK APHA approved establishment list for exporting freeze-dried organ supplement products of animal origin to Great Britain? Do you have a UK health certificate process?" This is the binary question. His answer determines whether July 15 UK launch via NTG is even possible.</p>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Contact clearBorder or Global Import Agent</div>
+        <div class="action-who">Today/Tomorrow - CJ or Jesse</div>
+        <p>Brief them: freeze-dried bovine organ supplement powder, 2,500 units, USA to UK, Northampton delivery, target arrival July 8-10 (to allow July 15 sell date). Ask: can they handle POAO compliance and act as fiscal representative? What is their all-in fee?</p>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Start UK VAT registration (Bear Witness LLC)</div>
+        <div class="action-who">This week - Raemy</div>
+        <p>File HMRC VAT1 form for non-established taxable person. Will not arrive in time for July 15 but will be live for batch 2 onwards. Every 2,500-unit shipment saves ~£11,600 in unrecoverable VAT once registered. On 6 shipments per year that's £70K+ saved annually.</p>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Confirm NTG booking via broker</div>
+        <div class="action-who">Wednesday/Thursday - once POAO question answered</div>
+        <p>If Drew confirms POAO clearance and the customs broker confirms they can handle it, green-light NTG. The broker books as your agent and handles all customs declarations. Do NOT book directly through NTG if POAO is unresolved - you risk the shipment being held at the border.</p>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Kids Blend UK: flag the colostrum issue</div>
+        <div class="action-who">FYI - No immediate action needed</div>
+        <p>Kids Blend contains Bovine Colostrum, which is a dairy derivative. This adds a separate POAO/dairy import certification requirement on top of the organ meat issue. Recommend launching UK with Adult Blend only for batch 1, add Kids once POAO + dairy import process is confirmed. Simpler compliance, lower first-shipment risk.</p>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-body">
+        <div class="action-title">modernsavage.com domain - check CJ progress</div>
+        <div class="action-who">This week - CJ / Jesse</div>
+        <p>Domain expires June 24. If CJ's MediaOptions approach has stalled, escalate to direct GoDaddy broker offer. Last resort: acquire modernsavage.co.uk as backup. UK launch on a .co.uk is not ideal but beats losing .com ownership.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="background: var(--cream-dark); max-width: 100%; padding: 2.5rem 2rem;">
+<div style="max-width: 860px; margin: 0 auto;">
+  <h2>Bottom Line</h2>
+  <p>The NTG sea freight is the right call for UK (19-day transit, July 15 target). The numbers work. What nobody had modelled is that Modern Savage is not a simple supplement import - the organ meat ingredients make it POAO, which triggers a different compliance track.</p>
+  <p><strong>None of this is a dealbreaker.</strong> Dozens of US organ supplement brands (Ancestral Supplements, Heart and Soil) import to the UK. The process exists. You just need a specialist customs broker who has done it before, and confirmation that ACF's facility is on the approved list.</p>
+  <p>The POAO question to Drew takes five minutes. His answer tells you everything you need to know before Friday.</p>
+</div>
+</section>
+
+<footer>
+  Built by Junior - June 9, 2026 - Bear Grylls Ventures Internal Use Only
+</footer>
+
+</body>
+</html>
