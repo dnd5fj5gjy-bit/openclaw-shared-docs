@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ted's Health — Symptom Pages Dev Handoff</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; background: #f5f7fa; font-size: 15px; line-height: 1.65; }
+    .header { background: #0d2137; color: #fff; padding: 28px 32px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; }
+    .header p { color: rgba(255,255,255,0.75); margin-top: 4px; font-size: 0.9rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+    .card { background: #fff; border-radius: 10px; padding: 28px; margin-bottom: 24px; border: 1px solid #e5e8ed; }
+    .card h2 { font-size: 1.1rem; font-weight: 700; color: #0d2137; margin-bottom: 14px; border-bottom: 2px solid #e5e8ed; padding-bottom: 10px; }
+    .card h3 { font-size: 0.95rem; font-weight: 700; color: #333; margin: 16px 0 8px; }
+    .card p { margin-bottom: 12px; color: #444; font-size: 0.9rem; }
+    .card p:last-child { margin-bottom: 0; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 0.78rem; font-weight: 600; }
+    .badge-green { background: #d1f5e0; color: #1a6b3a; }
+    .badge-orange { background: #fde8d0; color: #8a4200; }
+    .badge-blue { background: #d5e8fa; color: #0d4080; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0; }
+    th { text-align: left; padding: 8px 10px; background: #f0f4f8; color: #0d2137; font-weight: 600; }
+    td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    td:first-child { font-weight: 500; white-space: nowrap; }
+    code { background: #f0f4f8; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Menlo, monospace; font-size: 0.82rem; color: #c7254e; }
+    pre { background: #1a1a2e; color: #e8e8e8; padding: 18px; border-radius: 8px; overflow-x: auto; font-size: 0.82rem; line-height: 1.6; margin: 12px 0; }
+    pre code { background: none; color: inherit; padding: 0; }
+    .checklist { list-style: none; }
+    .checklist li { padding: 6px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; }
+    .checklist li:last-child { border-bottom: none; }
+    .check { color: #22a055; font-weight: 700; flex-shrink: 0; }
+    .warn { color: #d07000; font-weight: 700; flex-shrink: 0; }
+    .priority-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+    .priority-item { background: #fff; border: 1px solid #e5e8ed; border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 200px; }
+    .priority-item .num { font-size: 1.8rem; font-weight: 800; color: #0d2137; }
+    .priority-item .label { font-size: 0.82rem; color: #666; margin-top: 2px; }
+    .url-list { list-style: none; }
+    .url-list li { padding: 5px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.85rem; }
+    .url-list li code { font-size: 0.8rem; color: #0d2137; background: #e8f0f8; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .priority-row { flex-direction: column; } }
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 6px; }
+    .alert { background: #fff5e0; border-left: 4px solid #f59e0b; padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 0.88rem; }
+    .alert strong { color: #92400e; }
+    .note { background: #e8f4fd; border-left: 4px solid #3b82f6; padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 0.88rem; color: #1e3a5f; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ted's Health — Symptom Pages Dev Handoff</h1>
+  <p>10 production-ready HTML pages · Generated 2026-06-09 · Nexus (Nexus AI)</p>
+</div>
+
+<div class="container">
+
+  <!-- CONTEXT -->
+  <div class="card">
+    <h2>Why These Pages Exist</h2>
+    <p>Competitor analysis run against Arc TRT (launched April 2026) identified a structural content gap: Arc built 9 symptom-specific landing pages that Ted's Health has zero equivalent for. Those pages target high-intent search queries that are currently <strong>completely uncontested</strong> — neither Ted's nor Arc rank for most of them yet, so this is a first-mover opportunity.</p>
+    <p>SEO tracking confirms Ted's Health ranks #9 for "testosterone replacement UK" but does not appear in the top 20 for any of the 9 symptom-specific terms (brain fog, sleep, mood, anxiety, libido, etc.).</p>
+    <p>These pages are designed to close that gap. Each page targets 4–5 high-intent keyword variants, includes full FAQ schema markup for Google featured snippets, and follows a conversion-optimised structure: symptom → clinical explanation → treatment pathway → CTA.</p>
+    <div class="priority-row">
+      <div class="priority-item"><div class="num">10</div><div class="label">Pages generated</div></div>
+      <div class="priority-item"><div class="num">9</div><div class="label">Symptom pages</div></div>
+      <div class="priority-item"><div class="num">1</div><div class="label">Hub page</div></div>
+      <div class="priority-item"><div class="num">6–8</div><div class="label">FAQs per page (schema-ready)</div></div>
+    </div>
+  </div>
+
+  <!-- FILE LIST -->
+  <div class="card">
+    <h2>Files &amp; Target URLs</h2>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Target URL</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>index.html</code></td><td><code>/trt-symptoms/</code></td><td><span class="badge badge-green">Hub</span></td></tr>
+        <tr><td><code>brain-fog.html</code></td><td><code>/trt-symptoms/brain-fog/</code></td><td><span class="badge badge-orange">High</span></td></tr>
+        <tr><td><code>low-energy.html</code></td><td><code>/trt-symptoms/low-energy/</code></td><td><span class="badge badge-orange">High</span></td></tr>
+        <tr><td><code>low-mood.html</code></td><td><code>/trt-symptoms/low-mood/</code></td><td><span class="badge badge-orange">High</span></td></tr>
+        <tr><td><code>poor-sleep.html</code></td><td><code>/trt-symptoms/poor-sleep/</code></td><td><span class="badge badge-orange">High</span></td></tr>
+        <tr><td><code>anxiety.html</code></td><td><code>/trt-symptoms/anxiety/</code></td><td><span class="badge badge-blue">Medium</span></td></tr>
+        <tr><td><code>low-libido.html</code></td><td><code>/trt-symptoms/low-libido/</code></td><td><span class="badge badge-blue">Medium</span></td></tr>
+        <tr><td><code>erectile-issues.html</code></td><td><code>/trt-symptoms/erectile-issues/</code></td><td><span class="badge badge-blue">Medium</span></td></tr>
+        <tr><td><code>muscle-loss.html</code></td><td><code>/trt-symptoms/muscle-loss/</code></td><td><span class="badge badge-blue">Medium</span></td></tr>
+        <tr><td><code>weight-gain.html</code></td><td><code>/trt-symptoms/weight-gain/</code></td><td><span class="badge badge-blue">Medium</span></td></tr>
+      </tbody>
+    </table>
+    <p>All files are in <code>workspace/docs/teds-symptom-pages/</code>.</p>
+  </div>
+
+  <!-- WHAT'S IN EACH PAGE -->
+  <div class="card">
+    <h2>What's In Each Page</h2>
+    <div class="two-col">
+      <div>
+        <h3>SEO Metadata</h3>
+        <ul class="checklist">
+          <li><span class="check">✓</span> Unique meta title (optimised for CTR)</li>
+          <li><span class="check">✓</span> Unique meta description (155 chars)</li>
+          <li><span class="check">✓</span> 4–5 target keywords in meta keywords tag</li>
+          <li><span class="check">✓</span> Canonical URL pointing to production path</li>
+          <li><span class="check">✓</span> Open Graph title + description</li>
+          <li><span class="check">✓</span> robots: index, follow</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Structured Data (JSON-LD)</h3>
+        <ul class="checklist">
+          <li><span class="check">✓</span> MedicalWebPage schema</li>
+          <li><span class="check">✓</span> FAQPage schema (Google featured snippets)</li>
+          <li><span class="check">✓</span> MedicalOrganization publisher</li>
+          <li><span class="check">✓</span> MedicalAudience: Patient</li>
+        </ul>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top:16px;">
+      <div>
+        <h3>Content Structure</h3>
+        <ul class="checklist">
+          <li><span class="check">✓</span> Breadcrumb navigation (Home → Symptoms → Page)</li>
+          <li><span class="check">✓</span> H1 + subtitle (descriptive hook)</li>
+          <li><span class="check">✓</span> 3-paragraph intro (symptom explanation)</li>
+          <li><span class="check">✓</span> Callout block (clinical connection)</li>
+          <li><span class="check">✓</span> Treatment section</li>
+          <li><span class="check">✓</span> Trust strip (4 proof points)</li>
+          <li><span class="check">✓</span> Primary CTA block</li>
+          <li><span class="check">✓</span> 6–8 FAQ accordion questions</li>
+          <li><span class="check">✓</span> Internal links to 4 sibling pages</li>
+          <li><span class="check">✓</span> Medical disclaimer footer</li>
+        </ul>
+      </div>
+      <div>
+        <h3>CTAs on Every Page</h3>
+        <ul class="checklist">
+          <li><span class="check">✓</span> Primary: /get-started</li>
+          <li><span class="check">✓</span> Secondary: /how-it-works</li>
+          <li><span class="check">✓</span> Navigation: /pricing, /trt-symptoms/</li>
+        </ul>
+        <h3 style="margin-top:14px;">Internal Linking</h3>
+        <ul class="checklist">
+          <li><span class="check">✓</span> Each page links to 4 sibling symptom pages</li>
+          <li><span class="check">✓</span> Hub page links to all 9 symptom pages</li>
+          <li><span class="check">✓</span> All pages link back to hub</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPLEMENTATION -->
+  <div class="card">
+    <h2>Implementation Notes</h2>
+
+    <div class="alert">
+      <strong>Before going live:</strong> Update all <code>https://tedshealth.com</code> references in the pages to match the actual production domain. The generator uses this as a constant — a single find/replace handles it.
+    </div>
+
+    <h3>Option 1 — CMS (recommended)</h3>
+    <p>Copy body content from each file into the CMS. The HTML files are self-contained but designed to slot into the existing Ted's Health template. Extract the content between <code>&lt;div class="hero"&gt;</code> and the closing <code>&lt;/div class="content"&gt;</code> — that's the page-specific content. Meta tags, schema, breadcrumb, nav, and footer are already in the CMS template.</p>
+    <p>Create pages at the URLs listed above. Paste the extracted content. Add meta title and description from the <code>&lt;head&gt;</code>. Paste both JSON-LD blocks into the schema/head injection field of the CMS.</p>
+
+    <h3>Option 2 — Static deploy</h3>
+    <p>The files are fully self-contained HTML — header, nav, footer, styles all inline. Deploy to any static host (Netlify, Vercel, GitHub Pages, S3). Create the directory structure to match the target URLs:</p>
+    <pre><code>trt-symptoms/
+├── index.html          → /trt-symptoms/
+├── brain-fog/
+│   └── index.html      → /trt-symptoms/brain-fog/
+├── low-energy/
+│   └── index.html      → /trt-symptoms/low-energy/
+... (etc)
+</code></pre>
+    <p>Rename each <code>[slug].html</code> to <code>[slug]/index.html</code> to get clean URLs without .html extensions.</p>
+
+    <h3>Option 3 — Quick preview (immediate)</h3>
+    <p>Open any HTML file directly in a browser. No server needed — they're fully static. Works offline.</p>
+
+    <div class="note">
+      <strong>Re-generating pages:</strong> The generator script at <code>workspace/tools/generate_symptom_pages.py</code> produces all 10 pages. To update copy or add keywords: edit the <code>SYMPTOMS</code> list in the script and re-run <code>python3 workspace/tools/generate_symptom_pages.py</code>. All pages regenerate in under 2 seconds.
+    </div>
+  </div>
+
+  <!-- WHAT STILL NEEDS TO BE DONE -->
+  <div class="card">
+    <h2>What's Not In These Pages (Requires Ted's Team)</h2>
+    <ul class="checklist">
+      <li><span class="warn">!</span> <strong>Actual product links</strong> — /get-started, /order-blood-test, /pricing URLs need to resolve. Verify these are correct on the live site.</li>
+      <li><span class="warn">!</span> <strong>Steve Redgrave quote image/photo</strong> — Hub page references Steve Redgrave. Add a photo for visual trust. Licensed imagery only.</li>
+      <li><span class="warn">!</span> <strong>Doctor byline</strong> — Consider adding "Medically reviewed by [Doctor Name], [Qualification]" to each page for E-E-A-T signals.</li>
+      <li><span class="warn">!</span> <strong>Internal links from existing pages</strong> — Add links to /trt-symptoms/ from the homepage, about page, and blog posts. Orphaned pages don't rank.</li>
+      <li><span class="warn">!</span> <strong>Submit to Search Console</strong> — After publishing, submit the sitemap and request indexing for each URL. Arc TRT is indexing now; don't delay.</li>
+      <li><span class="warn">!</span> <strong>Sitemap update</strong> — Add all 10 URLs to the XML sitemap.</li>
+      <li><span class="warn">!</span> <strong>hreflang if multi-region</strong> — If Ted's Health serves multiple regions (UK + IE), add hreflang tags.</li>
+    </ul>
+  </div>
+
+  <!-- SEO EXPECTATIONS -->
+  <div class="card">
+    <h2>SEO Expectations</h2>
+    <p>Based on the keyword research and competitive analysis:</p>
+    <table>
+      <thead>
+        <tr><th>Keyword</th><th>Current ranking</th><th>Target (6 months)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>low testosterone brain fog</td><td>Not ranking</td><td>Top 10</td></tr>
+        <tr><td>testosterone and sleep problems</td><td>Not ranking</td><td>Top 10</td></tr>
+        <tr><td>testosterone low mood men UK</td><td>Not ranking</td><td>Top 10</td></tr>
+        <tr><td>testosterone low energy fatigue</td><td>Not ranking</td><td>Top 10</td></tr>
+        <tr><td>testosterone anxiety men</td><td>Not ranking</td><td>Top 15</td></tr>
+        <tr><td>testosterone sex drive low</td><td>Not ranking</td><td>Top 15</td></tr>
+        <tr><td>TRT muscle mass UK</td><td>Not ranking</td><td>Top 20</td></tr>
+        <tr><td>testosterone weight gain men</td><td>Not ranking</td><td>Top 20</td></tr>
+      </tbody>
+    </table>
+    <p>All 9 symptom keyword clusters are currently <strong>uncontested in the top 20</strong>. Arc TRT recently built these pages — they haven't indexed yet. Publishing now means Ted's Health has a real shot at first-mover positions on all of them.</p>
+    <p>Timeline: expect initial indexing within 2–4 weeks of publication. Ranking movement visible in 6–12 weeks. Track via the SEO rank tracker already built (<code>workspace/tools/seo_rank_tracker.py</code>).</p>
+  </div>
+
+  <!-- HOW THESE WERE GENERATED -->
+  <div class="card">
+    <h2>Generation Notes</h2>
+    <p>Generated by <strong>Nexus</strong> (Nexus AI) during nightly build, 2026-06-09.</p>
+    <p>Source: <code>workspace/tools/generate_symptom_pages.py</code> — self-contained Python 3 script using stdlib only. No external dependencies. Regenerates all 10 pages in ~1 second.</p>
+    <p>Content is based on three prior research sessions: (1) Arc TRT content gap analysis, (2) Ted's Health symptom page content playbook, (3) Ted's Health SEO rank baseline. Copy reviewed for clinical accuracy, tone consistency, and CQC compliance (no unsupported efficacy claims, appropriate disclaimers, no guaranteed outcome language).</p>
+    <p>These pages do not contain personal data and can be shared publicly without restriction.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
