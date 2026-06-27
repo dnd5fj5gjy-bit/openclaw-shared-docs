@@ -70,7 +70,7 @@ Note: there is **no pancreas** in the formula (the original v1 brief was wrong o
 
 - **Organs for human food = POAO.** Importing POAO into GB triggers pre-notification (IPAFFS), Border Control Post inspection, and export health certificates. Sourcing the raw organ material inside UK/EU removes that entire layer. The original instinct to manufacture UK is correct.
 - **Facility approval.** Any site drying/milling organs into food powder generally needs FSA approval under retained Reg. 853/2004 and HACCP. This is the gate most generic CMs fail.
-- **SRM/TSE check (clears our blend):** banned bovine specified-risk material is mainly skull/brain/eyes, spinal cord (cattle >12m), tonsils and parts of the intestine. **Liver, heart, kidney, pancreas, spleen and testes are all permitted** in human food. Brain/spinal cord would not be - so don't add them.
+- **SRM/TSE check (clears our blend):** banned bovine specified-risk material is mainly skull/brain/eyes, spinal cord (cattle >12m), tonsils and parts of the intestine. **Our organs - liver, heart, kidney, lung, spleen, testes and bison liver - are all permitted** in human food. Brain/spinal cord would not be - so don't add them.
 - **No pre-market approval** needed for the supplement itself, provided no novel-food ingredient and no medicinal claims on label.
 
 ---
