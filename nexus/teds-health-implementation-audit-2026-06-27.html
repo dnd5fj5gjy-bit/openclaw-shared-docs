@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health: Recommendations vs Reality — June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  .header { border-bottom: 1px solid #1e2535; padding-bottom: 28px; margin-bottom: 36px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f8fafc; margin-bottom: 8px; }
+  .header .meta { font-size: 13px; color: #64748b; }
+  .header .meta span { margin-right: 20px; }
+  .tldr { background: #1a1f2e; border: 1px solid #2d3748; border-left: 3px solid #3b82f6; border-radius: 8px; padding: 20px 24px; margin-bottom: 36px; }
+  .tldr h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #3b82f6; margin-bottom: 10px; }
+  .tldr p { font-size: 15px; color: #cbd5e1; }
+  .section { margin-bottom: 36px; }
+  .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 16px; border-bottom: 1px solid #1e2535; padding-bottom: 8px; }
+  .rec-grid { display: grid; gap: 12px; }
+  .rec-item { background: #1a1f2e; border: 1px solid #1e2535; border-radius: 8px; padding: 16px 20px; display: grid; grid-template-columns: 24px 1fr auto; gap: 12px; align-items: start; }
+  .rec-item.done { border-left: 3px solid #22c55e; }
+  .rec-item.missing { border-left: 3px solid #ef4444; }
+  .rec-item.unknown { border-left: 3px solid #f59e0b; }
+  .rec-item.new { border-left: 3px solid #8b5cf6; }
+  .status-icon { font-size: 16px; margin-top: 2px; }
+  .rec-body h3 { font-size: 14px; font-weight: 600; color: #f1f5f9; margin-bottom: 4px; }
+  .rec-body p { font-size: 13px; color: #94a3b8; }
+  .rec-body .url { font-size: 12px; color: #22c55e; font-family: monospace; margin-top: 4px; }
+  .rec-body .gap { font-size: 12px; color: #ef4444; margin-top: 4px; }
+  .rec-body .warn { font-size: 12px; color: #f59e0b; margin-top: 4px; }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 2px; }
+  .badge.high { background: #450a0a; color: #f87171; }
+  .badge.med { background: #422006; color: #fb923c; }
+  .badge.low { background: #1a2433; color: #60a5fa; }
+  .badge.done-badge { background: #052e16; color: #4ade80; }
+  .badge.new-badge { background: #2e1065; color: #a78bfa; }
+  .score-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px; }
+  .score-card { background: #1a1f2e; border: 1px solid #1e2535; border-radius: 8px; padding: 20px; text-align: center; }
+  .score-card .num { font-size: 32px; font-weight: 800; }
+  .score-card .label { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .score-card.green .num { color: #22c55e; }
+  .score-card.red .num { color: #ef4444; }
+  .score-card.amber .num { color: #f59e0b; }
+  .score-card.purple .num { color: #a78bfa; }
+  .priority-table { width: 100%; border-collapse: collapse; }
+  .priority-table th { text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; padding: 8px 12px; border-bottom: 1px solid #1e2535; }
+  .priority-table td { padding: 12px; border-bottom: 1px solid #1a1f2e; font-size: 13px; color: #cbd5e1; vertical-align: top; }
+  .priority-table tr:last-child td { border-bottom: none; }
+  .pill { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 3px; font-weight: 600; }
+  .pill.p1 { background: #450a0a; color: #f87171; }
+  .pill.p2 { background: #422006; color: #fb923c; }
+  .pill.p3 { background: #1c1917; color: #78716c; }
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e2535; font-size: 12px; color: #475569; }
+  .discovery-box { background: #1a1020; border: 1px solid #2d1b4e; border-radius: 8px; padding: 20px 24px; margin-bottom: 12px; }
+  .discovery-box h3 { font-size: 14px; font-weight: 600; color: #c4b5fd; margin-bottom: 6px; }
+  .discovery-box p { font-size: 13px; color: #94a3b8; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Ted's Health: Recommendations vs Reality</h1>
+    <div class="meta">
+      <span>Audit date: 27 June 2026</span>
+      <span>Source: live sitemap crawl + page analysis</span>
+      <span>By Nexus</span>
+    </div>
+  </div>
+
+  <div class="tldr">
+    <h2>Bottom line</h2>
+    <p>Ted's Health has made solid progress on trust infrastructure and pricing transparency — both areas we flagged. But the single biggest SEO opportunity we identified (9 symptom landing pages, targeting completely uncontested keywords) has zero pages live. If Arc TRT indexes those first, the window closes. That's the one thing to push on.</p>
+  </div>
+
+  <div class="score-row">
+    <div class="score-card green">
+      <div class="num">8</div>
+      <div class="label">Implemented</div>
+    </div>
+    <div class="score-card red">
+      <div class="num">5</div>
+      <div class="label">Still missing</div>
+    </div>
+    <div class="score-card amber">
+      <div class="num">1</div>
+      <div class="label">Unverifiable</div>
+    </div>
+    <div class="score-card purple">
+      <div class="num">3</div>
+      <div class="label">New opportunities</div>
+    </div>
+  </div>
+
+  <!-- IMPLEMENTED -->
+  <div class="section">
+    <div class="section-title">Implemented ✓</div>
+    <div class="rec-grid">
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>Pricing transparency pages</h3>
+          <p>Three dedicated cost pages now live — TRT, ED treatment, supplements. This was Risk #3 in our risk register (conversion barrier from hidden pricing).</p>
+          <div class="url">/trt-costs · /erectile-dysfunction-treatment-cost · /mens-health-supplements-cost</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>Patient success stories page</h3>
+          <p>Dedicated testimonial page exists. Addresses a core trust barrier for men considering TRT for the first time.</p>
+          <div class="url">/patient-success-stories</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>Sir Steve Redgrave case study</h3>
+          <p>Dedicated page leveraging BGV's most credible health authority asset. Exactly what we recommended in the 30-day content build queue.</p>
+          <div class="url">/sir-steve-redgrave</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>CQC registration + LegitScript certification</h3>
+          <p>Both trust badges displayed. This directly addresses the biggest consumer concern in UK TRT: is this clinic legitimate?</p>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>ED treatment expansion</h3>
+          <p>Four ED medication options now listed — Tadalafil, Sildenafil, Cialis, Viagra. Prices from £1.63/pill. This opens a second revenue stream alongside TRT.</p>
+          <div class="url">/erectile-dysfunction · /erectile-dysfunction-treatment-cost</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>Medical team expanded</h3>
+          <p>Now includes Dr Jonathan Andrews (Medical Director), Ryann Egang (RN), two new doctors, and Mei Wan (dietitian). The NHS dual-employment of both founding clinicians is a real differentiator — few private clinics can say that.</p>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>Patient portal redesign</h3>
+          <p>Health dashboard rebuilt. Easier treatment management, progress tracking, milestone visibility. Reduces churn by increasing patient engagement with outcomes.</p>
+          <div class="url">connect.tedshealth.com</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+      <div class="rec-item done">
+        <div class="status-icon">✅</div>
+        <div class="rec-body">
+          <h3>"Optimise" supplement launched</h3>
+          <p>New product for men not ready for TRT — tribulus terrestris + adaptogens (maca root). Smart top-of-funnel product: captures leads who aren't yet TRT-ready and keeps them in the Ted's ecosystem.</p>
+          <div class="url">/supplements</div>
+        </div>
+        <span class="badge done-badge">LIVE</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STILL MISSING -->
+  <div class="section">
+    <div class="section-title">Still missing ✗</div>
+    <div class="rec-grid">
+
+      <div class="rec-item missing">
+        <div class="status-icon">❌</div>
+        <div class="rec-body">
+          <h3>Symptom landing pages (9 pages)</h3>
+          <p>The single biggest organic opportunity in the entire Ted's Health strategy. Brain fog, low energy, low mood, poor sleep, anxiety, low libido, ED, muscle loss, weight gain. All 9 keyword clusters uncontested in Google top-20. We built production-ready HTML for all 9. Zero are live.</p>
+          <div class="gap">Not in sitemap. 0 of 9 pages indexed. Arc TRT has all 9. First-mover window still open — but not indefinitely.</div>
+        </div>
+        <span class="badge high">P1 URGENT</span>
+      </div>
+
+      <div class="rec-item missing">
+        <div class="status-icon">❌</div>
+        <div class="rec-body">
+          <h3>Individual doctor profile pages</h3>
+          <p>Ted's now has 4+ clinicians including two new doctors and a dietitian. None have profile pages. Arc TRT has 4 individual /team/* pages with full credentials. This is a direct trust gap — patients want to know who is treating them.</p>
+          <div class="gap">No /team or /doctors section found. Critical given "who's my doctor" anxiety in TRT patients.</div>
+        </div>
+        <span class="badge high">P1</span>
+      </div>
+
+      <div class="rec-item missing">
+        <div class="status-icon">❌</div>
+        <div class="rec-body">
+          <h3>GMC registration numbers displayed</h3>
+          <p>Dr Andrews' GMC number isn't on the about page. UK patients can verify any doctor at gmc-uk.org — displaying the number proactively signals nothing to hide and removes a friction point in the "is this real?" decision.</p>
+          <div class="gap">Easy to add. Takes one afternoon. Removes a real conversion barrier.</div>
+        </div>
+        <span class="badge med">P2</span>
+      </div>
+
+      <div class="rec-item missing">
+        <div class="status-icon">❌</div>
+        <div class="rec-body">
+          <h3>Dedicated /get-started conversion page</h3>
+          <p>The path from homepage to sign-up currently goes via /how-it-works → connect.tedshealth.com. A dedicated /get-started page with the 3-step process, expected timeline, and "start for £X" CTA would cut drop-off at the intent stage.</p>
+          <div class="gap">/referrals/test exists (looks like an internal test page) but no proper /get-started or /start-today.</div>
+        </div>
+        <span class="badge med">P2</span>
+      </div>
+
+      <div class="rec-item missing">
+        <div class="status-icon">❌</div>
+        <div class="rec-body">
+          <h3>Search Console submission for new pages</h3>
+          <p>The pricing, success stories, and Steve Redgrave pages won't rank until Google indexes them. Submitting to Search Console speeds this up from weeks to days. One 20-minute task.</p>
+          <div class="gap">No way to verify externally, but worth flagging given recency of new pages.</div>
+        </div>
+        <span class="badge med">P2</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UNVERIFIABLE -->
+  <div class="section">
+    <div class="section-title">Unverifiable (needs internal access)</div>
+    <div class="rec-grid">
+      <div class="rec-item unknown">
+        <div class="status-icon">⚠️</div>
+        <div class="rec-body">
+          <h3>GA4 cross-domain tracking fix</h3>
+          <p>We flagged in June that tedshealth.com → connect.tedshealth.com creates an attribution gap — paid conversions appear as (direct) in GA4. The fix is a 2-hour developer task. We shipped the complete implementation guide.</p>
+          <div class="warn">Cannot verify from outside. If not done: every Google Ads and Meta conversion is invisible. Optimising paid spend blind.</div>
+        </div>
+        <span class="badge low">CHECK GA4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW OPPORTUNITIES -->
+  <div class="section">
+    <div class="section-title">New opportunities (discovered this audit)</div>
+
+    <div class="discovery-box">
+      <h3>💡 Mei Wan (dietitian) is an underused asset</h3>
+      <p>Ted's now has a specialist dietitian focused on weight loss and type 2 diabetes remission. This unlocks a content angle Arc TRT doesn't have: TRT as a metabolic health intervention, not just a "low T" fix. A single /trt-and-weight-loss page targeting that keyword cluster could be genuinely differentiated.</p>
+    </div>
+
+    <div class="discovery-box">
+      <h3>💡 ED pricing already competitive — needs a comparison page</h3>
+      <p>Tadalafil from £1.63/pill is competitive with Manual, Bluechew, and LloydsPharmacy Online. Ted's isn't positioning this. A /compare-ed-treatments page with a transparent price table vs competitors would capture high-intent "cheapest tadalafil UK" searches and convert on price + trust simultaneously.</p>
+    </div>
+
+    <div class="discovery-box">
+      <h3>💡 "Optimise" supplement bridges the cold-to-TRT funnel</h3>
+      <p>Optimise targets men not ready for TRT. That's the largest addressable audience for a TRT clinic — men who know something's wrong but aren't sure TRT is the answer. A dedicated landing page for Optimise, positioned as "start here," could function as a low-friction entry point that feeds the TRT conversion pipeline 3-6 months later.</p>
+    </div>
+
+  </div>
+
+  <!-- PRIORITY TABLE -->
+  <div class="section">
+    <div class="section-title">Action priority</div>
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Action</th>
+          <th>Why now</th>
+          <th>Effort</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill p1">P1</span></td>
+          <td>Deploy the 9 symptom landing pages</td>
+          <td>Zero competitors indexed. We already built the HTML. This is the largest organic opportunity in the Ted's strategy.</td>
+          <td>Low — files exist, need CMS upload or static deploy</td>
+        </tr>
+        <tr>
+          <td><span class="pill p1">P1</span></td>
+          <td>Add doctor profile pages for all 4 clinicians</td>
+          <td>Arc TRT has profiles. Patients want to know their doctor. GMC lookup-ready.</td>
+          <td>Low — 4 pages, ~2 days of copywriting</td>
+        </tr>
+        <tr>
+          <td><span class="pill p2">P2</span></td>
+          <td>Add GMC numbers to About page</td>
+          <td>One-line edit. Removes a "is this legit" friction point immediately.</td>
+          <td>15 minutes</td>
+        </tr>
+        <tr>
+          <td><span class="pill p2">P2</span></td>
+          <td>Verify GA4 cross-domain fix is live</td>
+          <td>If not done: paid media attribution is broken, spend is optimising blind.</td>
+          <td>2-hour dev task (guide already written)</td>
+        </tr>
+        <tr>
+          <td><span class="pill p2">P2</span></td>
+          <td>Build /compare-ed-treatments page</td>
+          <td>Competitive pricing already exists. Needs a page to capture the search traffic.</td>
+          <td>1 day</td>
+        </tr>
+        <tr>
+          <td><span class="pill p3">P3</span></td>
+          <td>Dedicated /get-started page</td>
+          <td>Reduces drop-off at the intent-to-convert moment.</td>
+          <td>Half-day</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p>Audit methodology: live sitemap crawl (31 URLs), page-level content analysis via WebFetch, comparison against Nexus recommendations from May–June 2026 nightly builds. Arc TRT comparison based on June 2026 content gap analysis. Generated by Nexus · 27 June 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
