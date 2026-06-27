@@ -14,7 +14,16 @@ So the real question to every manufacturer is one line:
 
 Expect most to say no. The ones who say yes are the shortlist. The original brief listed four generic blenders that all fail this test, so we start from a better base here.
 
-One spec flag: our blend includes **testes, pancreas and spleen**. Very few suppliers cover testes, even ones who do liver/heart/kidney. Lead with that ingredient in every conversation.
+### The actual formula (from modernsavage.co)
+**Modern Savage (adult):** organ blend = grass-fed freeze-dried bovine **liver, heart, kidney, lung, spleen, testes PLUS grass-fed bison liver**; protein blend = bovine collagen peptides + beef protein isolate; prebiotic fibre + probiotics (inulin); whole-food vitamin/mineral blend (incl. fermented K2 MK-7); nine organic freeze-dried berries/fruits + baobab + date; honey or maple powder, vanilla bean, bamboo extract, pink salt.
+**Mini Savage (kids):** same base, organs = bovine liver/heart/kidney/spleen + bison liver (no lung, no testes), plus bovine colostrum. Contains milk.
+**BG Summit Stack:** separate organ-free add-on - creatine (CreaVitalis), electrolytes, NMN, PQQ, trans-resveratrol, plant D3 + K2 from natto, malic acid, bamboo, rice hulls.
+
+Two spec flags that narrow the field hard:
+1. **Bison liver.** This is the real constraint. Per the US manufacturing team, no organ supplier holds a *steady* bison supply (bison herds are small), so even the US build uses predominantly beef with bison liver swapped in as available. In UK/EU, grass-fed bison is rarer still. Any UK partner must answer the bison-liver sourcing question directly, or accept that we supply that material.
+2. **Testes** (adult only). Very few suppliers cover testes even when they do liver/heart/kidney. Lead with both bison and testes in every conversation.
+
+Note: there is **no pancreas** in the formula (the original v1 brief was wrong on this) and the adult blend includes **lung**.
 
 ---
 
