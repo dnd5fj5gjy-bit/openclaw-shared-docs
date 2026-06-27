@@ -42,7 +42,7 @@ Note: there is **no pancreas** in the formula (the original v1 brief was wrong o
 ### Route A - organ-native maker
 | Company | Base | Contact | Why | Watch-out |
 |---|---|---|---|---|
-| **Nutriest** | Estonia (EU) | moo@nutriest.eu · +372 58048722 | One of Europe's largest organ-supplement suppliers; lists a desiccated beef organ complex powder; covers full organ list **including testes**; offers powder mixing + packaging + wholesale | Not UK-based. Confirm they will sell/produce for a third party vs only their own brand; confirm animal country of origin + organic/GMP certs |
+| **Nutriest** | Estonia (EU) | moo@nutriest.eu · +372 58048722 | One of Europe's largest organ-supplement suppliers; lists a desiccated beef organ complex powder; covers full organ list **including testes**; offers powder mixing + packaging + wholesale | Not UK-based. Confirm they will sell/produce for a third party vs only their own brand; confirm they can supply **bison liver** (the hard one); confirm animal country of origin + organic/GMP certs |
 
 ### Route B - domestic build (two parts)
 **Toll freeze-dry / drying the organs:**
