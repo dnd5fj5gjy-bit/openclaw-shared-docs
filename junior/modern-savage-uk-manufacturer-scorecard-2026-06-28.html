@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - UK Manufacturer Scorecard & Qualifying Playbook | June 28, 2026</title>
+<style>
+  :root {
+    --forest: #2B4A3F;
+    --forest-deep: #1E3630;
+    --earth: #C07A45;
+    --earth-light: #D4935E;
+    --cream: #F5F0EA;
+    --cream-dark: #E8E0D6;
+    --charcoal: #2A2A2A;
+    --white: #FDFBF8;
+    --sand: #D9CCBB;
+    --red: #B83232;
+    --amber: #C07A45;
+    --green: #2B6B47;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+  body {
+    font-family: 'Outfit', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  nav {
+    background: var(--forest-deep);
+    color: var(--cream);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; }
+  nav .date { font-size: 0.85rem; opacity: 0.7; }
+  .hero {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .hero .label {
+    display: inline-block;
+    background: var(--earth);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    max-width: 760px;
+    margin: 0 auto 1.2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  section { padding: 3.5rem 2rem; max-width: 880px; margin: 0 auto; }
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--forest-deep);
+    margin-bottom: 1.2rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 0.6rem;
+    margin-top: 1.6rem;
+  }
+  p { margin-bottom: 1rem; }
+  .lead { font-size: 1.05rem; }
+  .alert {
+    border-left: 5px solid;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.5rem;
+  }
+  .alert-red { border-color: var(--red); background: #FFF0F0; }
+  .alert-amber { border-color: var(--amber); background: #FFF8F0; }
+  .alert-green { border-color: var(--green); background: #F0FAF3; }
+  .alert .alert-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .alert-red .alert-title { color: var(--red); }
+  .alert-amber .alert-title { color: #8B5A0A; }
+  .alert-green .alert-title { color: var(--green); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+  }
+  th {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    vertical-align: top;
+  }
+  td {
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--cream-dark);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--cream); }
+  tr:nth-child(odd) td { background: var(--white); }
+  .kill td { background: #FFF0F0 !important; }
+  .center { text-align: center; }
+  .num { font-weight: 700; color: var(--forest-deep); }
+  .actions {
+    background: var(--forest-deep);
+    color: var(--white);
+    padding: 3rem 2rem;
+  }
+  .actions-inner { max-width: 880px; margin: 0 auto; }
+  .actions h2 { color: var(--white); }
+  .action-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    align-items: flex-start;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    background: var(--earth);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-body .action-title { font-weight: 700; font-size: 1.0rem; margin-bottom: 0.25rem; }
+  .action-body p { font-size: 0.92rem; opacity: 0.9; margin-bottom: 0; }
+  .separator { height: 4px; background: var(--earth); max-width: 80px; margin: 0 auto 1.5rem; }
+  ol.qs { counter-reset: q; list-style: none; padding: 0; }
+  ol.qs > li {
+    position: relative;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    border-bottom: 1px solid var(--cream-dark);
+    background: var(--white);
+  }
+  ol.qs > li:before {
+    counter-increment: q;
+    content: counter(q);
+    position: absolute;
+    left: 0.8rem; top: 0.9rem;
+    background: var(--forest);
+    color: white;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  ol.qs > li .why { display: block; font-size: 0.85rem; color: #6b6b6b; margin-top: 0.25rem; }
+  .tag { display:inline-block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:0.15rem 0.5rem; border-radius:3px; margin-left:0.4rem; }
+  .tag-kill { background:var(--red); color:white; }
+  .tag-core { background:var(--earth); color:white; }
+  .tree { background: var(--white); border:1px solid var(--cream-dark); border-radius:8px; padding:1.5rem; }
+  .tree .branch { padding:0.6rem 0; border-bottom:1px dashed var(--cream-dark); }
+  .tree .branch:last-child { border-bottom:none; }
+  .tree .branch b { color: var(--forest-deep); }
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+  }
+  .muted { color:#777; font-size:0.85rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">MODERN SAVAGE - UK MANUFACTURER PLAYBOOK</span>
+  <span class="date">June 28, 2026 - INTERNAL</span>
+</nav>
+
+<div class="hero">
+  <div class="label">Outreach sent - replies incoming</div>
+  <h1>UK Manufacturer Scorecard &amp; Qualifying Playbook</h1>
+  <p>The 8 outreach emails are in your drafts. This is how you separate a real one-stop-shop from a blender who will quietly toll the hard part out - before you waste a call.</p>
+</div>
+
+<section>
+  <div class="separator"></div>
+  <h2>The one filter that kills most of them</h2>
+  <div class="alert alert-red">
+    <div class="alert-title">Organ handling (POAO) is the gate, not price</div>
+    <p style="margin-bottom:0">Modern Savage is built on freeze-dried animal organs - bovine liver, heart, kidney, lung, spleen, testes plus bison liver. In the UK that is <b>POAO (Products of Animal Origin)</b>, which means FSA establishment approval, not a standard supplement licence. Most UK contract manufacturers blend plant powders, vitamins and protein. They will say "yes we can do that" because they assume they can buy organ powder in - then discover at PO stage they cannot legally handle it, or they quietly toll it to a third party and the price and lead time balloon. <b>Qualify this first. If they cannot handle POAO organ material in-house, nothing else on the scorecard matters.</b></p>
+  </div>
+  <p class="lead">Goal of round 1: find a UK manufacturer who does <b>everything in-house</b> - sources or accepts freeze-dried organ raw material, blends, encapsulates/fills, and signs off UK label compliance. Anyone who needs to toll any of those steps out drops to round 2.</p>
+</section>
+
+<section style="padding-top:0">
+  <h2>Weighted scorecard</h2>
+  <p>Score each manufacturer 0-5 on every line as replies and calls come in. Multiply by weight, sum the column. The two <span class="tag tag-kill">KILL</span> lines are pass/fail gates: a zero on either disqualifies regardless of total.</p>
+  <table>
+    <thead>
+      <tr><th style="width:26%">Criterion</th><th class="center" style="width:10%">Weight</th><th>What a 5 looks like</th></tr>
+    </thead>
+    <tbody>
+      <tr class="kill"><td><b>POAO / organ handling</b> <span class="tag tag-kill">Kill</span></td><td class="center num">x5</td><td>Holds FSA-approved establishment status for animal-origin material; has run freeze-dried organ blends before; handles it in-house.</td></tr>
+      <tr class="kill"><td><b>True one-stop-shop</b> <span class="tag tag-kill">Kill</span></td><td class="center num">x4</td><td>Blend + capsule/fill + pack + UK label/compliance sign-off all under their roof. No toll-out of any core step.</td></tr>
+      <tr><td>UK regulatory &amp; label sign-off <span class="tag tag-core">Core</span></td><td class="center num">x3</td><td>In-house regulatory team; will own FSA/labelling compliance and novel-food screening; gives written sign-off.</td></tr>
+      <tr><td>Organ raw-material sourcing</td><td class="center num">x3</td><td>Can source the freeze-dried organ powders themselves (grass-fed, traceable) OR cleanly accept our nominated supplier.</td></tr>
+      <tr><td>Quality accreditation</td><td class="center num">x2</td><td>GMP + BRCGS or ISO 22000; audited; certificates provided on request.</td></tr>
+      <tr><td>MOQ fit</td><td class="center num">x2</td><td>Minimum order matches a sensible launch run, not a 50k-unit commitment we can't move.</td></tr>
+      <tr><td>Lead time</td><td class="center num">x2</td><td>Quotes a firm timeline from PO to finished goods that fits the launch cadence; no vague "depends".</td></tr>
+      <tr><td>Price per unit</td><td class="center num">x2</td><td>Landed cost per unit holds the margin model; transparent quote, not "we'll firm it up later".</td></tr>
+      <tr><td>Capsule + powder capability</td><td class="center num">x1</td><td>Can do both formats in-house if the range expands (Adult, Summit, Kids).</td></tr>
+      <tr><td>Scale headroom</td><td class="center num">x1</td><td>Can grow with us to 5-6 figure monthly runs without re-tooling.</td></tr>
+      <tr><td>Responsiveness</td><td class="center num">x1</td><td>Replied fast, answered the organ question directly, no dodging.</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Max weighted score = 130. Realistically anyone clearing both kill gates and scoring 85+ is a live candidate worth a sample run.</p>
+</section>
+
+<section style="padding-top:0">
+  <h2>Candidate tracker</h2>
+  <p>The 8 in your drafts, plus the 4 held backups. Fill the verdict column as replies land.</p>
+  <table>
+    <thead>
+      <tr><th>Manufacturer</th><th>Round</th><th class="center">POAO?</th><th class="center">One-stop?</th><th class="center">Score</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Park Acre</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>Protein Partners</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>Aviform</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>G&amp;G Vitamins</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>Arena Health</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>Rain Nutrience</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>PharmaNutra</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>Synergy Biologics</td><td>1</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td></td></tr>
+      <tr><td>European Freeze Dry</td><td>Backup</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td>Toll dryer - strong on the freeze-dry step, not full one-stop</td></tr>
+      <tr><td>Nutriest</td><td>Backup</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td>EE turnkey route if UK domestic fails</td></tr>
+      <tr><td>Rocket Science</td><td>Backup</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td>No GMP confirmed - check first</td></tr>
+      <tr><td>Vita Manufacture</td><td>Backup</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td>Vegan-focused - organ handling unlikely</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section style="padding-top:0">
+  <h2>The qualifying call - 12 questions</h2>
+  <p>Run them in this order. The first three are deal-breakers; if any answer is soft, you can end the call politely without burning 40 minutes.</p>
+  <ol class="qs">
+    <li><b>Have you manufactured a freeze-dried animal-organ supplement before - liver, heart, kidney and so on?</b><span class="why">If they hesitate or pivot to "we can look into it", they haven't. Real ones name the product or category instantly.</span></li>
+    <li><b>Do you hold FSA establishment approval to handle Products of Animal Origin, and is that handled in-house or sub-contracted?</b><span class="why">The single most important answer. "Sub-contracted" means not a one-stop-shop.</span></li>
+    <li><b>Which steps do you do under your own roof - blending, encapsulation/filling, packing, and UK label compliance sign-off - and which do you toll out?</b><span class="why">Make them list it. Any core step tolled out drops them out of round 1.</span></li>
+    <li><b>Can you source the freeze-dried organ raw materials yourself, or do we nominate the supplier?</b><span class="why">Self-sourcing with traceability is a 5. Accepting our supplier cleanly is fine. "We don't touch that material" is a fail.</span></li>
+    <li><b>What accreditations do you hold - GMP, BRCGS, ISO 22000 - and can you send certificates?</b><span class="why">No certificates on request = walk.</span></li>
+    <li><b>What is your minimum order quantity, by SKU and by format?</b><span class="why">Match against a realistic launch run. A 50k MOQ on an unproven SKU is a cash trap.</span></li>
+    <li><b>Realistic lead time from approved PO to finished, labelled goods?</b><span class="why">Want a firm number. "Depends" with no range is a flag.</span></li>
+    <li><b>Indicative price per unit at our volume, all-in (blend, fill, primary pack, compliance)?</b><span class="why">Get a band now. Holds the margin model or it doesn't.</span></li>
+    <li><b>Will your regulatory team own UK labelling and novel-food screening and give written sign-off?</b><span class="why">Compliance ownership is the hidden cost. If it's on us, that's a different deal.</span></li>
+    <li><b>Can you handle both capsule and powder formats in-house for the wider range?</b><span class="why">Adult, Summit and Kids may need different formats - know now.</span></li>
+    <li><b>What is your capacity headroom if we scale to high-volume monthly runs?</b><span class="why">A maker that re-tools at scale becomes a bottleneck later.</span></li>
+    <li><b>Can you run a small sample/pilot batch before a full commitment, and on what timeline?</b><span class="why">Willingness to pilot separates partners from order-takers.</span></li>
+  </ol>
+</section>
+
+<section style="padding-top:0">
+  <h2>Instant disqualifiers</h2>
+  <div class="alert alert-amber">
+    <div class="alert-title">End the conversation if you hear any of these</div>
+    <p style="margin-bottom:0.4rem">- "We'd partner with someone for the organ side" - that's a toll-out, not a one-stop-shop.</p>
+    <p style="margin-bottom:0.4rem">- "We don't usually handle animal-origin material but we can try" - they don't hold POAO approval.</p>
+    <p style="margin-bottom:0.4rem">- No GMP and no plan to get it.</p>
+    <p style="margin-bottom:0.4rem">- Dodges the FSA establishment question or doesn't know what POAO is.</p>
+    <p style="margin-bottom:0">- MOQ wildly above a sensible launch run with no flexibility.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <h2>Reply triage</h2>
+  <div class="tree">
+    <div class="branch"><b>Confirms POAO + full one-stop in the reply</b> &rarr; book a qualifying call this week. Top priority.</div>
+    <div class="branch"><b>Interested but vague on organ handling</b> &rarr; one-line reply: "Before we go further - can you confirm you hold FSA approval to handle freeze-dried animal-organ material in-house?" Their answer sorts them.</div>
+    <div class="branch"><b>Can blend but tolls the organ/freeze-dry step</b> &rarr; park as round-2 / hybrid build (pair with European Freeze Dry on the dry step).</div>
+    <div class="branch"><b>No reply in 5 working days</b> &rarr; one polite chase, then move a backup (European Freeze Dry or Nutriest) into round 1.</div>
+    <div class="branch"><b>Flat no on organ material</b> &rarr; close out, log, don't re-approach.</div>
+  </div>
+</section>
+
+<div class="actions">
+  <div class="actions-inner">
+    <h2>Next actions</h2>
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Send the 8 drafts</div>
+        <p>They're sitting in your drafts folder ready. The scorecard only earns its keep once the replies start.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Lead every reply with the POAO question</div>
+        <p>Don't book a call until they've confirmed they can handle freeze-dried organ material in-house. It saves the most time of anything here.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Score on the call, not after</div>
+        <p>Have the 12 questions open during the call and mark each line live. Memory inflates the good ones.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Shortlist two, pilot both</div>
+        <p>Don't single-thread. Get a sample/pilot batch from the top two before committing a full run.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Backstop with the hybrid route</div>
+        <p>If no single UK maker clears both kill gates, the fallback is a domestic build - European Freeze Dry for the dry step plus a GMP blender/filler - or the Nutriest EE turnkey. Keep them warm.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Modern Savage - UK Manufacturer Scorecard &amp; Qualifying Playbook - prepared for Jesse Grylls, June 28 2026. Internal working document.
+</footer>
+
+</body>
+</html>
