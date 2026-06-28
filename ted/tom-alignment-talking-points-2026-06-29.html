@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Alignment — Olly × Tom | 29 June 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d1b4b 0%, #1a3a6b 60%, #1e5799 100%);
+      color: #fff;
+      padding: 56px 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #7eb8f7;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 500;
+      color: #a8c8f0;
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .meta-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 24px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #e0ecff;
+      letter-spacing: 0.3px;
+    }
+
+    /* GRID */
+    .grid {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* CARDS */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      border-top: 4px solid #1a3a6b;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .card.full-width {
+      grid-column: 1 / -1;
+    }
+    .card.accent-green { border-top-color: #2a9d5c; }
+    .card.accent-amber { border-top-color: #e07b00; }
+    .card.accent-teal  { border-top-color: #0097a7; }
+    .card.accent-red   { border-top-color: #c0392b; }
+    .card.accent-purple{ border-top-color: #6c3483; }
+
+    .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7eb8f7;
+      margin-bottom: 6px;
+    }
+    .card.accent-green .card-label { color: #2a9d5c; }
+    .card.accent-amber .card-label { color: #e07b00; }
+    .card.accent-teal  .card-label { color: #0097a7; }
+    .card.accent-red   .card-label { color: #c0392b; }
+    .card.accent-purple .card-label { color: #6c3483; }
+
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    ul.points {
+      list-style: none;
+      padding: 0;
+    }
+    ul.points li {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #2d3748;
+      padding: 7px 0 7px 20px;
+      border-bottom: 1px solid #f0f2f5;
+      position: relative;
+      line-height: 1.5;
+    }
+    ul.points li:last-child { border-bottom: none; }
+    ul.points li::before {
+      content: '›';
+      position: absolute;
+      left: 4px;
+      color: #7eb8f7;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .card.accent-green ul.points li::before { color: #2a9d5c; }
+    .card.accent-amber ul.points li::before { color: #e07b00; }
+    .card.accent-teal  ul.points li::before { color: #0097a7; }
+    .card.accent-red   ul.points li::before { color: #c0392b; }
+    .card.accent-purple ul.points li::before { color: #6c3483; }
+
+    /* OPEN DECISIONS CARD */
+    .decisions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .decision-item {
+      background: #f8faff;
+      border: 1px solid #dce5f5;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .decision-q {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 5px;
+    }
+    .decision-context {
+      font-size: 12px;
+      font-weight: 500;
+      color: #667a99;
+      line-height: 1.4;
+    }
+
+    /* LINK */
+    a { color: #1a5fc8; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    /* BADGE */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-live { background: #d4edda; color: #1a6b3a; }
+    .badge-pending { background: #fff3cd; color: #856404; }
+    .badge-stalled { background: #f8d7da; color: #721c24; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #9aafcc;
+      padding: 0 0 40px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; padding: 24px 16px 48px; }
+      .card.full-width { grid-column: auto; }
+      .decisions-grid { grid-template-columns: 1fr; }
+      .hero { padding: 40px 24px 36px; }
+      .hero h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Team Alignment — Recurring</div>
+    <h1>Olly × Tom<br>Weekly Sync</h1>
+    <div class="hero-sub">Monday 29 June 2026 · 10:00 BST</div>
+    <div class="hero-meta">
+      <span class="meta-pill">Olly Westmacott</span>
+      <span class="meta-pill">Thomas Filmer</span>
+      <span class="meta-pill">Ted's Health</span>
+      <span class="meta-pill">6 topics</span>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <!-- GSET -->
+    <div class="card">
+      <div class="card-label">Active Project</div>
+      <h2>GSET — Bear's Gospel Book</h2>
+      <ul class="points">
+        <li>Audiobook transcription in progress — track 006 delivered (ISBN 9781399829564)</li>
+        <li>BGV pitching Hodder Faith for full marketing takeover at £5k/month — awaiting Jesse green-light</li>
+        <li>Olly holds full rights to repurpose GSET audio &amp; text</li>
+        <li>No new Bear filming — pre-recorded/archive footage only</li>
+        <li>Creative briefs library live: <a href="https://dnd5fj5gjy-bit.github.io/openclaw-shared-docs/ted/gset-content-library.html" target="_blank">view library ↗</a></li>
+      </ul>
+    </div>
+
+    <!-- TH Social + LinkedIn -->
+    <div class="card accent-teal">
+      <div class="card-label">Ted's Health</div>
+      <h2>Organic Social &amp; LinkedIn</h2>
+      <ul class="points">
+        <li>8-week Metricool calendar built and loaded (weeks 1–8)</li>
+        <li>TH company LinkedIn brief set complete — targeting B2B partner/clinic audience</li>
+        <li>Pod ep 3 was due posted 8 June — status to confirm</li>
+      </ul>
+    </div>
+
+    <!-- TH WL -->
+    <div class="card accent-green">
+      <div class="card-label">Ted's Health</div>
+      <h2>White-Label Pipeline<span class="badge badge-live">Live</span></h2>
+      <ul class="points">
+        <li>30+ WL targets identified; personal outreach strategy built</li>
+        <li>LegitScript is the gating credential — 12 of 61 partners certified</li>
+        <li>WL dashboard live: <a href="https://dnd5fj5gjy-bit.github.io/th-wl-dashboard/" target="_blank">view dashboard ↗</a></li>
+        <li>Next step: prioritise which certified 12 to approach first</li>
+      </ul>
+    </div>
+
+    <!-- Modern Savage -->
+    <div class="card accent-amber">
+      <div class="card-label">Modern Savage</div>
+      <h2>Ambassador &amp; Ad Creative<span class="badge badge-stalled">Stalled</span></h2>
+      <ul class="points">
+        <li>10-name seeding shortlist ready and waiting</li>
+        <li>Ambassador outreach stalled — pending Jesse sign-off</li>
+        <li>Ad briefs complete: batches through v5, static Bear-with-writing creative</li>
+        <li>Launch target: July 2026 UK + US</li>
+      </ul>
+    </div>
+
+    <!-- Uncharted Treasures -->
+    <div class="card accent-purple">
+      <div class="card-label">Uncharted Treasures</div>
+      <h2>Strategy Deck — Just Shared<span class="badge badge-pending">Pending</span></h2>
+      <ul class="points">
+        <li>Jesse sent strategy deck to Coyote + Beau this weekend</li>
+        <li>Team review + thoughts outstanding — no timeline yet</li>
+        <li>Olly working franchise-build angle alongside Jesse</li>
+        <li>Permits angle = one credibility card; not the spine of the pitch</li>
+      </ul>
+    </div>
+
+    <!-- Podcast -->
+    <div class="card accent-red">
+      <div class="card-label">Ted's Podcast</div>
+      <h2>Growth Strategy Needed</h2>
+      <ul class="points">
+        <li>Goal: make pod credible enough to attract quality guests</li>
+        <li>No strategy defined yet — open thread</li>
+        <li>Format decision needed: interview-led, solo, hybrid?</li>
+        <li>Ep 3 post date overdue — confirm current status</li>
+      </ul>
+    </div>
+
+    <!-- September Summit -->
+    <div class="card accent-teal">
+      <div class="card-label">Events</div>
+      <h2>September Health Summit</h2>
+      <ul class="points">
+        <li>BGV booth: 11–13 September 2026</li>
+        <li>Olly managing the BGV team for the booth</li>
+        <li>Planning status to discuss — logistics, staffing, materials</li>
+      </ul>
+    </div>
+
+    <!-- OPEN DECISIONS -->
+    <div class="card full-width" style="border-top-color: #0d1b4b;">
+      <div class="card-label">For This Call</div>
+      <h2>Open Decisions</h2>
+      <div class="decisions-grid">
+        <div class="decision-item">
+          <div class="decision-q">TH WL — Which partners first?</div>
+          <div class="decision-context">12 LegitScript-certified targets in the pipeline. Need to prioritise outreach order based on fit and readiness.</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-q">GSET — Hodder Faith pitch green-lit?</div>
+          <div class="decision-context">Has Jesse approved the £5k/month full-takeover proposal? If yes, next step is formal pitch to Hodder.</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-q">Podcast — Format and guest strategy?</div>
+          <div class="decision-context">What format does the pod grow toward? Who are the first 3 target guests? What's the hook to attract them?</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-q">Sept Summit — Booth planning status?</div>
+          <div class="decision-context">Where are we on logistics, staffing, and collateral? Any blockers before summer cutoff?</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">Generated by Ted · BGV Agent Team · 28 June 2026</div>
+
+</body>
+</html>
