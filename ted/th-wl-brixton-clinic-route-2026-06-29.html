@@ -3,755 +3,491 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TH WL — Brixton Day-Route Clinic Pitch Guide</title>
+  <title>TH WL — Brixton Day-Route Pitch Guide</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #EDF2F7;
-      color: #1A202C;
-      font-size: 15px;
-      line-height: 1.6;
+      background: #F0F4F8;
+      color: #1a2e50;
     }
 
-    /* ── Hero ── */
+    /* ── HERO ── */
     .hero {
-      background: linear-gradient(140deg, #0A1628 0%, #163C6E 60%, #1B4F8A 100%);
-      color: white;
-      padding: 52px 20px 44px;
+      background: linear-gradient(135deg, #0B2547 0%, #1a4a8a 100%);
+      color: #fff;
+      padding: 36px 20px 28px;
       text-align: center;
     }
-    .hero .eyebrow {
-      font-size: 10px;
+    .hero-logo {
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 3.5px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: #7ECBE3;
-      margin-bottom: 14px;
+      color: #7EB8FF;
+      margin-bottom: 10px;
     }
     .hero h1 {
-      font-size: clamp(24px, 6vw, 38px);
+      font-size: 22px;
       font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 8px;
     }
-    .hero .subtitle {
-      font-size: 14px;
-      color: #A8C8DC;
-      max-width: 460px;
-      margin: 0 auto 24px;
-      line-height: 1.6;
+    .hero p {
+      font-size: 13px;
+      font-weight: 500;
+      color: #b8cfe8;
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto 18px;
     }
-    .hero .pills {
+    .hero-meta {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
+      flex-wrap: wrap;
     }
-    .hero .pill {
+    .hero-pill {
       background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #D6EAF6;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #e0ecff;
       font-size: 11px;
       font-weight: 600;
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
     }
 
-    /* ── Instruction banner ── */
-    .banner {
-      background: #163C6E;
-      color: #C4DCEF;
-      padding: 14px 20px;
-      text-align: center;
-      font-size: 12.5px;
-      line-height: 1.55;
+    /* ── PITCH CHEAT SHEET ── */
+    .cheat-sheet {
+      background: #fff;
+      border-left: 4px solid #0B2547;
+      margin: 20px 16px;
+      border-radius: 8px;
+      padding: 16px 18px;
     }
-    .banner strong { color: #fff; }
-    .banner .green { color: #68D391; }
-
-    /* ── Container ── */
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 14px;
-    }
-
-    /* ── Cluster ── */
-    .cluster { margin: 28px 0 8px; }
-
-    .cluster-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .cluster-badge {
-      flex-shrink: 0;
-      background: #0A1628;
-      color: white;
-      font-size: 10px;
+    .cheat-sheet h3 {
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 6px 13px;
-      border-radius: 20px;
+      color: #0B2547;
+      margin-bottom: 10px;
     }
-    .cluster-info .cluster-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0A1628;
-      line-height: 1.2;
-    }
-    .cluster-info .cluster-sub {
-      font-size: 11.5px;
-      color: #718096;
+    .cheat-sheet p {
+      font-size: 12.5px;
       font-weight: 500;
-      margin-top: 2px;
+      color: #3a4d68;
+      line-height: 1.6;
+    }
+    .cheat-sheet strong { color: #0B2547; }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0 16px 16px;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    /* ── Clinic card ── */
+    /* ── ZONE HEADER ── */
+    .zone-header {
+      margin: 4px 16px 12px;
+      padding: 10px 16px;
+      background: #0B2547;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .zone-header h2 {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .zone-header span {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7EB8FF;
+    }
+
+    /* ── BUSINESS CARD ── */
     .card {
       background: #fff;
-      border-radius: 12px;
-      padding: 20px 18px 18px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 10px rgba(10,22,40,0.07);
-      border-left: 4px solid #2B6CB0;
+      border-radius: 10px;
+      margin: 0 16px 12px;
+      padding: 16px;
+      border: 1.5px solid #e2e8f0;
       position: relative;
+      overflow: hidden;
     }
-    .card.hot { border-left-color: #38A169; }
-
-    .hot-tag {
-      display: none;
-      background: #38A169;
+    .card.priority {
+      border-color: #0B2547;
+      box-shadow: 0 2px 12px rgba(11,37,71,0.10);
+    }
+    .card.priority::before {
+      content: '★ PRIORITY';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #0B2547;
       color: #fff;
       font-size: 9px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 10px;
-      position: absolute;
-      top: 16px;
-      right: 14px;
+      padding: 4px 10px;
+      border-bottom-left-radius: 7px;
     }
-    .card.hot .hot-tag { display: inline-block; }
 
     .card-top {
       display: flex;
       align-items: flex-start;
+      justify-content: space-between;
       gap: 10px;
       margin-bottom: 8px;
     }
-    .num {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      background: #0A1628;
-      color: white;
-      border-radius: 50%;
-      font-size: 12px;
-      font-weight: 700;
-      margin-top: 1px;
-    }
     .card-name {
-      font-size: 15.5px;
+      font-size: 15px;
       font-weight: 700;
-      color: #0A1628;
-      line-height: 1.25;
-      padding-right: 72px;
+      color: #0B2547;
+      line-height: 1.3;
+      flex: 1;
     }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 11px;
-    }
-    .tag {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 10px;
-      white-space: nowrap;
-    }
-    .tag-addr { background: #EBF4FF; color: #1B4F8A; }
-    .tag-dist { background: #F0FFF4; color: #276749; }
-
-    .card-what {
-      font-size: 13px;
-      color: #4A5568;
-      margin-bottom: 11px;
-      line-height: 1.55;
-    }
-
-    .pitch-box {
-      background: #F7FAFF;
-      border-radius: 8px;
-      padding: 11px 13px;
-      margin-bottom: 12px;
-      border: 1px solid #E2EAF4;
-    }
-    .pitch-label {
+    .type-badge {
       font-size: 9.5px;
       font-weight: 700;
-      letter-spacing: 1.8px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: #1B4F8A;
-      margin-bottom: 4px;
-    }
-    .pitch-text {
-      font-size: 12.5px;
-      color: #2D3748;
-      line-height: 1.55;
-    }
-
-    .card-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .card-links a {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 6px 14px;
+      padding: 4px 9px;
       border-radius: 20px;
-      text-decoration: none;
-      letter-spacing: 0.2px;
-      transition: opacity 0.15s;
-    }
-    .card-links a:hover { opacity: 0.82; }
-    .lnk-web { background: #0A1628; color: #fff; }
-    .lnk-map { background: #E8F2FC; color: #1B4F8A; }
-
-    /* ── Route arrow ── */
-    .arrow {
-      text-align: center;
-      color: #CBD5E0;
-      font-size: 18px;
-      margin: 2px 0;
-      letter-spacing: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    /* ── Bonus section ── */
-    .bonus-head {
+    /* Badge colours */
+    .badge-gym       { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy  { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness  { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic    { background: #FEE2E2; color: #B91C1C; }
+
+    .card-address {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 5px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 28px 0 16px;
+      gap: 5px;
     }
-    .bonus-badge {
-      flex-shrink: 0;
-      background: #4A5568;
-      color: white;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 6px 13px;
-      border-radius: 20px;
-    }
-
-    /* ── Summary table ── */
-    .summary {
-      background: #0A1628;
-      color: #A8C8DC;
-      border-radius: 12px;
-      padding: 22px 18px;
-      margin: 28px 0 32px;
-      font-size: 12.5px;
-    }
-    .summary-title {
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-    .summary-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .summary-row:last-child { border-bottom: none; }
-    .sr-num {
-      flex-shrink: 0;
-      width: 20px;
-      font-weight: 700;
-      color: #7ECBE3;
+    .card-address::before {
+      content: '📍';
       font-size: 11px;
     }
-    .sr-name { flex: 1; font-weight: 600; color: #E2EEF9; font-size: 12px; }
-    .sr-post { color: #718096; font-size: 11px; flex-shrink: 0; }
-    .sr-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-    .dot-green { background: #68D391; }
-    .dot-blue  { background: #7ECBE3; }
-    .dot-grey  { background: #4A5568; }
 
-    /* ── Footer ── */
-    .footer {
-      background: #0A1628;
-      color: #4A5568;
-      text-align: center;
-      padding: 22px 16px;
-      font-size: 11.5px;
-      margin-top: 0;
+    .card-distance {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 10px;
     }
-    .footer strong { color: #7ECBE3; }
+
+    .card-pitch {
+      background: #F0F4F8;
+      border-left: 3px solid #2563EB;
+      padding: 8px 11px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1e3a5f;
+      line-height: 1.55;
+    }
+    .card.priority .card-pitch {
+      background: #EFF6FF;
+      border-left-color: #0B2547;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 24px 16px 32px;
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .footer strong { color: #0B2547; }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════ HERO -->
+<!-- HERO -->
 <div class="hero">
-  <div class="eyebrow">Ted's Health — White Label Programme</div>
-  <h1>Brixton Day-Route<br>Clinic Pitch Guide</h1>
-  <div class="subtitle">12 private clinics and wellness centres across South London, mapped into a single walkable + transit day. Start at Brixton tube.</div>
-  <div class="pills">
-    <span class="pill">Start: Brixton Tube SW2</span>
-    <span class="pill">12 Clinics</span>
-    <span class="pill">3 Clusters</span>
-    <span class="pill">29 June 2026</span>
+  <div class="hero-logo">Ted's Health · White-Label Programme</div>
+  <h1>Brixton Day-Route<br>Pitch Field Guide</h1>
+  <p>Walk-in outreach map — CQC-registered clinical TRT &amp; ED infrastructure for local health &amp; fitness businesses.</p>
+  <div class="hero-meta">
+    <span class="hero-pill">📍 Starting: Brixton SW9</span>
+    <span class="hero-pill">17 Targets</span>
+    <span class="hero-pill">3 Zones</span>
+    <span class="hero-pill">29 June 2026</span>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ BANNER -->
-<div class="banner">
-  <strong>How to use this guide:</strong> Walk Cluster 1 from Brixton tube (north toward Oval). Bus or Victoria Line to Cluster 2 (Clapham North → Clapham Junction). Bus or Overground south to Cluster 3 (Herne Hill → Streatham).<br>
-  <span class="green">■ Green border = top-priority stop.</span> &nbsp;Verify each clinic is still open before visiting.
+<!-- PITCH CHEAT SHEET -->
+<div class="cheat-sheet">
+  <h3>One-Liner Pitch</h3>
+  <p>"We're <strong>Ted's Health</strong> — a <strong>CQC-registered telehealth platform</strong> for TRT and ED. We're building a partner network of local health businesses. You add a men's health revenue stream; we provide the doctors, the prescribing, and the clinical backend. <strong>Revenue share, zero clinical build.</strong> Worth a 15-minute call?"</p>
 </div>
 
-<div class="container">
-
-<!-- ══════════════════════════════════════════════════════
-     CLUSTER 1 — Brixton + Stockwell / Oval
-     ══════════════════════════════════════════════════ -->
-<div class="cluster">
-  <div class="cluster-head">
-    <div class="cluster-badge">Cluster 1</div>
-    <div class="cluster-info">
-      <div class="cluster-title">Brixton &amp; Stockwell / Oval</div>
-      <div class="cluster-sub">On foot from Brixton tube — 0 to 20 min walk</div>
-    </div>
-  </div>
-
-  <!-- 1. Macsoflondon -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">1</div>
-      <div class="card-name">Macsoflondon Medical Aesthetics &amp; Wellness</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">Piano House, 9 Brighton Terrace, Brixton SW9 8DJ</span>
-      <span class="tag tag-dist">5 min walk from Brixton tube</span>
-    </div>
-    <div class="card-what">Award-winning non-surgical aesthetics clinic and private wellness hub. Hosts Goodbody private blood testing on-site. Explicitly offers men's hormone health panels: testosterone levels, ED diagnostic screens, prostate markers, cholesterol, and hormone deficiency testing.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">They're already running testosterone and hormone diagnostics on male patients. The gap is <em>what happens next</em> — they identify low T but have nowhere to send men for management. TH WL closes that loop and adds a recurring revenue stream to every male patient they currently send home with a result and no follow-up.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://macsoflondon.com" class="lnk-web">macsoflondon.com</a>
-      <a href="https://maps.google.com/?q=Piano+House+9+Brighton+Terrace+Brixton+SW9+8DJ+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 2. Oval Medical Centre -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">2</div>
-      <div class="card-name">Oval Medical Centre</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">2 Clapham Road, Stockwell SW9 0JG</span>
-      <span class="tag tag-dist">15 min walk north / 3 min from Oval tube</span>
-    </div>
-    <div class="card-what">Private and corporate GP clinic with men's health explicitly listed as a service area: erectile dysfunction, prostate check-ups, sexual health, and private blood testing. Mon–Fri 8:30am–7pm, Sat 8:30am–4pm. Accepts self-pay and all major insurers.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">A private GP already seeing men for ED and prostate concerns is sitting at the top of the TRT conversion funnel. TH WL gives them a complete men's hormone service to offer patients without building any clinical infrastructure — pure revenue uplift on an existing patient base.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://ovalmedicalcentre.co.uk" class="lnk-web">ovalmedicalcentre.co.uk</a>
-      <a href="https://maps.google.com/?q=2+Clapham+Road+Stockwell+SW9+0JG+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1D4ED8"></div>Gym</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#15803D"></div>Diagnostics</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0E7490"></div>Pharmacy</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7E22CE"></div>Aesthetics</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C2410C"></div>Wellness</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B91C1C"></div>Private Clinic</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     CLUSTER 2 — Clapham North → Clapham Junction
-     ══════════════════════════════════════════════════ -->
-<div class="cluster">
-  <div class="cluster-head">
-    <div class="cluster-badge">Cluster 2</div>
-    <div class="cluster-info">
-      <div class="cluster-title">Clapham North, Common &amp; Junction</div>
-      <div class="cluster-sub">Victoria Line (1 stop to Clapham North) + bus or walk west to Clapham Junction — 20–35 min from Brixton</div>
-    </div>
-  </div>
 
-  <!-- 3. London Doctors Clinic Clapham -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">3</div>
-      <div class="card-name">London Doctors Clinic — Clapham</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">Seven Lion Yard, Tremadoc Road, SW4 (near Clapham North tube)</span>
-      <span class="tag tag-dist">20 min from Brixton / 2 min from Clapham North tube</span>
-    </div>
-    <div class="card-what">Multi-location private GP group (19 London sites). This branch runs their Well Man Clinic: testosterone blood tests from £65 (4–6 hr results), male hormone profiles, sexual health testing, same-day appointments. Part of a national group — a yes here could unlock multiple sites.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">They actively test for testosterone deficiency but the group does not manage TRT in-house. Men who test low are currently referred out — TH WL turns that referral into a retained clinical service and a revenue share. Group scale also means a single partnership could extend across their network.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.londondoctorsclinic.co.uk/clinics/spire-clapham-clinic/" class="lnk-web">londondoctorsclinic.co.uk</a>
-      <a href="https://maps.google.com/?q=Tremadoc+Road+Clapham+North+SW4+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 4. Virgin Active Clapham -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">4</div>
-      <div class="card-name">Virgin Active Clapham (Wellness &amp; Spa)</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">4–20 North Street, Clapham SW4 0HG</span>
-      <span class="tag tag-dist">5 min walk from Clapham Common tube</span>
-    </div>
-    <div class="card-what">Premium health club with gym, 25m pool, spa, lounge, and fitness classes. High-end membership base. Ask for the Health &amp; Wellbeing Manager or Club Manager — not reception. Do not pitch to a PT or class instructor.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">Virgin Active Clapham members are the core TH demographic — performance-focused men in their 30s–50s already investing seriously in their health. A TH WL partnership offers the club a premium clinical service for members with zero overhead, positioned as a member benefit rather than a commercial takeover.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.virginactive.co.uk/clubs/clapham" class="lnk-web">virginactive.co.uk</a>
-      <a href="https://maps.google.com/?q=4+North+Street+Clapham+SW4+0HG+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 5. My Healthcare Clinic Clapham Junction -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">5</div>
-      <div class="card-name">My Healthcare Clinic — Clapham Junction</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">19 St John's Road, Clapham Junction SW11 1QN</span>
-      <span class="tag tag-dist">5 min walk from Clapham Junction station</span>
-    </div>
-    <div class="card-what">Private GP and dental clinic. Medical Director Dr Akash Patel has a stated specialist interest in men's health. Same-day appointments from £45. Mon–Fri 8am–7pm, Sat 9am–3pm. Open to self-pay and insured patients.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">The MD's personal clinical interest in men's health means this is not a cold pitch — it's a conversation with a decision-maker who already wants to serve this patient group. TH WL gives him the infrastructure to formalise and monetise that interest without any additional clinical build on his end.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://myhealthcareclinic.com/clinics/clapham/" class="lnk-web">myhealthcareclinic.com</a>
-      <a href="https://maps.google.com/?q=19+St+Johns+Road+Clapham+Junction+SW11+1QN+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 6. Bupa Clapham Junction -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">6</div>
-      <div class="card-name">Bupa Health Centre — Clapham Junction</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">37 St John's Hill, Clapham Junction SW11 1TT</span>
-      <span class="tag tag-dist">5 min walk from Clapham Junction station</span>
-    </div>
-    <div class="card-what">Private Bupa health assessments centre. Runs a "Well Health Men's Sexual Function Plan" covering erectile dysfunction, premature ejaculation, and low libido. Also provides comprehensive health assessments and targeted cancer screening for men. Corporate and self-pay.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">Their Sexual Function Plan already captures men actively seeking private help for hormone-related symptoms. TH WL adds the ongoing TRT management layer they currently cannot offer — making the plan a pathway to treatment rather than a one-off assessment. Position as a premium clinical extension, not a competitor.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.bupa.co.uk/health/health-assessments/our-centres/clapham-junction" class="lnk-web">bupa.co.uk</a>
-      <a href="https://maps.google.com/?q=37+St+Johns+Hill+Clapham+Junction+SW11+1TT+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 7. SW11 Clinic -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">7</div>
-      <div class="card-name">SW11 Clinic — Aesthetic &amp; Medical</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">45 Lavender Hill, Clapham Junction SW11 5QW</span>
-      <span class="tag tag-dist">8 min walk from Clapham Junction / 5 min walk from Bupa</span>
-    </div>
-    <div class="card-what">CQC-registered aesthetic medicine and medical clinic operated by NHS consultants. Botox from £175, dermal fillers, Profhilo, CO₂ laser, slimming treatments. Strong and growing male patient base. Has on-site medical consultation capability.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">NHS-consultant-led with CQC registration = the governance to support a WL TRT service. Male aesthetics patients are health-engaged and often asking about energy, body composition, and testosterone in the same breath as their cosmetic concerns. TH WL is the clinical offer that matches what these men actually want next.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://sw11clinic-clapham.co.uk" class="lnk-web">sw11clinic-clapham.co.uk</a>
-      <a href="https://maps.google.com/?q=45+Lavender+Hill+Clapham+Junction+SW11+5QW+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 8. sk:n Clapham -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">8</div>
-      <div class="card-name">sk:n Clinics — Clapham (Lavender Hill)</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">263 Lavender Hill, Clapham SW11 1JD</span>
-      <span class="tag tag-dist">3 min walk from SW11 Clinic / 10 min from Clapham Junction</span>
-    </div>
-    <div class="card-what">Established national medical aesthetics chain (30+ years). Mole removal, skin cancer screening, anti-ageing injectables, laser hair removal, HydraFacial, chemical peels. High footfall of male patients. CQC-regulated with clinical governance already in place.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">sk:n has national scale and a male patient base investing in their appearance and health. The local clinic manager may have autonomy to add a partnership service. Men already paying for medical aesthetics at sk:n are exactly the demographic that converts to TRT — the conversation is warm before you open your mouth.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.sknclinics.co.uk/clinics/london/clapham-lavender-hill" class="lnk-web">sknclinics.co.uk</a>
-      <a href="https://maps.google.com/?q=263+Lavender+Hill+Clapham+SW11+1JD+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
+<!-- ══════════════════════════════════════════ -->
+<!-- ZONE 1 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="zone-header">
+  <h2>Zone 1 — Walkable</h2>
+  <span>0–15 min · Brixton / Oval / Kennington</span>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     CLUSTER 3 — Herne Hill + Streatham
-     ══════════════════════════════════════════════════ -->
-<div class="cluster">
-  <div class="cluster-head">
-    <div class="cluster-badge">Cluster 3</div>
-    <div class="cluster-info">
-      <div class="cluster-title">Herne Hill &amp; Streatham</div>
-      <div class="cluster-sub">Train (London Overground/Thameslink) to Herne Hill or bus south from Brixton — 20–30 min</div>
-    </div>
+<!-- 1 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">Gymnasium Brixton</div>
+    <div class="type-badge badge-gym">Gym</div>
   </div>
-
-  <!-- 9. Health Hub -->
-  <div class="card hot">
-    <div class="hot-tag">Top Target</div>
-    <div class="card-top">
-      <div class="num">9</div>
-      <div class="card-name">Health Hub Medical Centre</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">282 Milkwood Road, Herne Hill SE24 0EZ</span>
-      <span class="tag tag-dist">20 min from Brixton / 2 min walk from Herne Hill station</span>
-    </div>
-    <div class="card-what">CQC-registered private medical centre. GP consultations, minor illness and injury, specialist referrals, podiatry, nutrition. Sean White Aesthetics (active male aesthetics practice) operates as a tenant in the same building — two pitches at one address. Accepts self-pay and most insurers except AXA PPP.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">Private medical centre plus active aesthetics practice under one roof is the ideal TH WL partner profile. Clinical governance is in place; male patient footfall is there; the aesthetics tenant brings additional men in. Pitch the WL as a premium men's health service that adds zero overhead and a meaningful revenue share to both businesses simultaneously.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.healthhub.london" class="lnk-web">healthhub.london</a>
-      <a href="https://maps.google.com/?q=282+Milkwood+Road+Herne+Hill+SE24+0EZ+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓ (same building)</div>
-
-  <!-- 10. Sean White Aesthetics -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">10</div>
-      <div class="card-name">Sean White Aesthetics</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">282 Milkwood Road, Herne Hill SE24 0EZ (inside Health Hub)</span>
-      <span class="tag tag-dist">Same address as Health Hub — dual pitch visit</span>
-    </div>
-    <div class="card-what">Doctor-led aesthetics practice. Sean trained for 10+ years in NHS adult and paediatric critical care before moving into aesthetics. Treats men and women; growing male patient base. Services: Botox, dermal fillers, hair restoration, skin boosters, ZO Skin Health, HydraFacial.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">An NHS-trained practitioner actively marketing hair restoration to men is already in a conversation about hormone health — hair loss and low testosterone are frequently linked. TH WL is the natural next offer: "the men coming to you for hair treatment, do you want a clinical pathway for the hormone issues driving it?"</div>
-    </div>
-    <div class="card-links">
-      <a href="https://seanwhiteaesthetics.com" class="lnk-web">seanwhiteaesthetics.com</a>
-      <a href="https://maps.google.com/?q=282+Milkwood+Road+Herne+Hill+SE24+0EZ+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 11. Personal Best Aesthetics -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">11</div>
-      <div class="card-name">Personal Best Aesthetics</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">Herne Hill SE24 (near Herne Hill station)</span>
-      <span class="tag tag-dist">2 min walk from Herne Hill station</span>
-    </div>
-    <div class="card-what">Wellness and aesthetics studio. Cosmetic injectables, polynucleotides, skin boosters, micro-needling, and vitamin injections. Targets health-conscious men and women. Strong wellness-meets-aesthetics positioning; vitamin/biohacking focus is growing.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">Vitamin injections and biohacking aesthetics attract a male demographic already investing in performance and longevity. TH WL is the clinical step up from wellness injections to hormone optimisation. Very low barrier to the conversation — these men are already asking the right questions.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://www.treatwell.co.uk/place/personal-best-aesthetics/" class="lnk-web">treatwell listing</a>
-      <a href="https://maps.google.com/?q=Personal+Best+Aesthetics+Herne+Hill+SE24+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
-  <div class="arrow">↓</div>
-
-  <!-- 12. Dr Mirali -->
-  <div class="card">
-    <div class="card-top">
-      <div class="num">12</div>
-      <div class="card-name">Dr Mirali Aesthetics — Streatham</div>
-    </div>
-    <div class="tags">
-      <span class="tag tag-addr">393 Streatham High Road, Streatham SW16 3PE</span>
-      <span class="tag tag-dist">25 min from Brixton / near Streatham Hill station · free parking</span>
-    </div>
-    <div class="card-what">GMC-registered doctor-led aesthetics clinic. Anti-wrinkle injections, dermal fillers, Profhilo, skin boosters, mesotherapy, hair &amp; scalp exosome therapy, polynucleotides, microneedling, Obagi peels. Growing male patient base. GMC + CQC registered. Free off-street parking.</div>
-    <div class="pitch-box">
-      <div class="pitch-label">Why pitch TH WL here</div>
-      <div class="pitch-text">GMC registration is the key — they already have the clinical credibility to take on a medical service like TRT. Hair/scalp exosome therapy plus a male aesthetics patient base means the hormone conversation is already happening informally. TH WL formalises it into a revenue stream with zero additional clinical lift on their end.</div>
-    </div>
-    <div class="card-links">
-      <a href="https://drmiraliaesthetics.com/streatham-aesthetics-clinic/" class="lnk-web">drmiraliaesthetics.com</a>
-      <a href="https://maps.google.com/?q=393+Streatham+High+Road+SW16+3PE+London" class="lnk-map">Google Maps</a>
-    </div>
-  </div>
-
+  <div class="card-address">149 Stockwell Road, SW9 9TN</div>
+  <div class="card-distance">⏱ 5 min walk from Brixton tube</div>
+  <div class="card-pitch">Coached strength &amp; conditioning with a tight male-dominated membership — these guys are already tracking lifts, nutrition, and recovery. Clinical testosterone support is the obvious next layer.</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     QUICK-SCAN SUMMARY
-     ══════════════════════════════════════════════════ -->
-<div class="summary">
-  <div class="summary-title">All Stops at a Glance</div>
-  <div class="summary-row">
-    <div class="sr-num">1</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">Macsoflondon Medical Aesthetics</div>
-    <div class="sr-post">SW9 8DJ</div>
+<!-- 2 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">High Achievers Lab</div>
+    <div class="type-badge badge-gym">Gym</div>
   </div>
-  <div class="summary-row">
-    <div class="sr-num">2</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">Oval Medical Centre</div>
-    <div class="sr-post">SW9 0JG</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">3</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">London Doctors Clinic Clapham</div>
-    <div class="sr-post">SW4</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">4</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">Virgin Active Clapham</div>
-    <div class="sr-post">SW4 0HG</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">5</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">My Healthcare Clinic — Clapham Junction</div>
-    <div class="sr-post">SW11 1QN</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">6</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">Bupa Health Centre — Clapham Junction</div>
-    <div class="sr-post">SW11 1TT</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">7</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">SW11 Clinic</div>
-    <div class="sr-post">SW11 5QW</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">8</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">sk:n Clinics Clapham</div>
-    <div class="sr-post">SW11 1JD</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">9</div>
-    <div class="sr-dot dot-green"></div>
-    <div class="sr-name">Health Hub Medical Centre</div>
-    <div class="sr-post">SE24 0EZ</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">10</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">Sean White Aesthetics</div>
-    <div class="sr-post">SE24 0EZ</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">11</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">Personal Best Aesthetics</div>
-    <div class="sr-post">SE24</div>
-  </div>
-  <div class="summary-row">
-    <div class="sr-num">12</div>
-    <div class="sr-dot dot-blue"></div>
-    <div class="sr-name">Dr Mirali Aesthetics — Streatham</div>
-    <div class="sr-post">SW16 3PE</div>
-  </div>
-  <div style="margin-top: 14px; font-size: 11px; color: #4A5568; line-height: 1.5;">
-    <span style="color: #68D391;">■</span> Green = top-priority (men's health or TRT already in the offering) &nbsp;
-    <span style="color: #7ECBE3;">■</span> Blue = strong secondary (aesthetics / wellness with clear male demographic)
-  </div>
+  <div class="card-address">80 Atlantic Road, SW9 8PX</div>
+  <div class="card-distance">⏱ 7 min walk from Brixton tube</div>
+  <div class="card-pitch">Performance-focused group training community with PT culture. Members paying premium for coaching are exactly the men who respond to optimisation language — TH WL adds the clinical hormone tier.</div>
 </div>
 
-</div><!-- /container -->
+<!-- 3 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">Goodbody Clinic Brixton</div>
+    <div class="type-badge badge-diagnostics">Diagnostics</div>
+  </div>
+  <div class="card-address">Piano House, 9 Brighton Terrace, SW9 8DJ</div>
+  <div class="card-distance">⏱ 10 min walk from Brixton tube</div>
+  <div class="card-pitch">Already running private hormone &amp; testosterone panels on-site. Their patients get results showing low T and have nowhere to go — TH WL closes that gap with a prescribing clinical pathway on the same block.</div>
+</div>
 
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════════════ -->
+<!-- 4 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Pavilion Pharmacy</div>
+    <div class="type-badge badge-pharmacy">Pharmacy</div>
+  </div>
+  <div class="card-address">9 Brighton Terrace, SW9 8DJ</div>
+  <div class="card-distance">⏱ 10 min walk from Brixton tube</div>
+  <div class="card-pitch">Established independent community pharmacy already dispensing private prescriptions. TH WL partnership funnels them clinical dispensing from our GMC doctors — new private prescription revenue, zero additional overhead.</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Kingshield Pharmacy</div>
+    <div class="type-badge badge-pharmacy">Pharmacy</div>
+  </div>
+  <div class="card-address">387 Brixton Road, SW9 7DE</div>
+  <div class="card-distance">⏱ 8 min walk from Brixton tube</div>
+  <div class="card-pitch">Large independent serving Brixton, Stockwell, and Kennington. Already handling NHS and private scripts for a male-dense catchment — TH WL adds a dedicated men's health dispensing channel.</div>
+</div>
+
+<!-- 6 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">Beauti Skin Clinic</div>
+    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  </div>
+  <div class="card-address">66A Brixton Road, Kennington, SW9 6BP</div>
+  <div class="card-distance">⏱ 12 min walk / 2 min from Oval tube</div>
+  <div class="card-pitch">Seeing male patients for skin ageing, hair loss, and anti-ageing treatments — all conditions with a strong hormonal driver. TH WL gives them a clinical referral pathway for the root cause their clients keep asking about.</div>
+</div>
+
+<!-- 7 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">Aesthetics HQ London</div>
+    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  </div>
+  <div class="card-address">142 Kennington Park Road, SE11 4DJ</div>
+  <div class="card-distance">⏱ 15 min walk / Oval or Kennington tube</div>
+  <div class="card-pitch">Doctor-led regenerative medicine clinic with a science-forward male client base. They already sell biological optimisation — TH WL is the hormonal layer that completes the picture without them building clinical infrastructure.</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">MAZU Hair &amp; Advanced Aesthetics</div>
+    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  </div>
+  <div class="card-address">34 Clapham Road, Oval, SW9 0JQ</div>
+  <div class="card-distance">⏱ 15 min walk / 3 min from Oval tube</div>
+  <div class="card-pitch">Luxury clinic treating male hair loss and scalp health — conditions directly linked to DHT and testosterone imbalance. TH WL gives them a clinical pathway to address the hormonal root cause their clients need.</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ZONE 2 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="zone-header" style="margin-top:16px">
+  <h2>Zone 2 — Short Transit</h2>
+  <span>15–30 min · Clapham / E&amp;C / Bermondsey</span>
+</div>
+
+<!-- 9 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">Gymbox Elephant &amp; Castle</div>
+    <div class="type-badge badge-gym">Gym</div>
+  </div>
+  <div class="card-address">38 New Kent Road, SE1 6TJ</div>
+  <div class="card-distance">⏱ 20 min bus · Elephant &amp; Castle tube</div>
+  <div class="card-pitch">Premium gym at £100+/month with InBody scanner, Olympic lifting, and a male performance core. Members paying this much for physical output expect cutting-edge support — TH WL is the clinical testosterone layer they're missing.</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Gymnasium SE17 (Kennington)</div>
+    <div class="type-badge badge-gym">Gym</div>
+  </div>
+  <div class="card-address">208–209 Penrose Grove, SE17 3EZ</div>
+  <div class="card-distance">⏱ 20 min bus / 2 min from Walworth Road</div>
+  <div class="card-pitch">Same coached strength model as Gymnasium Brixton — opened 2025. Male-first membership culture with built-in buy-in for performance optimisation. Same pitch, natural brand partner for TH WL across both sites.</div>
+</div>
+
+<!-- 11 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">DocTap Clapham</div>
+    <div class="type-badge badge-clinic">Private Clinic</div>
+  </div>
+  <div class="card-address">151 Clapham High Street, SW4 7SS</div>
+  <div class="card-distance">⏱ 22 min tube · Clapham Common station</div>
+  <div class="card-pitch">Private GP clinic already selling men's health consultations and blood tests. TH WL adds a TRT &amp; ED clinical pathway they currently can't offer — turns their same-day GP visits into a managed men's health programme.</div>
+</div>
+
+<!-- 12 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">CrossFit Shapesmiths</div>
+    <div class="type-badge badge-gym">Gym</div>
+  </div>
+  <div class="card-address">Arches 1–7, Grant Road, SW11 2NU</div>
+  <div class="card-distance">⏱ 25 min bus · Clapham Junction</div>
+  <div class="card-pitch">UK's largest CrossFit gym — 14,000 sq ft, HYROX, Olympic lifting, male-dominated. These athletes are obsessed with performance metrics. Low T is discussed in every changing room. TH WL gives the gym a legitimate clinical answer.</div>
+</div>
+
+<!-- 13 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Clapham Skin Clinic</div>
+    <div class="type-badge badge-wellness">Wellness</div>
+  </div>
+  <div class="card-address">521–525 Battersea Park Road, SW11 3BN</div>
+  <div class="card-distance">⏱ 25 min bus · Clapham Junction</div>
+  <div class="card-pitch">Doctor-led clinic offering IV vitamin drips and anti-ageing treatments — wellness audience already spending on biological optimisation. TH WL is the clinical hormone tier that converts their wellness clients into long-term managed patients.</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ZONE 3 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="zone-header" style="margin-top:16px">
+  <h2>Zone 3 — Outer Reach</h2>
+  <span>30–45 min · Streatham / Peckham / Bermondsey / Balham</span>
+</div>
+
+<!-- 14 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">CrossFit Streatham</div>
+    <div class="type-badge badge-gym">Gym</div>
+  </div>
+  <div class="card-address">292 Streatham High Road, SW16 6HG</div>
+  <div class="card-distance">⏱ 30 min bus from Brixton</div>
+  <div class="card-pitch">Competitive CrossFit &amp; HYROX community with a serious male performance contingent. Fatigue, low recovery, and declining output are constant frustrations here — TH WL addresses the clinical hormone driver directly.</div>
+</div>
+
+<!-- 15 -->
+<div class="card priority">
+  <div class="card-top">
+    <div class="card-name">SE1 Medical Aesthetics</div>
+    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  </div>
+  <div class="card-address">139–143 Bermondsey Street, SE1 3UW</div>
+  <div class="card-distance">⏱ 35 min bus / near London Bridge tube</div>
+  <div class="card-pitch">CQC-regulated medical aesthetics clinic with a regenerative medicine angle. Science-led male client base already investing in biological optimisation — TH WL provides the clinical hormonal infrastructure they don't have in-house.</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Skinfinity Glow</div>
+    <div class="type-badge badge-wellness">Wellness</div>
+  </div>
+  <div class="card-address">Rye Lane Market, Rye Lane, Peckham, SE15</div>
+  <div class="card-distance">⏱ 30 min bus from Brixton</div>
+  <div class="card-pitch">Aesthetics and IV drip clinic in Peckham's busy market location. Male customers already spending on IV performance drips are a natural fit for TH WL's clinical hormone programme — same wellness mindset, different intervention.</div>
+</div>
+
+<!-- 17 -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-name">Personal Best Aesthetics</div>
+    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  </div>
+  <div class="card-address">Herne Hill, SE24</div>
+  <div class="card-distance">⏱ 25 min bus from Brixton</div>
+  <div class="card-pitch">Aesthetics clinic in affluent Herne Hill with a health-conscious male catchment. Men coming in for anti-ageing treatments are often dealing with the hormonal causes — TH WL gives this clinic a way to address that clinically.</div>
+</div>
+
+
+<!-- FOOTER -->
 <div class="footer">
-  <div><strong>Ted's Health</strong> — White Label Partnership Programme &nbsp;|&nbsp; tedshealth.com</div>
-  <div style="margin-top: 5px;">Prepared by Ted · BGV Agent Team · 29 June 2026 &nbsp;|&nbsp; Verify all clinic details before visiting</div>
+  <strong>Ted's Health White-Label Programme</strong><br>
+  CQC-registered · GMC doctors · Real prescribing workflows · Revenue share model<br><br>
+  CTA: Book a partner strategy call — <strong>tedshealth.com</strong><br><br>
+  Generated 29 June 2026 · Ted Agent
 </div>
 
 </body>
