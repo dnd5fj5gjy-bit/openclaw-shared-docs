@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — WL Clinic Targets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f7f8fc;
+    color: #1a1a2e;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #0d1b3e 0%, #1a3a6e 100%);
+    padding: 60px 40px 50px;
+    color: white;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    max-width: 620px;
+    line-height: 1.6;
+  }
+
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* Priority table */
+  .priority-table {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .priority-table h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #0d1b3e;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    padding: 8px 12px;
+    border-bottom: 2px solid #eee;
+  }
+
+  td {
+    padding: 12px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  .rank {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #0d1b3e;
+    font-weight: 400;
+  }
+
+  .biz-name { font-weight: 600; color: #0d1b3e; }
+
+  .cat-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-top: 4px;
+  }
+
+  .cat-gp { background: #e8f0fe; color: #1a56c4; }
+  .cat-th { background: #e6f4ea; color: #1b7f3b; }
+  .cat-com { background: #fef3e2; color: #a05c00; }
+
+  /* Category sections */
+  .cat-section {
+    margin-bottom: 48px;
+  }
+
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #0d1b3e;
+  }
+
+  .cat-num {
+    background: #0d1b3e;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cat-header-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: #0d1b3e;
+    line-height: 1.1;
+  }
+
+  .cat-header-text p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  /* Target cards */
+  .target-card {
+    background: white;
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    border-left: 4px solid #e0e6f0;
+    transition: border-color 0.2s;
+  }
+
+  .target-card:hover {
+    border-left-color: #0d1b3e;
+  }
+
+  .target-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+
+  .target-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: #0d1b3e;
+    line-height: 1.2;
+  }
+
+  .target-location {
+    font-size: 12px;
+    color: #7ec8e3;
+    font-weight: 600;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+  }
+
+  .target-fit-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 5px;
+  }
+
+  .fit-score {
+    display: flex;
+    gap: 3px;
+  }
+
+  .fit-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+  }
+
+  .fit-dot.on { background: #0d1b3e; }
+
+  .target-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+
+  .target-why, .target-approach {
+    background: #f7f9ff;
+    border-radius: 6px;
+    padding: 14px;
+  }
+
+  .target-why { background: #f7f9ff; }
+  .target-approach { background: #f0fdf4; }
+
+  .target-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .target-why .target-section-label { color: #7ec8e3; }
+  .target-approach .target-section-label { color: #34a853; }
+
+  .target-body p {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .day-trips {
+    background: #0d1b3e;
+    border-radius: 12px;
+    padding: 32px;
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
+
+  .day-trips h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #7ec8e3;
+    margin-bottom: 20px;
+  }
+
+  .trip-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .trip-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .trip-city {
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    padding-top: 2px;
+  }
+
+  .trip-detail {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .avoid-box {
+    background: #fff3f3;
+    border: 1px solid #ffd0d0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .avoid-box strong { color: #c0392b; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 16px; }
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 30px; }
+    .target-body { grid-template-columns: 1fr; }
+    .target-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Ted's Health — White-Label Sales</div>
+  <h1>UK Clinic<br>Target List</h1>
+  <p>In-person pitch targets across three categories: private GPs, TRT/men's health clinics, and community-led health businesses. 22 targets researched, 10 prioritised. Compiled 29 June 2026.</p>
+</div>
+
+<div class="content">
+
+  <!-- PRIORITY TABLE -->
+  <div class="priority-table">
+    <h2>Top 10 — Priority Order</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Business</th>
+          <th>Why Lead</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rank">1</span></td>
+          <td><span class="biz-name">Third Space</span><br><span class="cat-badge cat-com">Community</span></td>
+          <td>Perfect ICP (premium London male, 30–55), 15 clubs, already has in-club clinical services. Biggest volume opportunity.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">2</span></td>
+          <td><span class="biz-name">Fitness Worx</span><br><span class="cat-badge cat-com">Community</span></td>
+          <td>Already doing blood testing for members including testosterone — lowest pitch resistance of any target on the list.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">3</span></td>
+          <td><span class="biz-name">Goodbody Clinic</span><br><span class="cat-badge cat-com">Community</span></td>
+          <td>40+ UK locations, already running Men's Well Man tests. They test but don't treat. TH is the missing piece.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">4</span></td>
+          <td><span class="biz-name">The WellMan Clinic</span><br><span class="cat-badge cat-gp">Private GP</span></td>
+          <td>40 years serving the exact TH patient. Harley Street. No scalable TRT platform. Owner-operated = fast decisions.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">5</span></td>
+          <td><span class="biz-name">H3 Health</span><br><span class="cat-badge cat-th">Men's Health</span></td>
+          <td>Identical positioning to Ted's Health (men 40+). Small footprint, would benefit from a complete platform.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">6</span></td>
+          <td><span class="biz-name">Summerhill Health</span><br><span class="cat-badge cat-gp">Private GP</span></td>
+          <td>Manchester & Cheshire — northern market, private men's health checks, no TRT programme.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">7</span></td>
+          <td><span class="biz-name">Manchester Pharmacy</span><br><span class="cat-badge cat-com">Community</span></td>
+          <td>Already doing TRT. Would benefit from a platform and brand. Good Manchester anchor.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">8</span></td>
+          <td><span class="biz-name">Harley Street Health Centre</span><br><span class="cat-badge cat-gp">Private GP</span></td>
+          <td>Independent, Well Man checks, walk-in model. Hormone conversations happening — no treatment pathway.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">9</span></td>
+          <td><span class="biz-name">Hessington Health</span><br><span class="cat-badge cat-th">Men's Health</span></td>
+          <td>Multi-site, rigorous clinical model, partnership-ready mindset.</td>
+        </tr>
+        <tr>
+          <td><span class="rank">10</span></td>
+          <td><span class="biz-name">Eden Clinic</span><br><span class="cat-badge cat-th">Men's Health</span></td>
+          <td>Already has referral infrastructure — signals commercial openness to partnership.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CATEGORY 1 -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-num">1</div>
+      <div class="cat-header-text">
+        <h2>Private GP Clinics</h2>
+        <p>Already serving male patients. Test for hormones but refer TRT out — losing the patient and the revenue.</p>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">The WellMan Clinic</div>
+          <div class="target-location">Weymouth Street, London W1 · wellmanclinic.org</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>40+ years as a dedicated men's clinic. High-net-worth male clientele. Already doing advanced hormonal blood testing. Owner-operated — decision maker is in the building.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You're already doing the clinical work. Ted's Health standardises, scales, and tech-enables your TRT offering without you building the infrastructure yourself."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Harley Street Health Centre</div>
+          <div class="target-location">Harley Street, London W1 · harleyhealthcentre.com</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Independent GP, Well Man packages, same-day walk-in model. Operating since 1998. Broad male patient base. Well Man package naturally leads to hormone conversations.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"Your Well Man results flag low T — then what? White-label Ted's Health and convert that consultation into a recurring care revenue line."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Summerhill Health</div>
+          <div class="target-location">Manchester & Cheshire · summerhillhealth.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Private men's health checks, same-day appointments, Manchester and Cheshire catchment where private men's health provision is thinner. No TRT programme visible.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"Go from 'we test hormones' to 'we treat and manage testosterone health' — without building it yourselves." Northern market opportunity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">The Doctors Practice</div>
+          <div class="target-location">Edgbaston, Birmingham · thedoctorspractice.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>CQC-regulated, doctor-led, already covers hormone levels and TRT conversations. Edgbaston is an affluent catchment. Independent — owner accessible.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You're already having hormone conversations. Make them into a structured, branded, scalable men's health programme." Birmingham day-trip candidate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Mayfield Clinic</div>
+          <div class="target-location">Edinburgh · mayfieldclinic.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Men's health check-ups, testosterone blood tests, sexual health in Edinburgh — a market with few specialist TRT providers. Independent clinic.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"Scotland is underserved for private men's health. White-label Ted's Health and be first to market with a comprehensive programme under your own brand."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 2 -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-num">2</div>
+      <div class="cat-header-text">
+        <h2>Men's Health / TRT Clinics</h2>
+        <p>Already in the TRT space but lacking scalable technology, standardised protocols, or a white-label product they can put their name on.</p>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">H3 Health</div>
+          <div class="target-location">Leamington Spa + Balsall Common, West Midlands · h3health.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>CQC-regulated, GMC-registered doctors. Explicitly positioned at men over 40 — identical ICP to Ted's Health. Covers testosterone deficiency, hormone health, mental health. Only two physical sites — boutique scale.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You've nailed the positioning. Ted's Health gives you the platform infrastructure to professionalise the patient experience and scale without proportional overhead."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Hessington Health</div>
+          <div class="target-location">London, Home Counties, Warwickshire, Edinburgh · hessingtonhealth.com</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Multi-site TRT clinic, BSSM 2023 guidelines, strong on clinical rigour. Good geographic spread but still a small independent operator. Partnership-minded.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"Clinical credibility is sorted. Ted's Health is the platform and patient experience layer that complements your model — portal, onboarding automation, branded journey."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Eden Clinic</div>
+          <div class="target-location">Plymouth + UK-wide telehealth · edenclinic.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Doctor-led TRT, national telehealth reach. Has a dedicated TRT Plus referral page — already thinking in partnership terms. Small independent operator.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"Your referral infrastructure tells me you're already thinking B2B. White-label Ted's Health gives your referral partners a branded product, with you doing the backend."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Men's Medical Clinic</div>
+          <div class="target-location">Leeds + online · mensmedicalclinic.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Leeds-based, focused on TRT and hormonal health. Independent, northern England. Strong professional male demographic in Leeds. Smaller operator without national scale.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"White-label Ted's Health to expand your digital reach and create a premium branded patient experience without the tech investment."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3 -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-num">3</div>
+      <div class="cat-header-text">
+        <h2>Community-Led Health Businesses</h2>
+        <p>Gyms, pharmacies, wellness centres with the client base but not the clinical infrastructure. Ted's Health gives them a credible men's health service under their own name.</p>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Third Space</div>
+          <div class="target-location">15 clubs across London · thirdspace.london</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Premium London health club (£245–325/month). Already operates in-club sports medicine clinics. High-earning male members 30–55 — exactly who buys TRT. 15 clubs, expanding. Performance and longevity brand.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"White-label a Third Space Health men's hormone programme — blood testing + TRT management — sitting inside your existing clinical services. Keeps revenue in-house, differentiates vs. Equinox."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Fitness Worx Gyms</div>
+          <div class="target-location">UK (multiple sites) · fitnessworx.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Already introduced private blood testing for members — including testosterone and hormonal health. They've broken the "gyms don't do clinical" barrier themselves. Just needs the next step.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You've already done the hard bit — members accept blood testing. White-label Ted's Health as the complete TRT pathway downstream of your testing. Member flags low T → you manage treatment under your brand."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Goodbody Clinic</div>
+          <div class="target-location">40+ UK clinics · goodbodyclinic.com</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Private blood testing network, 40+ UK clinics. Already offers a 67-biomarker Men's Well Man test with hormone, cardiovascular, PSA markers. They test but don't treat — TH is the missing piece. Massive distribution.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You produce a lot of positive testosterone results. Right now those patients leave and find treatment elsewhere. White-label Ted's Health to close the loop — testing to managed treatment — without building clinical ops."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Manchester Pharmacy & Health Clinic</div>
+          <div class="target-location">Manchester · manchesterpharmacy.co.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Pharmacist-led TRT service already operating. Experienced prescribing pharmacist, on-site blood testing. Building something organically — resource-constrained. Good Manchester anchor for a day-trip.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"You've got the clinical capability. Ted's Health gives you a premium product identity and the platform to expand beyond Manchester without building the tech stack yourself."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-header">
+        <div>
+          <div class="target-name">Athlete Lab UK</div>
+          <div class="target-location">London · athletelab.uk</div>
+        </div>
+        <div>
+          <div class="target-fit-label">Fit</div>
+          <div class="fit-score">
+            <div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot on"></div><div class="fit-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="target-body">
+        <div class="target-why">
+          <div class="target-section-label">Why a good fit</div>
+          <p>Performance testing lab — VO2 max, lactate, blood tests, nutrition. Deep in biomarker testing already. Client base skews competitive male, willing to invest in physiology. Testosterone is a natural adjacent marker.</p>
+        </div>
+        <div class="target-approach">
+          <div class="target-section-label">Pitch angle</div>
+          <p>"White-label Ted's Health as the hormonal optimisation arm of Athlete Lab's performance platform. Your clients are already testing — this closes the treatment loop."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY TRIPS -->
+  <div class="day-trips">
+    <h2>Suggested Day Trips</h2>
+    <div class="trip-row">
+      <div class="trip-city">London (Harley St)</div>
+      <div class="trip-detail">The WellMan Clinic, Harley Street Health Centre, Harley Street MD, Dr Martin Private GPs, Phoenix Hospital Group — all within walking distance. Productive half-day.</div>
+    </div>
+    <div class="trip-row">
+      <div class="trip-city">Manchester</div>
+      <div class="trip-detail">Summerhill Health (Cheshire), Manchester Pharmacy, Men's Medical Clinic (Leeds — 45 min). Northern day-trip covering 3 targets.</div>
+    </div>
+    <div class="trip-row">
+      <div class="trip-city">Edinburgh</div>
+      <div class="trip-detail">Mayfield Clinic + Goodbody Easter Road Clinic. Scotland is underserved — two calls in one trip.</div>
+    </div>
+    <div class="trip-row">
+      <div class="trip-city">London (Gyms)</div>
+      <div class="trip-detail">Third Space (any GM across 15 clubs), Athlete Lab UK. Separate from Harley St — gym/performance day.</div>
+    </div>
+  </div>
+
+  <div class="avoid-box">
+    <strong>Do not pitch:</strong> Balance My Hormones, Centre for Men's Health, Harley Street TRT network, The Men's Health Clinic — these are direct competitors at scale. They're not white-label targets; they're the landscape you're competing with.
+  </div>
+
+</div>
+</body>
+</html>
