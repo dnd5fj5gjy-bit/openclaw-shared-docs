@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TH WL - Shoreditch Pitch Field Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #F0F7F8; color: #1a3a3d; }
+    .hero { background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); color: #fff; padding: 32px 20px 26px; text-align: center; }
+    .hero-logo { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #A4EDF0; margin-bottom: 8px; }
+    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+    .hero p { font-size: 12.5px; font-weight: 500; color: #b0eaee; line-height: 1.5; max-width: 420px; margin: 0 auto 16px; }
+    .hero-stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: #e0f6f8; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+    .zone-nav { position: sticky; top: 0; z-index: 100; background: #05656F; display: flex; overflow-x: auto; gap: 6px; padding: 9px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-bottom: 2px solid rgba(255,255,255,0.22); }
+    .zone-nav::-webkit-scrollbar { display: none; }
+    .zone-pill { flex-shrink: 0; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.8); font-size: 10.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px; text-decoration: none; white-space: nowrap; letter-spacing: 0.3px; transition: background 0.15s; }
+    .zone-pill:hover { background: rgba(255,255,255,0.22); color: #fff; }
+    .pitch-strip { background: #fff; border-left: 4px solid #05656F; margin: 14px 14px 6px; border-radius: 8px; padding: 13px 16px; }
+    .pitch-strip .label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #05656F; margin-bottom: 6px; }
+    .pitch-strip p { font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.6; }
+    .pitch-strip strong { color: #05656F; }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .zone-section { margin-top: 16px; }
+    .zone-header { margin: 0 14px 10px; padding: 12px 16px; background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .zone-header-left h2 { font-size: 13px; font-weight: 800; color: #fff; }
+    .zone-header-left p { font-size: 10.5px; font-weight: 500; color: #A4EDF0; margin-top: 2px; }
+    .zone-badge { background: rgba(255,255,255,0.15); color: #e0ecff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .extended-note { margin: 20px 14px 6px; padding: 12px 16px; background: #E6F5F6; border-radius: 10px; border-left: 4px solid #05656F; }
+    .extended-note .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #05656F; margin-bottom: 5px; }
+    .extended-note p { font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.5; }
+    .card { background: #fff; border-radius: 10px; margin: 0 14px 10px; padding: 14px; border: 1.5px solid #e2e8f0; display: flex; gap: 13px; align-items: flex-start; }
+    .card.priority { border-color: #d4a800; box-shadow: 0 2px 10px rgba(212,168,0,0.12); }
+    .card-num { width: 34px; height: 34px; border-radius: 50%; background: #05656F; color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .card.priority .card-num { background: #D4A800; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+    .card-name { font-size: 14px; font-weight: 700; color: #063d44; line-height: 1.3; }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .priority-star { font-size: 10px; font-weight: 800; color: #D4A800; background: #FFF9DB; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .badge-gym { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic { background: #FEE2E2; color: #B91C1C; }
+    .badge-physio { background: #EDE9FE; color: #5B21B6; }
+    .badge-longevity { background: #FEF3C7; color: #92400E; }
+    .badge-functional { background: #DCFCE7; color: #14532D; }
+    .card-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+    .card-address { font-size: 11px; font-weight: 500; color: #64748b; display: flex; align-items: flex-start; gap: 5px; }
+    .card-address::before { content: '📍'; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+    .card-distance { font-size: 11px; font-weight: 600; color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+    .card-distance::before { content: '⏱'; font-size: 10px; }
+    .card-pitch { background: #F8FAFC; border-left: 3px solid #2563EB; padding: 7px 10px; border-radius: 0 6px 6px 0; font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.55; }
+    .card.priority .card-pitch { background: #FFFBEB; border-left-color: #D4A800; }
+    .verify-note { font-size: 10px; font-weight: 600; color: #94a3b8; margin-top: 5px; font-style: italic; }
+    .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
+    .footer strong { color: #0B2547; }
+    @media print {
+      @page { margin: 14mm 12mm; size: A4; }
+      body { background: #fff; font-size: 10pt; }
+      .zone-nav { display: none; }
+      .hero { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 18px 14px; }
+      .zone-header { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card { border: 1.5px solid #d1d5db !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 8px; }
+      .card.priority { border-color: #d4a800 !important; }
+      .zone-section { break-inside: auto; }
+      .zone-header { break-after: avoid; page-break-after: avoid; margin: 0 0 8px; }
+      .extended-note { break-inside: avoid; page-break-inside: avoid; margin: 12px 0 8px; }
+      .pitch-strip { break-inside: avoid; page-break-inside: avoid; margin: 10px 0 6px; }
+      .card-num { background: #05656F !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card.priority .card-num { background: #D4A800 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .footer { break-before: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-logo">Ted's Health - White Label Partner Programme</div>
+    <h1>Shoreditch / Old Street / Hoxton<br>Pitch Field Guide</h1>
+    <p>EC2A - EC1V - E1 - N1 - In-person canvass route. High-performer belt - tech workers, creatives, athletes. Men's hormone health is exactly the category this area is moving into.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">18 Target Businesses</div>
+      <div class="hero-stat">8 Priority Prospects</div>
+      <div class="hero-stat">4 Walking Zones</div>
+      <div class="hero-stat">EC2A / EC1V / E1 / N1</div>
+    </div>
+  </div>
+
+  <!-- ZONE NAV -->
+  <nav class="zone-nav">
+    <a class="zone-pill" href="#zone1">Zone 1 - Old Street</a>
+    <a class="zone-pill" href="#zone2">Zone 2 - Shoreditch Core</a>
+    <a class="zone-pill" href="#zone3">Zone 3 - Hoxton North</a>
+    <a class="zone-pill" href="#zone4">Zone 4 - Brick Lane East</a>
+  </nav>
+
+  <!-- AREA PITCH STRIP -->
+  <div class="pitch-strip">
+    <div class="label">Area Pitch Frame</div>
+    <p>
+      <strong>Your clients are high-performers who already optimise everything.</strong> The tech workforce around Old Street and Shoreditch is 28-45, male-skewing, health-conscious and spending on it. Men's hormone health - TRT, ED, blood panels - is the category they are moving into right now. You keep the client relationship. We handle all the medicine. You earn a revenue share from day one with zero clinical overhead.
+    </p>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#D4A800;"></div> Priority prospect</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#05656F;"></div> Standard prospect</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#94a3b8;"></div> Address unverified</div>
+  </div>
+
+  <!-- ZONE 1: OLD STREET / SILICON ROUNDABOUT -->
+  <div class="zone-section" id="zone1">
+    <div class="zone-header">
+      <div class="zone-header-left">
+        <h2>Zone 1 - Old Street / Silicon Roundabout</h2>
+        <p>Start: Old Street tube station (Northern / City line) - EC1V</p>
+      </div>
+      <div class="zone-badge">5 stops - 30 min loop</div>
+    </div>
+
+    <div class="extended-note">
+      <div class="label">Zone Context</div>
+      <p>Old Street is ground zero for London's tech scene. Performance gyms and sports clinics cluster here serving the roundabout workforce. Men aged 28-42 who train hard and track everything. The men's health conversation is already happening - you're putting a clinical route on it.</p>
+    </div>
+
+    <!-- Card 1: Gymbox Old Street -->
+    <div class="card">
+      <div class="card-num">1</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Gymbox Old Street</div>
+          <div class="card-badges">
+            <span class="type-badge badge-gym">Gym</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">201A Old Street, London EC1V 9NP</div>
+          <div class="card-distance">1 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          High-volume gym with aerial studio, Olympic lifting, InBody scanner and a sauna - already positioned around performance and body composition. Your members are training hard and spending on results. A white-label TH men's health service is the clinical tier they're looking for - add it and earn from every referral.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Bespoke Dental & Facial Aesthetics -->
+    <div class="card">
+      <div class="card-num">2</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Bespoke Dental and Facial Aesthetics</div>
+          <div class="card-badges">
+            <span class="type-badge badge-aesthetics">Aesthetics</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">Old Street, London EC1V 9LT</div>
+          <div class="card-distance">3 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          A clinical aesthetic practice already trusted for aesthetic medicine by its patient base. Male patients investing in how they look are the same men asking about TRT and ED. A TH white-label add-on gives you a second clinical revenue stream with patients you already own - without referring them out.
+        </div>
+        <div class="verify-note">Address approximate - verify exact number before visit.</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Central London Osteopathy & Sports Injury Clinic - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">3</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Central London Osteopathy and Sports Injury Clinic</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-physio">Physio / Clinic</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">325-327 Old Street, London EC1V 9LE</div>
+          <div class="card-distance">5 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          Trusted by Olympic champions and world record holders - this is a high-credibility sports medicine clinic with exactly the right patient profile. Performance-sport patients are laser-focused on recovery and optimisation, and testosterone is increasingly part of that conversation. A TH white-label pathway serves that demand without a single referral leaving the building.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Physio Medicine Old Street - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">4</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Physio Medicine Old Street</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-physio">Physio</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">Singer Street (off City Road), London EC1V</div>
+          <div class="card-distance">7 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          Sports physio clinic serving the Shoreditch, Hoxton and Tech City corridor. Their patients are high-performing men who track recovery closely - the same men looking at hormone health privately. A TH white-label add-on puts that clinical service inside the existing patient relationship, zero infrastructure, direct revenue.
+        </div>
+        <div class="verify-note">Full postcode not confirmed - verify on arrival or call ahead.</div>
+      </div>
+    </div>
+
+    <!-- Card 5: Foundry Gym Old Street - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">5</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Foundry Gym Old Street</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-gym">Performance Gym</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">227 City Road, London EC1V 1JT</div>
+          <div class="card-distance">10 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          Foundry's small-group personal training model is built on genuine coach-to-member trust - the exact environment where a men's health conversation lands and converts. Award-winning coaching, performance-focused culture, tech-worker clientele. A TH white-label service lets coaches refer confidently and earn from those referrals.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 2: SHOREDITCH CORE -->
+  <div class="zone-section" id="zone2">
+    <div class="zone-header">
+      <div class="zone-header-left">
+        <h2>Zone 2 - Shoreditch Core</h2>
+        <p>Start: Shoreditch High Street Overground station - EC2A</p>
+      </div>
+      <div class="zone-badge">6 stops - 35 min loop</div>
+    </div>
+
+    <div class="extended-note">
+      <div class="label">Zone Context</div>
+      <p>Great Eastern Street and Scrutton Street are the spine of boutique health in Shoreditch. Premium gyms, physio clinics and wellness studios are stacked within a 10-minute walk. Clients here are already spending heavily on health - the pitch is about adding clinical depth to what they offer.</p>
+    </div>
+
+    <!-- Card 6: One Body LDN - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">6</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">One Body LDN - Shoreditch</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-physio">Physio</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">75 Great Eastern Street, London EC2A 3HN</div>
+          <div class="card-distance">3 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Award-winning multi-site physio clinic with extended hours and a busy sports rehab caseload - high volume of active men aged 25-45 who care about performance metrics. A white-label TRT and blood testing service under your brand gives them a seamless next step - and you a clinical revenue stream with no extra headcount.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: NS Aesthetics -->
+    <div class="card">
+      <div class="card-num">7</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">NS Aesthetics London</div>
+          <div class="card-badges">
+            <span class="type-badge badge-aesthetics">Aesthetics</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">Great Eastern Street, London EC2A</div>
+          <div class="card-distance">4 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Modern aesthetic studio in the heart of Shoreditch with a focus on safety, hygiene and personalised care. Male aesthetic clients are already investing in how they look and feel - men's hormone health is the natural adjacent category. Add TRT and ED consultations and retain male clients who currently go elsewhere for it.
+        </div>
+        <div class="verify-note">Street number not confirmed - check Treatwell listing or call ahead.</div>
+      </div>
+    </div>
+
+    <!-- Card 8: Nuffield Health Shoreditch -->
+    <div class="card">
+      <div class="card-num">8</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Nuffield Health Shoreditch</div>
+          <div class="card-badges">
+            <span class="type-badge badge-gym">Gym / Wellness</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">1-6 Bateman's Row, London EC2A 3HH</div>
+          <div class="card-distance">6 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Nuffield's health-screening heritage and trusted brand makes a men's hormone health add-on a natural extension - their members already trust them with clinical wellbeing. A white-label TH partnership adds a recurring clinical revenue line without diluting that credibility. Decision-maker is likely a general manager or regional health director.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9: The Vault Private Gym - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">9</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">The Vault Private Gym</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-gym">Private Gym</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">5-25 Scrutton Street, London EC2A</div>
+          <div class="card-distance">8 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          London's premier private gym in Shoreditch - high-net-worth members, exclusive PT sessions, premium price point. A private gym at this level attracts exactly the men who take hormone health seriously and expect discreet, clinical options. A white-label TH service exclusively for your members is a premium differentiator that pays from the first consultation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10: Warrior Sports Rehabilitation - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">10</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Warrior Sports Rehabilitation</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-physio">Sports Physio</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">Zetland House, 5-25 Scrutton Street, London EC2A</div>
+          <div class="card-distance">8 min from Shoreditch High Street station (co-located with The Vault)</div>
+        </div>
+        <div class="card-pitch">
+          Founded in Shoreditch in 2018, now across three East London clinics with 10 specialists. Sports rehab professionals are increasingly fielding questions about testosterone, energy and recovery from their patients. A TH white-label partnership gives you a clinical answer to that question - and a recurring revenue stream from patients you already own.
+        </div>
+        <div class="verify-note">Full postcode unconfirmed - EC2A expected; verify before visit.</div>
+      </div>
+    </div>
+
+    <!-- Card 11: BLOK Shoreditch -->
+    <div class="card">
+      <div class="card-num">11</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">BLOK Shoreditch</div>
+          <div class="card-badges">
+            <span class="type-badge badge-gym">Gym / Classes</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">Principal Place, 2 Hearn Street, London EC2A 3BL</div>
+          <div class="card-distance">10 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Flagship lifestyle gym in a landmark Shoreditch building - 20+ class types, performance and wellness combined, a Shoreditch cultural institution. BLOK members are performance-minded and trend-aware. Men's hormone health is the category they're moving into now - be the first wellness brand in their life to put a clinical service on it.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 3: HOXTON NORTH -->
+  <div class="zone-section" id="zone3">
+    <div class="zone-header">
+      <div class="zone-header-left">
+        <h2>Zone 3 - Hoxton North</h2>
+        <p>Start: Old Street tube (north exit) or Hoxton Overground station - N1</p>
+      </div>
+      <div class="zone-badge">3 stops - 25 min loop</div>
+    </div>
+
+    <div class="extended-note">
+      <div class="label">Zone Context</div>
+      <p>Provost Street and Hoxton Street attract a slightly older demographic - 30-50, professional, community-focused. Independent pharmacies here already offer private clinical services. Sports physio on Provost Street is a hidden gem - Olympic-grade credibility, exactly the right patient profile for a hormone health conversation.</p>
+    </div>
+
+    <!-- Card 12: Olympus Physiotherapy - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">12</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Olympus Physiotherapy</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-physio">Sports Physio</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">48 Provost Street, London N1 7SU</div>
+          <div class="card-distance">8 min walk from Old Street tube (north)</div>
+        </div>
+        <div class="card-pitch">
+          Specialist sports physio clinic trusted by World Champions and Olympians, with 15-plus years in elite performance. Their patient base includes professional athletes and serious amateurs - men who already talk about testosterone, recovery and optimisation with their practitioners. A TH white-label add-on is the clinical extension their highest-value patients are already looking for.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 13: Murray's Chemist & Travel Clinic -->
+    <div class="card">
+      <div class="card-num">13</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Murray's Chemist and Travel Clinic</div>
+          <div class="card-badges">
+            <span class="type-badge badge-pharmacy">Pharmacy</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">96-98 Murray Grove, Hoxton, London N1 7QP</div>
+          <div class="card-distance">10 min from Old Street tube</div>
+        </div>
+        <div class="card-pitch">
+          Family-run independent pharmacy in Hoxton for 32-plus years, with an independent prescribing pharmacist on site and same-day private consultation capacity already in place. Adding TRT, ED and blood panel services under a white-label model is a natural private revenue expansion - they already have the infrastructure, the trust and the footfall.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 14: Spring Pharmacy -->
+    <div class="card">
+      <div class="card-num">14</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Spring Pharmacy and Travel Clinic</div>
+          <div class="card-badges">
+            <span class="type-badge badge-pharmacy">Pharmacy</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">233 Hoxton Street, London N1 5LG</div>
+          <div class="card-distance">12 min from Hoxton station</div>
+        </div>
+        <div class="card-pitch">
+          Community pharmacy on Hoxton Street with a Yellow Fever designation and travel clinic operations - already running private clinical services alongside the NHS offer. A men's health add-on is a higher-value private service line that drives new male footfall and recurring private prescription revenue with existing infrastructure.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 4: BRICK LANE / SHOREDITCH EAST -->
+  <div class="zone-section" id="zone4">
+    <div class="zone-header">
+      <div class="zone-header-left">
+        <h2>Zone 4 - Brick Lane / Shoreditch East</h2>
+        <p>Start: Shoreditch High Street station (south exit) - E1 / E2</p>
+      </div>
+      <div class="zone-badge">4 stops - 30 min loop</div>
+    </div>
+
+    <div class="extended-note">
+      <div class="label">Zone Context</div>
+      <p>Cygnet Street and Commercial Street form a wellness cluster just south of Shoreditch High Street station. Reformer pilates, hot yoga, sauna-and-cold-plunge - the full longevity stack is here. These businesses attract health-conscious professionals who spend heavily on wellness. Men's hormone health is the clinical layer they don't yet have a clear route to.</p>
+    </div>
+
+    <!-- Card 15: Skin & Sanctuary - PRIORITY -->
+    <div class="card priority">
+      <div class="card-num">15</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Skin and Sanctuary</div>
+          <div class="card-badges">
+            <span class="priority-star">PRIORITY</span>
+            <span class="type-badge badge-wellness">Medical Wellness</span>
+            <span class="type-badge badge-aesthetics">Aesthetics</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">150B Commercial Street, London E1 6NU</div>
+          <div class="card-distance">5 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          East London's leading medical wellness centre - expert-led aesthetics, skin health and functional medicine already under one roof. They are already bridging medical aesthetics and functional wellbeing - men's hormone health sits squarely in that gap. A TH white-label service gives male clients a clinical pathway that complements existing treatments and opens a new recurring revenue stream.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 16: triyoga Shoreditch -->
+    <div class="card">
+      <div class="card-num">16</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">triyoga Shoreditch</div>
+          <div class="card-badges">
+            <span class="type-badge badge-wellness">Wellness</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">10 Cygnet Street, London E1 6GW</div>
+          <div class="card-distance">8 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Shoreditch outpost of London's premium yoga and pilates brand - 125-plus classes a week, treatments on site, health-conscious professional clientele. triyoga's Shoreditch members invest heavily in their physical and mental wellbeing. A white-label men's health offering extends that investment to the clinical tier - TRT, ED, blood panels - without them needing to build any clinical capacity.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 17: Tempo 301 -->
+    <div class="card">
+      <div class="card-num">17</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">Tempo 301 Reformer Pilates</div>
+          <div class="card-badges">
+            <span class="type-badge badge-wellness">Pilates Studio</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">6 Cygnet Street, London E1 6GW</div>
+          <div class="card-distance">8 min from Shoreditch High Street station (next door to triyoga)</div>
+        </div>
+        <div class="card-pitch">
+          Expert-led reformer pilates studio with small-group classes and individual coaching - a high-touch, premium-feel environment where practitioners build real client relationships. That trust is the asset. A TH white-label men's health service gives your male clients a clinical next step from a brand they already like - with revenue for you on every referral.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 18: &Soul Sanctuary -->
+    <div class="card">
+      <div class="card-num">18</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">&Soul Sanctuary Shoreditch</div>
+          <div class="card-badges">
+            <span class="type-badge badge-longevity">Longevity / Wellness</span>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="card-address">114 Cheshire Street, London E2 6EJ</div>
+          <div class="card-distance">12 min from Shoreditch High Street station</div>
+        </div>
+        <div class="card-pitch">
+          Standalone social wellness house off Brick Lane - sauna, cold plunge, reformer pilates and fitness in a 745 sqm warehouse space. The longevity stack is already there. A TH white-label men's health service adds the clinical hormone optimisation layer - TRT, blood panels, ED - and gives members a seamless route from the recovery room to a clinical consultation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p><strong>Ted's Health - White Label Partner Programme</strong> - Shoreditch / Old Street / Hoxton</p>
+    <p style="margin-top:6px;">Field guide generated 29 June 2026 - verify all addresses before visiting - confirm decision-maker name via LinkedIn or reception before cold walk-in</p>
+  </div>
+
+</body>
+</html>
