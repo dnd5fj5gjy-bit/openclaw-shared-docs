@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — White-Label Partner Programme</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .print-note {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .print-note strong { color: #7ec8e3; }
+
+  /* A4 page wrapper */
+  .a4-sheet {
+    width: 794px;
+    height: 1123px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  /* Fold line */
+  .a4-sheet::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: repeating-linear-gradient(to bottom, #ccc 0, #ccc 6px, transparent 6px, transparent 12px);
+    pointer-events: none;
+  }
+
+  /* PANELS */
+  .panel {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* FRONT COVER — left panel (face when folded) */
+  .panel-cover {
+    background: linear-gradient(160deg, #0d1b3e 0%, #1a3a6e 60%, #0d2d5e 100%);
+    color: white;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .panel-cover::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(126,200,227,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-top {}
+
+  .cover-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: white;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .cover-logo span {
+    color: #7ec8e3;
+  }
+
+  .cover-tagline {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+  }
+
+  .cover-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .cover-headline em {
+    font-style: italic;
+    color: #7ec8e3;
+  }
+
+  .cover-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .cover-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+  }
+
+  .cover-bottom-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+
+  .cover-bottom-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  /* BACK COVER / INSIDE LEFT — right panel */
+  .panel-inside {
+    background: #fff;
+    border-left: 1px solid #e8e8e8;
+  }
+
+  /* INSIDE content panels — when printed and folded:
+     - Left half = inside-left (back of cover)
+     - Right half = inside-right (front of inside)
+     But on screen we show left=cover, right=inside */
+
+  .inside-section {
+    margin-bottom: 28px;
+  }
+
+  .inside-section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: #0d1b3e;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .section-body {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .stat-box {
+    flex: 1;
+    background: #f4f8ff;
+    border-left: 3px solid #0d1b3e;
+    padding: 12px 14px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: #0d1b3e;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .bullet-list li {
+    font-size: 12.5px;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.5;
+    padding: 4px 0 4px 16px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .bullet-list li:last-child { border-bottom: none; }
+
+  .bullet-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #7ec8e3;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .highlight-box {
+    background: #0d1b3e;
+    color: white;
+    padding: 16px 18px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+
+  .highlight-box p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .highlight-box strong {
+    color: #7ec8e3;
+    font-weight: 600;
+  }
+
+  .divider {
+    height: 1px;
+    background: #eee;
+    margin: 24px 0;
+  }
+
+  .cta-block {
+    background: linear-gradient(135deg, #0d1b3e, #1a3a6e);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .cta-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+
+  .cta-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .cta-detail {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2px;
+  }
+
+  .partner-tiers {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .tier-card {
+    flex: 1;
+    border: 1.5px solid #e0e6f0;
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  .tier-card.featured {
+    border-color: #0d1b3e;
+    background: #f4f8ff;
+  }
+
+  .tier-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0d1b3e;
+    margin-bottom: 4px;
+  }
+
+  .tier-desc {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .print-note { display: none; }
+    .a4-sheet {
+      width: 100%;
+      height: auto;
+      box-shadow: none;
+      page-break-after: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-note">
+  <strong>Print instructions:</strong> Print A4 landscape → fold in half along the dashed line. Left panel = front cover. Right panel = inside content.
+</div>
+
+<!-- A4 SHEET (landscape view = two A5 panels side by side) -->
+<div class="a4-sheet">
+
+  <!-- LEFT PANEL: FRONT COVER -->
+  <div class="panel panel-cover">
+    <div class="cover-top">
+      <div class="cover-logo">Ted's <span>Health</span></div>
+      <div class="cover-tagline">A Bear Grylls Ventures Company</div>
+
+      <div class="cover-headline">
+        Your brand.<br>
+        <em>Our platform.</em><br>
+        Their results.
+      </div>
+      <div class="cover-sub">
+        A complete men's health and hormone optimisation platform — built, managed, and clinical-grade — ready to run under your brand from day one.
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-bottom-label">White-Label Partner Programme</div>
+      <div class="cover-bottom-title">Confidential — For Partner Review Only</div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL: INSIDE CONTENT -->
+  <div class="panel panel-inside">
+
+    <div class="inside-section">
+      <div class="section-label">The Opportunity</div>
+      <div class="section-title">Men's health is the fastest-growing healthcare vertical</div>
+      <div class="section-body">
+        TRT, hormone testing, and men's optimisation are moving mainstream. Demand is outpacing supply — and most clinics have no scalable way to serve it.
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-number">4x</div>
+          <div class="stat-label">TRT search growth, 5 years</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">£2bn+</div>
+          <div class="stat-label">UK men's health market</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="inside-section">
+      <div class="section-label">What You Get</div>
+      <div class="section-title">A fully managed clinical service — white-labelled to you</div>
+
+      <ul class="bullet-list">
+        <li>Branded patient portal and app (your logo, your colours)</li>
+        <li>Clinical protocols: blood testing, consultations, TRT management</li>
+        <li>CQC-compliant prescribing infrastructure — already built</li>
+        <li>Dedicated clinical team and patient support</li>
+        <li>Referral and follow-up workflows, automated</li>
+        <li>Revenue share model — you focus on clients, we handle clinical ops</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="inside-section">
+      <div class="section-label">Partner Tiers</div>
+
+      <div class="partner-tiers">
+        <div class="tier-card">
+          <div class="tier-name">Referral</div>
+          <div class="tier-desc">Refer clients, earn per conversion. Zero clinical overhead.</div>
+        </div>
+        <div class="tier-card featured">
+          <div class="tier-name">White-Label</div>
+          <div class="tier-desc">Full branded service under your practice name.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Integrated</div>
+          <div class="tier-desc">Deep clinic integration with your existing systems.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Bear Grylls Ventures backing</strong> means clinical rigour, national brand recognition, and a team with a proven track record in health platform scaling — behind your practice.</p>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-label">Book a Partnership Call</div>
+      <div class="cta-name">Olly Westmacott</div>
+      <div class="cta-detail">Market & Strategy — Ted's Health</div>
+      <div class="cta-detail">olly@beargryllsventures.com</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
