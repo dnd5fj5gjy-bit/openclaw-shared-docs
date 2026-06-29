@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — White-Label Partner Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal:    #05656F;
+  --cream:   #E6E1DD;
+  --text:    #1F1E1E;
+  --white:   #FFFFFF;
+  --teal-light: rgba(5, 101, 111, 0.12);
+  --teal-mid:   rgba(5, 101, 111, 0.25);
+  --radius:  12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── LAYOUT WRAPPER ─── */
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ─── LOGO TREATMENT ─── */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  justify-content: center;
+}
+
+.logo-teds {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.logo-health {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.65rem;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ─── MOLECULAR DOT PATTERN ─── */
+.has-dots {
+  position: relative;
+  overflow: hidden;
+}
+
+.dot-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.13;
+}
+
+/* ─── ① HERO ─── */
+.hero {
+  background: var(--teal);
+  padding: 56px 32px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-top: 6px;
+  margin-bottom: 36px;
+}
+
+.hero-headline {
+  font-size: 1.72rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+
+/* ─── ② OPPORTUNITY ─── */
+.opportunity {
+  background: var(--cream);
+  padding: 52px 28px 48px;
+}
+
+.section-header {
+  margin-bottom: 8px;
+}
+
+.section-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  font-size: 0.88rem;
+  color: #5a5858;
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+
+/* STAT CARDS */
+.stat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--teal);
+  padding: 20px 22px;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.stat-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--teal-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stat-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.stat-card-headline {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.stat-card-body {
+  font-size: 0.83rem;
+  color: #5a5858;
+  line-height: 1.55;
+}
+
+.opportunity-footer {
+  background: var(--teal);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  text-align: center;
+}
+
+.opportunity-footer p {
+  color: var(--white);
+  font-size: 0.93rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ─── ③ HOW IT WORKS ─── */
+.how-it-works {
+  background: var(--white);
+  padding: 52px 28px 48px;
+}
+
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.pillar {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.pillar-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--teal);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pillar-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pillar-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+.pillar-body {
+  font-size: 0.85rem;
+  color: #5a5858;
+  line-height: 1.6;
+}
+
+/* ─── ④ FEATURES ─── */
+.features {
+  background: var(--cream);
+  padding: 52px 28px 48px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--teal);
+  padding: 18px 16px;
+}
+
+.feature-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.feature-body {
+  font-size: 0.78rem;
+  color: #5a5858;
+  line-height: 1.55;
+}
+
+/* ─── ⑤ CTA / CONTACT ─── */
+.cta {
+  background: var(--teal);
+  padding: 52px 32px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--white);
+  color: var(--teal);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: opacity 0.15s;
+}
+
+.cta-button:hover { opacity: 0.9; }
+
+.cta-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 0 auto 24px;
+}
+
+.cta-contact {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.cta-email {
+  display: block;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.cta-email:hover { text-decoration: underline; }
+
+.cta-url {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.82rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.cta-url:hover { color: var(--white); }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ───────────────── ① HERO ───────────────── -->
+  <section class="hero has-dots">
+
+    <!-- Molecular dot pattern SVG -->
+    <svg class="dot-pattern" viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Dots arranged in offset grid rows -->
+      <g fill="white">
+        <!-- Row 1 -->
+        <circle cx="32"  cy="28"  r="2.4"/>
+        <circle cx="96"  cy="28"  r="1.6"/>
+        <circle cx="160" cy="28"  r="2.4"/>
+        <circle cx="224" cy="28"  r="1.6"/>
+        <circle cx="288" cy="28"  r="3"/>
+        <circle cx="352" cy="28"  r="1.6"/>
+        <circle cx="416" cy="28"  r="2.4"/>
+        <circle cx="480" cy="28"  r="1.6"/>
+        <circle cx="544" cy="28"  r="2.4"/>
+        <circle cx="608" cy="28"  r="1.6"/>
+        <!-- Row 2 (offset) -->
+        <circle cx="64"  cy="72"  r="1.6"/>
+        <circle cx="128" cy="72"  r="2.8"/>
+        <circle cx="192" cy="72"  r="1.6"/>
+        <circle cx="256" cy="72"  r="2.4"/>
+        <circle cx="320" cy="72"  r="1.6"/>
+        <circle cx="384" cy="72"  r="3"/>
+        <circle cx="448" cy="72"  r="1.6"/>
+        <circle cx="512" cy="72"  r="2.4"/>
+        <circle cx="576" cy="72"  r="1.6"/>
+        <!-- Row 3 -->
+        <circle cx="32"  cy="116" r="3"/>
+        <circle cx="96"  cy="116" r="1.6"/>
+        <circle cx="160" cy="116" r="2.4"/>
+        <circle cx="224" cy="116" r="1.6"/>
+        <circle cx="288" cy="116" r="2.4"/>
+        <circle cx="352" cy="116" r="1.6"/>
+        <circle cx="416" cy="116" r="3"/>
+        <circle cx="480" cy="116" r="1.6"/>
+        <circle cx="544" cy="116" r="2.4"/>
+        <circle cx="608" cy="116" r="1.6"/>
+        <!-- Row 4 (offset) -->
+        <circle cx="64"  cy="160" r="1.6"/>
+        <circle cx="128" cy="160" r="2.4"/>
+        <circle cx="192" cy="160" r="1.6"/>
+        <circle cx="256" cy="160" r="3"/>
+        <circle cx="320" cy="160" r="1.6"/>
+        <circle cx="384" cy="160" r="2.4"/>
+        <circle cx="448" cy="160" r="1.6"/>
+        <circle cx="512" cy="160" r="2.4"/>
+        <circle cx="576" cy="160" r="1.6"/>
+        <!-- Row 5 -->
+        <circle cx="32"  cy="204" r="1.6"/>
+        <circle cx="96"  cy="204" r="2.4"/>
+        <circle cx="160" cy="204" r="1.6"/>
+        <circle cx="224" cy="204" r="2.4"/>
+        <circle cx="288" cy="204" r="1.6"/>
+        <circle cx="352" cy="204" r="3"/>
+        <circle cx="416" cy="204" r="1.6"/>
+        <circle cx="480" cy="204" r="2.4"/>
+        <circle cx="544" cy="204" r="1.6"/>
+        <circle cx="608" cy="204" r="2.4"/>
+        <!-- Row 6 (offset) -->
+        <circle cx="64"  cy="248" r="2.4"/>
+        <circle cx="128" cy="248" r="1.6"/>
+        <circle cx="192" cy="248" r="2.4"/>
+        <circle cx="256" cy="248" r="1.6"/>
+        <circle cx="320" cy="248" r="3"/>
+        <circle cx="384" cy="248" r="1.6"/>
+        <circle cx="448" cy="248" r="2.4"/>
+        <circle cx="512" cy="248" r="1.6"/>
+        <circle cx="576" cy="248" r="2.4"/>
+        <!-- Row 7 -->
+        <circle cx="32"  cy="292" r="1.6"/>
+        <circle cx="96"  cy="292" r="3"/>
+        <circle cx="160" cy="292" r="1.6"/>
+        <circle cx="224" cy="292" r="2.4"/>
+        <circle cx="288" cy="292" r="1.6"/>
+        <circle cx="352" cy="292" r="2.4"/>
+        <circle cx="416" cy="292" r="1.6"/>
+        <circle cx="480" cy="292" r="3"/>
+        <circle cx="544" cy="292" r="1.6"/>
+        <circle cx="608" cy="292" r="2.4"/>
+        <!-- Row 8 (offset) -->
+        <circle cx="64"  cy="336" r="1.6"/>
+        <circle cx="128" cy="336" r="2.4"/>
+        <circle cx="192" cy="336" r="1.6"/>
+        <circle cx="256" cy="336" r="3"/>
+        <circle cx="320" cy="336" r="1.6"/>
+        <circle cx="384" cy="336" r="2.4"/>
+        <circle cx="448" cy="336" r="1.6"/>
+        <circle cx="512" cy="336" r="2.4"/>
+        <circle cx="576" cy="336" r="1.6"/>
+        <!-- Row 9 -->
+        <circle cx="32"  cy="380" r="2.4"/>
+        <circle cx="96"  cy="380" r="1.6"/>
+        <circle cx="160" cy="380" r="3"/>
+        <circle cx="224" cy="380" r="1.6"/>
+        <circle cx="288" cy="380" r="2.4"/>
+        <circle cx="352" cy="380" r="1.6"/>
+        <circle cx="416" cy="380" r="2.4"/>
+        <circle cx="480" cy="380" r="1.6"/>
+        <circle cx="544" cy="380" r="3"/>
+        <circle cx="608" cy="380" r="1.6"/>
+        <!-- Row 10 (offset) -->
+        <circle cx="64"  cy="424" r="1.6"/>
+        <circle cx="128" cy="424" r="2.4"/>
+        <circle cx="192" cy="424" r="1.6"/>
+        <circle cx="256" cy="424" r="2.4"/>
+        <circle cx="320" cy="424" r="1.6"/>
+        <circle cx="384" cy="424" r="3"/>
+        <circle cx="448" cy="424" r="1.6"/>
+        <circle cx="512" cy="424" r="2.4"/>
+        <circle cx="576" cy="424" r="1.6"/>
+        <!-- Row 11 -->
+        <circle cx="32"  cy="460" r="1.6"/>
+        <circle cx="96"  cy="460" r="2.4"/>
+        <circle cx="160" cy="460" r="1.6"/>
+        <circle cx="224" cy="460" r="3"/>
+        <circle cx="288" cy="460" r="1.6"/>
+        <circle cx="352" cy="460" r="2.4"/>
+        <circle cx="416" cy="460" r="1.6"/>
+        <circle cx="480" cy="460" r="2.4"/>
+        <circle cx="544" cy="460" r="1.6"/>
+        <circle cx="608" cy="460" r="3"/>
+      </g>
+    </svg>
+
+    <div class="hero-content">
+      <div class="logo">
+        <span class="logo-teds">ted's</span>
+        <span class="logo-health">HEALTH</span>
+      </div>
+      <p class="hero-tagline">Maximising Men's Potential</p>
+
+      <h1 class="hero-headline">A New Revenue Stream In Men's Health. Without Building The Clinic.</h1>
+
+      <p class="hero-sub">Ted's Health is a CQC-registered white-label telehealth infrastructure for TRT, ED, and men's health. You bring the audience. We power the clinical backend.</p>
+
+      <span class="hero-badge">For UK clinics &nbsp;·&nbsp; gyms &nbsp;·&nbsp; pharmacies &nbsp;·&nbsp; diagnostics &nbsp;·&nbsp; wellness brands</span>
+    </div>
+  </section>
+
+
+  <!-- ───────────────── ② OPPORTUNITY ───────────────── -->
+  <section class="opportunity">
+    <div class="section-header">
+      <p class="section-eyebrow">Market Context</p>
+      <h2 class="section-title">The Demand Is Already There</h2>
+      <p class="section-sub">Three fast-growing markets your audience is already searching in.</p>
+    </div>
+
+    <div class="stat-cards">
+
+      <!-- Card 1: TRT -->
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-icon">
+            <!-- Graph/trending icon -->
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <span class="stat-card-label">TRT / Testosterone</span>
+        </div>
+        <p class="stat-card-headline">The UK testosterone therapy market is valued at over £85m and growing at nearly 4% annually.</p>
+        <p class="stat-card-body">Men in your ecosystem are already searching privately for testosterone support. Most never find a clear clinical pathway.</p>
+      </div>
+
+      <!-- Card 2: Blood Testing -->
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-icon">
+            <!-- Activity/pulse icon -->
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <span class="stat-card-label">Private Blood Testing / Biomarkers</span>
+        </div>
+        <p class="stat-card-headline">The UK private health screening market exceeds £2.5bn, with at-home biomarker testing growing at 17.6% annually.</p>
+        <p class="stat-card-body">Every test you run without a clinical pathway is revenue walking out the door.</p>
+      </div>
+
+      <!-- Card 3: ED -->
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-icon">
+            <!-- Users/people icon -->
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="stat-card-label">ED Treatment</span>
+        </div>
+        <p class="stat-card-headline">Erectile dysfunction affects 1 in 3 UK men over 40 — a £220m+ addressable market growing at over 7% annually.</p>
+        <p class="stat-card-body">Your clients aren't asking you. They're Googling it.</p>
+      </div>
+
+    </div>
+
+    <div class="opportunity-footer">
+      <p>Setup cost to you: zero.&nbsp; We build and run the infrastructure.</p>
+    </div>
+  </section>
+
+
+  <!-- ───────────────── ③ HOW IT WORKS ───────────────── -->
+  <section class="how-it-works">
+    <div class="section-header">
+      <p class="section-eyebrow">The Partnership Model</p>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <!-- Shield / trust icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <p class="pillar-title">You Keep The Relationship</p>
+          <p class="pillar-body">Your brand, your client, your trust. The men stay in your ecosystem, not ours.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <!-- Medical / cross icon -->
+          <svg viewBox="0 0 24 24"><path d="M4.5 6H7V3.5A1.5 1.5 0 0 1 8.5 2h7A1.5 1.5 0 0 1 17 3.5V6h2.5A1.5 1.5 0 0 1 21 7.5v9a1.5 1.5 0 0 1-1.5 1.5H17v2.5A1.5 1.5 0 0 1 15.5 22h-7A1.5 1.5 0 0 1 7 20.5V18H4.5A1.5 1.5 0 0 1 3 16.5v-9A1.5 1.5 0 0 1 4.5 6z"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+        </div>
+        <div>
+          <p class="pillar-title">We Handle The Clinical Backend</p>
+          <p class="pillar-body">CQC-registered. GMC doctors. Intake, triage, prescribing, fulfilment, repeat care — all managed by us.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <!-- Pound / revenue icon -->
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <p class="pillar-title">You Earn From Day One</p>
+          <p class="pillar-body">Revenue share on every active patient. Recurring income from existing demand you're already sitting on.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ───────────────── ④ WHAT'S INCLUDED ───────────────── -->
+  <section class="features">
+    <div class="section-header">
+      <p class="section-eyebrow">The Package</p>
+      <h2 class="section-title">What's Included</h2>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <p class="feature-title">Branded Patient Pathway</p>
+        <p class="feature-body">Your logo, your colours, your name on a clinical-grade intake and treatment journey.</p>
+      </div>
+
+      <div class="feature-card">
+        <p class="feature-title">Eligibility &amp; Triage Workflows</p>
+        <p class="feature-body">Every patient screened properly. You are never exposed to clinical liability.</p>
+      </div>
+
+      <div class="feature-card">
+        <p class="feature-title">Prescribing &amp; Fulfilment</p>
+        <p class="feature-body">Pharmacy coordination, repeat prescriptions, and delivery — handled end to end.</p>
+      </div>
+
+      <div class="feature-card">
+        <p class="feature-title">Partner Dashboard &amp; Reporting</p>
+        <p class="feature-body">Track referrals, active patients, and revenue in real time via your partner platform.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ───────────────── ⑤ CTA ───────────────── -->
+  <section class="cta has-dots">
+
+    <!-- Same dot pattern, slightly different arrangement -->
+    <svg class="dot-pattern" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="white">
+        <circle cx="48"  cy="32"  r="2.4"/><circle cx="112" cy="32"  r="1.6"/><circle cx="176" cy="32"  r="2.8"/><circle cx="240" cy="32"  r="1.6"/><circle cx="304" cy="32"  r="2.4"/><circle cx="368" cy="32"  r="1.6"/><circle cx="432" cy="32"  r="2.8"/><circle cx="496" cy="32"  r="1.6"/><circle cx="560" cy="32"  r="2.4"/>
+        <circle cx="80"  cy="76"  r="1.6"/><circle cx="144" cy="76"  r="2.4"/><circle cx="208" cy="76"  r="1.6"/><circle cx="272" cy="76"  r="2.8"/><circle cx="336" cy="76"  r="1.6"/><circle cx="400" cy="76"  r="2.4"/><circle cx="464" cy="76"  r="1.6"/><circle cx="528" cy="76"  r="2.8"/><circle cx="592" cy="76"  r="1.6"/>
+        <circle cx="48"  cy="120" r="2.8"/><circle cx="112" cy="120" r="1.6"/><circle cx="176" cy="120" r="2.4"/><circle cx="240" cy="120" r="1.6"/><circle cx="304" cy="120" r="2.8"/><circle cx="368" cy="120" r="1.6"/><circle cx="432" cy="120" r="2.4"/><circle cx="496" cy="120" r="1.6"/><circle cx="560" cy="120" r="2.8"/>
+        <circle cx="80"  cy="164" r="1.6"/><circle cx="144" cy="164" r="2.4"/><circle cx="208" cy="164" r="1.6"/><circle cx="272" cy="164" r="2.4"/><circle cx="336" cy="164" r="1.6"/><circle cx="400" cy="164" r="2.8"/><circle cx="464" cy="164" r="1.6"/><circle cx="528" cy="164" r="2.4"/><circle cx="592" cy="164" r="1.6"/>
+        <circle cx="48"  cy="208" r="1.6"/><circle cx="112" cy="208" r="2.4"/><circle cx="176" cy="208" r="1.6"/><circle cx="240" cy="208" r="2.8"/><circle cx="304" cy="208" r="1.6"/><circle cx="368" cy="208" r="2.4"/><circle cx="432" cy="208" r="1.6"/><circle cx="496" cy="208" r="2.4"/><circle cx="560" cy="208" r="1.6"/>
+        <circle cx="80"  cy="252" r="2.4"/><circle cx="144" cy="252" r="1.6"/><circle cx="208" cy="252" r="2.8"/><circle cx="272" cy="252" r="1.6"/><circle cx="336" cy="252" r="2.4"/><circle cx="400" cy="252" r="1.6"/><circle cx="464" cy="252" r="2.8"/><circle cx="528" cy="252" r="1.6"/><circle cx="592" cy="252" r="2.4"/>
+        <circle cx="48"  cy="296" r="1.6"/><circle cx="112" cy="296" r="2.4"/><circle cx="176" cy="296" r="1.6"/><circle cx="240" cy="296" r="2.4"/><circle cx="304" cy="296" r="1.6"/><circle cx="368" cy="296" r="2.8"/><circle cx="432" cy="296" r="1.6"/><circle cx="496" cy="296" r="2.4"/><circle cx="560" cy="296" r="1.6"/>
+        <circle cx="80"  cy="340" r="2.4"/><circle cx="144" cy="340" r="1.6"/><circle cx="208" cy="340" r="2.8"/><circle cx="272" cy="340" r="1.6"/><circle cx="336" cy="340" r="2.4"/><circle cx="400" cy="340" r="1.6"/><circle cx="464" cy="340" r="2.4"/><circle cx="528" cy="340" r="1.6"/><circle cx="592" cy="340" r="2.8"/>
+        <circle cx="48"  cy="380" r="1.6"/><circle cx="112" cy="380" r="2.8"/><circle cx="176" cy="380" r="1.6"/><circle cx="240" cy="380" r="2.4"/><circle cx="304" cy="380" r="1.6"/><circle cx="368" cy="380" r="2.4"/><circle cx="432" cy="380" r="1.6"/><circle cx="496" cy="380" r="2.8"/><circle cx="560" cy="380" r="1.6"/>
+      </g>
+    </svg>
+
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to explore a partnership?</h2>
+
+      <a href="https://myonlineclinic.co.uk" class="cta-button">Book a Partner Strategy Call</a>
+
+      <div class="cta-divider"></div>
+
+      <p class="cta-contact">Partnerships — Ted's Health</p>
+      <a href="mailto:partnerships@tedshealth.com" class="cta-email">partnerships@tedshealth.com</a>
+      <a href="https://myonlineclinic.co.uk" class="cta-url">myonlineclinic.co.uk</a>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+</body>
+</html>
