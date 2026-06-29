@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TH WL - Chelsea / Fulham / South Ken Pitch Field Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #F0F7F8; color: #1a3a3d; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); color: #fff; padding: 32px 20px 26px; text-align: center; }
+    .hero-logo { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #A4EDF0; margin-bottom: 8px; }
+    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+    .hero p { font-size: 12.5px; font-weight: 500; color: #b0eaee; line-height: 1.5; max-width: 420px; margin: 0 auto 16px; }
+    .hero-stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: #e0f6f8; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+
+    /* ZONE NAV */
+    .zone-nav { position: sticky; top: 0; z-index: 100; background: #05656F; display: flex; overflow-x: auto; gap: 6px; padding: 9px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-bottom: 2px solid rgba(255,255,255,0.22); }
+    .zone-nav::-webkit-scrollbar { display: none; }
+    .zone-pill { flex-shrink: 0; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.8); font-size: 10.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px; text-decoration: none; white-space: nowrap; letter-spacing: 0.3px; transition: background 0.15s; }
+    .zone-pill:hover { background: rgba(255,255,255,0.22); color: #fff; }
+
+    /* PITCH STRIP */
+    .pitch-strip { background: #fff; border-left: 4px solid #05656F; margin: 14px 14px 6px; border-radius: 8px; padding: 13px 16px; }
+    .pitch-strip .label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #05656F; margin-bottom: 6px; }
+    .pitch-strip p { font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.6; }
+    .pitch-strip strong { color: #05656F; }
+
+    /* LEGEND */
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ZONE SECTION */
+    .zone-section { margin-top: 16px; }
+    .zone-header { margin: 0 14px 10px; padding: 12px 16px; background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .zone-header-left h2 { font-size: 13px; font-weight: 800; color: #fff; }
+    .zone-header-left p { font-size: 10.5px; font-weight: 500; color: #A4EDF0; margin-top: 2px; }
+    .zone-badge { background: rgba(255,255,255,0.15); color: #e0ecff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+
+    /* EXTENDED NOTE */
+    .extended-note { margin: 20px 14px 6px; padding: 12px 16px; background: #E6F5F6; border-radius: 10px; border-left: 4px solid #05656F; }
+    .extended-note .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #05656F; margin-bottom: 5px; }
+    .extended-note p { font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.5; }
+
+    /* CARD */
+    .card { background: #fff; border-radius: 10px; margin: 0 14px 10px; padding: 14px; border: 1.5px solid #e2e8f0; display: flex; gap: 13px; align-items: flex-start; }
+    .card.priority { border-color: #d4a800; box-shadow: 0 2px 10px rgba(212,168,0,0.12); }
+    .card-num { width: 34px; height: 34px; border-radius: 50%; background: #05656F; color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .card.priority .card-num { background: #D4A800; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+    .card-name { font-size: 14px; font-weight: 700; color: #063d44; line-height: 1.3; }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .priority-star { font-size: 10px; font-weight: 800; color: #D4A800; background: #FFF9DB; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .badge-gym        { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy   { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness   { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic     { background: #FEE2E2; color: #B91C1C; }
+    .badge-physio     { background: #EDE9FE; color: #5B21B6; }
+    .badge-longevity  { background: #FEF3C7; color: #92400E; }
+    .badge-functional { background: #DCFCE7; color: #14532D; }
+    .card-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+    .card-address { font-size: 11px; font-weight: 500; color: #64748b; display: flex; align-items: flex-start; gap: 5px; }
+    .card-address::before { content: '📍'; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+    .card-distance { font-size: 11px; font-weight: 600; color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+    .card-distance::before { content: '⏱'; font-size: 10px; }
+    .card-pitch { background: #F8FAFC; border-left: 3px solid #2563EB; padding: 7px 10px; border-radius: 0 6px 6px 0; font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.55; }
+    .card.priority .card-pitch { background: #FFFBEB; border-left-color: #D4A800; }
+    .verify-note { font-size: 10px; font-weight: 600; color: #94a3b8; margin-top: 5px; font-style: italic; }
+    .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
+    .footer strong { color: #0B2547; }
+
+    /* PRINT */
+    @media print {
+      @page { margin: 14mm 12mm; size: A4; }
+      body { background: #fff; font-size: 10pt; }
+      .zone-nav { display: none; }
+      .hero { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 18px 14px; }
+      .zone-header { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card { border: 1.5px solid #d1d5db !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 8px; }
+      .card.priority { border-color: #d4a800 !important; }
+      .zone-section { break-inside: auto; }
+      .zone-header { break-after: avoid; page-break-after: avoid; margin: 0 0 8px; }
+      .extended-note { break-inside: avoid; page-break-inside: avoid; margin: 12px 0 8px; }
+      .pitch-strip { break-inside: avoid; page-break-inside: avoid; margin: 10px 0 6px; }
+      .card-num { background: #05656F !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card.priority .card-num { background: #D4A800 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .footer { break-before: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">Ted's Health - White-Label Partner Programme</div>
+  <h1>Chelsea / Fulham / South Kensington<br/>In-Person Pitch Route Guide</h1>
+  <p>Walk-in field guide for SW3, SW6, SW7 and SW10. Four clustered walking zones covering private clinics, longevity studios, medispas, diagnostics labs and premium PT studios.</p>
+  <div class="hero-stats">
+    <span class="hero-stat">18 Targets</span>
+    <span class="hero-stat">9 Priority</span>
+    <span class="hero-stat">4 Walking Zones</span>
+    <span class="hero-stat">SW3 / SW5 / SW6 / SW7 / SW10</span>
+  </div>
+</div>
+
+<!-- STICKY ZONE NAV -->
+<nav class="zone-nav">
+  <a href="#zone-a" class="zone-pill">A - King's Road Core (SW3)</a>
+  <a href="#zone-b" class="zone-pill">B - Chelsea Village (SW3)</a>
+  <a href="#zone-c" class="zone-pill">C - South Kensington (SW7)</a>
+  <a href="#zone-d" class="zone-pill">D - World's End &amp; Fulham (SW10/SW6)</a>
+</nav>
+
+<!-- ONE-LINE PITCH STRIP -->
+<div class="pitch-strip">
+  <div class="label">One-Line Pitch - Lead With This</div>
+  <p>"Your clients are already investing in their health at this level - men's hormone health is the natural next step. <strong>You keep the relationship. We handle the medicine. You earn from day one.</strong> No CQC overhead, no staffing cost - just a revenue share on every client you refer."</p>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1D4ED8"></div>Gym / PT Studio</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7E22CE"></div>Aesthetics / Medispa</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B91C1C"></div>Private Clinic</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0E7490"></div>Pharmacy</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5B21B6"></div>Physiotherapy</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#92400E"></div>Longevity</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#15803D"></div>Diagnostics</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C2410C"></div>Wellness</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ZONE A: KING'S ROAD CORE -->
+<!-- ============================================================ -->
+<div class="zone-section" id="zone-a">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone A - King's Road Core</h2>
+      <p>Walk west from Sloane Square tube - 4 stops, all on or just off King's Road, SW3</p>
+    </div>
+    <div class="zone-badge">4 stops - 2 priority</div>
+  </div>
+
+  <!-- 1. EF Medispa Chelsea -->
+  <div class="card priority">
+    <div class="card-num">1</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">EF Medispa Chelsea</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-aesthetics">Medispa</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">193 King's Road, Chelsea, SW3 5ED</div>
+        <div class="card-distance">Zone A start point - 5 min from Sloane Square tube</div>
+      </div>
+      <div class="card-pitch">Award-winning doctor-led medispa established on King's Road since 2010, with an established high-spending male client base investing in medical-grade anti-ageing. Men already attending for injectables and body sculpting are the ideal TRT conversation - they're health-invested, discreet, and accustomed to paying privately. Add a white-label hormone health service; we supply the clinical backend and compliance, you earn from day one.</div>
+    </div>
+  </div>
+
+  <!-- 2. HCA Chelsea Outpatients -->
+  <div class="card priority">
+    <div class="card-num">2</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">HCA Healthcare - Chelsea Outpatients</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-clinic">Private Clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">280 King's Road, Chelsea, SW3 5AW</div>
+        <div class="card-distance">~5 min walk west from EF Medispa</div>
+      </div>
+      <div class="card-pitch">Private outpatient centre operated by HCA Healthcare - the UK's largest private hospital group. Men attending for health assessments, specialist referrals, and post-surgical follow-ups are a captive audience for a hormone health pathway. Ask to speak to the centre manager or clinical lead about a formal referral arrangement - their patient volume makes this a high-leverage target.</div>
+    </div>
+  </div>
+
+  <!-- 3. Six Physio Chelsea -->
+  <div class="card">
+    <div class="card-num">3</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Six Physio Chelsea</div>
+        <div class="card-badges">
+          <span class="type-badge badge-physio">Physiotherapy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">5 Jubilee Place, Chelsea, SW3 3TD</div>
+        <div class="card-distance">~3 min from HCA - just off King's Road near the Waitrose</div>
+      </div>
+      <div class="card-pitch">Premium multi-site physio group treating active Chelsea professionals and sports injury patients. Men presenting with slow recovery, persistent fatigue, and poor tissue healing often have an unaddressed hormonal component. A referral pathway into TRT adds clinical depth to their rehab work - and a recurring revenue share per patient introduced to the programme.</div>
+    </div>
+  </div>
+
+  <!-- 4. Triyoga Chelsea -->
+  <div class="card">
+    <div class="card-num">4</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Triyoga Chelsea</div>
+        <div class="card-badges">
+          <span class="type-badge badge-wellness">Wellness Studio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">372 King's Road, Chelsea, SW3 5UZ</div>
+        <div class="card-distance">~8 min walk west from Six Physio</div>
+      </div>
+      <div class="card-pitch">London's flagship premium yoga and wellness studio - a loyal, health-obsessed community of men and women already investing in longevity. A men's hormone health programme - TRT, blood panels, ED - branded under Triyoga's name would be a natural complement to their existing wellbeing offering. Position this as a clinical service for the men in their community, not a generic add-on.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ZONE B: CHELSEA VILLAGE -->
+<!-- ============================================================ -->
+<div class="zone-section" id="zone-b">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone B - Chelsea Village</h2>
+      <p>Ives Street / Ixworth Place / Elystan Street cluster - 3 stops, 10-12 min from Sloane Square or South Kensington tube</p>
+    </div>
+    <div class="zone-badge">3 stops - 2 priority</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Context</div>
+    <p>This tight cluster sits between King's Road and Fulham Road in the heart of Chelsea. Dr Vahe and HUM2N are within 4 minutes of each other - do both in one pass. Chelsea Green Pharmacy is a 3-minute walk from HUM2N. Entire zone completable in under 45 minutes.</p>
+  </div>
+
+  <!-- 5. Dr Vahe Clinic -->
+  <div class="card priority">
+    <div class="card-num">5</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Dr Vahe Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-longevity">Longevity</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">25 Ives Street, Chelsea, SW3 2ND</div>
+        <div class="card-distance">~12 min walk from Sloane Square tube</div>
+      </div>
+      <div class="card-pitch">Doctor-led longevity and regenerative medicine clinic already running IV therapy, PRP, hair restoration, and weight management - deeply aligned with our clinical proposition. TRT, testosterone panels, and blood monitoring sit naturally inside their existing protocol stack. White-label our clinical backend to give them a named men's hormone health service with zero added regulatory overhead on their side.</div>
+    </div>
+  </div>
+
+  <!-- 6. HUM2N Longevity Clinic -->
+  <div class="card priority">
+    <div class="card-num">6</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">HUM2N Longevity Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-longevity">Longevity</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">35 Ixworth Place, Chelsea, SW3 3QX</div>
+        <div class="card-distance">~4 min walk from Dr Vahe Clinic</div>
+      </div>
+      <div class="card-pitch">One of London's flagship biohacking and longevity clinics - advanced diagnostics, NAD+ infusions, cellular therapies, and biological age reversal. Men already invested in quantifying and optimising their healthspan are the perfect audience for a TRT and hormone optimisation programme. A white-label partnership adds a clinical revenue stream that maps precisely onto their existing longevity protocols - this is the highest-alignment target in the zone.</div>
+    </div>
+  </div>
+
+  <!-- 7. Chelsea Green Pharmacy -->
+  <div class="card">
+    <div class="card-num">7</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Chelsea Green Pharmacy</div>
+        <div class="card-badges">
+          <span class="type-badge badge-pharmacy">Pharmacy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">6 Elystan Street, Chelsea, SW3 3NS</div>
+        <div class="card-distance">~3 min walk from HUM2N</div>
+      </div>
+      <div class="card-pitch">Independent Chelsea pharmacy already offering private blood tests and DNA profiles - a clear signal of a health-forward, high-value client base. A white-label men's health referral service adds a high-margin private revenue stream with no new premises or staffing required. Approach the pharmacist or owner directly - ask about adding a TRT consultation pathway and prescription dispensing arrangement to their current private services menu.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ZONE C: SOUTH KENSINGTON -->
+<!-- ============================================================ -->
+<div class="zone-section" id="zone-c">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone C - South Kensington</h2>
+      <p>Old Brompton Road / Cromwell Road cluster - 4 stops, all within 10 min of South Kensington tube</p>
+    </div>
+    <div class="zone-badge">4 stops - 3 priority</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Logistics</div>
+    <p>South Kensington tube (District, Circle, Piccadilly lines) is the hub for this zone. South Kensington Medical is 2 min on foot from the exit. Fit Labs is 5 min along Cromwell Road. The Training Mews is tucked into a mews 8 min from the tube. Terra Hale is 10 min south-west on Old Brompton Road - do it last. All four stops achievable in under 2 hours.</p>
+  </div>
+
+  <!-- 8. South Kensington Medical -->
+  <div class="card priority">
+    <div class="card-num">8</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">South Kensington Medical (MD.co.uk)</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-diagnostics">Diagnostics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">20 Old Brompton Road, South Kensington, SW7 3DL</div>
+        <div class="card-distance">2 min from South Kensington tube exit</div>
+      </div>
+      <div class="card-pitch">CQC-registered private diagnostics clinic offering 1,000+ blood tests, open 7 days - male patients coming in for testosterone, thyroid, and metabolic panels are already halfway through the clinical door. Close the loop: add a TRT assessment and hormone health pathway under their brand, so men who test low don't walk out empty-handed. Revenue share on every referral they pass forward.</div>
+    </div>
+  </div>
+
+  <!-- 9. Fit Labs Kensington -->
+  <div class="card priority">
+    <div class="card-num">9</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fit Labs Kensington</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-gym">Luxury PT Studio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">100b Cromwell Road, South Kensington, SW7 4ER</div>
+        <div class="card-distance">~5 min walk from South Kensington tube</div>
+      </div>
+      <div class="card-pitch">Luxury private personal training gym serving high-net-worth South Kensington clients. Your male members are investing at the premium end of physical performance - men's hormone optimisation is the clinical layer that completes the picture. A branded TRT and health monitoring service with us adds an income stream and deepens client retention - framed as an exclusive clinical benefit for their members.</div>
+    </div>
+  </div>
+
+  <!-- 10. The Training Mews -->
+  <div class="card">
+    <div class="card-num">10</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">The Training Mews</div>
+        <div class="card-badges">
+          <span class="type-badge badge-gym">Private PT Studio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">21 Astwood Mews, South Kensington, SW7 4DE</div>
+        <div class="card-distance">~8 min from tube - discreet mews location</div>
+      </div>
+      <div class="card-pitch">Bespoke private training and Pilates studio in a Kensington mews - the definition of discreet, high-touch service. The men you train one-to-one are already optimising every variable. A referral partnership into men's hormone health gives you a credible clinical complement and a revenue share on every client you introduce - no clinical delivery responsibility on your side.</div>
+    </div>
+  </div>
+
+  <!-- 11. Terra Hale -->
+  <div class="card priority">
+    <div class="card-num">11</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Terra Hale</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-gym">PT / Longevity Studio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">247-249 Old Brompton Road, SW5 9HP</div>
+        <div class="card-distance">~10 min walk south-west from South Kensington tube</div>
+      </div>
+      <div class="card-pitch">Private personal training studio explicitly marketing longevity performance and body transformation - the same language our clinical offering uses. You already attract men who want to optimise at every level. White-label our clinical backend and offer a named men's hormone health service: TRT, blood panels, ED treatment. Keep high-value male clients in your ecosystem rather than losing them to a standalone clinic.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ZONE D: WORLD'S END & FULHAM -->
+<!-- ============================================================ -->
+<div class="zone-section" id="zone-d">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone D - World's End &amp; Fulham</h2>
+      <p>King's Road SW10 to Fulham High Street SW6 - 7 stops, best split into two passes or combined with a bus/short cab between SW10 and Fulham High Street</p>
+    </div>
+    <div class="zone-badge">7 stops - 2 priority</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Logistics</div>
+    <p>Start at EdenMed and Bupa Chelsea (World's End / SW10) - walkable together. Then take the 414 bus or a short cab to Fulham High Street for Thérapie and Elya Aesthetics. LIFT Studios (Peterborough Rd) and Bodyset (North End Rd) are 10-15 min walk from Fulham Broadway tube. Complete Physio sits between the two clusters on Fulham Road - convenient mid-zone stop.</p>
+  </div>
+
+  <!-- 12. EdenMed Chelsea -->
+  <div class="card priority">
+    <div class="card-num">12</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">EdenMed Aesthetics Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-aesthetics">Aesthetics / Medical</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">535 King's Road, Chelsea, SW10 0TZ</div>
+        <div class="card-distance">Zone D start - World's End end of King's Road</div>
+      </div>
+      <div class="card-pitch">Doctor-led aesthetic clinic at the World's End end of King's Road, offering medical and ophthalmic services alongside aesthetics. Male patients attending for injectable treatments are already health-invested and accustomed to private clinical spend. A white-label TRT and blood panel service branded through EdenMed adds recurring clinical revenue per patient - the doctor-led credential makes this a natural fit, not a stretch.</div>
+    </div>
+  </div>
+
+  <!-- 13. Bupa Chelsea -->
+  <div class="card priority">
+    <div class="card-num">13</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Bupa Health Centre Chelsea</div>
+        <div class="card-badges">
+          <span class="priority-star">★ Priority</span>
+          <span class="type-badge badge-clinic">Private Clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">1 Hollywood Road, Chelsea, SW10 9HS</div>
+        <div class="card-distance">~10 min walk from EdenMed (or short cab via Fulham Road)</div>
+      </div>
+      <div class="card-pitch">Bupa private health centre offering health assessments, GP appointments, and clinical screening for a Chelsea clientele. Men flagging fatigue, low mood, poor libido, or weight management issues during health assessments are exactly who benefits from a TRT referral pathway. Ask to speak to the centre manager about a clinical partnership arrangement for men's hormone health.</div>
+    </div>
+  </div>
+
+  <!-- 14. Complete Physio Chelsea -->
+  <div class="card">
+    <div class="card-num">14</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Complete Physio Chelsea</div>
+        <div class="card-badges">
+          <span class="type-badge badge-physio">Physiotherapy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">321 Fulham Road, Chelsea, SW10 9QL</div>
+        <div class="card-distance">~5 min walk from Bupa Chelsea</div>
+      </div>
+      <div class="card-pitch">Established senior physio clinic adjacent to Chelsea and Westminster Hospital, treating active men with sports injuries and chronic conditions. Slow recovery, reduced muscle mass, and persistent fatigue are common presentations with a hormonal component. A referral arrangement into TRT completes the clinical picture for male patients and generates a recurring revenue share per referral.</div>
+    </div>
+  </div>
+
+  <!-- 15. Thérapie Clinic Fulham -->
+  <div class="card">
+    <div class="card-num">15</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Thérapie Clinic Fulham</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">18-20 Fulham High Street, Fulham, SW6 3LQ</div>
+        <div class="card-distance">~15 min from Complete Physio - take bus 414 or short cab</div>
+      </div>
+      <div class="card-pitch">Established aesthetics chain with a strong Fulham presence across laser, injectables, and skin treatments. Male clients already attending for anti-ageing treatments are a natural fit for a men's health conversation. A white-label TRT and blood panel referral service adds an income line with no clinical overhead - ask for the clinic manager and frame this as a premium service for their existing male members.</div>
+    </div>
+  </div>
+
+  <!-- 16. Elya Aesthetics -->
+  <div class="card">
+    <div class="card-num">16</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Elya Aesthetics</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Fulham High Street, Fulham, SW6</div>
+        <div class="card-distance">~1 min from Thérapie Clinic</div>
+      </div>
+      <div class="card-pitch">Boutique aesthetics clinic in Fulham specialising in dermal fillers, anti-wrinkle injections, and PRP. Male clients investing in their appearance are the ideal audience for a men's hormone health conversation - TRT, ED, and blood panels sit naturally alongside an existing aesthetics menu. A referral arrangement earns a revenue share with zero clinical delivery responsibility on their side.</div>
+      <p class="verify-note">Confirm exact address number on Fulham High Street before visiting</p>
+    </div>
+  </div>
+
+  <!-- 17. LIFT Studios Fulham -->
+  <div class="card">
+    <div class="card-num">17</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">LIFT Studios Fulham</div>
+        <div class="card-badges">
+          <span class="type-badge badge-gym">PT Studio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">91 Peterborough Road, Parsons Green, SW6</div>
+        <div class="card-distance">~10 min walk from Fulham High Street</div>
+      </div>
+      <div class="card-pitch">Specialist 1-to-1 personal training studio in Parsons Green serving a high-performing Fulham clientele. The male clients asking about performance plateaus, energy, and recovery are exactly who benefits from a TRT conversation. A referral partnership generates a recurring income stream on top of training revenue - low commitment, genuine clinical value for their clients.</div>
+      <p class="verify-note">Confirm full postcode before visiting</p>
+    </div>
+  </div>
+
+  <!-- 18. Bodyset Fulham -->
+  <div class="card">
+    <div class="card-num">18</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Bodyset Fulham</div>
+        <div class="card-badges">
+          <span class="type-badge badge-physio">Physiotherapy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">254-258 North End Road, Fulham, SW6 1NJ</div>
+        <div class="card-distance">~10 min walk from LIFT Studios</div>
+      </div>
+      <div class="card-pitch">Physiotherapy practice embedded inside a gym environment - a well-positioned audience of performance-focused, health-aware men already treating their bodies as an asset. Physio patients presenting with fatigue, poor recovery, and declining muscle mass often have unaddressed hormonal factors. A referral pathway into TRT adds clinical depth and a revenue share per patient introduced to the programme.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Ted's Health - White-Label Partner Programme</strong> - Chelsea / Fulham / South Kensington route guide compiled 29 June 2026. Verify all addresses and opening times before visiting. Priority targets marked in gold. All businesses are independently operated. For internal use only.</p>
+</div>
+
+</body>
+</html>
