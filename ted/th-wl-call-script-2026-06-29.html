@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — WL Discovery Call Script</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f7f8fc;
+    color: #1a1a2e;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #0d1b3e 0%, #1a3a6e 100%);
+    padding: 48px 40px 40px;
+    color: white;
+  }
+
+  .hero-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .hero-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .hero-meta span {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .page {
+    padding: 32px 40px;
+  }
+
+  /* STEP BLOCKS */
+  .step {
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .step-badge {
+    background: #0d1b3e;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .step-badge.green { background: #1b7f3b; }
+  .step-badge.amber { background: #a05c00; }
+  .step-badge.red { background: #c0392b; }
+  .step-badge.blue { background: #1a56c4; }
+
+  .step-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #0d1b3e;
+    line-height: 1.1;
+  }
+
+  .step-sub {
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  /* SPOKEN LINES */
+  .spoken {
+    background: #0d1b3e;
+    color: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .spoken strong { color: #7ec8e3; font-weight: 600; }
+
+  /* COACH NOTES */
+  .note {
+    background: #f0f5ff;
+    border-left: 3px solid #7ec8e3;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin: 8px 0;
+    font-size: 12.5px;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .note strong { font-style: normal; color: #0d1b3e; }
+
+  /* PROBES */
+  .probes {
+    margin: 10px 0;
+  }
+
+  .probe {
+    background: white;
+    border: 1.5px solid #e8ecf4;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .probe strong { color: #0d1b3e; font-weight: 600; }
+
+  /* PILLARS */
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .pillar {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    border-left: 4px solid #0d1b3e;
+  }
+
+  .pillar-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 4px;
+  }
+
+  .pillar-title {
+    font-weight: 700;
+    color: #0d1b3e;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .pillar-spoken {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* OBJECTIONS */
+  .objection {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+
+  .obj-q {
+    background: #fef3e2;
+    border-left: 4px solid #f39c12;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #7a4500;
+    line-height: 1.5;
+  }
+
+  .obj-q::before {
+    content: '"';
+    font-size: 18px;
+    color: #f39c12;
+    margin-right: 2px;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .obj-a {
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.65;
+    font-weight: 300;
+    border-left: 4px solid #0d1b3e;
+  }
+
+  .obj-a em {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* CLOSE */
+  .close-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .close-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+
+  .close-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 6px;
+  }
+
+  .close-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 6px;
+  }
+
+  .close-card p {
+    font-size: 12.5px;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e8ecf4;
+    margin: 28px 0;
+  }
+
+  .warning-box {
+    background: #fff8ee;
+    border: 1.5px solid #f5c77e;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7a5200;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+
+  .warning-box strong { color: #a05c00; }
+
+  @media (max-width: 500px) {
+    .page { padding: 24px 20px; }
+    .hero { padding: 36px 24px; }
+    .close-options { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Ted's Health — White-Label</div>
+  <h1>Discovery Call<br>Script</h1>
+  <div class="hero-meta">
+    <span>Olly Westmacott</span> · Partnerships Lead &nbsp;|&nbsp; Target call length: <span>20–30 min</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- OPENING -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge">Opening · 30 sec</div>
+      <div>
+        <div class="step-title">Set the Frame</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "Thanks for jumping on — really appreciate you taking the time. Just to give you a bit of context before we get into it: this call isn't a pitch, it's more of a discovery conversation. I just want to understand your business first and then work out together whether there's actually a fit here.
+      <br><br>
+      You'll have seen Dr Andrews in the videos — he's our Medical Director, leads on the clinical side. My role is commercial and partnerships, so if anything clinical comes up, we can always loop him in on a follow-up. Does that sound good?"
+    </div>
+
+    <div class="note"><strong>Hold the frame:</strong> If they push for a pitch immediately, stay warm but redirect — "Absolutely, and I want to make sure what I share is actually relevant to your situation — can I ask you a couple of questions first?" The more they talk before you pitch, the better your conversion rate.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DISCOVERY -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge green">Discovery · 5–8 min</div>
+      <div>
+        <div class="step-title">Get Them to Confess the Need</div>
+        <div class="step-sub">Goal: hear them say, unprompted, that they have men who need this.</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      <strong>Opening question:</strong><br>
+      "So — what actually made you want to have this conversation today?"
+    </div>
+
+    <div class="note"><strong>Let them talk. Don't interrupt.</strong> The goal here is to hear them articulate the gap themselves. If they say "we have clients asking about testosterone" or "we keep referring men out and losing them" — that's gold. Reflect it back later.</div>
+
+    <div class="probes">
+      <div class="probe">"And are you already seeing customers or community members asking about testosterone, energy levels, ED — anything in that space? Even quietly?"</div>
+      <div class="probe">"If you were to open up a pathway tomorrow — even informally — do you think men in your world would actually use it?"</div>
+      <div class="probe">"And if this worked — do you see this as a serious revenue line for the business, or more of an added-value thing for your members?"</div>
+    </div>
+
+    <div class="note"><strong>Use 1–3 of these, not all.</strong> Follow the conversation. The questions are prompts, not a checklist.</div>
+
+    <div class="spoken">
+      <strong>Reconfirmation before moving on:</strong><br>
+      "Okay — so just to make sure I've got this right: you've got [X type of audience], you're already seeing [signal of demand], and you do see a real commercial case here. Is that a fair summary?"
+    </div>
+
+    <div class="note"><strong>Don't proceed until they say yes.</strong> This is their verbal commitment that the conversation is worth having. If they hesitate, that's useful signal — address it before going into the three pillars.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THREE PILLARS -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge blue">The Platform · 5–7 min</div>
+      <div>
+        <div class="step-title">The Three Pillars</div>
+        <div class="step-sub">What Ted's Health actually does. Keep it simple.</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "So I'm sure you've seen the videos — let me just explain what we actually provide. I'll keep it to three things."
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">Pillar 1</div>
+        <div class="pillar-title">We build and run the clinical platform</div>
+        <div class="pillar-spoken">"We set up the full white-label infrastructure under your brand. That's intake, triage, eligibility screening, clinical review by GMC-registered doctors, and prescribing coordination where appropriate. You don't build any of that. We've already built it."</div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">Pillar 2</div>
+        <div class="pillar-title">We get your product to market</div>
+        <div class="pillar-spoken">"We configure the pathway and embed URLs for your specific audience and business type. Whether you're a clinic, gym, diagnostics provider, or community — the model adapts to how your customers already interact with you. Your brand is front and centre. Ted's Health is the engine behind it."</div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">Pillar 3</div>
+        <div class="pillar-title">We intake and manage the patients</div>
+        <div class="pillar-spoken">"Once men are in the pathway, we handle the clinical journey — consultation, prescribing, repeat prescriptions, fulfilment coordination, retention. You don't manage patients. We do. You just maintain the trusted front-end relationship you already have."</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "Does that make sense as a model? And do you have any questions on how it actually works before we keep going?"
+    </div>
+
+    <div class="note"><strong>Pause after this.</strong> Give them space to react. Their first question tells you where their head is — price, regulatory, fit, or competition. That tells you which objection to handle first.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OBJECTION HANDLING -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge amber">Objections · as needed</div>
+      <div>
+        <div class="step-title">Handling Pushback</div>
+        <div class="step-sub">Don't rush to this. Let them raise objections naturally. If they don't, prompt: "Is there anything about the model that feels like it might not work for your business?"</div>
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">I don't want to become a clinic / I don't want the regulatory burden</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "That's exactly why the model is built the way it is. You don't become a clinic. You're not prescribing, you're not managing clinical risk, and you're not CQC-registered through this. We hold all of that. Your role is the same as it is today — you own the client relationship. We're the regulated clinical engine sitting behind it. You're not taking on any liability you don't already have."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">We already refer patients to someone else / we have a clinical partner</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "That makes sense — most businesses in your position do. The question I'd ask is: what happens to that man once he leaves your ecosystem? Because right now you're building trust, identifying the need, and then sending him somewhere else. That other provider gets the recurring revenue and potentially the deeper relationship. What we're offering is a way to keep him in your world — under your brand — so the value you've built stays with you."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">How much does it cost? What's the commercial model?</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "I want to come to that — and I will — but I'd rather make sure this is actually a fit before we get into numbers, because the model is structured around your volume and setup. Can I ask: roughly how many men do you think you'd realistically put through something like this in the first three months? Once I know that, I can give you a number that's actually meaningful rather than a generic figure."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">We're not sure our audience is ready for this / men won't talk about it</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "That's the most common thing we hear — and it's also the thing that most of our partners say they were wrong about. The data on this is clear: men are searching for testosterone support in huge numbers, they just need a trusted face to approach it through. They won't go to a clinic they found on Google, but they will act if their gym, their GP, or a brand they already trust makes it easy. That trusted face is you. The barrier isn't demand — it's access."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">We'd need to speak to our legal or compliance team first</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "Completely understand — and I'd expect that. We have a full compliance pack ready: our CQC registration, clinical governance documentation, prescribing protocols, and the partnership agreement template. Everything your team would need to review is already prepared. If it helps, we can schedule a short follow-up with Dr Andrews on the line to address anything clinical directly. What would make it easiest for your legal team?"
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">What happens if a patient has a serious adverse reaction?</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "Good question — and this is where the clinical model matters. Every patient goes through our eligibility screening before anything is prescribed. Our GMC-registered doctors hold clinical responsibility for all prescribing decisions. We have clinical indemnity in place. From your side, you're not the prescriber and you're not the treating clinician — you're the referral and relationship layer. The clinical risk sits with us, not with you."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">Can we have exclusivity in our area?</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "It's something we can absolutely discuss — and it depends on the scale and scope of the partnership. We don't offer blanket exclusivity, but for partners bringing significant volume or a defined geographic footprint, there's a conversation to be had. Let's get to the point where we're both confident this is a fit, and then we can structure the commercial terms properly."
+      </div>
+    </div>
+
+    <div class="objection">
+      <div class="obj-q">We're already doing something similar ourselves / building our own</div>
+      <div class="obj-a">
+        <em>Respond with:</em>
+        "Respect that — and if you're well down the road, it may not make sense for us to talk further. But I'd ask one question: what's the build costing you in time and money, and where are you with CQC compliance and GMC prescribing sign-off? Because what most businesses find is that the build is longer and more expensive than expected, and the regulatory pathway is the biggest blocker. If Ted's Health can cut 18 months and several hundred thousand pounds off that journey, that's worth understanding — even if you ultimately decide to continue building."
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMMERCIAL CONVERSATION -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge blue">Commercial · 3–5 min</div>
+      <div>
+        <div class="step-title">The Commercial Conversation</div>
+        <div class="step-sub">Only get here if they've said yes to the model in principle.</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "So if the model makes sense — let me give you a sense of how the commercial side works. The structure is simple: [insert your confirmed model here — rev share, fee, etc.]. But before I talk numbers, I want to understand your volume. Realistically, how many men do you think you could put through a pathway like this in the first six months?"
+    </div>
+
+    <div class="note"><strong>Get their number first.</strong> If they say 10, the economics look different to if they say 100. Frame the commercial offer around their estimate — it anchors the value to their world, not yours. Don't lead with a price sheet.</div>
+
+    <div class="spoken">
+      "The reason I ask is that we want this to be commercially meaningful for you from the start. We don't want partners who are doing 2 patients a month — we want partners who see this as a proper revenue line. Based on what you've told me, I think you could be one of those."
+    </div>
+
+    <div class="warning-box"><strong>Note:</strong> This section needs the confirmed commercial model from Tom/Jesse before you use it live. Placeholder above. Ted can draft the specific line once the model is agreed.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CLOSE -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge green">Close · 2–3 min</div>
+      <div>
+        <div class="step-title">The Close</div>
+        <div class="step-sub">Always end with a concrete next step. Never leave it as "let me know."</div>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "Look — based on what you've told me today, I think there's a genuine fit here. The next step I'd suggest is [choose one below]. Does that work for you?"
+    </div>
+
+    <div class="close-options">
+      <div class="close-card">
+        <div class="close-card-label">If warm / interested</div>
+        <h4>Book a technical call with Dr Andrews</h4>
+        <p>"I'll set up a 30-minute call with our Medical Director so he can walk you through the clinical model in detail and answer anything your team has on the regulatory side."</p>
+      </div>
+
+      <div class="close-card">
+        <div class="close-card-label">If very interested / ready to move</div>
+        <h4>Send the partner proposal</h4>
+        <p>"Let me put together a one-page proposal tailored to your business — covers the commercial model, onboarding timeline, and what the first 90 days looks like. I'll have it with you by [day]."</p>
+      </div>
+
+      <div class="close-card">
+        <div class="close-card-label">If needs internal sign-off</div>
+        <h4>Send the compliance pack</h4>
+        <p>"I'll send over our full compliance documentation — CQC registration, clinical governance, partnership agreement template — so your legal team has everything they need. And let's schedule a follow-up for [specific date] once they've reviewed it."</p>
+      </div>
+
+      <div class="close-card">
+        <div class="close-card-label">If cautious / exploring</div>
+        <h4>Offer a pilot conversation</h4>
+        <p>"We do offer a limited pilot structure for the right partners — lower commitment, defined duration, see how the model performs in your context. Worth exploring if you want to test before committing fully."</p>
+      </div>
+    </div>
+
+    <div class="spoken">
+      "Whatever the next step is — I'll send you a follow-up email within the hour with a summary of what we've discussed and what I'm sending over. Thanks again for your time today — genuinely enjoyed the conversation."
+    </div>
+
+    <div class="note"><strong>Do this within the hour, every time.</strong> Send a brief email: "Great to speak. As discussed, I'm attaching [X]. Here's what I understand about your situation: [one line]. Proposed next step: [specific ask with date]. Let me know if I've got anything wrong." This separates you from 95% of salespeople they speak to.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- QUICK REF -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-badge">Quick Reference</div>
+      <div>
+        <div class="step-title">Call Checklist</div>
+      </div>
+    </div>
+
+    <div style="background: white; border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 8px rgba(0,0,0,0.04);">
+      <div style="display: grid; grid-template-columns: 24px 1fr; gap: 8px 12px; align-items: start; font-size: 13.5px; color: #444; line-height: 1.5;">
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Frame it as discovery, not a pitch — within first 30 seconds</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Get them to articulate the need before you pitch the solution</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Get verbal confirmation before moving to the three pillars</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Three pillars — pause after each, check for understanding</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Don't volunteer price — wait for them to ask or until they're sold on the model</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Get their volume estimate before discussing commercial terms</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Close with a specific next step — date, deliverable, action</div>
+        <div style="color: #7ec8e3; font-weight: 700; font-size: 16px;">□</div><div>Follow-up email within the hour</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
