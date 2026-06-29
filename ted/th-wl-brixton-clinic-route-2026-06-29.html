@@ -3,239 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TH WL — Brixton Day-Route Pitch Guide</title>
+  <title>TH WL — London Pitch Field Guide</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #F0F4F8;
-      color: #1a2e50;
-    }
+    body { font-family: 'Montserrat', sans-serif; background: #F2F5F9; color: #1a2e50; }
 
     /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, #0B2547 0%, #1a4a8a 100%);
       color: #fff;
-      padding: 36px 20px 28px;
+      padding: 32px 20px 26px;
       text-align: center;
     }
-    .hero-logo {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #7EB8FF;
-      margin-bottom: 10px;
-    }
-    .hero h1 {
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-    .hero p {
-      font-size: 13px;
-      font-weight: 500;
-      color: #b8cfe8;
-      line-height: 1.5;
-      max-width: 480px;
-      margin: 0 auto 18px;
-    }
-    .hero-meta {
+    .hero-logo { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #7EB8FF; margin-bottom: 8px; }
+    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+    .hero p { font-size: 12.5px; font-weight: 500; color: #b8cfe8; line-height: 1.5; max-width: 420px; margin: 0 auto 16px; }
+    .hero-stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: #e0ecff; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+
+    /* ── ZONE NAV ── */
+    .zone-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0B2547;
       display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 9px 14px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      border-bottom: 2px solid rgba(126,184,255,0.3);
     }
-    .hero-pill {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #e0ecff;
-      font-size: 11px;
-      font-weight: 600;
+    .zone-nav::-webkit-scrollbar { display: none; }
+    .zone-pill {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.8);
+      font-size: 10.5px;
+      font-weight: 700;
       padding: 5px 12px;
       border-radius: 20px;
-      letter-spacing: 0.5px;
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      transition: background 0.15s;
     }
+    .zone-pill:hover { background: rgba(126,184,255,0.3); color: #fff; }
 
-    /* ── PITCH CHEAT SHEET ── */
-    .cheat-sheet {
+    /* ── PITCH STRIP ── */
+    .pitch-strip {
       background: #fff;
-      border-left: 4px solid #0B2547;
-      margin: 20px 16px;
+      border-left: 4px solid #2563EB;
+      margin: 14px 14px 6px;
       border-radius: 8px;
-      padding: 16px 18px;
+      padding: 13px 16px;
     }
-    .cheat-sheet h3 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #0B2547;
-      margin-bottom: 10px;
-    }
-    .cheat-sheet p {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #3a4d68;
-      line-height: 1.6;
-    }
-    .cheat-sheet strong { color: #0B2547; }
+    .pitch-strip .label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2563EB; margin-bottom: 6px; }
+    .pitch-strip p { font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.6; }
+    .pitch-strip strong { color: #0B2547; }
 
     /* ── LEGEND ── */
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      padding: 0 16px 16px;
-      justify-content: center;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 10.5px;
-      font-weight: 600;
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
-    /* ── ZONE HEADER ── */
+    /* ── ZONE SECTION ── */
+    .zone-section { margin-top: 16px; }
     .zone-header {
-      margin: 4px 16px 12px;
-      padding: 10px 16px;
-      background: #0B2547;
-      border-radius: 8px;
+      margin: 0 14px 10px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #0B2547 0%, #1a4a8a 100%);
+      border-radius: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .zone-header h2 {
-      font-size: 13px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.3px;
-    }
-    .zone-header span {
-      font-size: 11px;
-      font-weight: 600;
-      color: #7EB8FF;
-    }
+    .zone-header-left h2 { font-size: 13px; font-weight: 800; color: #fff; }
+    .zone-header-left p { font-size: 10.5px; font-weight: 500; color: #7EB8FF; margin-top: 2px; }
+    .zone-badge { background: rgba(255,255,255,0.15); color: #e0ecff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
 
-    /* ── BUSINESS CARD ── */
+    /* ── EXTENDED NOTE ── */
+    .extended-note {
+      margin: 20px 14px 6px;
+      padding: 12px 16px;
+      background: #EFF6FF;
+      border-radius: 10px;
+      border-left: 4px solid #2563EB;
+    }
+    .extended-note .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2563EB; margin-bottom: 5px; }
+    .extended-note p { font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.5; }
+
+    /* ── CARD ── */
     .card {
       background: #fff;
       border-radius: 10px;
-      margin: 0 16px 12px;
-      padding: 16px;
+      margin: 0 14px 10px;
+      padding: 14px;
       border: 1.5px solid #e2e8f0;
-      position: relative;
-      overflow: hidden;
-    }
-    .card.priority {
-      border-color: #0B2547;
-      box-shadow: 0 2px 12px rgba(11,37,71,0.10);
-    }
-    .card.priority::before {
-      content: '★ PRIORITY';
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: #0B2547;
-      color: #fff;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      padding: 4px 10px;
-      border-bottom-left-radius: 7px;
-    }
-
-    .card-top {
       display: flex;
+      gap: 13px;
       align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 8px;
     }
-    .card-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #0B2547;
-      line-height: 1.3;
-      flex: 1;
-    }
-    .type-badge {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 4px 9px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
+    .card.priority { border-color: #d4a800; box-shadow: 0 2px 10px rgba(212,168,0,0.12); }
 
-    /* Badge colours */
-    .badge-gym       { background: #DBEAFE; color: #1D4ED8; }
-    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
-    .badge-pharmacy  { background: #CFFAFE; color: #0E7490; }
-    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
-    .badge-wellness  { background: #FFEDD5; color: #C2410C; }
-    .badge-clinic    { background: #FEE2E2; color: #B91C1C; }
-    .badge-physio    { background: #EDE9FE; color: #5B21B6; }
-    .badge-longevity { background: #FEF3C7; color: #92400E; }
-    .badge-functional { background: #DCFCE7; color: #14532D; }
-
-    .card-address {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: #64748b;
-      margin-bottom: 5px;
+    /* Number circle */
+    .card-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #1a4a8a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
-    .card-address::before {
-      content: '📍';
-      font-size: 11px;
-    }
+    .card.priority .card-num { background: #D4A800; }
 
-    .card-distance {
-      font-size: 11px;
-      font-weight: 600;
-      color: #94a3b8;
-      margin-bottom: 10px;
-    }
+    /* Card body */
+    .card-body { flex: 1; min-width: 0; }
+
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+    .card-name { font-size: 14px; font-weight: 700; color: #0B2547; line-height: 1.3; }
+
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .priority-star { font-size: 10px; font-weight: 800; color: #D4A800; background: #FFF9DB; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+
+    .type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .badge-gym        { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy   { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness   { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic     { background: #FEE2E2; color: #B91C1C; }
+    .badge-physio     { background: #EDE9FE; color: #5B21B6; }
+    .badge-longevity  { background: #FEF3C7; color: #92400E; }
+    .badge-functional { background: #DCFCE7; color: #14532D; }
+
+    .card-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+    .card-address { font-size: 11px; font-weight: 500; color: #64748b; display: flex; align-items: flex-start; gap: 5px; }
+    .card-address::before { content: '📍'; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+    .card-distance { font-size: 11px; font-weight: 600; color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+    .card-distance::before { content: '⏱'; font-size: 10px; }
 
     .card-pitch {
-      background: #F0F4F8;
+      background: #F8FAFC;
       border-left: 3px solid #2563EB;
-      padding: 8px 11px;
+      padding: 7px 10px;
       border-radius: 0 6px 6px 0;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 500;
       color: #1e3a5f;
       line-height: 1.55;
     }
-    .card.priority .card-pitch {
-      background: #EFF6FF;
-      border-left-color: #0B2547;
-    }
+    .card.priority .card-pitch { background: #FFFBEB; border-left-color: #D4A800; }
+
+    /* ── VERIFY NOTE ── */
+    .verify-note { font-size: 10px; font-weight: 600; color: #94a3b8; margin-top: 5px; font-style: italic; }
 
     /* ── FOOTER ── */
-    .footer {
-      text-align: center;
-      padding: 24px 16px 32px;
-      font-size: 11px;
-      color: #94a3b8;
-      font-weight: 500;
-    }
+    .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
     .footer strong { color: #0B2547; }
   </style>
 </head>
@@ -243,20 +175,32 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-logo">Ted's Health · White-Label Programme</div>
-  <h1>Brixton Day-Route<br>Pitch Field Guide</h1>
-  <p>Walk-in outreach map — CQC-registered clinical TRT &amp; ED infrastructure for local health &amp; fitness businesses.</p>
-  <div class="hero-meta">
-    <span class="hero-pill">📍 Base: Brixton SW9</span>
-    <span class="hero-pill">32 Targets</span>
-    <span class="hero-pill">8 Zones · 6 Areas</span>
-    <span class="hero-pill">29 June 2026</span>
+  <div class="hero-logo">Ted's Health · White-Label Partner Programme</div>
+  <h1>London Pitch Field Guide</h1>
+  <p>Walk-in outreach for CQC-registered TRT &amp; ED clinical partnerships. Priority targets starred in gold.</p>
+  <div class="hero-stats">
+    <span class="hero-stat">32 Targets</span>
+    <span class="hero-stat">8 Zones</span>
+    <span class="hero-stat">6 London Areas</span>
+    <span class="hero-stat">29 June 2026</span>
   </div>
 </div>
 
-<!-- PITCH CHEAT SHEET -->
-<div class="cheat-sheet">
-  <h3>One-Liner Pitch</h3>
+<!-- ZONE NAV -->
+<nav class="zone-nav">
+  <a class="zone-pill" href="#z1">Z1 Brixton</a>
+  <a class="zone-pill" href="#z2">Z2 Clapham</a>
+  <a class="zone-pill" href="#z3">Z3 Outer South</a>
+  <a class="zone-pill" href="#z4">Z4 Chelsea</a>
+  <a class="zone-pill" href="#z5">Z5 Shoreditch</a>
+  <a class="zone-pill" href="#z6">Z6 City / CW</a>
+  <a class="zone-pill" href="#z7">Z7 Marylebone</a>
+  <a class="zone-pill" href="#z8">Z8 North London</a>
+</nav>
+
+<!-- PITCH STRIP -->
+<div class="pitch-strip">
+  <div class="label">One-Liner Pitch</div>
   <p>"We're <strong>Ted's Health</strong> — a <strong>CQC-registered telehealth platform</strong> for TRT and ED. We're building a partner network of local health businesses. You add a men's health revenue stream; we provide the doctors, the prescribing, and the clinical backend. <strong>Revenue share, zero clinical build.</strong> Worth a 15-minute call?"</p>
 </div>
 
@@ -267,449 +211,616 @@
   <div class="legend-item"><div class="legend-dot" style="background:#0E7490"></div>Pharmacy</div>
   <div class="legend-item"><div class="legend-dot" style="background:#7E22CE"></div>Aesthetics</div>
   <div class="legend-item"><div class="legend-dot" style="background:#C2410C"></div>Wellness</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#B91C1C"></div>Private Clinic</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#5B21B6"></div>Performance Physio</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B91C1C"></div>Clinic</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5B21B6"></div>Physio</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#14532D"></div>Functional</div>
   <div class="legend-item"><div class="legend-dot" style="background:#92400E"></div>Longevity</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#14532D"></div>Functional Medicine</div>
 </div>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 1 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header">
-  <h2>Zone 1 — Walkable</h2>
-  <span>0–15 min · Brixton / Oval / Kennington</span>
-</div>
-
-<!-- 1 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Gymnasium Brixton</div>
-    <div class="type-badge badge-gym">Gym</div>
+<!-- ══ ZONE 1 ══ -->
+<div id="z1" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 1 — Walkable</h2>
+      <p>Brixton · Oval · Kennington</p>
+    </div>
+    <span class="zone-badge">8 targets · 0–15 min</span>
   </div>
-  <div class="card-address">149 Stockwell Road, SW9 9TN</div>
-  <div class="card-distance">⏱ 5 min walk from Brixton tube</div>
-  <div class="card-pitch">Coached strength &amp; conditioning with a tight male-dominated membership — these guys are already tracking lifts, nutrition, and recovery. Clinical testosterone support is the obvious next layer.</div>
-</div>
 
-<!-- 2 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">High Achievers Lab</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card priority">
+    <div class="card-num">01</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Gymnasium Brixton</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">149 Stockwell Road, SW9 9TN</div>
+        <div class="card-distance">5 min walk from Brixton tube</div>
+      </div>
+      <div class="card-pitch">Coached strength community with a tight male-dominated membership already tracking performance. Clinical testosterone support is the obvious next layer.</div>
+    </div>
   </div>
-  <div class="card-address">80 Atlantic Road, SW9 8PX</div>
-  <div class="card-distance">⏱ 7 min walk from Brixton tube</div>
-  <div class="card-pitch">Performance-focused group training community with PT culture. Members paying premium for coaching are exactly the men who respond to optimisation language — TH WL adds the clinical hormone tier.</div>
-</div>
 
-<!-- 3 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Goodbody Clinic Brixton</div>
-    <div class="type-badge badge-diagnostics">Diagnostics</div>
+  <div class="card">
+    <div class="card-num">02</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">High Achievers Lab</div>
+        <div class="card-badges"><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">80 Atlantic Road, SW9 8PX</div>
+        <div class="card-distance">7 min walk from Brixton tube</div>
+      </div>
+      <div class="card-pitch">Performance-focused group training with PT culture. Members paying premium for coaching respond well to clinical optimisation language.</div>
+    </div>
   </div>
-  <div class="card-address">Piano House, 9 Brighton Terrace, SW9 8DJ</div>
-  <div class="card-distance">⏱ 10 min walk from Brixton tube</div>
-  <div class="card-pitch">Already running private hormone &amp; testosterone panels on-site. Their patients get results showing low T and have nowhere to go — TH WL closes that gap with a prescribing clinical pathway on the same block.</div>
-</div>
 
-<!-- 4 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Pavilion Pharmacy</div>
-    <div class="type-badge badge-pharmacy">Pharmacy</div>
+  <div class="card priority">
+    <div class="card-num">03</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Goodbody Clinic Brixton</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-diagnostics">Diagnostics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Piano House, 9 Brighton Terrace, SW9 8DJ</div>
+        <div class="card-distance">10 min walk from Brixton tube</div>
+      </div>
+      <div class="card-pitch">Already running private hormone panels. Patients get low-T results with nowhere to go — TH WL closes that clinical gap on the same block.</div>
+    </div>
   </div>
-  <div class="card-address">9 Brighton Terrace, SW9 8DJ</div>
-  <div class="card-distance">⏱ 10 min walk from Brixton tube</div>
-  <div class="card-pitch">Established independent community pharmacy already dispensing private prescriptions. TH WL partnership funnels them clinical dispensing from our GMC doctors — new private prescription revenue, zero additional overhead.</div>
-</div>
 
-<!-- 5 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Kingshield Pharmacy</div>
-    <div class="type-badge badge-pharmacy">Pharmacy</div>
+  <div class="card">
+    <div class="card-num">04</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Pavilion Pharmacy</div>
+        <div class="card-badges"><span class="type-badge badge-pharmacy">Pharmacy</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">9 Brighton Terrace, SW9 8DJ</div>
+        <div class="card-distance">10 min walk from Brixton tube</div>
+      </div>
+      <div class="card-pitch">Established independent already dispensing private prescriptions. TH WL funnels GMC doctor prescribing — new revenue, zero additional overhead.</div>
+    </div>
   </div>
-  <div class="card-address">387 Brixton Road, SW9 7DE</div>
-  <div class="card-distance">⏱ 8 min walk from Brixton tube</div>
-  <div class="card-pitch">Large independent serving Brixton, Stockwell, and Kennington. Already handling NHS and private scripts for a male-dense catchment — TH WL adds a dedicated men's health dispensing channel.</div>
-</div>
 
-<!-- 6 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Beauti Skin Clinic</div>
-    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  <div class="card">
+    <div class="card-num">05</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Kingshield Pharmacy</div>
+        <div class="card-badges"><span class="type-badge badge-pharmacy">Pharmacy</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">387 Brixton Road, SW9 7DE</div>
+        <div class="card-distance">8 min walk from Brixton tube</div>
+      </div>
+      <div class="card-pitch">Large independent serving Brixton, Stockwell, and Kennington. TH WL adds a dedicated men's health dispensing channel to an already strong private script base.</div>
+    </div>
   </div>
-  <div class="card-address">66A Brixton Road, Kennington, SW9 6BP</div>
-  <div class="card-distance">⏱ 12 min walk / 2 min from Oval tube</div>
-  <div class="card-pitch">Seeing male patients for skin ageing, hair loss, and anti-ageing treatments — all conditions with a strong hormonal driver. TH WL gives them a clinical referral pathway for the root cause their clients keep asking about.</div>
-</div>
 
-<!-- 7 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Aesthetics HQ London</div>
-    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  <div class="card priority">
+    <div class="card-num">06</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Beauti Skin Clinic</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-aesthetics">Aesthetics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">66A Brixton Road, Kennington, SW9 6BP</div>
+        <div class="card-distance">12 min walk / 2 min from Oval tube</div>
+      </div>
+      <div class="card-pitch">Male patients for skin ageing and hair loss — both conditions with a strong hormonal driver. TH WL provides the clinical referral pathway for the root cause.</div>
+    </div>
   </div>
-  <div class="card-address">142 Kennington Park Road, SE11 4DJ</div>
-  <div class="card-distance">⏱ 15 min walk / Oval or Kennington tube</div>
-  <div class="card-pitch">Doctor-led regenerative medicine clinic with a science-forward male client base. They already sell biological optimisation — TH WL is the hormonal layer that completes the picture without them building clinical infrastructure.</div>
-</div>
 
-<!-- 8 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">MAZU Hair &amp; Advanced Aesthetics</div>
-    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  <div class="card priority">
+    <div class="card-num">07</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Aesthetics HQ London</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-aesthetics">Aesthetics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">142 Kennington Park Road, SE11 4DJ</div>
+        <div class="card-distance">15 min walk / Oval or Kennington tube</div>
+      </div>
+      <div class="card-pitch">Doctor-led regenerative medicine clinic with a science-forward male base. They already sell biological optimisation — TH WL is the hormonal layer they're missing.</div>
+    </div>
   </div>
-  <div class="card-address">34 Clapham Road, Oval, SW9 0JQ</div>
-  <div class="card-distance">⏱ 15 min walk / 3 min from Oval tube</div>
-  <div class="card-pitch">Luxury clinic treating male hair loss and scalp health — conditions directly linked to DHT and testosterone imbalance. TH WL gives them a clinical pathway to address the hormonal root cause their clients need.</div>
-</div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 2 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 2 — Short Transit</h2>
-  <span>15–30 min · Clapham / E&amp;C / Bermondsey</span>
-</div>
-
-<!-- 9 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Gymbox Elephant &amp; Castle</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">08</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">MAZU Hair &amp; Advanced Aesthetics</div>
+        <div class="card-badges"><span class="type-badge badge-aesthetics">Aesthetics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">34 Clapham Road, Oval, SW9 0JQ</div>
+        <div class="card-distance">15 min walk / 3 min from Oval tube</div>
+      </div>
+      <div class="card-pitch">Luxury clinic treating male hair loss — directly linked to DHT and testosterone imbalance. TH WL addresses the hormonal root cause their clients need.</div>
+    </div>
   </div>
-  <div class="card-address">38 New Kent Road, SE1 6TJ</div>
-  <div class="card-distance">⏱ 20 min bus · Elephant &amp; Castle tube</div>
-  <div class="card-pitch">Premium gym at £100+/month with InBody scanner, Olympic lifting, and a male performance core. Members paying this much for physical output expect cutting-edge support — TH WL is the clinical testosterone layer they're missing.</div>
 </div>
 
-<!-- 10 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Gymnasium SE17 (Kennington)</div>
-    <div class="type-badge badge-gym">Gym</div>
+
+<!-- ══ ZONE 2 ══ -->
+<div id="z2" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 2 — Short Transit</h2>
+      <p>Clapham · Elephant &amp; Castle · Bermondsey</p>
+    </div>
+    <span class="zone-badge">5 targets · 15–30 min</span>
   </div>
-  <div class="card-address">208–209 Penrose Grove, SE17 3EZ</div>
-  <div class="card-distance">⏱ 20 min bus / 2 min from Walworth Road</div>
-  <div class="card-pitch">Same coached strength model as Gymnasium Brixton — opened 2025. Male-first membership culture with built-in buy-in for performance optimisation. Same pitch, natural brand partner for TH WL across both sites.</div>
-</div>
 
-<!-- 11 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">DocTap Clapham</div>
-    <div class="type-badge badge-clinic">Private Clinic</div>
+  <div class="card priority">
+    <div class="card-num">09</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Gymbox Elephant &amp; Castle</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">38 New Kent Road, SE1 6TJ</div>
+        <div class="card-distance">20 min bus · Elephant &amp; Castle tube</div>
+      </div>
+      <div class="card-pitch">Premium gym at £100+/month with InBody scanner and Olympic lifting. Members paying this much for physical output expect cutting-edge clinical support.</div>
+    </div>
   </div>
-  <div class="card-address">151 Clapham High Street, SW4 7SS</div>
-  <div class="card-distance">⏱ 22 min tube · Clapham Common station</div>
-  <div class="card-pitch">Private GP clinic already selling men's health consultations and blood tests. TH WL adds a TRT &amp; ED clinical pathway they currently can't offer — turns their same-day GP visits into a managed men's health programme.</div>
-</div>
 
-<!-- 12 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">CrossFit Shapesmiths</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">10</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Gymnasium SE17</div>
+        <div class="card-badges"><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">208–209 Penrose Grove, SE17 3EZ</div>
+        <div class="card-distance">20 min bus / Walworth Road</div>
+      </div>
+      <div class="card-pitch">Same coached strength model as Brixton — male-first culture with built-in buy-in for performance optimisation. Natural TH WL partner across both sites.</div>
+    </div>
   </div>
-  <div class="card-address">Arches 1–7, Grant Road, SW11 2NU</div>
-  <div class="card-distance">⏱ 25 min bus · Clapham Junction</div>
-  <div class="card-pitch">UK's largest CrossFit gym — 14,000 sq ft, HYROX, Olympic lifting, male-dominated. These athletes are obsessed with performance metrics. Low T is discussed in every changing room. TH WL gives the gym a legitimate clinical answer.</div>
-</div>
 
-<!-- 13 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Clapham Skin Clinic</div>
-    <div class="type-badge badge-wellness">Wellness</div>
+  <div class="card priority">
+    <div class="card-num">11</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">DocTap Clapham</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-clinic">Clinic</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">151 Clapham High Street, SW4 7SS</div>
+        <div class="card-distance">22 min tube · Clapham Common</div>
+      </div>
+      <div class="card-pitch">Private GP already selling men's health consultations and blood tests. TH WL adds TRT &amp; ED — turns a one-off visit into a managed ongoing programme.</div>
+    </div>
   </div>
-  <div class="card-address">521–525 Battersea Park Road, SW11 3BN</div>
-  <div class="card-distance">⏱ 25 min bus · Clapham Junction</div>
-  <div class="card-pitch">Doctor-led clinic offering IV vitamin drips and anti-ageing treatments — wellness audience already spending on biological optimisation. TH WL is the clinical hormone tier that converts their wellness clients into long-term managed patients.</div>
-</div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 3 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 3 — Outer Reach</h2>
-  <span>30–45 min · Streatham / Peckham / Bermondsey / Balham</span>
-</div>
-
-<!-- 14 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">CrossFit Streatham</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card priority">
+    <div class="card-num">12</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">CrossFit Shapesmiths</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Arches 1–7, Grant Road, SW11 2NU</div>
+        <div class="card-distance">25 min bus · Clapham Junction</div>
+      </div>
+      <div class="card-pitch">UK's largest CrossFit gym. Performance-obsessed athletes — low T is discussed in every changing room. TH WL gives this box a legitimate clinical answer.</div>
+    </div>
   </div>
-  <div class="card-address">292 Streatham High Road, SW16 6HG</div>
-  <div class="card-distance">⏱ 30 min bus from Brixton</div>
-  <div class="card-pitch">Competitive CrossFit &amp; HYROX community with a serious male performance contingent. Fatigue, low recovery, and declining output are constant frustrations here — TH WL addresses the clinical hormone driver directly.</div>
-</div>
 
-<!-- 15 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">SE1 Medical Aesthetics</div>
-    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  <div class="card">
+    <div class="card-num">13</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Clapham Skin Clinic</div>
+        <div class="card-badges"><span class="type-badge badge-wellness">Wellness</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">521–525 Battersea Park Road, SW11 3BN</div>
+        <div class="card-distance">25 min bus · Clapham Junction</div>
+      </div>
+      <div class="card-pitch">Doctor-led IV drip and anti-ageing clinic. Wellness clients already spending on biological optimisation — TH WL converts them into long-term managed patients.</div>
+    </div>
   </div>
-  <div class="card-address">139–143 Bermondsey Street, SE1 3UW</div>
-  <div class="card-distance">⏱ 35 min bus / near London Bridge tube</div>
-  <div class="card-pitch">CQC-regulated medical aesthetics clinic with a regenerative medicine angle. Science-led male client base already investing in biological optimisation — TH WL provides the clinical hormonal infrastructure they don't have in-house.</div>
 </div>
 
-<!-- 16 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Skinfinity Glow</div>
-    <div class="type-badge badge-wellness">Wellness</div>
+
+<!-- ══ ZONE 3 ══ -->
+<div id="z3" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 3 — Outer South</h2>
+      <p>Streatham · Peckham · Bermondsey · Herne Hill</p>
+    </div>
+    <span class="zone-badge">4 targets · 25–40 min</span>
   </div>
-  <div class="card-address">Rye Lane Market, Rye Lane, Peckham, SE15</div>
-  <div class="card-distance">⏱ 30 min bus from Brixton</div>
-  <div class="card-pitch">Aesthetics and IV drip clinic in Peckham's busy market location. Male customers already spending on IV performance drips are a natural fit for TH WL's clinical hormone programme — same wellness mindset, different intervention.</div>
-</div>
 
-<!-- 17 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Personal Best Aesthetics</div>
-    <div class="type-badge badge-aesthetics">Aesthetics</div>
+  <div class="card priority">
+    <div class="card-num">14</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">CrossFit Streatham</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">292 Streatham High Road, SW16 6HG</div>
+        <div class="card-distance">30 min bus from Brixton</div>
+      </div>
+      <div class="card-pitch">Competitive CrossFit &amp; HYROX community. Fatigue, low recovery, and declining output are constant frustrations — TH WL addresses the clinical hormone driver.</div>
+    </div>
   </div>
-  <div class="card-address">Herne Hill, SE24</div>
-  <div class="card-distance">⏱ 25 min bus from Brixton</div>
-  <div class="card-pitch">Aesthetics clinic in affluent Herne Hill with a health-conscious male catchment. Men coming in for anti-ageing treatments are often dealing with the hormonal causes — TH WL gives this clinic a way to address that clinically.</div>
-</div>
 
-
-<!-- EXTENDED AREAS NOTE -->
-<div style="margin: 28px 16px 16px; padding: 14px 18px; background: #EFF6FF; border-radius: 10px; border-left: 4px solid #2563EB;">
-  <p style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2563EB; margin-bottom: 6px;">Extended Day Routes — Broader London</p>
-  <p style="font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.5;">Criteria expanded: any functional health, longevity-focused, or community-led business helping people make informed health decisions. These targets are spread across five additional London areas — plan as separate day routes. Verify addresses before visiting.</p>
-</div>
-
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 4 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:8px">
-  <h2>Zone 4 — Chelsea / Fulham</h2>
-  <span>SW3 / SW6 · Chelsea, Fulham, Parsons Green</span>
-</div>
-
-<!-- 18 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Ten Health &amp; Fitness, Parsons Green</div>
-    <div class="type-badge badge-physio">Performance Physio</div>
+  <div class="card priority">
+    <div class="card-num">15</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">SE1 Medical Aesthetics</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-aesthetics">Aesthetics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">139–143 Bermondsey Street, SE1 3UW</div>
+        <div class="card-distance">35 min bus / London Bridge tube</div>
+      </div>
+      <div class="card-pitch">CQC-regulated regenerative medicine clinic. Science-led male client base already investing in biological optimisation — TH WL provides the clinical hormonal infrastructure they lack.</div>
+    </div>
   </div>
-  <div class="card-address">~23 Vanston Place, Fulham SW6 1AZ (verify)</div>
-  <div class="card-distance">⏱ ~5 min from Parsons Green tube</div>
-  <div class="card-pitch">Clinical physio and movement studio with a tight performance-focused community in Fulham. Male clients already investing seriously in functional health and longevity. TH WL is the clinical hormonal tier that completes what they're already doing — directly complementary, not competing.</div>
-</div>
 
-<!-- 19 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Harbour Club Chelsea</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">16</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Skinfinity Glow</div>
+        <div class="card-badges"><span class="type-badge badge-wellness">Wellness</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Rye Lane Market, Peckham, SE15</div>
+        <div class="card-distance">30 min bus from Brixton</div>
+      </div>
+      <div class="card-pitch">Aesthetics and IV drip clinic in Peckham. Male customers on performance drips are a natural fit for TH WL's clinical hormone programme.</div>
+    </div>
   </div>
-  <div class="card-address">Watermeadow Lane, Fulham SW6 2RR (verify)</div>
-  <div class="card-distance">⏱ Near Fulham Broadway tube</div>
-  <div class="card-pitch">Premium members-only sports club with an affluent professional clientele in their 30s-50s. High income, health-conscious — the exact demographic where clinical testosterone optimisation has the most resonance. TH WL aligns with their premium positioning.</div>
-</div>
 
-<!-- 20 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">F45 Training, Chelsea / Fulham</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">17</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Personal Best Aesthetics</div>
+        <div class="card-badges"><span class="type-badge badge-aesthetics">Aesthetics</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Herne Hill, SE24</div>
+        <div class="card-distance">25 min bus from Brixton</div>
+      </div>
+      <div class="card-pitch">Aesthetics clinic in affluent Herne Hill. Men coming for anti-ageing treatments are often dealing with the hormonal causes — TH WL gives a clinical pathway.</div>
+    </div>
   </div>
-  <div class="card-address">Multiple SW3 / SW6 locations — verify nearest</div>
-  <div class="card-distance">⏱ District/Circle line</div>
-  <div class="card-pitch">Community HIIT franchise with strong male following and data-driven performance culture. Members already tracking output metrics are receptive to clinical optimisation — TH WL is the next logical layer.</div>
 </div>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 5 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 5 — Shoreditch / East London</h2>
-  <span>E1 / E8 / EC2A · Old Street, Hackney, Bethnal Green</span>
+<!-- EXTENDED NOTE -->
+<div class="extended-note">
+  <div class="label">Extended Day Routes</div>
+  <p>The targets below cover broader London areas — plan as separate day routes. Criteria expanded to include functional health, longevity-focused, and community-led businesses. Verify addresses before visiting.</p>
 </div>
 
-<!-- 21 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Frame Shoreditch</div>
-    <div class="type-badge badge-gym">Gym</div>
+
+<!-- ══ ZONE 4 ══ -->
+<div id="z4" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 4 — Chelsea / Fulham</h2>
+      <p>SW3 · SW6 · Parsons Green · Fulham Broadway</p>
+    </div>
+    <span class="zone-badge">3 targets</span>
   </div>
-  <div class="card-address">Old Street / Shoreditch area EC2A — verify exact address</div>
-  <div class="card-distance">⏱ ~5 min from Old Street tube</div>
-  <div class="card-pitch">Community-first fitness studio at the heart of the Old Street tech corridor. Health-educated, professionally-employed membership where longevity and optimisation are dinner-table topics. TH WL fits the culture — this is the crowd that reads about biohacking over morning coffee.</div>
-</div>
 
-<!-- 22 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">1Rebel Broadgate</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card priority">
+    <div class="card-num">18</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Ten Health &amp; Fitness, Parsons Green</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-physio">Performance Physio</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">~23 Vanston Place, Fulham SW6 1AZ</div>
+        <div class="card-distance">~5 min from Parsons Green tube</div>
+      </div>
+      <div class="card-pitch">Clinical physio and movement studio with a performance-first community. Male clients already serious about functional health and longevity — TH WL is the hormonal clinical tier.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Broadgate, EC2A — verify exact address</div>
-  <div class="card-distance">⏱ ~5 min from Liverpool Street tube</div>
-  <div class="card-pitch">Premium high-intensity gym targeting City professionals. High-earning men in their 30s-50s, high stress, corporate lifestyle — the prime early low-T demographic. TH WL's performance and longevity angle converts this audience effectively.</div>
-</div>
 
-<!-- 23 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">CrossFit Hackney / East London Box</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card priority">
+    <div class="card-num">19</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Harbour Club Chelsea</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Watermeadow Lane, Fulham SW6</div>
+        <div class="card-distance">Near Fulham Broadway tube</div>
+      </div>
+      <div class="card-pitch">Premium members-only sports club. Affluent 30-50s professional clientele — high income, health-conscious, exactly where clinical testosterone optimisation resonates most.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Hackney / Bethnal Green area E2/E8 — verify specific box</div>
-  <div class="card-distance">⏱ Hackney Road / Cambridge Heath rail</div>
-  <div class="card-pitch">Competitive CrossFit and functional fitness community in East London. Male performance culture is core here — declining recovery, strength plateaus, low energy are constant conversations. TH WL gives this box a clinical answer members are already looking for.</div>
-</div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 6 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 6 — City / Canary Wharf</h2>
-  <span>EC2 / EC3 / E14 · Monument, Broadgate, Canary Wharf</span>
-</div>
-
-<!-- 24 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Barry's Canary Wharf</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">20</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">F45 Training, Chelsea / Fulham</div>
+        <div class="card-badges"><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Multiple SW3 / SW6 locations</div>
+        <div class="card-distance">District / Circle line</div>
+      </div>
+      <div class="card-pitch">Community HIIT franchise with strong male following and data-driven performance culture. Members tracking output metrics are receptive to clinical optimisation.</div>
+      <div class="verify-note">⚠ Verify nearest location before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Canary Wharf E14 — verify exact address</div>
-  <div class="card-distance">⏱ Near Canary Wharf tube / DLR</div>
-  <div class="card-pitch">Premium HIIT studio in the Canary Wharf financial district. Finance professionals in their 30s-40s — high output, high stress, income to invest in their health. TH WL's performance and longevity angle lands hard with this demographic.</div>
 </div>
 
-<!-- 25 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Third Space (City / London Bridge)</div>
-    <div class="type-badge badge-gym">Gym</div>
+
+<!-- ══ ZONE 5 ══ -->
+<div id="z5" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 5 — Shoreditch / East London</h2>
+      <p>E1 · E8 · EC2A · Old Street · Hackney</p>
+    </div>
+    <span class="zone-badge">3 targets</span>
   </div>
-  <div class="card-address">City / London Bridge area EC — verify specific location</div>
-  <div class="card-distance">⏱ London Bridge / Borough tube</div>
-  <div class="card-pitch">Third Space is the most science-led premium gym brand in the UK — clinical wellness programming, biomarker-aware members, health-educated community. The City location draws affluent, performance-motivated men who are exactly the TH WL target.</div>
-</div>
 
-<!-- 26 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Private Wellness / GP Clinics (City)</div>
-    <div class="type-badge badge-clinic">Private Clinic</div>
+  <div class="card priority">
+    <div class="card-num">21</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Frame Shoreditch</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Old Street / Shoreditch area, EC2A</div>
+        <div class="card-distance">~5 min from Old Street tube</div>
+      </div>
+      <div class="card-pitch">Community-first fitness studio in the Old Street tech corridor. Health-educated, performance-motivated — longevity and optimisation are normalised here. TH WL fits the culture.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
   </div>
-  <div class="card-address">EC2 / EC3 area — research walk-in private GP and wellness clinics</div>
-  <div class="card-distance">⏱ City of London</div>
-  <div class="card-pitch">City-based private GP and executive health clinics already seeing male professionals for health checks and men's health consultations. TH WL adds the TRT &amp; ED clinical pathway — turning a one-off check into a managed ongoing programme.</div>
-</div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 7 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 7 — Marylebone / Harley Street</h2>
-  <span>W1 · Marylebone, Fitzrovia, Harley Street</span>
-</div>
-
-<!-- 27 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Biolab Medical Unit</div>
-    <div class="type-badge badge-functional">Functional Medicine</div>
+  <div class="card priority">
+    <div class="card-num">22</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">1Rebel Broadgate</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Broadgate, EC2A</div>
+        <div class="card-distance">~5 min from Liverpool Street tube</div>
+      </div>
+      <div class="card-pitch">Premium high-intensity gym for City professionals. High-earning men in their 30s-50s, high stress — the prime early low-T demographic. TH WL converts this audience effectively.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Harley Street area, W1G — verify exact address</div>
-  <div class="card-distance">⏱ ~5 min from Regent's Park or Great Portland St tube</div>
-  <div class="card-pitch">Private functional diagnostic lab specialising in biomarker analysis and root-cause health testing. Clients are among the most health-literate in London — they test because they want answers. TH WL is the prescribing pathway when those answers point to hormone imbalance.</div>
-</div>
 
-<!-- 28 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Third Space Marylebone</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card">
+    <div class="card-num">23</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">CrossFit Hackney / East London Box</div>
+        <div class="card-badges"><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Hackney / Bethnal Green, E2/E8</div>
+        <div class="card-distance">Cambridge Heath rail</div>
+      </div>
+      <div class="card-pitch">Competitive CrossFit community in East London. Performance decline, low recovery, and hormone conversations are embedded in the culture — TH WL gives this box a clinical answer.</div>
+      <div class="verify-note">⚠ Verify specific box before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Marylebone W1 — verify exact location</div>
-  <div class="card-distance">⏱ Baker Street tube</div>
-  <div class="card-pitch">Third Space's premium health and fitness club in Marylebone. Science-led programming, longevity-aware membership, clinical wellness angle built into the brand. Perfect partner — TH WL extends their offering without any clinical build on their side.</div>
 </div>
 
-<!-- 29 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Longevity / Functional Medicine Clinics (Harley Street)</div>
-    <div class="type-badge badge-longevity">Longevity</div>
+
+<!-- ══ ZONE 6 ══ -->
+<div id="z6" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 6 — City / Canary Wharf</h2>
+      <p>EC2 · EC3 · E14 · Monument · Broadgate · CW</p>
+    </div>
+    <span class="zone-badge">3 targets</span>
   </div>
-  <div class="card-address">Harley Street / Devonshire St W1 — multiple options, research before visiting</div>
-  <div class="card-distance">⏱ Regent's Park or Bond Street tube</div>
-  <div class="card-pitch">Harley Street hosts dozens of integrative and longevity-focused practices. Clients are already investing seriously in health optimisation — functional blood work, NAD+, biohacking protocols. TH WL is the natural clinical partner for any longevity practice without an in-house TRT prescribing pathway.</div>
-</div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- ZONE 8 -->
-<!-- ══════════════════════════════════════════ -->
-<div class="zone-header" style="margin-top:16px">
-  <h2>Zone 8 — North &amp; East London</h2>
-  <span>N1 / EC1 / N4 · Angel, Islington, Clerkenwell, Kings Cross</span>
-</div>
-
-<!-- 30 -->
-<div class="card priority">
-  <div class="card-top">
-    <div class="card-name">Frame Kings Cross</div>
-    <div class="type-badge badge-gym">Gym</div>
+  <div class="card priority">
+    <div class="card-num">24</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Barry's Canary Wharf</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Canary Wharf, E14</div>
+        <div class="card-distance">Near Canary Wharf tube / DLR</div>
+      </div>
+      <div class="card-pitch">Premium HIIT studio in the Canary Wharf financial district. Finance professionals in their 30s-40s — high stress, income to invest, early low-T demographic.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
   </div>
-  <div class="card-address">Kings Cross / Granary Square area N1C — verify exact address</div>
-  <div class="card-distance">⏱ Kings Cross St Pancras tube</div>
-  <div class="card-pitch">Frame's North London studio draws creative and professional N1 crowd — Google campus workers, media, tech. Health-educated, longevity-minded, wellness spending normalised. Same strong pitch as Frame Shoreditch — TH WL fits the culture naturally.</div>
+
+  <div class="card priority">
+    <div class="card-num">25</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Third Space (City / London Bridge)</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">City / London Bridge, EC area</div>
+        <div class="card-distance">London Bridge / Borough tube</div>
+      </div>
+      <div class="card-pitch">The UK's most science-led premium gym brand. Clinical wellness programming, biomarker-aware members — TH WL extends their offering without any clinical build on their side.</div>
+      <div class="verify-note">⚠ Verify specific location before visiting</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">26</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Private GP / Wellness Clinics (City)</div>
+        <div class="card-badges"><span class="type-badge badge-clinic">Clinic</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">EC2 / EC3 area</div>
+        <div class="card-distance">City of London</div>
+      </div>
+      <div class="card-pitch">City-based private GP and executive health clinics already seeing male professionals. TH WL adds the TRT &amp; ED pathway — turning one-off checks into managed programmes.</div>
+      <div class="verify-note">⚠ Research walk-in private GPs in EC2/EC3 before visiting</div>
+    </div>
+  </div>
 </div>
 
-<!-- 31 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">CrossFit London / Hackney</div>
-    <div class="type-badge badge-gym">Gym</div>
+
+<!-- ══ ZONE 7 ══ -->
+<div id="z7" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 7 — Marylebone / Harley Street</h2>
+      <p>W1 · Marylebone · Fitzrovia · Harley Street</p>
+    </div>
+    <span class="zone-badge">3 targets</span>
   </div>
-  <div class="card-address">East / North London E8/N1 area — verify specific box</div>
-  <div class="card-distance">⏱ Dalston / Angel area</div>
-  <div class="card-pitch">Competitive CrossFit community in North-East London. Performance athletes in their 30s-40s — the hormone, recovery, and output conversation is already embedded in the culture. TH WL gives the box a clinical referral pathway.</div>
+
+  <div class="card priority">
+    <div class="card-num">27</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Biolab Medical Unit</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-functional">Functional Medicine</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Harley Street area, W1G</div>
+        <div class="card-distance">Regent's Park or Great Portland St tube</div>
+      </div>
+      <div class="card-pitch">Private functional diagnostic lab specialising in biomarker analysis. Clients are London's most health-literate — when results point to hormone imbalance, TH WL is the prescribing pathway.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
+  </div>
+
+  <div class="card priority">
+    <div class="card-num">28</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Third Space Marylebone</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Marylebone, W1</div>
+        <div class="card-distance">Baker Street tube</div>
+      </div>
+      <div class="card-pitch">Third Space's Marylebone flagship. Science-led programming, longevity-aware members, clinical wellness angle already in the brand — TH WL is a natural extension.</div>
+      <div class="verify-note">⚠ Verify specific location before visiting</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">29</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Longevity / Functional Medicine Clinics</div>
+        <div class="card-badges"><span class="type-badge badge-longevity">Longevity</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Harley Street / Devonshire Street, W1</div>
+        <div class="card-distance">Regent's Park or Bond Street tube</div>
+      </div>
+      <div class="card-pitch">Harley Street has dozens of functional medicine and longevity practices. Any without an in-house TRT prescribing pathway are natural TH WL partners.</div>
+      <div class="verify-note">⚠ Research specific clinics before visiting</div>
+    </div>
+  </div>
 </div>
 
-<!-- 32 -->
-<div class="card">
-  <div class="card-top">
-    <div class="card-name">Functional / Integrative Health Clinics (Islington)</div>
-    <div class="type-badge badge-functional">Functional Medicine</div>
+
+<!-- ══ ZONE 8 ══ -->
+<div id="z8" class="zone-section">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 8 — North London</h2>
+      <p>N1 · EC1 · N1C · Angel · Islington · Kings Cross</p>
+    </div>
+    <span class="zone-badge">3 targets</span>
   </div>
-  <div class="card-address">Upper Street / Angel area N1 — research integrative clinics before visiting</div>
-  <div class="card-distance">⏱ Angel tube</div>
-  <div class="card-pitch">Islington has a high concentration of functional health practitioners — nutritional therapists, integrative GPs, hormone specialists. Any working with male clients on energy, weight, and hormonal health are natural TH WL partners. This category fits the expanded "community-led health" remit perfectly.</div>
+
+  <div class="card priority">
+    <div class="card-num">30</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Frame Kings Cross</div>
+        <div class="card-badges"><span class="priority-star">★ Priority</span><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Kings Cross / Granary Square, N1C</div>
+        <div class="card-distance">Kings Cross St Pancras tube</div>
+      </div>
+      <div class="card-pitch">Frame's North London studio — Google campus, media, tech crowd. Health-educated, longevity-minded, wellness spending normalised. Same strong pitch as Shoreditch.</div>
+      <div class="verify-note">⚠ Verify address before visiting</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">31</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">CrossFit London / Hackney</div>
+        <div class="card-badges"><span class="type-badge badge-gym">Gym</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">E8 / N1 area</div>
+        <div class="card-distance">Dalston / Angel area</div>
+      </div>
+      <div class="card-pitch">Competitive CrossFit community in North-East London. The hormone and recovery conversation is already embedded in the culture — TH WL gives this box a clinical referral pathway.</div>
+      <div class="verify-note">⚠ Verify specific box before visiting</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">32</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Functional / Integrative Health Clinics</div>
+        <div class="card-badges"><span class="type-badge badge-functional">Functional Medicine</span></div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Upper Street / Angel, N1</div>
+        <div class="card-distance">Angel tube</div>
+      </div>
+      <div class="card-pitch">Islington has a high concentration of integrative health practitioners. Any working with male clients on energy, hormones, and longevity are natural TH WL partners.</div>
+      <div class="verify-note">⚠ Research integrative clinics in N1 before visiting</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- FOOTER -->
 <div class="footer">
   <strong>Ted's Health White-Label Programme</strong><br>
-  CQC-registered · GMC doctors · Real prescribing workflows · Revenue share model<br><br>
-  CTA: Book a partner strategy call — <strong>tedshealth.com</strong><br><br>
+  CQC-registered · GMC doctors · Revenue share from day one · Zero setup cost<br><br>
+  Book a partner strategy call — <strong>tedshealth.com</strong><br><br>
   Generated 29 June 2026 · Ted Agent
 </div>
 
