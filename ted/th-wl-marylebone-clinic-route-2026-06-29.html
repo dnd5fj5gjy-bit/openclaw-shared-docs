@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TH WL - Marylebone Pitch Field Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #F0F7F8; color: #1a3a3d; }
+    .hero { background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); color: #fff; padding: 32px 20px 26px; text-align: center; }
+    .hero-logo { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #A4EDF0; margin-bottom: 8px; }
+    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+    .hero p { font-size: 12.5px; font-weight: 500; color: #b0eaee; line-height: 1.5; max-width: 420px; margin: 0 auto 16px; }
+    .hero-stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: #e0f6f8; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+    .zone-nav { position: sticky; top: 0; z-index: 100; background: #05656F; display: flex; overflow-x: auto; gap: 6px; padding: 9px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-bottom: 2px solid rgba(255,255,255,0.22); }
+    .zone-nav::-webkit-scrollbar { display: none; }
+    .zone-pill { flex-shrink: 0; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.8); font-size: 10.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px; text-decoration: none; white-space: nowrap; letter-spacing: 0.3px; transition: background 0.15s; }
+    .zone-pill:hover { background: rgba(255,255,255,0.22); color: #fff; }
+    .pitch-strip { background: #fff; border-left: 4px solid #05656F; margin: 14px 14px 6px; border-radius: 8px; padding: 13px 16px; }
+    .pitch-strip .label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #05656F; margin-bottom: 6px; }
+    .pitch-strip p { font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.6; }
+    .pitch-strip strong { color: #05656F; }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .zone-section { margin-top: 16px; }
+    .zone-header { margin: 0 14px 10px; padding: 12px 16px; background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .zone-header-left h2 { font-size: 13px; font-weight: 800; color: #fff; }
+    .zone-header-left p { font-size: 10.5px; font-weight: 500; color: #A4EDF0; margin-top: 2px; }
+    .zone-badge { background: rgba(255,255,255,0.15); color: #e0ecff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .extended-note { margin: 20px 14px 6px; padding: 12px 16px; background: #E6F5F6; border-radius: 10px; border-left: 4px solid #05656F; }
+    .extended-note .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #05656F; margin-bottom: 5px; }
+    .extended-note p { font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.5; }
+    .card { background: #fff; border-radius: 10px; margin: 0 14px 10px; padding: 14px; border: 1.5px solid #e2e8f0; display: flex; gap: 13px; align-items: flex-start; }
+    .card.priority { border-color: #d4a800; box-shadow: 0 2px 10px rgba(212,168,0,0.12); }
+    .card-num { width: 34px; height: 34px; border-radius: 50%; background: #05656F; color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .card.priority .card-num { background: #D4A800; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+    .card-name { font-size: 14px; font-weight: 700; color: #063d44; line-height: 1.3; }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .priority-star { font-size: 10px; font-weight: 800; color: #D4A800; background: #FFF9DB; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .badge-gym { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic { background: #FEE2E2; color: #B91C1C; }
+    .badge-physio { background: #EDE9FE; color: #5B21B6; }
+    .badge-longevity { background: #FEF3C7; color: #92400E; }
+    .badge-functional { background: #DCFCE7; color: #14532D; }
+    .card-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+    .card-address { font-size: 11px; font-weight: 500; color: #64748b; display: flex; align-items: flex-start; gap: 5px; }
+    .card-address::before { content: '📍'; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+    .card-distance { font-size: 11px; font-weight: 600; color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+    .card-distance::before { content: '⏱'; font-size: 10px; }
+    .card-pitch { background: #F8FAFC; border-left: 3px solid #2563EB; padding: 7px 10px; border-radius: 0 6px 6px 0; font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.55; }
+    .card.priority .card-pitch { background: #FFFBEB; border-left-color: #D4A800; }
+    .verify-note { font-size: 10px; font-weight: 600; color: #94a3b8; margin-top: 5px; font-style: italic; }
+    .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
+    .footer strong { color: #0B2547; }
+    @media print {
+      @page { margin: 14mm 12mm; size: A4; }
+      body { background: #fff; font-size: 10pt; }
+      .zone-nav { display: none; }
+      .hero { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 18px 14px; }
+      .zone-header { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card { border: 1.5px solid #d1d5db !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 8px; }
+      .card.priority { border-color: #d4a800 !important; }
+      .zone-section { break-inside: auto; }
+      .zone-header { break-after: avoid; page-break-after: avoid; margin: 0 0 8px; }
+      .extended-note { break-inside: avoid; page-break-inside: avoid; margin: 12px 0 8px; }
+      .pitch-strip { break-inside: avoid; page-break-inside: avoid; margin: 10px 0 6px; }
+      .card-num { background: #05656F !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card.priority .card-num { background: #D4A800 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .footer { break-before: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">Ted's Health - White Label Partner Programme</div>
+  <h1>Marylebone / Harley Street / Fitzrovia<br>In-Person Pitch Route Guide</h1>
+  <p>London's private medical district. The highest density of premium health-invested male clients in the UK. 17 targets across 4 walking zones.</p>
+  <div class="hero-stats">
+    <span class="hero-stat">17 Targets</span>
+    <span class="hero-stat">8 Priority</span>
+    <span class="hero-stat">4 Zones</span>
+    <span class="hero-stat">W1G / W1U / W1T</span>
+  </div>
+</div>
+
+<!-- ZONE NAV -->
+<nav class="zone-nav">
+  <a class="zone-pill" href="#zone-a">A: Harley Street North</a>
+  <a class="zone-pill" href="#zone-b">B: Harley Street South</a>
+  <a class="zone-pill" href="#zone-c">C: Marylebone Village</a>
+  <a class="zone-pill" href="#zone-d">D: Fitzrovia</a>
+</nav>
+
+<!-- PITCH STRIP -->
+<div class="pitch-strip">
+  <div class="label">Core Pitch - Use Every Time</div>
+  <p>"You're already serving clients who invest seriously in their health. <strong>Ted's Health provides the full clinical backend</strong> for men's TRT, ED treatment, and hormone blood testing - white-labelled under your brand. You manage the client relationship, we handle prescriptions, dispensing and clinical monitoring. <strong>You earn from day one. No compliance headache, no clinical build-out.</strong>"</p>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#D4A800;"></div> Priority target</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#05656F;"></div> Standard target</div>
+  <div class="legend-item"><span style="font-size:10px;background:#FEE2E2;color:#B91C1C;border-radius:4px;padding:1px 5px;">clinic</span> Private clinic</div>
+  <div class="legend-item"><span style="font-size:10px;background:#F3E8FF;color:#7E22CE;border-radius:4px;padding:1px 5px;">aesthetics</span> Aesthetics</div>
+  <div class="legend-item"><span style="font-size:10px;background:#DCFCE7;color:#15803D;border-radius:4px;padding:1px 5px;">diagnostics</span> Diagnostics lab</div>
+  <div class="legend-item"><span style="font-size:10px;background:#FEF3C7;color:#92400E;border-radius:4px;padding:1px 5px;">longevity</span> Longevity / functional</div>
+  <div class="legend-item"><span style="font-size:10px;background:#EDE9FE;color:#5B21B6;border-radius:4px;padding:1px 5px;">physio</span> Physiotherapy</div>
+  <div class="legend-item"><span style="font-size:10px;background:#CFFAFE;color:#0E7490;border-radius:4px;padding:1px 5px;">pharmacy</span> Pharmacy</div>
+  <div class="legend-item"><span style="font-size:10px;background:#FFEDD5;color:#C2410C;border-radius:4px;padding:1px 5px;">wellness</span> Wellness / gym</div>
+</div>
+
+
+<!-- ======= ZONE A ======= -->
+<div class="zone-section" id="zone-a">
+
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone A: Harley Street North</h2>
+      <p>Weymouth St, Queen Anne St, upper Harley St - Start at Regent's Park tube (5 min walk)</p>
+    </div>
+    <div class="zone-badge">5 stops</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Context</div>
+    <p>The top end of Harley Street and its immediate side streets. This cluster mixes established men's health clinics, premium aesthetics, and longevity medicine. Patients here are already paying several hundred pounds per visit and actively managing their biology - the TH WL conversation is a natural fit, not a cold sell.</p>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card priority" id="stop-1">
+    <div class="card-num">1</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">The WellMan Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-clinic">clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">32 Weymouth Street, London W1G 7BU</div>
+        <div class="card-distance">Zone start - approx 8 min walk from Regent's Park tube</div>
+      </div>
+      <div class="card-pitch">40+ years specialising in men's hormone health - the most respected men's clinic in the district. They can't be a direct white-label partner, but approach them as a referral network conversation: they likely have partner GPs and other clinics who refer to them and would benefit from a streamlined TH WL backend instead of bouncing patients around. Ask who they work with.</div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card priority" id="stop-2">
+    <div class="card-num">2</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Reborne Longevity</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-longevity">longevity</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">9 Queen Anne Street, London W1G 9HW</div>
+        <div class="card-distance">approx 4 min from Stop 1</div>
+      </div>
+      <div class="card-pitch">Harley Street longevity and GP practice specialising in regenerative medicine and functional health, operating from a six-floor Harley Street townhouse. Their male patients are already optimising hormones, sleep, and cognition - white-labelling TRT and ED as a clinical module is a natural upsell inside their existing care pathway with zero clinical build on their part.</div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card priority" id="stop-3">
+    <div class="card-num">3</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">PHI Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-aesthetics">aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">102 Harley Street, London W1G 7JB</div>
+        <div class="card-distance">approx 3 min from Stop 2</div>
+      </div>
+      <div class="card-pitch">One of Harley Street's most decorated doctor-led aesthetics clinics, winner of the 2023 Aesthetics Award for Outstanding Achievement. Strong male client base investing in anti-ageing treatments and regenerative skin. Men visiting PHI are already invested in how they look and feel - TH WL gives PHI a clinical men's hormonal health service for the same cohort, earning from day one with no clinical overhead.</div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card" id="stop-4">
+    <div class="card-num">4</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">London HS Practice</div>
+        <div class="card-badges">
+          <span class="type-badge badge-clinic">clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">66 Harley Street, London W1G 7HD</div>
+        <div class="card-distance">approx 3 min south from Stop 3</div>
+      </div>
+      <div class="card-pitch">Private GP practice offering dedicated Well Man health checks, hormone panels and diagnostic investigations. They already flag low testosterone and hormone imbalances in their check-up results - adding TH WL prescription fulfilment converts that diagnostic insight into an ongoing clinical revenue stream without adding headcount or clinical build-out.</div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card" id="stop-5">
+    <div class="card-num">5</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Dr David Jack Clinic</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">74 Harley Street, London W1G 7HQ</div>
+        <div class="card-distance">approx 1 min from Stop 4 (same block)</div>
+      </div>
+      <div class="card-pitch">High-profile regenerative aesthetics practice with a strong media presence and male anti-ageing focus. Men seeking skin longevity are primed for the hormone conversation - TH WL lets Dr Jack's practice add a clinical men's health layer that complements, rather than competes with, his core aesthetic offering and extends the care journey for existing male clients.</div>
+    </div>
+  </div>
+
+</div><!-- /zone-a -->
+
+
+<!-- ======= ZONE B ======= -->
+<div class="zone-section" id="zone-b">
+
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone B: Harley Street South</h2>
+      <p>Lower Harley St and Devonshire St - Continue south from Zone A (approx 5 min walk)</p>
+    </div>
+    <div class="zone-badge">4 stops</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Context</div>
+    <p>The south end of Harley Street near Cavendish Square, plus Devonshire Street running east. This cluster is heavy on diagnostics and men's health specialists. The key pitch here: diagnostics labs are doing the blood work that flags TRT candidates but have no treatment pathway. TH WL closes that loop - they keep the patient, add a revenue stream, we handle the medicine.</p>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card priority" id="stop-6">
+    <div class="card-num">6</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Medicetics</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-aesthetics">aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">10 Harley Street, London W1G 9PF</div>
+        <div class="card-distance">approx 5 min south from Zone A end</div>
+      </div>
+      <div class="card-pitch">Doctor-led aesthetics and positive ageing clinic co-founded by Dr Vicky Dondos (author of "The Positive Ageing Plan"). Established male client base who are already investing in how they age. White-labelling TH's TRT and ED backend extends their care model into hormonal optimisation - the same conversation they're already having about skin, energy and longevity, with a clinical revenue stream attached.</div>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card" id="stop-7">
+    <div class="card-num">7</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">UME Health Harley Street</div>
+        <div class="card-badges">
+          <span class="type-badge badge-diagnostics">diagnostics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">17 Harley Street, London W1G 9QH</div>
+        <div class="card-distance">approx 1 min from Stop 6</div>
+      </div>
+      <div class="card-pitch">Full-service diagnostic centre with blood tests, MRI, CT, cardiology and advanced health assessments under one roof. They already run hormone and testosterone panels for male patients - partnering with TH WL means those results flow into a treatment pathway rather than leaving the patient to source a prescriber separately. Keeps the patient in their ecosystem, adds a fee share.</div>
+    </div>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card priority" id="stop-8">
+    <div class="card-num">8</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Centre for Men's Health</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-clinic">clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">25 Harley Street, London W1G 9QW</div>
+        <div class="card-distance">approx 1 min from Stop 7</div>
+      </div>
+      <div class="card-pitch">The most prominent dedicated TRT and ED clinic at the Cavendish Square end of Harley Street, offering a "done-in-a-day" diagnostic and treatment service. Approach as an infrastructure conversation rather than a direct pitch - they have demand they can't always absorb and partner clinics who refer. Ask whether a white-label backend arrangement makes sense for their referral network or overflow capacity.</div>
+    </div>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card priority" id="stop-9">
+    <div class="card-num">9</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Devonshire Diagnostic Centre</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-diagnostics">diagnostics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">13-19 Devonshire Street, London W1G 8BJ</div>
+        <div class="card-distance">approx 3 min east of Stop 8 (turn off Harley St)</div>
+      </div>
+      <div class="card-pitch">HCA Healthcare-backed diagnostic centre with 19 treatment rooms, handling blood tests, imaging, cardiac physiology and specialist outpatient services. Blood panels including testosterone and hormone profiles are firmly in scope - TH WL converts those results into a treatment revenue stream. Ask the commercial or operations lead about adding a clinical partner pathway for male hormone results.</div>
+    </div>
+  </div>
+
+</div><!-- /zone-b -->
+
+
+<!-- ======= ZONE C ======= -->
+<div class="zone-section" id="zone-c">
+
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone C: Marylebone Village</h2>
+      <p>Wigmore St, Baker St, New Cavendish St, Spanish Place - approx 10 min west from Zone B</p>
+    </div>
+    <div class="zone-badge">5 stops</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Context</div>
+    <p>The quieter west side of Marylebone, away from Harley Street itself. A mix of wellness hubs, independent pharmacies, physio practices and diagnostics. Stop 11 and Stop 12 share the same building at 105 Wigmore Street - UNTIL Marylebone is a multi-practitioner wellcare facility, making it a high-leverage single visit (one door, multiple potential partners inside).</p>
+  </div>
+
+  <!-- Card 10 -->
+  <div class="card" id="stop-10">
+    <div class="card-num">10</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">The French Pharmacy</div>
+        <div class="card-badges">
+          <span class="type-badge badge-pharmacy">pharmacy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">10 New Cavendish Street, London W1G 8UL</div>
+        <div class="card-distance">approx 8 min west from Zone B / start of Zone C loop</div>
+      </div>
+      <div class="card-pitch">Premium wellness pharmacy with therapy rooms for private practitioners, serving a health-conscious Marylebone clientele. Already positioned at the premium end of dispensing and wellness retail. Adding white-label men's health prescription fulfilment - TRT, ED - is a natural extension of their dispensing capability and a credibility add for their wellness brand positioning.</div>
+    </div>
+  </div>
+
+  <!-- Card 11 -->
+  <div class="card priority" id="stop-11">
+    <div class="card-num">11</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fountain Clinics London</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-longevity">longevity</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">105 Wigmore Street, London W1U 1QY</div>
+        <div class="card-distance">approx 5 min from Stop 10</div>
+      </div>
+      <div class="card-pitch">Longevity medicine, weight-loss medicine and aesthetic medicine clinic at the heart of Marylebone. Their male patient profile overlaps almost exactly with TH WL targets - men already investing in blood optimisation, metabolic health and aesthetics who will also be asking about testosterone and ED. White-labelling TH adds a clinical men's health module to their existing longevity stack without them building any new clinical infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- Card 12 -->
+  <div class="card" id="stop-12">
+    <div class="card-num">12</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">UNTIL Marylebone</div>
+        <div class="card-badges">
+          <span class="type-badge badge-wellness">wellness</span>
+          <span class="type-badge badge-gym">gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">105 Wigmore Street, London W1U 1QY</div>
+        <div class="card-distance">Same building as Stop 11</div>
+      </div>
+      <div class="card-pitch">The UK's first wellcare facility - private gym, dental, physio, and medical consultation rooms under one roof. Ask to speak with the venue or commercial lead: TH WL could be offered as a service module to any male-client practitioner in their community. One conversation, multiple potential partners in the building.</div>
+    </div>
+  </div>
+
+  <!-- Card 13 -->
+  <div class="card" id="stop-13">
+    <div class="card-num">13</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Movement Perfected</div>
+        <div class="card-badges">
+          <span class="type-badge badge-physio">physio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">3 Spanish Place, London W1U 3HX</div>
+        <div class="card-distance">approx 5 min north from Stop 12</div>
+      </div>
+      <div class="card-pitch">Premium sports physiotherapy practice with 12+ year clinicians treating athletes and performance-focused male clients. Their clients care deeply about recovery, strength and body composition. A soft referral into TH WL's TRT programme - framed as "optimise the hormonal environment your rehab is working in" - earns Movement Perfected a revenue share with no clinical overhead attached.</div>
+    </div>
+  </div>
+
+  <!-- Card 14 -->
+  <div class="card priority" id="stop-14">
+    <div class="card-num">14</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Marylebone Diagnostic Centre</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-diagnostics">diagnostics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">73 Baker Street, London W1U 6RD</div>
+        <div class="card-distance">approx 8 min northwest from Stop 13</div>
+      </div>
+      <div class="card-pitch">Private diagnostic lab offering same-day appointments, no referral needed, results in 24-42 hours. Well Man, hormone and testosterone profiles are firmly in their menu. They run the blood work that flags TRT candidates but currently hand patients off with no treatment pathway. TH WL closes that loop - we handle prescriptions and monitoring, they keep the relationship and earn a share on every patient who converts.</div>
+    </div>
+  </div>
+
+</div><!-- /zone-c -->
+
+
+<!-- ======= ZONE D ======= -->
+<div class="zone-section" id="zone-d">
+
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone D: Fitzrovia</h2>
+      <p>Fitzroy Square, Percy Street - approx 15 min east from Zone B or south from Zone C</p>
+    </div>
+    <div class="zone-badge">3 stops</div>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Context</div>
+    <p>Fitzrovia sits between Marylebone and Soho - a creative-professional district with a growing cluster of private medical and aesthetics practices around Fitzroy Square. Client base skews younger and media or creative, but still premium and health-invested. Worth visiting after the Marylebone zones if time allows - a tight 3-stop loop around Fitzroy Square.</p>
+  </div>
+
+  <!-- Card 15 -->
+  <div class="card priority" id="stop-15">
+    <div class="card-num">15</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fitzrovia Medical Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">&#11088; Priority</span>
+          <span class="type-badge badge-clinic">clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">13-14 Fitzroy Square, London W1T 6AH</div>
+        <div class="card-distance">approx 15 min from Zone B / start of Fitzrovia loop</div>
+      </div>
+      <div class="card-pitch">Private medical clinic inside Fitzrovia Hospital offering integrated multi-specialty care including dermatology and wellness services. A hospital-grade clinical environment is exactly where men expect to have conversations about hormonal health. White-labelling TH WL adds a men's health revenue stream that slots into their existing private patient pathways - ask for the clinical director or commercial lead.</div>
+    </div>
+  </div>
+
+  <!-- Card 16 -->
+  <div class="card" id="stop-16">
+    <div class="card-num">16</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fitzrovia Aesthetics</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">28 Fitzroy Square, London W1T 6DD</div>
+        <div class="card-distance">approx 1 min from Stop 15</div>
+      </div>
+      <div class="card-pitch">Advanced cosmetics clinic on Fitzroy Square offering injectables and non-surgical aesthetic treatments. Male aesthetic clients are already making a financial and psychological investment in how they present - the conversation about confidence, energy and hormone optimisation is the natural next step. TH WL enables Fitzrovia Aesthetics to extend that care journey without building any new clinical infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- Card 17 -->
+  <div class="card" id="stop-17">
+    <div class="card-num">17</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fitzrovia Clinic</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">5 Percy Street, London W1T 1DG</div>
+        <div class="card-distance">approx 8 min south from Stop 16</div>
+      </div>
+      <div class="card-pitch">Doctor-led aesthetic skin clinic specialising in laser and injectable technologies, with 20+ years combined experience. CQC-regulated. Their male clients seeking anti-ageing skin results are ideal candidates for the hormonal optimisation conversation. TH WL gives the clinic a complementary revenue stream for the same patient cohort - a natural add-on to post-treatment follow-up conversations.</div>
+    </div>
+  </div>
+
+</div><!-- /zone-d -->
+
+
+<div class="footer">
+  <strong>Ted's Health White Label Partner Programme</strong><br>
+  Generated 29 June 2026. Verify all addresses and opening hours before visiting.<br>
+  Route order: Zone A (Regent's Park tube) - Zone B (south on Harley St) - Zone C (west to Marylebone Village) - Zone D (east to Fitzrovia). Full day allows all 17 stops.
+</div>
+
+</body>
+</html>
