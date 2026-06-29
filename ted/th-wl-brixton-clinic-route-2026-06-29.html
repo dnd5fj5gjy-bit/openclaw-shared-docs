@@ -169,6 +169,24 @@
     /* ── FOOTER ── */
     .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
     .footer strong { color: #0B2547; }
+
+    /* ── PRINT ── */
+    @media print {
+      @page { margin: 14mm 12mm; size: A4; }
+      body { background: #fff; font-size: 10pt; }
+      .zone-nav { display: none; }
+      .hero { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 18px 14px; }
+      .zone-header { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card { border: 1.5px solid #d1d5db !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 8px; }
+      .card.priority { border-color: #d4a800 !important; }
+      .zone-section { break-inside: auto; }
+      .zone-header { break-after: avoid; page-break-after: avoid; margin: 0 0 8px; }
+      .extended-note { break-inside: avoid; page-break-inside: avoid; margin: 12px 0 8px; }
+      .pitch-strip { break-inside: avoid; page-break-inside: avoid; margin: 10px 0 6px; }
+      .card-num { background: #05656F !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card.priority .card-num { background: #D4A800 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .footer { break-before: avoid; }
+    }
   </style>
 </head>
 <body>
