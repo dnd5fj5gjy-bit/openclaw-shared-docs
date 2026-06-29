@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TH WL - Clapham Pitch Field Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #F0F7F8; color: #1a3a3d; }
+    .hero { background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); color: #fff; padding: 32px 20px 26px; text-align: center; }
+    .hero-logo { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #A4EDF0; margin-bottom: 8px; }
+    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+    .hero p { font-size: 12.5px; font-weight: 500; color: #b0eaee; line-height: 1.5; max-width: 420px; margin: 0 auto 16px; }
+    .hero-stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: #e0f6f8; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+    .zone-nav { position: sticky; top: 0; z-index: 100; background: #05656F; display: flex; overflow-x: auto; gap: 6px; padding: 9px 14px; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-bottom: 2px solid rgba(255,255,255,0.22); }
+    .zone-nav::-webkit-scrollbar { display: none; }
+    .zone-pill { flex-shrink: 0; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.8); font-size: 10.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px; text-decoration: none; white-space: nowrap; letter-spacing: 0.3px; transition: background 0.15s; }
+    .zone-pill:hover { background: rgba(255,255,255,0.22); color: #fff; }
+    .pitch-strip { background: #fff; border-left: 4px solid #05656F; margin: 14px 14px 6px; border-radius: 8px; padding: 13px 16px; }
+    .pitch-strip .label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #05656F; margin-bottom: 6px; }
+    .pitch-strip p { font-size: 12px; font-weight: 500; color: #1e3a5f; line-height: 1.6; }
+    .pitch-strip strong { color: #05656F; }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .zone-section { margin-top: 16px; }
+    .zone-header { margin: 0 14px 10px; padding: 12px 16px; background: linear-gradient(135deg, #05656F 0%, #0a8a97 100%); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .zone-header-left h2 { font-size: 13px; font-weight: 800; color: #fff; }
+    .zone-header-left p { font-size: 10.5px; font-weight: 500; color: #A4EDF0; margin-top: 2px; }
+    .zone-badge { background: rgba(255,255,255,0.15); color: #e0ecff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .extended-note { margin: 20px 14px 6px; padding: 12px 16px; background: #E6F5F6; border-radius: 10px; border-left: 4px solid #05656F; }
+    .extended-note .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #05656F; margin-bottom: 5px; }
+    .extended-note p { font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.5; }
+    .card { background: #fff; border-radius: 10px; margin: 0 14px 10px; padding: 14px; border: 1.5px solid #e2e8f0; display: flex; gap: 13px; align-items: flex-start; }
+    .card.priority { border-color: #d4a800; box-shadow: 0 2px 10px rgba(212,168,0,0.12); }
+    .card-num { width: 34px; height: 34px; border-radius: 50%; background: #05656F; color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .card.priority .card-num { background: #D4A800; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+    .card-name { font-size: 14px; font-weight: 700; color: #063d44; line-height: 1.3; }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .priority-star { font-size: 10px; font-weight: 800; color: #D4A800; background: #FFF9DB; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .badge-gym { background: #DBEAFE; color: #1D4ED8; }
+    .badge-diagnostics { background: #DCFCE7; color: #15803D; }
+    .badge-pharmacy { background: #CFFAFE; color: #0E7490; }
+    .badge-aesthetics { background: #F3E8FF; color: #7E22CE; }
+    .badge-wellness { background: #FFEDD5; color: #C2410C; }
+    .badge-clinic { background: #FEE2E2; color: #B91C1C; }
+    .badge-physio { background: #EDE9FE; color: #5B21B6; }
+    .badge-longevity { background: #FEF3C7; color: #92400E; }
+    .badge-functional { background: #DCFCE7; color: #14532D; }
+    .card-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+    .card-address { font-size: 11px; font-weight: 500; color: #64748b; display: flex; align-items: flex-start; gap: 5px; }
+    .card-address::before { content: '📍'; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+    .card-distance { font-size: 11px; font-weight: 600; color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+    .card-distance::before { content: '⏱'; font-size: 10px; }
+    .card-pitch { background: #F8FAFC; border-left: 3px solid #2563EB; padding: 7px 10px; border-radius: 0 6px 6px 0; font-size: 11.5px; font-weight: 500; color: #1e3a5f; line-height: 1.55; }
+    .card.priority .card-pitch { background: #FFFBEB; border-left-color: #D4A800; }
+    .verify-note { font-size: 10px; font-weight: 600; color: #94a3b8; margin-top: 5px; font-style: italic; }
+    .footer { text-align: center; padding: 24px 16px 36px; font-size: 11px; color: #94a3b8; font-weight: 500; }
+    .footer strong { color: #0B2547; }
+    @media print {
+      @page { margin: 14mm 12mm; size: A4; }
+      body { background: #fff; font-size: 10pt; }
+      .zone-nav { display: none; }
+      .hero { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 18px 14px; }
+      .zone-header { background: #05656F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card { border: 1.5px solid #d1d5db !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 8px; }
+      .card.priority { border-color: #d4a800 !important; }
+      .zone-section { break-inside: auto; }
+      .zone-header { break-after: avoid; page-break-after: avoid; margin: 0 0 8px; }
+      .extended-note { break-inside: avoid; page-break-inside: avoid; margin: 12px 0 8px; }
+      .pitch-strip { break-inside: avoid; page-break-inside: avoid; margin: 10px 0 6px; }
+      .card-num { background: #05656F !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card.priority .card-num { background: #D4A800 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .footer { break-before: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">Ted's Health - White-Label Partner Programme</div>
+  <h1>Clapham / Balham / Stockwell Pitch Field Guide</h1>
+  <p>Walk-in outreach for TRT and ED clinical partnerships. Priority targets starred in gold.</p>
+  <div class="hero-stats">
+    <span class="hero-stat">18 Targets</span>
+    <span class="hero-stat">7 Priority</span>
+    <span class="hero-stat">SW4 / SW12 / SW9</span>
+    <span class="hero-stat">4 Zones</span>
+  </div>
+</div>
+
+<!-- ZONE NAV -->
+<nav class="zone-nav">
+  <a class="zone-pill" href="#zone-1">Zone 1 - Clapham High St</a>
+  <a class="zone-pill" href="#zone-2">Zone 2 - Clapham South</a>
+  <a class="zone-pill" href="#zone-3">Zone 3 - Balham Hill</a>
+  <a class="zone-pill" href="#zone-4">Zone 4 - Stockwell</a>
+</nav>
+
+<!-- PITCH STRIP -->
+<div class="pitch-strip">
+  <div class="label">Your Opening Line</div>
+  <p>"Hi, I'm Olly from <strong>Ted's Health</strong> - we work with clinics and gyms to add a men's health revenue stream to their existing clients. No extra clinical staff needed, your team keeps the relationship. Do you have 2 minutes for me to leave some info with you?"</p>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#D4A800"></div> Priority</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1D4ED8"></div> Gym</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B91C1C"></div> Clinic</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7E22CE"></div> Aesthetics</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0E7490"></div> Pharmacy</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C2410C"></div> Wellness</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5B21B6"></div> Physio</div>
+</div>
+
+<!-- ZONE 1 -->
+<div class="zone-section" id="zone-1">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 1 - Clapham High Street + Old Town</h2>
+      <p>Clapham Common tube / Clapham North tube - SW4</p>
+    </div>
+    <span class="zone-badge">4 stops</span>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Strategy</div>
+    <p>Start at Clapham Common tube. Virgin Active is 5 minutes on foot and is your top target here - premium health club, high male footfall. 1Rebel opened early 2026 just up the road at Clapham North. Hit both gyms first, then pick up the two pharmacies on the way through.</p>
+  </div>
+
+  <!-- 01: Virgin Active - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">01</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Virgin Active Clapham</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-gym">Gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">4-20 North Street, London, SW4 0HG</div>
+        <div class="card-distance">5 min from Clapham Common tube</div>
+      </div>
+      <div class="card-pitch">Full-service health club with a 17m pool, spa, steam room and sauna - your male members are already thinking about recovery and performance. Ask for the general manager and lead with the revenue angle: clinical partner income from conversations their team is already having, with no medical staff required.</div>
+    </div>
+  </div>
+
+  <!-- 02: 1Rebel - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">02</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">1Rebel Clapham</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-gym">Gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Clapham High Street, London, SW4 7TB</div>
+        <div class="card-distance">2 min from Clapham North tube</div>
+      </div>
+      <div class="card-pitch">Premium boutique gym that opened in 2026, with high-energy training, reformer pilates and a Reset recovery suite (sauna and cold plunge). Their male client demographic is performance-obsessed and already asking about optimisation - a men's health clinical partner is a natural brand fit.</div>
+      <div class="verify-note">Address unconfirmed - verify exact unit before visiting</div>
+    </div>
+  </div>
+
+  <!-- 03: Orbis Pharmacy -->
+  <div class="card">
+    <div class="card-num">03</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Orbis Pharmacy</div>
+        <div class="card-badges">
+          <span class="type-badge badge-pharmacy">Pharmacy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">148 Clapham High Street, London, SW4 7UH</div>
+        <div class="card-distance">4 min from Clapham North tube</div>
+      </div>
+      <div class="card-pitch">Established independent pharmacy on the High Street with a private consultation room and existing private prescription dispensing. Adding a TRT and ED referral pathway is a low-friction revenue add - dispensing infrastructure is already in place. Ask for the pharmacist owner.</div>
+    </div>
+  </div>
+
+  <!-- 04: Kamsons Pharmacy -->
+  <div class="card">
+    <div class="card-num">04</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Kamsons Pharmacy</div>
+        <div class="card-badges">
+          <span class="type-badge badge-pharmacy">Pharmacy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">86 Clapham Manor Street, London, SW4 6EB</div>
+        <div class="card-distance">8 min walk from Clapham North tube</div>
+      </div>
+      <div class="card-pitch">Community pharmacy with an NHS blood pressure check service, vaccination clinic and private health consultations. Men already engaging with their health at this pharmacy are the right demographic for a discreet TRT conversation - we provide the clinical pathway, they keep the patient relationship.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE 2 -->
+<div class="zone-section" id="zone-2">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 2 - Clapham South + Abbeville Village</h2>
+      <p>Clapham South tube - Abbeville Road - Clapham Park Road - SW4</p>
+    </div>
+    <span class="zone-badge">5 stops</span>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Strategy</div>
+    <p>Start at Clapham South tube. Anytime Fitness is 3 minutes away. Then walk to Abbeville Village (8-10 min) for Core and More and Nordic Balance - these are your key targets. Cards 08 and 09 are both in the same mews building on Clapham Park Road, so visit both in one stop.</p>
+  </div>
+
+  <!-- 05: Anytime Fitness Clapham South -->
+  <div class="card">
+    <div class="card-num">05</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Anytime Fitness Clapham South</div>
+        <div class="card-badges">
+          <span class="type-badge badge-gym">Gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">3 Mullins Place, Kings Avenue, London, SW4 8EU</div>
+        <div class="card-distance">3 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">24-hour gym with a health-conscious local membership. Ask for the gym manager or owner - frame the partnership as a member benefit that generates passive income for the club, with no operational change required on their side.</div>
+    </div>
+  </div>
+
+  <!-- 06: Core and More Fitness - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">06</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Core and More Fitness</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-gym">Gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">173 Abbeville Road, London, SW4 9JJ</div>
+        <div class="card-distance">10 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Private boutique PT studio with no walk-in traffic - every session is 1-to-1 and trust-based. Trainers already have deep conversations with male clients about energy, body composition and performance. A clinical partner referral earns them income from conversations they're already having with clients who are ready to listen.</div>
+    </div>
+  </div>
+
+  <!-- 07: Nordic Balance - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">07</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Nordic Balance Physiotherapy</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-physio">Physio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">63 Abbeville Road, London, SW4 9JW</div>
+        <div class="card-distance">8 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Multi-discipline clinic offering physio, chiropractic, osteopathy and sports massage - a high-volume referral hub with a strong male sports and injury caseload. Fatigue and slow recovery are regularly discussed in sessions. Ask for the clinic director and lead with the hormone connection: low testosterone is often behind the gaps in recovery that physio alone does not close.</div>
+    </div>
+  </div>
+
+  <!-- 08: Fierce Face Skin Clinic -->
+  <div class="card">
+    <div class="card-num">08</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fierce Face Skin Clinic</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Unit 7, Abbeville Mews, 88 Clapham Park Road, London, SW4 7BX</div>
+        <div class="card-distance">5 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Bespoke skin clinic tucked into a private mews - an appointment-only setup with a loyal client base that takes their health seriously. Male clients investing in their skin are already open to a broader health conversation. Lead with the idea that skin health and hormone health are often connected.</div>
+    </div>
+  </div>
+
+  <!-- 09: Rescued by Aesthetics -->
+  <div class="card">
+    <div class="card-num">09</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Rescued by Aesthetics</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Unit 17a, 88 Clapham Park Road, London, SW4 7BX</div>
+        <div class="card-distance">Same building as card 08 - visit both in one stop</div>
+      </div>
+      <div class="card-pitch">Bespoke facial aesthetics studio in the same mews as card 08, with a separate owner and client list. Positioned around completely tailored treatments - that same philosophy of personalised care fits naturally with a white-label men's health service. A quick visit while you're in the mews.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE 3 -->
+<div class="zone-section" id="zone-3">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 3 - Balham Hill + Balham Town</h2>
+      <p>Walk south from Clapham South tube down to Balham tube - SW12</p>
+    </div>
+    <span class="zone-badge">6 stops</span>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Strategy</div>
+    <p>Linear walk south - start at Clapham South tube. BTX London is your first stop (1 min from the tube exit). Walk down Balham Hill hitting Balham Physio, WJ Boyes and Hydra Skin in order. Finish at Balham tube for MyHealthcare and Feel Good Balham. BTX London and MyHealthcare are your two highest-value calls on this route.</p>
+  </div>
+
+  <!-- 10: BTX London - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">10</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">BTX London at The Bellissima Clinic</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">5 Westbury Parade, Balham Hill, London, SW12 9DZ</div>
+        <div class="card-distance">1 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Doctor-led medical aesthetics clinic run by Dr Anand Raman - all treatments performed by a practising doctor, so the clinical conversation is already at the heart of the client relationship. Adding a men's health referral programme is a direct revenue extension for male clients already discussing hormones, energy and body composition in appointments.</div>
+    </div>
+  </div>
+
+  <!-- 11: Balham Physio - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">11</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Balham Physio</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-physio">Physio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">39 Balham Hill, London, SW12 9DX</div>
+        <div class="card-distance">5 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Established physiotherapy and osteopathy clinic with a strong male sports and injury caseload. Fatigue, slow recovery and low motivation are common patient complaints that sit alongside injury - our clinical pathway gives them a route to investigate the hormonal side. Ask for the lead clinician or practice owner.</div>
+    </div>
+  </div>
+
+  <!-- 12: WJ Boyes Pharmacy -->
+  <div class="card">
+    <div class="card-num">12</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">W.J. Boyes Pharmacy</div>
+        <div class="card-badges">
+          <span class="type-badge badge-pharmacy">Pharmacy</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">61 Balham Hill, London, SW12 9DR</div>
+        <div class="card-distance">8 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Long-established independent community pharmacy on Balham Hill with a trusted local reputation and an existing private prescription service. Independent pharmacies with a community relationship are well-placed for discreet men's health referrals - ask for the pharmacist owner and frame it as a referral income opportunity, not a product push.</div>
+    </div>
+  </div>
+
+  <!-- 13: Hydra Skin Laser -->
+  <div class="card">
+    <div class="card-num">13</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Hydra Skin Laser and Aesthetic Clinic</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">141 Balham Hill, London, SW12 9DL</div>
+        <div class="card-distance">12 min from Clapham South tube</div>
+      </div>
+      <div class="card-pitch">Laser and aesthetics clinic offering skin treatments, hair removal and facial rejuvenation. Male clients are a growing segment in clinic - those investing in their appearance are increasingly interested in the systemic picture too. A men's health referral programme is a natural add-on conversation for their front desk.</div>
+    </div>
+  </div>
+
+  <!-- 14: MyHealthcare Clinic Balham - PRIORITY -->
+  <div class="card priority">
+    <div class="card-num">14</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">MyHealthcare Clinic Balham</div>
+        <div class="card-badges">
+          <span class="priority-star">Priority</span>
+          <span class="type-badge badge-clinic">Clinic</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">169 Balham Station Road, London, SW12 9AU</div>
+        <div class="card-distance">2 min from Balham tube</div>
+      </div>
+      <div class="card-pitch">Private GP and health screening clinic directly beside Balham tube - already offering same-day blood tests and health checks to a proactive health demographic. Our white-label men's health service adds a TRT and ED prescribing pathway with zero extra clinical overhead. This is a direct revenue line, not a referral relationship. Ask for the clinic manager.</div>
+    </div>
+  </div>
+
+  <!-- 15: Feel Good Balham -->
+  <div class="card">
+    <div class="card-num">15</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Feel Good Balham</div>
+        <div class="card-badges">
+          <span class="type-badge badge-wellness">Wellness</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Unit 7, Hildreth Street Mews, Balham, London, SW12 9RZ</div>
+        <div class="card-distance">5 min from Balham tube</div>
+      </div>
+      <div class="card-pitch">Award-winning holistic therapy centre offering acupuncture, massage, colonics and counselling - a wellness-engaged client base that is already integrating different approaches to health. Frame this as the clinical layer they can refer male clients into when lifestyle support alone is not moving the needle.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE 4 -->
+<div class="zone-section" id="zone-4">
+  <div class="zone-header">
+    <div class="zone-header-left">
+      <h2>Zone 4 - Stockwell + Clapham Road</h2>
+      <p>Stockwell tube - Clapham Road - Stockwell Road - SW9</p>
+    </div>
+    <span class="zone-badge">3 stops</span>
+  </div>
+
+  <div class="extended-note">
+    <div class="label">Zone Strategy</div>
+    <p>Compact zone - start at Stockwell tube. SW9 Dental is an 8-minute walk south on Clapham Road. Bodyset is a 5-minute walk to Lett Road. Fitness First is further towards Brixton on Stockwell Road - do it last or combine with a Brixton session. No priority targets here but all three are worthwhile stops.</p>
+  </div>
+
+  <!-- 16: SW9 Dental -->
+  <div class="card">
+    <div class="card-num">16</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">SW9 Dental and Facial Aesthetics</div>
+        <div class="card-badges">
+          <span class="type-badge badge-aesthetics">Aesthetics</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">263 Clapham Road, London, SW9 9BQ</div>
+        <div class="card-distance">8 min from Stockwell tube</div>
+      </div>
+      <div class="card-pitch">Dental practice with a full facial aesthetics arm - botulinum toxin and dermal fillers delivered by a dentist with comprehensive facial anatomy expertise. Male clients already coming in for aesthetics treatments are receptive to a broader men's health conversation from a trusted clinical provider.</div>
+    </div>
+  </div>
+
+  <!-- 17: Bodyset Stockwell -->
+  <div class="card">
+    <div class="card-num">17</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Bodyset Stockwell</div>
+        <div class="card-badges">
+          <span class="type-badge badge-physio">Physio</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">The Gym Group, 15 Lett Road, London, SW9 0HP</div>
+        <div class="card-distance">5 min from Stockwell tube</div>
+      </div>
+      <div class="card-pitch">Results-focused physiotherapy clinic embedded inside a gym - their male clients are performance-driven and health-literate. Ask for the clinic lead and position our partnership as the clinical add-on for clients whose recovery is not matching their effort in the gym, or whose energy levels have plateaued despite consistent training.</div>
+    </div>
+  </div>
+
+  <!-- 18: Fitness First Stockwell -->
+  <div class="card">
+    <div class="card-num">18</div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">Fitness First Stockwell</div>
+        <div class="card-badges">
+          <span class="type-badge badge-gym">Gym</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <div class="card-address">Blue Star House, 234-244 Stockwell Road, London, SW9 9SP</div>
+        <div class="card-distance">10 min from Stockwell tube</div>
+      </div>
+      <div class="card-pitch">Large-format gym with cycle studio, steam and sauna - high footfall and a strong male membership base across the Stockwell and Brixton area. Large gym chains need a clear commercial case: lead with the income per referral figure and the zero-overhead angle rather than the clinical detail. Ask for the general manager by name if possible.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Ted's Health White-Label Programme</strong> - partnerships@tedshealth.com - myonlineclinic.co.uk</p>
+</div>
+
+</body>
+</html>
