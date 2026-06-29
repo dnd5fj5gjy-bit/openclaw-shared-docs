@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health — London Pitch Day</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0d1b3e;
+    --blue: #7ec8e3;
+    --c1: #2563eb;   /* Harley St — blue */
+    --c2: #7c3aed;   /* Mayfair — purple */
+    --c3: #0891b2;   /* Kensington — teal */
+    --c4: #be185d;   /* Chelsea — pink */
+    --c5: #b45309;   /* City — amber */
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f7f8fc;
+    color: #1a1a2e;
+    padding-bottom: 60px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #08122a 0%, #0d1b3e 55%, #163366 100%);
+    padding: 56px 40px 48px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(126,200,227,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-kicker {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 46px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    border-left: 2px solid rgba(126,200,227,0.35);
+    padding-left: 14px;
+  }
+
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: white;
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  /* ROUTE CHOOSER */
+  .route-chooser {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+  }
+
+  .route-chooser h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .route-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .route-card {
+    border-radius: 12px;
+    padding: 24px;
+    border: 2px solid transparent;
+  }
+
+  .route-card.recommended {
+    background: var(--navy);
+    color: white;
+  }
+
+  .route-card.alt {
+    background: white;
+    border-color: #e0e6f4;
+  }
+
+  .route-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .route-card.recommended .route-tag { color: var(--blue); }
+  .route-card.alt .route-tag { color: #888; }
+
+  .route-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .route-card.recommended h3 { color: white; }
+  .route-card.alt h3 { color: var(--navy); }
+
+  .route-stops {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .route-card.recommended .route-stops { color: rgba(255,255,255,0.65); }
+  .route-card.alt .route-stops { color: #666; }
+
+  .route-meta {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .route-card.recommended .route-meta { color: var(--blue); }
+  .route-card.alt .route-meta { color: var(--navy); }
+
+  /* PAGE CONTENT */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 40px;
+  }
+
+  /* CLUSTER HEADER */
+  .cluster {
+    margin-bottom: 40px;
+  }
+
+  .cluster-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 22px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+  }
+
+  .cluster-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .cluster-info {}
+
+  .cluster-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+
+  .cluster-meta {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .cluster-meta strong { color: white; font-weight: 600; }
+
+  .cluster-c1 .cluster-header { background: var(--c1); }
+  .cluster-c2 .cluster-header { background: var(--c2); }
+  .cluster-c3 .cluster-header { background: var(--c3); }
+  .cluster-c4 .cluster-header { background: var(--c4); }
+  .cluster-c5 .cluster-header { background: var(--c5); }
+
+  /* STOP CARDS */
+  .stops-list {
+    background: white;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    gap: 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: stretch;
+  }
+
+  .stop:last-child { border-bottom: none; }
+
+  .stop-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0;
+  }
+
+  .stop-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .cluster-c1 .stop-num { background: var(--c1); }
+  .cluster-c2 .stop-num { background: var(--c2); }
+  .cluster-c3 .stop-num { background: var(--c3); }
+  .cluster-c4 .stop-num { background: var(--c4); }
+  .cluster-c5 .stop-num { background: var(--c5); }
+
+  .stop-body {
+    padding: 14px 16px 14px 8px;
+  }
+
+  .stop-type {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 3px;
+  }
+
+  .stop-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    line-height: 1.2;
+  }
+
+  .stop-address {
+    font-size: 11.5px;
+    color: #666;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .stop-fit {
+    font-size: 12px;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+
+  .stop-ask {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .stop-ask span {
+    font-weight: 300;
+    color: #666;
+  }
+
+  .stop-meta {
+    padding: 14px 16px 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    min-width: 90px;
+  }
+
+  .tube-badge {
+    background: #f0f5ff;
+    color: #1a56c4;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 10px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .walk-badge {
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+  }
+
+  /* SUB-LABEL for category within a cluster */
+  .stop-category-divider {
+    background: #f7f8fc;
+    padding: 8px 16px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    border-bottom: 1px solid #f0f0f0;
+    grid-column: 1 / -1;
+  }
+
+  /* TIPS SECTION */
+  .tips {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 0;
+    color: white;
+  }
+
+  .tips h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--blue);
+    margin-bottom: 20px;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .tip {
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .tip-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 5px;
+  }
+
+  .tip p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  .divider { height: 1px; background: #e8ecf4; margin: 32px 0; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 34px; }
+    .page { padding: 24px 16px; }
+    .route-chooser { padding: 24px 16px 0; }
+    .route-cards { grid-template-columns: 1fr; }
+    .stop { grid-template-columns: 48px 1fr; }
+    .stop-meta { display: none; }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">Ted's Health — White-Label Acquisition</div>
+  <h1>London<br>Pitch Day</h1>
+  <div class="hero-sub">23 targets across 5 geographic clusters. Walk between stops. Leave the booklet. One day, maximum coverage.</div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">23</div>
+      <div class="hero-stat-label">Targets</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Clusters</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1 day</div>
+      <div class="hero-stat-label">Cluster 1+2</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">A5</div>
+      <div class="hero-stat-label">Booklet to leave</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROUTE CHOOSER -->
+<div class="route-chooser">
+  <h2>Pick your day</h2>
+  <div class="route-cards">
+    <div class="route-card recommended">
+      <div class="route-tag">Recommended — Day 1</div>
+      <h3>Medical Mile + Mayfair</h3>
+      <div class="route-stops">
+        09:00 → Regent's Park tube<br>
+        09:00–12:30 → Harley St cluster (10 stops, all walking)<br>
+        12:30 → Walk south through Marylebone<br>
+        13:30–17:00 → Mayfair / Soho cluster (5 stops)
+      </div>
+      <div class="route-meta">15 face-to-face visits · ~30 min walk total</div>
+    </div>
+
+    <div class="route-card alt">
+      <div class="route-tag">Option B — Day 2</div>
+      <h3>City of London</h3>
+      <div class="route-stops">
+        08:30 → Liverpool St tube<br>
+        08:30–13:00 → City cluster (4 stops, short walks)<br>
+        13:30–15:00 → DLR to Canary Wharf (1 stop)<br>
+        Afternoon → add Chelsea or Kensington
+      </div>
+      <div class="route-meta">Finance demographic · higher spend propensity</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- ═══ CLUSTER 1 ═══ -->
+  <div class="cluster cluster-c1">
+    <div class="cluster-header">
+      <div class="cluster-num">1</div>
+      <div class="cluster-info">
+        <div class="cluster-name">Harley Street / Marylebone — W1G / W1B</div>
+        <div class="cluster-meta"><strong>Start here. 09:00–12:30.</strong> All 10 stops within 20 minutes on foot. Tube: <strong>Regent's Park</strong> (Bakerloo) or <strong>Baker Street</strong> (Jubilee/Met). The single most productive cluster on the list.</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Private GP Clinics</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">1</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Private GP</div>
+          <div class="stop-name">The London General Practice</div>
+          <div class="stop-address">114a Harley Street, London W1G 7JL</div>
+          <div class="stop-fit">Sells corporate wellbeing packages and executive health checks — TH hormone panel slots straight into their men's longevity module.</div>
+          <div class="stop-ask">Ask for: <span>Practice Manager or Clinical Director</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 6 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">2</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Private GP · Men's Health</div>
+          <div class="stop-name">108 Harley Street — Men's Health Clinic</div>
+          <div class="stop-address">108 Harley Street, London W1G</div>
+          <div class="stop-fit">Dedicated men's health wing already talking testosterone and performance — TH gives them a digital TRT platform without building one in-house.</div>
+          <div class="stop-ask">Ask for: <span>Clinic Director or Business Development Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 5 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">3</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Private GP</div>
+          <div class="stop-name">MyHealthcare Clinic</div>
+          <div class="stop-address">142–146 Harley Street, London W1G 7LD</div>
+          <div class="stop-fit">Multi-GP practice with high male patient footfall — TH slides in as a branded men's hormone health add-on.</div>
+          <div class="stop-ask">Ask for: <span>Operations Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 6 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">4</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Private GP · Corporate Wellness</div>
+          <div class="stop-name">Harley Street Health Centre</div>
+          <div class="stop-address">13 Queen Anne Street, London W1G 9JH</div>
+          <div class="stop-fit">Already offers Wellman health examinations — TH replaces or extends their hormone testing with a full TRT platform and patient management system.</div>
+          <div class="stop-ask">Ask for: <span>Practice Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Oxford Circus 7 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">5</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Executive Health · Corporate Wellness</div>
+          <div class="stop-name">Mayo Clinic Healthcare</div>
+          <div class="stop-address">15 Portland Place, London W1B 1PT</div>
+          <div class="stop-fit">Executive health assessments + corporate wellness for multinationals — TH white-label becomes their hormone health module for male executives.</div>
+          <div class="stop-ask">Ask for: <span>Head of Partnerships or Corporate Wellness Director</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Oxford Circus 7 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Men's Health / TRT Clinics</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">6</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Men's Health / TRT</div>
+          <div class="stop-name">The WellMan Clinic</div>
+          <div class="stop-address">32 Weymouth Street, London W1G 7BU</div>
+          <div class="stop-fit">Specialist TRT and ED clinic, 40+ years operating. No modern digital patient management — TH powers their backend. High-priority target.</div>
+          <div class="stop-ask">Ask for: <span>Practice Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 5 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">7</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Men's Health / TRT</div>
+          <div class="stop-name">Centre for Men's Health</div>
+          <div class="stop-address">25 Harley Street, London W1G 9QW</div>
+          <div class="stop-fit">30+ year TRT brand but no modern digital platform — position TH as a tech partnership, not competition.</div>
+          <div class="stop-ask">Ask for: <span>Clinical Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 5 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Performance Labs</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">8</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Biomarker Testing</div>
+          <div class="stop-name">My Vital Metrics — Harley Street</div>
+          <div class="stop-address">98 Harley Street, London W1G</div>
+          <div class="stop-fit">185+ biomarker testing for health-optimised men — TH is the natural next step after their results flag low T.</div>
+          <div class="stop-ask">Ask for: <span>Clinical Lead or CEO</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Regent's Park 5 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">9</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Performance Lab</div>
+          <div class="stop-name">Athlete Lab UK</div>
+          <div class="stop-address">35 Marylebone Road, London NW1 5LS</div>
+          <div class="stop-fit">VO2 max, lactate and blood biomarker testing for serious male athletes — TH adds a hormone health track to their performance testing menu.</div>
+          <div class="stop-ask">Ask for: <span>Lab Director or Head of Performance</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Baker Street 4 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Premium Gym</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">10</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Third Space Marylebone</div>
+          <div class="stop-address">Bulstrode Place, London W1U 2HU</div>
+          <div class="stop-fit">Affluent North London professional membership — TH slots in as a "Men's Performance Health" programme under the Third Space brand.</div>
+          <div class="stop-ask">Ask for: <span>General Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Baker Street 4 min</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CLUSTER 2 ═══ -->
+  <div class="cluster cluster-c2">
+    <div class="cluster-header">
+      <div class="cluster-num">2</div>
+      <div class="cluster-info">
+        <div class="cluster-name">Mayfair / Green Park / Soho — W1J / W1F / SW1A</div>
+        <div class="cluster-meta"><strong>13:30–17:00 on Day 1.</strong> ~20 min walk south from Harley Street, or jump Green Park tube. HNWI and professional demographic — premium positioning.</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Premium Gyms</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">11</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Third Space Mayfair</div>
+          <div class="stop-address">22 Clarges Street, London W1J 5FA</div>
+          <div class="stop-fit">HNWI clientele who expect premium health services alongside their gym membership — TH as a concierge hormone health programme.</div>
+          <div class="stop-ask">Ask for: <span>General Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Green Park 6 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">12</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Ultra-Premium Gym</div>
+          <div class="stop-name">E by Equinox St James's</div>
+          <div class="stop-address">12 Saint James's Street, London SW1A 1ER</div>
+          <div class="stop-fit">£450+/month gym serving executives and financiers who already spend heavily on health optimisation — TH white-label is a natural wellness extension.</div>
+          <div class="stop-ask">Ask for: <span>General Manager or Head of Wellness</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Green Park 3 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">13</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Third Space Soho</div>
+          <div class="stop-address">67 Brewer Street, London W1F 9US</div>
+          <div class="stop-fit">Creative and professional West End demographic — TH as a branded men's health programme in their member comms and onboarding.</div>
+          <div class="stop-ask">Ask for: <span>General Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Piccadilly Circus 4 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Private Pharmacy</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">14</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Clinical Pharmacy</div>
+          <div class="stop-name">The Pharmacy at Mayfair &amp; Clinic</div>
+          <div class="stop-address">4 Shepherd Market, Mayfair, London W1J 7QB</div>
+          <div class="stop-fit">Independent clinical pharmacy operating since the early 1900s, already dispensing private prescriptions and doing on-site consultations.</div>
+          <div class="stop-ask">Ask for: <span>Pharmacist-in-Charge or Clinical Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Green Park 5 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#f9fbff;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">TRT / Hormone Clinic</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">15</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Men's Health / TRT</div>
+          <div class="stop-name">Levitas Hormones for Life</div>
+          <div class="stop-address">South Molton Street area, London W1K — verify exact address before visiting: levitashormones.com</div>
+          <div class="stop-fit">Doctor-led TRT clinic with no digital patient platform — TH powers their patient journey and dispensing backend as a white-label.</div>
+          <div class="stop-ask">Ask for: <span>Clinical Director</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Bond Street 5 min</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <p style="font-size: 13px; color: #888; text-align: center; margin-bottom: 32px; font-weight: 300;">Clusters 3 &amp; 4 below are best done as a separate South/West London half-day. Cluster 5 is a standalone City morning.</p>
+
+  <!-- ═══ CLUSTER 3 ═══ -->
+  <div class="cluster cluster-c3">
+    <div class="cluster-header">
+      <div class="cluster-num">3</div>
+      <div class="cluster-info">
+        <div class="cluster-name">Kensington — W8</div>
+        <div class="cluster-meta"><strong>Pair with Cluster 4 for a South/West London half-day.</strong> Tube: High Street Kensington.</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">16</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Equinox Kensington</div>
+          <div class="stop-address">99 Kensington High Street, London W8 5SA</div>
+          <div class="stop-fit">Premium gym with health-conscious affluent clientele — TH white-label as a "Men's Vitality" programme embedded into membership.</div>
+          <div class="stop-ask">Ask for: <span>General Manager or Membership Director</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">High St Kensington 3 min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CLUSTER 4 ═══ -->
+  <div class="cluster cluster-c4">
+    <div class="cluster-header">
+      <div class="cluster-num">4</div>
+      <div class="cluster-info">
+        <div class="cluster-name">Chelsea / South Kensington — SW3</div>
+        <div class="cluster-meta"><strong>Add to Kensington for a South/West afternoon.</strong> Tube: South Kensington.</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop" style="background:#fff0f5;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Private Pharmacies with Clinical Services</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">17</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Clinical Pharmacy</div>
+          <div class="stop-name">Chelsea Green Pharmacy</div>
+          <div class="stop-address">6 Elystan Street, London SW3 3NS</div>
+          <div class="stop-fit">Independent pharmacy with private clinic serving wealthy Chelsea residents — TH gives them a branded men's hormone health referral pathway. Owner likely on-site.</div>
+          <div class="stop-ask">Ask for: <span>Pharmacist / Owner</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">South Kensington 7 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">18</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Pharmacy + Medical Clinic</div>
+          <div class="stop-name">Chelsea Pharmacy Medical Clinic</div>
+          <div class="stop-address">61–63 Sloane Avenue, London SW3 3DH</div>
+          <div class="stop-fit">Pharmacy and medical clinic under one roof already running clinical services — TH plugs in as their hormone health module for male patients.</div>
+          <div class="stop-ask">Ask for: <span>Medical Director or Clinic Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">South Kensington 6 min</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CLUSTER 5 ═══ -->
+  <div class="cluster cluster-c5">
+    <div class="cluster-header">
+      <div class="cluster-num">5</div>
+      <div class="cluster-info">
+        <div class="cluster-name">City of London / Canary Wharf — EC2 / EC3 / E14</div>
+        <div class="cluster-meta"><strong>Standalone half-day.</strong> Tube: Liverpool Street or Moorgate. Finance-sector demographic — highest spend propensity. Start 08:30 to catch people before markets open.</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop" style="background:#fffbf0;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Biomarker Testing</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">19</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Biomarker Testing</div>
+          <div class="stop-name">My Vital Metrics — City</div>
+          <div class="stop-address">Salisbury House, 29 Finsbury Circus, London EC2M 5QQ</div>
+          <div class="stop-fit">Health screening for City executives — TH white-label is the male hormone health follow-up programme after their test results flag low T.</div>
+          <div class="stop-ask">Ask for: <span>Clinical Lead or Head of Operations</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Moorgate 4 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#fffbf0;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Premium Gyms</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">20</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Third Space City</div>
+          <div class="stop-address">40 Mark Lane, London EC3R 7AT</div>
+          <div class="stop-fit">City banker membership base — TH white-label as a "Men's Peak Performance" health programme. High propensity to pay for TRT.</div>
+          <div class="stop-ask">Ask for: <span>General Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Monument 4 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">21</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Premium Gym</div>
+          <div class="stop-name">Equinox Bishopsgate</div>
+          <div class="stop-address">8 Clerk's Place, London EC3A 8AQ</div>
+          <div class="stop-fit">The City's premium gym — finance-sector membership is the exact TH buyer profile. TH as their branded men's vitality service.</div>
+          <div class="stop-ask">Ask for: <span>General Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Liverpool Street 3 min</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">22</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Health Club · Wellness</div>
+          <div class="stop-name">Nuffield Health — City</div>
+          <div class="stop-address">4 Cousin Lane, London EC4R 3XJ</div>
+          <div class="stop-fit">Large health club with existing health check programmes — TH adds a TRT/hormone health stream to their already-structured men's health offering.</div>
+          <div class="stop-ask">Ask for: <span>Wellbeing Director or Centre Manager</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">Cannon Street 3 min</div>
+        </div>
+      </div>
+
+      <div class="stop" style="background:#fffbf0;">
+        <div class="stop-num-col"></div>
+        <div class="stop-category-divider" style="grid-column:2/-1">Private GP</div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num-col"><div class="stop-num">23</div></div>
+        <div class="stop-body">
+          <div class="stop-type">Private GP Clinic</div>
+          <div class="stop-name">Canary Wharf Clinic</div>
+          <div class="stop-address">121 Meridian Place, Canary Wharf, London E14 9FF</div>
+          <div class="stop-fit">Private GP and executive health checks serving the financial district — TH white-label adds hormone health to their male patient pathway.</div>
+          <div class="stop-ask">Ask for: <span>Practice Manager or Clinical Director</span></div>
+        </div>
+        <div class="stop-meta">
+          <div class="tube-badge">South Quay DLR 3 min</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TIPS -->
+  <div class="tips">
+    <h2>On the day — how to work it</h2>
+    <div class="tips-grid">
+      <div class="tip">
+        <div class="tip-label">Cold walk-in approach</div>
+        <p>Ask for the person by role, not name. "Is the Practice Manager or GM around for 5 minutes?" Keep it brief. Leave the booklet even if they're busy — that's the whole point of having it.</p>
+      </div>
+      <div class="tip">
+        <div class="tip-label">What to say at the door</div>
+        <p>"I'm Olly from Ted's Health — part of Bear Grylls Ventures. We run a white-label men's hormone health programme for clinics and gyms. I've got a one-page booklet — is there someone I could leave it with and book a 20-minute call?"</p>
+      </div>
+      <div class="tip">
+        <div class="tip-label">Log every stop</div>
+        <p>Note who you spoke to and what they said — even "they were busy" is useful. Send a follow-up email same day. Ted can draft them in bulk from your notes.</p>
+      </div>
+      <div class="tip">
+        <div class="tip-label">QR code is your follow-up</div>
+        <p>Even if they only glance at the booklet and scan the QR, they're in the funnel. The partner platform page does the pitch work after you've left.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
