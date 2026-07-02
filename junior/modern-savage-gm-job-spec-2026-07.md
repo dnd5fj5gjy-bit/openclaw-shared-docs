@@ -36,7 +36,7 @@ While the founders focus on brand, product and growth, you run the operational s
 
 **Fulfilment and customers**
 - Run the 3PL relationship: inbound stock, pick and pack, shipping issues, returns
-- Own customer service from day one: templates, refunds, subscription changes, escalations
+- Handle customer service from day one: templates, refunds, subscription changes, escalations
 - Watch subscription health (churn, failed payments, delivery problems) and fix root causes, not symptoms
 
 **Compliance and admin**
