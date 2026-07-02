@@ -183,4 +183,75 @@ All v1 risks stand (Organised overlap - keep the MS chronology clean and get CJ 
 
 ---
 
-*Source dossier: workspace/evidence/full-audit-2026-07-01/ms-dossier.md · Supersedes v1 of 1 Jul.*
+## 12. Financial Projections & Model
+
+Full model in the companion spreadsheet **modern-savage-financial-model-2026-07-02.xlsx** - seven tabs (Assumptions, US Model, UK Model, Consolidated P&L + Cash, Scenarios, Unit Economics, Read Me). All yellow cells are editable inputs; change churn, CAC, pricing or COGS and everything recalculates. Numbers below are the model's outputs at base assumptions.
+
+### 12.1 Core assumptions (base case)
+
+| | US | UK |
+|---|---|---|
+| Subscription (net of VAT) | $59.99 | £45.83 (£55 inc VAT) |
+| One-time (net of VAT) | $79.99 | £54.17 (£65 inc VAT) |
+| COGS per unit (product + pouch + insert) | $25.50 | £21.00 (TBC at Protein Partners quote) |
+| Monthly churn | 9% | 9% |
+| CAC (paid) | $45 | £35 |
+| Launch | Sep 2026 | Nov 2026 |
+
+One-time buyers modelled at 30% of new subscriber adds. Fulfilment is charged to the customer (pass-through), so excluded from margin. FX £1 = $1.30. Fixed costs: Ku $3K/mo + $4K/mo overheads.
+
+### 12.2 Unit economics
+
+| | US | UK |
+|---|---|---|
+| Gross profit per subscriber per month | $32.45 | £23.20 |
+| Gross margin (subscription) | 54% | 51% |
+| Expected lifetime at 9% churn | 11.1 months | 11.1 months |
+| LTV (gross profit basis) | ~$360 | ~£258 |
+| LTV : CAC | 8.0x | 7.4x |
+| CAC payback | 1.4 months | 1.5 months |
+
+This is the headline for any capital conversation: **at a $45 CAC the model earns back acquisition cost in under 6 weeks and returns ~8x over the subscriber's life.** Anything under 3 months payback means paid spend recycles fast enough to substantially self-fund growth. The binding constraint is not marketing efficiency - it is inventory.
+
+### 12.3 Base case - monthly trajectory (consolidated, USD)
+
+| Month | Active subs | Net revenue | Gross profit | Op cash flow | Cumulative cash* |
+|---|---|---|---|---|---|
+| Sep-26 (US launch) | 1,200 | $101K | $58K | +$51K | -$114K |
+| Oct-26 | 1,942 | $137K | $76K | +$62K | -$115K |
+| Dec-26 (UK live) | 5,310 | $356K | $191K | +$172K | +$196K |
+| Mar-27 | 7,918 | $505K | $268K | +$236K | +$839K |
+| Jun-27 | 10,097 | $638K | $338K | +$304K | +$1.56M |
+| Dec-27 | 13,272 | $832K | $439K | +$405K | +$3.72M |
+
+*Cumulative cash includes the capital schedule from Aug-26 onward (ACF balance $80K, Belmark ~$12K, UK Option B ~£85K in two tranches, reorders). The ~$100K already spent pre-July sits outside this window; add it for total programme funding.
+
+**The shape of the story:** operating cash flow is positive from the first month of US trading; the cash trough is entirely inventory-driven, bottoming at roughly **-$161K within the window (~$260-280K total programme including money already out)**, and the business is cumulatively cash-positive around December 2026, one month after UK launch. That is comfortably inside the $350-400K programme envelope in §6 - the buffer is real.
+
+### 12.4 Scenarios
+
+| Metric | Conservative | Base | Bull |
+|---|---|---|---|
+| Year-1 net revenue (Sep-26 to Aug-27) | $2.48M | $5.41M | $10.6M |
+| Year-1 gross profit | $1.32M | $2.88M | $5.65M |
+| Active subscribers Dec-26 | ~2,600 | ~5,300 | ~9,900 |
+| Active subscribers Dec-27 | ~5,600 | ~13,300 | ~28,000 |
+| Run-rate revenue exiting Dec-27 | $4.2M | $10.0M | $21.0M |
+| Peak funding need (in-window) | -$180K | -$161K | -$161K |
+
+Conservative = half the subscriber adds, 12% churn, CAC $55/£45. Bull = 1.8-2x adds, 7% churn. Even the conservative case clears $2.4M year-one revenue and turns cumulatively cash-positive in H1-27 - because the unit economics carry the model, weak top-line mostly just slows the compounding rather than burning cash.
+
+### 12.5 Reality check on Bear's targets
+
+Bear's stated goal is 5,000 customers month 1 / 20,000 by month 6 / 50,000 by year end. At 9% churn, 50,000 *active* subscribers by Dec-26 requires ~57,000+ acquisitions in four months. The owned list realistically converts ~1,700 (2-3% of 57,620); the remaining ~55,000 would be paid - **~$2.5M of ad spend at $45 CAC, plus inventory roughly 5x the current 7,500-unit run.** The right framing: 50K is the 18-24-month goal (the Bull case exits Dec-27 at ~28K active, having served ~50K+ total customers); the Base case is the plan of record. The month-1 5,000 target IS roughly achievable on total *customers* (subs + one-time) across both launches if HOS lands and the list converts at the top of the range.
+
+### 12.6 What moves the model most (sensitivity, in order)
+
+1. **Churn.** 9% → 12% cuts Dec-27 subscribers by ~25% and LTV by a quarter. Everything spent on retention (taste, transparency, subscription perks) is the highest-leverage money in the business.
+2. **UK COGS.** Every £1/unit off the Protein Partners quote is ~1.5 points of UK margin. Negotiate with the Parkacre quote in hand.
+3. **List conversion at launch.** The difference between 1.5% and 3% conversion of 57,620 emails is ~850 founding subscribers - roughly $500K of Year-1 revenue. The GDPR re-permission pass and pre-order capture before 22 Jul are directly worth money.
+4. **CAC.** Matters least of the four - at 8x LTV:CAC there is huge headroom before paid stops working. Even $70 CAC still pays back inside 10 weeks.
+
+---
+
+*Source dossier: workspace/evidence/full-audit-2026-07-01/ms-dossier.md · Supersedes v2 of 1 Jul. Financial model: modern-savage-financial-model-2026-07-02.xlsx (same folder).*
