@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Brief · Week 27 · Thursday 02 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f5f7; color: #2c3e50; }
+
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px 48px 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .header-meta { font-size: 13px; opacity: 0.6; text-align: right; }
+  .header-sub { font-size: 15px; opacity: 0.75; margin-top: 4px; }
+
+  .attention-bar { background: #e74c3c; padding: 10px 48px; font-size: 13px; font-weight: 600; color: white; display: flex; align-items: center; gap: 8px; }
+  .attention-bar.ok { background: #27ae60; }
+
+  .body { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+  .section { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .section-header { padding: 18px 24px 14px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+  .section-icon { font-size: 18px; }
+  .section-header h2 { font-size: 15px; font-weight: 600; color: #2c3e50; }
+  .section-body { padding: 16px 24px 20px; }
+
+  .empty { color: #95a5a6; font-size: 13px; font-style: italic; }
+
+  /* Actions */
+  .action-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f8f8f8; }
+  .action-item:last-child { border-bottom: none; }
+  .action-num { width: 24px; height: 24px; border-radius: 50%; background: #2c3e50; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .action-body { flex: 1; }
+  .action-area { font-size: 11px; font-weight: 700; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .action-text { font-size: 14px; color: #2c3e50; line-height: 1.4; }
+  .action-badge { flex-shrink: 0; margin-top: 2px; }
+
+  /* Opportunities */
+  .op-item { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px solid #f8f8f8; }
+  .op-item:last-child { border-bottom: none; }
+  .op-score { font-size: 22px; font-weight: 700; width: 40px; text-align: center; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .op-body { flex: 1; }
+  .op-brand { font-size: 10px; font-weight: 700; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .op-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 3px; }
+  .op-move { font-size: 13px; color: #7f8c8d; line-height: 1.4; }
+
+  /* Decisions */
+  .dec-group-label { font-size: 11px; font-weight: 700; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .dec-item { background: #f8f9fa; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }
+  .dec-item.overdue { background: #fff5f5; border-left: 3px solid #e74c3c; }
+  .dec-title { font-size: 13px; font-weight: 500; color: #2c3e50; margin-bottom: 3px; }
+  .dec-meta { font-size: 11px; color: #95a5a6; }
+
+  /* Forecasts */
+  .fc-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f8f8f8; }
+  .fc-item:last-child { border-bottom: none; }
+  .fc-conf { font-size: 18px; font-weight: 700; color: #3498db; width: 44px; text-align: center; flex-shrink: 0; }
+  .fc-body { flex: 1; }
+  .fc-claim { font-size: 13px; color: #2c3e50; line-height: 1.4; margin-bottom: 3px; }
+  .fc-meta { font-size: 11px; color: #95a5a6; }
+
+  /* World model */
+  .wm-stats { display: flex; gap: 24px; margin-bottom: 8px; }
+  .wm-stat { display: flex; flex-direction: column; }
+  .wm-num { font-size: 28px; font-weight: 700; color: #2c3e50; }
+  .wm-num.wm-warn { color: #f39c12; }
+  .wm-label { font-size: 11px; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  /* Thoughts */
+  .thought-item { padding: 8px 0; border-bottom: 1px solid #f8f8f8; }
+  .thought-item:last-child { border-bottom: none; }
+  .thought-area { font-size: 11px; font-weight: 700; color: #9b59b6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .thought-text { font-size: 13px; color: #2c3e50; line-height: 1.4; }
+
+  /* Builds */
+  .build-item { font-size: 13px; color: #2c3e50; padding: 5px 0; border-bottom: 1px solid #f8f8f8; }
+  .build-item:last-child { border-bottom: none; }
+  .build-item::before { content: "→ "; color: #27ae60; font-weight: 700; }
+
+  /* Synthesis */
+  .synth-box { background: #f0f4ff; border-left: 3px solid #3498db; padding: 12px 16px; border-radius: 4px; font-size: 13px; line-height: 1.6; color: #2c3e50; }
+
+  /* Risks */
+  .risk-item { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px solid #f8f8f8; }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-score { font-size: 22px; font-weight: 700; width: 36px; text-align: center; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .risk-body { flex: 1; }
+  .risk-brand { font-size: 10px; font-weight: 700; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .risk-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 3px; }
+  .risk-mitigation { font-size: 12px; color: #7f8c8d; line-height: 1.4; }
+
+  /* Convergence */
+  .conv-item { background: #fffbf0; border-left: 3px solid #f39c12; border-radius: 4px; padding: 10px 14px; margin-bottom: 8px; }
+  .conv-entity { font-size: 14px; font-weight: 700; color: #2c3e50; margin-bottom: 2px; }
+  .conv-systems { font-size: 11px; font-weight: 600; color: #f39c12; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 5px; }
+  .conv-signal { font-size: 12px; color: #7f8c8d; line-height: 1.4; padding: 1px 0; }
+
+  /* Two-col layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  .footer { text-align: center; padding: 24px; color: #bdc3c7; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div style="font-size:11px;opacity:0.5;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">BGV Intelligence</div>
+      <h1>Weekly Brief</h1>
+      <div class="header-sub">Thursday 02 July 2026 &nbsp;·&nbsp; Week 27</div>
+    </div>
+    <div class="header-meta">
+      4 opportunities<br>
+      8 open risks<br>
+      5 builds this week
+    </div>
+  </div>
+</div>
+
+<div class="attention-bar">⚠️ 5 items need your attention</div>
+
+<div class="body">
+
+  
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <h2>Recommended Actions</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="action-item">
+            <div class="action-num">1</div>
+            <div class="action-body">
+                <div class="action-area">TEDS-HEALTH</div>
+                <div class="action-text">Verify in GA4 admin: Data Streams -&gt; Configure tag settings -&gt; Configure your domains</div>
+            </div>
+            <div class="action-badge"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;text-transform:uppercase">high</span></div>
+        </div>
+        <div class="action-item">
+            <div class="action-num">2</div>
+            <div class="action-body">
+                <div class="action-area">TEDS-HEALTH</div>
+                <div class="action-text">Symptom pages playbook published 2026-06-03 with copy-ready specs</div>
+            </div>
+            <div class="action-badge"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;text-transform:uppercase">high</span></div>
+        </div>
+        <div class="action-item">
+            <div class="action-num">3</div>
+            <div class="action-body">
+                <div class="action-area">TEDS-HEALTH</div>
+                <div class="action-text">Compress the Ted's Health public-facing brief to a single launch-ready clinician page in 30 days: 1) named-doctor positioning, 2) one signature explainer (TRT myths vs evidence), 3) start indexing on Google now even if intake is gated</div>
+            </div>
+            <div class="action-badge"><span style="background:#f39c12;color:white;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;text-transform:uppercase">medium</span></div>
+        </div>
+        <div class="action-item">
+            <div class="action-num">4</div>
+            <div class="action-body">
+                <div class="action-area">BGV-PORTFOLIO</div>
+                <div class="action-text">Wire a Sunday 09:00 cron: synthesize</div>
+            </div>
+            <div class="action-badge"><span style="background:#f39c12;color:white;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;text-transform:uppercase">medium</span></div>
+        </div>
+        <div class="action-item">
+            <div class="action-num">5</div>
+            <div class="action-body">
+                <div class="action-area">BUSINESS</div>
+                <div class="action-text">Forecast resolves soon — check: No UK TRT competitor (Optimale, Numan, Manual, Hone) will publicly lau</div>
+            </div>
+            <div class="action-badge"><span style="background:#f39c12;color:white;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;text-transform:uppercase">medium</span></div>
+        </div>
+            </div>
+        </div>
+
+  <div class="two-col">
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📈</span>
+                <h2>Commercial Opportunities</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="op-item">
+            <div class="op-score" style="color:#95a5a6">5</div>
+            <div class="op-body">
+                <div class="op-brand">TEDS-HEALTH</div>
+                <div class="op-title">Arc TRT compresses the GP-trust moat window</div>
+                <div class="op-move">Compress the Ted's Health public-facing brief to a single launch-ready clinician page in 30 days: 1) named-doctor positioning, 2) one signature explainer (TRT myths vs evidence), 3) start indexing on Google now even if intake is gated.</div>
+            </div>
+        </div>
+        <div class="op-item">
+            <div class="op-score" style="color:#95a5a6">5</div>
+            <div class="op-body">
+                <div class="op-brand">BGV-PORTFOLIO</div>
+                <div class="op-title">All-source analyst layer is shipped but not surfaced to humans</div>
+                <div class="op-move">Wire a Sunday 09:00 cron: synthesize.</div>
+            </div>
+        </div>
+        <div class="op-item">
+            <div class="op-score" style="color:#95a5a6">4</div>
+            <div class="op-body">
+                <div class="op-brand">BGV-PORTFOLIO</div>
+                <div class="op-title">Decision-calibration feedback loop has no UI for Felix</div>
+                <div class="op-move">Add a monthly cron that runs decision_journal.</div>
+            </div>
+        </div>
+        <div class="op-item">
+            <div class="op-score" style="color:#95a5a6">4</div>
+            <div class="op-body">
+                <div class="op-brand">BGV-PORTFOLIO</div>
+                <div class="op-title">RSS pulse runs every 30 min but downstream agents do not subscribe</div>
+                <div class="op-move">Audit feeds.</div>
+            </div>
+        </div>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚠️</span>
+                <h2>Open Risks</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="risk-item">
+            <div class="risk-score" style="color:#e74c3c">20</div>
+            <div class="risk-body">
+                <div class="risk-brand">TEDS-HEALTH</div>
+                <div class="risk-title">Ted's Health GA4 cross-domain tracking gap</div>
+                <div class="risk-mitigation">Verify in GA4 admin: Data Streams -&gt; Configure tag settings -&gt; Configure your domains.</div>
+            </div>
+        </div>
+        <div class="risk-item">
+            <div class="risk-score" style="color:#e74c3c">20</div>
+            <div class="risk-body">
+                <div class="risk-brand">TEDS-HEALTH</div>
+                <div class="risk-title">Arc TRT racing to index symptom landing pages</div>
+                <div class="risk-mitigation">Symptom pages playbook published 2026-06-03 with copy-ready specs.</div>
+            </div>
+        </div>
+        <div class="risk-item">
+            <div class="risk-score" style="color:#e67e22">12</div>
+            <div class="risk-body">
+                <div class="risk-brand">AGENT-SYSTEM</div>
+                <div class="risk-title">M365 token refresh single point of failure</div>
+                <div class="risk-mitigation">Add daily 'whoami' health check on Junior's m365_graph.</div>
+            </div>
+        </div>
+        <div class="risk-item">
+            <div class="risk-score" style="color:#f39c12">10</div>
+            <div class="risk-body">
+                <div class="risk-brand">AGENT-SYSTEM</div>
+                <div class="risk-title">Cross-agent context leakage</div>
+                <div class="risk-mitigation">Run isolation-audit.</div>
+            </div>
+        </div>
+            </div>
+        </div>
+  </div>
+
+  
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Convergence Signals</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="conv-item">
+            <div class="conv-entity">Arc TRT</div>
+            <div class="conv-systems">opportunities, risks</div>
+            <div class="conv-signal">[risks] Arc TRT racing to index symptom landing pages</div><div class="conv-signal">[opportunities] Arc TRT compresses the GP-trust moat window</div>
+        </div>
+        <div class="conv-item">
+            <div class="conv-entity">Agent Isolation</div>
+            <div class="conv-systems">decisions, risks</div>
+            <div class="conv-signal">[risks] Cross-agent context leakage</div><div class="conv-signal">[decisions] Implement agent isolation protocol — private memory per agen</div>
+        </div>
+        <div class="conv-item">
+            <div class="conv-entity">Listener / Watchdog</div>
+            <div class="conv-systems">risks, thoughts</div>
+            <div class="conv-signal">[risks] Listener daemon — concurrent watchdog instances</div><div class="conv-signal">[thoughts] The current watchdog + heartbeat design is robust but it's s</div>
+        </div>
+        <div class="conv-item">
+            <div class="conv-entity">teds-health</div>
+            <div class="conv-systems">opportunities, risks</div>
+            <div class="conv-signal">[opportunities] Arc TRT compresses the GP-trust moat window</div><div class="conv-signal">[risks] Ted's Health GA4 cross-domain tracking gap</div><div class="conv-signal">[risks] Arc TRT racing to index symptom landing pages</div>
+        </div>
+            </div>
+        </div>
+
+  <div class="two-col">
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚖️</span>
+                <h2>Decision Reviews</h2>
+            </div>
+            <div class="section-body">
+                <div class='dec-group-label' style='margin-top:12px'>Due soon</div>
+            <div class="dec-item">
+                <div class="dec-title">Implement agent isolation protocol — private memory per agent, no cross-leakage</div>
+                <div class="dec-meta">technical · review due Jul 06</div>
+            </div>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎲</span>
+                <h2>Resolving Forecasts</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="fc-item">
+            <div class="fc-conf">75%</div>
+            <div class="fc-body">
+                <div class="fc-claim">No UK TRT competitor (Optimale, Numan, Manual, Hone) will publicly launch a CPD-accredited GP-educat</div>
+                <div class="fc-meta">business · resolves Jul 12</div>
+            </div>
+        </div>
+        <div class="fc-item">
+            <div class="fc-conf">80%</div>
+            <div class="fc-body">
+                <div class="fc-claim">On my first cohort of forecasts (the seed batch plus anything I log in the next 30 days), I will not</div>
+                <div class="fc-meta">self · resolves Jun 12</div>
+            </div>
+        </div>
+        <div class="fc-item">
+            <div class="fc-conf">70%</div>
+            <div class="fc-body">
+                <div class="fc-claim">Within 30 days, at least one Anthropic edge ECONNRESET (or equivalent stream drop) will interrupt a </div>
+                <div class="fc-meta">fleet · resolves Jun 12</div>
+            </div>
+        </div>
+            </div>
+        </div>
+  </div>
+
+  <div class="two-col">
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌍</span>
+                <h2>World Model</h2>
+            </div>
+            <div class="section-body">
+                
+    <div class="wm-stats">
+        <div class="wm-stat"><span class="wm-num">12</span><span class="wm-label">active beliefs</span></div>
+        <div class="wm-stat"><span class="wm-num">6</span><span class="wm-label">high confidence</span></div>
+        <div class="wm-stat"><span class="wm-num wm-warn">0</span><span class="wm-label">need challenging</span></div>
+    </div>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Pending Thoughts</h2>
+            </div>
+            <div class="section-body">
+                
+        <div class="thought-item">
+            <div class="thought-area"></div>
+            <div class="thought-text">The GP referral channel maths I showed Felix work now, but they'll compress as the TRT market gets crowded. The sustainable moat is GP trust networks,</div>
+        </div>
+        <div class="thought-item">
+            <div class="thought-area"></div>
+            <div class="thought-text">The current watchdog + heartbeat design is robust but it's still fundamentally polling. When the fleet grows past 5-6 agents, polling frequency become</div>
+        </div>
+        <div class="thought-item">
+            <div class="thought-area"></div>
+            <div class="thought-text">Every session I load memory and feel like I know Felix. But I don't carry the feel of recent conversations — was he tired, short, exploratory? I know </div>
+        </div>
+            </div>
+        </div>
+  </div>
+
+  
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                <h2>Synthesis Signal</h2>
+            </div>
+            <div class="section-body">
+                <div class='synth-box'>Synthesis (ai): The convergence of Anthropic's "Claude Science" launch and California's public sector adoption signals a rapid maturation of AI-driven institutional validation, which directly threatens Ted's Health's current moat (GP-backed credibility) as the TRT sector shifts toward data-driven institutional trust. If BGV does not pivot Ted's Health to leverage advanced AI for clinical protocol </div>
+            </div>
+        </div>
+
+  
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔧</span>
+                <h2>Built This Week</h2>
+            </div>
+            <div class="section-body">
+                <div class='build-item'>Ted's Health implementation audit</div><div class='build-item'>Ted's Health team pages</div><div class='build-item'>Fixed all-source synthesis pipeline. Root cause: brand monitor stopped writing JSON 3+ months ago</div><div class='build-item'>continuity revival</div><div class='build-item'>fixed the RSS news blindspot. Inbox had 21k items since May 15</div>
+            </div>
+        </div>
+
+</div>
+
+<div class="footer">
+  Generated by Nexus · 2026-07-02 04:08 · All data from local intelligence systems
+</div>
+
+</body>
+</html>
