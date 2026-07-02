@@ -18,7 +18,7 @@ This is a rare seat: employee number one in a founder-backed brand at the exact 
 
 ## The role
 
-You own everything between "we decided it" and "it happened."
+You are responsible for everything between "we decided it" and "it happened."
 
 While the founders focus on brand, product and growth, you run the operational spine: suppliers, fulfilment, customers, compliance and company admin. In the first six months this is hands-on and self-directed. As the brand scales, you hire and build the processes around you — this role grows into running the company day to day.
 
