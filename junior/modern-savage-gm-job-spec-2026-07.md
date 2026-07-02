@@ -22,10 +22,10 @@ You are responsible for everything between "we decided it" and "it happened."
 
 While the founders focus on brand, product and growth, you run the operational spine: suppliers, fulfilment, customers, compliance and company admin. In the first six months this is hands-on and self-directed. As the brand scales, you hire and build the processes around you — this role grows into running the company day to day.
 
-## What you will own
+## Responsibilities
 
 **Launch (your first 90 days)**
-- Run the launch plan as a project: one owner, one timeline, weekly status to the founders
+- Run the launch plan as a project: one lead, one timeline, weekly status to the founders
 - Close the open items that gate launch: spec sheets, label artwork, packaging print runs
 - Have fulfilment, customer service and reporting live and working on day one
 
