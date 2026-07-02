@@ -50,7 +50,7 @@ Direct experience in consumer products, supplements or operations is valuable bu
 
 You are right for this if you are:
 
-- **A finisher.** You close loops without being chased, and things you own do not fall through cracks
+- **A finisher.** You close loops without being chased, and nothing you take on falls through the cracks
 - **Highly organised.** Contracts, spreadsheets, supplier records and timelines stay tidy in your hands
 - **Self-managing.** This is a small founding team, not a big company with support functions — you decide, act and report
 - **A direct communicator.** You flag problems early and bring options, not just issues
