@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness — The AI Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF3D8A;
+  --cyan:#00E5FF;
+  --gold:#F5B942;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --warm-white:#FDFBF8;
+  --charcoal:#1A1A1A;
+  --text-primary:#1A1A1A;
+  --text-muted:rgba(26,26,26,0.6);
+  --text-on-dark:rgba(255,255,255,0.85);
+  --text-on-dark-muted:rgba(255,255,255,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--text-primary);background:var(--cream);
+  line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.hero{
+  min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);
+  padding:7rem 2rem 5rem;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:0.08;animation:float 20s ease-in-out infinite}
+.hero-bg-shapes .s1{width:520px;height:520px;top:-120px;right:-160px;background:var(--pink)}
+.hero-bg-shapes .s2{width:360px;height:360px;bottom:-90px;left:-110px;background:var(--cyan);animation-delay:-7s}
+.hero-bg-shapes .s3{width:260px;height:260px;top:38%;left:8%;background:var(--gold);animation-delay:-14s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-30px) scale(1.05)}
+  66%{transform:translate(-15px,20px) scale(0.95)}
+}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);font-weight:500;margin-bottom:1.5rem;position:relative;z-index:1}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.2vw,4.2rem);
+  color:white;line-height:1.1;max-width:900px;margin-bottom:1.4rem;position:relative;z-index:1;
+}
+.hero h1 .accent{color:var(--pink)}
+.hero-sub{color:var(--text-on-dark);max-width:660px;font-size:1.08rem;margin-bottom:2rem;position:relative;z-index:1;line-height:1.75}
+.hero-meta{display:flex;gap:2rem;color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:400;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+
+section{padding:5.5rem 2rem}
+.inner{max-width:1080px;margin:0 auto}
+.tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--pink);font-weight:500;margin-bottom:1rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15;margin-bottom:1.2rem}
+.body-text{max-width:760px;color:var(--text-muted);margin-bottom:1.4rem;font-size:1.02rem}
+.body-text strong{color:var(--text-primary);font-weight:500}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--warm-white)}
+.sec-dark{background:var(--charcoal);color:white}
+.sec-dark .heading{color:white}
+.sec-dark .body-text{color:var(--text-on-dark)}
+.sec-dark .body-text strong{color:white}
+.sec-dark .tag{color:var(--cyan)}
+
+.summary-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 auto;max-width:1080px;
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  transform:translateY(-3rem);position:relative;z-index:2;
+  box-shadow:0 20px 60px -30px rgba(0,0,0,0.18);
+}
+.summary-strip > div{padding:1.4rem 1.6rem;border-right:1px solid rgba(0,0,0,0.06)}
+.summary-strip > div:last-child{border-right:0}
+.summary-strip .k{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:0.4rem}
+.summary-strip .v{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--charcoal);line-height:1.2}
+
+.included{display:grid;grid-template-columns:1fr;gap:0;margin-top:1.5rem;border-top:1px solid rgba(0,0,0,0.08)}
+.included .row{display:grid;grid-template-columns:170px 1fr;gap:2rem;padding:1.4rem 0;border-bottom:1px solid rgba(0,0,0,0.08);align-items:start}
+.included .row .lbl{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);font-weight:600;padding-top:0.25rem}
+.included .row h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.4rem;line-height:1.25}
+.included .row p{color:var(--text-muted);font-size:0.95rem;line-height:1.65}
+
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem}
+.cardgrid .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1.8rem}
+.cardgrid .card.light{background:var(--warm-white);border:1px solid rgba(0,0,0,0.06)}
+.cardgrid .card .card-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:0.6rem}
+.cardgrid .card.light .card-label{color:var(--pink)}
+.cardgrid .card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:white;margin-bottom:0.5rem;line-height:1.3}
+.cardgrid .card.light h3{color:var(--charcoal)}
+.cardgrid .card p{color:var(--text-on-dark-muted);font-size:0.92rem;line-height:1.7}
+.cardgrid .card.light p{color:var(--text-muted)}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+.compare .col{border-radius:10px;padding:2rem;border:1px solid rgba(0,0,0,0.06)}
+.compare .col.old{background:var(--cream-dark)}
+.compare .col.new{background:var(--charcoal);color:white;border:none}
+.compare .col h3{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1rem}
+.compare .col.new h3{color:var(--cyan)}
+.compare ul{list-style:none}
+.compare li{font-size:0.92rem;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.08);color:var(--text-muted)}
+.compare .col.new li{border-bottom:1px solid rgba(255,255,255,0.1);color:var(--text-on-dark)}
+.compare li:last-child{border-bottom:0}
+
+.commercials{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:2rem;background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;overflow:hidden}
+.commercials > div{padding:2rem;border-right:1px solid rgba(0,0,0,0.06)}
+.commercials > div:last-child{border-right:0}
+.commercials .label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:0.5rem}
+.commercials .figure{font-family:'DM Serif Display',serif;font-size:1.9rem;line-height:1.15;margin-bottom:0.5rem;color:var(--charcoal)}
+.commercials p{font-size:0.88rem;color:var(--text-muted);line-height:1.6}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.4rem}
+.stats .stat{text-align:center}
+.stats .stat .num{font-family:'DM Serif Display',serif;font-size:2.6rem;color:var(--pink)}
+.stats .stat .lbl{font-size:0.82rem;color:var(--text-on-dark-muted);margin-top:0.4rem;line-height:1.5}
+
+.phasetable{margin-top:2rem;border-top:1px solid rgba(0,0,0,0.08)}
+.phasetable .row{display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:1.6rem 0;border-bottom:1px solid rgba(0,0,0,0.08)}
+.phasetable .row .when{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--pink)}
+.phasetable .row h3{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:0.4rem}
+.phasetable .row p{color:var(--text-muted);font-size:0.94rem}
+
+footer{background:var(--charcoal);color:var(--text-on-dark-muted);padding:2.4rem 2rem;text-align:center;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase}
+footer .lockup{color:white;letter-spacing:0.24em;font-weight:500;margin-bottom:0.4rem}
+
+@media(max-width:780px){
+  .summary-strip{grid-template-columns:1fr 1fr;transform:translateY(-2rem)}
+  .summary-strip > div{border-bottom:1px solid rgba(0,0,0,0.06)}
+  .summary-strip > div:nth-child(2){border-right:0}
+  .summary-strip > div:nth-last-child(-n+2){border-bottom:0}
+  .included .row{grid-template-columns:1fr;gap:0.3rem}
+  .compare{grid-template-columns:1fr}
+  .commercials{grid-template-columns:1fr}
+  .commercials > div{border-right:0;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .commercials > div:last-child{border-bottom:0}
+  .stats{grid-template-columns:1fr 1fr}
+  .phasetable .row{grid-template-columns:1fr;gap:0.4rem}
+  section{padding:4rem 1.4rem}
+  .hero{padding:5.5rem 1.4rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+  <div class="hero-tag">Bear Witness · Internal Strategy</div>
+  <h1>The AI Operating <span class="accent">System</span></h1>
+  <p class="hero-sub">A packaged, configurable AI stack — built inside our own ecosystem, proven in production, installable into any business, in any market.</p>
+  <div class="hero-meta">
+    <span>Prepared for Felix &amp; Jesse</span>
+    <span>·</span>
+    <span>July 2026</span>
+  </div>
+</div>
+
+<div class="summary-strip">
+  <div><div class="k">The problem</div><div class="v">Manual ops cap growth</div></div>
+  <div><div class="k">The product</div><div class="v">Build once, install anywhere</div></div>
+  <div><div class="k">The market</div><div class="v">Any business, any sector</div></div>
+  <div><div class="k">The model</div><div class="v">Retainer + build + equity</div></div>
+</div>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">01 — The Problem</div>
+    <h2 class="heading">Every growing business hits the same wall.</h2>
+    <p class="body-text">Past a certain size, marketing and operations work outpaces what a founder or small team can run by hand — but hiring a full department to catch up is slow, expensive, and a bet the business often can't verify pays off until it's too late to undo. So the work stays ad-hoc: content, campaigns, reporting, customer follow-up, partner onboarding, sitting across someone's inbox, a spreadsheet, and whatever they remember from last week.</p>
+    <p class="body-text">That's true of a health brand, a professional services firm, a manufacturer, a book launch, a logistics company. <strong>The shape of the problem is identical everywhere</strong> — real operational work being done by people, at people-speed and people-cost, when large parts of it can now be run by AI at higher consistency and a fraction of the price. Nobody has packaged that into something a business can simply install.</p>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">02 — Why Bear Witness</div>
+    <h2 class="heading">We didn't design this to sell it. We built it to survive.</h2>
+    <p class="body-text">Over the past year, running marketing operations across the BGV portfolio forced Bear Witness to build a working AI stack out of necessity — not as a product pitch. It's been tested against real budgets, real deadlines, and real audiences across three live brands. That's the difference between what we're proposing and what most "AI agencies" are selling: <strong>we're not describing a capability, we're packaging one that already works.</strong></p>
+
+    <div class="included">
+      <div class="row">
+        <div class="lbl">Module 01</div>
+        <div><h3>Content Engine</h3><p>Briefs, scripts, ad copy, captions and email sequences at scale, with brand voice locked. Built for GSET, Modern Savage, and Ted's Health.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Module 02</div>
+        <div><h3>Paid Media Engine</h3><p>Full-funnel Meta/TikTok architecture — audience logic, hook and creative testing, retargeting — proven in live UK and US ad accounts.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Module 03</div>
+        <div><h3>Content Operations</h3><p>Editorial calendars, platform formatting, and the production-ready briefing system that connects strategy to an editing team.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Module 04</div>
+        <div><h3>Reporting &amp; Intelligence</h3><p>Dashboards and AI-generated insight summaries that replace the ad-hoc spreadsheet with a real performance layer.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Module 05</div>
+        <div><h3>CRM &amp; Partner Operations</h3><p>White-label CRM flows, referral and partner onboarding, transactional email — built from scratch for Ted's Health's full white-label operation.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Module 06</div>
+        <div><h3>Bots, Agents &amp; Automation</h3><p>Lead qualification, customer support, onboarding sequences and internal workflow agents — the layer that replaces roles, not just tasks.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">03 — The Business Shift</div>
+    <h2 class="heading">Stop managing accounts. Start installing a system.</h2>
+    <p class="body-text">Right now, growth means headcount. Every new agency client is another set of channels someone on our team has to run, every day, indefinitely. That caps how big Bear Witness can get without hiring in a straight line behind revenue. It's the treadmill — the ball keeps rolling, but it doesn't compound.</p>
+    <p class="body-text">The AI Operating System breaks that link. We build and configure the system once per client, using tooling and playbooks we've already paid for in time. From there the client runs it, or we run it lightly with AI doing the labour that used to need a person. <strong>Revenue scales without a proportional increase in people</strong> — that's the one direction to build toward, instead of managing whatever's already in the ecosystem.</p>
+
+    <div class="compare">
+      <div class="col old">
+        <h3>Agency model</h3>
+        <ul>
+          <li>Every client needs a person running their channels</li>
+          <li>Growth = linear hiring</li>
+          <li>Value tied to who's doing the work</li>
+          <li>Hard to sell — walks out the door with the team</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <h3>Operating System model</h3>
+        <ul>
+          <li>Every client gets an installed, configured system</li>
+          <li>Growth = faster installs, not more staff</li>
+          <li>Value tied to the system itself</li>
+          <li>Compounding — each install gets cheaper and faster</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">04 — The Market</div>
+    <h2 class="heading">Not a BGV-shaped audience. Every business with an operations gap.</h2>
+    <p class="body-text">Our agency work has to be brand-safe — output ships under the Bear Witness name and, indirectly, Bear's, so there's a real filter on who we take on. The AI Operating System is a different kind of sale. It's infrastructure, not creative under our name. The client installs it and runs their own brand through it. <strong>The qualifying question changes from "does this fit our brand" to "does this business have a real operations gap AI can close" — and almost every business does.</strong></p>
+    <p class="body-text">That's where the real growth sits: professional services, manufacturing, healthcare, logistics, hospitality, e-commerce, B2B — sectors with zero natural fit for a Bear Grylls-adjacent agency, but every fit for a proven, versatile system that removes manual ops work. It isn't gated by brand alignment, which is exactly why it's not capped the way the agency is.</p>
+
+    <div class="stats" style="margin-top:1rem">
+      <div class="stat"><div class="num">6</div><div class="lbl" style="color:var(--text-muted)">Modules, sellable standalone or as a full stack</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl" style="color:var(--text-muted)">Live case studies proven inside BGV, ready to show day one</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl" style="color:var(--text-muted)">New hires or capital needed to start selling</div></div>
+      <div class="stat"><div class="num">∞</div><div class="lbl" style="color:var(--text-muted)">Addressable market — any industry, any geography</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">05 — How It's Sold</div>
+    <h2 class="heading">Three ways in. One system underneath.</h2>
+    <p class="body-text">The offer scales from a single strategy consult to a full install with bots and agents running across the business — so the first conversation can be low-commitment while the real value compounds over time.</p>
+
+    <div class="commercials">
+      <div>
+        <div class="label">Build &amp; Handover</div>
+        <div class="figure">£8k–£25k</div>
+        <p>We build, configure, and train the client's team, then hand over the keys. Best for businesses with in-house capacity to run it once built.</p>
+      </div>
+      <div>
+        <div class="label">Build &amp; Operate</div>
+        <div class="figure">£5k–£15k/mo</div>
+        <p>We build and keep running it as a managed service. Recurring revenue, deepest relationship, highest lifetime value.</p>
+      </div>
+      <div>
+        <div class="label">Equity Model</div>
+        <div class="figure">Retainer + equity</div>
+        <p>The Ted's Health approach applied externally — we build and operate under the partner's brand for retainer plus equity. Selective, for the right partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">06 — Why This Makes Bear Witness Valuable</div>
+    <h2 class="heading">A business that installs systems is worth more than one that manages accounts.</h2>
+    <p class="body-text">Agencies get valued on trailing revenue and are hard to sell — the value walks out the door with the people doing the work. A system business with repeatable installs, recurring managed revenue, and equity stakes in client outcomes is valued on a different multiple entirely: it compounds, it's defensible because the stack is already proven and case-studied, and every install after the first gets faster and cheaper to deliver as the playbook hardens.</p>
+    <p class="body-text"><strong>This is the one thing worth building, not managing:</strong> a system Bear Witness owns outright, that gets more valuable the more it's installed, independent of any single client, brand, or account manager's time.</p>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">07 — Roadmap</div>
+    <h2 class="heading">Package what exists. Then sell it.</h2>
+    <div class="phasetable">
+      <div class="row">
+        <div class="when">Q3</div>
+        <div><h3>Package and position</h3><p>Turn the three live case studies into client-facing language. Finalise pricing and scope for the three tiers. Get the first AI system conversation open with a business outside BGV.</p></div>
+      </div>
+      <div class="row">
+        <div class="when">Q4</div>
+        <div><h3>Sell and build</h3><p>First AI system build sold and delivered outside BGV. Install process documented so it can run without senior time on every element.</p></div>
+      </div>
+      <div class="row">
+        <div class="when">6–12mo</div>
+        <div><h3>Scale and compound</h3><p>Multiple builds running in parallel, first white-label equity deal signed outside BGV, junior support brought in for delivery so senior time stays on strategy and sales.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="lockup">Bear Witness · AI Operating System</div>
+  <div>Internal Strategy Deck · v1 · 5 July 2026</div>
+</footer>
+
+</body>
+</html>
