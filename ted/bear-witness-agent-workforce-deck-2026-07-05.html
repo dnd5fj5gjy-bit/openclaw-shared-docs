@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness — Agent Workforce</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF3D8A;
+  --cyan:#00E5FF;
+  --gold:#F5B942;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --warm-white:#FDFBF8;
+  --charcoal:#1A1A1A;
+  --text-primary:#1A1A1A;
+  --text-muted:rgba(26,26,26,0.6);
+  --text-on-dark:rgba(255,255,255,0.85);
+  --text-on-dark-muted:rgba(255,255,255,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--text-primary);background:var(--cream);
+  line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.hero{
+  min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);
+  padding:7rem 2rem 5rem;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:0.08;animation:float 20s ease-in-out infinite}
+.hero-bg-shapes .s1{width:520px;height:520px;top:-120px;right:-160px;background:var(--pink)}
+.hero-bg-shapes .s2{width:360px;height:360px;bottom:-90px;left:-110px;background:var(--cyan);animation-delay:-7s}
+.hero-bg-shapes .s3{width:260px;height:260px;top:38%;left:8%;background:var(--gold);animation-delay:-14s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-30px) scale(1.05)}
+  66%{transform:translate(-15px,20px) scale(0.95)}
+}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);font-weight:500;margin-bottom:1.5rem;position:relative;z-index:1}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.2vw,4.2rem);
+  color:white;line-height:1.1;max-width:900px;margin-bottom:1.4rem;position:relative;z-index:1;
+}
+.hero h1 .accent{color:var(--pink)}
+.hero-sub{color:var(--text-on-dark);max-width:660px;font-size:1.08rem;margin-bottom:2rem;position:relative;z-index:1;line-height:1.75}
+.hero-meta{display:flex;gap:2rem;color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:400;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+
+section{padding:5.5rem 2rem}
+.inner{max-width:1080px;margin:0 auto}
+.tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--pink);font-weight:500;margin-bottom:1rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15;margin-bottom:1.2rem}
+.body-text{max-width:760px;color:var(--text-muted);margin-bottom:1.4rem;font-size:1.02rem}
+.body-text strong{color:var(--text-primary);font-weight:500}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--warm-white)}
+.sec-dark{background:var(--charcoal);color:white}
+.sec-dark .heading{color:white}
+.sec-dark .body-text{color:var(--text-on-dark)}
+.sec-dark .body-text strong{color:white}
+.sec-dark .tag{color:var(--cyan)}
+
+.summary-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 auto;max-width:1080px;
+  background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  transform:translateY(-3rem);position:relative;z-index:2;
+  box-shadow:0 20px 60px -30px rgba(0,0,0,0.18);
+}
+.summary-strip > div{padding:1.4rem 1.6rem;border-right:1px solid rgba(0,0,0,0.06)}
+.summary-strip > div:last-child{border-right:0}
+.summary-strip .k{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:0.4rem}
+.summary-strip .v{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--charcoal);line-height:1.2}
+
+.included{display:grid;grid-template-columns:1fr;gap:0;margin-top:1.5rem;border-top:1px solid rgba(0,0,0,0.08)}
+.included .row{display:grid;grid-template-columns:170px 1fr;gap:2rem;padding:1.4rem 0;border-bottom:1px solid rgba(0,0,0,0.08);align-items:start}
+.included .row .lbl{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);font-weight:600;padding-top:0.25rem}
+.included .row h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.4rem;line-height:1.25}
+.included .row p{color:var(--text-muted);font-size:0.95rem;line-height:1.65}
+
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem}
+.cardgrid .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1.8rem}
+.cardgrid .card.light{background:var(--warm-white);border:1px solid rgba(0,0,0,0.06)}
+.cardgrid .card .card-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:0.6rem}
+.cardgrid .card.light .card-label{color:var(--pink)}
+.cardgrid .card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:white;margin-bottom:0.5rem;line-height:1.3}
+.cardgrid .card.light h3{color:var(--charcoal)}
+.cardgrid .card p{color:var(--text-on-dark-muted);font-size:0.92rem;line-height:1.7}
+.cardgrid .card.light p{color:var(--text-muted)}
+
+.tierrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:2rem;background:var(--warm-white);border:1px solid rgba(0,0,0,0.06);border-radius:10px;overflow:hidden}
+.tierrow > div{padding:2rem;border-right:1px solid rgba(0,0,0,0.06)}
+.tierrow > div:last-child{border-right:0}
+.tierrow .label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:0.5rem}
+.tierrow .figure{font-family:'DM Serif Display',serif;font-size:1.7rem;line-height:1.15;margin-bottom:0.5rem;color:var(--charcoal)}
+.tierrow p{font-size:0.88rem;color:var(--text-muted);line-height:1.6}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.4rem}
+.stats .stat{text-align:center}
+.stats .stat .num{font-family:'DM Serif Display',serif;font-size:2.6rem;color:var(--pink)}
+.stats .stat .lbl{font-size:0.82rem;color:var(--text-on-dark-muted);margin-top:0.4rem;line-height:1.5}
+
+.phasetable{margin-top:2rem;border-top:1px solid rgba(0,0,0,0.08)}
+.phasetable .row{display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:1.6rem 0;border-bottom:1px solid rgba(0,0,0,0.08)}
+.phasetable .row .when{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--pink)}
+.phasetable .row h3{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:0.4rem}
+.phasetable .row p{color:var(--text-muted);font-size:0.94rem}
+
+footer{background:var(--charcoal);color:var(--text-on-dark-muted);padding:2.4rem 2rem;text-align:center;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase}
+footer .lockup{color:white;letter-spacing:0.24em;font-weight:500;margin-bottom:0.4rem}
+
+@media(max-width:780px){
+  .summary-strip{grid-template-columns:1fr 1fr;transform:translateY(-2rem)}
+  .summary-strip > div{border-bottom:1px solid rgba(0,0,0,0.06)}
+  .summary-strip > div:nth-child(2){border-right:0}
+  .summary-strip > div:nth-last-child(-n+2){border-bottom:0}
+  .included .row{grid-template-columns:1fr;gap:0.3rem}
+  .tierrow{grid-template-columns:1fr}
+  .tierrow > div{border-right:0;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .tierrow > div:last-child{border-bottom:0}
+  .stats{grid-template-columns:1fr 1fr}
+  .phasetable .row{grid-template-columns:1fr;gap:0.4rem}
+  section{padding:4rem 1.4rem}
+  .hero{padding:5.5rem 1.4rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+  <div class="hero-tag">Bear Witness · Internal Strategy</div>
+  <h1>Agent <span class="accent">Workforce</span></h1>
+  <p class="hero-sub">Named AI agents, built and engineered for a business's own people — not a system that runs their marketing, a colleague that runs alongside their employees.</p>
+  <div class="hero-meta">
+    <span>Prepared for Felix &amp; Jesse</span>
+    <span>·</span>
+    <span>July 2026</span>
+  </div>
+</div>
+
+<div class="summary-strip">
+  <div><div class="k">The problem</div><div class="v">People are capped by hours, not ideas</div></div>
+  <div><div class="k">The product</div><div class="v">Purpose-built agents, per employee</div></div>
+  <div><div class="k">The market</div><div class="v">Any team that wants more from itself</div></div>
+  <div><div class="k">The model</div><div class="v">Per-agent packages, tiered</div></div>
+</div>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">01 — The Problem</div>
+    <h2 class="heading">Good people run out of hours long before they run out of ideas.</h2>
+    <p class="body-text">Every business has employees who could do more — chase more leads, write more content, answer more customers, catch more admin — if there were simply more of them in the day. The usual answer is to hire, which is slow, expensive, and doesn't scale with a person's judgement, only their headcount.</p>
+    <p class="body-text"><strong>What if instead of hiring more people, a business gave its existing people an agent — or a small team of agents — built specifically for their role?</strong> Not a generic chatbot bolted onto the business. A named, engineered agent that knows the job, does the repeatable parts of it, and reports back like a colleague would.</p>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">02 — Why Bear Witness</div>
+    <h2 class="heading">We're not describing this. We're running it.</h2>
+    <p class="body-text">Bear Witness already operates a live team of named AI agents, each built for a specific person and role inside the business — not a shared tool, a dedicated agent per person. That's the proof case: this isn't a concept slide, it's a working team.</p>
+
+    <div class="included">
+      <div class="row">
+        <div class="lbl">Live example</div>
+        <div><h3>One agent, one person, one remit</h3><p>Each agent is built around a specific principal's actual workload — research, drafting, admin, comms, monitoring — not a generic assistant persona. It knows their priorities, their tools, their standards.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Live example</div>
+        <div><h3>A small team, coordinating</h3><p>Multiple agents working across a business, aware of each other, able to hand off and escalate — mirroring how a real team divides labour rather than one bot trying to do everything.</p></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Live example</div>
+        <div><h3>Judgement, not just tasks</h3><p>These agents draft, research, flag, and execute low-risk work autonomously, and hold the line at anything that needs a human sign-off — sending money, sending externally, anything irreversible.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">03 — The Product</div>
+    <h2 class="heading">One agent. Two agents. A whole engineered team.</h2>
+    <p class="body-text">The sale scales with the business, not against it. A sole trader might want one agent handling admin and customer replies. A growing team might want an agent per department head. A larger operation might want an entire coordinated agent workforce sitting alongside its human one.</p>
+
+    <div class="cardgrid">
+      <div class="card">
+        <div class="card-label">Package 01</div>
+        <h3>Single Agent</h3>
+        <p>One engineered agent built for one role or person — the entry point. Proves the model fast, low commitment, immediate time-back.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Package 02</div>
+        <h3>Team Agents</h3>
+        <p>Two to five agents across a small team or department, coordinating with each other and reporting into one place.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Package 03</div>
+        <h3>Full Workforce</h3>
+        <p>An agent for every function that can carry one — the business's human team plus an engineered one running alongside it full-time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">04 — The Market</div>
+    <h2 class="heading">Not a tech buyer. Any business owner who's ever said "I need another pair of hands."</h2>
+    <p class="body-text">This doesn't require the client to understand AI, buy software, or manage a system — it requires them to describe a role they wish they could clone or afford to hire for. <strong>That's a founder question, not a technical one</strong>, which is what makes it sellable far outside BGV's own brand-safe circle: solo founders, small teams, professional services, anyone who's capped by their own hours.</p>
+
+    <div class="stats" style="margin-top:1rem">
+      <div class="stat"><div class="num">4</div><div class="lbl" style="color:var(--text-muted)">Live named agents already running inside Bear Witness's own team</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl" style="color:var(--text-muted)">Sentence a prospect needs to describe: the role they'd hire for</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl" style="color:var(--text-muted)">Technical buy-in required from the client to start</div></div>
+      <div class="stat"><div class="num">∞</div><div class="lbl" style="color:var(--text-muted)">Roles this can be engineered around, across any sector</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-white">
+  <div class="inner">
+    <div class="tag">05 — How It's Sold</div>
+    <h2 class="heading">Priced per agent. Simple enough to buy on a call.</h2>
+    <p class="body-text">The packaging mirrors headcount, which is a pricing model every business owner already understands intuitively — it's just cheaper, faster, and doesn't need holiday cover.</p>
+
+    <div class="tierrow">
+      <div>
+        <div class="label">Single Agent</div>
+        <div class="figure">Build + monthly</div>
+        <p>One role, engineered and deployed. Fastest to sell, fastest to prove value, natural upsell path into more agents.</p>
+      </div>
+      <div>
+        <div class="label">Team Agents</div>
+        <div class="figure">Build + monthly, tiered</div>
+        <p>Priced per agent with a coordination layer included once a client goes beyond one. Higher retainer, stickier relationship.</p>
+      </div>
+      <div>
+        <div class="label">Full Workforce</div>
+        <div class="figure">Bespoke retainer</div>
+        <p>Whole-business engagement, priced against headcount genuinely displaced or augmented. Highest value, longest relationship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="inner">
+    <div class="tag">06 — Why This Makes Bear Witness Valuable</div>
+    <h2 class="heading">The demo is the business, not a slide.</h2>
+    <p class="body-text">Every prospect conversation can open with "here's our own agent team, running our own business, right now" — a live reference no competitor pitching AI can match on a slide deck alone. That credibility compounds: the more roles Bear Witness engineers agents for internally, the deeper the proof gets before a single external client is signed.</p>
+    <p class="body-text"><strong>This gives Olly a direct acquisition motion:</strong> go to any business owner, ask what role they'd hire for if cost and hours weren't the constraint, and show them it already exists inside Bear Witness.</p>
+  </div>
+</section>
+
+<section class="sec-cream">
+  <div class="inner">
+    <div class="tag">07 — Roadmap</div>
+    <h2 class="heading">Prove it further internally. Then take it to market.</h2>
+    <div class="phasetable">
+      <div class="row">
+        <div class="when">Q3</div>
+        <div><h3>Harden the internal team</h3><p>Formalise the agent roster, remit, and hand-off patterns already running inside Bear Witness into a repeatable engineering playbook.</p></div>
+      </div>
+      <div class="row">
+        <div class="when">Q4</div>
+        <div><h3>First external single-agent sale</h3><p>Package the entry tier, target founders and small teams first — fastest sales cycle, clearest ROI story, lowest delivery risk.</p></div>
+      </div>
+      <div class="row">
+        <div class="when">6–12mo</div>
+        <div><h3>Team and workforce tiers</h3><p>Upsell existing single-agent clients into team packages; take the full-workforce pitch to larger operators once the playbook is proven twice over.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="lockup">Bear Witness · Agent Workforce</div>
+  <div>Internal Strategy Deck · v1 · 5 July 2026</div>
+</footer>
+
+</body>
+</html>
