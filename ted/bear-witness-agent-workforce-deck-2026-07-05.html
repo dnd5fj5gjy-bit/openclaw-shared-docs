@@ -594,6 +594,50 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
   </div>
 </section>
 
+<!-- WHAT'S NEEDED -->
+<section class="bg-charcoal" id="needed">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">09 · What's needed</span>
+      <h2 class="sh" style="color:var(--white);">The tech and capacity this actually needs before it can be sold.</h2>
+      <div class="sdiv"></div>
+      <p class="sb" style="color:rgba(255,255,255,0.72);">This works today because every agent runs on infrastructure Felix built and maintains by hand. Selling it externally means that infrastructure has to hold more than one client's worth of agents at once - here's what needs to be true first.</p>
+    </div>
+    <div class="grid2 reveal">
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Infrastructure</span>
+        <h3 style="color:var(--white);">A way to host more than one client's agents at once</h3>
+        <p style="color:rgba(255,255,255,0.62);">Right now, each agent runs on a dedicated machine Felix has configured directly. Taking on external clients means standing up new instances - or isolated environments on shared hardware - per client, without Felix hand-building each one from scratch.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Isolation</span>
+        <h3 style="color:var(--white);">Hard separation between clients' data</h3>
+        <p style="color:rgba(255,255,255,0.62);">The same isolation rules that keep our own agents' memory and context private need to extend to client agents - no client's emails, credentials, or conversations can ever be visible to another's, or to us by accident.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Access &amp; credentials</span>
+        <h3 style="color:var(--white);">Per-client integration setup</h3>
+        <p style="color:rgba(255,255,255,0.62);">Every agent needs its own secure connection into the client's own email, calendar, CRM, and socials - not ours. That's a repeatable onboarding step Felix needs to template, not rebuild by hand for each new client.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Monitoring</span>
+        <h3 style="color:var(--white);">Watchdog coverage across every client agent</h3>
+        <p style="color:rgba(255,255,255,0.62);">We already catch and restart our own agents when they wedge or crash. That has to cover client-facing agents too, with someone actually on the hook to notice and fix it - a client's agent going dark for a day is a lost account, not an internal inconvenience.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Engineering capacity</span>
+        <h3 style="color:var(--white);">A cap on how many builds Felix can take on</h3>
+        <p style="color:rgba(255,255,255,0.62);">Felix is currently the only person who can build and configure a new agent end-to-end. Until that's documented into a repeatable build process someone else can run, the number of clients we can onboard is limited by his hours, not demand.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+        <span class="ctag" style="color:var(--coral-light);">Cost tracking</span>
+        <h3 style="color:var(--white);">Usage metering per client</h3>
+        <p style="color:rgba(255,255,255,0.62);">API/compute cost scales with how hard each client's agent works. We need to actually track that per client so pricing is based on real cost, not a guess.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ASK -->
 <section class="bg-cream" id="ask">
   <div class="si cta-wrap">
