@@ -355,20 +355,19 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
     <div class="grid3 reveal">
       <div class="card">
         <span class="ctag">Hosting / infrastructure</span>
-        <h3>Shared container platform</h3>
-        <p>The Agent Workforce deck's own estimate: infra cost stays "tens to low hundreds £/mo at 10 clients" on a shared platform (e.g. Fly.io/Modal), well below Claude API usage cost. Scaled per client, that's roughly £10-20/month depending on tier weight - kept here as the working assumption for the totals below, now checked against real published pricing in the next panel.</p>
-        <div class="cline"><span class="clabel">Channel Mgmt</span><span class="cval">£10/mo</span></div>
-        <div class="cline"><span class="clabel">Growth Retainer</span><span class="cval">£15/mo</span></div>
-        <div class="cline"><span class="clabel">Full Function</span><span class="cval">£20/mo</span></div>
+        <h3>Multi-tenant rented cloud VM</h3>
+        <p>Superseded assumption: this deck previously modelled hosting as a shared container platform at £10-20/client/month alongside a separately-amortised Mac Studio. The Cloud Hosting &amp; Monetisation deck validated a cleaner, cheaper real-world model instead - rented Linux VMs (Hetzner CX22 £3.26/mo, DigitalOcean/AWS Lightsail £18.96/mo), each hosting up to 8 isolated client agent workspaces, software-isolated per client the same way Ted already serves multiple Telegram users off one machine. No physical hardware is owned or amortised at all.</p>
+        <div class="cline"><span class="clabel">Hetzner CX22 (8 clients/box)</span><span class="cval">£0.41/client/mo</span></div>
+        <div class="cline"><span class="clabel">DigitalOcean/AWS (8 clients/box)</span><span class="cval">£2.37/client/mo</span></div>
+        <div class="cline total"><span class="clabel">Used in totals below (conservative)</span><span class="cval">£2.37/mo</span></div>
       </div>
       <div class="card">
-        <span class="ctag">Mac Studio / core compute</span>
-        <h3>Existing infrastructure, amortised</h3>
-        <p>Apple lists the Mac Studio (M4 Max, 14-core CPU/32-core GPU, 36GB/512GB) from £2,099 on apple.com/uk; a higher-spec configuration suited to running several concurrent agent sessions runs to roughly £3,500-£4,000. This is already-owned hardware, not a new per-client cost - modelled here at an effective £3,700, amortised over 24 months (£154/month total), shared across the whole client book.</p>
-        <div class="cline"><span class="clabel">At 3 clients</span><span class="cval">£51.33/client/mo</span></div>
-        <div class="cline"><span class="clabel">At 10 clients</span><span class="cval">£15.40/client/mo</span></div>
-        <div class="cline"><span class="clabel">At 20 clients</span><span class="cval">£7.70/client/mo</span></div>
-        <div class="cline"><span class="clabel">At 50 clients</span><span class="cval">£3.08/client/mo</span></div>
+        <span class="ctag">Mac Studio - retired as the scaling model</span>
+        <h3>Was capex; now Phase 1 of a two-phase plan</h3>
+        <p>The Mac Studio is BGV's own machine and still runs agents internally - but it is no longer the thing client capacity is modelled against. An agent is a Claude Code CLI process calling Anthropic's API; it needs no local GPU and no specific physical box, so there is no ceiling to amortise against and no "buy a second machine at N clients" threshold to plan around. Phase 1 (now) is rented multi-tenant cloud VMs, opex-only; Phase 2 (post-fundraise) is BGV's own data centre, once traction justifies the capital - full detail in the Cloud Hosting &amp; Monetisation deck.</p>
+        <div class="cline"><span class="clabel">Capex removed from this model</span><span class="cval">£0/mo</span></div>
+        <div class="cline"><span class="clabel">Hardware ceiling on growth</span><span class="cval">none</span></div>
+        <div class="cline total"><span class="clabel">Status</span><span class="cval">Phase 1 → Phase 2 bridge</span></div>
       </div>
       <div class="card">
         <span class="ctag">Engineering / oversight time</span>
@@ -380,53 +379,59 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
       </div>
     </div>
     <div class="hbox">
-      <p><strong>The Mac Studio row is the clearest proof of the model:</strong> <span style="color:rgba(255,255,255,0.82);">the same machine costs £51/client at 3 clients and £7.70/client at 20 - the hardware doesn't change, only how many clients it's shared across. That's the entire "grow without hiring or re-buying kit" argument, in one line of numbers.</span></p>
+      <p><strong>The scaling proof is stronger now, not weaker:</strong> <span style="color:rgba(255,255,255,0.82);">the old Mac Studio row showed cost per client falling from £51 to £7.70 as amortisation spread across more clients - real, but still capped by how many agent sessions one physical machine could run at once. The rented-VM model has no such ceiling: hosting per client falls from roughly £6.32 at 3 clients to £2.46 at 100, on infrastructure that scales in £3-19/month steps, indefinitely, with no hardware purchase ever required.</span></p>
     </div>
 
     <div class="reveal" style="margin-top:4rem;">
       <span class="stag">02a · Real infra pricing, not a range</span>
-      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">The £10-20/client/month hosting line, checked against two published rate cards.</h2>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">The old £10-20/client/month hosting line, replaced by published multi-tenant VM pricing.</h2>
       <div class="sdiv"></div>
-      <p class="sb">Two published models, both checked directly: Fly.io's per-second Machine pricing (an always-on container) and Modal's per-core-second / per-GiB-second pricing (a metered, pay-for-actual-use container). Both come in below the £10-20 working assumption used in the totals - which means that assumption has built-in headroom for bandwidth, storage, monitoring and the inevitable "we under-modelled something" margin, rather than being an optimistic guess.</p>
+      <p class="sb">Three published rate cards, all checked directly against a conservative 8-clients-per-box density assumption (modelled on a 300-400MB RAM footprint per client agent workspace against ~2.8-3GB usable on a 4GB VM - see the Cloud Hosting &amp; Monetisation deck for the full derivation). All three land far below the old £10-20 placeholder, which means this deck's cost-to-serve totals were carrying more hosting margin than they needed to, not less.</p>
     </div>
-    <div class="grid2 reveal">
+    <div class="grid3 reveal">
       <div class="card">
-        <span class="ctag">Model A · Fly.io, always-on Machine</span>
-        <h3>Persistent container, priced per second</h3>
-        <p>Fly.io's published Amsterdam-region rates: shared-cpu-1x/256MB = $0.0028/hr ($2.02/mo run continuously); shared-cpu-1x/1GB = $0.0082/hr ($5.92/mo); shared-cpu-1x/2GB = $0.0154/hr ($11.11/mo). At $1=£0.79, a 1GB container run 24/7 all month costs £4.68; a 2GB container costs £8.78.</p>
-        <div class="cline"><span class="clabel">Channel Mgmt (1GB, light orchestration)</span><span class="cval">£4.68/mo</span></div>
-        <div class="cline"><span class="clabel">Growth Retainer (2GB, multi-channel)</span><span class="cval">£8.78/mo</span></div>
-        <div class="cline"><span class="clabel">Full Function (~4GB, extrapolated)</span><span class="cval">≈£12.72/mo</span></div>
+        <span class="ctag">Hetzner Cloud</span>
+        <h3>CX22, 2 vCPU / 4GB / 40GB NVMe</h3>
+        <p>€3.79/month per box (Hetzner's published cost-optimised CX line rate), at €1=£0.86 that's £3.26/month, shared 8 ways.</p>
+        <div class="cline"><span class="clabel">Box cost</span><span class="cval">£3.26/mo</span></div>
+        <div class="cline total"><span class="clabel">Per client (8/box)</span><span class="cval">£0.41/mo</span></div>
       </div>
       <div class="card">
-        <span class="ctag">Model B · Modal, metered per-task compute</span>
-        <h3>Pay only for seconds actually used</h3>
-        <p>Modal's published base rate: $0.0000131/CPU-core-second + $0.00000222/GiB-second, with a 1.25x US/UK regional multiplier. Modelled as 1 vCPU / 1GiB, ~30 seconds of container time per agent turn, applied to each tier's actual turn volume (6,000 / 15,000 / 36,000 turns/month from the workflow tables above).</p>
-        <div class="cline"><span class="clabel">Channel Mgmt (6,000 turns × 30s)</span><span class="cval">£2.72/mo</span></div>
-        <div class="cline"><span class="clabel">Growth Retainer (15,000 turns × 30s)</span><span class="cval">£6.81/mo</span></div>
-        <div class="cline"><span class="clabel">Full Function (36,000 turns × 30s)</span><span class="cval">£16.34/mo</span></div>
+        <span class="ctag">DigitalOcean</span>
+        <h3>Basic Droplet, 2 vCPU / 4GB</h3>
+        <p>$24.00/month per box (published rate, per-second billed), at $1=£0.79 that's £18.96/month, shared 8 ways.</p>
+        <div class="cline"><span class="clabel">Box cost</span><span class="cval">£18.96/mo</span></div>
+        <div class="cline total"><span class="clabel">Per client (8/box)</span><span class="cval">£2.37/mo</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">AWS Lightsail</span>
+        <h3>General-purpose bundle, 2 vCPU / 4GB</h3>
+        <p>$24.00/month per box, the same price point as DigitalOcean's equivalent spec, shared 8 ways.</p>
+        <div class="cline"><span class="clabel">Box cost</span><span class="cval">£18.96/mo</span></div>
+        <div class="cline total"><span class="clabel">Per client (8/box)</span><span class="cval">£2.37/mo</span></div>
       </div>
     </div>
-    <p class="sb" style="margin-top:1.5rem;font-size:0.78rem;opacity:0.65;">Fly.io: fly.io/docs/about/pricing/ (Amsterdam region rates, 2026). Modal: modal.com/pricing and Modal's documented base CPU/memory rate as reported by third-party trackers citing Modal's published rate card, February 2026. Both calculations are pre-bandwidth/storage; the £10-20/client working assumption used throughout this model is retained unchanged in the cost-to-serve totals, since it already comfortably covers both calculated figures.</p>
+    <p class="sb" style="margin-top:1.5rem;font-size:0.78rem;opacity:0.65;">Sources: DigitalOcean Droplet pricing page, Hetzner Cloud's cost-optimised CX line documentation, AWS Lightsail pricing page - all as cited in the Cloud Hosting &amp; Monetisation deck. This deck uses the more conservative DigitalOcean/AWS figure (£2.37/client/month) in the cost-to-serve totals throughout, leaving the cheaper Hetzner option (£0.41/client/month) as further upside rather than the headline number.</p>
 
     <div class="reveal" style="margin-top:4rem;">
       <span class="stag">02b · Unit economics as the client book scales</span>
-      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">At what client count does the Mac Studio cost stop mattering?</h2>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">Hosting cost per client, and as a share of cost-to-serve, at increasing client counts.</h2>
       <div class="sdiv"></div>
-      <p class="sb">Using Growth Retainer as the worked example (API compute £145 and oversight £400 are per-client costs that don't change with book size; hosting £15/client is flat; only the Mac Studio line is shared and shrinks as the book grows):</p>
+      <p class="sb">Using Growth Retainer as the worked example (API compute £145 and oversight £400 are per-client costs that don't change with book size; hosting is DigitalOcean/AWS pricing at 8 clients/box, rounding up to the next box as the book grows):</p>
     </div>
     <div class="table-wrap reveal">
     <table class="dtable" style="margin-top:1.5rem;">
-      <thead><tr><th>Clients on the book</th><th>Mac Studio £/client</th><th>Mac Studio as % of Growth Retainer cost-to-serve</th><th>Total cost-to-serve (Growth Retainer)</th></tr></thead>
+      <thead><tr><th>Clients on the book</th><th>Boxes needed</th><th>Hosting £/client</th><th>Hosting as % of Growth Retainer cost-to-serve</th><th>Total cost-to-serve (Growth Retainer)</th></tr></thead>
       <tbody>
-        <tr><td>3</td><td>£51.33</td><td>8.4%</td><td>£611.33</td></tr>
-        <tr><td>10</td><td>£15.40</td><td>2.7%</td><td>£575.40</td></tr>
-        <tr><td>20</td><td>£7.70</td><td>1.4%</td><td>£567.70</td></tr>
-        <tr><td>50</td><td>£3.08</td><td>0.5%</td><td>£563.08</td></tr>
+        <tr><td>3</td><td>1</td><td>£6.32</td><td>1.15%</td><td>£551.32</td></tr>
+        <tr><td>10</td><td>2</td><td>£3.79</td><td>0.69%</td><td>£548.79</td></tr>
+        <tr><td>20</td><td>3</td><td>£2.84</td><td>0.52%</td><td>£547.84</td></tr>
+        <tr><td>50</td><td>7</td><td>£2.65</td><td>0.48%</td><td>£547.65</td></tr>
+        <tr><td>100</td><td>13</td><td>£2.46</td><td>0.45%</td><td>£546.46</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="sb" style="margin-top:1rem;font-size:0.78rem;opacity:0.65;">By roughly 20 clients the Mac Studio line has fallen under 1.5% of cost-to-serve and keeps shrinking - past that point, cost-to-serve is effectively pure variable cost (Claude API + hosting + oversight), and adding client #51 costs almost exactly what client #21 did. That's the actual mechanism behind "this scales without re-buying hardware or hiring," not just an assertion.</p>
+    <p class="sb" style="margin-top:1rem;font-size:0.78rem;opacity:0.65;">Under the old Mac Studio model, hosting/infra only fell under 1.5% of cost-to-serve once the book reached roughly 20 clients. Under the rented multi-tenant model it starts under 1.2% at just 3 clients and is under 0.5% by 20 - and it never requires a capital purchase to keep falling. Past client #8 (one box's ceiling), adding client #21 costs almost exactly what client #101 does: a small, linear, rentable step, not a re-buy of hardware.</p>
   </div>
 </section>
 
