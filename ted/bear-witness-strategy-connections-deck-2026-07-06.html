@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness | Strategy &amp; Connections</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #1F433F;
+  --teal-deep: #122724;
+  --brass: #C79A4B;
+  --brass-light: #DBB86E;
+  --parchment: #F3EDE1;
+  --parchment-dark: #E7DCC8;
+  --charcoal: #26221C;
+  --charcoal-light: #58514A;
+  --white: #FBF9F4;
+  --sage: #D3CBB8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;font-weight:300;color:var(--charcoal);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Newsreader',serif;font-weight:500;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s ease;}
+nav.scrolled{background:rgba(251,249,244,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:48px;width:auto;display:block;filter:brightness(0) invert(1);transition:filter 0.4s;}
+nav.scrolled .nav-logo-img{filter:none;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s;}
+nav.scrolled .nav-links a{color:var(--charcoal-light);}
+.nav-links a:hover{color:var(--brass);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;background:linear-gradient(160deg,rgba(10,20,18,0.94) 0%,rgba(31,67,63,0.88) 50%,rgba(120,90,40,0.5) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;}
+.hero-inner{max-width:820px;}
+.hero-tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--brass-light);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.2s forwards;}
+.hero h1{font-size:clamp(3rem,6.5vw,5.2rem);color:var(--white);line-height:1.08;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.4s forwards;}
+.hero h1 em{color:var(--brass-light);font-style:italic;}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(255,255,255,0.78);max-width:640px;margin:0 auto 2.5rem;line-height:1.75;opacity:0;animation:fadeUp 0.9s ease 0.6s forwards;}
+.hero-cta{display:inline-block;padding:1rem 2.8rem;background:var(--brass);color:var(--teal-deep);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;opacity:0;animation:fadeUp 0.9s ease 0.8s forwards;}
+.hero-cta:hover{background:var(--brass-light);transform:translateY(-2px);}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);opacity:0;animation:fadeUp 0.9s ease 1.1s forwards;}
+.scroll-ind span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.55),transparent);margin:0 auto;animation:pulse 2s ease-in-out infinite;}
+
+/* SECTIONS */
+section{padding:7rem 3rem;}
+.si{max-width:1100px;margin:0 auto;}
+.stag{display:block;font-size:0.68rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem;}
+.sh{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin-bottom:1.5rem;}
+.sb{font-size:1.03rem;line-height:1.82;max-width:660px;color:var(--charcoal-light);}
+.sdiv{width:44px;height:3px;background:var(--brass);margin:1.5rem 0;border-radius:2px;}
+
+/* BACKGROUNDS */
+.bg-cream{background:var(--parchment);}
+.bg-white{background:var(--white);}
+.bg-teal{background:var(--teal-deep);color:var(--white);}
+.bg-teal .stag{color:var(--brass-light);}
+.bg-teal .sh{color:var(--white);}
+.bg-teal .sb{color:rgba(255,255,255,0.72);}
+.bg-charcoal{background:var(--charcoal);color:var(--white);}
+.bg-charcoal .stag{color:var(--brass-light);}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.col-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.col-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-badge{position:absolute;bottom:0;left:0;right:0;background:var(--teal);color:var(--white);padding:0.85rem 1.5rem;font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;}
+
+/* CARDS */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem;}
+.card{border-radius:4px;padding:2rem;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;}
+.bg-teal .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);}
+.bg-teal .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2);border-color:rgba(199,154,75,0.4);}
+.bg-cream .card{background:var(--white);border:1px solid var(--parchment-dark);}
+.bg-cream .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--brass);}
+.bg-white .card{background:var(--parchment);border:1px solid var(--parchment-dark);}
+.bg-white .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--brass);}
+.card-icon{font-size:1.6rem;margin-bottom:1rem;}
+.ctag{display:block;font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--brass);margin-bottom:0.4rem;}
+.bg-teal .ctag{color:var(--brass-light);}
+.card h3{font-size:1.18rem;margin-bottom:0.7rem;}
+.bg-teal .card h3{color:var(--white);}
+.card p{font-size:0.88rem;line-height:1.72;color:var(--charcoal-light);}
+.bg-teal .card p{color:rgba(255,255,255,0.62);}
+
+/* HIGHLIGHT */
+.hbox{background:rgba(199,154,75,0.12);border-left:4px solid var(--brass);padding:1.5rem 2rem;border-radius:0 4px 4px 0;margin-top:2rem;}
+.bg-teal .hbox{background:rgba(199,154,75,0.12);}
+.hbox p{font-size:0.98rem;line-height:1.72;margin:0;}
+.hbox p strong{color:var(--brass);}
+.bg-teal .hbox p{color:rgba(255,255,255,0.82);}
+.bg-teal .hbox p strong{color:var(--brass-light);}
+
+/* SERVICE TIERS */
+.tier-stack{margin-top:3.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+.tier{border-radius:4px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
+.tier:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
+.tier-inner{display:grid;grid-template-columns:1fr 2fr 1fr;gap:0;align-items:stretch;}
+.tier-label{padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:center;}
+.tier-body{padding:2rem 2rem;border-left:1px solid rgba(255,255,255,0.08);border-right:1px solid rgba(255,255,255,0.08);}
+.tier-price{padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:center;text-align:right;}
+.tier-num{font-family:'Newsreader',serif;font-size:2.2rem;color:var(--brass-light);line-height:1;margin-bottom:0.25rem;}
+.tier-name{font-family:'Newsreader',serif;font-size:1.35rem;color:var(--white);margin-bottom:0.3rem;}
+.tier-sub{font-size:0.78rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em;}
+.tier-desc{font-size:0.9rem;line-height:1.72;color:rgba(255,255,255,0.72);margin-bottom:0.75rem;}
+.tier-pills{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tpill{padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:500;background:rgba(199,154,75,0.18);color:var(--brass-light);border:1px solid rgba(199,154,75,0.25);}
+.tier-price-val{font-family:'Newsreader',serif;font-size:1.3rem;color:var(--white);}
+.tier-price-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.25rem;}
+
+/* Tier colours */
+.tier-t1{background:linear-gradient(135deg,#1f433f 0%,#122724 100%);border:1px solid rgba(199,154,75,0.25);}
+.tier-t2{background:linear-gradient(135deg,#3a3323 0%,#252017 100%);border:1px solid rgba(199,154,75,0.2);}
+.tier-t3{background:linear-gradient(135deg,#3f2e18 0%,#2b1f10 100%);border:1px solid rgba(219,184,110,0.35);}
+.tier-t3 .tier-num{color:#EBCB8E;}
+.tier-t3 .tpill{background:rgba(235,203,142,0.18);color:#F2DBAE;border-color:rgba(235,203,142,0.25);}
+
+/* COMPARISON */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.comp-col{padding:2.5rem;border-radius:4px;position:relative;}
+.comp-col.alt{background:var(--charcoal-light);}
+.comp-col.rec{background:var(--teal);}
+.rec-badge{position:absolute;top:-0.7rem;right:1.5rem;background:var(--brass);color:var(--teal-deep);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2px;}
+.comp-col h3{font-size:1.25rem;color:var(--white);margin-bottom:1.5rem;}
+.comp-col ul{list-style:none;}
+.comp-col li{font-size:0.88rem;line-height:1.6;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.72);display:flex;gap:0.7rem;align-items:flex-start;}
+.comp-col li:last-child{border:none;}
+.comp-col.alt li::before{content:'·';color:rgba(255,255,255,0.35);}
+.comp-col.rec li::before{content:'✓';color:var(--brass-light);font-weight:600;flex-shrink:0;}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;background:var(--teal-deep);border-radius:4px;overflow:hidden;}
+.mbox{text-align:center;padding:3rem 1.5rem;border-right:1px solid rgba(255,255,255,0.08);}
+.mbox:last-child{border:none;}
+.mnum{font-family:'Newsreader',serif;font-size:3rem;color:var(--brass-light);line-height:1;margin-bottom:0.4rem;}
+.mlabel{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+/* TIMELINE */
+.tl{margin-top:3.5rem;position:relative;}
+.tl::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.1);}
+.tli{display:flex;gap:2rem;margin-bottom:2.5rem;}
+.tli:last-child{margin-bottom:0;}
+.tldot{width:48px;height:48px;border-radius:50%;background:var(--brass);color:var(--teal-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;z-index:1;}
+.tlc{padding-top:0.5rem;}
+.tlphase{font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--brass-light);margin-bottom:0.2rem;}
+.tlc h3{font-size:1.15rem;color:var(--white);margin-bottom:0.4rem;}
+.tlc p{font-size:0.88rem;color:rgba(255,255,255,0.62);line-height:1.7;}
+
+/* CTA */
+.cta-wrap{text-align:center;}
+.cta-btn{display:inline-block;padding:1.1rem 3.2rem;background:var(--brass);color:var(--teal-deep);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-top:2.5rem;transition:all 0.3s;}
+.cta-btn:hover{background:var(--brass-light);transform:translateY(-2px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:0.55;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .hero{padding:0 2rem 6rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  .two-col,.grid3,.grid2,.comp-grid{grid-template-columns:1fr;gap:2rem;}
+  .metrics{grid-template-columns:1fr 1fr;}
+  .mbox{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .tier-inner{grid-template-columns:1fr;}
+  .tier-price{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="nav-logo"><img src="bear-witness-logo-tight-crop-transparent.png" alt="Bear Witness" class="nav-logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#what">What this is</a></li>
+    <li><a href="#product">The offer</a></li>
+    <li><a href="#numbers">The numbers</a></li>
+    <li><a href="#tiers">Commercials</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-tag">Bear Witness · Internal Strategy</span>
+    <h1>Strategy &amp; <em>Connections</em></h1>
+    <p class="hero-sub">Everything a traditional agency sells - audits, strategy, planning - minus the fulfilment bottleneck, plus real exposure and partner access through BGV that no agency can offer.</p>
+    <a href="#problem" class="hero-cta">Read the strategy</a>
+  </div>
+  <div class="scroll-ind"><span></span></div>
+</section>
+
+<!-- PROBLEM -->
+<section class="bg-cream" id="problem">
+  <div class="si">
+    <div class="two-col reveal">
+      <div>
+        <span class="stag">01 · The problem</span>
+        <h2 class="sh">Most businesses don't need another strategy deck. They need distribution.</h2>
+        <div class="sdiv"></div>
+        <p class="sb">Every growing business eventually pays someone for direction - an audit, a strategy, a plan. Agencies charge a lot and take weeks for it. Cheap AI tools can spit out a plausible version of the same document in minutes, which means the document itself isn't worth much anymore. What's actually scarce isn't advice, it's access: real partners, real audiences, real introductions that get a business in front of people it couldn't otherwise reach.</p>
+        <div class="hbox">
+          <p><strong>Nobody selling strategy is also selling access.</strong> Agencies sell time. AI tools sell words. Neither can hand a business an introduction to a real partner or a real audience - that's the part of the job nobody's packaged.</p>
+        </div>
+      </div>
+      <div class="col-img">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80&auto=format&fit=crop" alt="Strategy meeting" loading="lazy">
+        <div class="img-badge">Advice is cheap. Access isn't.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section class="bg-teal" id="what">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">02 · What this actually is</span>
+      <h2 class="sh">An automated, more agile agency - without the fulfilment we can't scale.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">This is the audit, strategy, and planning work we already do for BGV's own brands - competitor audits, creative briefs, content calendars, growth plans - sold externally instead of used only internally. It stops deliberately short of ongoing creative production: Ku Creatives is a finite team, we can't 10x their output on demand, so we don't sell what we can't fulfil. <strong style="color:var(--white);">What we add that no agency or AI tool can: real introductions and exposure through Bear Witness's own network - partners, audiences, cross-promotion into the BGV portfolio.</strong></p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">The work</span>
+        <h3>Audits &amp; diagnostics</h3>
+        <p>Competitor audits, marketing/ops reviews, and gap analysis - the same depth we run for Dirtea, Modern Savage and Ted's Health, at the same speed.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">The work</span>
+        <h3>Strategy &amp; planning</h3>
+        <p>Growth plans, content calendars, campaign structures, and creative briefs - ready to hand to whoever executes them, in-house or elsewhere.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">The moat</span>
+        <h3>Connections &amp; exposure</h3>
+        <p>Introductions to partners, cross-promotion opportunities, and access to BGV's audience and network - the one thing genuinely unavailable anywhere else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE OFFER -->
+<section class="bg-white" id="product">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">03 · The offer</span>
+      <h2 class="sh">Advice on its own is a commodity. Advice plus access isn't.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Every package bundles the same two things in different weight: sharp, fast strategic work, and a genuine door into BGV's world. Neither is sold alone - the audit without the access is just a document; the access without the audit has no direction behind it.</p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">Package 01</span>
+        <h3>Strategy Sprint</h3>
+        <p>A single audit and plan, delivered in days not weeks - the entry point, proves the quality and speed fast.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Package 02</span>
+        <h3>Strategic Partner</h3>
+        <p>An ongoing retainer - ourselves acting as the business's strategy function, planning and refining month to month.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Package 03</span>
+        <h3>Connections &amp; Exposure</h3>
+        <p>Bespoke access - introductions, cross-promotion, and placement into BGV's audience and partner network, for the right-fit businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE NUMBERS -->
+<section class="bg-cream" id="numbers">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">04 · The proof, in numbers</span>
+      <h2 class="sh">What a traditional agency takes weeks and thousands to do, we already do in days.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Industry benchmarks for the exact work this offer sells: a full marketing/competitor audit runs 4-6 weeks and £10k-£15k; a standard SME marketing audit still runs £1k-£5k and multiple weeks; a strategy deck typically means weeks of drafting and review cycles. We've already run this exact work internally, at AI speed, for BGV's own brands.</p>
+    </div>
+    <div class="comp-grid reveal">
+      <div class="comp-col alt">
+        <h3>Traditional agency</h3>
+        <ul>
+          <li>Full marketing/competitor audit: 4-6 weeks, £10k-£15k</li>
+          <li>Standard SME marketing audit: 1-2 weeks minimum, £1k-£5k</li>
+          <li>Strategy deck / creative briefs: weeks of drafting and review cycles</li>
+          <li>Access or introductions: not part of the offer at all</li>
+        </ul>
+      </div>
+      <div class="comp-col rec">
+        <div class="rec-badge">Already proven internally</div>
+        <h3>Bear Witness, right now</h3>
+        <ul>
+          <li>11-brand competitor audit (Dirtea vs Four Sigmatic, OM, Ryze, AG1 and more) - built in a single day</li>
+          <li>Full batch of creative briefs (GSET, 6 at a time) - turned around same day</li>
+          <li>Ad variation audit and rewrites across 10 live ads (Modern Savage) - same day</li>
+          <li>A real network to introduce a client into, on top of the work itself</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Agency benchmarks from published industry sources on marketing audit and onboarding timelines. Bear Witness examples are our own delivered work.</p>
+  </div>
+</section>
+
+<!-- COMMERCIALS -->
+<section class="bg-teal" id="tiers">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">05 · How it's sold</span>
+      <h2 class="sh">Priced like consultancy. Delivered like nothing else on the market.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Entry is a single sprint - low commitment, fast proof. The real value, and the real differentiator, is in the ongoing retainer and the access tier once trust is established.</p>
+    </div>
+    <div class="tier-stack reveal">
+      <div class="tier tier-t1">
+        <div class="tier-inner">
+          <div class="tier-label">
+            <div class="tier-num">01</div>
+            <div class="tier-name">Strategy Sprint</div>
+            <div class="tier-sub">The entry point</div>
+          </div>
+          <div class="tier-body">
+            <p class="tier-desc">One audit, one plan, delivered in days. Fastest to sell, fastest to prove, natural upsell into a retainer.</p>
+            <div class="tier-pills"><span class="tpill">Fixed fee</span><span class="tpill">Lowest commitment</span></div>
+          </div>
+          <div class="tier-price">
+            <div class="tier-price-val">Fixed fee</div>
+            <div class="tier-price-note">one-off</div>
+          </div>
+        </div>
+      </div>
+      <div class="tier tier-t2">
+        <div class="tier-inner">
+          <div class="tier-label">
+            <div class="tier-num">02</div>
+            <div class="tier-name">Strategic Partner</div>
+            <div class="tier-sub">Ongoing retainer</div>
+          </div>
+          <div class="tier-body">
+            <p class="tier-desc">We act as the strategy function month to month - planning, refining, reporting. Recurring revenue, deeper relationship.</p>
+            <div class="tier-pills"><span class="tpill">Monthly retainer</span><span class="tpill">Recurring</span></div>
+          </div>
+          <div class="tier-price">
+            <div class="tier-price-val">Retainer</div>
+            <div class="tier-price-note">monthly</div>
+          </div>
+        </div>
+      </div>
+      <div class="tier tier-t3">
+        <div class="tier-inner">
+          <div class="tier-label">
+            <div class="tier-num">03</div>
+            <div class="tier-name">Connections &amp; Exposure</div>
+            <div class="tier-sub">Selective partners</div>
+          </div>
+          <div class="tier-body">
+            <p class="tier-desc">Bespoke access into BGV's network - partners, audiences, cross-promotion. Selective, for the right-fit businesses only.</p>
+            <div class="tier-pills"><span class="tpill">Bespoke fee</span><span class="tpill">BGV-native model</span></div>
+          </div>
+          <div class="tier-price">
+            <div class="tier-price-val">Bespoke</div>
+            <div class="tier-price-note">by relationship</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VALUABLE -->
+<section class="bg-charcoal" id="value">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">06 · Why this makes Bear Witness valuable</span>
+      <h2 class="sh" style="color:var(--white);">This scales on our time, not Ku Creatives' capacity.</h2>
+      <div class="sdiv"></div>
+      <p class="sb" style="color:rgba(255,255,255,0.72);">Strategy and audits are cheap to deliver once the AI production is proven - no production queue, no fulfilment bottleneck, no waiting on an editing team. The only thing that's genuinely hard to copy is the network access layered on top, which is ours by default and nobody else's to offer.</p>
+      <div class="hbox">
+        <p style="color:rgba(255,255,255,0.82);"><strong style="color:var(--brass-light);">It also fits how few of us there are:</strong> three people can run a strategy/consultancy line without hiring, because the AI does the drafting and the network already exists - we're not creating new capacity, we're monetising what we already have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="bg-teal" id="roadmap">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">07 · Roadmap</span>
+      <h2 class="sh">Prove it on one paying client. Then formalise it.</h2>
+      <div class="sdiv"></div>
+    </div>
+    <div class="tl reveal">
+      <div class="tli">
+        <div class="tldot">Q3</div>
+        <div class="tlc">
+          <div class="tlphase">Phase one · Now</div>
+          <h3>Land the first paying Strategy Sprint</h3>
+          <p>Package the entry tier, target one business we can genuinely help and genuinely introduce somewhere useful - proves the whole model in one deal.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">Q4</div>
+        <div class="tlc">
+          <div class="tlphase">Phase two · Three to six months</div>
+          <h3>Formalise the connections layer</h3>
+          <p>Turn ad-hoc introductions into a repeatable offer - a clear list of what kind of access we can actually broker, and for whom.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">26</div>
+        <div class="tlc">
+          <div class="tlphase">Phase three · Six to twelve months</div>
+          <h3>Retainer base and referrals</h3>
+          <p>Convert proven Sprint clients into Strategic Partner retainers; let the Connections tier generate its own referrals once a few relationships are live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASK -->
+<section class="bg-cream" id="ask">
+  <div class="si cta-wrap">
+    <div class="reveal">
+      <span class="stag">The ask</span>
+      <h2 class="sh" style="max-width:640px;margin:0 auto 1.5rem;">Prove it once, on one client. Then package it properly.</h2>
+      <div class="sdiv" style="margin:1.5rem auto;"></div>
+      <p class="sb" style="margin:0 auto;text-align:center;">The strategic capability already exists. The network already exists. What this needs now is one real client to prove the combination works, then the decision to sell it properly.</p>
+      <a href="mailto:jesse@bearwitness.co?subject=Strategy %26 Connections - Next Steps" class="cta-btn">Open the conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>Bear Witness · Strategy &amp; Connections · Internal Strategy Deck · v1 · 6 July 2026</footer>
+
+<script>
+const nav = document.getElementById('nav');
+let lightCount = 0;
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 80 || lightCount > 0);
+}
+const navHeight = 72;
+const lightSections = document.querySelectorAll('.bg-cream, .bg-white');
+const lightObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { lightCount++; } else { lightCount = Math.max(0, lightCount - 1); }
+    updateNav();
+  });
+}, { rootMargin: `-${navHeight}px 0px -${window.innerHeight - navHeight - 1}px 0px`, threshold: 0 });
+lightSections.forEach(s => lightObs.observe(s));
+window.addEventListener('scroll', updateNav);
+
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
