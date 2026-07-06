@@ -612,23 +612,23 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
   <div class="si">
     <div class="reveal">
       <span class="stag">09 · What's needed</span>
-      <h2 class="sh" style="color:var(--white);">The tech and capacity this actually needs before it can be sold.</h2>
+      <h2 class="sh" style="color:var(--white);">The scaling question is answered. Here's what's left to build.</h2>
       <div class="sdiv"></div>
-      <p class="sb" style="color:rgba(255,255,255,0.72);">This works today because every agent runs on infrastructure Felix built and maintains by hand. Selling it externally means that infrastructure has to hold more than one client's worth of agents at once - here's what needs to be true first.</p>
+      <p class="sb" style="color:rgba(255,255,255,0.72);">The obvious worry with a pitch like this is "does this cap out once you've signed a handful of clients." It doesn't, and the reason is infrastructure, not ambition. Every agent is software - a process that makes calls out to Anthropic's Claude API for the actual thinking, not something that needs a specific machine sitting in one place. That means client capacity runs on ordinary rented cloud servers, not on however many machines BGV happens to own, and it's the same software-isolation pattern already proven internally by Ted, our own agent, serving multiple people from one machine today. Here's what that unlocks, and what's still left to build around it.</p>
       <div class="hbox" style="margin-top:2rem;">
-        <p style="color:rgba(255,255,255,0.82);"><strong style="color:var(--coral-light);">Research note (Ted, pending Felix's sign-off):</strong> the attainable path for a team this size is per-client isolated sessions on a shared container platform (e.g. Fly.io/Modal), not a dedicated VM or Mac per client - VMs just replicate today's manual-build bottleneck in the cloud. Anthropic's own Agent SDK hosting guidance covers exactly this pattern (per-tenant working directory, config, and credential vault inside one long-running service), and their newer "Managed Agents" beta would remove most of the sandboxing work entirely if it suits our clients' data-handling needs. Rough shape: a few weeks of engineering to build the onboarding template, low ongoing maintenance, and infra cost that stays small (tens to low hundreds £/mo at 10 clients) next to Claude API usage cost. Olly's following up with Felix directly on what he'd actually choose to build.</p>
+        <p style="color:rgba(255,255,255,0.82);"><strong style="color:var(--coral-light);">The model:</strong> rent a general-purpose cloud server, host several clients' agents on it side by side in their own isolated workspace - separate credentials, separate memory, separate everything - and let each one call out to Anthropic's API as normal. No GPU, no specialist hardware, no dedicated machine per client. Capacity scales by renting another server when one fills up, a small and immediate step rather than a capital purchase, so the number of clients we can host is never the constraint on how many we can sign.</p>
       </div>
     </div>
     <div class="grid2 reveal">
       <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
-        <span class="ctag" style="color:var(--coral-light);">Infrastructure</span>
-        <h3 style="color:var(--white);">A way to host more than one client's agents at once</h3>
-        <p style="color:rgba(255,255,255,0.62);">Right now, each agent runs on a dedicated machine Felix has configured directly. Taking on external clients means standing up new instances - or isolated environments on shared hardware - per client, without Felix hand-building each one from scratch.</p>
+        <span class="ctag" style="color:var(--coral-light);">Infrastructure - solved</span>
+        <h3 style="color:var(--white);">Hosting scales by renting servers, not buying hardware</h3>
+        <p style="color:rgba(255,255,255,0.62);">Each client's agents run in their own isolated workspace on a shared, rented cloud server - the same multi-tenant pattern already proven internally. Adding the next client is a case of provisioning a workspace, not standing up new hardware, which means onboarding speed is set by our build process, not by procurement.</p>
       </div>
       <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
         <span class="ctag" style="color:var(--coral-light);">Isolation</span>
         <h3 style="color:var(--white);">Hard separation between clients' data</h3>
-        <p style="color:rgba(255,255,255,0.62);">The same isolation rules that keep our own agents' memory and context private need to extend to client agents - no client's emails, credentials, or conversations can ever be visible to another's, or to us by accident.</p>
+        <p style="color:rgba(255,255,255,0.62);">The same isolation rules that keep our own agents' memory and context private extend to client agents by design - separate directories, separate credentials, separate state per client on any shared server. No client's emails, credentials, or conversations are ever visible to another's, or to us by accident.</p>
       </div>
       <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
         <span class="ctag" style="color:var(--coral-light);">Access &amp; credentials</span>
