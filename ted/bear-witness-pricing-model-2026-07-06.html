@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness | Pricing Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E2733;
+  --ink-deep: #10161F;
+  --copper: #B5652D;
+  --copper-light: #D68F5A;
+  --stone: #F2EEE5;
+  --stone-dark: #E6DFCE;
+  --charcoal: #24211C;
+  --charcoal-light: #59524A;
+  --white: #FBF9F4;
+  --sage: #C9C0AC;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-weight:300;color:var(--charcoal);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Spectral',serif;font-weight:500;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s ease;}
+nav.scrolled{background:rgba(251,249,244,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:48px;width:auto;display:block;filter:brightness(0) invert(1);transition:filter 0.4s;}
+nav.scrolled .nav-logo-img{filter:none;}
+.nav-links{display:flex;gap:1.75rem;list-style:none;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s;}
+nav.scrolled .nav-links a{color:var(--charcoal-light);}
+.nav-links a:hover{color:var(--copper);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;background:linear-gradient(160deg,rgba(10,14,20,0.94) 0%,rgba(30,39,51,0.88) 50%,rgba(120,80,40,0.45) 100%), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;}
+.hero-inner{max-width:840px;}
+.hero-tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--copper-light);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.2s forwards;}
+.hero h1{font-size:clamp(3rem,6.5vw,5.2rem);color:var(--white);line-height:1.08;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.4s forwards;}
+.hero h1 em{color:var(--copper-light);font-style:italic;}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(255,255,255,0.78);max-width:640px;margin:0 auto 2.5rem;line-height:1.75;opacity:0;animation:fadeUp 0.9s ease 0.6s forwards;}
+.hero-cta{display:inline-block;padding:1rem 2.8rem;background:var(--copper);color:var(--white);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;opacity:0;animation:fadeUp 0.9s ease 0.8s forwards;}
+.hero-cta:hover{background:var(--copper-light);transform:translateY(-2px);}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);opacity:0;animation:fadeUp 0.9s ease 1.1s forwards;}
+.scroll-ind span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.55),transparent);margin:0 auto;animation:pulse 2s ease-in-out infinite;}
+
+/* SECTIONS */
+section{padding:7rem 3rem;}
+.si{max-width:1120px;margin:0 auto;}
+.stag{display:block;font-size:0.68rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;}
+.sh{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin-bottom:1.5rem;}
+.sb{font-size:1.03rem;line-height:1.82;max-width:680px;color:var(--charcoal-light);}
+.sdiv{width:44px;height:3px;background:var(--copper);margin:1.5rem 0;border-radius:2px;}
+
+/* BACKGROUNDS */
+.bg-cream{background:var(--stone);}
+.bg-white{background:var(--white);}
+.bg-ink{background:var(--ink-deep);color:var(--white);}
+.bg-ink .stag{color:var(--copper-light);}
+.bg-ink .sh{color:var(--white);}
+.bg-ink .sb{color:rgba(255,255,255,0.72);}
+.bg-charcoal{background:var(--charcoal);color:var(--white);}
+.bg-charcoal .stag{color:var(--copper-light);}
+
+/* CARDS */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem;}
+.card{border-radius:4px;padding:2rem;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;}
+.bg-ink .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);}
+.bg-ink .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2);border-color:rgba(181,101,45,0.4);}
+.bg-cream .card{background:var(--white);border:1px solid var(--stone-dark);}
+.bg-cream .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--copper);}
+.bg-white .card{background:var(--stone);border:1px solid var(--stone-dark);}
+.bg-white .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--copper);}
+.ctag{display:block;font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:0.4rem;}
+.bg-ink .ctag{color:var(--copper-light);}
+.card h3{font-size:1.15rem;margin-bottom:0.7rem;}
+.bg-ink .card h3{color:var(--white);}
+.card p{font-size:0.87rem;line-height:1.72;color:var(--charcoal-light);}
+.bg-ink .card p{color:rgba(255,255,255,0.62);}
+
+/* COST TABLE ROWS inside card */
+.cline{display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:1px solid var(--stone-dark);font-size:0.85rem;}
+.cline:last-child{border-bottom:none;}
+.bg-ink .cline{border-bottom:1px solid rgba(255,255,255,0.1);}
+.cline .clabel{color:var(--charcoal-light);}
+.bg-ink .cline .clabel{color:rgba(255,255,255,0.6);}
+.cline .cval{font-weight:600;color:var(--charcoal);white-space:nowrap;padding-left:1rem;}
+.bg-ink .cline .cval{color:var(--white);}
+.cline.total{border-top:2px solid var(--copper);margin-top:0.4rem;padding-top:0.9rem;}
+.cline.total .clabel{font-weight:600;color:var(--charcoal);}
+.bg-ink .cline.total .clabel{color:var(--white);}
+.cline.total .cval{font-family:'Spectral',serif;font-size:1.25rem;color:var(--copper);}
+.bg-ink .cline.total .cval{color:var(--copper-light);}
+
+/* HIGHLIGHT */
+.hbox{background:rgba(181,101,45,0.1);border-left:4px solid var(--copper);padding:1.5rem 2rem;border-radius:0 4px 4px 0;margin-top:2rem;}
+.bg-ink .hbox{background:rgba(181,101,45,0.12);}
+.hbox p{font-size:0.98rem;line-height:1.72;margin:0;}
+.hbox p strong{color:var(--copper);}
+.bg-ink .hbox p{color:rgba(255,255,255,0.82);}
+.bg-ink .hbox p strong{color:var(--copper-light);}
+
+/* ASSUMPTIONS BOX */
+.assum{background:var(--charcoal);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:2.5rem;margin-top:3.5rem;}
+.assum-tag{display:flex;align-items:center;gap:0.6rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper-light);margin-bottom:1.5rem;}
+.assum-tag::before{content:'⚑';font-size:0.9rem;}
+.assum ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.9rem 2.5rem;}
+.assum li{font-size:0.86rem;line-height:1.6;color:rgba(255,255,255,0.75);padding-left:1.1rem;position:relative;}
+.assum li::before{content:'—';position:absolute;left:0;color:var(--copper-light);}
+.assum li strong{color:var(--white);font-weight:600;}
+
+/* COMPARISON */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.comp-col{padding:2.5rem;border-radius:4px;position:relative;}
+.comp-col.alt{background:var(--charcoal-light);}
+.comp-col.rec{background:var(--ink);}
+.rec-badge{position:absolute;top:-0.7rem;right:1.5rem;background:var(--copper);color:var(--white);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2px;}
+.comp-col h3{font-size:1.2rem;color:var(--white);margin-bottom:1.5rem;}
+.comp-col ul{list-style:none;}
+.comp-col li{font-size:0.87rem;line-height:1.6;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.72);display:flex;gap:0.7rem;align-items:flex-start;}
+.comp-col li:last-child{border:none;}
+.comp-col.alt li::before{content:'·';color:rgba(255,255,255,0.35);}
+.comp-col.rec li::before{content:'✓';color:var(--copper-light);font-weight:600;flex-shrink:0;}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;background:var(--ink-deep);border-radius:4px;overflow:hidden;}
+.mbox{text-align:center;padding:3rem 1.5rem;border-right:1px solid rgba(255,255,255,0.08);}
+.mbox:last-child{border:none;}
+.mnum{font-family:'Spectral',serif;font-size:2.6rem;color:var(--copper-light);line-height:1;margin-bottom:0.4rem;}
+.mlabel{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+/* SERVICE TIERS / PRICING */
+.tier-stack{margin-top:3.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+.tier{border-radius:4px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;background:linear-gradient(135deg,#1e2733 0%,#10161f 100%);border:1px solid rgba(181,101,45,0.25);}
+.tier:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
+.tier-inner{padding:2.25rem 2.5rem;}
+.tier-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.tier-name{font-family:'Spectral',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.3rem;}
+.tier-sub{font-size:0.78rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em;}
+.tier-price-val{font-family:'Spectral',serif;font-size:1.9rem;color:var(--copper-light);text-align:right;}
+.tier-price-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.25rem;text-align:right;}
+.tier-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);}
+.tm{text-align:center;}
+.tm-num{font-family:'Spectral',serif;font-size:1.3rem;color:var(--white);}
+.tm-label{font-size:0.68rem;color:rgba(255,255,255,0.5);letter-spacing:0.04em;margin-top:0.2rem;}
+.tm-num.hi{color:var(--copper-light);}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse;margin-top:2.5rem;font-size:0.86rem;}
+.dtable th{text-align:left;font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--copper);padding:0.7rem 1rem;border-bottom:2px solid var(--copper);}
+.dtable td{padding:0.85rem 1rem;border-bottom:1px solid var(--stone-dark);color:var(--charcoal-light);}
+.dtable tr:last-child td{border-bottom:none;font-weight:600;color:var(--charcoal);}
+.dtable td:first-child, .dtable th:first-child{color:var(--charcoal);font-weight:500;}
+.bg-ink .dtable th{color:var(--copper-light);border-bottom-color:var(--copper-light);}
+.bg-ink .dtable td{color:rgba(255,255,255,0.65);border-bottom-color:rgba(255,255,255,0.1);}
+.bg-ink .dtable td:first-child{color:var(--white);}
+.bg-ink .dtable tr:last-child td{color:var(--white);}
+.table-wrap{overflow-x:auto;}
+
+/* PILL ROW */
+.pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+.pill{padding:0.28rem 0.85rem;border-radius:20px;font-size:0.72rem;font-weight:500;background:rgba(181,101,45,0.12);color:var(--copper);border:1px solid rgba(181,101,45,0.22);}
+.bg-ink .pill{background:rgba(181,101,45,0.15);color:var(--copper-light);border-color:rgba(181,101,45,0.28);}
+
+/* CTA */
+.cta-wrap{text-align:center;}
+.cta-btn{display:inline-block;padding:1.1rem 3.2rem;background:var(--copper);color:var(--white);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-top:2.5rem;transition:all 0.3s;}
+.cta-btn:hover{background:var(--copper-light);transform:translateY(-2px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:0.55;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .hero{padding:0 2rem 6rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  .grid3,.grid2,.comp-grid{grid-template-columns:1fr;gap:2rem;}
+  .metrics{grid-template-columns:1fr;}
+  .mbox{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .assum ul{grid-template-columns:1fr;}
+  .tier-metrics{grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+  .tier-price-val,.tier-price-note{text-align:left;}
+  .dtable{font-size:0.78rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="nav-logo"><img src="bear-witness-logo-tight-crop-transparent.png" alt="Bear Witness" class="nav-logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="#why">Why this exists</a></li>
+    <li><a href="#compute">API compute</a></li>
+    <li><a href="#fixed">Fixed costs</a></li>
+    <li><a href="#total">Cost to serve</a></li>
+    <li><a href="#counterfactual">Counterfactual</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#assumptions">Assumptions</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-tag">Bear Witness · Internal Pricing Model</span>
+    <h1>Numbers, not <em>vibes</em></h1>
+    <p class="hero-sub">The Strategy deck left Channel Management, Growth Retainer and Full Marketing Function priced as "figures aren't locked yet." This is the model that locks them - real Claude API cost, real infrastructure, real oversight time, checked against what a client would otherwise pay.</p>
+    <a href="#why" class="hero-cta">See the model</a>
+  </div>
+  <div class="scroll-ind"><span></span></div>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section class="bg-cream" id="why">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">Why this exists</span>
+      <h2 class="sh">A starting price needs a floor and a ceiling. This builds both.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The floor is cost-to-serve: what it actually costs Bear Witness to run a client's Claude Sonnet 5 / Opus 4.8 agent stack for a month, plus the infrastructure and oversight time behind it. The ceiling is the client's counterfactual: what they'd otherwise pay in salary, on-costs, or agency fees for the same output. A defensible starting price sits well above the floor and meaningfully below the ceiling - not a guess pulled from a competitor's rate card.</p>
+      <div class="hbox">
+        <p><strong>This is a starting-point estimate, not a locked number.</strong> Every figure below is built from a stated assumption Olly or Jesse can challenge individually - real cost-to-serve gets refined the moment a real paying client is running, exactly as flagged in the Strategy deck's commercials section.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- API COMPUTE -->
+<section class="bg-white" id="compute">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">01 · Cost to serve - Claude API compute</span>
+      <h2 class="sh">The single biggest real cost, modelled per tier.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Current published rates: Claude Sonnet 5 at $3 / $15 per million input/output tokens (an introductory $2 / $10 rate applies through 31 August 2026 - not relied on here so the model still holds afterwards); Claude Opus 4.8 at $5 / $25 per million input/output tokens. Cached input reads run at roughly 0.1x the input rate; cache writes (5-minute TTL) run at roughly 1.25x. All dollar figures converted to GBP at $1 = £0.79.</p>
+    </div>
+
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">Tier 01 · Channel Management</span>
+        <h3>One channel, lighter volume</h3>
+        <p>~200 agent turns/day (drafting, scheduling, performance checks, comment replies) - 6,000 turns/month. ~2,000 input tokens/turn (60% cache reads, 30% fresh, 10% cache writes), 400 output tokens/turn. 100% Claude Sonnet 5.</p>
+        <div class="cline"><span class="clabel">Input (cache-adjusted)</span><span class="cval">$17.28</span></div>
+        <div class="cline"><span class="clabel">Output</span><span class="cval">$36.00</span></div>
+        <div class="cline total"><span class="clabel">Monthly compute</span><span class="cval">≈ £42</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Tier 02 · Growth Retainer</span>
+        <h3>Multi-channel + strategy</h3>
+        <p>~500 turns/day - 15,000/month. ~2,500 input tokens/turn (same 60/30/10 cache split), 500 output tokens/turn. 85% Sonnet 5, 15% Opus 4.8 for strategy calls and quality review.</p>
+        <div class="cline"><span class="clabel">Sonnet portion (12,750 turns)</span><span class="cval">$142.05</span></div>
+        <div class="cline"><span class="clabel">Opus portion (2,250 turns)</span><span class="cval">$41.77</span></div>
+        <div class="cline total"><span class="clabel">Monthly compute</span><span class="cval">≈ £145</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Tier 03 · Full Marketing Function</span>
+        <h3>Whole operation</h3>
+        <p>~1,200 turns/day - 36,000/month. ~3,000 input tokens/turn (same cache split), 600 output tokens/turn. 70% Sonnet 5, 30% Opus 4.8 for the heavier strategic and oversight share of running an entire function.</p>
+        <div class="cline"><span class="clabel">Sonnet portion (25,200 turns)</span><span class="cval">$336.80</span></div>
+        <div class="cline"><span class="clabel">Opus portion (10,800 turns)</span><span class="cval">$240.57</span></div>
+        <div class="cline total"><span class="clabel">Monthly compute</span><span class="cval">≈ £456</span></div>
+      </div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Claude API pricing per Anthropic's published rate card. Turn volumes, token-per-turn averages, and cache hit rates are Bear Witness assumptions modelled on our own agent usage patterns - see the Assumptions panel below.</p>
+  </div>
+</section>
+
+<!-- FIXED COSTS -->
+<section class="bg-ink" id="fixed">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">02 · Fixed costs - hosting, hardware, oversight</span>
+      <h2 class="sh">Infrastructure that gets cheaper per client as the client base grows.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Two of the three costs here are shared across every client, not billed per client - which is exactly the "more clients without more headcount" logic this whole model is built to demonstrate.</p>
+    </div>
+
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">Hosting / infrastructure</span>
+        <h3>Shared container platform</h3>
+        <p>The Agent Workforce deck's own estimate: infra cost stays "tens to low hundreds £/mo at 10 clients" on a shared platform (e.g. Fly.io/Modal), well below Claude API usage cost. Scaled per client, that's roughly £10-20/month depending on tier weight - reused here unchanged, not re-derived.</p>
+        <div class="cline"><span class="clabel">Channel Mgmt</span><span class="cval">£10/mo</span></div>
+        <div class="cline"><span class="clabel">Growth Retainer</span><span class="cval">£15/mo</span></div>
+        <div class="cline"><span class="clabel">Full Function</span><span class="cval">£20/mo</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Mac Studio / core compute</span>
+        <h3>Existing infrastructure, amortised</h3>
+        <p>Apple lists the Mac Studio (M4 Max, 14-core CPU/32-core GPU, 36GB/512GB) from £2,099 on apple.com/uk; a higher-spec configuration suited to running several concurrent agent sessions runs to roughly £3,500-£4,000. This is already-owned hardware, not a new per-client cost - modelled here at an effective £3,700, amortised over 24 months (£154/month total), shared across the whole client book.</p>
+        <div class="cline"><span class="clabel">At 3 clients</span><span class="cval">£51.33/client/mo</span></div>
+        <div class="cline"><span class="clabel">At 10 clients</span><span class="cval">£15.40/client/mo</span></div>
+        <div class="cline"><span class="clabel">At 20 clients</span><span class="cval">£7.70/client/mo</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Engineering / oversight time</span>
+        <h3>Time, not headcount</h3>
+        <p>No new hire per client - but real hours are still spent reviewing drafts, approving sends, and handling escalations. Modelled at a notional £50/hour blended internal rate (reflecting BGV's own cost of time, not a market billing rate).</p>
+        <div class="cline"><span class="clabel">Channel Mgmt · 3 hrs/mo</span><span class="cval">£150/mo</span></div>
+        <div class="cline"><span class="clabel">Growth Retainer · 8 hrs/mo</span><span class="cval">£400/mo</span></div>
+        <div class="cline"><span class="clabel">Full Function · 20 hrs/mo</span><span class="cval">£1,000/mo</span></div>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>The Mac Studio row is the clearest proof of the model:</strong> <span style="color:rgba(255,255,255,0.82);">the same machine costs £51/client at 3 clients and £7.70/client at 20 - the hardware doesn't change, only how many clients it's shared across. That's the entire "grow without hiring or re-buying kit" argument, in one line of numbers.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- TOTAL COST TO SERVE -->
+<section class="bg-white" id="total">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">03 · Total cost to serve, per tier, per month</span>
+      <h2 class="sh">Everything above, summed - at 10 clients on the books.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Mac Studio amortisation shown at the 10-client point for this summary; see the fixed-cost cards above for 3 and 20-client scenarios.</p>
+    </div>
+    <div class="table-wrap">
+    <table class="dtable reveal">
+      <thead>
+        <tr><th>Tier</th><th>Claude API compute</th><th>Hosting</th><th>Mac Studio (10 clients)</th><th>Oversight time</th><th>Total cost to serve</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Channel Management</td><td>£42</td><td>£10</td><td>£15.40</td><td>£150</td><td>£215/mo</td></tr>
+        <tr><td>Growth Retainer</td><td>£145</td><td>£15</td><td>£15.40</td><td>£400</td><td>£575/mo</td></tr>
+        <tr><td>Full Marketing Function</td><td>£456</td><td>£20</td><td>£15.40</td><td>£1,000</td><td>£1,491/mo</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERFACTUAL -->
+<section class="bg-cream" id="counterfactual">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">04 · The client's counterfactual</span>
+      <h2 class="sh">What the client would otherwise pay to solve the same problem.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">UK benchmarks: average marketing manager salary runs £39,000-£45,000/year (Indeed £42,358, Glassdoor £44,511, PayScale £39,438), plus roughly 20-30% in employer on-costs (NI, pension, benefits) - call it £52,000-£56,000/year fully loaded, or about £4,400-£4,700/month. UK agency retainers: single-channel work £1,250-£3,500/month; full-service retainers £3,500-£16,750/month; SMEs typically start at £1,000-£2,000/month. A full marketing/competitor audit from a traditional agency still runs £10,000-£15,000 over 4-6 weeks; a standard SME audit £1,000-£5,000 (both figures reused unchanged from the Strategy deck).</p>
+    </div>
+    <div class="metrics reveal">
+      <div class="mbox"><div class="mnum">£1.25-3.5k</div><div class="mlabel">UK single-channel agency retainer/month - the direct comparison for Channel Management</div></div>
+      <div class="mbox"><div class="mnum">£4.4-8k</div><div class="mlabel">In-house marketing manager (fully loaded) or mid-tier agency retainer - the comparison for Growth Retainer</div></div>
+      <div class="mbox"><div class="mnum">£10-16.75k</div><div class="mlabel">Full-service agency top end, or a small in-house team - the comparison for Full Marketing Function</div></div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Salary data: Indeed, Glassdoor, PayScale UK, 2026. Agency retainer data: Whito UK Agency Retainer Costs 2026; Expertsure Digital Marketing Agency Costs UK 2026. Audit figures reused from the Strategy deck's own cited industry sources.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="bg-ink" id="pricing">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">05 · The margin, and the recommendation</span>
+      <h2 class="sh">A starting price for each tier, with the multiple shown.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Each recommendation sits at roughly 4-5x cost-to-serve, and comfortably below the client's counterfactual - a real margin, not a guess, and one that gets sharper the moment a paying client sets the actual cost-to-serve.</p>
+    </div>
+    <div class="tier-stack reveal">
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Channel Management</div>
+              <div class="tier-sub">Entry tier · one channel</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£950-1,200/mo</div>
+              <div class="tier-price-note">recommended starting retainer</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£215</div><div class="tm-label">Cost to serve</div></div>
+            <div class="tm"><div class="tm-num">£1.25-3.5k</div><div class="tm-label">Client counterfactual</div></div>
+            <div class="tm"><div class="tm-num hi">~4.5-5.5x</div><div class="tm-label">Margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">~50-65%</div><div class="tm-label">Below counterfactual</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Growth Retainer</div>
+              <div class="tier-sub">Multi-channel · strategy included</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£2,500-3,000/mo</div>
+              <div class="tier-price-note">recommended starting retainer</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£575</div><div class="tm-label">Cost to serve</div></div>
+            <div class="tm"><div class="tm-num">£4.4-8k</div><div class="tm-label">Client counterfactual</div></div>
+            <div class="tm"><div class="tm-num hi">~4.3-5.2x</div><div class="tm-label">Margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">~45-60%</div><div class="tm-label">Below counterfactual</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Full Marketing Function</div>
+              <div class="tier-sub">Whole operation · bespoke</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£6,000-8,000/mo</div>
+              <div class="tier-price-note">recommended starting point</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£1,491</div><div class="tm-label">Cost to serve</div></div>
+            <div class="tm"><div class="tm-num">£10-16.75k</div><div class="tm-label">Client counterfactual</div></div>
+            <div class="tm"><div class="tm-num hi">~4-5.4x</div><div class="tm-label">Margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">~40-50%</div><div class="tm-label">Below counterfactual</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>These are starting points, not locked prices.</strong> <span style="color:rgba(255,255,255,0.82);">Real cost-to-serve - actual token volume, actual oversight hours - only gets confirmed once a first paying client is running, exactly as the Strategy deck already flags. This model exists so that when that data lands, we're adjusting a number we understand, not discovering the model from scratch.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ASSUMPTIONS -->
+<section class="bg-charcoal" id="assumptions">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">06 · Every assumption, in one place</span>
+      <h2 class="sh" style="color:var(--white);">Challenge any single number without unpicking the model.</h2>
+      <div class="sdiv"></div>
+    </div>
+    <div class="assum reveal">
+      <div class="assum-tag">Assumptions box - flag any of these to update the model</div>
+      <ul>
+        <li><strong>FX rate:</strong> $1 = £0.79, applied to all USD API costs.</li>
+        <li><strong>Sonnet 5 pricing:</strong> $3/$15 per million input/output tokens (standard rate used, not the $2/$10 intro rate that expires 31 Aug 2026).</li>
+        <li><strong>Opus 4.8 pricing:</strong> $5/$25 per million input/output tokens.</li>
+        <li><strong>Cache read discount:</strong> ~0.1x the input rate.</li>
+        <li><strong>Cache write premium:</strong> ~1.25x the input rate, 5-minute TTL.</li>
+        <li><strong>Cache mix per turn:</strong> 60% cached input, 30% fresh input, 10% cache write - modelled the same across all three tiers.</li>
+        <li><strong>Channel Management volume:</strong> 200 turns/day, 2,000 input + 400 output tokens/turn, 100% Sonnet 5.</li>
+        <li><strong>Growth Retainer volume:</strong> 500 turns/day, 2,500 input + 500 output tokens/turn, 85% Sonnet 5 / 15% Opus 4.8.</li>
+        <li><strong>Full Marketing Function volume:</strong> 1,200 turns/day, 3,000 input + 600 output tokens/turn, 70% Sonnet 5 / 30% Opus 4.8.</li>
+        <li><strong>Days per month:</strong> 30, agents run daily including weekends.</li>
+        <li><strong>Hosting cost:</strong> £10-20/client/month, reused unchanged from the Agent Workforce deck's "tens to low hundreds £/mo at 10 clients" estimate.</li>
+        <li><strong>Mac Studio cost:</strong> £3,700 effective spec (Apple UK lists the base M4 Max from £2,099; a higher-memory config for concurrent sessions runs £3,500-4,000), amortised over 24 months, shared across the whole client book.</li>
+        <li><strong>Oversight hours:</strong> 3 / 8 / 20 hours per month for Channel Management / Growth Retainer / Full Marketing Function.</li>
+        <li><strong>Oversight rate:</strong> £50/hour notional internal rate - BGV's own cost of time, not a market billing rate.</li>
+        <li><strong>Client counterfactual:</strong> UK marketing manager salary £39-45k/year plus 20-30% on-costs; UK agency retainers £1,250-16,750/month depending on scope; audit figures reused unchanged from the Strategy deck.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ASK -->
+<section class="bg-cream" id="ask">
+  <div class="si cta-wrap">
+    <div class="reveal">
+      <span class="stag">The ask</span>
+      <h2 class="sh" style="max-width:640px;margin:0 auto 1.5rem;">Sign off a starting price per tier, then let the first client refine it.</h2>
+      <div class="sdiv" style="margin:1.5rem auto;"></div>
+      <p class="sb" style="margin:0 auto;text-align:center;">This replaces "figures aren't locked yet" with a number for each tier, built from real API pricing and real UK benchmarks. Confirm the starting prices, or flag which assumption to change first.</p>
+      <a href="mailto:jesse@bearwitness.co?subject=Bear Witness Pricing Model - Sign Off" class="cta-btn">Open the conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>Bear Witness · Pricing Model · Internal Strategy Deck · v1 · 6 July 2026</footer>
+
+<script>
+const nav = document.getElementById('nav');
+let lightCount = 0;
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 80 || lightCount > 0);
+}
+const navHeight = 72;
+const lightSections = document.querySelectorAll('.bg-cream, .bg-white');
+const lightObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { lightCount++; } else { lightCount = Math.max(0, lightCount - 1); }
+    updateNav();
+  });
+}, { rootMargin: `-${navHeight}px 0px -${window.innerHeight - navHeight - 1}px 0px`, threshold: 0 });
+lightSections.forEach(s => lightObs.observe(s));
+window.addEventListener('scroll', updateNav);
+
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
