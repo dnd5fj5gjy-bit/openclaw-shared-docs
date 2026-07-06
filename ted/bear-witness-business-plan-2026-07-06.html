@@ -680,6 +680,21 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
       </div>
       <div class="risk-row">
         <div>
+          <span class="risk-tag">Multi-tenant infrastructure risk</span>
+          <h4>Cloud vendor dependency and client data isolation</h4>
+          <div class="pills"><span class="pill">Likelihood: low</span><span class="pill">Impact: medium</span></div>
+        </div>
+        <div>
+          <span class="risk-col-label">Risk</span>
+          <p>Stream 2 client agent workspaces run on rented multi-tenant cloud VMs (Hetzner, DigitalOcean or AWS Lightsail, per the cloud-hosting deck), with several client workspaces sharing a single box. That creates two things to manage: dependency on a third-party cloud vendor's uptime and pricing, and the need for genuine isolation so one client's data and credentials never leak into another's workspace on the same machine.</p>
+        </div>
+        <div>
+          <span class="risk-col-label">Mitigation</span>
+          <p><strong style="color:var(--gold-light);">Owner: Felix.</strong> Each client already runs in its own isolated process and file space on the box, the same pattern already used to serve multiple Telegram users off one machine - no shared credentials or file access between clients. Watchdog monitoring covers each workspace so a failure is caught and restarted rather than silently spreading. Contractual data-handling terms will be set out for any client on a shared box before onboarding. Because it is rented compute with no hardware owned, there is no vendor lock-in - workloads can move from Hetzner to DigitalOcean, AWS or elsewhere with no capital write-off if pricing, reliability or compliance requirements change. Next action: document the per-client isolation and watchdog setup as part of the Stream 1 build playbook already underway.</p>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div>
           <span class="risk-tag">Connections-bootstrap trap</span>
           <h4>Warm intros becoming the permanent strategy</h4>
           <div class="pills"><span class="pill">Likelihood: medium</span><span class="pill">Impact: medium</span></div>
