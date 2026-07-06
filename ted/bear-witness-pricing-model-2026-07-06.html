@@ -278,6 +278,67 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
       </div>
     </div>
     <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Claude API pricing per Anthropic's published rate card. Turn volumes, token-per-turn averages, and cache hit rates are Bear Witness assumptions modelled on our own agent usage patterns - see the Assumptions panel below.</p>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <span class="stag">01a · Workflow-level detail</span>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);">The tier total, broken into the five workflows that actually run.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The tier cards above give one blended number per tier. That's a fair headline but it hides where the tokens actually go. Below, each tier is split into its constituent workflows - content drafting, campaign/ad management, reporting, strategy calls, and client Q&A - each with its own task volume, average input/output tokens, and model split, so any single workflow assumption can be challenged on its own terms rather than re-deriving the whole tier number.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="font-size:1.05rem;color:var(--charcoal);margin-bottom:0.3rem;">Channel Management - 6,000 tasks/month</h3>
+      <div class="table-wrap">
+      <table class="dtable">
+        <thead><tr><th>Workflow</th><th>Tasks/mo</th><th>Avg input tokens</th><th>Avg output tokens</th><th>Model</th><th>Monthly cost</th></tr></thead>
+        <tbody>
+          <tr><td>Content drafting &amp; copywriting</td><td>3,000</td><td>1,800</td><td>550</td><td>Sonnet 5</td><td>£25.70</td></tr>
+          <tr><td>Scheduling &amp; campaign ops</td><td>1,200</td><td>1,200</td><td>150</td><td>Sonnet 5</td><td>£3.77</td></tr>
+          <tr><td>Performance checks &amp; reporting</td><td>900</td><td>2,800</td><td>500</td><td>Sonnet 5</td><td>£8.20</td></tr>
+          <tr><td>Comment replies / community mgmt</td><td>600</td><td>900</td><td>200</td><td>Sonnet 5</td><td>£2.04</td></tr>
+          <tr><td>Strategy / planning check-ins</td><td>300</td><td>4,500</td><td>800</td><td>Sonnet 5</td><td>£4.38</td></tr>
+          <tr><td>Total</td><td>6,000</td><td>-</td><td>-</td><td>-</td><td>£44.08/mo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="sb" style="margin-top:0.8rem;font-size:0.78rem;opacity:0.65;">Workflow-level total (£44.08) sits ~5% above the flat £42 headline figure because task-type token ratios differ slightly from the tier average - within normal modelling tolerance, and the more auditable of the two numbers.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;">
+      <h3 style="font-size:1.05rem;color:var(--charcoal);margin-bottom:0.3rem;">Growth Retainer - 15,000 tasks/month</h3>
+      <div class="table-wrap">
+      <table class="dtable">
+        <thead><tr><th>Workflow</th><th>Tasks/mo</th><th>Avg input tokens</th><th>Avg output tokens</th><th>Model split</th><th>Monthly cost</th></tr></thead>
+        <tbody>
+          <tr><td>Content drafting &amp; copywriting</td><td>6,000</td><td>2,200</td><td>650</td><td>95% Sonnet / 5% Opus</td><td>£63.29</td></tr>
+          <tr><td>Campaign &amp; ad management</td><td>3,750</td><td>2,000</td><td>350</td><td>90% Sonnet / 10% Opus</td><td>£25.71</td></tr>
+          <tr><td>Reporting &amp; dashboards</td><td>2,250</td><td>2,800</td><td>550</td><td>70% Sonnet / 30% Opus</td><td>£26.23</td></tr>
+          <tr><td>Strategy / planning calls</td><td>1,800</td><td>3,000</td><td>700</td><td>50% Sonnet / 50% Opus</td><td>£28.16</td></tr>
+          <tr><td>Client Q&amp;A / ad hoc</td><td>1,200</td><td>1,500</td><td>300</td><td>90% Sonnet / 10% Opus</td><td>£6.74</td></tr>
+          <tr><td>Total</td><td>15,000</td><td>-</td><td>-</td><td>-</td><td>£150.12/mo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="sb" style="margin-top:0.8rem;font-size:0.78rem;opacity:0.65;">Workflow-level total (£150.12) sits ~3.5% above the flat £145 headline figure, driven by strategy/planning calls carrying a heavier Opus 4.8 share than the tier average assumes.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;">
+      <h3 style="font-size:1.05rem;color:var(--charcoal);margin-bottom:0.3rem;">Full Marketing Function - 36,000 tasks/month</h3>
+      <div class="table-wrap">
+      <table class="dtable">
+        <thead><tr><th>Workflow</th><th>Tasks/mo</th><th>Avg input tokens</th><th>Avg output tokens</th><th>Model split</th><th>Monthly cost</th></tr></thead>
+        <tbody>
+          <tr><td>Content drafting &amp; copywriting</td><td>12,600</td><td>2,800</td><td>750</td><td>85% Sonnet / 15% Opus</td><td>£167.43</td></tr>
+          <tr><td>Campaign &amp; ad management</td><td>7,200</td><td>2,500</td><td>400</td><td>80% Sonnet / 20% Opus</td><td>£61.96</td></tr>
+          <tr><td>Reporting &amp; dashboards</td><td>5,400</td><td>4,000</td><td>800</td><td>55% Sonnet / 45% Opus</td><td>£98.69</td></tr>
+          <tr><td>Strategy / planning &amp; leadership calls</td><td>5,400</td><td>4,000</td><td>850</td><td>35% Sonnet / 65% Opus</td><td>£113.46</td></tr>
+          <tr><td>Client Q&amp;A / escalations</td><td>5,400</td><td>1,800</td><td>350</td><td>85% Sonnet / 15% Opus</td><td>£36.83</td></tr>
+          <tr><td>Total</td><td>36,000</td><td>-</td><td>-</td><td>-</td><td>£478.37/mo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="sb" style="margin-top:0.8rem;font-size:0.78rem;opacity:0.65;">Workflow-level total (£478.37) sits ~4.9% above the flat £456 headline figure, again because strategy/leadership calls and reporting lean harder on Opus 4.8 than the tier-wide blend assumes. Same reconciliation logic as the two tiers above - this is the more granular number, the headline is the round one used elsewhere in the model.</p>
+    </div>
   </div>
 </section>
 
