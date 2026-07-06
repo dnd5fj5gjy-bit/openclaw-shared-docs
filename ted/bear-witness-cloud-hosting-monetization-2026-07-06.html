@@ -331,6 +331,25 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
     <div class="hbox">
       <p><strong>The Mac Studio's amortisation curve and this VM model's flat curve tell the same underlying story from two directions:</strong> <span style="color:rgba(255,255,255,0.82);">shared infrastructure gets cheaper per client as the book grows, and even in the worst case here, infrastructure spend stays a rounding error against revenue at any realistic client count. Growth is gated by sales and onboarding capacity, not by servers.</span></p>
     </div>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <span class="stag">03b · Disk storage, checked separately from RAM</span>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">The 8-clients-per-box density figure was checked against disk capacity too, not just RAM.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">A fair question on the density figure above: RAM was modelled explicitly, but does each client also need disk space to scale, and was that checked? It was not sized off a guess - it was checked against Ted's own live workspace, the closest real analogue available, because Ted is a BGV agent already running in production on this same Mac Studio with a real user sending it real content over real weeks.</p>
+    </div>
+    <div class="assum reveal">
+      <div class="assum-tag">Grounded in Ted's live disk usage, not a theoretical estimate</div>
+      <ul>
+        <li><strong>Core agent footprint:</strong> Ted's actual memory files, session logs, state and task files (self-improving/ plus workspace/memory, sessions, logs, state, users, traces, transcripts) total roughly 4-5MB combined - this is what "one running client agent" actually weighs on disk before any uploaded files.</li>
+        <li><strong>Real uploaded-content baseline:</strong> Ted's workspace/incoming/ folder - every photo, PDF, audio file and document a busy user has sent over 5-6 weeks of active daily use - totals roughly 115MB. This is the most realistic proxy for what a client's ongoing uploads look like, not a modelled assumption.</li>
+        <li><strong>Bundled disk on every costed VM tier:</strong> Hetzner CX22 ships with 40GB NVMe included at £3.26/month; DigitalOcean's Basic Droplet (2vCPU/4GB) ships with 80GB SSD at £18.96/month; AWS Lightsail's equivalent 4GB bundle also ships with 80GB SSD at £18.96/month - all at the same rental prices already used throughout this deck, no extra spend required.</li>
+        <li><strong>Headroom at 8 clients/box:</strong> 8 clients each generating Ted's real 115MB/5-6-week rate would produce under 1GB/month combined on a box - against 40GB+ already bundled in, that is years of comfortable headroom before disk becomes a factor at all.</li>
+      </ul>
+    </div>
+    <div class="hbox">
+      <p><strong>Storage is not the binding constraint on the 8-clients-per-box figure. RAM is, and RAM was already the basis of the model above.</strong> <span style="color:rgba(255,255,255,0.82);">A client would need to be uploading gigabytes of files on an ongoing basis - many multiples of the real-world 115MB/5-6-week baseline observed on BGV's own working agent - before disk started to compete with RAM as the limiting factor. Nothing in a normal client's usage pattern gets close to that.</span></p>
+    </div>
   </div>
 </section>
 
