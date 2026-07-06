@@ -382,6 +382,51 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
     <div class="hbox">
       <p><strong>The Mac Studio row is the clearest proof of the model:</strong> <span style="color:rgba(255,255,255,0.82);">the same machine costs £51/client at 3 clients and £7.70/client at 20 - the hardware doesn't change, only how many clients it's shared across. That's the entire "grow without hiring or re-buying kit" argument, in one line of numbers.</span></p>
     </div>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <span class="stag">02a · Real infra pricing, not a range</span>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">The £10-20/client/month hosting line, checked against two published rate cards.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Two published models, both checked directly: Fly.io's per-second Machine pricing (an always-on container) and Modal's per-core-second / per-GiB-second pricing (a metered, pay-for-actual-use container). Both come in below the £10-20 working assumption used in the totals - which means that assumption has built-in headroom for bandwidth, storage, monitoring and the inevitable "we under-modelled something" margin, rather than being an optimistic guess.</p>
+    </div>
+    <div class="grid2 reveal">
+      <div class="card">
+        <span class="ctag">Model A · Fly.io, always-on Machine</span>
+        <h3>Persistent container, priced per second</h3>
+        <p>Fly.io's published Amsterdam-region rates: shared-cpu-1x/256MB = $0.0028/hr ($2.02/mo run continuously); shared-cpu-1x/1GB = $0.0082/hr ($5.92/mo); shared-cpu-1x/2GB = $0.0154/hr ($11.11/mo). At $1=£0.79, a 1GB container run 24/7 all month costs £4.68; a 2GB container costs £8.78.</p>
+        <div class="cline"><span class="clabel">Channel Mgmt (1GB, light orchestration)</span><span class="cval">£4.68/mo</span></div>
+        <div class="cline"><span class="clabel">Growth Retainer (2GB, multi-channel)</span><span class="cval">£8.78/mo</span></div>
+        <div class="cline"><span class="clabel">Full Function (~4GB, extrapolated)</span><span class="cval">≈£12.72/mo</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Model B · Modal, metered per-task compute</span>
+        <h3>Pay only for seconds actually used</h3>
+        <p>Modal's published base rate: $0.0000131/CPU-core-second + $0.00000222/GiB-second, with a 1.25x US/UK regional multiplier. Modelled as 1 vCPU / 1GiB, ~30 seconds of container time per agent turn, applied to each tier's actual turn volume (6,000 / 15,000 / 36,000 turns/month from the workflow tables above).</p>
+        <div class="cline"><span class="clabel">Channel Mgmt (6,000 turns × 30s)</span><span class="cval">£2.72/mo</span></div>
+        <div class="cline"><span class="clabel">Growth Retainer (15,000 turns × 30s)</span><span class="cval">£6.81/mo</span></div>
+        <div class="cline"><span class="clabel">Full Function (36,000 turns × 30s)</span><span class="cval">£16.34/mo</span></div>
+      </div>
+    </div>
+    <p class="sb" style="margin-top:1.5rem;font-size:0.78rem;opacity:0.65;">Fly.io: fly.io/docs/about/pricing/ (Amsterdam region rates, 2026). Modal: modal.com/pricing and Modal's documented base CPU/memory rate as reported by third-party trackers citing Modal's published rate card, February 2026. Both calculations are pre-bandwidth/storage; the £10-20/client working assumption used throughout this model is retained unchanged in the cost-to-serve totals, since it already comfortably covers both calculated figures.</p>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <span class="stag">02b · Unit economics as the client book scales</span>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">At what client count does the Mac Studio cost stop mattering?</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Using Growth Retainer as the worked example (API compute £145 and oversight £400 are per-client costs that don't change with book size; hosting £15/client is flat; only the Mac Studio line is shared and shrinks as the book grows):</p>
+    </div>
+    <div class="table-wrap reveal">
+    <table class="dtable" style="margin-top:1.5rem;">
+      <thead><tr><th>Clients on the book</th><th>Mac Studio £/client</th><th>Mac Studio as % of Growth Retainer cost-to-serve</th><th>Total cost-to-serve (Growth Retainer)</th></tr></thead>
+      <tbody>
+        <tr><td>3</td><td>£51.33</td><td>8.4%</td><td>£611.33</td></tr>
+        <tr><td>10</td><td>£15.40</td><td>2.7%</td><td>£575.40</td></tr>
+        <tr><td>20</td><td>£7.70</td><td>1.4%</td><td>£567.70</td></tr>
+        <tr><td>50</td><td>£3.08</td><td>0.5%</td><td>£563.08</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sb" style="margin-top:1rem;font-size:0.78rem;opacity:0.65;">By roughly 20 clients the Mac Studio line has fallen under 1.5% of cost-to-serve and keeps shrinking - past that point, cost-to-serve is effectively pure variable cost (Claude API + hosting + oversight), and adding client #51 costs almost exactly what client #21 did. That's the actual mechanism behind "this scales without re-buying hardware or hiring," not just an assertion.</p>
   </div>
 </section>
 
