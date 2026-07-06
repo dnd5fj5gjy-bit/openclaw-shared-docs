@@ -602,6 +602,9 @@ footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:
       <h2 class="sh" style="color:var(--white);">The tech and capacity this actually needs before it can be sold.</h2>
       <div class="sdiv"></div>
       <p class="sb" style="color:rgba(255,255,255,0.72);">This works today because every agent runs on infrastructure Felix built and maintains by hand. Selling it externally means that infrastructure has to hold more than one client's worth of agents at once - here's what needs to be true first.</p>
+      <div class="hbox" style="margin-top:2rem;">
+        <p style="color:rgba(255,255,255,0.82);"><strong style="color:var(--coral-light);">Research note (Ted, pending Felix's sign-off):</strong> the attainable path for a team this size is per-client isolated sessions on a shared container platform (e.g. Fly.io/Modal), not a dedicated VM or Mac per client - VMs just replicate today's manual-build bottleneck in the cloud. Anthropic's own Agent SDK hosting guidance covers exactly this pattern (per-tenant working directory, config, and credential vault inside one long-running service), and their newer "Managed Agents" beta would remove most of the sandboxing work entirely if it suits our clients' data-handling needs. Rough shape: a few weeks of engineering to build the onboarding template, low ongoing maintenance, and infra cost that stays small (tens to low hundreds £/mo at 10 clients) next to Claude API usage cost. Olly's following up with Felix directly on what he'd actually choose to build.</p>
+      </div>
     </div>
     <div class="grid2 reveal">
       <div class="card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
