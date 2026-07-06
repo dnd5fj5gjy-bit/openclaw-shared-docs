@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness | Cloud Hosting &amp; Monetisation Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E2733;
+  --ink-deep: #10161F;
+  --copper: #B5652D;
+  --copper-light: #D68F5A;
+  --stone: #F2EEE5;
+  --stone-dark: #E6DFCE;
+  --charcoal: #24211C;
+  --charcoal-light: #59524A;
+  --white: #FBF9F4;
+  --sage: #C9C0AC;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-weight:300;color:var(--charcoal);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Spectral',serif;font-weight:500;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s ease;}
+nav.scrolled{background:rgba(251,249,244,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;font-family:'Spectral',serif;font-size:1.1rem;color:var(--white);letter-spacing:0.02em;}
+nav.scrolled .nav-logo{color:var(--ink);}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;}
+.nav-links a{font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s;}
+nav.scrolled .nav-links a{color:var(--charcoal-light);}
+.nav-links a:hover{color:var(--copper);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;background:linear-gradient(160deg,rgba(10,14,20,0.94) 0%,rgba(30,39,51,0.88) 50%,rgba(120,80,40,0.45) 100%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;}
+.hero-inner{max-width:860px;}
+.hero-tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--copper-light);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.2s forwards;}
+.hero h1{font-size:clamp(2.8rem,6vw,4.9rem);color:var(--white);line-height:1.1;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.4s forwards;}
+.hero h1 em{color:var(--copper-light);font-style:italic;}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(255,255,255,0.78);max-width:660px;margin:0 auto 2.5rem;line-height:1.75;opacity:0;animation:fadeUp 0.9s ease 0.6s forwards;}
+.hero-cta{display:inline-block;padding:1rem 2.8rem;background:var(--copper);color:var(--white);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;opacity:0;animation:fadeUp 0.9s ease 0.8s forwards;}
+.hero-cta:hover{background:var(--copper-light);transform:translateY(-2px);}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);opacity:0;animation:fadeUp 0.9s ease 1.1s forwards;}
+.scroll-ind span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.55),transparent);margin:0 auto;animation:pulse 2s ease-in-out infinite;}
+
+/* SECTIONS */
+section{padding:7rem 3rem;}
+.si{max-width:1120px;margin:0 auto;}
+.stag{display:block;font-size:0.68rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;}
+.sh{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin-bottom:1.5rem;}
+.sb{font-size:1.03rem;line-height:1.82;max-width:700px;color:var(--charcoal-light);}
+.sdiv{width:44px;height:3px;background:var(--copper);margin:1.5rem 0;border-radius:2px;}
+
+/* BACKGROUNDS */
+.bg-cream{background:var(--stone);}
+.bg-white{background:var(--white);}
+.bg-ink{background:var(--ink-deep);color:var(--white);}
+.bg-ink .stag{color:var(--copper-light);}
+.bg-ink .sh{color:var(--white);}
+.bg-ink .sb{color:rgba(255,255,255,0.72);}
+.bg-charcoal{background:var(--charcoal);color:var(--white);}
+.bg-charcoal .stag{color:var(--copper-light);}
+
+/* CARDS */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem;}
+.card{border-radius:4px;padding:2rem;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;}
+.bg-ink .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);}
+.bg-ink .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2);border-color:rgba(181,101,45,0.4);}
+.bg-cream .card{background:var(--white);border:1px solid var(--stone-dark);}
+.bg-cream .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--copper);}
+.bg-white .card{background:var(--stone);border:1px solid var(--stone-dark);}
+.bg-white .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07);border-color:var(--copper);}
+.bg-charcoal .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);}
+.ctag{display:block;font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:0.4rem;}
+.bg-ink .ctag,.bg-charcoal .ctag{color:var(--copper-light);}
+.card h3{font-size:1.15rem;margin-bottom:0.7rem;}
+.bg-ink .card h3,.bg-charcoal .card h3{color:var(--white);}
+.card p{font-size:0.87rem;line-height:1.72;color:var(--charcoal-light);}
+.bg-ink .card p,.bg-charcoal .card p{color:rgba(255,255,255,0.62);}
+
+/* COST TABLE ROWS inside card */
+.cline{display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:1px solid var(--stone-dark);font-size:0.85rem;}
+.cline:last-child{border-bottom:none;}
+.bg-ink .cline,.bg-charcoal .cline{border-bottom:1px solid rgba(255,255,255,0.1);}
+.cline .clabel{color:var(--charcoal-light);}
+.bg-ink .cline .clabel,.bg-charcoal .cline .clabel{color:rgba(255,255,255,0.6);}
+.cline .cval{font-weight:600;color:var(--charcoal);white-space:nowrap;padding-left:1rem;}
+.bg-ink .cline .cval,.bg-charcoal .cline .cval{color:var(--white);}
+.cline.total{border-top:2px solid var(--copper);margin-top:0.4rem;padding-top:0.9rem;}
+.cline.total .clabel{font-weight:600;color:var(--charcoal);}
+.bg-ink .cline.total .clabel,.bg-charcoal .cline.total .clabel{color:var(--white);}
+.cline.total .cval{font-family:'Spectral',serif;font-size:1.25rem;color:var(--copper);}
+.bg-ink .cline.total .cval,.bg-charcoal .cline.total .cval{color:var(--copper-light);}
+
+/* HIGHLIGHT */
+.hbox{background:rgba(181,101,45,0.1);border-left:4px solid var(--copper);padding:1.5rem 2rem;border-radius:0 4px 4px 0;margin-top:2rem;}
+.bg-ink .hbox,.bg-charcoal .hbox{background:rgba(181,101,45,0.12);}
+.hbox p{font-size:0.98rem;line-height:1.72;margin:0;}
+.hbox p strong{color:var(--copper);}
+.bg-ink .hbox p,.bg-charcoal .hbox p{color:rgba(255,255,255,0.82);}
+.bg-ink .hbox p strong,.bg-charcoal .hbox p strong{color:var(--copper-light);}
+
+/* ASSUMPTIONS BOX */
+.assum{background:var(--charcoal);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:2.5rem;margin-top:3.5rem;}
+.assum-tag{display:flex;align-items:center;gap:0.6rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper-light);margin-bottom:1.5rem;}
+.assum-tag::before{content:'⚑';font-size:0.9rem;}
+.assum ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.9rem 2.5rem;}
+.assum li{font-size:0.86rem;line-height:1.6;color:rgba(255,255,255,0.75);padding-left:1.1rem;position:relative;}
+.assum li::before{content:'—';position:absolute;left:0;color:var(--copper-light);}
+.assum li strong{color:var(--white);font-weight:600;}
+
+/* COMPARISON */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.comp-col{padding:2.5rem;border-radius:4px;position:relative;}
+.comp-col.alt{background:var(--charcoal-light);}
+.comp-col.rec{background:var(--ink);}
+.rec-badge{position:absolute;top:-0.7rem;right:1.5rem;background:var(--copper);color:var(--white);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2px;}
+.comp-col h3{font-size:1.2rem;color:var(--white);margin-bottom:1.5rem;}
+.comp-col ul{list-style:none;}
+.comp-col li{font-size:0.87rem;line-height:1.6;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.72);display:flex;gap:0.7rem;align-items:flex-start;}
+.comp-col li:last-child{border:none;}
+.comp-col.alt li::before{content:'·';color:rgba(255,255,255,0.35);}
+.comp-col.rec li::before{content:'✓';color:var(--copper-light);font-weight:600;flex-shrink:0;}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;background:var(--ink-deep);border-radius:4px;overflow:hidden;}
+.mbox{text-align:center;padding:3rem 1.5rem;border-right:1px solid rgba(255,255,255,0.08);}
+.mbox:last-child{border:none;}
+.mnum{font-family:'Spectral',serif;font-size:2.6rem;color:var(--copper-light);line-height:1;margin-bottom:0.4rem;}
+.mlabel{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+/* SERVICE TIERS / PRICING */
+.tier-stack{margin-top:3.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+.tier{border-radius:4px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;background:linear-gradient(135deg,#1e2733 0%,#10161f 100%);border:1px solid rgba(181,101,45,0.25);}
+.tier:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
+.tier-inner{padding:2.25rem 2.5rem;}
+.tier-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.tier-name{font-family:'Spectral',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.3rem;}
+.tier-sub{font-size:0.78rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em;}
+.tier-price-val{font-family:'Spectral',serif;font-size:1.9rem;color:var(--copper-light);text-align:right;}
+.tier-price-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.25rem;text-align:right;}
+.tier-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);}
+.tm{text-align:center;}
+.tm-num{font-family:'Spectral',serif;font-size:1.3rem;color:var(--white);}
+.tm-label{font-size:0.68rem;color:rgba(255,255,255,0.5);letter-spacing:0.04em;margin-top:0.2rem;}
+.tm-num.hi{color:var(--copper-light);}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse;margin-top:2.5rem;font-size:0.86rem;}
+.dtable th{text-align:left;font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--copper);padding:0.7rem 1rem;border-bottom:2px solid var(--copper);}
+.dtable td{padding:0.85rem 1rem;border-bottom:1px solid var(--stone-dark);color:var(--charcoal-light);}
+.dtable tr:last-child td{border-bottom:none;font-weight:600;color:var(--charcoal);}
+.dtable td:first-child, .dtable th:first-child{color:var(--charcoal);font-weight:500;}
+.bg-ink .dtable th,.bg-charcoal .dtable th{color:var(--copper-light);border-bottom-color:var(--copper-light);}
+.bg-ink .dtable td,.bg-charcoal .dtable td{color:rgba(255,255,255,0.65);border-bottom-color:rgba(255,255,255,0.1);}
+.bg-ink .dtable td:first-child,.bg-charcoal .dtable td:first-child{color:var(--white);}
+.bg-ink .dtable tr:last-child td,.bg-charcoal .dtable tr:last-child td{color:var(--white);}
+.table-wrap{overflow-x:auto;}
+
+/* PILL ROW */
+.pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+.pill{padding:0.28rem 0.85rem;border-radius:20px;font-size:0.72rem;font-weight:500;background:rgba(181,101,45,0.12);color:var(--copper);border:1px solid rgba(181,101,45,0.22);}
+.bg-ink .pill,.bg-charcoal .pill{background:rgba(181,101,45,0.15);color:var(--copper-light);border-color:rgba(181,101,45,0.28);}
+
+/* CTA */
+.cta-wrap{text-align:center;}
+.cta-btn{display:inline-block;padding:1.1rem 3.2rem;background:var(--copper);color:var(--white);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-top:2.5rem;transition:all 0.3s;}
+.cta-btn:hover{background:var(--copper-light);transform:translateY(-2px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:0.55;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .hero{padding:0 2rem 6rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  .grid3,.grid2,.comp-grid{grid-template-columns:1fr;gap:2rem;}
+  .metrics{grid-template-columns:1fr;}
+  .mbox{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .assum ul{grid-template-columns:1fr;}
+  .tier-metrics{grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+  .tier-price-val,.tier-price-note{text-align:left;}
+  .dtable{font-size:0.78rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="nav-logo">Bear Witness</a>
+  <ul class="nav-links">
+    <li><a href="#thesis">Thesis</a></li>
+    <li><a href="#howitworks">How it works</a></li>
+    <li><a href="#unit-economics">Unit economics</a></li>
+    <li><a href="#growth-model">Growth model</a></li>
+    <li><a href="#datacentre">Data-centre path</a></li>
+    <li><a href="#risks">Risks</a></li>
+    <li><a href="#recommendation">Recommendation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-tag">Bear Witness · Cloud Hosting &amp; Monetisation Model</span>
+    <h1>Rent the <em>compute</em>, not the ceiling</h1>
+    <p class="hero-sub">The Mac Studio was never meant to be the product - it was the machine we built the agents on. This deck validates the alternative: renting cheap, multi-tenant cloud servers to host client agent instances, removing the capital constraint that would otherwise cap Bear Witness at however many machines BGV can afford to own.</p>
+    <a href="#thesis" class="hero-cta">See the model</a>
+  </div>
+  <div class="scroll-ind"><span></span></div>
+</section>
+
+<!-- THESIS -->
+<section class="bg-cream" id="thesis">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">01 · The core insight</span>
+      <h2 class="sh">The Mac Studio proved the agents work. It cannot be how they scale.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The pricing model already built for Bear Witness amortises one Mac Studio across the client book, and the maths in that deck is genuinely good - the machine costs £51/client at 3 clients and £7.70/client at 20. But that's amortisation, not scale. Every new client still runs on the same physical machine sitting in one location. Push past whatever that one machine can concurrently run and there are only two options: buy Olly or Felix a second Mac Studio per some client threshold, or ask a client to buy their own. Both reintroduce capital expenditure into a pitch whose entire premise is "low-cost AI agency" - and both cap growth at the rate BGV can afford to buy hardware, not at the rate it can win clients.</p>
+      <p class="sb" style="margin-top:1.5rem;">The fix is to stop treating "the agent" as something that lives on a specific physical machine at all. An agent, in the form Bear Witness actually runs it, is a Claude Code CLI process plus a set of scripts and memory files, making API calls to Anthropic's cloud for every actual thinking step. The process itself does no local inference and needs no GPU - it is a lightweight, mostly-idle piece of software waiting on network responses. That kind of process can run on any general-purpose Linux server, and several of them can run side by side on one modest, cheap, rentable box with no more isolation than separate directories and separate credentials per client. Decoupling the hosting layer from BGV-owned hardware turns infrastructure from a fixed, lumpy capital cost into a small, linear, rentable operating cost - which is what actually lets a team of three or four service dozens or hundreds of clients without a proportional increase in either headcount or capital.</p>
+      <div class="hbox">
+        <p><strong>This is not a hypothetical pattern.</strong> Ted - the very agent producing this deck - already runs exactly this shape of system today: a single machine serving multiple Telegram users concurrently, with per-user isolation handled entirely in software (separate memory directories, separate state files, separate credentials), not separate hardware. The multi-tenant-agent-hosting model proposed here is the same pattern, rented rather than owned, and offered to paying clients rather than used internally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-white" id="howitworks">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">02 · How it actually works, technically</span>
+      <h2 class="sh">One rented Linux server, several isolated client agent workspaces, zero local model hosting.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The mechanism has four parts. First, rent a general-purpose cloud VM from a mainstream provider - a modest 2 vCPU / 4GB Linux instance is enough, since the process is network-bound, not compute-bound. Second, install the Claude Code CLI and Bear Witness's own agent scripts and memory-management tooling on that box. Third, create one isolated workspace directory per client on the same VM, each with its own credentials, memory files, and state - the same software-level separation Ted already uses across Telegram users. Fourth, and most importantly: every actual model call from every client's agent still goes out over the network to Anthropic's Claude API, exactly as it does today. The rented VM is doing orchestration and file/state management only - it never runs the model itself, so it never needs a GPU, and its own compute requirement stays small regardless of how "smart" the agent's output needs to be.</p>
+      <p class="sb" style="margin-top:1.5rem;">This deck is deliberately scoped to that hosting/orchestration layer only. Claude API token cost - the cost of the actual model calls - was already modelled per tier in the Bear Witness pricing deck (£42-456/month in API compute depending on tier, before this deck's hosting figures are added) and is not repeated or changed here. What follows is new: the cost of the box the agent process runs on, and how that cost behaves as more clients are added to it.</p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">DigitalOcean</span>
+        <h3>Basic Droplet, 2 vCPU / 4GB</h3>
+        <p>Published rate: $24.00/month ($0.03571/hour), per-second billed since Jan 2026. Includes 4,000GiB outbound transfer. At $1=£0.79, that's £18.96/month for the box.</p>
+        <div class="cline"><span class="clabel">Monthly, USD</span><span class="cval">$24.00</span></div>
+        <div class="cline total"><span class="clabel">Monthly, GBP</span><span class="cval">£18.96</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">Hetzner Cloud</span>
+        <h3>CX22, 2 vCPU / 4GB / 40GB NVMe</h3>
+        <p>Hetzner's own cost-optimised shared-vCPU tier: €3.79/month per Hetzner's press materials for the CX line, with third-party 2026 rate trackers quoting the equivalent as $4.59/month. At €1=£0.86, that's roughly £3.26/month for the box - materially cheaper than the US-based providers for the same spec.</p>
+        <div class="cline"><span class="clabel">Monthly, EUR</span><span class="cval">€3.79</span></div>
+        <div class="cline total"><span class="clabel">Monthly, GBP (approx)</span><span class="cval">£3.26</span></div>
+      </div>
+      <div class="card">
+        <span class="ctag">AWS Lightsail</span>
+        <h3>General-purpose bundle, 2 vCPU / 4GB</h3>
+        <p>Published AWS Lightsail bundle table: 2 vCPU / 4GB Linux instance at $24.00/month, the same price point as DigitalOcean's equivalent spec, sitting in AWS's own broader ecosystem if that matters for a client already on AWS.</p>
+        <div class="cline"><span class="clabel">Monthly, USD</span><span class="cval">$24.00</span></div>
+        <div class="cline total"><span class="clabel">Monthly, GBP</span><span class="cval">£18.96</span></div>
+      </div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Sources: DigitalOcean Droplet pricing page (digitalocean.com/pricing/droplets), Hetzner Cloud press release "Hetzner introduces new shared vCPU cloud servers" and Hetzner's cost-optimised CX line documentation, AWS Lightsail pricing page (aws.amazon.com/lightsail/pricing). FX: $1=£0.79 and €1=£0.86, consistent with the FX assumption already used in the Bear Witness pricing model.</p>
+    <div class="hbox">
+      <p><strong>None of these three prices is the interesting number on its own.</strong> The interesting number is how many clients one of these boxes can host at once - that's the multi-tenant density argument, covered next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT ECONOMICS -->
+<section class="bg-ink" id="unit-economics">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">03 · Unit economics of multi-tenant hosting</span>
+      <h2 class="sh">Hosting cost per client falls as clients are packed onto the same box - up to a sensible ceiling.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">A Claude Code CLI agent process is mostly idle: it wakes up on a heartbeat, a scheduled task, or an inbound message, does some lightweight file I/O and orchestration, sends the actual "thinking" work to Anthropic's API over the network, and goes quiet again waiting for the response. Independent reports of Claude Code's own process footprint put a single instance at roughly 270-370MB of RAM under normal use, with background/orphaned processes typically settling lower, around 60-170MB. CPU usage for an idle-most-of-the-time agent is negligible outside brief bursts around each turn.</p>
+    </div>
+    <div class="assum reveal">
+      <div class="assum-tag">Modelled assumption - not a sourced fact, flag to challenge</div>
+      <ul>
+        <li><strong>Per-client RAM footprint:</strong> modelled at 300-400MB per client agent workspace (idle CLI process + scripts + working memory files), toward the higher end of the observed 270-370MB range above, for headroom.</li>
+        <li><strong>Usable RAM per box:</strong> on a 4GB VM, roughly 1-1.2GB is reserved for OS, the CLI runtime baseline, and safety margin, leaving ~2.8-3GB usable for client workspaces.</li>
+        <li><strong>Conservative capacity ceiling:</strong> 8 client agent-workspaces per 4GB / 2 vCPU VM, run concurrently with headroom for occasional simultaneous bursts across clients. A less conservative packing (smaller footprint, more RAM headroom used) could plausibly push this to 10-12 - 8 is used throughout this deck as the deliberately cautious number.</li>
+        <li><strong>Scale-up path:</strong> once a box approaches its 8-client ceiling, the next client is provisioned on a second VM at the same per-box price - cost scales in discrete steps (rent another box), not continuously, but each step is small (~£3-19/month) relative to a client's monthly retainer.</li>
+      </ul>
+    </div>
+    <div class="table-wrap reveal" style="margin-top:3rem;">
+    <table class="dtable">
+      <thead><tr><th>Provider</th><th>Box cost/month</th><th>Clients/box (assumption)</th><th>Hosting cost/client/month</th><th>vs. pricing deck's £10-20/client hosting line</th></tr></thead>
+      <tbody>
+        <tr><td>Hetzner CX22 (2vCPU/4GB)</td><td>£3.26</td><td>8</td><td>£0.41</td><td>~4-5% of the existing assumption</td></tr>
+        <tr><td>DigitalOcean Basic (2vCPU/4GB)</td><td>£18.96</td><td>8</td><td>£2.37</td><td>~12-24% of the existing assumption</td></tr>
+        <tr><td>AWS Lightsail (2vCPU/4GB)</td><td>£18.96</td><td>8</td><td>£2.37</td><td>~12-24% of the existing assumption</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sb" style="margin-top:1rem;font-size:0.78rem;opacity:0.65;">This does not contradict the pricing deck's £10-20/client hosting figure - that figure was already a conservative placeholder carried over from the Agent Workforce deck and checked against Fly.io/Modal per-client metered pricing (£4.68-16.34/client depending on tier). This deck's multi-tenant-VM density figure lands even lower because it shares one flat-rate box across 8 clients rather than metering one container per client - meaning the existing cost-to-serve totals in the pricing deck (£215/£575/£1,491 per tier) already have more hosting headroom than modelled, not less.</p>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <span class="stag">03a · How the cost behaves as the client book grows</span>
+      <h2 class="sh" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);">Hosting cost as a share of Growth Retainer revenue, at increasing client counts.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Worked using DigitalOcean's £18.96/box (the more conservative of the three providers) at 8 clients/box, against the Growth Retainer tier's £2,500-3,000/month recommended price from the pricing deck.</p>
+    </div>
+    <div class="table-wrap reveal">
+    <table class="dtable">
+      <thead><tr><th>Clients on the book</th><th>Boxes needed</th><th>Total hosting spend/month</th><th>Hosting £/client</th><th>Hosting as % of one Growth Retainer fee</th></tr></thead>
+      <tbody>
+        <tr><td>8</td><td>1</td><td>£18.96</td><td>£2.37</td><td>0.08%</td></tr>
+        <tr><td>16</td><td>2</td><td>£37.92</td><td>£2.37</td><td>0.08%</td></tr>
+        <tr><td>40</td><td>5</td><td>£94.80</td><td>£2.37</td><td>0.08%</td></tr>
+        <tr><td>100</td><td>13</td><td>£246.48</td><td>£2.46</td><td>0.09%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sb" style="margin-top:1rem;font-size:0.78rem;opacity:0.65;">Because the per-box cost is flat and the client-per-box density is held constant, £/client hosting cost is close to flat rather than dramatically falling with scale - the real win here isn't a shrinking hosting line (it was already tiny), it's that hosting never becomes a bottleneck or a capital ask at any client count modelled. At 100 clients on the book, total hosting spend is still under £250/month - a rounding error against 100 clients' combined retainer revenue, which at Growth Retainer pricing alone would be £250,000-300,000/month.</p>
+    <div class="hbox">
+      <p><strong>The Mac Studio's amortisation curve and this VM model's flat curve tell the same underlying story from two directions:</strong> <span style="color:rgba(255,255,255,0.82);">shared infrastructure gets cheaper per client as the book grows, and even in the worst case here, infrastructure spend stays a rounding error against revenue at any realistic client count. Growth is gated by sales and onboarding capacity, not by servers.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH MODEL -->
+<section class="bg-cream" id="growth-model">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">04 · Growth model - small team, large company</span>
+      <h2 class="sh">Real, current examples of lean teams running large-scale, API-leveraged businesses.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Three current, citable examples of teams staying small while revenue scaled through cloud/API leverage rather than headcount: Midjourney generated roughly $200M in revenue in 2023 with 11 employees (~$18M revenue/employee that year), and as of 2026 runs at an estimated $500M ARR with a still-lean team of around 107 people (~$4.7M revenue/employee) - for comparison, Google runs at roughly $1.8M revenue/employee and Meta at roughly $1.6M. Gamma reached $50M ARR and 50 million users with a team of 30, remaining profitable for 15 consecutive months. Anysphere (maker of Cursor) took its Claude-powered coding agent from roughly $100M annualised revenue in January 2025 to an estimated $4B annualised run rate by June 2026 while headcount grew to around 300 - still a small fraction of the headcount a traditional company would need to service that much revenue, though notably no longer a "tiny team" by mid-2026.</p>
+    </div>
+    <div class="metrics reveal">
+      <div class="mbox"><div class="mnum">~$4.7M</div><div class="mlabel">Midjourney revenue per employee at ~107 staff / $500M ARR, 2026</div></div>
+      <div class="mbox"><div class="mnum">30 staff</div><div class="mlabel">Gamma's headcount at $50M ARR and 50M users, profitable 15 months straight</div></div>
+      <div class="mbox"><div class="mnum">$100M→$4B</div><div class="mlabel">Anysphere/Cursor's annualised revenue growth, Jan 2025 to June 2026</div></div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Sources: andrew.ooo "How Midjourney Generates $3 Million Per Employee" and byteiota/getlatka Midjourney 2026 figures; Gamma company reporting as summarised across 2026 SaaS-growth coverage; getlatka.com Cursor/Anysphere 2026 revenue figures and jobsbyculture.com Anysphere headcount reporting.</p>
+    <div class="hbox">
+      <p><strong>Where the analogy holds:</strong> in every one of these cases, the marginal cost of serving one more customer is a slice of rented cloud compute plus metered API/model cost - not a new hire. That is exactly the mechanism this deck proposes for Bear Witness's hosting layer. <strong>Where it breaks down:</strong> Midjourney, Gamma and Cursor are self-serve products with automated signup, billing, and support - a user can start and scale their own usage with zero human involvement from the vendor. Bear Witness, at least in its first 12-18 months, is a bespoke consultancy: onboarding, oversight hours, and escalations are real, human, per-client costs, already costed into the pricing deck's oversight-time line (3-20 hours/month depending on tier). The infrastructure argument transfers cleanly; the "zero marginal cost of a new customer" argument does not transfer in full until Bear Witness builds its own onboarding automation - a reasonable future milestone, not a claim made here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DATA CENTRE PATH -->
+<section class="bg-charcoal" id="datacentre">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">05 · Path to the data-centre vision</span>
+      <h2 class="sh" style="color:var(--white);">A bridge, not a competing plan - Phase 1 funds and proves Phase 2.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The long-term ambition - BGV's own data centre running a private, potentially open-source model stack - stays exactly where it was. Nothing in this deck argues against it. What it argues is that Bear Witness does not need to wait for that fundraise to start monetising the agent-hosting layer, because the software stack that runs on a rented cloud VM today is the identical software stack that will run on BGV's own racks later. Moving from Phase 1 to Phase 2 is a change of host, not a rebuild.</p>
+    </div>
+    <div class="comp-grid reveal">
+      <div class="comp-col alt">
+        <h3>Phase 1 - now</h3>
+        <ul>
+          <li>Rented multi-tenant cloud VMs (Hetzner / DigitalOcean / Lightsail), opex-only, no capital outlay.</li>
+          <li>Claude Code CLI + Bear Witness agent scripts, unchanged from what already runs internally.</li>
+          <li>Anthropic's Claude API handles all model inference - no model hosting, no GPU procurement.</li>
+          <li>Scales in small, linear steps: rent another £3-19/month box when a box nears its client ceiling.</li>
+          <li>Generates real client revenue and real cost-to-serve data - the evidence a fundraise conversation needs.</li>
+        </ul>
+      </div>
+      <div class="comp-col rec">
+        <span class="rec-badge">Bridge target</span>
+        <h3>Phase 2 - post-fundraise</h3>
+        <ul>
+          <li>BGV-owned data centre / private compute, funded by the traction Phase 1 generates.</li>
+          <li>Same Claude Code CLI + agent scripts layer, migrated onto owned infrastructure with no re-architecture.</li>
+          <li>Optionality to run open-source / self-hosted models alongside or instead of the Claude API for specific workloads, once owned GPU capacity exists.</li>
+          <li>Full data sovereignty for clients who require it - no third-party cloud provider or model vendor in the chain for those workloads.</li>
+          <li>Better long-run unit economics at large scale, once utilisation is high enough to beat rented-cloud rates.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>Phase 1 is the fundraising case, not a placeholder to be discarded.</strong> A working multi-tenant hosting layer with real paying clients on it is direct proof that the demand, the unit economics, and the operating model all work - exactly the evidence an investor or lender would want before funding a data centre. Skipping straight to Phase 2 without this would mean asking for capital on the strength of a pitch deck alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section class="bg-white" id="risks">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">06 · Risks and honest caveats</span>
+      <h2 class="sh">What has to be managed, not glossed over.</h2>
+      <div class="sdiv"></div>
+    </div>
+    <div class="grid2 reveal">
+      <div class="card">
+        <span class="ctag">Vendor dependency</span>
+        <h3>Two points of external dependency, not one</h3>
+        <p>This model depends on both Anthropic's Claude API remaining available and priced as expected, and on the chosen cloud provider's uptime and pricing. Neither is new risk introduced by this proposal specifically - the existing pricing deck already depends on Claude API pricing - but multi-tenant hosting adds a second vendor relationship (the cloud provider) that didn't exist when everything ran on BGV's own Mac Studio.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Multi-tenant isolation</span>
+        <h3>Client data must not leak across tenants sharing a box</h3>
+        <p>Software-level isolation (separate directories, separate credentials, separate process spaces per client) is the model proposed here, and it is what Ted already runs in production internally. For clients with stricter data-handling requirements, a safer but more expensive alternative exists: one VM per client, or containerisation (Docker) per client on a shared box. Rough cost delta: dedicated-VM-per-client at Hetzner CX22 pricing runs ~£3.26/client/month instead of ~£0.41/client/month shared 8-ways - roughly 8x the hosting cost, still a trivial absolute number against a £950-8,000/month retainer, and worth offering as a premium/compliance-tier option rather than the default.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Reliability ownership</span>
+        <h3>Uptime is now BGV's problem, not the client's hardware</h3>
+        <p>When agents ran on a client's own machine, hardware failure was the client's problem. Renting and operating the hosting layer moves uptime responsibility onto BGV - a box going down affects every client on it, not just one. This is manageable (mainstream providers publish SLAs, and boxes are cheap enough to run redundant pairs) but it is a genuine new operational responsibility that didn't exist under the old model, and should be reflected in how the service is scoped and supported.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Usage spikes - the actual strength</span>
+        <h3>Elasticity cuts the right way here</h3>
+        <p>Unlike the Mac Studio, which is a fixed physical ceiling, rented cloud compute can scale up or down within minutes - add a box when a client's usage spikes, resize an existing box, or shift a client to a dedicated instance if their volume outgrows shared hosting. This is the one place where "rented" beats "owned" outright: capacity elasticity that owned hardware structurally cannot match without buying ahead of demand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section class="bg-ink" id="recommendation">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">07 · Recommendation and next steps</span>
+      <h2 class="sh">Stand up one test box, migrate the Ted-style pattern onto it, prove it with one client before committing further.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The evidence above supports moving from "this could work" to "let's prove it," not to "let's commit fully" - the model is sound on paper and needs one real deployment to confirm it holds under actual client load.</p>
+    </div>
+    <div class="tier-stack reveal">
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Step 1 - Proof of concept</div>
+              <div class="tier-sub">Low cost, low risk, fast to run</div>
+            </div>
+            <div>
+              <div class="tier-price-val">~£3-19/mo</div>
+              <div class="tier-price-note">one test box, any provider above</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">1 box</div><div class="tm-label">Hetzner CX22 or DO Basic</div></div>
+            <div class="tm"><div class="tm-num">1-2</div><div class="tm-label">Internal test workspaces</div></div>
+            <div class="tm"><div class="tm-num hi">days</div><div class="tm-label">Time to stand up</div></div>
+            <div class="tm"><div class="tm-num hi">£0</div><div class="tm-label">New capital required</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Step 2 - Migrate the dispatcher pattern</div>
+              <div class="tier-sub">Prove multi-tenant isolation on rented hardware</div>
+            </div>
+            <div>
+              <div class="tier-price-val">Software only</div>
+              <div class="tier-price-note">reuse existing agent scripts</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">3-4</div><div class="tm-label">Simulated client workspaces</div></div>
+            <div class="tm"><div class="tm-num">1</div><div class="tm-label">Box, shared</div></div>
+            <div class="tm"><div class="tm-num hi">verify</div><div class="tm-label">Isolation + memory separation</div></div>
+            <div class="tm"><div class="tm-num hi">verify</div><div class="tm-label">Uptime under concurrent load</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Step 3 - Pilot with one real or pilot client</div>
+              <div class="tier-sub">The actual proof point Phase 2 will need</div>
+            </div>
+            <div>
+              <div class="tier-price-val">Real cost-to-serve</div>
+              <div class="tier-price-note">confirms every assumption above</div>
+            </div>
+          </div>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">1</div><div class="tm-label">Live client on rented infra</div></div>
+            <div class="tm"><div class="tm-num">30d</div><div class="tm-label">Observation window</div></div>
+            <div class="tm"><div class="tm-num hi">confirm</div><div class="tm-label">RAM/density assumption</div></div>
+            <div class="tm"><div class="tm-num hi">confirm</div><div class="tm-label">Hosting cost as % of fee</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>What would need to be true to move to Phase 2:</strong> <span style="color:rgba(255,255,255,0.82);">a client base large and stable enough that owned infrastructure beats rented pricing at that scale, funding secured for the data-centre capital outlay, and a validated software layer (from Steps 1-3 above) that migrates without rebuilding. None of those three depend on each other in a blocking way - Phase 1 can run indefinitely as the default model if Phase 2's funding or scale conditions aren't yet met, which is exactly what makes it a bridge rather than a bet.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ASK -->
+<section class="bg-cream" id="ask">
+  <div class="si cta-wrap">
+    <div class="reveal">
+      <span class="stag">The ask</span>
+      <h2 class="sh" style="max-width:640px;margin:0 auto 1.5rem;">Sign off standing up one test box - everything else is proof, not commitment.</h2>
+      <div class="sdiv" style="margin:1.5rem auto;"></div>
+      <p class="sb" style="margin:0 auto;text-align:center;">This replaces "would this scale" with real published cloud pricing, a clearly labelled capacity assumption, and honest comparables. Confirm the proof-of-concept step, or flag which assumption to challenge first.</p>
+      <a href="mailto:jesse@bearwitness.co?subject=Bear Witness Cloud Hosting Model - Sign Off" class="cta-btn">Open the conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>Bear Witness · Cloud Hosting &amp; Monetisation Model · Internal Strategy Deck · v1 · 6 July 2026</footer>
+
+<script>
+const nav = document.getElementById('nav');
+let lightCount = 0;
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 80 || lightCount > 0);
+}
+const navHeight = 72;
+const lightSections = document.querySelectorAll('.bg-cream, .bg-white');
+const lightObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { lightCount++; } else { lightCount = Math.max(0, lightCount - 1); }
+    updateNav();
+  });
+}, { rootMargin: `-${navHeight}px 0px -${window.innerHeight - navHeight - 1}px 0px`, threshold: 0 });
+lightSections.forEach(s => lightObs.observe(s));
+window.addEventListener('scroll', updateNav);
+
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
