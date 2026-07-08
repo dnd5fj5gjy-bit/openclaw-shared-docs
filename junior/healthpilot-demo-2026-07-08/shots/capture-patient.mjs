@@ -1,4 +1,6 @@
-import { chromium } from 'playwright';
+import { createRequire } from 'module';
+const require = createRequire('/opt/homebrew/lib/node_modules/');
+const { chromium } = require('playwright');
 
 const OUT = '/Users/bgvai/agents/junior/workspace/docs/healthpilot-demo-2026-07-08/shots';
 const BASE = 'http://localhost:4301';
