@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HealthPilot — The Ted's Health Front Door</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #1a202c; line-height: 1.5; font-size: 11pt; margin: 0;
+  }
+  h1,h2,h3 { color: #0f4c5c; line-height: 1.2; }
+  h2 { font-size: 16pt; margin: 0 0 4px; border-bottom: 2px solid #e36414; padding-bottom: 6px; }
+  h3 { font-size: 12.5pt; margin: 18px 0 4px; }
+  p { margin: 6px 0; }
+  a { color: #0f4c5c; }
+  strong { color: #0f2f38; }
+  .section { page-break-inside: avoid; margin-bottom: 22px; }
+  .pagebreak { page-break-before: always; }
+
+  /* Cover */
+  .cover { text-align: left; padding: 40px 0 24px; border-bottom: 3px solid #0f4c5c; }
+  .mark { display:inline-flex; align-items:center; gap:14px; margin-bottom: 26px; }
+  .mark .sq { width:52px; height:52px; border-radius:12px; background:#0f4c5c; position:relative; }
+  .mark .sq svg { position:absolute; inset:0; }
+  .mark .wm { font-size: 15pt; font-weight: 800; letter-spacing: .5px; color:#1a202c; }
+  .mark .wm small { display:block; font-size:9pt; font-weight:700; color:#0f4c5c; letter-spacing:2px; }
+  .cover h1 { font-size: 30pt; margin: 6px 0; }
+  .cover .sub { font-size: 13pt; color:#4a5568; max-width: 640px; }
+  .cover .meta { margin-top: 22px; font-size: 10pt; color:#718096; }
+
+  .lead { font-size: 12pt; }
+  ol.reasons { margin: 8px 0 0; padding-left: 20px; }
+  ol.reasons li { margin: 7px 0; }
+
+  /* Stop cards */
+  .stop { page-break-inside: avoid; margin: 18px 0 24px; }
+  .stop .cap { display:flex; align-items:baseline; gap:10px; }
+  .stop .num { background:#0f4c5c; color:#fff; font-weight:800; font-size:10pt;
+    width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center;
+    justify-content:center; flex:0 0 26px; }
+  .stop .title { font-size: 12.5pt; font-weight: 800; color:#0f4c5c; }
+  .stop img { display:block; width:100%; border:1px solid #cbd5e0; border-radius:8px;
+    margin: 10px 0 8px; }
+  .say { background:#fdf3ec; border-left:4px solid #e36414; padding:8px 12px; border-radius:4px;
+    font-size:10.5pt; }
+  .say b { color:#b34d10; }
+
+  .callout { background:#eef5f6; border:1px solid #b7d3d9; border-radius:8px; padding:14px 18px; }
+  .callout.warn { background:#fdf6ec; border-color:#e6c78a; }
+  table.model { width:100%; border-collapse: collapse; margin: 8px 0; font-size:10.5pt; }
+  table.model td, table.model th { border-bottom:1px solid #e2e8f0; padding:6px 8px; text-align:left; }
+  table.model th { color:#0f4c5c; }
+  table.model .tot td { font-weight:800; border-top:2px solid #0f4c5c; }
+  .footer { margin-top: 28px; font-size: 9pt; color:#a0aec0; border-top:1px solid #e2e8f0; padding-top:8px; }
+  ul.tight { margin:6px 0; padding-left:20px; }
+  ul.tight li { margin:5px 0; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="mark">
+    <span class="sq"><svg viewBox="0 0 52 52"><polyline points="12,34 22,22 30,30 42,14" fill="none" stroke="#e36414" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="wm">HEALTHPILOT<small>THE TED'S HEALTH FRONT DOOR</small></span>
+  </div>
+  <h1>Turning a website visitor into a booked, paid patient in two minutes.</h1>
+  <p class="sub">A demo walkthrough for CJ — what HealthPilot is, why it matters to Ted's Health, and exactly what to show on the call.</p>
+  <p class="meta">Prepared by Junior · 8 July 2026 · Confidential</p>
+</div>
+
+<div class="section">
+  <h2>The one line</h2>
+  <p class="lead"><strong>HealthPilot is the AI front door for every clinic on the Ted's Health white-label platform.</strong> A patient lands on a clinic's own website, answers a two-minute intelligent health quiz under that clinic's brand, gets a personalised summary, and is routed straight to a revenue event: a blood panel, a consultation, a treatment. The clinic gets a qualified, pre-triaged patient and structured intake data it never had to collect by hand.</p>
+  <p>Ted's pivoted from selling direct to running the backend clinics build on. That backend is mature — per-clinic theming, pricing, feature flags. HealthPilot is the top of the funnel that platform was missing: the piece that turns a clinic's website visitor into a booked patient.</p>
+</div>
+
+<div class="section">
+  <h2>Why this matters to Ted's</h2>
+  <ol class="reasons">
+    <li><strong>It completes the product.</strong> A white-label backend with no patient-acquisition layer is half a sell. HealthPilot is the half that gets a clinic excited on the first call.</li>
+    <li><strong>It makes the platform stickier.</strong> Once a clinic's intake, triage and patient record run through the quiz, switching away is painful.</li>
+    <li><strong>It's a second revenue line.</strong> On top of the platform SaaS fee — per-intake usage plus a share of the panels and consultations the quiz drives. Roughly half of HealthPilot's revenue grows without a single new clinic.</li>
+    <li><strong>It strengthens the Ted's story</strong> at the exact moment a large digital-health player is circling. An AI intake layer with a data flywheel is precisely the kind of asset that improves that conversation — and it's cleanly separable, with its own repos.</li>
+  </ol>
+</div>
+
+<div class="section pagebreak">
+  <h2>The walkthrough — what to show CJ</h2>
+  <p>Five stops. Keep one incognito window for the public patient side and one normal window for the clinic portals.</p>
+
+  <!--SHOTS-->
+</div>
+
+<div class="section pagebreak">
+  <h2>The business model</h2>
+  <p>Sold to Ted's platform clinics as one extra line on the invoice — quiz on by feature flag, no separate contract.</p>
+  <ul class="tight">
+    <li><strong>Base SaaS:</strong> £199 / £449 / £899 per month by intake volume.</li>
+    <li><strong>Overage:</strong> £0.60 per completed intake beyond tier.</li>
+    <li><strong>Conversion share:</strong> 10% of net revenue on quiz-driven blood panels and consultations, plus affiliate on supplements.</li>
+    <li><strong>Setup:</strong> £750 one-off — <strong>waived</strong> for Ted's platform clinics.</li>
+  </ul>
+
+  <h3>Worked example — a clinic doing 500 intakes/month</h3>
+  <table class="model">
+    <tr><th>Line</th><th>Calculation</th><th style="text-align:right">HealthPilot / month</th></tr>
+    <tr><td>Growth tier base</td><td>flat</td><td style="text-align:right">£449</td></tr>
+    <tr><td>Blood-panel rev share</td><td>24 × £150 × 10%</td><td style="text-align:right">£360</td></tr>
+    <tr><td>Consultation rev share</td><td>25 × £80 × 10%</td><td style="text-align:right">£200</td></tr>
+    <tr><td>Affiliate supplements</td><td>500 × £0.40</td><td style="text-align:right">£200</td></tr>
+    <tr class="tot"><td>Total per clinic</td><td></td><td style="text-align:right">£1,209</td></tr>
+  </table>
+  <p>The clinic keeps roughly <strong>4.5× what it pays</strong> — that ratio is the pitch. At 30 clinics that's ~£435k ARR, about half of it usage and share that grows without new logos. For context, all of Ted's D2C was doing £6k MRR at the pivot.</p>
+
+  <div class="callout warn">
+    <strong>The one number that decides it.</strong> The model leans on <strong>8% of blood-panel CTAs converting.</strong> That's a hypothesis, not data. First job after launch is to prove it with two design-partner clinics over 30 days. Everything else is priced off that number. Present the economics as instrumented and credible — not yet proven.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Where we honestly are</h2>
+  <div class="callout">
+    <ul class="tight">
+      <li><strong>Built and demo-ready.</strong> Security hardened, red-flag safety added, embed SDK, per-clinic branding, clinic-side triage and analytics, three languages, a full end-to-end test harness.</li>
+      <li><strong>Not live yet.</strong> It sits on two sandbox pull requests and patch sets waiting on Felix to merge, apply, migrate and run one live AI test. Thursday is a demo, not a launch.</li>
+      <li><strong>Next after the demo:</strong> merge and deploy, get a clinical/regulatory eye on the AI safety layer, and run the 30-day conversion validation with two clinics.</li>
+    </ul>
+  </div>
+  <p style="margin-top:12px">This is a feature that makes the Ted's platform materially more sellable, with a clean path to being its own revenue line. It is not yet a proven standalone business — and we shouldn't pitch it as one until the conversion number is real.</p>
+</div>
+
+<div class="footer">HealthPilot × Ted's Health · Confidential · internal demo brief · not for distribution</div>
+
+</body>
+</html>
