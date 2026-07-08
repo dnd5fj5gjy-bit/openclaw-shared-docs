@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Witness | The Pivot — AI Agent Consultancy</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #0F3D3E;
+  --teal-deep: #082524;
+  --amber: #D98E3B;
+  --amber-light: #F0B267;
+  --sand: #F3EDE1;
+  --sand-dark: #E5DBC5;
+  --charcoal: #23211C;
+  --charcoal-light: #59544A;
+  --white: #FBF8F2;
+  --moss: #C7BFA8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;font-weight:300;color:var(--charcoal);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Libre Caslon Text',serif;font-weight:400;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s ease;}
+nav.scrolled{background:rgba(251,248,242,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:48px;width:auto;display:block;filter:brightness(0) invert(1);transition:filter 0.4s;}
+nav.scrolled .nav-logo-img{filter:none;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s;}
+nav.scrolled .nav-links a{color:var(--charcoal-light);}
+.nav-links a:hover{color:var(--amber);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;background:linear-gradient(160deg,rgba(8,37,36,0.95) 0%,rgba(15,61,62,0.9) 50%,rgba(217,142,59,0.4) 100%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;}
+.hero-inner{max-width:860px;}
+.hero-tag{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--amber-light);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.2s forwards;}
+.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);color:var(--white);line-height:1.12;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s ease 0.4s forwards;}
+.hero h1 em{color:var(--amber-light);font-style:italic;}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(255,255,255,0.78);max-width:660px;margin:0 auto 2.5rem;line-height:1.75;opacity:0;animation:fadeUp 0.9s ease 0.6s forwards;}
+.hero-cta{display:inline-block;padding:1rem 2.8rem;background:var(--amber);color:var(--teal-deep);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;opacity:0;animation:fadeUp 0.9s ease 0.8s forwards;}
+.hero-cta:hover{background:var(--amber-light);transform:translateY(-2px);}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);opacity:0;animation:fadeUp 0.9s ease 1.1s forwards;}
+.scroll-ind span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.55),transparent);margin:0 auto;animation:pulse 2s ease-in-out infinite;}
+
+/* SECTIONS */
+section{padding:7rem 3rem;}
+.si{max-width:1140px;margin:0 auto;}
+.stag{display:block;font-size:0.68rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem;}
+.sh{font-size:clamp(1.85rem,3.8vw,2.8rem);line-height:1.18;margin-bottom:1.5rem;}
+.sb{font-size:1.02rem;line-height:1.82;max-width:700px;color:var(--charcoal-light);}
+.sdiv{width:44px;height:3px;background:var(--amber);margin:1.5rem 0;border-radius:2px;}
+
+/* BACKGROUNDS */
+.bg-sand{background:var(--sand);}
+.bg-white{background:var(--white);}
+.bg-teal{background:var(--teal-deep);color:var(--white);}
+.bg-teal .stag{color:var(--amber-light);}
+.bg-teal .sh{color:var(--white);}
+.bg-teal .sb{color:rgba(255,255,255,0.72);}
+.bg-charcoal{background:var(--charcoal);color:var(--white);}
+.bg-charcoal .stag{color:var(--amber-light);}
+.bg-charcoal .sh{color:var(--white);}
+.bg-charcoal .sb{color:rgba(255,255,255,0.72);}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.col-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.col-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-badge{position:absolute;bottom:0;left:0;right:0;background:var(--teal);color:var(--white);padding:0.85rem 1.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;}
+
+/* CARDS */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem;}
+.card{border-radius:4px;padding:2rem;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;}
+.bg-teal .card,.bg-charcoal .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);}
+.bg-sand .card{background:var(--white);border:1px solid var(--sand-dark);}
+.bg-white .card{background:var(--sand);border:1px solid var(--sand-dark);}
+.ctag{display:block;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:0.4rem;}
+.bg-teal .ctag,.bg-charcoal .ctag{color:var(--amber-light);}
+.card h3{font-size:1.16rem;margin-bottom:0.7rem;}
+.bg-teal .card h3,.bg-charcoal .card h3{color:var(--white);}
+.card p{font-size:0.88rem;line-height:1.72;color:var(--charcoal-light);}
+.bg-teal .card p,.bg-charcoal .card p{color:rgba(255,255,255,0.62);}
+
+/* HIGHLIGHT */
+.hbox{background:rgba(217,142,59,0.12);border-left:4px solid var(--amber);padding:1.5rem 2rem;border-radius:0 4px 4px 0;margin-top:2rem;}
+.bg-teal .hbox,.bg-charcoal .hbox{background:rgba(217,142,59,0.14);}
+.hbox p{font-size:0.98rem;line-height:1.72;margin:0;}
+.hbox p strong{color:var(--amber);}
+.bg-teal .hbox p,.bg-charcoal .hbox p{color:rgba(255,255,255,0.82);}
+.bg-teal .hbox p strong,.bg-charcoal .hbox p strong{color:var(--amber-light);}
+
+/* BEFORE/AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.ba{padding:2.5rem;border-radius:4px;position:relative;}
+.ba.before{background:var(--charcoal-light);}
+.ba.after{background:var(--teal);}
+.ba-badge{position:absolute;top:-0.7rem;left:1.5rem;background:var(--amber);color:var(--teal-deep);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2px;}
+.ba h3{font-size:1.3rem;color:var(--white);margin-bottom:1.2rem;}
+.ba ul{list-style:none;}
+.ba li{font-size:0.87rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);display:flex;gap:0.7rem;align-items:flex-start;}
+.ba li:last-child{border:none;}
+.ba.before li::before{content:'·';color:rgba(255,255,255,0.35);}
+.ba.after li::before{content:'✓';color:var(--amber-light);font-weight:700;flex-shrink:0;}
+
+/* SERVICE TIERS */
+.tier-stack{margin-top:3.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+.tier{border-radius:4px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;background:linear-gradient(135deg,#0F3D3E 0%,#082524 100%);border:1px solid rgba(217,142,59,0.25);}
+.tier:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
+.tier.t3{background:linear-gradient(135deg,#3a2a10 0%,#26190a 100%);border:1px solid rgba(240,178,103,0.35);}
+.tier-inner{padding:2.25rem 2.5rem;}
+.tier-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.tier-name{font-family:'Libre Caslon Text',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.3rem;}
+.tier-sub{font-size:0.78rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em;}
+.tier-price-val{font-family:'Libre Caslon Text',serif;font-size:1.65rem;color:var(--amber-light);text-align:right;}
+.tier-price-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.25rem;text-align:right;}
+.tier-desc{font-size:0.92rem;line-height:1.75;color:rgba(255,255,255,0.72);margin-bottom:1.2rem;}
+.tier-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);}
+.tm{text-align:center;}
+.tm-num{font-family:'Libre Caslon Text',serif;font-size:1.2rem;color:var(--white);}
+.tm-label{font-size:0.66rem;color:rgba(255,255,255,0.5);letter-spacing:0.03em;margin-top:0.2rem;}
+.tm-num.hi{color:var(--amber-light);}
+
+/* COMPARISON */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3.5rem;}
+.comp-col{padding:2.2rem;border-radius:4px;position:relative;}
+.comp-col.alt{background:var(--charcoal-light);}
+.comp-col.alt2{background:var(--charcoal);}
+.comp-col.rec{background:var(--teal);}
+.rec-badge{position:absolute;top:-0.7rem;right:1.5rem;background:var(--amber);color:var(--teal-deep);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2px;}
+.comp-col h3{font-size:1.15rem;color:var(--white);margin-bottom:1.3rem;}
+.comp-col ul{list-style:none;}
+.comp-col li{font-size:0.85rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.72);display:flex;gap:0.6rem;align-items:flex-start;}
+.comp-col li:last-child{border:none;}
+.comp-col.alt li::before,.comp-col.alt2 li::before{content:'·';color:rgba(255,255,255,0.35);}
+.comp-col.rec li::before{content:'✓';color:var(--amber-light);font-weight:700;flex-shrink:0;}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;background:var(--teal-deep);border-radius:4px;overflow:hidden;}
+.mbox{text-align:center;padding:3rem 1.5rem;border-right:1px solid rgba(255,255,255,0.08);}
+.mbox:last-child{border:none;}
+.mnum{font-family:'Libre Caslon Text',serif;font-size:2.5rem;color:var(--amber-light);line-height:1;margin-bottom:0.4rem;}
+.mlabel{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+/* TIMELINE */
+.tl{margin-top:3.5rem;position:relative;}
+.tl::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.1);}
+.tli{display:flex;gap:2rem;margin-bottom:2.5rem;}
+.tli:last-child{margin-bottom:0;}
+.tldot{width:48px;height:48px;border-radius:50%;background:var(--amber);color:var(--teal-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.78rem;flex-shrink:0;z-index:1;text-align:center;line-height:1.1;}
+.tlc{padding-top:0.5rem;}
+.tlphase{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber-light);margin-bottom:0.2rem;}
+.tlc h3{font-size:1.13rem;color:var(--white);margin-bottom:0.4rem;}
+.tlc p{font-size:0.88rem;color:rgba(255,255,255,0.62);line-height:1.7;}
+
+/* PILL ROW */
+.pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+.pill{padding:0.28rem 0.85rem;border-radius:20px;font-size:0.72rem;font-weight:500;background:rgba(217,142,59,0.12);color:var(--amber);border:1px solid rgba(217,142,59,0.22);}
+.bg-teal .pill,.bg-charcoal .pill{background:rgba(217,142,59,0.15);color:var(--amber-light);border-color:rgba(217,142,59,0.28);}
+
+/* DATA TABLE */
+.dtable{width:100%;border-collapse:collapse;margin-top:2rem;font-size:0.85rem;}
+.dtable th{text-align:left;font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber-light);padding:0.7rem 1rem;border-bottom:2px solid var(--amber);}
+.dtable td{padding:0.85rem 1rem;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.68);}
+.dtable td:first-child,.dtable th:first-child{color:var(--white);font-weight:500;}
+.dtable tr.total td{font-weight:700;color:var(--white);border-top:2px solid var(--amber);}
+.table-wrap{overflow-x:auto;}
+.dtable.light td{color:var(--charcoal-light);border-bottom-color:var(--sand-dark);}
+.dtable.light td:first-child{color:var(--charcoal);}
+.dtable.light th{color:var(--amber);border-bottom-color:var(--amber);}
+
+/* RISK TABLE */
+.risk-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.25rem;}
+.risk-row{display:grid;grid-template-columns:0.9fr 1.4fr 1.4fr;gap:2rem;padding:1.6rem 2rem;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);align-items:start;}
+.risk-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber-light);}
+.risk-row h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:0.95rem;color:var(--white);margin-bottom:0.4rem;}
+.risk-row p{font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.65);}
+.risk-col-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.5rem;display:block;}
+
+/* CTA */
+.cta-wrap{text-align:center;}
+.cta-btn{display:inline-block;padding:1.1rem 3.2rem;background:var(--amber);color:var(--teal-deep);text-decoration:none;border-radius:3px;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-top:2.5rem;transition:all 0.3s;}
+.cta-btn:hover{background:var(--amber-light);transform:translateY(-2px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:2rem 3rem;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:0.55;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .hero{padding:0 2rem 6rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  .two-col,.grid3,.grid2,.comp-grid,.ba-grid{grid-template-columns:1fr;gap:2rem;}
+  .metrics{grid-template-columns:1fr 1fr;}
+  .mbox{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .risk-row{grid-template-columns:1fr;gap:0.75rem;}
+  .tier-metrics{grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+  .tier-price-val,.tier-price-note{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="nav-logo"><img src="bear-witness-logo-tight-crop-transparent.png" alt="Bear Witness" class="nav-logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#why">Why now</a></li>
+    <li><a href="#offer">The offer</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#model">Pricing</a></li>
+    <li><a href="#gtm">GTM</a></li>
+    <li><a href="#risks">Risks</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-tag">Bear Witness · The Pivot · Business Plan</span>
+    <h1>One business: <em>build agents for people</em></h1>
+    <p class="hero-sub">Jesse's steer, turned into a plan. Bear Witness stops selling two things and sells one - engineered AI agents, built into any business, the same way they already run ours. This is the case for making that the whole focus, and what it takes to bring it to market.</p>
+    <a href="#summary" class="hero-cta">Read the plan</a>
+  </div>
+  <div class="scroll-ind"><span></span></div>
+</section>
+
+<!-- 01 EXEC SUMMARY -->
+<section class="bg-sand" id="summary">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">01 · Executive summary</span>
+      <h2 class="sh">Bear Witness becomes an AI agent consultancy. One product, one pitch, one motion.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Jesse's call, from a conversation with Olly: instead of Bear Witness selling two separate things - a marketing retainer and an installable agent product - it sells one thing, properly. We build named, engineered AI agents into a business, the same way we've already built them into ours. A business owner doesn't buy "AI agents" in the abstract; they buy back their own time, or a colleague they couldn't otherwise afford to hire. Marketing was never the business - it was the first proof case, running inside GSET, Ted's Health and Modern Savage. This plan makes that proof case one example among many, not the whole offer.</p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">What changes</span>
+        <h3>From two streams to one</h3>
+        <p>The 6 July business plan ran two parallel streams - an installed agent product and a managed marketing service - and flagged the confusion between them as a real risk. This plan resolves it: there is one product, engineered agents, sold at three depths. Marketing is a proven vertical inside it, not a separate business.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">What stays true</span>
+        <h3>Zero new capital, zero new hires</h3>
+        <p>Nothing about team, infrastructure or capability changes. Three people - Jesse, Olly, Felix - still run this on the same rented multi-tenant cloud stack, the same Claude API, the same live proof already running inside BGV.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">What's new</span>
+        <h3>A market big enough to be worth the focus</h3>
+        <p>The agentic AI market is worth roughly $9.9bn globally in 2026, forecast to grow at 42-50% CAGR through the early 2030s - and professional-services adoption specifically (consulting, legal, accounting) is the fastest-growing segment, forecast at 46.3% CAGR. This is a bigger, faster-growing wave to ride than the UK marketing-agency market alone.</p>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>Why this is the right call, not just a simpler story:</strong> Bear Witness's actual advantage was never "we're good at marketing." It's that AI does the labour, so taking on a new client costs engineering time, not a hire. That advantage transfers to any function a business would otherwise pay a person or an agency for - not just marketing. Naming the business what it actually is widens the market without changing a single thing about how the team works.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 WHY NOW -->
+<section class="bg-white" id="why">
+  <div class="si">
+    <div class="two-col reveal">
+      <div>
+        <span class="stag">02 · Why this pivot, why now</span>
+        <h2 class="sh">The market is moving faster than the marketing-agency category ever did.</h2>
+        <div class="sdiv"></div>
+        <p class="sb">The UK marketing agencies market - the frame the previous business plan sized itself against - is growing at a steady but unremarkable 4.82% CAGR. The market this pivot points at is growing 8-10x faster, and it's still early enough that "we already run this on ourselves" is a genuinely rare claim, not a marketing line.</p>
+        <div class="hbox">
+          <p><strong>Every business owner has the same problem marketing had inside BGV:</strong> more work than hours, and hiring as the only lever anyone reaches for. That problem isn't unique to marketing - it's universal, and it's the one Bear Witness is already equipped to solve at scale.</p>
+        </div>
+      </div>
+      <div class="col-img">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&q=80&auto=format&fit=crop" alt="A new category, moving fast" loading="lazy">
+        <div class="img-badge">A faster-moving market</div>
+      </div>
+    </div>
+    <div class="metrics reveal">
+      <div class="mbox"><div class="mnum">$9.9bn</div><div class="mlabel">Global agentic AI market, 2026 (Grand View Research / Mordor Intelligence estimates)</div></div>
+      <div class="mbox"><div class="mnum">42-50%</div><div class="mlabel">CAGR forecast through 2031-2033 across major analyst estimates</div></div>
+      <div class="mbox"><div class="mnum">46.3%</div><div class="mlabel">CAGR specifically for professional-services adoption (consulting, legal, accounting) - the fastest-growing segment</div></div>
+      <div class="mbox"><div class="mnum">4</div><div class="mlabel">Functions already proven internally: content, paid media, reporting, partner ops - each is a sellable agent, not just a marketing task</div></div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">Market size and growth figures from Grand View Research's AI Agents Market Report (2026-2033), Mordor Intelligence's Agentic AI Market forecast (to 2031), and cross-checked analyst estimates (Precedence Research, MarketsandMarkets), July 2026.</p>
+  </div>
+</section>
+
+<!-- 03 THE OFFER -->
+<section class="bg-teal" id="offer">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">03 · The offer</span>
+      <h2 class="sh">One product. Three depths. Priced like headcount, because that's what it replaces.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">A business doesn't need to understand AI to buy this - it needs to describe a role it wishes it could clone or afford to hire for. That's a founder question, not a technical one, which is what makes it sellable to any business owner, in any sector, not just BGV's existing brand-safe circle.</p>
+    </div>
+    <div class="ba-grid reveal">
+      <div class="ba before">
+        <span class="ba-badge">The old framing</span>
+        <h3>Two products, competing for attention</h3>
+        <ul>
+          <li>Stream 1: Agent Workforce - an installed product, needing new infrastructure before external sale</li>
+          <li>Stream 2: AI-Integrated Agency - a marketing retainer, ready to sell today</li>
+          <li>Two pitches, two buyer types, two sets of collateral - and the 6 July plan itself flagged "confusing them is the easiest way to slow both down"</li>
+        </ul>
+      </div>
+      <div class="ba after">
+        <span class="ba-badge">The pivot</span>
+        <h3>One product, three depths</h3>
+        <ul>
+          <li>Single Agent - one engineered role, the entry point, fastest to sell and prove</li>
+          <li>Team Agents - two to five agents coordinating across a function, marketing being the proven example</li>
+          <li>Full Workforce - a whole operation run alongside the human one, priced against headcount displaced</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>Marketing doesn't disappear - it becomes the reference case.</strong> "We already run a Marketing Agent Team on our own brands" is the single best proof point in every pitch, whatever role the prospect is actually buying for. It just stops being sold as a separate business line with its own pricing logic.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 LIVE PROOF -->
+<section class="bg-sand" id="proof">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">04 · Live proof</span>
+      <h2 class="sh">We're not describing this. We're running it.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Four named, engineered agents already run inside Bear Witness's own team today, each built around a specific role - not a shared chatbot, a dedicated colleague per function. Every pitch can open with "here's our own agent team, running our own business, right now."</p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">Proven vertical</span>
+        <h3>Content, paid media, reporting</h3>
+        <p>Runs live across GSET, Ted's Health and Modern Savage. This is the Marketing Agent Team example - one of many roles this can be engineered around, not the whole product.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Proven pattern</span>
+        <h3>Partner and customer ops</h3>
+        <p>Onboarding flows, referral tracking, follow-up sequences running for Ted's Health's white-label pipeline - proof this extends past marketing into sales and operations roles.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Proven pattern</span>
+        <h3>Admin, scheduling, personal assistance</h3>
+        <p>Inbox triage, invoicing, receipt logging, calendar management - the exact shape of a Single Agent sale to a solo founder or small team, already running inside BGV's own operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 MARKET / ICP -->
+<section class="bg-white" id="market">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">05 · Market and target customer</span>
+      <h2 class="sh">Any business owner who's said "I need another pair of hands" - and can afford to buy one.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The ICP widens under this pivot rather than narrows: it's no longer "a mid-size brand with a marketing budget line," it's any founder or small operator who currently either does a job themselves that's capping their growth, or is paying agency/consultant day rates for work AI can now do at a fraction of the cost.</p>
+    </div>
+    <div class="grid3 reveal">
+      <div class="card">
+        <span class="ctag">Segment one</span>
+        <h3>Solo founders and small teams</h3>
+        <p>Capped by their own hours, not their ambition. The Single Agent tier - one role, engineered and deployed - is the natural entry point: low commitment, immediate and legible time-back.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Segment two</span>
+        <h3>Growing operators buying agency/consultant time</h3>
+        <p>Already paying £500-£2,500+/day for consultants, or £25k-150k for AI implementation projects (UK 2026 benchmarks) - the Team Agents tier undercuts this dramatically while delivering a built, running product rather than a report.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Segment three</span>
+        <h3>Larger operators with real headcount to displace</h3>
+        <p>Businesses spending £75k-250k on full AI production implementations, or carrying salaried teams for functions that don't need to be human-run - the Full Workforce tier, priced against what it replaces.</p>
+      </div>
+    </div>
+    <p class="sb" style="margin-top:2rem;font-size:0.78rem;opacity:0.65;">UK AI consultancy benchmarks from Helium42 "AI Consultancy Pricing UK 2026," OpenClaw Consultant's "AI Agent Costs UK 2026," and Nicola Lazzari's "AI Consultant Hourly Rate UK 2026," cross-checked against Bluecanvas and KlarifAi's 2026 pricing guides.</p>
+    <div class="hbox">
+      <p><strong>Why this ICP works better than the marketing-only version:</strong> the pitch no longer depends on a prospect already having a marketing budget line - it depends on them having any role, function or team they'd hire for if cost and hours weren't the constraint. That's a far larger, faster-qualifying conversation for Olly to open.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 COMPETITIVE LANDSCAPE -->
+<section class="bg-sand" id="competition">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">06 · Competitive landscape</span>
+      <h2 class="sh">Not an agency, not a consultancy, not a SaaS tool. A built, running colleague.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Three categories sit around this offer, and the position only makes sense set against all three at once.</p>
+    </div>
+    <div class="comp-grid reveal">
+      <div class="comp-col alt">
+        <h3>AI consultancies</h3>
+        <ul>
+          <li>Sell diagnosis and strategy, not a working product - £12k-35k strategy workshops, £25k-85k proofs of concept</li>
+          <li>Big Four and mid-tier firms charge £900-3,000+/day, with 40-60% hidden costs on top for data/infra work</li>
+          <li>Client is left holding a roadmap, still needs someone to build and run it</li>
+        </ul>
+      </div>
+      <div class="comp-col alt2">
+        <h3>Point-solution AI tools</h3>
+        <ul>
+          <li>Software, not an outcome - the client still configures and operates it themselves</li>
+          <li>One tool per task; the client carries the cost of stitching several into one working function</li>
+          <li>No accountability for whether the output is actually good, only that the tool ran</li>
+        </ul>
+      </div>
+      <div class="comp-col rec">
+        <div class="rec-badge">Bear Witness</div>
+        <h3>Built, running, accountable</h3>
+        <ul>
+          <li>Ships a working, named agent - not a report or a raw tool - engineered for one role, live from day one</li>
+          <li>Priced like a hire, not a project: build fee plus a retainer, not a scoped consulting engagement</li>
+          <li>Live proof running our own business, on every call, before a single external client is signed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>The moat is cost-to-serve, not the category.</strong> Because AI does the labour, Bear Witness can build and run an agent for a fraction of what a consultancy charges just to scope one, and still hold a strong margin. Neither a day-rate consultancy nor a tool vendor can match that without becoming a different kind of business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 BUSINESS MODEL & PRICING -->
+<section class="bg-charcoal" id="model">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">07 · Business model and pricing</span>
+      <h2 class="sh">Build fee plus monthly retainer. Priced against cost-to-serve and the market it undercuts.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">Same methodology as the pricing-model deck built for the marketing retainer: real Claude API compute, real multi-tenant hosting (£2.37/client/month, per the Cloud Hosting deck), and Felix's build/oversight time at a notional £50/hour internal rate - checked against what a client would otherwise pay a consultancy or a hire.</p>
+    </div>
+    <div class="tier-stack reveal">
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Single Agent</div>
+              <div class="tier-sub">One role, engineered · the entry point</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£1,500-2,500 build</div>
+              <div class="tier-price-note">+ £300-450/mo</div>
+            </div>
+          </div>
+          <p class="tier-desc">One engineered agent for one role - admin, scheduling, content, first-response support. ~3,000 turns/month, light compute. Internal build cost ≈ £800 (2 days Felix's time); internal running cost ≈ £123/mo (compute £21 + hosting £2 + 2hrs oversight £100).</p>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£123</div><div class="tm-label">Cost to serve, monthly</div></div>
+            <div class="tm"><div class="tm-num">£2-15k</div><div class="tm-label">Market comparable (single build, UK 2026)</div></div>
+            <div class="tm"><div class="tm-num hi">~3-4x</div><div class="tm-label">Monthly margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">£300-1.5k</div><div class="tm-label">Market maintenance comparable/mo</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Team Agents</div>
+              <div class="tier-sub">Two to five agents, coordinating · marketing proven here</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£4,000-7,000 build</div>
+              <div class="tier-price-note">+ £800-1,500/mo</div>
+            </div>
+          </div>
+          <p class="tier-desc">A small coordinated team across a function - the Marketing Agent Team is the proven live example, but the same shape fits sales follow-up, customer support, or ops. ~15,000 turns/month. Internal build cost ≈ £2,000 (5 days); running cost ≈ £400/mo (compute £145 + hosting £2 + 5hrs oversight £250).</p>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£400</div><div class="tm-label">Cost to serve, monthly</div></div>
+            <div class="tm"><div class="tm-num">£25-85k</div><div class="tm-label">Market comparable (PoC / SME project)</div></div>
+            <div class="tm"><div class="tm-num hi">~2-3.75x</div><div class="tm-label">Monthly margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">£4-15k/mo</div><div class="tm-label">Senior AI programme comparable</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tier t3">
+        <div class="tier-inner">
+          <div class="tier-top">
+            <div>
+              <div class="tier-name">Full Workforce</div>
+              <div class="tier-sub">A whole function or operation, run alongside the human one</div>
+            </div>
+            <div>
+              <div class="tier-price-val">£20,000-40,000 build</div>
+              <div class="tier-price-note">+ £3,000-6,000/mo</div>
+            </div>
+          </div>
+          <p class="tier-desc">Priced bespoke against the headcount or full-service spend it genuinely displaces. ~36,000 turns/month. Internal build cost ≈ £7,000 (15-20 days); running cost ≈ £1,216/mo (compute £456 + hosting £10 + 15hrs oversight £750).</p>
+          <div class="tier-metrics">
+            <div class="tm"><div class="tm-num">£1,216</div><div class="tm-label">Cost to serve, monthly</div></div>
+            <div class="tm"><div class="tm-num">£75-250k</div><div class="tm-label">Market comparable (full implementation)</div></div>
+            <div class="tm"><div class="tm-num hi">~2.5-5x</div><div class="tm-label">Monthly margin multiple</div></div>
+            <div class="tm"><div class="tm-num hi">£10-16.75k/mo</div><div class="tm-label">Full-service agency/team comparable</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>These are starting points, not locked prices</strong> - built the same way the marketing-retainer pricing model was: stated assumptions, challengeable individually, refined the moment a real client is running. What holds regardless of the exact number: every tier prices well under its market comparable while running a real multiple over Bear Witness's actual cost-to-serve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 GO-TO-MARKET -->
+<section class="bg-sand" id="gtm">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">08 · Go-to-market plan</span>
+      <h2 class="sh">Same two mechanisms as before - now pointed at one product, not two.</h2>
+      <div class="sdiv"></div>
+      <p class="sb">The bootstrap and scale channels already planned for Stream 2 carry over unchanged - they just sell Single Agent / Team Agents / Full Workforce instead of a marketing retainer specifically.</p>
+    </div>
+    <div class="grid2 reveal">
+      <div class="card">
+        <span class="ctag">Stage one · Bootstrap, warm channels</span>
+        <h3>Landing client #1</h3>
+        <p>Hodder Faith and the GSET publishing network, Ted's Health white-label prospects, Modern Savage supplier contacts, and Alfred as a named proof case - each used once to skip months of cold outreach while the repeatable channel gets built. The pitch is now "what role would you hire for," not "do you want a marketing retainer" - a wider door into the same relationships.</p>
+      </div>
+      <div class="card">
+        <span class="ctag">Stage two · Scalable, repeatable</span>
+        <h3>Client Acquisition Engine</h3>
+        <p>Paid ads plus an AI nurture agent, feeding qualified leads into the three tiers. Unchanged from the prior plan - it's the mechanism that has to carry growth from client #2 onward, because warm connections run out and cannot be manufactured to order.</p>
+      </div>
+    </div>
+    <div class="hbox">
+      <p><strong>One extra advantage the pivot creates:</strong> the pitch no longer needs to qualify a prospect as "has a marketing budget line" before it's worth a conversation - any founder describing a role they can't afford to hire for qualifies. That's a shorter qualification step for every warm intro and every paid lead.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 RISKS -->
+<section class="bg-teal" id="risks">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">09 · Risks and mitigations</span>
+      <h2 class="sh">The honest list, not the flattering one.</h2>
+      <div class="sdiv"></div>
+    </div>
+    <div class="risk-list reveal">
+      <div class="risk-row">
+        <div>
+          <span class="risk-tag">Engineering single point of failure</span>
+          <h4>Felix is the only builder</h4>
+          <div class="pills"><span class="pill">Likelihood: high</span><span class="pill">Impact: high</span></div>
+        </div>
+        <div>
+          <span class="risk-col-label">Risk</span>
+          <p>This risk gets sharper under the pivot, not smaller - every new client now needs a build, where the marketing-retainer stream needed none. Every Single Agent, Team Agents or Full Workforce sale depends on Felix's hours until the build process is documented into something repeatable.</p>
+        </div>
+        <div>
+          <span class="risk-col-label">Mitigation</span>
+          <p><strong style="color:var(--amber-light);">Owner: Felix.</strong> Document the build process into a templated playbook before selling at volume - this is now the single highest-priority piece of work in the plan, not a background task. Target: a first-cut playbook from the next build, refined on the second and third.</p>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div>
+          <span class="risk-tag">Client concentration</span>
+          <h4>One paying external client today (Alfred)</h4>
+          <div class="pills"><span class="pill">Likelihood: high</span><span class="pill">Impact: high</span></div>
+        </div>
+        <div>
+          <span class="risk-col-label">Risk</span>
+          <p>Alfred remains the only proof case outside BGV, and was proven under the marketing-retainer framing, not yet as an "agent build." Losing it removes the entire external evidence base at once.</p>
+        </div>
+        <div>
+          <span class="risk-col-label">Mitigation</span>
+          <p><strong style="color:var(--amber-light);">Owner: Olly.</strong> Land a second external client through the warm bootstrap channels this quarter, and stand up the Client Acquisition Engine in parallel so client count doesn't depend on any one relationship.</p>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div>
+          <span class="risk-tag">Positioning risk</span>
+          <h4>"Agents for people" is a broad claim to make credible</h4>
+          <div class="pills"><span class="pill">Likelihood: medium</span><span class="pill">Impact: medium</span></div>
+        </div>
+        <div>
+          <span class="risk-col-label">Risk</span>
+          <p>Widening from "marketing agency" to "AI agent consultancy" is a bigger claim, and a crowded one - AI agent building is being pitched by everyone from Big Four consultancies to solo freelancers. A generic pitch drowns in that noise.</p>
+        </div>
+        <div>
+          <span class="risk-col-label">Mitigation</span>
+          <p><strong style="color:var(--amber-light);">Owner: Olly.</strong> Lead every pitch with the one thing generic AI consultancies can't say: "we run this on our own business, today, and here's exactly what it does." Specificity and live proof are the differentiator, not the category name.</p>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div>
+          <span class="risk-tag">Margin and infrastructure risk</span>
+          <h4>Compute cost and multi-tenant isolation</h4>
+          <div class="pills"><span class="pill">Likelihood: medium</span><span class="pill">Impact: medium</span></div>
+        </div>
+        <div>
+          <span class="risk-col-label">Risk</span>
+          <p>Same risk already flagged in the pricing-model deck - if usage per client runs heavier than modelled, or oversight hours run higher, margin narrows. Each client's agent workspace also needs genuine isolation on shared rented cloud infrastructure.</p>
+        </div>
+        <div>
+          <span class="risk-col-label">Mitigation</span>
+          <p><strong style="color:var(--amber-light);">Owner: Jesse.</strong> Meter usage per client from the first paying build onward, feed real cost data back into this pricing model, and re-price if usage diverges before it compounds. Isolation pattern already proven internally (Ted serving multiple users from one machine).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 ROADMAP -->
+<section class="bg-charcoal" id="roadmap">
+  <div class="si">
+    <div class="reveal">
+      <span class="stag">10 · Roadmap and milestones</span>
+      <h2 class="sh">Collapse the two decks into one pitch. Document the build. Sell the entry tier.</h2>
+      <div class="sdiv"></div>
+    </div>
+    <div class="tl reveal">
+      <div class="tli">
+        <div class="tldot">Now</div>
+        <div class="tlc">
+          <div class="tlphase">Phase one · This week</div>
+          <h3>Retire the two-stream pitch</h3>
+          <p>Replace the Agent Workforce and AI-Integrated Agency decks with this single pivot plan as the one thing Bear Witness sells. Reposition Alfred and the internal proof points as examples inside it, not a separate stream.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">Q3<br>'26</div>
+        <div class="tlc">
+          <div class="tlphase">Phase two · Now-September</div>
+          <h3>Document the build playbook, land client #1 under the new framing</h3>
+          <p>Felix templates the build process against the next real build. Olly works the warm channels - Hodder Faith network first - to close a Single Agent or Team Agents sale under the new pitch by end of Q3 2026.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">Aug<br>'26</div>
+        <div class="tlc">
+          <div class="tlphase">Client Acquisition Engine · Test</div>
+          <h3>Stand up and test the funnel against real leads</h3>
+          <p>Same build already planned for Stream 2, now pointed at the three-tier agent offer instead of a marketing retainer specifically.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">Q4<br>'26</div>
+        <div class="tlc">
+          <div class="tlphase">Phase three · Three to six months</div>
+          <h3>Second and third client, repeatable build</h3>
+          <p>With a documented build playbook, a second builder becomes possible - removing the single point of failure this plan flags as the sharpest risk. Target: 2-3 clients across the tiers by end of December 2026.</p>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot">H1<br>'27</div>
+        <div class="tlc">
+          <div class="tlphase">Phase four · Six to twelve months</div>
+          <h3>Scale the client base, not the headcount</h3>
+          <p>Upsell proven Single Agent clients into Team Agents; open Full Workforce conversations with larger operators once the playbook is proven twice over. Target: 8-10 concurrent clients across all tiers by mid-2027.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 THE ASK -->
+<section class="bg-sand" id="ask">
+  <div class="si cta-wrap">
+    <div class="reveal">
+      <span class="stag">11 · The ask</span>
+      <h2 class="sh" style="max-width:680px;margin:0 auto 1.5rem;">A decision to focus, not a request for capital.</h2>
+      <div class="sdiv" style="margin:1.5rem auto;"></div>
+      <p class="sb" style="margin:0 auto;text-align:center;max-width:680px;">This needs no new money, no new hire and no new infrastructure - everything it runs on already exists. What it needs from Jesse and Felix is a decision: collapse the two-stream pitch into this one, prioritise documenting Felix's build process above everything else this quarter, and greenlight Olly leading with "what role would you hire for" as the opening question on every call.</p>
+      <a href="mailto:jesse@bearwitness.co?subject=Bear Witness - The Pivot - Next Steps" class="cta-btn">Open the conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>Bear Witness · The Pivot · Internal Business Plan · v1 · 8 July 2026</footer>
+
+<script>
+const nav = document.getElementById('nav');
+let lightCount = 0;
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 80 || lightCount > 0);
+}
+const navHeight = 72;
+const lightSections = document.querySelectorAll('.bg-sand, .bg-white');
+const lightObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { lightCount++; } else { lightCount = Math.max(0, lightCount - 1); }
+    updateNav();
+  });
+}, { rootMargin: `-${navHeight}px 0px -${window.innerHeight - navHeight - 1}px 0px`, threshold: 0 });
+lightSections.forEach(s => lightObs.observe(s));
+window.addEventListener('scroll', updateNav);
+
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
