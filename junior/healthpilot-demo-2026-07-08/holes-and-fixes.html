@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HealthPilot — Holes, Fixes & Honest Risks</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color:#1a202c; line-height:1.5; font-size:10.8pt; margin:0; }
+  h1 { color:#0f4c5c; font-size:22pt; margin:0 0 2px; }
+  h2 { color:#0f4c5c; font-size:14pt; margin:22px 0 6px; border-bottom:2px solid #e36414; padding-bottom:5px; }
+  .meta { color:#718096; font-size:9.5pt; margin-bottom:6px; }
+  p { margin:6px 0; }
+  ul { margin:6px 0; padding-left:18px; }
+  li { margin:6px 0; }
+  strong { color:#0f2f38; }
+  .tag { display:inline-block; font-size:8.5pt; font-weight:800; padding:1px 6px; border-radius:4px; margin-right:4px; vertical-align:middle; }
+  .high { background:#fde2e0; color:#a12; }
+  .med { background:#fdf0d8; color:#8a5a12; }
+  .low { background:#e2eef0; color:#0f4c5c; }
+  .callout { background:#eef5f6; border:1px solid #b7d3d9; border-radius:8px; padding:12px 16px; }
+  .footer { margin-top:24px; font-size:9pt; color:#a0aec0; border-top:1px solid #e2e8f0; padding-top:8px; }
+  .lead { font-size:11.2pt; }
+</style>
+</head>
+<body>
+<h1>HealthPilot — Holes, Fixes &amp; Honest Risks</h1>
+<div class="meta">Internal memo · Junior · 8 July 2026 · Confidential — never publish</div>
+<p class="lead">I ran a deep review of the product and the Ted's integration, then fixed what was safe to fix in our sandbox tonight. Below is the honest picture: what I improved, what still needs Felix, and the things we should not overstate to CJ.</p>
+
+<h2>1. What I fixed tonight (in our sandbox, verified live)</h2>
+<ul>
+  <li><strong>Harborview now has its own logo.</strong> The demo clinic was falling back to the Ted's Health logo on the patient's first screen, quietly undercutting the white-label story. Generated a clean Harborview wordmark and seeded it. The white-label promise is now visible at screen one.</li>
+  <li><strong>Clinician stops are now shown, not described.</strong> Seeded a scheduled consultation so the clinician's pre-brief workflow renders live, and stamped quiz content versions on results so the progress view shows its cross-version caveat. These were previously narration.</li>
+  <li><strong>Repeatable one-command demo bring-up (<code>demo-up.sh</code>).</strong> Stands up fresh tunnels and boots the whole stack clean, then restores the demo clinic to its intended state. Run it shortly before the call to get a live link. The old link was three days stale and dead.</li>
+</ul>
+
+<h2>2. Holes that still need Felix (read-only repos — I can't touch these)</h2>
+<ul>
+  <li><span class="tag high">HIGH</span><strong>The AI rate limiters are dead code.</strong> The limiters meant to cap the AI endpoints exist but are wired to nothing, so the paid AI endpoints are effectively uncapped per IP. One-line fix each. Left unfixed, a bad actor can run up a real OpenAI bill.</li>
+  <li><span class="tag high">HIGH</span><strong>Lab-result webhooks are unauthenticated.</strong> The endpoint that writes blood-test results into a patient record accepts any/empty signature ("skip for demo"). Anyone who guesses an ID could write fake results to a real patient. Not demo-visible; a genuine hole before real patients.</li>
+  <li><span class="tag high">HIGH</span><strong>Clinic API keys fall back to a publicly-known encryption key</strong> if an env var is unset. Fine locally; must be set on the server before any real clinic key is stored.</li>
+  <li><span class="tag med">MED</span><strong>Anonymous-intake claim can hijack tokenless intakes</strong> on legacy paths. Fresh intakes are safe.</li>
+</ul>
+<p>I've packaged these for Felix. None affect Thursday's demo; all matter before a real clinic goes live.</p>
+
+<h2>3. Things we must NOT overstate to CJ</h2>
+<ul>
+  <li><strong>It runs on GPT-4o today, not Claude.</strong> Some internal docs imply Claude plus prompt caching plus versioned prompts. That isn't wired up. The engine is provider-swappable, so the honest line is "GPT-4o today, provider-agnostic by design."</li>
+  <li><strong>The red-flag safety net is a keyword backstop, not intelligent triage.</strong> It catches emergency phrases in English and the escalation wiring around it is solid, but it's regex: evadable by paraphrase, and English-only while we pitch Spanish/German clinics. Sell it as "a safety backstop with clinician escalation," never "AI that diagnoses." Pushing it toward "it can tell the patient they have low testosterone" tips it into medical-device (MHRA) territory — a hard line.</li>
+  <li><strong>Recommendations can look similar for similar patients.</strong> The catalogue has real depth, but the quiz captures one goal and few structured symptoms, so two same-goal patients who skip bloods get near-identical output. For the demo, use differentiated personas.</li>
+  <li><strong>The conversion economics are instrumented, not proven.</strong> The attribution is wired, but there is zero real attributed revenue yet. The model rests on an assumed 8% blood-panel conversion. Frame as "instrumented, awaiting design-partner data."</li>
+</ul>
+
+<h2>4. Demo-prep checklist</h2>
+<ul>
+  <li>Run <code>demo-up.sh</code> shortly before the call — the tunnel link changes each run and goes stale within a day or two.</li>
+  <li>Do not run the e2e test between reseed and demo (it mutates two demo patients). The bring-up handles the reseed.</li>
+  <li>Keep the public/patient window off any <code>/platform/*</code> path — it clears the clinic branding.</li>
+  <li>Deferred cosmetics: owner-console "median completion time" reads low on same-instant seeded data; the six-step signup claim funnel is worth shortening later.</li>
+</ul>
+
+<h2>5. Two things I did NOT do tonight, on purpose</h2>
+<ul>
+  <li><strong>Did not remove the <code>production</code> Firebase alias</strong> from the sandbox tree, though it's a real footgun (a stray deploy could hit real Ted's prod). It's a deploy-config change — Felix should confirm and make it.</li>
+  <li><strong>Did not seed anything that could break a working demo.</strong> Every change was verified against the live schema; the consultation seed is guarded so it can't take the rest of the demo down with it.</li>
+</ul>
+
+<div class="callout"><strong>Bottom line:</strong> the demo is stronger than it was this morning and every claim in it is one I can stand behind. The remaining holes are Felix's to close before a real clinic, and the talk-track honesty notes are the difference between a credible pitch and one that unravels under a sharp question.</div>
+
+<div class="footer">HealthPilot × Ted's Health · Confidential · internal · not for distribution</div>
+</body>
+</html>
