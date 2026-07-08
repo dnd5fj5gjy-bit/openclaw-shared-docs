@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HealthPilot — Quiz Redesign</title>
+<style>
+  @page { size: A4; margin: 17mm 15mm; }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;color:#20272e;line-height:1.5;font-size:10.6pt;margin:0}
+  h1{color:#0f4c5c;font-size:22pt;margin:0 0 2px}
+  h2{color:#0f4c5c;font-size:13.5pt;margin:20px 0 6px;border-bottom:2px solid #c8571a;padding-bottom:5px}
+  h3{color:#0f4c5c;font-size:11.5pt;margin:14px 0 3px}
+  .meta{color:#77808a;font-size:9.5pt;margin-bottom:8px}
+  p{margin:6px 0}
+  ul{margin:6px 0;padding-left:18px}
+  li{margin:5px 0}
+  strong{color:#12303a}
+  .lead{font-size:11.4pt}
+  .grid{display:flex;gap:10px;margin:12px 0;justify-content:center;flex-wrap:wrap}
+  .grid img{width:31%;border:1px solid #e6e0d4;border-radius:8px}
+  .cap{text-align:center;color:#77808a;font-size:9pt;margin-top:-4px}
+  .box{background:#eef4f5;border:1px solid #bcd6db;border-radius:8px;padding:12px 16px;margin:10px 0}
+  .box.gold{background:#fbf6ea;border-color:#e3cf9f}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:10pt}
+  td,th{border-bottom:1px solid #e6e0d4;padding:6px 8px;text-align:left;vertical-align:top}
+  th{color:#0f4c5c}
+  .tag{display:inline-block;font-size:8.5pt;font-weight:700;background:#f2efe7;border:1px solid #e6e0d4;border-radius:5px;padding:1px 7px;color:#4a535c}
+  .footer{margin-top:22px;font-size:9pt;color:#a7aeb6;border-top:1px solid #e6e0d4;padding-top:8px}
+  .pagebreak{page-break-before:always}
+</style>
+</head>
+<body>
+<h1>HealthPilot — Quiz Redesign</h1>
+<div class="meta">Junior · 8 July 2026 · Confidential — never publish · pairs with the 27-second walkthrough video and the clickable prototype</div>
+<p class="lead">Two changes you asked for: <strong>stop gating everyone through the intake</strong>, and <strong>make the quiz far richer and genuinely premium</strong> — collecting a lot more, feeling interactive rather than laborious, and routing people to revenue without ever feeling like a sale. The prototype and video show it working end to end. This is the spec behind it.</p>
+
+<div class="grid">
+  <img src="shots/01-entry.png" alt="dashboard entry with need-guidance nudge">
+  <img src="shots/08-tradeoff.png" alt="either-or trade-off question">
+  <img src="shots/13-report.png" alt="insight-first report">
+</div>
+<div class="cap">Entry (dashboard-direct + a quiet nudge) · a clever either/or · the insight-first report</div>
+
+<h2>1. The entry: guidance offered, never forced</h2>
+<p>Logged-in patients land on their dashboard as normal — book a test, book a consult, see results, all one tap. The assessment is offered by a calm prompt (<em>"Not sure where to start? Take a short, private assessment — no pressure"</em>) rather than standing between the patient and their account. New/public visitors still get the full branded funnel. The quiz becomes a helpful concierge, not a tollgate.</p>
+
+<h2>2. What makes it feel premium, not laborious</h2>
+<ul>
+  <li><strong>One idea per screen, mostly taps.</strong> Cards and chips, not text fields. A four-minute assessment that feels like ninety seconds.</li>
+  <li><strong>A considered, human tone.</strong> Serif headlines, generous space, plain-spoken copy ("Ten quiet minutes, in confidence"). It reads like a good clinic, not a marketing funnel.</li>
+  <li><strong>It reads between the lines.</strong> After the symptom screen, a reflective beat plays back what it heard ("Low energy and lost drive tend to travel together — and there is usually a reason"). The patient feels understood, not interrogated — and it earns the questions that follow.</li>
+  <li><strong>Depth is a choice.</strong> "Full picture (4 min)" or "Just the essentials (90 sec)" up front; every sensitive question is skippable; answers already given let later ones be skipped.</li>
+  <li><strong>Progress you can feel.</strong> A quiet progress bar and honest "about 2 min left / almost there" pacing.</li>
+</ul>
+
+<h2>3. Clever ways it gathers information</h2>
+<ul>
+  <li><strong>Priority-first framing.</strong> "If we could put one thing right first, what would it be?" tells us how to lead the report before we ask anything clinical.</li>
+  <li><strong>An either/or trade-off.</strong> "Certainty about what's going on" vs "the quickest route to feeling better" — a snap choice that reveals whether to sell the panel on <em>answers</em> or on <em>speed</em>, without asking a sales question.</li>
+  <li><strong>Expressive scales, not forms.</strong> Energy and stress as sliders with human labels ("Up and down through the day"), captured in a second.</li>
+  <li><strong>Permissioned sensitivity.</strong> The hormonal/sexual-health screen names the awkwardness and hands over control ("skip anything you'd rather not say") — which is exactly why people answer it.</li>
+  <li><strong>A profile that builds.</strong> Every answer becomes a pill on the final report ("Energy: low", "No recent bloods"), so the patient sees their own picture assemble — the reward for sharing.</li>
+</ul>
+
+<h2>4. Routing to revenue without the upsell feeling</h2>
+<div class="box gold">
+The report leads with <strong>insight, not an offer.</strong> It reflects the patient's own words back first and earns trust. Only then does it suggest a next step — and the blood panel is framed as <em>"the single fastest way to turn how you feel into a clear reason,"</em> chosen visibly <em>because of their answers</em>. It is a logical conclusion, not a pitch.
+</div>
+<ul>
+  <li><strong>Reason, then recommendation.</strong> Every suggestion is tied to something the patient said ("Chosen because of your symptoms and no bloods on file").</li>
+  <li><strong>Give before you ask.</strong> Free sleep &amp; recovery guidance sits alongside the paid steps, so the report is a gift, not a checkout.</li>
+  <li><strong>Soft social proof, explicit no-pressure.</strong> "Most men who start here begin with the baseline panel — but there's no rush, and nothing here is automatic."</li>
+  <li><strong>Price stays out of the emotional moment.</strong> The recommendation is about care and clarity; cost lives one click later on "See what's included".</li>
+  <li><strong>The account is the conversion.</strong> "Create your account to unlock your full report" — the lead is captured at the peak of relevance, which is exactly what the clinic's claim-conversion metric measures.</li>
+</ul>
+
+<h2 class="pagebreak">5. The full question set (thorough build-out)</h2>
+<p>Nine to eleven screens depending on depth. This maps directly onto the existing section/field schema, so it can ship as a <strong>new intake-flow version</strong> in the owner console — no new engine, just a richer flow. Fields marked optional are skippable.</p>
+<table>
+  <tr><th>Screen</th><th>Collects</th><th>Type</th></tr>
+  <tr><td><strong>Depth</strong></td><td>Full picture vs essentials (controls branching/length)</td><td>single choice</td></tr>
+  <tr><td><strong>Primary goal</strong></td><td>Energy &amp; drive / body / mind / longevity — leads the whole report</td><td>single choice (cards)</td></tr>
+  <tr><td><strong>Symptoms</strong></td><td>10 men's-health signals: fatigue, brain fog, broken sleep, low mood, no motivation, weight gain, muscle loss, irritability, slow recovery, aches</td><td>multi-select chips</td></tr>
+  <tr><td><em>Reflective beat</em></td><td>Adaptive playback of what was heard (no input)</td><td>interstitial</td></tr>
+  <tr><td><strong>Energy</strong></td><td>Daily energy 1–10 with human labels</td><td>slider</td></tr>
+  <tr><td><strong>Hormonal &amp; sexual health</strong> <span class="tag">optional</span></td><td>Libido, erections, morning erections, performance, or no change</td><td>multi-select chips</td></tr>
+  <tr><td><strong>Trade-off</strong></td><td>Certainty vs speed (frames the report)</td><td>either/or</td></tr>
+  <tr><td><strong>Lifestyle</strong></td><td>Sleep hours, movement type, alcohol frequency (+ smoking)</td><td>chip groups</td></tr>
+  <tr><td><strong>Stress</strong></td><td>Current stress 1–10</td><td>slider</td></tr>
+  <tr><td><strong>Medical history</strong> <span class="tag">optional</span></td><td>BP, cholesterol, diabetes, heart, thyroid, mental health; plus meds/supplements yes-no</td><td>multi-select + single</td></tr>
+  <tr><td><strong>Recent bloods</strong></td><td>Recent / over a year / never — the pivot for the panel recommendation</td><td>single choice</td></tr>
+  <tr><td><em>Building</em></td><td>Brief "putting your picture together" moment</td><td>interstitial</td></tr>
+  <tr><td><strong>Report</strong></td><td>Insight narrative + answer-derived profile pills + ranked next steps + account CTA</td><td>output</td></tr>
+</table>
+<p>Optional adaptive add-ons for "full picture": age band + waist/height for a metabolic read, and a body-region tap for aches — both skippable, both feeding sharper recommendations.</p>
+
+<h2>6. How it ships</h2>
+<ul>
+  <li><strong>The quiz</strong> is a new flow version authored in the existing section/field schema — buildable through the owner console's flow editor or seeded, no engine changes. The richer question set is what fixes the "two same-goal patients get identical output" problem the review flagged.</li>
+  <li><strong>The entry nudge</strong> is a small front-end addition to the patient dashboard (a dismissible prompt component that deep-links into the assessment). I can prototype this in our sandbox where I have access.</li>
+  <li><strong>The reflective/report copy</strong> is model-authored from the answers — the AI layer already exists; this just gives it much more to work with and a premium tone to match.</li>
+</ul>
+
+<div class="box">
+<strong>Recommended next step:</strong> approve the direction from the video, then I turn this into the actual flow-version JSON + the dashboard nudge, and hand Felix a single package to load. The demo clinic can carry the new quiz for Thursday if we move on it.
+</div>
+
+<div class="footer">Harborview / HealthPilot × Ted's Health · Confidential · prototype &amp; spec · not for distribution</div>
+</body>
+</html>
