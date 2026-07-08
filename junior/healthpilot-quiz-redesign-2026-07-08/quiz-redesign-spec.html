@@ -76,7 +76,25 @@ The report leads with <strong>insight, not an offer.</strong> It reflects the pa
   <li><strong>The account is the conversion.</strong> "Create your account to unlock your full report" — the lead is captured at the peak of relevance, which is exactly what the clinic's claim-conversion metric measures.</li>
 </ul>
 
-<h2 class="pagebreak">5. The full question set (thorough build-out)</h2>
+<h2 class="pagebreak">5. Wearable connectors — real data, fewer questions</h2>
+<p>The single biggest upgrade to the "gather more, ask less" goal. Early in the flow the patient can connect a device; we pull the signals that matter and fold them straight into the assessment and the report. It reads as premium and effortless, it makes the output far more accurate, and it deepens the data moat for the clinic.</p>
+<table>
+  <tr><th>Source</th><th>What we pull</th><th>Integration</th></tr>
+  <tr><td><strong>Oura Ring</strong></td><td>Sleep stages, HRV, resting HR, readiness, temperature trend</td><td>Oura Cloud API (OAuth2)</td></tr>
+  <tr><td><strong>WHOOP</strong></td><td>Recovery, strain, HRV, sleep performance</td><td>WHOOP API (OAuth2)</td></tr>
+  <tr><td><strong>Fitbit</strong></td><td>Resting HR, sleep stages, steps, active minutes</td><td>Fitbit Web API (OAuth2)</td></tr>
+  <tr><td><strong>Garmin</strong></td><td>Training load, stress, body battery, sleep</td><td>Garmin Health API (OAuth)</td></tr>
+  <tr><td><strong>Apple Health / Google Fit</strong></td><td>Steps, heart rate, sleep, workouts</td><td>On-device (HealthKit / Health Connect) via the patient app, or Google Fit REST</td></tr>
+</table>
+<h3>How it feeds the assessment</h3>
+<ul>
+  <li><strong>Auto-fills and cross-checks.</strong> If Oura shows 6h broken sleep, we can skip the sleep question and instead say "your ring shows your sleep is more broken than most" — fewer taps, more authority.</li>
+  <li><strong>Sharper recommendations.</strong> Low HRV + low readiness + the reported symptoms is a much stronger case for a baseline panel than symptoms alone — and it shows in the report ("your wearable backs this up").</li>
+  <li><strong>Ongoing, not one-off.</strong> Once connected, the clinic can track trends between assessments — the retention and re-assessment loop gets real longitudinal data behind it.</li>
+</ul>
+<div class="box gold"><strong>Build reality:</strong> the experience and data model are designed and prototyped here. The live connectors themselves are a Felix build — each vendor needs a registered developer app and OAuth credentials, plus a normalisation layer that maps every source into a common set of intake signals (sleep, HRV, resting HR, activity, readiness). Apple Health specifically must be read on-device through the patient app, not server-side. Sensible sequence: Oura + WHOOP first (cleanest APIs, most relevant men's-health signals), then Fitbit/Garmin, then Apple/Google via the app.</div>
+
+<h2 class="pagebreak">6. The full question set (thorough build-out)</h2>
 <p>Nine to eleven screens depending on depth. This maps directly onto the existing section/field schema, so it can ship as a <strong>new intake-flow version</strong> in the owner console — no new engine, just a richer flow. Fields marked optional are skippable.</p>
 <table>
   <tr><th>Screen</th><th>Collects</th><th>Type</th></tr>
