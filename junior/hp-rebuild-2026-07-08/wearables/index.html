@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Recovery & Readiness — Harborview Men's Health</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --ground:#FAF8F4; --ink:#1F1D1A; --muted:#6B6862; --line:#E8E4DC;
+    --brand:#0f4c5c; --brand-soft:#e3edf0; --gold:#B4712E; --card:#ffffff;
+    --good:#2F5D50; --warn:#B4712E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:56px 40px 80px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-family:Fraunces,serif;font-weight:500;font-size:44px;line-height:1.1;letter-spacing:-.01em;margin:14px 0 12px}
+  .sub{color:var(--muted);font-size:18px;max-width:640px}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:6px 13px;margin-bottom:26px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+  .preview-tag{position:fixed;top:16px;right:18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.7);backdrop-filter:blur(4px)}
+  .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:38px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+  .card h3{font-family:Fraunces,serif;font-weight:500;font-size:22px;margin-bottom:4px}
+  .card .lead{color:var(--muted);font-size:14px;margin-bottom:20px}
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .metric{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#FCFBF9}
+  .metric .k{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .metric .v{font-family:Fraunces,serif;font-size:30px;font-weight:500;margin-top:6px;letter-spacing:-.01em}
+  .metric .v small{font-size:14px;color:var(--muted);font-family:Inter;font-weight:500;margin-left:3px}
+  .metric .trend{font-size:12px;margin-top:5px;font-weight:600}
+  .up{color:var(--good)} .down{color:#b23c3c}
+  .ring-wrap{display:flex;align-items:center;gap:22px}
+  .ring{--p:78;width:132px;height:132px;border-radius:50%;flex:none;
+    background:conic-gradient(var(--brand) calc(var(--p)*1%), var(--line) 0);
+    display:grid;place-items:center}
+  .ring::before{content:"";position:absolute;width:104px;height:104px;border-radius:50%;background:var(--card)}
+  .ring b{position:relative;font-family:Fraunces,serif;font-size:34px;font-weight:600}
+  .ring .rl{position:relative;display:block;font-family:Inter;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:2px;font-weight:600}
+  .providers{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .prov{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:11px;padding:9px 14px;font-size:13px;font-weight:600;color:var(--ink);background:#fff}
+  .prov.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+  .prov .pd{width:8px;height:8px;border-radius:50%;background:var(--good)}
+  .spark{margin-top:4px}
+  .insights{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
+  .ins{display:flex;gap:12px;padding:11px 0}
+  .ins .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:14px;margin-top:1px}
+  .ins p{font-size:14.5px;color:#332F2A}
+  .ins p b{color:var(--ink)}
+  .clin{margin-top:22px;display:flex;gap:13px;align-items:flex-start;background:#20201c;color:#f3efe8;border-radius:16px;padding:20px 24px}
+  .clin .ic{flex:none;width:30px;height:30px;border-radius:8px;background:var(--gold);color:#20201c;display:grid;place-items:center;font-weight:700}
+  .clin .t{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .clin p{font-size:14.5px;margin-top:5px;color:#e6e1d8;max-width:760px}
+  .foot{margin-top:26px;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="preview-tag">Preview · integration roadmap</div>
+<div class="wrap">
+  <span class="chip"><span class="dot"></span>Connected · Oura · synced 2 min ago</span>
+  <div class="eyebrow">02 — Your assessment, enriched</div>
+  <h1>Recovery &amp; Readiness</h1>
+  <p class="sub">Your wearable adds the objective, day-to-day layer to what you told us — and gives your clinician a real baseline before your consultation.</p>
+
+  <div style="margin-top:26px">
+    <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:9px">Connect your device</div>
+    <div class="providers">
+      <span class="prov on"><span class="pd"></span>Oura</span>
+      <span class="prov">Whoop</span>
+      <span class="prov">Garmin</span>
+      <span class="prov">Apple Watch</span>
+      <span class="prov">Fitbit</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Last 30 days</h3>
+      <p class="lead">Nightly heart-rate variability, resting heart rate, sleep and cardio-fitness.</p>
+      <div class="metrics">
+        <div class="metric"><div class="k">HRV (rMSSD)</div><div class="v">41<small>ms</small></div><div class="trend down">Below typical for your age</div></div>
+        <div class="metric"><div class="k">Resting HR</div><div class="v">63<small>bpm</small></div><div class="trend up">Steady, healthy range</div></div>
+        <div class="metric"><div class="k">Sleep</div><div class="v">6.2<small>hrs</small></div><div class="trend down">Efficiency 84% · a bit short</div></div>
+        <div class="metric"><div class="k">VO₂max <small style="text-transform:none">est.</small></div><div class="v">44<small>ml/kg</small></div><div class="trend up">Good for age band</div></div>
+      </div>
+      <div class="spark">
+        <svg width="100%" height="66" viewBox="0 0 520 66" preserveAspectRatio="none" style="margin-top:18px">
+          <polyline fill="none" stroke="#0f4c5c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+            points="0,40 40,44 80,38 120,48 160,42 200,50 240,45 280,52 320,47 360,54 400,49 440,43 480,46 520,41"/>
+          <line x1="0" y1="30" x2="520" y2="30" stroke="#B4712E" stroke-width="1" stroke-dasharray="4 5" opacity=".55"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px"><span>30 days ago</span><span style="color:var(--gold)">— typical range for age</span><span>today</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Readiness</h3>
+      <p class="lead">A single, plain-language read on recovery.</p>
+      <div class="ring-wrap">
+        <div class="ring" style="position:relative"><b>78</b><span class="rl">/100</span></div>
+        <div>
+          <div style="font-family:Fraunces,serif;font-size:20px;font-weight:500">Moderate recovery</div>
+          <p style="color:var(--muted);font-size:14px;margin-top:6px">Your body is coping, but low HRV and short sleep suggest you're running with less in reserve than ideal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <h3>What we're seeing</h3>
+    <div class="insights" style="border-top:none;padding-top:6px">
+      <div class="ins"><span class="ic">◑</span><p><b>Your HRV sits below the typical range for your age.</b> This can accompany low testosterone, elevated stress or short sleep — the three often move together.</p></div>
+      <div class="ins"><span class="ic">☾</span><p><b>Sleep is the most actionable lever right now.</b> At 6.2 hrs with 84% efficiency, more consistent sleep alone often lifts energy and hormonal markers.</p></div>
+      <div class="ins"><span class="ic">♡</span><p><b>Cardio-fitness is a strength.</b> A VO₂max estimate of 44 is good for your age band — worth protecting.</p></div>
+    </div>
+    <div class="clin">
+      <span class="ic">Rx</span>
+      <div><span class="t">Sent to your clinician's brief</span>
+      <p>Your 30-day HRV, resting HR, sleep and VO₂max trends — plus any auto-flags — appear in your clinician's pre-read, so your consultation starts with objective baseline data, not a blank page.</p></div>
+    </div>
+    <p class="foot">Wearable metrics are wellness-grade context, not a diagnosis. VO₂max and sleep stages are estimates. Device sync is powered by an aggregator (Terra) behind explicit, revocable consent.</p>
+  </div>
+</div>
+</body>
+</html>
