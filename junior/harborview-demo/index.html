@@ -77,8 +77,12 @@ h1,h2,h3{font-family:Fraunces,serif;font-weight:500;letter-spacing:-.01em}
 .qtop{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .progress{height:5px;background:var(--line);border-radius:99px;margin:16px 0 4px;overflow:hidden}
 .progress span{display:block;height:100%;background:var(--brand);border-radius:99px;transition:width .4s cubic-bezier(.22,1,.36,1)}
-.stepno{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:16px}
+.stepno{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:18px}
+.qnum{font-family:Fraunces,serif;font-weight:500;font-size:28px;letter-spacing:-.01em;margin:7px 0 16px}.qnum span{color:var(--gold)}
+.qnote{background:#eaf1f0;border-radius:12px;padding:13px 18px;font-size:14px;color:#2a4a45;margin-bottom:20px;text-align:center}.qnote b{color:var(--brand-d)}
 .qtitle{font-size:27px;margin:6px 0 4px}.qsub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.skiplink{background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;padding:0 6px}
+.skiplink:hover{color:var(--ink)}
 .qgroup{margin-bottom:24px}.qlabel{font-weight:600;font-size:16px;margin-bottom:3px}.qlabel .req{color:var(--brand)}
 .qhint{font-size:13px;color:var(--muted);margin-bottom:12px}
 .opts{display:grid;gap:10px}.opts.two{grid-template-columns:1fr 1fr}
@@ -309,7 +313,10 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
         <div id="qbody"></div>
         <div class="qnav">
           <button class="back" id="qback" style="margin:0" onclick="prevStep()">&larr; Back</button>
-          <button class="btn" id="qnext" onclick="nextStep()">Continue &rarr;</button>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="skiplink" id="qskip" onclick="skipStep()">Skip this question</button>
+            <button class="btn" id="qnext" onclick="nextStep()">Continue &rarr;</button>
+          </div>
         </div>
       </div></div>
 
@@ -421,7 +428,10 @@ function exitQuiz(){ show(quizReturn); }
 function renderStep(){
   const s=STEPS[step];
   document.getElementById('prog').style.width=((step)/STEPS.length*100 + (100/STEPS.length)*0.12)+'%';
-  let h=`<div class="stepno">${s.no}</div><div class="qtitle">${s.sec}</div><div class="qsub">${s.sub}</div>`;
+  const num=String(step+1).padStart(2,'0'), tot=String(STEPS.length).padStart(2,'0');
+  let h=`<div class="stepno">Step ${num} of ${tot}</div><div class="qnum"><span>${num}</span> &mdash; ${s.sec}</div>`+
+        `<div class="qnote"><b>This is not a medical diagnosis.</b> Answer as best as you can, or skip anything you're unsure about.</div>`+
+        `<div class="qsub">${s.sub}</div>`;
   for(const q of s.qs){
     h+=`<div class="qgroup"><div class="qlabel">${q.label}${q.req?' <span class="req">*</span>':''}</div>`;
     if(q.hint)h+=`<div class="qhint">${q.hint}</div>`;
@@ -441,12 +451,14 @@ function renderStep(){
 function pick(id,val){ answers[id]=val; renderStep(); }
 function pickMany(id,val){ const a=answers[id]||[]; answers[id]=a.includes(val)?a.filter(x=>x!==val):[...a,val]; renderStep(); }
 function prevStep(){ if(step>0){step--;renderStep();} }
+function advance(){ if(step<STEPS.length-1){ step++; renderStep(); } else { finishQuiz(); } }
+function skipStep(){ advance(); }
 function nextStep(){
   const s=STEPS[step];
   for(const q of s.qs){ if(q.req && !(answers[q.id]&&String(answers[q.id]).trim())){ const el=document.getElementById('q-'+q.id); if(el){el.focus();el.style.borderColor='#b23c3c';} return; } }
-  if(step<STEPS.length-1){ step++; renderStep(); }
-  else { show('gen'); const msgs=['Mapping your answers to what a clinician would look at.','Checking for anything that needs attention.','Pulling together your personalised report.']; let i=0; const t=setInterval(()=>{document.querySelector('#v-gen .s').textContent=msgs[i%msgs.length];i++;},1200); setTimeout(()=>{clearInterval(t);buildResults();completeAssessment();show('results');},3600); }
+  advance();
 }
+function finishQuiz(){ show('gen'); const msgs=['Mapping your answers to what a clinician would look at.','Checking for anything that needs attention.','Pulling together your personalised report.']; let i=0; const t=setInterval(()=>{document.querySelector('#v-gen .s').textContent=msgs[i%msgs.length];i++;},1200); setTimeout(()=>{clearInterval(t);buildResults();completeAssessment();show('results');},3600); }
 function completeAssessment(){ state.assessmentDone=true; document.getElementById('nudgeCard').style.display='none'; document.getElementById('recoBlock').style.display='block'; const b=document.getElementById('navBadge'); if(b){b.textContent='Done';b.style.background='#3f7a63';b.style.color='#fff';} }
 function buildResults(){
   const lowEnergy=['Running on empty','Up and down'].includes(answers.energy); const poorSleep=['I wake up wrecked','Patchy'].includes(answers.sleep); const lowLibido=answers.libido==='Yes, lower than before';
