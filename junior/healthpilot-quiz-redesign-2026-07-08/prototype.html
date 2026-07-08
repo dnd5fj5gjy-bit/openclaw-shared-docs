@@ -379,8 +379,15 @@
 </div>
 
 <script>
-  var ORDER=['welcome','goal','symptoms','reflect1','energy','sexual','tradeoff','lifestyle','stress','history','bloods','building','report'];
+  var ORDER=['welcome','goal','connect','symptoms','reflect1','energy','sexual','tradeoff','lifestyle','stress','history','bloods','building','report'];
   var data={};
+  function setFill(el){var pct=(el.value-el.min)/(el.max-el.min)*100;el.style.background='linear-gradient(90deg,#0f4c5c,#b98a3e '+pct+'%,#e7e1d5 '+pct+'%)';}
+  function connectDev(el){
+    document.querySelectorAll('#devices .dev').forEach(function(d){d.classList.remove('on');d.querySelector('.conn').textContent='Connect';});
+    el.classList.add('on');el.querySelector('.conn').textContent='Connected';
+    data.wearable=el.querySelector('.nm').textContent;
+    document.getElementById('synced').style.display='block';
+  }
   function show(id){
     document.querySelectorAll('.step').forEach(function(s){s.classList.remove('on')});
     document.querySelector('[data-step="'+id+'"]').classList.add('on');
