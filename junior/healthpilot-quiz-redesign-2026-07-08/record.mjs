@@ -16,9 +16,10 @@ const page = await ctx.newPage();
 const shot = (n) => page.screenshot({ path: `${DIR}/shots/${n}.png` });
 
 async function clickText(t, exact=false){
-  const el = page.getByText(t, exact ? { exact:true } : undefined).first();
+  const scope = page.locator('.step.on');
+  const el = scope.getByText(t, exact ? { exact:true } : undefined).first();
   await el.scrollIntoViewIfNeeded().catch(()=>{});
-  await el.click();
+  await el.click({ timeout: 4000 });
 }
 
 try{
