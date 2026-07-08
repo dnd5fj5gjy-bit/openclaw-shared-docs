@@ -50,17 +50,14 @@ try{
   await page.$eval('#stRange', el=>{el.value=8;el.dispatchEvent(new Event('input',{bubbles:true}));}); await sleep(900);
   await shot('10-stress');
   await clickText('Continue'); await sleep(1100);        // -> history
-  await clickText('Raised blood pressure').catch(()=>{}); await sleep(280); await clickText('None', true).catch(()=>{});
-  await clickText('None'); await sleep(300);
-  await clickText('Continue'); await sleep(1200);        // -> bloods
+  await clickText('Raised blood pressure').catch(()=>{}); await sleep(320);
+  await clickText('Nothing to add'); await sleep(1200);   // skip -> bloods
   await shot('11-bloods');
-  await clickText('Not that I recall'); await sleep(1400);// -> building -> auto? no, building has no auto; it's a step
+  await clickText('Not that I recall'); await sleep(900); // -> building
   await shot('12-building');
-  await clickText('').catch(()=>{});
-  // building is a passive step; advance via next() by pressing the flow: there's no button, so call next
-  await page.evaluate(()=>window.next && window.next()); await sleep(1600); // -> report
+  await sleep(1900);                                      // building auto-advances -> report
   await shot('13-report');
-  await sleep(1200);
+  await sleep(1400);
 } catch(e){ console.log('ERR', e.message); }
 finally { await ctx.close(); await browser.close(); }
 console.log('done');
