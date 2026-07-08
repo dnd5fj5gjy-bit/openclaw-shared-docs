@@ -198,7 +198,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
       </div>
       <div style="display:flex;align-items:center;gap:10px">
         <button class="btn ghost pubonly" style="min-height:40px;padding:9px 16px;font-size:14px" onclick="enterPortal('dashboard')">Patient portal &rarr;</button>
-        <button class="basketbtn" onclick="nav('basket')">Basket <span class="c" id="bc">0</span></button>
+        <button class="basketbtn" id="basketBtn" style="display:none" onclick="nav('basket')">Basket <span class="c" id="bc">0</span></button>
       </div>
     </div>
     <div class="content">
@@ -487,6 +487,7 @@ function addAll(){ SUPPS.forEach(s=>basket.add(s.id)); sync(); nav('basket'); }
 function toggleSub(){ sub=!sub; document.getElementById('subTg').className='tg'+(sub?'':' off'); sync(); }
 function sync(){
   document.getElementById('bc').textContent=basket.size;
+  document.getElementById('basketBtn').style.display=basket.size?'flex':'none';
   SUPPS.forEach(s=>{const b=document.getElementById('a-'+s.id); if(b){b.className='add '+(basket.has(s.id)?'in':'');b.innerHTML=basket.has(s.id)?'Added &#10003;':'Add';}});
   const items=SUPPS.filter(s=>basket.has(s.id)); const subt=items.reduce((t,s)=>t+s.price,0);
   document.getElementById('basketRows').innerHTML=items.length?items.map(s=>`<div class="brow"><div><div class="n">${s.n}</div><div class="w">${s.dose}</div></div><div><span class="p">£${s.price}</span><button class="rm" onclick="toggleItem('${s.id}')">remove</button></div></div>`).join(''):'<p style="color:var(--muted);padding:16px 0">Your basket is empty. <a style="color:var(--brand);cursor:pointer" onclick="nav(\'supps\')">Add supplements &rarr;</a></p>';
