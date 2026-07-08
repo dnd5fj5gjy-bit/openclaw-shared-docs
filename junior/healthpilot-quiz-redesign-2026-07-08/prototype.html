@@ -434,9 +434,13 @@
     if((data.symptoms||[]).indexOf('sleep')>-1||['lt5','5to6'].indexOf(data.sleep)>-1)tags.push('Sleep: disrupted');
     if((data.sexual||[]).length&&(data.sexual||[]).indexOf('none')===-1)tags.push('Hormonal signals noted');
     if(data.bloods==='never'||data.bloods==='old')tags.push('No recent bloods');
-    tags.slice(0,6).forEach(function(x){var p=document.createElement('span');p.className='pill';p.textContent=x;prof.appendChild(p);});
+    if(data.wearable)tags.push(data.wearable+' synced');
+    tags.slice(0,7).forEach(function(x){var p=document.createElement('span');p.className='pill';p.textContent=x;prof.appendChild(p);});
+    if(data.wearable){var lead=document.getElementById('repLead');lead.textContent+=' Your '+data.wearable+' data backs this up - your sleep and recovery are running lower than they should, which fits exactly what you described.';}
     prof.dataset.done='1';
   }
+  setFill(document.getElementById('enRange'));
+  setFill(document.getElementById('stRange'));
 </script>
 </body>
 </html>
