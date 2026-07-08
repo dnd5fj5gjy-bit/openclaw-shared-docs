@@ -15,10 +15,18 @@ const ctx = await browser.newContext({
 const page = await ctx.newPage();
 const shot = (n) => page.screenshot({ path: `${DIR}/shots/${n}.png` });
 
-async function clickText(t, exact=false){
-  const scope = page.locator('.step.on');
-  const el = scope.getByText(t, exact ? { exact:true } : undefined).first();
-  await el.click({ force: true, timeout: 4000 });
+async function clickText(t){
+  const ok = await page.evaluate((needle)=>{
+    const step = document.querySelector('.step.on');
+    if(!step) return false;
+    const cands = Array.from(step.querySelectorAll('.opt,.chip,.btn,.yes,.no,.skip,button'));
+    // deepest match wins (the label/text node's clickable ancestor)
+    const hit = cands.find(el => (el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase().includes(needle.toLowerCase()));
+    if(!hit) return false;
+    hit.click();
+    return true;
+  }, t);
+  if(!ok) console.log('MISS:', t);
 }
 
 try{
