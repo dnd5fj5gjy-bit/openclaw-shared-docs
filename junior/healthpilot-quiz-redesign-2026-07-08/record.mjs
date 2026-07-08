@@ -38,7 +38,11 @@ try{
   await clickText('The full picture'); await sleep(1300);// -> goal
   await shot('03-goal');
   await clickText('My energy'); await sleep(700);
-  await clickText('Continue'); await sleep(1200);        // -> symptoms
+  await clickText('Continue'); await sleep(1100);        // -> connect
+  await shot('03b-connect-a');
+  await clickText('Oura Ring'); await sleep(1300);       // sync reveal
+  await shot('03b-connect');
+  await clickText('Continue'); await sleep(1100);        // -> symptoms
   for (const s of ['Tired all the time','Broken sleep','No motivation','Short-tempered']){ await clickText(s); await sleep(320); }
   await shot('04-symptoms');
   await clickText('Continue'); await sleep(1300);        // -> reflect1
