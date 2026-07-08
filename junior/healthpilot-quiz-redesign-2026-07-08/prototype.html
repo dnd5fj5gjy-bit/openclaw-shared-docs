@@ -3,311 +3,383 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harborview — Health Assessment (redesign prototype)</title>
+<title>Harborview — Health Assessment</title>
 <style>
   :root{
-    --teal:#0f4c5c; --teal2:#12657a; --orange:#e36414; --ink:#1a202c; --mut:#6b7684;
-    --bg:#f6f4ef; --card:#ffffff; --line:#e4e0d8; --ok:#1f8a5b;
+    --teal:#0f4c5c; --teal2:#12657a; --orange:#c8571a; --ink:#20272e; --mut:#77808a;
+    --paper:#f4f1ea; --card:#fffdf9; --line:#e6e0d4; --gold:#b98a3e;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Segoe UI",-apple-system,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
-  .wrap{max-width:760px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-  header{display:flex;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line);background:#fff}
-  .logo{width:40px;height:40px;border-radius:10px;background:var(--teal);display:flex;align-items:center;justify-content:center}
-  .logo svg{display:block}
-  .brand b{font-size:15px;letter-spacing:.5px}
-  .brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--teal);font-weight:700}
+  html{-webkit-font-smoothing:antialiased}
+  body{font-family:"Inter","Segoe UI",-apple-system,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+  .serif{font-family:Georgia,"Times New Roman",serif}
+  .wrap{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+  header{display:flex;align-items:center;gap:13px;padding:22px 30px;border-bottom:1px solid var(--line)}
+  .logo{width:38px;height:38px;border-radius:9px;background:var(--teal);display:flex;align-items:center;justify-content:center}
+  .brand b{font-size:14px;letter-spacing:1px}
+  .brand small{display:block;font-size:8.5px;letter-spacing:2.5px;color:var(--teal);font-weight:700}
   .nav{margin-left:auto;display:flex;gap:22px;font-size:13px;color:var(--mut)}
-  .nav a{color:var(--teal);font-weight:700}
+  .nav a{color:var(--teal);font-weight:600}
+  main{flex:1;padding:34px 30px 48px}
 
-  main{flex:1;padding:26px 24px 40px}
-  /* progress */
-  .pbar{height:6px;background:#e9e5dd;border-radius:99px;overflow:hidden;margin-bottom:6px}
-  .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--orange));width:0;transition:width .5s cubic-bezier(.4,0,.2,1)}
-  .pmeta{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);letter-spacing:1px;text-transform:uppercase;margin-bottom:22px}
+  .pbar{height:3px;background:#e7e1d5;border-radius:99px;overflow:hidden;margin-bottom:8px}
+  .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:width .6s cubic-bezier(.4,0,.2,1)}
+  .pmeta{display:flex;justify-content:space-between;font-size:10.5px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:30px}
 
-  .step{display:none;animation:in .45s ease both}
-  .step.on{display:block}
-  @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  .kick{color:var(--orange);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase}
-  h1{font-size:26px;margin:8px 0 6px;line-height:1.2;color:var(--teal)}
-  .sub{color:var(--mut);font-size:15px;margin-bottom:22px;max-width:560px}
+  .step{display:none}
+  .step.on{display:block;animation:in .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .kick{color:var(--gold);font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px}
+  h1{font-size:31px;line-height:1.18;font-weight:400;color:var(--ink);letter-spacing:-.4px;margin-bottom:12px}
+  .sub{color:var(--mut);font-size:15.5px;margin-bottom:28px;max-width:540px;line-height:1.55}
 
-  /* option cards */
   .cards{display:grid;gap:12px}
   .cards.two{grid-template-columns:1fr 1fr}
   .cards.three{grid-template-columns:1fr 1fr 1fr}
-  .opt{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 16px;cursor:pointer;
-    display:flex;gap:12px;align-items:center;transition:.18s;user-select:none}
-  .opt:hover{border-color:var(--teal2);transform:translateY(-1px)}
-  .opt .em{font-size:22px;flex:0 0 auto}
-  .opt .t{font-weight:700;font-size:15px}
+  .opt{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px 18px;cursor:pointer;
+    display:flex;gap:13px;align-items:center;transition:.2s cubic-bezier(.2,.7,.2,1);position:relative}
+  .opt:hover{border-color:var(--teal2);box-shadow:0 6px 20px rgba(15,76,92,.07);transform:translateY(-2px)}
+  .opt .em{font-size:23px;flex:0 0 auto;filter:grayscale(.1)}
+  .opt .t{font-weight:600;font-size:15.5px}
   .opt .d{font-size:12.5px;color:var(--mut);margin-top:2px}
-  .opt.sel{border-color:var(--orange);background:#fff7f1;box-shadow:0 4px 14px rgba(227,100,20,.12)}
-  .opt.sel .check{margin-left:auto;color:var(--orange);font-weight:800}
-  .check{margin-left:auto;color:transparent;font-weight:800}
+  .opt.sel{border-color:var(--teal);background:#fbfaf5;box-shadow:0 6px 22px rgba(15,76,92,.13)}
+  .opt .check{margin-left:auto;color:transparent;font-weight:800;font-size:15px}
+  .opt.sel .check{color:var(--teal)}
 
-  /* chips */
   .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{background:#fff;border:2px solid var(--line);border-radius:99px;padding:9px 15px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s;user-select:none}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:10px 17px;font-size:14px;font-weight:500;cursor:pointer;transition:.18s}
   .chip:hover{border-color:var(--teal2)}
   .chip.sel{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .grp{font-weight:600;font-size:14px;margin:20px 0 9px;color:var(--ink)}
 
-  /* slider */
-  .slide{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 22px 16px}
-  .slide .val{font-size:34px;font-weight:800;color:var(--teal);text-align:center}
-  .slide .lab{text-align:center;color:var(--mut);font-size:13px;margin-bottom:14px}
-  input[type=range]{width:100%;accent-color:var(--orange);height:26px}
-  .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:4px}
+  .slide{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:26px 24px 18px}
+  .slide .val{font-size:15px;font-weight:600;color:var(--teal);text-align:center;letter-spacing:.3px}
+  input[type=range]{width:100%;accent-color:var(--teal);height:30px;margin-top:8px}
+  .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
 
-  .hint{margin-top:14px;font-size:12.5px;color:var(--mut);display:flex;gap:8px;align-items:center}
-  .hint b{color:var(--teal)}
+  /* this-or-that trade off */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .duo .opt{flex-direction:column;text-align:center;padding:26px 16px;gap:8px}
+  .duo .opt .em{font-size:30px}
 
-  /* nav buttons */
-  .foot{display:flex;gap:12px;align-items:center;margin-top:26px}
-  .btn{border:none;border-radius:12px;padding:14px 26px;font-size:15px;font-weight:700;cursor:pointer;transition:.15s}
+  .hint{margin-top:16px;font-size:13px;color:var(--mut);display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+  .hint b{color:var(--teal);font-weight:600}
+
+  .foot{display:flex;gap:12px;align-items:center;margin-top:30px}
+  .btn{border:none;border-radius:12px;padding:14px 30px;font-size:15px;font-weight:600;cursor:pointer;transition:.18s;letter-spacing:.2px}
   .btn.primary{background:var(--teal);color:#fff}
   .btn.primary:hover{background:var(--teal2)}
   .btn.ghost{background:transparent;color:var(--mut)}
-  .btn:disabled{opacity:.4;cursor:default}
-  .skip{margin-left:auto;font-size:13px;color:var(--mut);text-decoration:underline;cursor:pointer;background:none;border:none}
+  .skip{margin-left:auto;font-size:13px;color:var(--mut);cursor:pointer;background:none;border:none;border-bottom:1px solid var(--line)}
 
-  /* entry / dashboard mock */
-  .dash{padding:0}
-  .dashhead{background:var(--teal);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:18px}
-  .dashhead h2{font-size:20px;margin-bottom:4px}
-  .dashhead p{opacity:.85;font-size:14px}
-  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
-  .tile .em{font-size:20px}
-  .tile b{display:block;margin:8px 0 3px}
+  /* reflective interstitial */
+  .reflect{text-align:center;padding:20px 0}
+  .reflect .mark{font-size:34px;margin-bottom:14px}
+  .reflect h1{max-width:560px;margin:0 auto 14px}
+  .reflect .sub{margin:0 auto 26px}
+
+  /* dashboard entry */
+  .dashhead{padding:6px 0 22px}
+  .dashhead .kick{margin-bottom:14px}
+  .dashhead h1{margin-bottom:8px}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:19px;cursor:pointer;transition:.2s}
+  .tile:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,76,92,.07)}
+  .tile .em{font-size:21px}
+  .tile b{display:block;margin:9px 0 3px;font-weight:600;font-size:15px}
   .tile span{font-size:12.5px;color:var(--mut)}
-  /* guidance nudge */
-  .nudge{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);width:min(680px,92%);
-    background:#fff;border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:14px;
-    padding:16px 18px;display:flex;gap:14px;align-items:center;box-shadow:0 12px 40px rgba(15,76,92,.16);
-    animation:pop .5s ease both}
-  @keyframes pop{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%)}}
+  .nudge{margin-top:22px;background:linear-gradient(180deg,#fffdf9,#fbf8f1);border:1px solid var(--line);
+    border-radius:16px;padding:20px 22px;display:flex;gap:16px;align-items:center;box-shadow:0 8px 26px rgba(15,76,92,.06)}
   .nudge .em{font-size:26px}
-  .nudge .txt b{display:block;font-size:15px}
-  .nudge .txt span{font-size:13px;color:var(--mut)}
-  .nudge .act{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .nudge .txt b{display:block;font-size:15.5px;margin-bottom:2px}
+  .nudge .txt span{font-size:13.5px;color:var(--mut)}
+  .nudge .act{margin-left:auto;display:flex;gap:10px;align-items:center;white-space:nowrap}
   .nudge .no{background:none;border:none;color:var(--mut);font-size:13px;cursor:pointer}
-  .nudge .yes{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer}
+  .nudge .yes{background:var(--teal);color:#fff;border:none;border-radius:11px;padding:12px 20px;font-weight:600;cursor:pointer}
 
-  /* summary */
-  .rep{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
-  .rep .band{display:inline-block;background:#eef5f6;color:var(--teal);font-weight:700;font-size:12px;padding:4px 12px;border-radius:99px;margin-bottom:12px}
-  .rep h3{color:var(--teal);font-size:20px;margin-bottom:8px}
-  .rep p{color:#39424d;font-size:14.5px;line-height:1.55;margin-bottom:14px}
-  .recs{display:grid;gap:10px;margin:14px 0}
-  .rec{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;gap:12px;align-items:center}
-  .rec .em{font-size:20px}
-  .rec b{font-size:14.5px}
-  .rec span{font-size:12.5px;color:var(--mut);display:block}
-  .rec .go{margin-left:auto;color:var(--orange);font-weight:800;font-size:13px}
-  .cta{display:block;width:100%;text-align:center;background:var(--ink);color:#fff;border:none;border-radius:12px;padding:16px;font-size:15px;font-weight:700;margin-top:8px;cursor:pointer}
-  .fine{text-align:center;font-size:12px;color:var(--mut);margin-top:12px}
-  .tagline{text-align:center;font-size:11px;color:#9aa3ad;padding:14px}
+  /* report */
+  .rep{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 30px 26px;box-shadow:0 10px 34px rgba(15,76,92,.07)}
+  .rep .band{display:inline-flex;gap:7px;align-items:center;background:#eef4f5;color:var(--teal);font-weight:600;font-size:12px;padding:5px 13px;border-radius:99px;margin-bottom:16px}
+  .rep h1{font-size:26px;margin-bottom:14px}
+  .rep .lead{color:#3b444d;font-size:15.5px;line-height:1.6;margin-bottom:8px}
+  .rep .prof{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 20px}
+  .rep .pill{background:#f2efe7;border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:12px;color:#4a535c}
+  .divide{height:1px;background:var(--line);margin:6px 0 20px}
+  .recTitle{font-weight:600;font-size:13px;letter-spacing:.3px;color:var(--mut);text-transform:uppercase;margin-bottom:12px}
+  .rec{border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:center;margin-bottom:10px;background:#fffdf9;transition:.2s;cursor:pointer}
+  .rec:hover{border-color:var(--teal2);box-shadow:0 6px 18px rgba(15,76,92,.07)}
+  .rec.lead-rec{border-color:var(--gold);background:linear-gradient(180deg,#fffdf7,#fbf6ea)}
+  .rec .em{font-size:22px}
+  .rec b{font-size:15px;font-weight:600}
+  .rec span{font-size:12.8px;color:var(--mut);display:block;margin-top:2px}
+  .rec .go{margin-left:auto;color:var(--teal);font-weight:700;font-size:13px;white-space:nowrap}
+  .softnote{font-size:12.5px;color:var(--mut);font-style:italic;margin:2px 0 18px}
+  .cta{display:block;width:100%;text-align:center;background:var(--ink);color:#fff;border:none;border-radius:13px;padding:17px;font-size:15px;font-weight:600;margin-top:6px;cursor:pointer}
+  .fine{text-align:center;font-size:12px;color:var(--mut);margin-top:14px;line-height:1.5}
+  .tagline{text-align:center;font-size:10.5px;color:#a7aeb6;letter-spacing:.5px;padding:16px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <span class="logo"><svg width="24" height="24" viewBox="0 0 52 52"><polyline points="12,34 22,22 30,30 42,14" fill="none" stroke="#e36414" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="logo"><svg width="23" height="23" viewBox="0 0 52 52"><polyline points="12,34 22,22 30,30 42,14" fill="none" stroke="#c8571a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     <span class="brand"><b>HARBORVIEW</b><small>MEN'S HEALTH</small></span>
-    <nav class="nav"><a>Dashboard</a><span>Blood Testing</span><span>Appointments</span></nav>
+    <nav class="nav"><a>Dashboard</a><span>Blood Testing</span><span>Consultations</span></nav>
   </header>
 
   <main>
-    <!-- STEP 0: DASHBOARD ENTRY with Need guidance? nudge -->
+    <!-- ENTRY: dashboard direct, quiz is offered not forced -->
     <section class="step on" data-step="entry">
-      <div class="dash">
-        <div class="dashhead"><h2>Welcome back, Oliver.</h2><p>Go straight to what you need - or let us point the way.</p></div>
-        <div class="tiles">
-          <div class="tile"><div class="em">🩸</div><b>Book a blood test</b><span>Baseline or full panel</span></div>
-          <div class="tile"><div class="em">🗓️</div><b>Book a consultation</b><span>Speak to a clinician</span></div>
-          <div class="tile"><div class="em">💊</div><b>My treatments</b><span>Track and reorder</span></div>
-          <div class="tile"><div class="em">📄</div><b>My results</b><span>Reports and history</span></div>
-        </div>
+      <div class="dashhead">
+        <div class="kick">Welcome back</div>
+        <h1 class="serif">Good to see you, Oliver.</h1>
+        <p class="sub">Go straight to what you came for. Everything's one tap away.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="em">🩸</div><b>Book a blood test</b><span>Baseline or full panel</span></div>
+        <div class="tile"><div class="em">🗓️</div><b>Book a consultation</b><span>Speak with a clinician</span></div>
+        <div class="tile"><div class="em">💊</div><b>My treatments</b><span>Track &amp; reorder</span></div>
+        <div class="tile"><div class="em">📄</div><b>Results &amp; reports</b><span>Your history</span></div>
       </div>
       <div class="nudge">
         <div class="em">🧭</div>
-        <div class="txt"><b>Not sure where to start?</b><span>Take a 3-minute health assessment and we'll point you to the right next step.</span></div>
-        <div class="act"><button class="no" onclick="go('welcome')">No thanks</button><button class="yes" onclick="go('welcome')">Need guidance?</button></div>
+        <div class="txt"><b>Not sure where to start?</b><span>Take a short, private assessment and we'll point you to the right next step - no pressure.</span></div>
+        <div class="act"><button class="no" onclick="go('welcome')">Maybe later</button><button class="yes" onclick="go('welcome')">Guide me</button></div>
       </div>
     </section>
 
-    <!-- progress shell for the quiz -->
     <div id="quiz" style="display:none">
       <div class="pbar"><i id="pfill"></i></div>
-      <div class="pmeta"><span id="pstep">Step 1 of 9</span><span id="ptime">about 3 min left</span></div>
+      <div class="pmeta"><span id="pstep">Step 1</span><span id="ptime"></span></div>
 
       <section class="step" data-step="welcome">
-        <div class="kick">Your assessment</div>
-        <h1>Let's build a picture of your health.</h1>
-        <p class="sub">Nine quick screens, mostly taps. The more you share, the sharper the guidance - but every question is skippable. This is screening guidance, not a diagnosis.</p>
+        <div class="kick">A considered look at your health</div>
+        <h1 class="serif">Ten quiet minutes, in confidence.</h1>
+        <p class="sub">We'll ask about how you actually feel - energy, sleep, drive, mood, your body. Mostly taps, nothing you can't skip, and we read between the lines so you don't have to spell everything out. This is screening guidance, not a diagnosis.</p>
         <div class="cards two">
-          <div class="opt" onclick="pick(this,'depth','thorough');next()"><span class="em">🎯</span><div><div class="t">Do it properly</div><div class="d">Full picture, ~3 min</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'depth','quick');next()"><span class="em">⚡</span><div><div class="t">Keep it quick</div><div class="d">The essentials, ~90 sec</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'depth','full');next()"><span class="em">🎯</span><div><div class="t">The full picture</div><div class="d">Most useful, around 4 minutes</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'depth','quick');next()"><span class="em">⚡</span><div><div class="t">Just the essentials</div><div class="d">The headlines, around 90 seconds</div></div><span class="check">✓</span></div>
         </div>
       </section>
 
       <section class="step" data-step="goal">
         <div class="kick">What matters to you</div>
-        <h1>What would you most like to change?</h1>
-        <p class="sub">Pick your main goal. You can choose more on the next screen.</p>
-        <div class="cards two" id="goalCards">
-          <div class="opt" onclick="pick(this,'goal','energy')"><span class="em">🔋</span><div><div class="t">Energy &amp; drive</div><div class="d">Tiredness, motivation, libido</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'goal','strength')"><span class="em">💪</span><div><div class="t">Strength &amp; body</div><div class="d">Muscle, fat, training recovery</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'goal','mind')"><span class="em">🧠</span><div><div class="t">Mood &amp; focus</div><div class="d">Brain fog, low mood, stress</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'goal','mot')"><span class="em">🩺</span><div><div class="t">General MOT</div><div class="d">Just want a baseline check</div></div><span class="check">✓</span></div>
+        <h1 class="serif">If we could put one thing right first, what would it be?</h1>
+        <p class="sub">There are no wrong answers - this just tells us where to look first.</p>
+        <div class="cards two">
+          <div class="opt" onclick="pick(this,'goal','energy')"><span class="em">🔋</span><div><div class="t">My energy &amp; drive</div><div class="d">Tiredness, motivation, libido</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'goal','body')"><span class="em">💪</span><div><div class="t">My body</div><div class="d">Strength, weight, recovery</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'goal','mind')"><span class="em">🧠</span><div><div class="t">My head</div><div class="d">Focus, mood, stress</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'goal','longevity')"><span class="em">📈</span><div><div class="t">Staying ahead</div><div class="d">A baseline, prevention, performance</div></div><span class="check">✓</span></div>
         </div>
         <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button></div>
       </section>
 
       <section class="step" data-step="symptoms">
-        <div class="kick">Symptoms</div>
-        <h1>Which of these sound like you lately?</h1>
-        <p class="sub">Tap all that apply. This is where most of the signal is - the more honest, the better the read.</p>
+        <div class="kick">How you've been feeling</div>
+        <h1 class="serif">Which of these ring true lately?</h1>
+        <p class="sub">Tap any that fit. Be honest - this is the part that actually tells us something, and it stays between us.</p>
         <div class="chips" id="sympChips"></div>
-        <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button><button class="skip" onclick="next()">None of these</button></div>
+        <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button><button class="skip" onclick="next()">None really</button></div>
+      </section>
+
+      <!-- reflective interstitial: makes them feel read, not interrogated -->
+      <section class="step" data-step="reflect1">
+        <div class="reflect">
+          <div class="mark">🫱</div>
+          <h1 class="serif" id="reflectText">That's a familiar pattern - and more common than most men think.</h1>
+          <p class="sub">A few more questions and we'll have enough to tell you what's likely driving it, and the fastest way to be sure.</p>
+          <button class="btn primary" onclick="next()">Keep going</button>
+        </div>
       </section>
 
       <section class="step" data-step="energy">
         <div class="kick">Energy</div>
-        <h1>How are your energy levels, day to day?</h1>
-        <p class="sub">Drag to where you sit most days.</p>
+        <h1 class="serif">Where do your energy levels sit, most days?</h1>
         <div class="slide">
-          <div class="val" id="enVal">5</div><div class="lab" id="enLab">Up and down</div>
           <input type="range" min="1" max="10" value="5" id="enRange" oninput="energy(this.value)">
+          <div class="val" id="enVal">Up and down through the day</div>
           <div class="ends"><span>Running on empty</span><span>Consistently strong</span></div>
         </div>
-        <div class="hint">💡 <span>We'll compare this against your <b>sleep and stress</b> answers to spot what's driving it.</span></div>
+        <div class="hint">✳️ <span>We'll hold this against your <b>sleep, stress and training</b> answers - low energy usually has a driver, and that's what we're looking for.</span></div>
         <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button></div>
       </section>
 
       <section class="step" data-step="sexual">
         <div class="kick">Hormonal &amp; sexual health</div>
-        <h1>Any changes here in the last 6 months?</h1>
-        <p class="sub">Private and encrypted. This is core to men's health and often the most useful signal - but skip anything you'd rather not answer.</p>
+        <h1 class="serif">Anything shifted here in the last six months?</h1>
+        <p class="sub">Encrypted and private. It feels awkward to ask, but it's one of the clearest signals in men's health - skip anything you'd rather not say.</p>
         <div class="chips" id="sexChips"></div>
-        <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button><button class="skip" onclick="next()">Prefer not to say</button></div>
+        <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button><button class="skip" onclick="next()">Rather not say</button></div>
+      </section>
+
+      <!-- clever trade-off: reveals priority + primes value without asking to buy -->
+      <section class="step" data-step="tradeoff">
+        <div class="kick">One quick either/or</div>
+        <h1 class="serif">Which would you rather have?</h1>
+        <p class="sub">Snap judgement - it tells us how to frame what comes next.</p>
+        <div class="duo">
+          <div class="opt" onclick="pick(this,'tradeoff','answers');next()"><span class="em">🔬</span><div class="t">Certainty about what's going on</div></div>
+          <div class="opt" onclick="pick(this,'tradeoff','fix');next()"><span class="em">🚀</span><div class="t">The quickest route to feeling better</div></div>
+        </div>
       </section>
 
       <section class="step" data-step="lifestyle">
-        <div class="kick">Lifestyle</div>
-        <h1>A few things about your week.</h1>
-        <p class="sub">Sleep, training, drink, smoking, stress. Quick taps.</p>
-        <p style="font-weight:700;margin:6px 0 8px">Sleep most nights</p>
-        <div class="chips" data-group="sleep">
+        <div class="kick">Your week</div>
+        <h1 class="serif">A quick read on the everyday.</h1>
+        <p class="sub">Sleep, training, drink. Just tap the closest.</p>
+        <div class="grp">Sleep, most nights</div>
+        <div class="chips">
           <div class="chip" onclick="one(this,'sleep','lt5')">Under 5h</div>
           <div class="chip" onclick="one(this,'sleep','5to6')">5-6h</div>
           <div class="chip" onclick="one(this,'sleep','7to8')">7-8h</div>
           <div class="chip" onclick="one(this,'sleep','8plus')">8h+</div>
         </div>
-        <p style="font-weight:700;margin:16px 0 8px">Training</p>
-        <div class="chips" data-group="train">
+        <div class="grp">Movement</div>
+        <div class="chips">
           <div class="chip" onclick="one(this,'train','none')">Rarely</div>
           <div class="chip" onclick="one(this,'train','walk')">Walking</div>
           <div class="chip" onclick="one(this,'train','cardio')">Cardio</div>
           <div class="chip" onclick="one(this,'train','strength')">Strength</div>
-          <div class="chip" onclick="one(this,'train','mix')">Mix</div>
+          <div class="chip" onclick="one(this,'train','mix')">A mix</div>
         </div>
-        <p style="font-weight:700;margin:16px 0 8px">Alcohol &amp; smoking</p>
-        <div class="chips" data-group="drink">
-          <div class="chip" onclick="one(this,'drink','none')">Rarely drink</div>
-          <div class="chip" onclick="one(this,'drink','social')">Social</div>
-          <div class="chip" onclick="one(this,'drink','regular')">Most days</div>
-          <div class="chip" onclick="one(this,'smoke','yes')">I smoke/vape</div>
+        <div class="grp">Alcohol</div>
+        <div class="chips">
+          <div class="chip" onclick="one(this,'drink','rare')">Rarely</div>
+          <div class="chip" onclick="one(this,'drink','social')">Socially</div>
+          <div class="chip" onclick="one(this,'drink','most')">Most days</div>
         </div>
         <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button></div>
       </section>
 
       <section class="step" data-step="stress">
-        <div class="kick">Stress &amp; sleep quality</div>
-        <h1>How would you rate your stress right now?</h1>
+        <div class="kick">Stress</div>
+        <h1 class="serif">And the pressure you're under right now?</h1>
         <div class="slide">
-          <div class="val" id="stVal">6</div><div class="lab" id="stLab">Noticeable</div>
           <input type="range" min="1" max="10" value="6" id="stRange" oninput="stress(this.value)">
+          <div class="val" id="stVal">Noticeable, most weeks</div>
           <div class="ends"><span>Calm</span><span>Overloaded</span></div>
         </div>
         <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button></div>
       </section>
 
       <section class="step" data-step="history">
-        <div class="kick">Medical history</div>
-        <h1>Anything we should know?</h1>
-        <p class="sub">Helps us keep guidance safe and relevant. Tap any that apply.</p>
+        <div class="kick">Medical background</div>
+        <h1 class="serif">Anything we should keep in mind?</h1>
+        <p class="sub">Only so our guidance stays safe and relevant to you.</p>
         <div class="chips" id="histChips"></div>
-        <p style="font-weight:700;margin:16px 0 8px">Any regular medication or supplements?</p>
+        <div class="grp">Regular medication or supplements?</div>
         <div class="cards two">
-          <div class="opt" onclick="pick(this,'meds','yes')"><span class="em">💊</span><div><div class="t">Yes</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'meds','no')"><span class="em">🚫</span><div><div class="t">None</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'meds','yes')"><span class="em">💊</span><div class="t">Yes, some</div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'meds','no')"><span class="em">🚫</span><div class="t">None</div><span class="check">✓</span></div>
         </div>
         <div class="foot"><button class="btn ghost" onclick="prev()">Back</button><button class="btn primary" onclick="next()">Continue</button><button class="skip" onclick="next()">Nothing to add</button></div>
       </section>
 
       <section class="step" data-step="bloods">
-        <div class="kick">Bloods</div>
-        <h1>Had a blood test in the last 3 months?</h1>
-        <p class="sub">If not, a baseline panel is usually the fastest way to real answers.</p>
+        <div class="kick">The one number that matters</div>
+        <h1 class="serif">Have you had bloods done in the last year?</h1>
+        <p class="sub">You've told us how you feel. Bloods are the only way to turn that into <em>why</em> - so this shapes what we suggest.</p>
         <div class="cards three">
-          <div class="opt" onclick="pick(this,'bloods','recent');next()"><span class="em">✅</span><div><div class="t">Yes, recently</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'bloods','old');next()"><span class="em">🕐</span><div><div class="t">Over a year ago</div></div><span class="check">✓</span></div>
-          <div class="opt" onclick="pick(this,'bloods','never');next()"><span class="em">❌</span><div><div class="t">Never</div></div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'bloods','recent');next()"><span class="em">✅</span><div class="t" style="font-size:14px">Yes, recently</div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'bloods','old');next()"><span class="em">🕐</span><div class="t" style="font-size:14px">Over a year ago</div><span class="check">✓</span></div>
+          <div class="opt" onclick="pick(this,'bloods','never');next()"><span class="em">❔</span><div class="t" style="font-size:14px">Not that I recall</div><span class="check">✓</span></div>
+        </div>
+      </section>
+
+      <!-- building report micro-moment -->
+      <section class="step" data-step="building">
+        <div class="reflect">
+          <div class="mark">🧩</div>
+          <h1 class="serif">Putting your picture together...</h1>
+          <p class="sub">Reading your answers the way a clinician would - symptoms against sleep, stress, drive and your numbers.</p>
         </div>
       </section>
 
       <section class="step" data-step="report">
         <div class="rep">
-          <span class="band">Your Health Report is ready</span>
-          <h3>Here's what your answers point to, Oliver.</h3>
-          <p id="repText">Based on what you shared - persistent low energy, reduced drive, broken sleep and higher stress, with no blood test on record - a baseline hormone and metabolic panel is the sensible first step to see what's really going on.</p>
-          <div class="recs">
-            <div class="rec"><span class="em">🩸</span><div><b>Baseline testosterone &amp; metabolic panel</b><span>Chosen from your symptoms and no recent bloods</span></div><span class="go">View →</span></div>
-            <div class="rec"><span class="em">🗓️</span><div><b>Doctor consultation</b><span>Talk through your results and options</span></div><span class="go">Book →</span></div>
-            <div class="rec"><span class="em">🌙</span><div><b>Sleep &amp; recovery guidance</b><span>Free, while you wait for results</span></div><span class="go">Read →</span></div>
+          <span class="band">✓ Your Health Report is ready</span>
+          <h1 class="serif">Here's what your answers point to, Oliver.</h1>
+          <p class="lead" id="repLead">You described low, unpredictable energy and reduced drive, on the back of broken sleep and real day-to-day pressure - and no recent bloods to explain it. Taken together, that's a pattern worth taking seriously rather than pushing through, and it's very workable once we can see the numbers behind it.</p>
+          <div class="prof" id="repProf"></div>
+          <div class="divide"></div>
+          <div class="recTitle">What we'd suggest, in order</div>
+          <div class="rec lead-rec">
+            <span class="em">🩸</span>
+            <div><b>A baseline hormone &amp; metabolic panel</b><span>The single fastest way to turn how you feel into a clear reason. Chosen because of your symptoms and no bloods on file.</span></div>
+            <span class="go">See what's included →</span>
           </div>
-          <button class="cta">Create your account to unlock your full Health Report</button>
-          <div class="fine">Private and encrypted, reviewed under clinical governance. Screening guidance, not a medical diagnosis.</div>
+          <div class="rec">
+            <span class="em">🗓️</span>
+            <div><b>A consultation once results are in</b><span>Fifteen minutes with a clinician to talk through what the numbers mean for you</span></div>
+            <span class="go">Hold a slot →</span>
+          </div>
+          <div class="rec">
+            <span class="em">🌙</span>
+            <div><b>Sleep &amp; recovery guidance</b><span>Yours now, free, while you decide - small changes that move energy quickly</span></div>
+            <span class="go">Start now →</span>
+          </div>
+          <p class="softnote">Most men who start here begin with the baseline panel - but there's no rush, and nothing here is automatic.</p>
+          <button class="cta">Create your account to unlock your full report</button>
+          <div class="fine">Private and encrypted, reviewed under clinical governance.<br>Screening guidance, not a medical diagnosis. Regulated clinical services provided by Ted's Health.</div>
         </div>
       </section>
     </div>
   </main>
-  <div class="tagline">Prototype - Harborview Men's Health powered by HealthPilot / Ted's Health</div>
+  <div class="tagline">HARBORVIEW MEN'S HEALTH · POWERED BY HEALTHPILOT</div>
 </div>
 
 <script>
-  var ORDER=['welcome','goal','symptoms','energy','sexual','lifestyle','stress','history','bloods','report'];
+  var ORDER=['welcome','goal','symptoms','reflect1','energy','sexual','tradeoff','lifestyle','stress','history','bloods','building','report'];
   var data={};
   function show(id){
     document.querySelectorAll('.step').forEach(function(s){s.classList.remove('on')});
-    var el=document.querySelector('[data-step="'+id+'"]'); el.classList.add('on');
+    document.querySelector('[data-step="'+id+'"]').classList.add('on');
     var q=document.getElementById('quiz');
-    if(id==='entry'){q.style.display='none';document.querySelector('[data-step="entry"]').classList.add('on');return;}
+    if(id==='entry'){q.style.display='none';return;}
     q.style.display='block';
     var i=ORDER.indexOf(id);
-    var pct=Math.round((i)/(ORDER.length-1)*100);
-    document.getElementById('pfill').style.width=pct+'%';
-    document.getElementById('pstep').textContent='Step '+(i+1)+' of '+ORDER.length;
-    var mins=Math.max(0,Math.round((ORDER.length-1-i)*0.35));
-    document.getElementById('ptime').textContent= i>=ORDER.length-2 ? 'almost done' : ('about '+mins+' min left');
+    document.getElementById('pfill').style.width=Math.round(i/(ORDER.length-1)*100)+'%';
+    document.getElementById('pstep').textContent= (id==='report')?'Complete':('Step '+(i+1)+' of '+(ORDER.length-1));
+    var mins=Math.max(1,Math.round((ORDER.length-2-i)*0.4));
+    document.getElementById('ptime').textContent= (i>=ORDER.length-3)?'almost there':('about '+mins+' min left');
     window.scrollTo(0,0);
+    if(id==='reflect1')tuneReflect();
+    if(id==='report')buildReport();
   }
   function go(id){show(id)}
   function cur(){return document.querySelector('.step.on').getAttribute('data-step')}
   function next(){var i=ORDER.indexOf(cur());if(i<ORDER.length-1)show(ORDER[i+1])}
   function prev(){var i=ORDER.indexOf(cur());if(i>0)show(ORDER[i-1]); else show('entry')}
-  function pick(el,k,v){var p=el.parentNode;p.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel')});el.classList.add('sel');data[k]=v;}
-  function one(el,k,v){var p=el.parentNode;p.querySelectorAll('.chip').forEach(function(c){c.classList.remove('sel')});el.classList.add('sel');data[k]=v;}
-  function toggle(el,k,v){el.classList.toggle('sel');data[k]=data[k]||[];var s=new Set(data[k]);if(s.has(v))s.delete(v);else s.add(v);data[k]=[].concat.apply([],[Array.from(s)]);}
-  function energy(v){document.getElementById('enVal').textContent=v;var L=['Running on empty','Very low','Low','Below par','Up and down','Okay','Fairly good','Good','Strong','Consistently strong'];document.getElementById('enLab').textContent=L[v-1];data.energy=v;}
-  function stress(v){document.getElementById('stVal').textContent=v;var L=['Calm','Very relaxed','Relaxed','Mostly fine','Some pressure','Noticeable','Elevated','High','Very high','Overloaded'];document.getElementById('stLab').textContent=L[v-1];data.stress=v;}
+  function pick(el,k,v){el.parentNode.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel')});el.classList.add('sel');data[k]=v;}
+  function one(el,k,v){el.parentNode.querySelectorAll('.chip').forEach(function(c){c.classList.remove('sel')});el.classList.add('sel');data[k]=v;}
+  function toggle(el,k,v){el.classList.toggle('sel');var s=new Set(data[k]||[]);s.has(v)?s.delete(v):s.add(v);data[k]=Array.from(s);}
+  function energy(v){var L=['Running on empty','Very low','Low most days','Below par','Up and down through the day','Okay, could be better','Fairly steady','Good','Strong','Consistently strong'];document.getElementById('enVal').textContent=L[v-1];data.energy=+v;}
+  function stress(v){var L=['Calm','Very relaxed','Relaxed','Mostly fine','Some weeks','Noticeable, most weeks','Elevated','High','Very high','Overloaded'];document.getElementById('stVal').textContent=L[v-1];data.stress=+v;}
   function chipRow(id,k,arr){var box=document.getElementById(id);arr.forEach(function(o){var c=document.createElement('div');c.className='chip';c.textContent=o[1];c.onclick=function(){toggle(c,k,o[0])};box.appendChild(c);});}
-  chipRow('sympChips','symptoms',[['fatigue','Tired all the time'],['brainfog','Brain fog'],['sleep','Broken sleep'],['mood','Low mood'],['motivation','No motivation'],['weight','Gaining weight'],['muscloss','Losing muscle'],['irritable','Irritable'],['recovery','Slow recovery'],['aches','Aches / stiffness']]);
-  chipRow('sexChips','sexual',[['libido','Lower libido'],['erections','Weaker erections'],['morning','Fewer morning erections'],['performance','Performance worry'],['none','No change']]);
-  chipRow('histChips','history',[['bp','High blood pressure'],['chol','High cholesterol'],['diabetes','Diabetes / pre-diabetes'],['heart','Heart condition'],['thyroid','Thyroid issue'],['mental','Anxiety / depression'],['none','None of these']]);
+  chipRow('sympChips','symptoms',[['fatigue','Tired all the time'],['brainfog','Brain fog'],['sleep','Broken sleep'],['mood','Low mood'],['motivation','No motivation'],['weight','Gaining weight'],['muscle','Losing muscle'],['irritable','Short-tempered'],['recovery','Slow to recover'],['aches','Aches &amp; stiffness']]);
+  chipRow('sexChips','sexual',[['libido','Lower libido'],['erections','Weaker erections'],['morning','Fewer morning erections'],['confidence','Bit of performance worry'],['none','No real change']]);
+  chipRow('histChips','history',[['bp','Raised blood pressure'],['chol','High cholesterol'],['diabetes','Diabetes / pre-diabetes'],['heart','Heart condition'],['thyroid','Thyroid'],['mental','Anxiety / low mood history'],['none','None of these']]);
+
+  function tuneReflect(){
+    var s=data.symptoms||[]; var t=document.getElementById('reflectText');
+    if(s.indexOf('libido')>-1||data.goal==='energy'){t.textContent='Low energy and lost drive tend to travel together - and more often than not there's a reason worth finding.';}
+    else if(data.goal==='mind'){t.textContent='Foggy, flat and short-tempered is a real pattern, not just "getting older".';}
+    else if(data.goal==='body'){t.textContent='When training stops paying off the way it used to, it's usually something under the bonnet.';}
+    else {t.textContent='That's a familiar pattern - and more common than most men think.';}
+  }
+  function buildReport(){
+    var prof=document.getElementById('repProf'); if(!prof||prof.dataset.done)return;
+    var tags=[]; var g={energy:'Goal: energy & drive',body:'Goal: body & strength',mind:'Goal: focus & mood',longevity:'Goal: baseline & prevention'};
+    if(data.goal)tags.push(g[data.goal]);
+    if(data.energy&&data.energy<=4)tags.push('Energy: low');
+    if(data.stress&&data.stress>=6)tags.push('Stress: elevated');
+    if((data.symptoms||[]).indexOf('sleep')>-1||['lt5','5to6'].indexOf(data.sleep)>-1)tags.push('Sleep: disrupted');
+    if((data.sexual||[]).length&&(data.sexual||[]).indexOf('none')===-1)tags.push('Hormonal signals noted');
+    if(data.bloods==='never'||data.bloods==='old')tags.push('No recent bloods');
+    tags.slice(0,6).forEach(function(x){var p=document.createElement('span');p.className='pill';p.textContent=x;prof.appendChild(p);});
+    prof.dataset.done='1';
+  }
 </script>
 </body>
 </html>
