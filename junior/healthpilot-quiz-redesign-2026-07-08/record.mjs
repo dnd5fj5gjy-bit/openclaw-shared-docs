@@ -19,7 +19,7 @@ async function clickText(t){
   const ok = await page.evaluate((needle)=>{
     const step = document.querySelector('.step.on');
     if(!step) return false;
-    const cands = Array.from(step.querySelectorAll('.opt,.chip,.btn,.yes,.no,.skip,button'));
+    const cands = Array.from(step.querySelectorAll('.opt,.chip,.btn,.yes,.no,.skip,.dev,button'));
     // deepest match wins (the label/text node's clickable ancestor)
     const hit = cands.find(el => (el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase().includes(needle.toLowerCase()));
     if(!hit) return false;
