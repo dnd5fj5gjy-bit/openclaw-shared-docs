@@ -140,7 +140,16 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
 .landrule{max-width:940px;margin:10px auto 0;border:none;border-top:1px solid var(--line)}
 .portalpitch{max-width:940px;margin:34px auto 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .portalpitch .t{font-family:Fraunces,serif;font-size:19px}.portalpitch p{font-size:14px;color:var(--muted);margin-top:4px;max-width:520px}
-@media(max-width:860px){.land h1{font-size:34px}.land .lead{font-size:17px}.landfeat{grid-template-columns:1fr}}
+.choice{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px auto 6px;max-width:940px;text-align:left}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
+.cc:hover{border-color:#c9c3b8;box-shadow:0 2px 14px rgba(0,0,0,.04)}
+.cc.reco{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+.cc .tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
+.cc.reco .tag{color:var(--brand)}
+.cc .ic{width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:20px;margin-bottom:12px}
+.cc h3{font-size:19px;margin-bottom:6px}.cc p{font-size:14px;color:var(--muted);flex:1;margin-bottom:16px}
+.cc .go{font-size:14.5px;color:var(--brand);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+@media(max-width:860px){.land h1{font-size:34px}.land .lead{font-size:17px}.landfeat,.choice{grid-template-columns:1fr}}
 /* ---------- Mobile ---------- */
 @media(max-width:860px){
   :root{--sb:280px}
@@ -194,22 +203,37 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
       <div class="view on" id="v-landing"><div class="land">
         <div class="eyebrow">Harborview Men's Health</div>
         <h1>Feel like yourself again.</h1>
-        <p class="lead">Energy, sleep, focus, drive. If something's felt off, start with a simple, private health check, designed with our clinicians. Ten minutes, no account needed.</p>
-        <div class="ctas">
-          <button class="btn big" onclick="startQuiz()">Start your free health check &rarr;</button>
-          <button class="sec" onclick="enterPortal('dashboard')">Already a patient? Go to your portal</button>
-        </div>
+        <p class="lead">Energy, sleep, focus, drive. However you'd like to start, we'll meet you where you are. Choose your way in below.</p>
         <div class="trust">Screening guidance, reviewed by our clinicians. This is not a diagnosis.</div>
 
-        <div class="landfeat">
-          <div class="lf"><div class="ic">&#9737;</div><h3>Start with a check, not a form</h3><p>Warm, simple questions, one idea at a time. You'll get a genuinely useful read on where to focus.</p></div>
-          <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review, and a supplement stack matched to you.</p></div>
-          <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
+        <div class="choice">
+          <div class="cc reco" onclick="startQuiz()">
+            <div class="tag">Recommended</div>
+            <div class="ic">&#9737;</div>
+            <h3>Take the health check</h3>
+            <p>Not sure where to start? A private 10-minute assessment that reads your energy, sleep and hormonal health, and points you to the right next step. No account needed.</p>
+            <span class="go">Start your free check &rarr;</span>
+          </div>
+          <div class="cc" onclick="enterPortal('bloods')">
+            <div class="tag">I know what I want</div>
+            <div class="ic">&#9878;</div>
+            <h3>Go straight to it</h3>
+            <p>Already know you want blood work or a specific treatment? Skip the quiz, order your panel or explore treatments, and book directly.</p>
+            <span class="go">Blood tests &amp; treatments &rarr;</span>
+          </div>
+          <div class="cc" onclick="enterPortal('dashboard')">
+            <div class="tag">Existing patient</div>
+            <div class="ic">&#9750;</div>
+            <h3>Open your portal</h3>
+            <p>Your results, blood tests, treatments and appointments, all in one place. Pick up right where you left off.</p>
+            <span class="go">Go to your portal &rarr;</span>
+          </div>
         </div>
 
-        <div class="portalpitch">
-          <div><div class="t">Already with Harborview?</div><p>Head to your patient portal for your blood tests, treatments, appointments and results, all in one place.</p></div>
-          <button class="btn ghost" onclick="enterPortal('dashboard')">Open patient portal &rarr;</button>
+        <div class="landfeat">
+          <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review, and a supplement stack matched to you.</p></div>
+          <div class="lf"><div class="ic">&#9878;</div><h3>Order directly, anytime</h3><p>Know what you need? Buy a blood panel or explore treatments straight away, no assessment required.</p></div>
+          <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
         </div>
       </div></div>
 
