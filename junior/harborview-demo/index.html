@@ -1,218 +1,371 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Harborview Men's Health — Health Assessment</title>
-<meta name="description" content="Sample clinic front-end demo — HealthPilot white-label patient journey."/>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Harborview Men's Health — Patient Portal</title>
+<meta name="description" content="Ted's Health white-label patient portal demo — the health assessment embedded as a nudge."/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
-:root{--ground:#FAF8F4;--ink:#1F1D1A;--muted:#6B6862;--line:#E8E4DC;--brand:#0f4c5c;--brand-d:#0b3a46;--brand-soft:#e3edf0;--gold:#B4712E;--card:#fff;--warn:#B4712E;--good:#2F5D50;--rev:#245c46;--rev-soft:#e5f0ea}
+:root{--ground:#FAF8F4;--ink:#1F1D1A;--muted:#6B6862;--line:#E8E4DC;--brand:#0f4c5c;--brand-d:#0b3a46;--brand-soft:#e3edf0;--gold:#B4712E;--card:#fff;--warn:#B4712E;--good:#2F5D50;--rev:#245c46;--rev-soft:#e5f0ea;--nav:#0e3944;--nav-2:#0a2c35;--sb:280px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
-button{font-family:inherit;cursor:pointer}
-.top{position:sticky;top:0;z-index:30;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.topin{max-width:1080px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:11px;cursor:pointer}.logo .d{width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:Fraunces,serif;font-weight:600}
-.logo b{font-family:Fraunces,serif;font-weight:500;font-size:17px}.logo small{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:-2px}
-.nav{display:flex;align-items:center;gap:20px}
-.nav a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500}.nav a:hover{color:var(--ink)}
-.basketbtn{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;font-size:14px;font-weight:600}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:500;letter-spacing:-.01em}
+/* ---------- Layout ---------- */
+.app{display:flex;min-height:100vh}
+.sidebar{width:var(--sb);flex:none;background:var(--nav);color:#cfe0e4;position:fixed;top:0;left:0;bottom:0;z-index:60;display:flex;flex-direction:column;transition:transform .28s ease;overflow-y:auto}
+.sb-logo{display:flex;align-items:center;gap:11px;padding:22px 22px 18px}
+.sb-logo .d{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--brand);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:600;font-size:17px;flex:none}
+.sb-logo b{color:#fff;font-family:Fraunces,serif;font-weight:500;font-size:16px;display:block;line-height:1.1}
+.sb-logo small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8fb2ba}
+.sb-sec{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6f97a0;padding:16px 24px 6px;font-weight:600}
+.sb-item{display:flex;align-items:center;gap:12px;padding:12px 24px;color:#cfe0e4;font-size:14.5px;font-weight:500;cursor:pointer;border:none;background:none;width:100%;text-align:left}
+.sb-item:hover{background:var(--nav-2);color:#fff}
+.sb-item.on{background:var(--nav-2);color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+.sb-item .i{width:19px;text-align:center;flex:none;opacity:.9}
+.sb-item .badge{margin-left:auto;font-size:10px;font-weight:600;background:var(--gold);color:#20201c;border-radius:999px;padding:2px 7px;letter-spacing:.03em}
+.sb-user{margin-top:auto;display:flex;align-items:center;gap:11px;padding:16px 22px;border-top:1px solid rgba(255,255,255,.08)}
+.sb-user .av{width:34px;height:34px;border-radius:50%;background:#1e5561;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
+.sb-user .nm{font-size:13.5px;color:#fff;font-weight:600}.sb-user .em{font-size:11px;color:#8fb2ba}
+.main{flex:1;min-width:0;margin-left:var(--sb);transition:margin-left .28s ease}
+/* Sidebar only shows in portal views; public (landing/quiz/results) is warm, full-width */
+.app:not(.portal) .sidebar{transform:translateX(-100%)}
+.app:not(.portal) .main{margin-left:0}
+.app:not(.portal) .hamb{display:none!important}
+.app:not(.portal) .tb-title{display:none}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(250,248,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px}
+.hamb{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px;font-size:18px;color:var(--ink);align-items:center;justify-content:center}
+.tb-title{font-size:14px;color:var(--muted);font-weight:600}
+.basketbtn{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600}
 .basketbtn .c{min-width:20px;height:20px;border-radius:999px;background:var(--brand);color:#fff;font-size:12px;display:grid;place-items:center;padding:0 5px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
-.view{display:none}.view.on{display:block;animation:fade .35s ease}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border:none;border-radius:11px;padding:13px 24px;font-size:15px;font-weight:600}
+.content{padding:30px 34px 90px;max-width:1000px}
+.backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:55}
+/* ---------- Shared ---------- */
+.view{display:none}.view.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border:none;border-radius:11px;padding:13px 22px;font-size:15px;font-weight:600;min-height:46px}
 .btn:hover{background:var(--brand-d)}
 .btn.ghost{background:#fff;color:var(--brand);border:1px solid var(--brand)}
-.btn.big{padding:15px 30px;font-size:16px}
-.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
-h1{font-family:Fraunces,serif;font-weight:500;letter-spacing:-.01em}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
-.chip{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.btn.big{padding:15px 28px;font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.chip{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
 .chip.warn{background:#f6ecdf;color:var(--warn)}.chip.good{background:var(--rev-soft);color:var(--good)}
-.back{font-size:13px;color:var(--brand);font-weight:600;background:none;border:none;display:inline-flex;gap:6px;align-items:center;margin-bottom:8px}
-/* landing */
-.hero{padding:70px 0 40px;text-align:center}
-.hero h1{font-size:52px;line-height:1.06;margin:16px auto 14px;max-width:820px}
-.hero p{color:var(--muted);font-size:19px;max-width:600px;margin:0 auto 28px}
-.hero .trust{font-size:13px;color:var(--muted);margin-top:16px}
-.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:44px 0 70px}
-.feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
-.feat .fh{font-family:Fraunces,serif;font-size:19px;font-weight:500;margin-bottom:7px}
-.feat p{font-size:14px;color:var(--muted)}
-.feat .ic{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+.back{font-size:13px;color:var(--brand);font-weight:600;background:none;border:none;display:inline-flex;gap:6px;align-items:center;margin-bottom:10px;min-height:34px}
+.grp{margin:32px 0 8px;font-size:22px}
+/* dashboard */
+.dh h1{font-size:30px;margin-bottom:4px}.dh p.s{color:var(--muted);font-size:16px}
+.nudge{background:linear-gradient(120deg,#0f4c5c,#0b3a46);color:#eaf3f5;border-radius:18px;padding:26px 28px;margin-top:22px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.nudge .t{font-family:Fraunces,serif;font-size:23px;color:#fff;font-weight:500}
+.nudge p{font-size:14.5px;color:#c9dde2;margin-top:6px;max-width:520px}
+.nudge .btn{background:#fff;color:var(--brand)}.nudge .btn:hover{background:#eef6f7}
+.nudge .skip{color:#a9cbd2;font-size:13px;background:none;border:none;text-decoration:underline;margin-left:6px}
+.optcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.oc{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--card);display:flex;flex-direction:column}
+.oc .ic{width:36px;height:36px;border-radius:9px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:17px;margin-bottom:12px}
+.oc .k{font-family:Fraunces,serif;font-size:17px}.oc .d{font-size:13.5px;color:var(--muted);margin:4px 0 12px;flex:1}
+.oc a{font-size:14px;color:var(--brand);font-weight:600;text-decoration:none;cursor:pointer}
+.reco{background:var(--rev-soft);border:1px solid #cfe3d8;border-radius:16px;padding:22px 24px;margin-top:22px}
+.reco .h{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--rev);font-weight:600}
+.reco h3{font-size:20px;margin:4px 0 3px}.reco .s{font-size:13.5px;color:#3a5a4c;margin-bottom:14px}
+.recogrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.rc{background:#fff;border:1px solid #d5e6dd;border-radius:12px;padding:15px 16px}
+.rc .k{font-weight:600;font-size:14.5px}.rc .d{font-size:12.5px;color:var(--muted);margin:3px 0 8px}.rc a{font-size:13px;color:var(--brand);font-weight:600;cursor:pointer;text-decoration:none}
+.stub{margin-top:16px}.stublist{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.pill{display:inline-block;font-size:11px;font-weight:600;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:4px 11px;margin-bottom:8px}
 /* quiz */
-.quiz{max-width:720px;margin:0 auto;padding:44px 0 80px;min-height:70vh}
-.qhead{text-align:center;margin-bottom:8px}.qhead .brandname{font-family:Fraunces,serif;font-size:17px}
-.progress{height:4px;background:var(--line);border-radius:99px;margin:22px 0 8px;overflow:hidden}
+.quiz{max-width:680px}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.progress{height:5px;background:var(--line);border-radius:99px;margin:16px 0 4px;overflow:hidden}
 .progress span{display:block;height:100%;background:var(--brand);border-radius:99px;transition:width .4s cubic-bezier(.22,1,.36,1)}
-.stepno{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:14px}
-.qtitle{font-family:Fraunces,serif;font-size:30px;font-weight:500;margin:6px 0 4px}
-.qsub{color:var(--muted);font-size:15px;margin-bottom:24px}
-.qgroup{margin-bottom:26px}
-.qlabel{font-weight:600;font-size:16px;margin-bottom:3px}.qlabel .req{color:var(--brand)}
+.stepno{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:16px}
+.qtitle{font-size:27px;margin:6px 0 4px}.qsub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.qgroup{margin-bottom:24px}.qlabel{font-weight:600;font-size:16px;margin-bottom:3px}.qlabel .req{color:var(--brand)}
 .qhint{font-size:13px;color:var(--muted);margin-bottom:12px}
 .opts{display:grid;gap:10px}.opts.two{grid-template-columns:1fr 1fr}
-.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:15px 18px;font-size:15px;font-weight:500;transition:all .15s}
-.opt:hover{border-color:#c9c3b8}
-.opt.sel{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-d)}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:15px 18px;font-size:15px;font-weight:500;transition:all .15s;min-height:52px}
+.opt:active{transform:scale(.99)}.opt.sel{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-d)}
 .opt .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center}
 .opt.sel .rd{border-color:var(--brand);background:var(--brand)}.opt.sel .rd::after{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
 .opt .cb{width:20px;height:20px;border-radius:6px;border:2px solid var(--line);flex:none;display:grid;place-items:center;color:#fff;font-size:12px}
 .opt.sel .cb{border-color:var(--brand);background:var(--brand)}
-input[type=text],select{width:100%;border:1px solid var(--line);border-radius:11px;padding:14px 16px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+input[type=text],select{width:100%;border:1px solid var(--line);border-radius:11px;padding:14px 16px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
 input[type=text]:focus,select:focus{outline:none;border-color:var(--brand)}
-.slider{margin-top:6px}
-input[type=range]{width:100%;accent-color:var(--brand)}
+input[type=range]{width:100%;accent-color:var(--brand);height:28px}
 .slidernum{float:right;font-weight:600;color:var(--brand)}
-.qnav{display:flex;align-items:center;justify-content:space-between;margin-top:34px;padding-top:20px;border-top:1px solid var(--line)}
-.insight{background:var(--brand-soft);border-radius:12px;padding:13px 16px;font-size:14px;color:#26463f;margin-top:20px;display:flex;gap:10px}
-.insight b{color:var(--brand-d)}
-/* generating */
-.gen{text-align:center;padding:120px 0;min-height:70vh}
-.gen .ring{width:56px;height:56px;border:4px solid var(--line);border-top-color:var(--brand);border-radius:50%;margin:0 auto 22px;animation:spin 1s linear infinite}
+.qnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+.insight{background:var(--brand-soft);border-radius:12px;padding:13px 16px;font-size:14px;color:#26463f;margin-top:18px;display:flex;gap:10px}.insight b{color:var(--brand-d)}
+.gen{text-align:center;padding:90px 0}
+.gen .ring{width:54px;height:54px;border:4px solid var(--line);border-top-color:var(--brand);border-radius:50%;margin:0 auto 22px;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.gen .t{font-family:Fraunces,serif;font-size:22px}.gen .s{color:var(--muted);margin-top:8px}
+.gen .t{font-size:22px}.gen .s{color:var(--muted);margin-top:8px}
 /* results */
-.rwrap{padding:44px 0 90px}
 .systems{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .sys{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.sys .h{display:flex;align-items:center;justify-content:space-between;gap:10px}.sys .h .t{font-family:Fraunces,serif;font-size:18px;font-weight:500}
+.sys .h{display:flex;align-items:center;justify-content:space-between;gap:10px}.sys .h .t{font-size:18px}
 .sys p{font-size:14px;color:#3a3630;margin-top:9px}.sys .why{font-size:12.5px;color:var(--muted);margin-top:7px;border-top:1px solid var(--line);padding-top:7px}
-.grp{margin:34px 0 8px;font-family:Fraunces,serif;font-size:22px;font-weight:500}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
 .step{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fcfbf9;display:flex;flex-direction:column}
-.step .k{font-family:Fraunces,serif;font-size:17px;font-weight:500}.step .d{font-size:13px;color:var(--muted);margin:4px 0 12px;flex:1}
-/* supplements */
+.step .k{font-size:17px}.step .d{font-size:13px;color:var(--muted);margin:4px 0 12px;flex:1}
 .supp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column}
 .item .src{font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--gold)}.item .src.blood{color:var(--brand)}
-.item .n{font-family:Fraunces,serif;font-size:19px;font-weight:500;margin-top:5px}.item .why{font-size:13.5px;color:#3a3630;margin-top:7px;flex:1}
+.item .n{font-size:19px;margin-top:5px}.item .why{font-size:13.5px;color:#3a3630;margin-top:7px;flex:1}
 .item .meta{font-size:12.5px;color:var(--muted);margin-top:9px}
-.item .foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}.item .price{font-family:Fraunces,serif;font-size:20px;font-weight:600}
-.add{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:9px;padding:9px 16px;font-size:13px;font-weight:600}.add.in{background:var(--brand);color:#fff}
+.item .foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}.item .price{font-size:20px;font-weight:600}
+.add{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:9px;padding:10px 16px;font-size:13px;font-weight:600;min-height:42px}.add.in{background:var(--brand);color:#fff}
 .value{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-.vc{border:1px solid #cfe3d8;background:var(--rev-soft);border-radius:12px;padding:14px 16px}.vc .k{font-family:Fraunces,serif;font-size:15px;font-weight:600;color:var(--rev)}.vc .d{font-size:12.5px;color:#3a5a4c;margin-top:3px}
-/* basket */
-.basket{max-width:600px}
-.brow{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}.brow .n{font-weight:600;font-size:15px}.brow .w{font-size:12.5px;color:var(--muted)}.brow .p{font-family:Fraunces,serif;font-weight:600}
-.rm{background:none;border:none;color:var(--muted);font-size:12px;text-decoration:underline;margin-left:10px}
-.sumrow{display:flex;justify-content:space-between;padding:9px 0;font-size:14px}.sumrow.tot{font-family:Fraunces,serif;font-size:19px;font-weight:600;border-top:1px solid var(--line);padding-top:14px;margin-top:6px}
+.vc{border:1px solid #cfe3d8;background:var(--rev-soft);border-radius:12px;padding:14px 16px}.vc .k{font-size:15px;font-weight:600;color:var(--rev)}.vc .d{font-size:12.5px;color:#3a5a4c;margin-top:3px}
+.basket{max-width:580px}
+.brow{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}.brow .n{font-weight:600;font-size:15px}.brow .w{font-size:12.5px;color:var(--muted)}.brow .p{font-weight:600}
+.rm{background:none;border:none;color:var(--muted);font-size:12px;text-decoration:underline;margin-left:10px;min-height:34px}
+.sumrow{display:flex;justify-content:space-between;padding:9px 0;font-size:14px}.sumrow.tot{font-size:19px;font-weight:600;border-top:1px solid var(--line);padding-top:14px;margin-top:6px}
 .subline{display:flex;align-items:center;gap:12px;background:var(--rev-soft);border:1px solid #cfe3d8;border-radius:12px;padding:12px 16px;margin:16px 0;font-size:13.5px;color:#254e3c}
 .tg{width:42px;height:24px;border-radius:999px;background:var(--rev);position:relative;flex:none;border:none}.tg::after{content:"";position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}.tg.off{background:#d8d3c9}.tg.off::after{left:2px;right:auto}
-.done{max-width:560px;text-align:center;margin:60px auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:44px}
+.done{max-width:520px;text-align:center;margin:36px auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:40px 30px}
 .done .ic{width:60px;height:60px;border-radius:50%;background:var(--rev-soft);color:var(--rev);display:grid;place-items:center;font-size:28px;margin:0 auto 18px}
-.foot{max-width:1080px;margin:0 auto;padding:26px 28px 50px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
-.demobar{background:var(--brand-d);color:#dfeaed;text-align:center;font-size:12.5px;padding:7px 14px;letter-spacing:.02em}
-.demobar b{color:#fff}
-@media(max-width:820px){.hero h1{font-size:38px}.feats,.systems,.steps,.supp,.value{grid-template-columns:1fr}.opts.two{grid-template-columns:1fr}}
+.demobar{background:var(--nav-2);color:#bcd6dc;text-align:center;font-size:12px;padding:6px 14px}
+.app.portal .pubonly{display:none}
+/* warm landing */
+.land{max-width:940px;margin:0 auto;text-align:center;padding:24px 0 20px}
+.land .eyebrow{margin-bottom:14px}
+.land h1{font-size:50px;line-height:1.06;margin:0 auto 16px;max-width:760px}
+.land .lead{color:var(--muted);font-size:19px;max-width:600px;margin:0 auto 30px}
+.land .ctas{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}
+.land .sec{background:none;border:none;color:var(--brand);font-weight:600;font-size:15px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.land .trust{font-size:13px;color:var(--muted);margin-top:18px}
+.landfeat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:52px 0 30px;text-align:left}
+.lf{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.lf .ic{width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+.lf h3{font-size:19px;margin-bottom:6px}.lf p{font-size:14px;color:var(--muted)}
+.landrule{max-width:940px;margin:10px auto 0;border:none;border-top:1px solid var(--line)}
+.portalpitch{max-width:940px;margin:34px auto 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.portalpitch .t{font-family:Fraunces,serif;font-size:19px}.portalpitch p{font-size:14px;color:var(--muted);margin-top:4px;max-width:520px}
+@media(max-width:860px){.land h1{font-size:34px}.land .lead{font-size:17px}.landfeat{grid-template-columns:1fr}}
+/* ---------- Mobile ---------- */
+@media(max-width:860px){
+  :root{--sb:280px}
+  .sidebar{transform:translateX(-100%);box-shadow:2px 0 24px rgba(0,0,0,.2)}
+  .app.open .sidebar{transform:translateX(0)}
+  .app.open .backdrop{display:block}
+  .main{margin-left:0}
+  .hamb{display:inline-flex}
+  .content{padding:20px 18px 80px}
+  .dh h1{font-size:25px}
+  .optcards,.systems,.steps,.supp,.value,.recogrid,.stublist,.opts.two{grid-template-columns:1fr}
+  .nudge{padding:22px}.nudge .t{font-size:20px}
+  .qtitle{font-size:23px}
+  .btn,.btn.big{width:100%;justify-content:center}
+  .qnav .btn{width:auto}
+  .qnav{gap:8px}
+  .value{grid-template-columns:1fr}
+}
+@media(max-width:420px){ .content{padding:16px 14px 80px} }
 </style></head><body>
+<div class="app" id="app">
+  <div class="backdrop" onclick="toggleMenu(false)"></div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-logo" style="cursor:pointer" onclick="goLanding()"><span class="d">H</span><div><b>Harborview</b><small>Men's Health</small></div></div>
+    <div class="sb-sec">Your health journey</div>
+    <button class="sb-item on" data-nav="dashboard" onclick="nav('dashboard')"><span class="i">&#9750;</span> Home</button>
+    <button class="sb-item" data-nav="bloods" onclick="nav('bloods')"><span class="i">&#9878;</span> Blood Testing</button>
+    <button class="sb-item" data-nav="treatments" onclick="nav('treatments')"><span class="i">&#9877;</span> Treatments</button>
+    <button class="sb-item" data-nav="appointments" onclick="nav('appointments')"><span class="i">&#9993;</span> Appointments</button>
+    <div class="sb-sec">Explore</div>
+    <button class="sb-item" data-nav="quiz" onclick="startQuiz()"><span class="i">&#9737;</span> Health Assessment <span class="badge" id="navBadge">New</span></button>
+    <button class="sb-item" data-nav="support" onclick="nav('support')"><span class="i">&#9432;</span> Support</button>
+    <div class="sb-user"><span class="av">JD</span><div><div class="nm">James Doyle</div><div class="em">Patient · Harborview</div></div></div>
+  </aside>
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="hamb" onclick="toggleMenu(true)">&#9776;</button>
+        <span class="tb-title" id="tbTitle">Home</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="btn ghost pubonly" style="min-height:40px;padding:9px 16px;font-size:14px" onclick="enterPortal('dashboard')">Patient portal &rarr;</button>
+        <button class="basketbtn" onclick="nav('basket')">Basket <span class="c" id="bc">0</span></button>
+      </div>
+    </div>
+    <div class="content">
 
-<div class="demobar">Sample clinic demo &middot; <b>Harborview Men's Health</b> &middot; a HealthPilot white-label front-end you can navigate as a patient</div>
-<div class="top"><div class="topin">
-  <div class="logo" onclick="go('landing')"><span class="d">H</span><div><b>Harborview</b><small>Men's Health</small></div></div>
-  <div class="nav">
-    <a onclick="go('landing')">Home</a>
-    <a onclick="startQuiz()">Assessment</a>
-    <button class="basketbtn" onclick="go('basket')">Basket <span class="c" id="bc">0</span></button>
+      <!-- WARM LANDING (fronts both the health quiz and the patient portal) -->
+      <div class="view on" id="v-landing"><div class="land">
+        <div class="eyebrow">Harborview Men's Health</div>
+        <h1>Feel like yourself again.</h1>
+        <p class="lead">Energy, sleep, focus, drive. If something's felt off, start with a simple, private health check, designed with our clinicians. Ten minutes, no account needed.</p>
+        <div class="ctas">
+          <button class="btn big" onclick="startQuiz()">Start your free health check &rarr;</button>
+          <button class="sec" onclick="enterPortal('dashboard')">Already a patient? Go to your portal</button>
+        </div>
+        <div class="trust">Screening guidance, reviewed by our clinicians. This is not a diagnosis.</div>
+
+        <div class="landfeat">
+          <div class="lf"><div class="ic">&#9737;</div><h3>Start with a check, not a form</h3><p>Warm, simple questions, one idea at a time. You'll get a genuinely useful read on where to focus.</p></div>
+          <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review, and a supplement stack matched to you.</p></div>
+          <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
+        </div>
+
+        <div class="portalpitch">
+          <div><div class="t">Already with Harborview?</div><p>Head to your patient portal for your blood tests, treatments, appointments and results, all in one place.</p></div>
+          <button class="btn ghost" onclick="enterPortal('dashboard')">Open patient portal &rarr;</button>
+        </div>
+      </div></div>
+
+      <!-- DASHBOARD (portal) -->
+      <div class="view" id="v-dashboard"><div class="dh">
+        <div class="eyebrow">Welcome back</div>
+        <h1>Good to see you, James.</h1>
+        <p class="s">What would you like to do today? Everything's here whenever you need it.</p>
+
+        <div class="nudge" id="nudgeCard">
+          <div style="flex:1;min-width:240px"><div class="t">New: your 10-minute health assessment</div><p>A quick, private check on your energy, sleep and hormonal health. Optional, but it tailors what we recommend and gives your clinician a head start.</p></div>
+          <div><button class="btn" onclick="startQuiz()">Take the assessment &rarr;</button><button class="skip" onclick="dismissNudge()">Maybe later</button></div>
+        </div>
+
+        <div class="reco" id="recoBlock" style="display:none">
+          <div class="h">From your health assessment</div>
+          <h3>Recommended for you</h3>
+          <div class="s">Based on what you shared. Entirely up to you.</div>
+          <div class="recogrid">
+            <div class="rc"><div class="k">Baseline blood panel</div><div class="d">Confirm what's driving your energy &amp; sleep.</div><a onclick="nav('bloods')">View panel &rarr;</a></div>
+            <div class="rc"><div class="k">Clinician review</div><div class="d">Turn your results into a plan.</div><a onclick="nav('appointments')">Book &rarr;</a></div>
+            <div class="rc"><div class="k">Your supplement stack</div><div class="d">A targeted stack matched to you.</div><a onclick="nav('supps')">View stack &rarr;</a></div>
+          </div>
+        </div>
+
+        <div class="grp">Start something</div>
+        <div class="optcards">
+          <div class="oc"><div class="ic">&#9878;</div><div class="k">Get a blood test</div><div class="d">Order a men's health panel and have it reviewed by a clinician.</div><a onclick="nav('bloods')">Blood testing &rarr;</a></div>
+          <div class="oc"><div class="ic">&#9877;</div><div class="k">Explore treatments</div><div class="d">TRT and ED pathways, prescribed and managed by our doctors.</div><a onclick="nav('treatments')">View treatments &rarr;</a></div>
+          <div class="oc"><div class="ic">&#9993;</div><div class="k">Book a consultation</div><div class="d">Speak with a clinician on its own, whenever suits you.</div><a onclick="nav('appointments')">Book now &rarr;</a></div>
+          <div class="oc"><div class="ic">&#9737;</div><div class="k">Take the assessment</div><div class="d">The optional 10-minute health check. Skip it or take it anytime.</div><a onclick="startQuiz()">Start &rarr;</a></div>
+        </div>
+      </div></div>
+
+      <!-- BLOOD TESTING (access without quiz = nudge not gate) -->
+      <div class="view" id="v-bloods"><div class="stub">
+        <div class="eyebrow">Blood testing</div><h1 style="font-size:28px;margin:8px 0 6px">Men's health blood panels</h1>
+        <p style="color:var(--muted);max-width:600px">Order directly, no assessment required. Results are held for clinician review before you see them.</p>
+        <div class="stublist">
+          <div class="card"><span class="pill">Most popular</span><h3 style="font-size:19px">TRT Diagnosis Panel</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">Total &amp; Free Testosterone, SHBG, LH, FSH, Prolactin, Thyroid, and a full blood count.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£99</b><button class="btn ghost" onclick="alert('Demo: adds the panel and books your draw.')">Order panel &rarr;</button></div></div>
+          <div class="card"><span class="pill">Quick check</span><h3 style="font-size:19px">Testosterone Check</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">A focused one-off Total &amp; Free Testosterone check to establish a baseline.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£49</b><button class="btn ghost" onclick="alert('Demo: adds the check.')">Order check &rarr;</button></div></div>
+        </div>
+        <div class="card" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b>Not sure which to pick?</b><div style="font-size:13.5px;color:var(--muted)">The 10-minute assessment recommends the right panel for you.</div></div><button class="btn" onclick="startQuiz()">Take the assessment &rarr;</button></div>
+      </div></div>
+
+      <!-- TREATMENTS -->
+      <div class="view" id="v-treatments"><div class="stub">
+        <div class="eyebrow">Treatments</div><h1 style="font-size:28px;margin:8px 0 6px">Clinician-managed treatment</h1>
+        <p style="color:var(--muted);max-width:600px">Available to explore anytime. Any treatment is prescribed and managed by our doctors after review.</p>
+        <div class="stublist">
+          <div class="card"><h3 style="font-size:19px">Low Testosterone (TRT)</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">A monitored testosterone pathway: bloods, clinician review, treatment and ongoing checks.</p><button class="btn ghost" onclick="alert('Demo: opens the TRT pathway.')">Explore TRT &rarr;</button></div>
+          <div class="card"><h3 style="font-size:19px">Erectile Dysfunction</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">A short medical questionnaire screens for safety, then a clinician approves treatment if suitable.</p><button class="btn ghost" onclick="alert('Demo: opens the ED pathway.')">Explore ED &rarr;</button></div>
+        </div>
+      </div></div>
+
+      <!-- APPOINTMENTS -->
+      <div class="view" id="v-appointments"><div class="stub">
+        <div class="eyebrow">Appointments</div><h1 style="font-size:28px;margin:8px 0 6px">Book a clinician</h1>
+        <p style="color:var(--muted);max-width:600px">Speak with a doctor at a time that suits you. No assessment required to book.</p>
+        <div class="card" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b>15-minute consultation</b><div style="font-size:13.5px;color:var(--muted)">Discuss symptoms, results or treatment options.</div></div><button class="btn" onclick="alert('Demo: opens the booking calendar.')">Book now &rarr;</button></div>
+      </div></div>
+
+      <!-- SUPPORT -->
+      <div class="view" id="v-support"><div class="stub">
+        <div class="eyebrow">Support</div><h1 style="font-size:28px;margin:8px 0 6px">We're here to help</h1>
+        <p style="color:var(--muted);max-width:600px">Message the Harborview care team any time. This is a demo, so the contact form isn't live.</p>
+      </div></div>
+
+      <!-- QUIZ -->
+      <div class="view" id="v-quiz"><div class="quiz">
+        <div class="qtop"><button class="back" onclick="exitQuiz()">&larr; Leave assessment</button><span style="font-size:12px;color:var(--muted)">Optional · you can leave anytime</span></div>
+        <div class="progress"><span id="prog" style="width:0%"></span></div>
+        <div id="qbody"></div>
+        <div class="qnav">
+          <button class="back" id="qback" style="margin:0" onclick="prevStep()">&larr; Back</button>
+          <button class="btn" id="qnext" onclick="nextStep()">Continue &rarr;</button>
+        </div>
+      </div></div>
+
+      <!-- GENERATING -->
+      <div class="view" id="v-gen"><div class="gen"><div class="ring"></div><div class="t">Building your health report&hellip;</div><div class="s">Mapping your answers to what a clinician would look at.</div></div></div>
+
+      <!-- RESULTS -->
+      <div class="view" id="v-results">
+        <div class="eyebrow">Your health review</div>
+        <h1 style="font-size:30px;margin:8px 0 6px">Here's what your answers are telling us.</h1>
+        <p style="color:var(--muted);font-size:16px;max-width:620px">A clear read on where to focus first. Reviewed by our clinicians. This is not a diagnosis.</p>
+        <div class="card" style="margin-top:16px"><div id="overview" style="font-size:15.5px;color:#332f2a"></div></div>
+        <div class="reco" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b style="color:var(--rev)">Saved to your patient portal.</b><div style="font-size:13.5px;color:#3a5a4c">Your results, recommendations and supplement stack are all waiting in your portal.</div></div><button class="btn" onclick="enterPortal('dashboard')">Go to your portal &rarr;</button></div>
+        <div class="grp">What we're seeing, by area</div>
+        <div class="systems" id="systems"></div>
+        <div class="grp">Your recommended next steps</div>
+        <div class="steps">
+          <div class="step"><span class="k">Baseline testosterone &amp; thyroid panel</span><span class="d">The clearest way to confirm what's driving your energy and sleep.</span><button class="btn ghost" onclick="nav('bloods')">View blood panel &rarr;</button></div>
+          <div class="step"><span class="k">15-minute clinician review</span><span class="d">Talk your results through and turn them into a plan.</span><button class="btn ghost" onclick="nav('appointments')">Book a consultation &rarr;</button></div>
+        </div>
+        <div class="grp">Recommended for you: supplements</div>
+        <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap"><div style="max-width:520px"><div style="font-family:Fraunces,serif;font-size:18px">A targeted stack, matched to your answers.</div><p style="color:var(--muted);font-size:14px;margin-top:5px">Clinician-reviewed. Add the whole stack to your basket in one tap.</p></div><button class="btn big" onclick="nav('supps')">See my supplements &rarr;</button></div>
+      </div>
+
+      <!-- SUPPLEMENTS -->
+      <div class="view" id="v-supps">
+        <button class="back" onclick="nav('results')">&larr; Back to results</button>
+        <div class="eyebrow">Recommended for you</div>
+        <h1 style="font-size:30px;margin:8px 0 6px">Your personalised supplement stack.</h1>
+        <p style="color:var(--muted);font-size:16px;max-width:620px">Matched to your assessment and your blood test, reviewed by a clinician.</p>
+        <div style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap"><button class="btn big" onclick="addAll()">Add all to basket &rarr;</button><span style="font-size:13px;color:var(--muted)">Fulfilled by our supplement partner</span></div>
+        <div class="supp" id="suppList"></div>
+        <div class="value">
+          <div class="vc"><div class="k">A new revenue line</div><div class="d">Referral commission on every basket, on top of tests and consults.</div></div>
+          <div class="vc"><div class="k">Higher order value</div><div class="d">A curated stack lifts basket size vs a single product.</div></div>
+          <div class="vc"><div class="k">Recurring by default</div><div class="d">Monthly subscription drives repeat orders.</div></div>
+        </div>
+      </div>
+
+      <!-- BASKET -->
+      <div class="view" id="v-basket">
+        <button class="back" onclick="nav('supps')">&larr; Keep browsing</button>
+        <div class="eyebrow">Your basket</div>
+        <h1 style="font-size:30px;margin:8px 0 16px">Ready when you are.</h1>
+        <div class="card basket">
+          <div id="basketRows"></div>
+          <div class="subline"><button class="tg" id="subTg" onclick="toggleSub()"></button><div><b>Subscribe &amp; save 15%</b> — delivered monthly, pause or cancel anytime.</div></div>
+          <div class="sumrow"><span>Subtotal</span><span id="subtotal">£0</span></div>
+          <div class="sumrow" id="savingRow"><span>Subscription saving (15%)</span><span id="saving" style="color:var(--good)">-£0</span></div>
+          <div class="sumrow tot"><span>Total today</span><span id="total">£0</span></div>
+          <button class="btn big" id="checkoutBtn" style="width:100%;justify-content:center;margin-top:18px" onclick="checkout()">Checkout &rarr;</button>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:14px">Clinician-reviewed. Shipped by our supplement partner. The clinic earns a referral commission on every order.</div>
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div class="view" id="v-done"><div class="done">
+        <div class="ic">&#10003;</div>
+        <div style="font-family:Fraunces,serif;font-size:25px;font-weight:500">Your stack is on its way.</div>
+        <p style="color:var(--muted);margin-top:8px">Shipped monthly, and reviewed against your next assessment.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap"><button class="btn" onclick="nav('dashboard')">Back to my dashboard</button></div>
+      </div></div>
+
+    </div>
+    <div class="demobar">Demo · Harborview Men's Health on the Ted's Health white-label platform · the assessment is an optional nudge, not a gate · no data stored</div>
   </div>
-</div></div>
-
-<!-- LANDING -->
-<div class="view on" id="v-landing"><div class="wrap">
-  <div class="hero">
-    <div class="eyebrow">Considered men's health</div>
-    <h1>A clear look at your health, in ten minutes.</h1>
-    <p>A private, clinician-designed assessment. Get a personalised read on your energy, sleep and hormonal health, and the next steps that matter. No account needed to begin.</p>
-    <button class="btn big" onclick="startQuiz()">Start your assessment &rarr;</button>
-    <div class="trust">Screening guidance, reviewed by our clinicians. This is not a diagnosis.</div>
-  </div>
-  <div class="feats">
-    <div class="feat"><div class="ic">&#9733;</div><div class="fh">Ten minutes, in confidence</div><p>Warm, simple questions, one idea at a time. Answer honestly and you'll get a genuinely useful picture.</p></div>
-    <div class="feat"><div class="ic">&#9873;</div><div class="fh">A plan, not a PDF</div><p>Your results come with clear next steps, a recommended blood panel, a clinician review, and a supplement stack matched to you.</p></div>
-    <div class="feat"><div class="ic">&#9829;</div><div class="fh">Safe by design</div><p>Urgent answers are flagged to our clinical team, and everything you share is private to your care.</p></div>
-  </div>
-</div></div>
-
-<!-- QUIZ -->
-<div class="view" id="v-quiz"><div class="wrap"><div class="quiz">
-  <div class="qhead"><span class="brandname">Harborview Men's Health</span></div>
-  <div class="progress"><span id="prog" style="width:0%"></span></div>
-  <div id="qbody"></div>
-  <div class="qnav">
-    <button class="back" id="qback" onclick="prevStep()">&larr; Back</button>
-    <button class="btn" id="qnext" onclick="nextStep()">Continue &rarr;</button>
-  </div>
-</div></div></div>
-
-<!-- GENERATING -->
-<div class="view" id="v-gen"><div class="wrap"><div class="gen">
-  <div class="ring"></div>
-  <div class="t" id="genT">Building your health report&hellip;</div>
-  <div class="s">Mapping your answers to what a clinician would look at.</div>
-</div></div></div>
-
-<!-- RESULTS -->
-<div class="view" id="v-results"><div class="wrap"><div class="rwrap">
-  <div class="eyebrow">Your health review</div>
-  <h1 style="font-size:38px;margin:10px 0 8px">Here's what your answers are telling us.</h1>
-  <p style="color:var(--muted);font-size:17px;max-width:640px">A clear read on where to focus first. Reviewed by our clinicians. This is not a diagnosis.</p>
-  <div class="card" style="margin-top:18px"><div id="overview" style="font-size:16px;color:#332f2a"></div></div>
-  <div class="grp">What we're seeing, by area</div>
-  <div class="systems" id="systems"></div>
-  <div class="grp">Your recommended next steps</div>
-  <div class="steps">
-    <div class="step"><span class="k">Baseline testosterone &amp; thyroid panel</span><span class="d">The clearest way to confirm what's driving your energy and sleep. We'd measure Total &amp; Free Testosterone, SHBG and Thyroid.</span><button class="btn ghost" onclick="alert('Demo: this would open the clinic\\'s blood-panel purchase page.')">View blood panel &rarr;</button></div>
-    <div class="step"><span class="k">15-minute clinician review</span><span class="d">Talk your results through and turn them into a plan, at a time that suits you.</span><button class="btn ghost" onclick="alert('Demo: this would open the clinic\\'s consultation booking.')">Book a consultation &rarr;</button></div>
-  </div>
-  <div class="grp">Recommended for you: supplements</div>
-  <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <div style="max-width:560px"><div style="font-family:Fraunces,serif;font-size:18px">A targeted stack, matched to your answers.</div><p style="color:var(--muted);font-size:14px;margin-top:5px">Clinician-reviewed, and you can add the whole stack to your basket in one tap.</p></div>
-    <button class="btn big" onclick="go('supps')">See my supplements &rarr;</button>
-  </div>
-</div></div></div>
-
-<!-- SUPPLEMENTS -->
-<div class="view" id="v-supps"><div class="wrap"><div class="rwrap">
-  <button class="back" onclick="go('results')">&larr; Back to results</button>
-  <div class="eyebrow">Recommended for you</div>
-  <h1 style="font-size:38px;margin:10px 0 8px">Your personalised supplement stack.</h1>
-  <p style="color:var(--muted);font-size:17px;max-width:640px">Matched to your assessment and your blood test, reviewed by a clinician. Add what you want, or build the whole basket in one tap.</p>
-  <div style="margin-top:20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap"><button class="btn big" onclick="addAll()">Add all to basket &rarr;</button><span style="font-size:13px;color:var(--muted)">Curated and fulfilled by our supplement partner</span></div>
-  <div class="supp" id="suppList"></div>
-  <div class="value">
-    <div class="vc"><div class="k">A new revenue line</div><div class="d">Referral commission on every basket, on top of tests and consults.</div></div>
-    <div class="vc"><div class="k">Higher order value</div><div class="d">A curated stack lifts basket size vs a single product.</div></div>
-    <div class="vc"><div class="k">Recurring by default</div><div class="d">Monthly subscription drives repeat orders and retention.</div></div>
-  </div>
-</div></div></div>
-
-<!-- BASKET -->
-<div class="view" id="v-basket"><div class="wrap"><div class="rwrap">
-  <button class="back" onclick="go('supps')">&larr; Keep browsing</button>
-  <div class="eyebrow">Your basket</div>
-  <h1 style="font-size:38px;margin:10px 0 16px">Ready when you are.</h1>
-  <div class="card basket">
-    <div id="basketRows"></div>
-    <div class="subline"><button class="tg" id="subTg" onclick="toggleSub()"></button><div><b>Subscribe &amp; save 15%</b> &mdash; delivered monthly, pause or cancel anytime.</div></div>
-    <div class="sumrow"><span>Subtotal</span><span id="subtotal">&pound;0</span></div>
-    <div class="sumrow" id="savingRow"><span>Subscription saving (15%)</span><span id="saving" style="color:var(--good)">-&pound;0</span></div>
-    <div class="sumrow tot"><span>Total today</span><span id="total">&pound;0</span></div>
-    <button class="btn big" id="checkoutBtn" style="width:100%;justify-content:center;margin-top:18px" onclick="checkout()">Checkout &rarr;</button>
-    <div style="font-size:12.5px;color:var(--muted);margin-top:14px">Clinician-reviewed. Fulfilled and shipped by our supplement partner. The clinic earns a referral commission on every order.</div>
-  </div>
-</div></div></div>
-
-<!-- DONE -->
-<div class="view" id="v-done"><div class="wrap"><div class="done">
-  <div class="ic">&#10003;</div>
-  <div style="font-family:Fraunces,serif;font-size:26px;font-weight:500">Your stack is on its way.</div>
-  <p style="color:var(--muted);margin-top:8px">Shipped monthly, and reviewed against your next assessment. You can adjust it anytime from your dashboard.</p>
-  <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap"><button class="btn" onclick="go('results')">Back to my results</button><button class="btn ghost" onclick="restart()">Start over</button></div>
-</div></div></div>
-
-<div class="foot">Harborview Men's Health is a fictional demo clinic. This is a HealthPilot white-label front-end showing the full patient funnel &mdash; assessment, results, recommendations, basket and checkout. Screening guidance, not a diagnosis. No data is stored.</div>
+</div>
 
 <script>
-// ---------- Quiz definition ----------
+const state={assessmentDone:false,nudge:true}; let currentView='landing'; let quizReturn='landing';
+const TITLES={landing:'',dashboard:'Home',bloods:'Blood Testing',treatments:'Treatments',appointments:'Appointments',support:'Support',quiz:'Health Assessment',gen:'Health Assessment',results:'Your Results',supps:'Supplements',basket:'Basket',done:'Order confirmed'};
+const PORTAL_VIEWS=new Set(['dashboard','bloods','treatments','appointments','support']);
+function toggleMenu(open){ document.getElementById('app').classList.toggle('open', open===undefined?!document.getElementById('app').classList.contains('open'):open); }
+function setActive(v){ document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('on')); const el=document.querySelector('.sb-item[data-nav="'+v+'"]'); if(el)el.classList.add('on'); }
+function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); }
+function nav(v){ show(v); }
+function enterPortal(v){ show(v||'dashboard'); }
+function goLanding(){ show('landing'); }
+function dismissNudge(){ state.nudge=false; document.getElementById('nudgeCard').style.display='none'; }
+// ---------- Quiz ----------
 const STEPS=[
  {no:'Step 1 of 5',sec:'Basic information',sub:'Tell us why you are here and what you would like to improve.',qs:[
    {id:'reason',type:'text',label:'What brings you here today?',req:true,ph:'Describe your main concern in a sentence or two'},
@@ -239,43 +392,41 @@ const STEPS=[
  ]},
 ];
 const answers={}; let step=0;
+function startQuiz(){ quizReturn = PORTAL_VIEWS.has(currentView)?'dashboard':'landing'; step=0; show('quiz'); renderStep(); }
+function exitQuiz(){ show(quizReturn); }
 function renderStep(){
   const s=STEPS[step];
-  const pct=Math.round((step)/(STEPS.length)*100);
-  document.getElementById('prog').style.width=(pct+ (100/STEPS.length)*0.15)+'%';
+  document.getElementById('prog').style.width=((step)/STEPS.length*100 + (100/STEPS.length)*0.12)+'%';
   let h=`<div class="stepno">${s.no}</div><div class="qtitle">${s.sec}</div><div class="qsub">${s.sub}</div>`;
   for(const q of s.qs){
     h+=`<div class="qgroup"><div class="qlabel">${q.label}${q.req?' <span class="req">*</span>':''}</div>`;
     if(q.hint)h+=`<div class="qhint">${q.hint}</div>`;
     if(q.type==='text'){ h+=`<input type="text" id="q-${q.id}" placeholder="${q.ph||''}" value="${answers[q.id]||''}" oninput="answers['${q.id}']=this.value"/>`; }
     else if(q.type==='select'){ h+=`<select id="q-${q.id}" onchange="answers['${q.id}']=this.value"><option value="">Select&hellip;</option>`+q.opts.map(o=>`<option ${answers[q.id]===o?'selected':''}>${o}</option>`).join('')+`</select>`; }
-    else if(q.type==='slider'){ const v=answers[q.id]??q.val; h+=`<div class="slider"><span class="slidernum" id="sn-${q.id}">${v} / ${q.max}</span><input type="range" min="${q.min}" max="${q.max}" value="${v}" oninput="answers['${q.id}']=+this.value;document.getElementById('sn-${q.id}').textContent=this.value+' / ${q.max}'"/></div>`; }
+    else if(q.type==='slider'){ const v=answers[q.id]??q.val; h+=`<div><span class="slidernum" id="sn-${q.id}">${v} / ${q.max}</span><input type="range" min="${q.min}" max="${q.max}" value="${v}" oninput="answers['${q.id}']=+this.value;document.getElementById('sn-${q.id}').textContent=this.value+' / ${q.max}'"/></div>`; }
     else if(q.type==='radio'){ h+=`<div class="opts ${q.two?'two':''}">`+q.opts.map(o=>`<div class="opt ${answers[q.id]===o?'sel':''}" onclick="pick('${q.id}','${o.replace(/'/g,"\\'")}')"><span>${o}</span><span class="rd"></span></div>`).join('')+`</div>`; }
     else if(q.type==='check'){ const arr=answers[q.id]||[]; h+=`<div class="opts ${q.two?'two':''}">`+q.opts.map(o=>`<div class="opt ${arr.includes(o)?'sel':''}" onclick="pickMany('${q.id}','${o.replace(/'/g,"\\'")}')"><span>${o}</span><span class="cb">${arr.includes(o)?'&#10003;':''}</span></div>`).join('')+`</div>`; }
     h+=`</div>`;
   }
-  // live insight
-  if(step===2 && (answers.energy||answers.sleep)){ h+=`<div class="insight"><span>&#9737;</span><div><b>We're noticing a pattern.</b> Low energy and broken sleep often move together, and can be linked to hormonal health. We'll look at this closely.</div></div>`; }
+  if(step===2 && (answers.energy||answers.sleep)){ h+=`<div class="insight"><span>&#9737;</span><div><b>We're noticing a pattern.</b> Low energy and broken sleep often move together, and can be linked to hormonal health.</div></div>`; }
   document.getElementById('qbody').innerHTML=h;
   document.getElementById('qback').style.visibility= step===0?'hidden':'visible';
   document.getElementById('qnext').innerHTML= step===STEPS.length-1?'Generate my results &rarr;':'Continue &rarr;';
   window.scrollTo(0,0);
 }
 function pick(id,val){ answers[id]=val; renderStep(); }
-function pickMany(id,val){ const a=answers[id]||[]; answers[id]= a.includes(val)?a.filter(x=>x!==val):[...a,val]; renderStep(); }
-function startQuiz(){ step=0; go('quiz'); renderStep(); }
+function pickMany(id,val){ const a=answers[id]||[]; answers[id]=a.includes(val)?a.filter(x=>x!==val):[...a,val]; renderStep(); }
 function prevStep(){ if(step>0){step--;renderStep();} }
 function nextStep(){
   const s=STEPS[step];
   for(const q of s.qs){ if(q.req && !(answers[q.id]&&String(answers[q.id]).trim())){ const el=document.getElementById('q-'+q.id); if(el){el.focus();el.style.borderColor='#b23c3c';} return; } }
   if(step<STEPS.length-1){ step++; renderStep(); }
-  else { go('gen'); const msgs=['Mapping your answers to what a clinician would look at.','Checking for anything that needs attention.','Pulling together your personalised report.']; let i=0; const t=setInterval(()=>{document.querySelector('#v-gen .s').textContent=msgs[i%msgs.length];i++;},1200); setTimeout(()=>{clearInterval(t);buildResults();go('results');},3600); }
+  else { show('gen'); const msgs=['Mapping your answers to what a clinician would look at.','Checking for anything that needs attention.','Pulling together your personalised report.']; let i=0; const t=setInterval(()=>{document.querySelector('#v-gen .s').textContent=msgs[i%msgs.length];i++;},1200); setTimeout(()=>{clearInterval(t);buildResults();completeAssessment();show('results');},3600); }
 }
-// ---------- Results (adapts to answers) ----------
+function completeAssessment(){ state.assessmentDone=true; document.getElementById('nudgeCard').style.display='none'; document.getElementById('recoBlock').style.display='block'; const b=document.getElementById('navBadge'); if(b){b.textContent='Done';b.style.background='#3f7a63';b.style.color='#fff';} }
 function buildResults(){
-  const sym=answers.symptoms||[]; const lowEnergy=['Running on empty','Up and down'].includes(answers.energy); const poorSleep=['I wake up wrecked','Patchy'].includes(answers.sleep); const lowLibido=answers.libido==='Yes, lower than before';
-  const goal=answers.goal||'your health';
-  document.getElementById('overview').innerHTML=`Based on what you shared, the areas worth looking at first are <b>${lowEnergy?'energy':'general wellbeing'}${poorSleep?' and sleep quality':''}</b>. ${lowLibido||lowEnergy&&poorSleep?'Together these can point to hormonal health, so a baseline blood panel would be the sensible next step.':'Nothing here needs urgent action.'} A short clinician review would turn this into a clear plan. This summary is educational and is not a diagnosis.`;
+  const lowEnergy=['Running on empty','Up and down'].includes(answers.energy); const poorSleep=['I wake up wrecked','Patchy'].includes(answers.sleep); const lowLibido=answers.libido==='Yes, lower than before';
+  document.getElementById('overview').innerHTML=`Based on what you shared, the areas worth looking at first are <b>${lowEnergy?'energy':'general wellbeing'}${poorSleep?' and sleep quality':''}</b>. ${(lowLibido||(lowEnergy&&poorSleep))?'Together these can point to hormonal health, so a baseline blood panel would be the sensible next step.':'Nothing here needs urgent action.'} A short clinician review would turn this into a clear plan. This summary is educational and is not a diagnosis.`;
   const sys=[
    {t:'Energy & Vitality',warn:lowEnergy,p:lowEnergy?'Persistent low energy through the day, worse in the afternoons. A common, treatable pattern.':'Energy looks steady overall.',why:'From your energy answers.'},
    {t:'Sleep & Recovery',warn:poorSleep,p:poorSleep?'Short or broken sleep. Often the single most useful lever to fix first.':'Sleep looks reasonable.',why:'From your sleep answers.'},
@@ -294,27 +445,24 @@ const SUPPS=[
  {id:'b12',src:'From your blood test',blood:true,n:'Vitamin B12 (methyl)',why:'A common deficiency directly relevant to your energy levels.',dose:'1 lozenge daily',price:14},
 ];
 const basket=new Set(); let sub=true;
-function renderSupps(){ document.getElementById('suppList').innerHTML=SUPPS.map(s=>`<div class="item"><span class="src ${s.blood?'blood':''}">${s.src}</span><div class="n">${s.n}</div><div class="why">${s.why}</div><div class="meta">${s.dose}</div><div class="foot"><span class="price">&pound;${s.price}</span><button class="add ${basket.has(s.id)?'in':''}" id="a-${s.id}" onclick="toggleItem('${s.id}')">${basket.has(s.id)?'Added &#10003;':'Add'}</button></div></div>`).join(''); }
+function renderSupps(){ document.getElementById('suppList').innerHTML=SUPPS.map(s=>`<div class="item"><span class="src ${s.blood?'blood':''}">${s.src}</span><div class="n">${s.n}</div><div class="why">${s.why}</div><div class="meta">${s.dose}</div><div class="foot"><span class="price">£${s.price}</span><button class="add ${basket.has(s.id)?'in':''}" id="a-${s.id}" onclick="toggleItem('${s.id}')">${basket.has(s.id)?'Added &#10003;':'Add'}</button></div></div>`).join(''); }
 function toggleItem(id){ basket.has(id)?basket.delete(id):basket.add(id); sync(); }
-function addAll(){ SUPPS.forEach(s=>basket.add(s.id)); sync(); go('basket'); }
+function addAll(){ SUPPS.forEach(s=>basket.add(s.id)); sync(); nav('basket'); }
 function toggleSub(){ sub=!sub; document.getElementById('subTg').className='tg'+(sub?'':' off'); sync(); }
 function sync(){
   document.getElementById('bc').textContent=basket.size;
   SUPPS.forEach(s=>{const b=document.getElementById('a-'+s.id); if(b){b.className='add '+(basket.has(s.id)?'in':'');b.innerHTML=basket.has(s.id)?'Added &#10003;':'Add';}});
   const items=SUPPS.filter(s=>basket.has(s.id)); const subt=items.reduce((t,s)=>t+s.price,0);
-  document.getElementById('basketRows').innerHTML=items.length?items.map(s=>`<div class="brow"><div><div class="n">${s.n}</div><div class="w">${s.dose}</div></div><div><span class="p">&pound;${s.price}</span><button class="rm" onclick="toggleItem('${s.id}')">remove</button></div></div>`).join(''):'<p style="color:var(--muted);padding:16px 0">Your basket is empty. <a style="color:var(--brand);cursor:pointer" onclick="go(\'supps\')">Add supplements &rarr;</a></p>';
+  document.getElementById('basketRows').innerHTML=items.length?items.map(s=>`<div class="brow"><div><div class="n">${s.n}</div><div class="w">${s.dose}</div></div><div><span class="p">£${s.price}</span><button class="rm" onclick="toggleItem('${s.id}')">remove</button></div></div>`).join(''):'<p style="color:var(--muted);padding:16px 0">Your basket is empty. <a style="color:var(--brand);cursor:pointer" onclick="nav(\'supps\')">Add supplements &rarr;</a></p>';
   const save=sub?Math.round(subt*0.15):0;
-  document.getElementById('subtotal').innerHTML='&pound;'+subt;
-  document.getElementById('saving').innerHTML='-&pound;'+save;
+  document.getElementById('subtotal').textContent='£'+subt;
+  document.getElementById('saving').textContent='-£'+save;
   document.getElementById('savingRow').style.display=sub?'flex':'none';
-  document.getElementById('total').innerHTML='&pound;'+(subt-save);
+  document.getElementById('total').textContent='£'+(subt-save);
   document.getElementById('checkoutBtn').style.opacity=items.length?'1':'.5';
   document.getElementById('checkoutBtn').style.pointerEvents=items.length?'auto':'none';
 }
-function checkout(){ if(basket.size) go('done'); }
-function restart(){ Object.keys(answers).forEach(k=>delete answers[k]); basket.clear(); sub=true; document.getElementById('subTg').className='tg'; sync(); go('landing'); }
-// ---------- Router ----------
-function go(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); window.scrollTo(0,0); }
+function checkout(){ if(basket.size) show('done'); }
 renderSupps(); sync();
 </script>
 </body></html>
