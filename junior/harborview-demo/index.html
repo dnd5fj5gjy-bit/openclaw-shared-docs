@@ -525,13 +525,45 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
       <!-- BLOOD TESTING (access without quiz = nudge not gate) -->
       <div class="view" id="v-bloods"><div class="stub">
         <div class="eyebrow">Blood testing</div><h1 style="font-size:28px;margin:8px 0 6px">Men's health blood panels</h1>
-        <p style="color:var(--muted);max-width:600px">Order directly, no assessment required. Results are held for clinician review before you see them.</p>
+        <p style="color:var(--muted);max-width:600px">Order directly, no assessment required. Every result is AI-reviewed in seconds and approved by a clinician before you see it.</p>
         <div class="stublist">
-          <div class="card"><span class="pill">Most popular</span><h3 style="font-size:19px">TRT Diagnosis Panel</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">Total &amp; Free Testosterone, SHBG, LH, FSH, Prolactin, Thyroid, and a full blood count.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£99</b><button class="btn ghost" onclick="alert('Demo: adds the panel and books your draw.')">Order panel &rarr;</button></div></div>
-          <div class="card"><span class="pill">Quick check</span><h3 style="font-size:19px">Testosterone Check</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">A focused one-off Total &amp; Free Testosterone check to establish a baseline.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£49</b><button class="btn ghost" onclick="alert('Demo: adds the check.')">Order check &rarr;</button></div></div>
+          <div class="card"><span class="pill">Most popular</span><h3 style="font-size:19px">TRT Diagnosis Panel</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">Total &amp; Free Testosterone, SHBG, LH, FSH, Prolactin, Thyroid, and a full blood count.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£99</b><button class="btn ghost" onclick="orderBloods()">Order panel &rarr;</button></div></div>
+          <div class="card"><span class="pill">Quick check</span><h3 style="font-size:19px">Testosterone Check</h3><p style="font-size:14px;color:var(--muted);margin:6px 0 12px">A focused one-off Total &amp; Free Testosterone check to establish a baseline.</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="font-family:Fraunces,serif;font-size:20px">£49</b><button class="btn ghost" onclick="orderBloods()">Order check &rarr;</button></div></div>
         </div>
-        <div class="card" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b>Not sure which to pick?</b><div style="font-size:13.5px;color:var(--muted)">The 10-minute assessment recommends the right panel for you.</div></div><button class="btn" onclick="startQuiz()">Take the assessment &rarr;</button></div>
+        <div class="reco" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b style="color:var(--rev)">See it in action.</b><div style="font-size:13.5px;color:#3a5a4c">Preview how our AI reviews a completed panel and builds your supplement stack automatically.</div></div><button class="btn" onclick="orderBloods()">View a sample AI review &rarr;</button></div>
+        <div class="card" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b>Not sure which to pick?</b><div style="font-size:13.5px;color:var(--muted)">The 10-minute assessment recommends the right panel for you.</div></div><button class="btn ghost" onclick="startQuiz()">Take the assessment &rarr;</button></div>
       </div></div>
+
+      <!-- BLOOD TEST: AI REVIEWING (spinner) -->
+      <div class="view" id="v-bloodgen"><div class="gen"><div class="ring"></div><div class="t">Your results are in. The AI is reviewing them&hellip;</div><div class="s">Reading every biomarker against clinical ranges.</div></div></div>
+
+      <!-- BLOOD TEST: AI REVIEW + AUTO-BUILT SUPPLEMENT STACK -->
+      <div class="view" id="v-bloodreview">
+        <div class="eyebrow">Your blood results</div>
+        <h1 style="font-size:30px;margin:8px 0 6px">Your results, reviewed and explained.</h1>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 4px">
+          <span class="pv-seal" style="display:inline-flex;align-items:center;gap:7px">&#10003; AI-reviewed in 4 seconds</span>
+          <span class="chip good">Clinician-approved</span>
+        </div>
+        <div class="card" style="margin-top:14px"><div id="bloodOverview" style="font-size:15.5px;color:#332f2a"></div></div>
+
+        <!-- EARLY UPSELL: the AI-matched stack surfaced right at the top -->
+        <div id="bloodHeroSupp"></div>
+
+        <div class="grp">Your biomarkers</div>
+        <p class="grpsub">Every marker read against clinical reference ranges. Flagged markers feed straight into your plan.</p>
+        <div class="systems" id="bloodMarkers"></div>
+
+        <div class="grp" id="bloodStackAnchor">Your AI-matched supplement stack</div>
+        <p class="grpsub">Built automatically from the markers that came back low or out of range, then approved by a clinician. No guesswork.</p>
+        <div class="stackbar">
+          <div class="sb-copy"><b>Add your full matched stack</b> — targeted to your exact results, delivered monthly.</div>
+          <div class="sb-act"><span class="sb-save">Subscribe &amp; save 15%</span><button class="btn" onclick="addBloodStack()">Add all to basket &rarr;</button></div>
+        </div>
+        <div class="supp" id="bloodSupps"></div>
+
+        <div class="reco" style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b style="color:var(--rev)">Want a clinician to walk you through it?</b><div style="font-size:13.5px;color:#3a5a4c">Book a 15-minute review to turn these results into a treatment plan.</div></div><button class="btn ghost" onclick="nav('appointments')">Book a review &rarr;</button></div>
+      </div>
 
       <!-- TREATMENTS -->
       <div class="view" id="v-treatments"><div class="stub">
@@ -738,8 +770,8 @@ function clearPreset(){ document.querySelectorAll('.st-preset').forEach(b=>b.cla
 function toggleStudio(open){ const o=open===undefined?!document.getElementById('studio').classList.contains('on'):open; document.getElementById('studio').classList.toggle('on',o); document.getElementById('studioBackdrop').classList.toggle('on',o); }
 function copyConfig(){ const cfg=JSON.stringify(CLINIC,null,2); const note=document.getElementById('stCopyNote'); const done=()=>{note.textContent='Brand config copied – this is what the clinic saves.'; setTimeout(()=>note.textContent='',3000);}; try{ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(cfg).then(done,done);}else{done();} }catch(e){done();} }
 function updateCustBtn(){ const b=document.getElementById('custBtn'); if(b)b.classList.toggle('on',currentView==='landing'); }
-const TITLES={landing:'',dashboard:'Home',bloods:'Blood Testing',treatments:'Treatments',appointments:'Appointments',support:'Support',quiz:'Health Assessment',gen:'Health Assessment',results:'Your Results',supps:'Supplements',basket:'Basket',done:'Order confirmed'};
-const PORTAL_VIEWS=new Set(['dashboard','bloods','treatments','appointments','support']);
+const TITLES={landing:'',dashboard:'Home',bloods:'Blood Testing',bloodgen:'Blood Testing',bloodreview:'Your Blood Results',treatments:'Treatments',appointments:'Appointments',support:'Support',quiz:'Health Assessment',gen:'Health Assessment',results:'Your Results',supps:'Supplements',basket:'Basket',done:'Order confirmed'};
+const PORTAL_VIEWS=new Set(['dashboard','bloods','bloodgen','bloodreview','treatments','appointments','support']);
 function toggleMenu(open){ document.getElementById('app').classList.toggle('open', open===undefined?!document.getElementById('app').classList.contains('open'):open); }
 function setActive(v){ document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('on')); const el=document.querySelector('.sb-item[data-nav="'+v+'"]'); if(el)el.classList.add('on'); }
 function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); document.getElementById('app').classList.toggle('onland', v==='landing'); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); updateSticky(); updateCustBtn(); }
@@ -854,7 +886,7 @@ function updateSticky(){
   const el=document.getElementById('stickyBuy'); if(!el)return;
   const items=SUPPS.filter(s=>basket.has(s.id)); const subt=items.reduce((t,s)=>t+s.price,0);
   const save=sub?Math.round(subt*0.15):0; const tot=subt-save;
-  const showIt=items.length>0 && !['basket','done','landing','gen','quiz'].includes(currentView);
+  const showIt=items.length>0 && !['basket','done','landing','gen','quiz','bloodgen'].includes(currentView);
   el.classList.toggle('on',showIt);
   document.getElementById('sbInfo').innerHTML=`<b>${items.length} in your basket</b> &middot; &pound;${tot}/mo${save?` &middot; <span style="color:#8fd3b6">save &pound;${save}</span>`:''}`;
 }
@@ -866,6 +898,7 @@ const SUPPS=[
  {id:'ashwa',src:'From your quiz',blood:false,n:'Ashwagandha KSM-66',why:'Helps manage stress and cortisol, and supports healthy testosterone.',dose:'1 capsule daily',price:20},
  {id:'zinc',src:'From your blood test',blood:true,n:'Zinc Picolinate',why:'Often low-normal on bloods. Zinc supports testosterone and immunity.',dose:'1 capsule daily',price:12},
  {id:'b12',src:'From your blood test',blood:true,n:'Vitamin B12 (methyl)',why:'A common deficiency directly relevant to your energy levels.',dose:'1 lozenge daily',price:14},
+ {id:'iron',src:'From your blood test',blood:true,n:'Gentle Iron + Vitamin C',why:'Your ferritin came back low-normal. Iron supports energy and oxygen delivery, with vitamin C to aid absorption.',dose:'1 capsule daily',price:15},
 ];
 const basket=new Set(); let sub=true;
 function suppCard(s){ const inb=basket.has(s.id); return `<div class="item"><span class="src ${s.blood?'blood':''}">${s.src}</span><div class="n">${s.n}</div><div class="why">${s.why}</div><div class="meta">${s.dose}</div><div class="foot"><span class="price">£${s.price}</span><button class="add ${inb?'in':''}" data-add="${s.id}" onclick="toggleItem('${s.id}')">${inb?'Added &#10003;':'Add'}</button></div></div>`; }
@@ -890,6 +923,45 @@ function sync(){
   updateSticky();
 }
 function checkout(){ if(basket.size) show('done'); }
+// ---------- Blood test AI review ----------
+const BLOODS=[
+ {k:'Total Testosterone',v:'11.2 nmol/L',ref:'12.0–30.0',status:'low',supp:['zinc','ashwa'],note:'On the low side of range. A key driver of energy, drive, mood and muscle.'},
+ {k:'Vitamin D',v:'38 nmol/L',ref:'50–125',status:'low',supp:['d3'],note:'Below optimal. Very common in UK men and closely linked to low energy and mood.'},
+ {k:'Ferritin (iron stores)',v:'42 µg/L',ref:'50–400',status:'low',supp:['iron'],note:'Low-normal. Can quietly contribute to fatigue and poor recovery.'},
+ {k:'Vitamin B12',v:'285 ng/L',ref:'300–900',status:'low',supp:['b12'],note:'Just under range. Directly relevant to your energy and focus.'},
+ {k:'Cholesterol (LDL)',v:'3.6 mmol/L',ref:'<3.0',status:'high',supp:['omega'],note:'Slightly raised. Worth supporting with omega-3 and simple lifestyle changes.'},
+ {k:'HbA1c (blood sugar)',v:'34 mmol/mol',ref:'<42',status:'optimal',supp:[],note:'Healthy. No sign of insulin resistance.'},
+ {k:'Thyroid (TSH)',v:'2.1 mIU/L',ref:'0.4–4.0',status:'optimal',supp:[],note:'Normal thyroid function.'},
+ {k:'SHBG',v:'46 nmol/L',ref:'18–54',status:'optimal',supp:[],note:'Within range, so your free testosterone looks reasonable.'},
+];
+function bloodStackIds(){ const ids=[]; BLOODS.forEach(m=>{ if(m.status!=='optimal') m.supp.forEach(id=>{ if(!ids.includes(id)) ids.push(id); }); }); return ids; }
+function orderBloods(){ show('bloodgen'); const msgs=['Reading every biomarker against clinical ranges.','Flagging anything low or out of range.','Matching a supplement stack to your results.']; let i=0; const t=setInterval(()=>{const el=document.querySelector('#v-bloodgen .s'); if(el)el.textContent=msgs[i%msgs.length]; i++;},1100); setTimeout(()=>{clearInterval(t); buildBloodReview(); show('bloodreview');},3600); }
+function buildBloodReview(){
+  const flagged=BLOODS.filter(m=>m.status!=='optimal');
+  document.getElementById('bloodOverview').innerHTML=`Good news first: your blood sugar, thyroid and SHBG all came back healthy. The AI flagged <b>${flagged.length} markers worth acting on</b> — your testosterone, vitamin D, iron stores and B12 are all a little low, and your LDL cholesterol is slightly raised. Together these line up neatly with low energy and drive, and they are very treatable. Your clinician has reviewed and approved this summary. It is educational and not a diagnosis.`;
+  document.getElementById('bloodMarkers').innerHTML=BLOODS.map(m=>{ const warn=m.status!=='optimal'; const lab=m.status==='low'?'Low':m.status==='high'?'Raised':'Optimal';
+    return `<div class="sys"><div class="h"><span class="t" style="font-size:16px">${m.k}</span><span class="chip ${warn?'warn':'good'}">${lab}</span></div><div style="display:flex;align-items:baseline;gap:10px;margin-top:8px"><span style="font-family:Fraunces,serif;font-size:22px;color:var(--ink)">${m.v}</span><span style="font-size:12.5px;color:var(--muted)">Ref ${m.ref}</span></div><p style="margin-top:7px">${m.note}</p></div>`; }).join('');
+  // AI-matched stack, surfaced early as the hero upsell
+  const ids=bloodStackIds(); const s=SUPPS.find(x=>x.id===ids[0])||SUPPS[0]; const inb=basket.has(s.id);
+  document.getElementById('bloodHeroSupp').innerHTML=`<div class="hero-supp"><div class="inner">
+      <div class="hs-tag"><span>&#9737;</span> The AI built your stack from these results</div>
+      <div class="hs-body">
+        <div class="hs-info">
+          <div class="hs-name">${ids.length}-part stack, matched to your bloods</div>
+          <div class="hs-why">Because your vitamin D, iron, B12 and testosterone came back low, the AI has assembled a targeted, clinician-approved stack to bring them back into range. Start it today and re-test in 90 days.</div>
+          <div class="hs-meta">Clinician-approved &middot; Subscribe &amp; save 15% &middot; Pause or cancel anytime</div>
+        </div>
+        <div class="hs-buy">
+          <div class="hs-price"><b>&pound;${ids.reduce((t,id)=>t+(SUPPS.find(x=>x.id===id)?.price||0),0)}</b><span>/month</span></div>
+          <button class="btn gold" onclick="addBloodStack()">Add my stack &rarr;</button>
+          <a class="hs-link" onclick="document.getElementById('bloodStackAnchor').scrollIntoView({behavior:'smooth'})">See what's in it &rarr;</a>
+        </div>
+      </div>
+    </div></div>`;
+  document.getElementById('bloodSupps').innerHTML=ids.map(id=>SUPPS.find(s=>s.id===id)).filter(Boolean).map(suppCard).join('');
+  sync();
+}
+function addBloodStack(){ bloodStackIds().forEach(id=>basket.add(id)); sync(); }
 renderSupps(); sync();
 buildPresetBtns(); applyClinic(); markPreset('harborview'); updateCustBtn();
 </script>
