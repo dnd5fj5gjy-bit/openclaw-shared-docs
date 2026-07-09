@@ -24,7 +24,7 @@ h1,h2,h3{font-family:Fraunces,serif;font-weight:500;letter-spacing:-.01em}
 .sb-item .i{width:19px;text-align:center;flex:none;opacity:.9}
 .sb-item .badge{margin-left:auto;font-size:10px;font-weight:600;background:var(--gold);color:#20201c;border-radius:999px;padding:2px 7px;letter-spacing:.03em}
 .sb-user{margin-top:auto;display:flex;align-items:center;gap:11px;padding:16px 22px;border-top:1px solid rgba(255,255,255,.08)}
-.sb-user .av{width:34px;height:34px;border-radius:50%;background:#1e5561;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
+.sb-user .av{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
 .sb-user .nm{font-size:13.5px;color:#fff;font-weight:600}.sb-user .em{font-size:11px;color:#8fb2ba}
 .main{flex:1;min-width:0;margin-left:var(--sb);transition:margin-left .28s ease}
 /* Sidebar only shows in portal views; public (landing/quiz/results) is warm, full-width */
@@ -55,7 +55,7 @@ h1,h2,h3{font-family:Fraunces,serif;font-weight:500;letter-spacing:-.01em}
 .grp{margin:32px 0 8px;font-size:22px}
 /* dashboard */
 .dh h1{font-size:30px;margin-bottom:4px}.dh p.s{color:var(--muted);font-size:16px}
-.nudge{background:linear-gradient(120deg,#0f4c5c,#0b3a46);color:#eaf3f5;border-radius:18px;padding:26px 28px;margin-top:22px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.nudge{background:linear-gradient(120deg,var(--brand),var(--brand-d));color:#eaf3f5;border-radius:18px;padding:26px 28px;margin-top:22px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .nudge .t{font-family:Fraunces,serif;font-size:23px;color:#fff;font-weight:500}
 .nudge p{font-size:14.5px;color:#c9dde2;margin-top:6px;max-width:520px}
 .nudge .btn{background:#fff;color:var(--brand)}.nudge .btn:hover{background:#eef6f7}
@@ -184,7 +184,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
 /* landing header */
 .lhead{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:24px 40px}
 .brandmark{display:flex;align-items:center;gap:12px;cursor:pointer}
-.brandmark .m{width:40px;height:40px;border-radius:50%;background:radial-gradient(120% 120% at 30% 25%,#1a6675,#0c3b47);border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:600;font-size:18px;color:#fff;flex:none}
+.brandmark .m{width:40px;height:40px;border-radius:50%;background:radial-gradient(120% 120% at 30% 25%,var(--brand),var(--brand-d));border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:600;font-size:18px;color:#fff;flex:none}
 .brandmark b{color:#fff;font-family:Fraunces,serif;font-weight:500;font-size:18px;line-height:1;letter-spacing:.005em}
 .brandmark small{display:block;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin-top:4px}
 .lnav{display:flex;align-items:center;gap:28px}
@@ -238,7 +238,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
 .cc.reco{border-color:#d9e7ea}.cc.reco::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
 .cc:hover{transform:translateY(-5px);box-shadow:0 30px 60px -28px rgba(15,76,92,.42)}
 .cc .ic{width:50px;height:50px;border-radius:14px;font-size:23px;margin-bottom:16px}
-.cc.reco .ic{background:linear-gradient(160deg,#125363,#0c3b47);color:#fff}
+.cc.reco .ic{background:linear-gradient(160deg,var(--brand),var(--brand-d));color:#fff}
 .cc .tag{margin-bottom:14px}.cc h3{font-size:22px;margin-bottom:8px}.cc p{font-size:14.5px;line-height:1.55}
 .cc .go{font-size:14.5px;gap:7px}
 /* how it works */
@@ -314,6 +314,38 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
   .hs-price{align-self:flex-start}
   .sticky-buy{padding:11px 16px;gap:12px}.sticky-buy .sb-l{font-size:12.5px}.sticky-buy .btn{padding:11px 16px;font-size:14px;white-space:nowrap}
 }
+/* ==================== BRANDING STUDIO ==================== */
+.cust-btn{position:fixed;bottom:22px;right:22px;z-index:75;display:none;align-items:center;gap:9px;background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:12px 20px;font-size:14px;font-weight:600;box-shadow:0 14px 34px -12px rgba(0,0,0,.5)}
+.cust-btn span{color:var(--gold2);font-size:15px}
+.cust-btn.on{display:inline-flex}
+.cust-btn:hover{filter:brightness(1.12)}
+.studio-backdrop{display:none;position:fixed;inset:0;background:rgba(10,25,29,.5);backdrop-filter:blur(2px);z-index:90}
+.studio-backdrop.on{display:block}
+.studio{position:fixed;top:0;right:0;bottom:0;width:390px;max-width:92vw;background:var(--ground);z-index:95;box-shadow:-24px 0 60px -30px rgba(0,0,0,.5);transform:translateX(100%);transition:transform .3s cubic-bezier(.22,1,.36,1);overflow-y:auto;padding:22px 24px 40px}
+.studio.on{transform:none}
+.st-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.st-head b{font-family:Fraunces,serif;font-weight:500;font-size:22px;color:var(--ink);letter-spacing:-.01em}
+.st-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
+.st-x{background:none;border:none;font-size:26px;line-height:1;color:var(--muted)}
+.st-intro{font-size:13px;color:var(--muted);line-height:1.5;margin:6px 0 20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.st-block{margin-bottom:16px}
+.st-block label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:7px}
+.st-hint{font-size:11px;color:var(--muted);margin:8px 0 6px}
+.studio input[type=text],.studio input:not([type]),.studio textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+.studio textarea{resize:vertical;line-height:1.45}
+.studio input:focus,.studio textarea:focus{outline:none;border-color:var(--brand)}
+.st-presets{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.st-preset{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font-size:13px;font-weight:600;color:var(--ink);text-align:left}
+.st-preset .sw{width:22px;height:22px;border-radius:6px;flex:none;border:1px solid rgba(0,0,0,.08)}
+.st-preset.on{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+.st-colors{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.st-cwrap{display:flex;align-items:center;gap:10px}
+.st-cwrap input[type=color]{width:44px;height:38px;padding:0;border:1px solid var(--line);border-radius:9px;background:#fff;cursor:pointer}
+.st-cwrap span{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;text-transform:uppercase}
+.st-actions{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.st-reset{background:none;border:none;color:var(--muted);font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer}
+.st-note{font-size:12px;color:var(--good);margin-top:12px;min-height:16px}
+@media(max-width:620px){ .cust-btn{bottom:16px;right:16px;padding:11px 16px;font-size:13px} }
 </style></head><body>
 <div class="app onland" id="app">
   <div class="backdrop" onclick="toggleMenu(false)"></div>
@@ -360,18 +392,14 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
           </header>
           <div class="lwrap">
             <div class="hero-copy">
-              <span class="eyebrow">Private men's health, done properly</span>
-              <h1>Feel like <em>yourself</em> again.</h1>
-              <p class="lead">Energy, sleep, focus, drive. A clinician-led assessment that reads your health and turns it into a clear, personal plan, not another PDF.</p>
+              <span class="eyebrow" id="heroEyebrow">Private men's health, done properly</span>
+              <h1 id="heroHeadline">Feel like <em>yourself</em> again.</h1>
+              <p class="lead" id="heroLead">Energy, sleep, focus, drive. A clinician-led assessment that reads your health and turns it into a clear, personal plan, not another PDF.</p>
               <div class="cta">
-                <button class="btn gold big" onclick="startQuiz()">Start your free health check &rarr;</button>
+                <button class="btn gold big" id="heroCta" onclick="startQuiz()">Start your free health check &rarr;</button>
                 <button class="btn lite" onclick="enterPortal('bloods')">Browse blood tests</button>
               </div>
-              <div class="trust">
-                <span><span class="k">&#9670;</span> Clinician-led care</span>
-                <span><span class="k">&#9670;</span> Private &amp; discreet</span>
-                <span><span class="k">&#9670;</span> Results in days</span>
-              </div>
+              <div class="trust" id="heroTrust"></div>
             </div>
             <div class="hero-visual">
               <div class="preview">
@@ -380,7 +408,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
                 <div class="pv-row"><div class="l"><span class="d warn"></span> Energy &amp; Vitality</div><span class="s warn">Needs attention</span></div>
                 <div class="pv-row"><div class="l"><span class="d good"></span> Sleep &amp; Recovery</div><span class="s good">On track</span></div>
                 <div class="pv-row"><div class="l"><span class="d warn"></span> Hormonal Health</div><span class="s warn">Review advised</span></div>
-                <div class="pv-foot"><span class="av">AR</span><div><div class="nm">Reviewed by Dr. Alanna Reid</div><div class="rl">Medical Director, Harborview</div></div></div>
+                <div class="pv-foot"><span class="av" id="pvAv">AR</span><div><div class="nm" id="pvDirector">Reviewed by Dr. Alanna Reid</div><div class="rl" id="pvClinic">Medical Director, Harborview</div></div></div>
                 <div class="float"><div class="n">10 min</div><div class="t">to your plan</div></div>
               </div>
             </div>
@@ -427,22 +455,13 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
 
         <!-- CREDIBILITY BAND -->
         <section class="band grain">
-          <div class="lwrap">
-            <div class="bstat"><div class="n">30,000+</div><div class="l">Men supported</div></div>
-            <div class="bstat"><div class="n">4.9&#9733;</div><div class="l">Average patient rating</div></div>
-            <div class="bstat"><div class="n">72 hrs</div><div class="l">Typical time to results</div></div>
-            <div class="bstat"><div class="n">100%</div><div class="l">Clinician-reviewed</div></div>
-          </div>
+          <div class="lwrap" id="statBand"></div>
         </section>
 
         <!-- FEATURES -->
         <section class="sec">
-          <div class="sec-head"><span class="eyebrow">Why Harborview</span><h2>Care that actually goes somewhere.</h2></div>
-          <div class="landfeat">
-            <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review and a supplement stack matched to you.</p></div>
-            <div class="lf"><div class="ic">&#9878;</div><h3>Order directly, anytime</h3><p>Know what you need? Buy a blood panel or explore treatments straight away, no assessment required.</p></div>
-            <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
-          </div>
+          <div class="sec-head"><span class="eyebrow" id="featEyebrow">Why Harborview</span><h2>Care that actually goes somewhere.</h2></div>
+          <div class="landfeat" id="featGrid"></div>
         </section>
 
         <!-- CLOSING CTA -->
@@ -451,7 +470,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
             <span class="eyebrow">Start today</span>
             <h2>Your 10-minute head start on feeling better.</h2>
             <p>Private, clinician-led and built around you. No account needed to begin.</p>
-            <button class="btn gold big" onclick="startQuiz()">Take the free health check &rarr;</button>
+            <button class="btn gold big" id="closeCta" onclick="startQuiz()">Take the free health check &rarr;</button>
           </div>
         </section>
 
@@ -460,7 +479,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
           <div class="lwrap">
             <div>
               <div class="brandmark"><span class="m">H</span><div><b>Harborview</b><small>Men's Health</small></div></div>
-              <p class="about">Private, clinician-led men's health. Assessments, blood testing, treatment and ongoing care, all in one place.</p>
+              <p class="about" id="footAbout">Private, clinician-led men's health. Assessments, blood testing, treatment and ongoing care, all in one place.</p>
             </div>
             <div class="cols">
               <div class="col"><h5>Care</h5><a onclick="startQuiz()">Health check</a><a onclick="enterPortal('bloods')">Blood testing</a><a onclick="enterPortal('treatments')">Treatments</a><a onclick="enterPortal('appointments')">Appointments</a></div>
@@ -625,7 +644,7 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
       </div></div>
 
     </div>
-    <div class="demobar">Demo · Harborview Men's Health on the Ted's Health white-label platform · the assessment is an optional nudge, not a gate · no data stored</div>
+    <div class="demobar" id="demoBar">Demo · Harborview Men's Health on the Ted's Health white-label platform · the assessment is an optional nudge, not a gate · no data stored</div>
   </div>
 </div>
 
@@ -635,41 +654,123 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
   <button class="btn gold" onclick="nav('basket')">View basket &amp; checkout &rarr;</button>
 </div>
 
+<!-- WHITE-LABEL BRANDING STUDIO (clinic customisation) -->
+<button class="cust-btn" id="custBtn" onclick="toggleStudio(true)"><span>&#9998;</span> Customise this page</button>
+<div class="studio-backdrop" id="studioBackdrop" onclick="toggleStudio(false)"></div>
+<aside class="studio" id="studio">
+  <div class="st-head">
+    <div><b>Branding Studio</b><div class="st-tag">White-label controls</div></div>
+    <button class="st-x" onclick="toggleStudio(false)">&times;</button>
+  </div>
+  <p class="st-intro">This is what the clinic controls. Every change updates the whole site, landing and patient portal, live.</p>
+
+  <div class="st-block"><label>Start from a preset</label>
+    <div class="st-presets" id="stPresets"></div>
+  </div>
+  <div class="st-block"><label>Clinic name</label><input id="st-name" oninput="setField('name',this.value)"></div>
+  <div class="st-block"><label>Tagline</label><input id="st-suffix" oninput="setField('suffix',this.value)"></div>
+  <div class="st-block"><label>Hero headline</label><input id="st-headline" oninput="setField('htext',this.value)">
+    <div class="st-hint">Emphasised word</div><input id="st-em" oninput="setField('em',this.value)"></div>
+  <div class="st-block"><label>Hero subtext</label><textarea id="st-lead" rows="3" oninput="setField('lead',this.value)"></textarea></div>
+  <div class="st-block"><label>Primary call to action</label><input id="st-cta" oninput="setField('cta',this.value)"></div>
+  <div class="st-colors">
+    <div class="st-block"><label>Primary colour</label><div class="st-cwrap"><input type="color" id="st-brand" oninput="setColor('brand',this.value)"><span id="st-brandhex"></span></div></div>
+    <div class="st-block"><label>Accent colour</label><div class="st-cwrap"><input type="color" id="st-gold" oninput="setColor('gold',this.value)"><span id="st-goldhex"></span></div></div>
+  </div>
+  <div class="st-actions">
+    <button class="btn" onclick="copyConfig()">Copy brand config</button>
+    <button class="st-reset" onclick="loadPreset('harborview')">Reset</button>
+  </div>
+  <div class="st-note" id="stCopyNote"></div>
+</aside>
+
 <script>
 const state={assessmentDone:false,nudge:true}; let currentView='landing'; let quizReturn='landing'; let featuredId='mag';
+/* ---------- White-label clinic config ---------- */
+const PRESETS={
+ harborview:{name:'Harborview',suffix:"Men's Health",initial:'H',eyebrow:"Private men's health, done properly",htext:'Feel like yourself again.',em:'yourself',lead:'Energy, sleep, focus, drive. A clinician-led assessment that reads your health and turns it into a clear, personal plan, not another PDF.',cta:'Start your free health check',director:'Dr. Alanna Reid',trust:['Clinician-led care','Private & discreet','Results in days'],stats:[['30,000+','Men supported'],['4.9★','Average patient rating'],['72 hrs','Typical time to results'],['100%','Clinician-reviewed']],features:[['⚑','A plan, not a PDF','Clear next steps, a recommended blood panel, a clinician review and a supplement stack matched to you.'],['⚖','Order directly, anytime','Know what you need? Buy a blood panel or explore treatments straight away, no assessment required.'],['♥','Real clinicians, real care','Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.']],about:"Private, clinician-led men's health. Assessments, blood testing, treatment and ongoing care, all in one place.",colors:{brand:'#0f4c5c',gold:'#b4712e'}},
+ vantage:{name:'Vantage',suffix:"Men's Clinic",initial:'V',eyebrow:'Modern men’s health, privately',htext:'Take back your edge.',em:'edge',lead:'Energy, drive, sharpness and strength. A private, doctor-led programme that finds what is holding you back and builds the plan to fix it.',cta:'Take the 2-minute check',director:'Dr. Marcus Hale',trust:['Doctor-led','Fully confidential','Fast results'],stats:[['18,500+','Members'],['4.8★','Member rating'],['48 hrs','To your results'],['GMC','Registered doctors']],features:[['⚑','Built around you','A tailored plan from your results, not a generic template.'],['⚖','Direct access','Order tests and treatment the moment you are ready.'],['♥','Doctors on hand','Real clinicians review everything, with escalation when it matters.']],about:'Private, doctor-led men’s health. Testing, treatment and performance, handled discreetly.',colors:{brand:'#6d2436',gold:'#b17a2f'}},
+ meridian:{name:'Meridian',suffix:'Health',initial:'M',eyebrow:'Precision health for men',htext:'Health, handled.',em:'handled',lead:'A data-driven health review that turns your bloods and symptoms into a clear, prioritised plan, reviewed by clinicians.',cta:'Start your health review',director:'Dr. Priya Nair',trust:['Clinician-reviewed','Private & secure','Results in days'],stats:[['42,000+','Patients'],['4.9★','Patient rating'],['60 hrs','To results'],['100%','Reviewed']],features:[['⚑','Clarity, fast','Your priorities ranked, in plain language.'],['⚖','Everything connected','Tests, treatment and tracking in one portal.'],['♥','Human-checked','Clinicians review every plan before you see it.']],about:'Precision men’s health. Diagnostics, treatment and monitoring in one connected portal.',colors:{brand:'#1f3a5f',gold:'#c08a3e'}},
+ apex:{name:'Apex',suffix:'Wellness',initial:'A',eyebrow:'Peak health, on your terms',htext:'Perform at your best.',em:'best',lead:'Sleep, energy, recovery and hormones. A clinician-led assessment that shows you exactly where to focus, and how to start today.',cta:'Get your free assessment',director:'Dr. Owen Clarke',trust:['Clinician-led','Discreet','Rapid results'],stats:[['25,000+','Men coached'],['4.9★','Rating'],['72 hrs','To results'],['100%','Clinician-reviewed']],features:[['⚑','A real plan','Personalised next steps, not another PDF.'],['⚖','Order anytime','Bloods and treatment on demand.'],['♥','Expert care','Every result reviewed by our medical team.']],about:'Clinician-led men’s wellness. Assessments, testing and treatment to help you perform at your best.',colors:{brand:'#27493a',gold:'#c39a3b'}},
+};
+let CLINIC=JSON.parse(JSON.stringify(PRESETS.harborview));
+function shade(hex,p){ hex=hex.replace('#',''); if(hex.length===3)hex=hex.split('').map(c=>c+c).join(''); const n=parseInt(hex,16); let r=n>>16&255,g=n>>8&255,b=n&255; const f=x=>Math.max(0,Math.min(255,Math.round(p<0?x*(1+p):x+(255-x)*p))); r=f(r);g=f(g);b=f(b); return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+function initials(name){ const p=(name||'').trim().split(/\s+/); return (((p[0]||'')[0]||'')+((p[1]||'')[0]||'')).toUpperCase()||(name||'?').slice(0,1).toUpperCase(); }
+function applyTheme(){ const c=CLINIC.colors,s=document.documentElement.style;
+  s.setProperty('--brand',c.brand); s.setProperty('--brand-d',shade(c.brand,-0.28)); s.setProperty('--brand-soft',shade(c.brand,0.85));
+  s.setProperty('--gold',c.gold); s.setProperty('--gold2',shade(c.gold,0.2)); s.setProperty('--warn',c.gold);
+  s.setProperty('--hero1',shade(c.brand,-0.12)); s.setProperty('--hero2',shade(c.brand,-0.55));
+  s.setProperty('--nav',shade(c.brand,-0.2)); s.setProperty('--nav-2',shade(c.brand,-0.45)); }
+function setTxt(id,v){ const e=document.getElementById(id); if(e)e.textContent=v; }
+function applyClinic(){
+  applyTheme();
+  const full=CLINIC.name,sfx=CLINIC.suffix,init=CLINIC.initial||initials(full);
+  document.querySelectorAll('.brandmark').forEach(bm=>{ bm.querySelector('.m').textContent=init; bm.querySelector('b').textContent=full; bm.querySelector('small').textContent=sfx; });
+  const sl=document.querySelector('.sb-logo'); if(sl){ sl.querySelector('.d').textContent=init; sl.querySelector('b').textContent=full; sl.querySelector('small').textContent=sfx; }
+  const sue=document.querySelector('.sb-user .em'); if(sue)sue.textContent='Patient · '+full;
+  setTxt('heroEyebrow',CLINIC.eyebrow);
+  const h=document.getElementById('heroHeadline'); if(h){ const t=CLINIC.htext||''; h.innerHTML=(CLINIC.em&&t.includes(CLINIC.em))?t.replace(CLINIC.em,`<em>${CLINIC.em}</em>`):t; }
+  setTxt('heroLead',CLINIC.lead);
+  const hc=document.getElementById('heroCta'); if(hc)hc.innerHTML=CLINIC.cta+' &rarr;';
+  const cc=document.getElementById('closeCta'); if(cc)cc.innerHTML=CLINIC.cta+' &rarr;';
+  document.getElementById('heroTrust').innerHTML=(CLINIC.trust||[]).map(t=>`<span><span class="k">&#9670;</span> ${t}</span>`).join('');
+  document.getElementById('statBand').innerHTML=(CLINIC.stats||[]).map(x=>`<div class="bstat"><div class="n">${x[0]}</div><div class="l">${x[1]}</div></div>`).join('');
+  document.getElementById('featGrid').innerHTML=(CLINIC.features||[]).map(x=>`<div class="lf"><div class="ic">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('');
+  setTxt('featEyebrow','Why '+full);
+  setTxt('pvDirector','Reviewed by '+CLINIC.director);
+  setTxt('pvClinic','Medical Director, '+full);
+  setTxt('pvAv',initials(CLINIC.director.replace(/^Dr\.?\s*/i,'')));
+  setTxt('footAbout',CLINIC.about);
+  setTxt('demoBar','Demo · '+full+' '+sfx+' on the Ted’s Health white-label platform · fully customisable by the clinic · no data stored');
+  document.title=full+' '+sfx+' — Patient Portal';
+  const hs=document.getElementById('heroSupp'); if(hs&&hs.innerHTML.trim())renderFeatured();
+  syncStudio();
+}
+function loadPreset(k){ CLINIC=JSON.parse(JSON.stringify(PRESETS[k])); applyClinic(); markPreset(k); }
+function setField(f,v){ if(f==='name'){CLINIC.name=v;CLINIC.initial=initials(v||'?');} else CLINIC[f]=v; applyClinic(); clearPreset(); }
+function setColor(k,v){ CLINIC.colors[k]=v; applyClinic(); clearPreset(); }
+function syncStudio(){ const g=(id,v)=>{const e=document.getElementById(id); if(e&&document.activeElement!==e&&e.value!==v)e.value=v;};
+  g('st-name',CLINIC.name); g('st-suffix',CLINIC.suffix); g('st-headline',CLINIC.htext); g('st-em',CLINIC.em||''); g('st-lead',CLINIC.lead); g('st-cta',CLINIC.cta); g('st-brand',CLINIC.colors.brand); g('st-gold',CLINIC.colors.gold);
+  setTxt('st-brandhex',CLINIC.colors.brand); setTxt('st-goldhex',CLINIC.colors.gold); }
+function buildPresetBtns(){ document.getElementById('stPresets').innerHTML=Object.entries(PRESETS).map(([k,p])=>`<button class="st-preset" data-preset="${k}" onclick="loadPreset('${k}')"><span class="sw" style="background:${p.colors.brand}"></span>${p.name}</button>`).join(''); }
+function markPreset(k){ document.querySelectorAll('.st-preset').forEach(b=>b.classList.toggle('on',b.dataset.preset===k)); }
+function clearPreset(){ document.querySelectorAll('.st-preset').forEach(b=>b.classList.remove('on')); }
+function toggleStudio(open){ const o=open===undefined?!document.getElementById('studio').classList.contains('on'):open; document.getElementById('studio').classList.toggle('on',o); document.getElementById('studioBackdrop').classList.toggle('on',o); }
+function copyConfig(){ const cfg=JSON.stringify(CLINIC,null,2); const note=document.getElementById('stCopyNote'); const done=()=>{note.textContent='Brand config copied – this is what the clinic saves.'; setTimeout(()=>note.textContent='',3000);}; try{ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(cfg).then(done,done);}else{done();} }catch(e){done();} }
+function updateCustBtn(){ const b=document.getElementById('custBtn'); if(b)b.classList.toggle('on',currentView==='landing'); }
 const TITLES={landing:'',dashboard:'Home',bloods:'Blood Testing',treatments:'Treatments',appointments:'Appointments',support:'Support',quiz:'Health Assessment',gen:'Health Assessment',results:'Your Results',supps:'Supplements',basket:'Basket',done:'Order confirmed'};
 const PORTAL_VIEWS=new Set(['dashboard','bloods','treatments','appointments','support']);
 function toggleMenu(open){ document.getElementById('app').classList.toggle('open', open===undefined?!document.getElementById('app').classList.contains('open'):open); }
 function setActive(v){ document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('on')); const el=document.querySelector('.sb-item[data-nav="'+v+'"]'); if(el)el.classList.add('on'); }
-function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); document.getElementById('app').classList.toggle('onland', v==='landing'); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); updateSticky(); }
+function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); document.getElementById('app').classList.toggle('onland', v==='landing'); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); updateSticky(); updateCustBtn(); }
 function nav(v){ show(v); }
 function enterPortal(v){ show(v||'dashboard'); }
 function goLanding(){ show('landing'); }
 function dismissNudge(){ state.nudge=false; document.getElementById('nudgeCard').style.display='none'; }
 // ---------- Quiz ----------
 const STEPS=[
- {no:'Step 1 of 5',sec:'Basic information',sub:'Tell us why you are here and what you would like to improve.',qs:[
-   {id:'reason',type:'text',label:'What brings you here today?',req:true,ph:'Describe your main concern in a sentence or two'},
-   {id:'goal',type:'radio',label:'Primary health goal',hint:'Choose the goal that best matches your visit.',two:true,opts:['Energy & Sleep','Weight Management','Hormone Balance','General Wellness']},
-   {id:'duration',type:'select',label:'How long has this been affecting you?',opts:['Less than a month','1 to 3 months','3 to 6 months','More than 6 months']},
+ {sec:'Where to start',sub:'A couple of quick taps to point us in the right direction. No typing needed.',qs:[
+   {id:'goal',type:'radio',label:'What would you most like to improve?',hint:'Pick the one that matters most right now.',two:true,opts:['Energy & fatigue','Sleep','Libido & drive','Focus & mood','Weight','Overall health']},
+   {id:'duration',type:'radio',label:'How long has this been on your mind?',two:true,opts:['Less than a month','1 to 3 months','3 to 6 months','More than 6 months']},
  ]},
- {no:'Step 2 of 5',sec:'Energy & Sleep',sub:'The areas that most often move together.',qs:[
+ {sec:'Energy & Sleep',sub:'The areas that most often move together. Just tap what fits.',qs:[
    {id:'energy',type:'radio',label:'How has your energy been?',hint:'Think about a typical afternoon this past week.',opts:['Running on empty','Up and down','Pretty steady','Genuinely good']},
    {id:'sleep',type:'radio',label:'How are you sleeping?',opts:['I wake up wrecked','Patchy','Mostly fine','Rested']},
    {id:'sleepq',type:'slider',label:'Rate your sleep quality',min:0,max:10,val:5},
  ]},
- {no:'Step 3 of 5',sec:'Symptoms & concerns',sub:'So we can focus on what matters most to you.',qs:[
-   {id:'symptoms',type:'check',label:'Which symptoms are most noticeable right now?',hint:'Select all that apply.',two:true,opts:['Fatigue','Brain fog','Low mood','Low libido','Weight gain','Poor recovery']},
+ {sec:'Symptoms & concerns',sub:'So we can focus on what matters most to you.',qs:[
+   {id:'symptoms',type:'check',label:'Which of these sound familiar lately?',hint:'Tap any that apply.',two:true,opts:['Fatigue','Brain fog','Low mood','Low libido','Weight gain','Poor recovery']},
    {id:'libido',type:'radio',label:'Have you noticed changes in your sex drive?',opts:['Yes, lower than before','About the same','No changes']},
  ]},
- {no:'Step 4 of 5',sec:'Lifestyle',sub:'A little context helps the read.',qs:[
-   {id:'exercise',type:'radio',label:'How often do you train?',opts:['Rarely','1-2 times a week','3-4 times a week','5+ times a week']},
-   {id:'alcohol',type:'radio',label:'How often do you drink alcohol?',opts:['Rarely','Occasionally','A few times a week','Most days']},
+ {sec:'Lifestyle',sub:'A little context helps the read.',qs:[
+   {id:'exercise',type:'radio',label:'How often do you train?',two:true,opts:['Rarely','1-2 times a week','3-4 times a week','5+ times a week']},
+   {id:'alcohol',type:'radio',label:'How often do you drink alcohol?',two:true,opts:['Rarely','Occasionally','A few times a week','Most days']},
    {id:'stress',type:'slider',label:'How would you rate your stress lately?',min:0,max:10,val:5},
  ]},
- {no:'Step 5 of 5',sec:'About you',sub:'Last few details.',qs:[
-   {id:'age',type:'select',label:'Your age range',opts:['Under 30','30-39','40-49','50-59','60+']},
+ {sec:'About you',sub:'Last couple of things, then your results.',qs:[
+   {id:'age',type:'radio',label:'Your age range',two:true,opts:['Under 30','30-39','40-49','50-59','60+']},
    {id:'bloods',type:'radio',label:'Have you had a recent blood test?',opts:['Yes, in the last 6 months','Yes, over 6 months ago','No / not sure']},
+   {id:'notes',type:'text',label:'Anything else your clinician should know?',hint:'Optional. Add a note if you like, or just skip straight to your results.',ph:"Optional - type here if you'd like"},
  ]},
 ];
 const answers={}; let step=0;
@@ -788,5 +889,6 @@ function sync(){
 }
 function checkout(){ if(basket.size) show('done'); }
 renderSupps(); sync();
+buildPresetBtns(); applyClinic(); markPreset('harborview'); updateCustBtn();
 </script>
 </body></html>
