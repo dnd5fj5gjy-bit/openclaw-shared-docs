@@ -1,0 +1,143 @@
+<meta charset="utf-8">
+<title>Ted's Health — Supplement Store Operating Model</title>
+<style>
+  @page { margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1d21; line-height: 1.5; font-size: 11pt; margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 8px 4px; }
+  h1 { font-size: 23pt; line-height: 1.15; margin: 0 0 4px; letter-spacing: -0.02em; color: #0f1115; }
+  .sub { color: #5b6470; font-size: 12pt; margin: 0 0 22px; font-weight: 500; }
+  h2 { font-size: 13.5pt; margin: 26px 0 8px; color: #0f1115; letter-spacing: -0.01em;
+       border-bottom: 2px solid #14483f; padding-bottom: 5px; }
+  h3 { font-size: 11.5pt; margin: 16px 0 4px; color: #14483f; }
+  p { margin: 0 0 9px; }
+  ul { margin: 4px 0 10px; padding-left: 18px; }
+  li { margin: 3px 0; }
+  .lead { background: #f4f7f5; border-left: 3px solid #14483f; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0 0 8px; }
+  strong { color: #0f1115; }
+  .verdict { font-weight: 600; }
+  .win { color: #14483f; }
+  .lose { color: #a3382b; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 10pt; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e2e6ea; vertical-align: top; }
+  th { background: #14483f; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f7f9f8; }
+  .flow li { margin: 5px 0; }
+  .tag { display: inline-block; font-size: 8.5pt; font-weight: 700; letter-spacing: 0.04em;
+         padding: 2px 7px; border-radius: 4px; text-transform: uppercase; }
+  .tag-win { background: #dcefe7; color: #14483f; }
+  .tag-lose { background: #f6dfda; color: #a3382b; }
+  .money { background: #0f1115; color: #eef1ef; padding: 16px 18px; border-radius: 8px; margin: 10px 0; }
+  .money strong { color: #7fd6b8; }
+  .foot { margin-top: 24px; padding-top: 10px; border-top: 1px solid #e2e6ea; color: #7a828c; font-size: 9pt; }
+  .callout { background: #fff8ec; border: 1px solid #f0dcb0; border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+</style>
+<div class="wrap">
+
+<h1>Ted's Health — Supplement Store Operating Model</h1>
+<p class="sub">How we work with a fulfilment partner so the customer feels no handoff, and we earn well.</p>
+
+<div class="lead">
+<strong>The headline:</strong> a pure Amrita-style deal fails both goals. In that model the patient clicks out to Amrita's own branded site, Amrita takes the payment and ships in Amrita's box, and we get a small commission. That is friction for the customer and thin margin for us. The model we actually want is <strong>merchant-of-record plus blind dropship</strong>: the patient checks out inside HealthPilot, pays us, and the partner ships direct in plain or Ted's-branded packaging with no trace of themselves. "Someone like Amrita" should really be a blind-dropship own-label supplier. This document builds that out.
+</div>
+
+<h2>The one decision that shapes everything</h2>
+
+<h3>Referral model — what Amrita and The Natural Dispensary actually are</h3>
+<ul>
+<li><span class="tag tag-lose">Friction: high</span> patient leaves our funnel, lands on the partner's branded website, creates another account, checks out there.</li>
+<li><span class="tag tag-lose">Earn: low</span> commission only, roughly 10–25% of the order, and about 10% of that is handed back to the patient as their discount. Around £5–£12 on a £50 order.</li>
+<li>The partner is merchant of record. They own the customer and the data, not us.</li>
+</ul>
+<p class="verdict"><span class="lose">Verdict: fails both asks.</span> Useful only as a two-week interim so patients can buy something while we build the real thing.</p>
+
+<h3>Merchant-of-record + blind dropship — what we actually build</h3>
+<ul>
+<li><span class="tag tag-win">Friction: zero</span> patient never leaves the portal. One account, one checkout, Ted's brand from quiz to parcel.</li>
+<li><span class="tag tag-win">Earn: high</span> we keep the full retail-minus-wholesale spread, roughly £25–£30 on a £50 own-branded basket, plus recurring subscription revenue.</li>
+<li>We are merchant of record. We own the customer, the pricing, the data, the relationship.</li>
+</ul>
+<p class="verdict"><span class="win">Verdict: this is the model.</span> The partner is invisible fulfilment, not a destination.</p>
+
+<h2>The customer flow — no friction</h2>
+<ol class="flow">
+<li>Patient takes the health quiz, or gets an AI blood-test review, inside HealthPilot.</li>
+<li>The funnel surfaces a matched stack as a <strong>care plan</strong>, monthly-led price, subscribe-and-save. (Already built in the Harborview demo.)</li>
+<li>Add to basket and check out <strong>inside the portal</strong>. Patient pays Ted's via Stripe. One card, one brand.</li>
+<li>The order fires automatically to the fulfilment partner in the background (API, or a middleware/CSV bridge at launch).</li>
+<li>Partner picks, packs and ships direct to the patient in <strong>plain or Ted's-branded packaging</strong>. No partner branding, no partner invoice.</li>
+<li>Tracking flows back into the portal. Subscription reorders run automatically.</li>
+</ol>
+<p>The patient never knows a third party exists. End to end, it is Ted's store.</p>
+
+<h2>The commercial deal we structure with the partner</h2>
+<p>The negotiation checklist. We need them to agree to:</p>
+<ul>
+<li><strong>Trade pricing</strong> — target 30–40%+ off RRP. On own-label we set the RRP, so the spread is ours to size.</li>
+<li><strong>Blind dropship</strong> — plain or Ted's-branded parcel and packing slip, zero partner literature or branding.</li>
+<li><strong>Own-label</strong> on the core stack — our label on the bottle. Free with several UK dropshippers, no minimum order.</li>
+<li><strong>Order injection</strong> — an API endpoint ideally; a CSV or portal bridge via middleware is acceptable at launch.</li>
+<li><strong>We are merchant of record</strong> — we take the card payment and own the customer.</li>
+<li><strong>SLA</strong> — 1–2 day UK dispatch, batch COAs and heavy-metals testing, returns handling.</li>
+<li><strong>No MOQ, no stock commitment</strong> — true dropship, so zero inventory risk.</li>
+</ul>
+
+<h2>The partner landscape</h2>
+<table>
+<tr><th>Partner</th><th>We are merchant of record?</th><th>Blind / own-brand parcel?</th><th>Full spread?</th><th>Fit</th></tr>
+<tr><td><strong>Amrita</strong></td><td>No</td><td>No (Amrita-branded)</td><td>No, commission only</td><td>Interim referral only</td></tr>
+<tr><td><strong>The Natural Dispensary</strong></td><td>No</td><td>No (TND-branded)</td><td>No, commission only</td><td>Best <em>referral</em> option</td></tr>
+<tr><td><strong>Cytoplan</strong></td><td>Yes, if we hold stock</td><td>No dropship (we fulfil)</td><td>Yes (~40% off RRP)</td><td>Premium branded fallback</td></tr>
+<tr><td><strong>Specialist Supplements Ltd</strong></td><td><strong>Yes</strong></td><td><strong>Yes, true blind dropship</strong></td><td><strong>Yes, no MOQ</strong></td><td><strong>Best fit for the owned store</strong></td></tr>
+</table>
+<p><strong>The pick:</strong> a UK private-label blind-dropship supplier (Specialist Supplements Ltd is the concrete example found) is the only type that satisfies all three: we are merchant of record, the parcel is own-branded, and we keep the full spread with no stock risk. Its limits are catalogue depth (their own generic-brand supplements, adequate for the zinc / magnesium / D3 / omega / ashwagandha core) and no advertised API, so ordering runs through their trade portal and needs a middleware or CSV bridge at first. All exact trade terms need confirming directly with an account.</p>
+
+<h2>The money</h2>
+<div class="money">
+<p style="margin:0 0 8px"><strong>Worked example — own-branded men's-health stack, £50/mo basket</strong></p>
+<p style="margin:0">Trade + ship cost: ~£20–25 &nbsp;·&nbsp; Our price to patient: £50 &nbsp;·&nbsp; <strong>Gross margin: ~£25–30 (50–60%)</strong></p>
+<p style="margin:8px 0 0">On subscribe-and-save (~10% off), patient pays £45, we still hold ~£20–25 margin, and it recurs monthly. Per subscribed patient that is roughly <strong>£20–30/month of near-pure contribution</strong>. Even a modest attach rate across the TRT base offsets a large share of TRT acquisition cost.</p>
+<p style="margin:8px 0 0">Referral model for contrast: the same £50 order earns ~£5–12, one-off, with no ownership. <strong>3–5x less.</strong></p>
+</div>
+
+<h2>The platform play — where it gets big</h2>
+<p>Ted's is a white-label platform sold to clinics. We wire <strong>one central fulfilment backend</strong> behind every clinic's portal:</p>
+<ul>
+<li>Each clinic sells its own-labelled stack through its own branded funnel.</li>
+<li>One negotiated trade deal serves them all, and volume drives the discount down.</li>
+<li>Ted's / HealthPilot takes an <strong>override on every clinic's supplement sales</strong>, on top of the clinic's own margin.</li>
+</ul>
+<p>That turns supplements from a per-clinic upsell into a platform revenue line that scales with every clinic we onboard.</p>
+
+<h2>Regulatory guardrails — non-negotiable</h2>
+<ul>
+<li>Firewall the supplement store from the TRT prescribing offer. Separate lane, separate journey.</li>
+<li>Authorised claims only. The single permitted testosterone hook is the zinc claim ("contributes to the maintenance of normal testosterone levels in the blood"). No "boosts testosterone", no "natural TRT" — the ASA actively polices this.</li>
+<li>Register the selling entity as a Food Business Operator if own-label.</li>
+<li>Written financial-interest disclosure to patients (GMC). The clinician's prescribing decision stays separate from the sale.</li>
+<li>Keep the partner's batch COAs and heavy-metals testing on file.</li>
+</ul>
+
+<h2>Rollout</h2>
+<ul>
+<li><strong>Phase 1 (days):</strong> referral link to Amrita or TND as an interim, so patients can buy now while we validate attach rate. Low earn, zero build.</li>
+<li><strong>Phase 2 (2–4 weeks):</strong> the real store. Blind-dropship own-label partner wired into the Harborview funnel — in-portal Stripe checkout, order-injection middleware, tracking webhooks. Frictionless, high-margin, own-brand.</li>
+<li><strong>Phase 3:</strong> central platform backend plus the clinic override.</li>
+</ul>
+
+<h2>What I need to close it</h2>
+<ul>
+<li>Written trade terms, confirmation of blind dropship, and order-API availability from Specialist Supplements Ltd and one or two other UK private-label dropshippers. I cannot get exact trade pricing without opening an account or enquiry.</li>
+<li>Your nod to approach them — external contact needs your OK.</li>
+<li>Then I wire Phase 2 into the Harborview funnel so it actually transacts.</li>
+</ul>
+
+<div class="foot">
+Prepared by Junior for Jesse Grylls · 9 July 2026 · Ted's Health / HealthPilot. Commercial percentages are sector benchmarks to be confirmed with each partner in writing before modelling as fact.
+</div>
+
+</div>
