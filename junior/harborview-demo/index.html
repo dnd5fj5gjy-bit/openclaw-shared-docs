@@ -174,8 +174,148 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
   .value{grid-template-columns:1fr}
 }
 @media(max-width:420px){ .content{padding:16px 14px 80px} }
+
+/* ==================== PREMIUM LANDING ==================== */
+:root{--hero1:#0d3f4b;--hero2:#082830;--paper2:#F1ECE2;--gold2:#CE9247;--soft:0 18px 50px -24px rgba(18,44,50,.5)}
+.app.onland .topbar,.app.onland .demobar{display:none}
+.app.onland .content{padding:0;max-width:none;margin:0;width:100%}
+.lwrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* landing header */
+.lhead{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:24px 40px}
+.brandmark{display:flex;align-items:center;gap:12px;cursor:pointer}
+.brandmark .m{width:40px;height:40px;border-radius:50%;background:radial-gradient(120% 120% at 30% 25%,#1a6675,#0c3b47);border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:600;font-size:18px;color:#fff;flex:none}
+.brandmark b{color:#fff;font-family:Fraunces,serif;font-weight:500;font-size:18px;line-height:1;letter-spacing:.005em}
+.brandmark small{display:block;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin-top:4px}
+.lnav{display:flex;align-items:center;gap:28px}
+.lnav a{color:rgba(233,243,245,.82);font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;transition:color .15s}
+.lnav a:hover{color:#fff}
+.lnav .portalcta{border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:9px 18px;color:#fff}
+.lnav .portalcta:hover{background:rgba(255,255,255,.1)}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#eaf3f5;padding:154px 0 116px;background:radial-gradient(130% 120% at 82% 8%,#155a68 0%,var(--hero1) 44%,var(--hero2) 100%)}
+.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(206,146,71,.5),transparent)}
+.hero .lwrap{position:relative;z-index:2;display:grid;grid-template-columns:1.06fr .94fr;gap:60px;align-items:center}
+.hero .eyebrow{color:var(--gold2)}
+.hero h1{font-family:Fraunces,serif;font-weight:400;font-size:64px;line-height:1.03;letter-spacing:-.02em;color:#fff;margin:20px 0 22px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero .lead{font-size:19.5px;line-height:1.52;color:#bcd6db;max-width:480px;margin-bottom:32px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn.gold{background:linear-gradient(180deg,#dc9d4e,#bd7c31);color:#241a0c;border:none;box-shadow:0 12px 26px -12px rgba(189,124,49,.75)}
+.btn.gold:hover{filter:brightness(1.06);background:linear-gradient(180deg,#dc9d4e,#bd7c31)}
+.btn.lite{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.lite:hover{background:rgba(255,255,255,.12)}
+.hero .trust{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:32px;color:#9dbdc3;font-size:13px}
+.hero .trust span{display:flex;align-items:center;gap:9px}
+.hero .trust .k{color:var(--gold2);font-size:15px;line-height:1}
+/* hero preview panel */
+.preview{background:linear-gradient(180deg,#fffefb,#f6f1e8);border:1px solid rgba(255,255,255,.7);border-radius:22px;box-shadow:0 46px 90px -34px rgba(0,0,0,.6),0 0 0 1px rgba(11,58,70,.05);padding:24px 24px 20px;transform:rotate(1.4deg);position:relative}
+.preview .pv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.preview .pv-eq{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.preview .pv-seal{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--rev);background:var(--rev-soft);border:1px solid #cfe3d8;border-radius:999px;padding:5px 11px}
+.preview h4{font-family:Fraunces,serif;font-weight:500;font-size:22px;color:var(--ink);margin:6px 0 14px;letter-spacing:-.01em}
+.pv-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-top:1px solid var(--line)}
+.pv-row .l{display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.pv-row .l .d{width:9px;height:9px;border-radius:50%;flex:none}
+.pv-row .d.warn{background:var(--gold)}.pv-row .d.good{background:var(--rev)}
+.pv-row .s{font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.pv-row .s.warn{color:var(--warn)}.pv-row .s.good{color:var(--good)}
+.preview .pv-foot{display:flex;align-items:center;gap:11px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.preview .pv-foot .av{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:Fraunces,serif;font-size:13px;flex:none}
+.preview .pv-foot .nm{font-size:13px;font-weight:600;color:var(--ink)}.preview .pv-foot .rl{font-size:11.5px;color:var(--muted)}
+.preview .float{position:absolute;bottom:-22px;right:-20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--soft);padding:12px 16px;transform:rotate(-2.6deg);text-align:center}
+.preview .float .n{font-family:Fraunces,serif;font-size:20px;color:var(--brand)}.preview .float .t{font-size:11px;color:var(--muted);letter-spacing:.04em}
+/* section shell */
+.sec{padding:90px 0}.sec.alt{background:var(--paper2)}
+.sec-head{max-width:640px;margin:0 auto 50px;text-align:center}
+.sec-head .eyebrow{color:var(--gold);display:block;margin-bottom:12px}
+.sec-head h2{font-size:41px;line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+.sec-head p{color:var(--muted);font-size:17px;margin-top:14px}
+/* choice cards (premium) */
+.choice{grid-template-columns:repeat(3,1fr);gap:22px;max-width:1180px;padding:0 40px;margin:0 auto}
+.cc{padding:32px 28px 26px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--soft);position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.cc::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:transparent}
+.cc.reco{border-color:#d9e7ea}.cc.reco::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.cc:hover{transform:translateY(-5px);box-shadow:0 30px 60px -28px rgba(15,76,92,.42)}
+.cc .ic{width:50px;height:50px;border-radius:14px;font-size:23px;margin-bottom:16px}
+.cc.reco .ic{background:linear-gradient(160deg,#125363,#0c3b47);color:#fff}
+.cc .tag{margin-bottom:14px}.cc h3{font-size:22px;margin-bottom:8px}.cc p{font-size:14.5px;line-height:1.55}
+.cc .go{font-size:14.5px;gap:7px}
+/* how it works */
+.steps3{max-width:1000px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px;position:relative}
+.s3{text-align:center;position:relative}
+.s3 .no{font-family:Fraunces,serif;font-size:19px;color:var(--brand);width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;margin:0 auto 18px;box-shadow:var(--soft);position:relative;z-index:2}
+.s3 h4{font-size:19px;margin-bottom:7px}.s3 p{font-size:14px;color:var(--muted);max-width:260px;margin:0 auto}
+.steps3::before{content:"";position:absolute;top:28px;left:20%;right:20%;height:1px;background:var(--line);z-index:1}
+/* credibility band */
+.band{background:linear-gradient(180deg,var(--hero1),var(--hero2));color:#dceaed;position:relative;overflow:hidden}
+.band .lwrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;padding-top:44px;padding-bottom:44px}
+.bstat{flex:1;min-width:180px;text-align:center}
+.bstat .n{font-family:Fraunces,serif;font-weight:500;font-size:38px;color:#fff;letter-spacing:-.01em}
+.bstat .l{font-size:13px;color:#9dbdc3;margin-top:6px;letter-spacing:.02em}
+.bstat+.bstat{border-left:1px solid rgba(255,255,255,.1)}
+/* feature trio */
+.landfeat{grid-template-columns:repeat(3,1fr);gap:22px;max-width:1180px;margin:0 auto;padding:0 40px}
+.lf{padding:30px 28px;border-radius:18px;box-shadow:var(--soft);border:1px solid var(--line)}
+.lf .ic{width:46px;height:46px;border-radius:13px;font-size:22px}
+.lf h3{font-size:19px}.lf p{font-size:14.5px;line-height:1.55}
+/* closing cta */
+.close{position:relative;overflow:hidden;text-align:center;color:#eaf3f5;padding:96px 0;background:radial-gradient(120% 140% at 50% 0%,#155a68,var(--hero1) 55%,var(--hero2))}
+.close .eyebrow{color:var(--gold2)}
+.close h2{font-family:Fraunces,serif;font-weight:400;font-size:46px;color:#fff;letter-spacing:-.02em;margin:14px auto 16px;max-width:640px;line-height:1.08}
+.close p{color:#bcd6db;font-size:18px;max-width:520px;margin:0 auto 30px}
+/* footer */
+.lfoot{background:#08272e;color:#8fb2ba;padding:56px 0 30px}
+.lfoot .lwrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px}
+.lfoot .brandmark b{font-size:17px}.lfoot .about{max-width:300px;font-size:13.5px;line-height:1.6;margin-top:14px;color:#7fa3ab}
+.lfoot .cols{display:flex;gap:56px;flex-wrap:wrap}
+.lfoot .col h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5f858e;margin-bottom:14px;font-weight:600}
+.lfoot .col a{display:block;color:#a9c6cd;font-size:14px;text-decoration:none;margin-bottom:10px;cursor:pointer}
+.lfoot .col a:hover{color:#fff}
+.lfoot .rule{border:none;border-top:1px solid rgba(255,255,255,.08);margin:40px 0 20px}
+.lfoot .fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:#5f858e}
+@media(max-width:960px){
+  .hero{padding:130px 0 84px}.hero .lwrap{grid-template-columns:1fr;gap:48px}
+  .hero h1{font-size:50px}.preview{max-width:420px;transform:rotate(1deg)}
+  .steps3{grid-template-columns:1fr;gap:30px}.steps3::before{display:none}
+  .bstat+.bstat{border-left:none}
+}
+@media(max-width:760px){
+  .lhead{padding:18px 22px}.lnav a:not(.portalcta){display:none}
+  .lwrap{padding:0 22px}.hero{padding:118px 0 72px}.hero h1{font-size:40px}.hero .lead{font-size:17px}
+  .sec{padding:64px 0}.sec-head h2{font-size:31px}
+  .choice,.landfeat{grid-template-columns:1fr;padding:0 22px}
+  .steps3{padding:0 22px}.close h2{font-size:34px}
+  .lfoot .lwrap{flex-direction:column;gap:28px}
+}
+/* ==================== RESULTS FUNNEL ==================== */
+.grpsub{color:var(--muted);font-size:14.5px;margin:-4px 0 6px;max-width:620px}
+.hero-supp{margin-top:18px;border-radius:18px;padding:2px;background:linear-gradient(120deg,var(--gold),var(--brand));box-shadow:var(--soft)}
+.hero-supp .inner{background:linear-gradient(180deg,#fff,#fbf7f0);border-radius:16px;padding:22px 24px}
+.hs-tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.hs-body{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.hs-info{flex:1;min-width:240px}
+.hs-name{font-family:Fraunces,serif;font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-.01em}
+.hs-why{font-size:14.5px;color:#3a3630;margin-top:6px;max-width:490px;line-height:1.5}
+.hs-meta{font-size:12.5px;color:var(--muted);margin-top:9px}
+.hs-buy{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+.hs-price{font-family:Fraunces,serif;color:var(--ink)}.hs-price b{font-size:27px}.hs-price span{color:var(--muted);font-size:14px;font-family:Inter,sans-serif}
+.hs-link{font-size:13px;color:var(--brand);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.stackbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--rev-soft);border:1px solid #cfe3d8;border-radius:14px;padding:14px 18px;margin:12px 0 16px}
+.stackbar .sb-copy{font-size:14.5px;color:#254e3c}
+.stackbar .sb-act{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.stackbar .sb-save{font-size:13px;font-weight:600;color:var(--rev)}
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(11,58,70,.97);backdrop-filter:blur(10px);color:#fff;display:none;align-items:center;justify-content:space-between;gap:16px;padding:13px 22px;box-shadow:0 -10px 34px rgba(0,0,0,.28);border-top:1px solid rgba(206,146,71,.35)}
+.sticky-buy.on{display:flex;animation:slideup .3s ease}
+@keyframes slideup{from{transform:translateY(100%)}to{transform:none}}
+.sticky-buy .sb-l{font-size:14px;color:#bcd6db}.sticky-buy .sb-l b{color:#fff;font-size:16px;font-weight:600}
+@media(max-width:620px){
+  .hs-buy{align-items:stretch;width:100%}.hs-buy .btn{width:100%;justify-content:center}
+  .hs-price{align-self:flex-start}
+  .sticky-buy{padding:11px 16px;gap:12px}.sticky-buy .sb-l{font-size:12.5px}.sticky-buy .btn{padding:11px 16px;font-size:14px;white-space:nowrap}
+}
 </style></head><body>
-<div class="app" id="app">
+<div class="app onland" id="app">
   <div class="backdrop" onclick="toggleMenu(false)"></div>
   <!-- SIDEBAR -->
   <aside class="sidebar">
@@ -205,42 +345,132 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
     <div class="content">
 
       <!-- WARM LANDING (fronts both the health quiz and the patient portal) -->
-      <div class="view on" id="v-landing"><div class="land">
-        <div class="eyebrow">Harborview Men's Health</div>
-        <h1>Feel like yourself again.</h1>
-        <p class="lead">Energy, sleep, focus, drive. However you'd like to start, we'll meet you where you are. Choose your way in below.</p>
-        <div class="trust">Screening guidance, reviewed by our clinicians. This is not a diagnosis.</div>
+      <div class="view on" id="v-landing">
 
-        <div class="choice">
-          <div class="cc reco" onclick="startQuiz()">
-            <div class="tag">Recommended</div>
-            <div class="ic">&#9737;</div>
-            <h3>Take the health check</h3>
-            <p>Not sure where to start? A private 10-minute assessment that reads your energy, sleep and hormonal health, and points you to the right next step. No account needed.</p>
-            <span class="go">Start your free check &rarr;</span>
+        <!-- HERO -->
+        <section class="hero grain">
+          <header class="lhead">
+            <div class="brandmark" onclick="goLanding()"><span class="m">H</span><div><b>Harborview</b><small>Men's Health</small></div></div>
+            <nav class="lnav">
+              <a onclick="startQuiz()">Health check</a>
+              <a onclick="enterPortal('bloods')">Blood testing</a>
+              <a onclick="enterPortal('treatments')">Treatments</a>
+              <a class="portalcta" onclick="enterPortal('dashboard')">Patient portal &rarr;</a>
+            </nav>
+          </header>
+          <div class="lwrap">
+            <div class="hero-copy">
+              <span class="eyebrow">Private men's health, done properly</span>
+              <h1>Feel like <em>yourself</em> again.</h1>
+              <p class="lead">Energy, sleep, focus, drive. A clinician-led assessment that reads your health and turns it into a clear, personal plan, not another PDF.</p>
+              <div class="cta">
+                <button class="btn gold big" onclick="startQuiz()">Start your free health check &rarr;</button>
+                <button class="btn lite" onclick="enterPortal('bloods')">Browse blood tests</button>
+              </div>
+              <div class="trust">
+                <span><span class="k">&#9670;</span> Clinician-led care</span>
+                <span><span class="k">&#9670;</span> Private &amp; discreet</span>
+                <span><span class="k">&#9670;</span> Results in days</span>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="preview">
+                <div class="pv-top"><span class="pv-eq">Your health review</span><span class="pv-seal">&#10003; Clinician reviewed</span></div>
+                <h4>Here's what to focus on first.</h4>
+                <div class="pv-row"><div class="l"><span class="d warn"></span> Energy &amp; Vitality</div><span class="s warn">Needs attention</span></div>
+                <div class="pv-row"><div class="l"><span class="d good"></span> Sleep &amp; Recovery</div><span class="s good">On track</span></div>
+                <div class="pv-row"><div class="l"><span class="d warn"></span> Hormonal Health</div><span class="s warn">Review advised</span></div>
+                <div class="pv-foot"><span class="av">AR</span><div><div class="nm">Reviewed by Dr. Alanna Reid</div><div class="rl">Medical Director, Harborview</div></div></div>
+                <div class="float"><div class="n">10 min</div><div class="t">to your plan</div></div>
+              </div>
+            </div>
           </div>
-          <div class="cc" onclick="enterPortal('bloods')">
-            <div class="tag">I know what I want</div>
-            <div class="ic">&#9878;</div>
-            <h3>Go straight to it</h3>
-            <p>Already know you want blood work or a specific treatment? Skip the quiz, order your panel or explore treatments, and book directly.</p>
-            <span class="go">Blood tests &amp; treatments &rarr;</span>
-          </div>
-          <div class="cc" onclick="enterPortal('dashboard')">
-            <div class="tag">Existing patient</div>
-            <div class="ic">&#9750;</div>
-            <h3>Open your portal</h3>
-            <p>Your results, blood tests, treatments and appointments, all in one place. Pick up right where you left off.</p>
-            <span class="go">Go to your portal &rarr;</span>
-          </div>
-        </div>
+        </section>
 
-        <div class="landfeat">
-          <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review, and a supplement stack matched to you.</p></div>
-          <div class="lf"><div class="ic">&#9878;</div><h3>Order directly, anytime</h3><p>Know what you need? Buy a blood panel or explore treatments straight away, no assessment required.</p></div>
-          <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
-        </div>
-      </div></div>
+        <!-- CHOICE -->
+        <section class="sec">
+          <div class="sec-head"><span class="eyebrow">Choose your way in</span><h2>However you'd like to start.</h2><p>No wrong door. Take the guided check, go straight to what you need, or pick up where you left off.</p></div>
+          <div class="choice">
+            <div class="cc reco" onclick="startQuiz()">
+              <div class="tag">Recommended</div>
+              <div class="ic">&#9737;</div>
+              <h3>Take the health check</h3>
+              <p>Not sure where to start? A private 10-minute assessment that reads your energy, sleep and hormonal health, and points you to the right next step. No account needed.</p>
+              <span class="go">Start your free check &rarr;</span>
+            </div>
+            <div class="cc" onclick="enterPortal('bloods')">
+              <div class="tag">I know what I want</div>
+              <div class="ic">&#9878;</div>
+              <h3>Go straight to it</h3>
+              <p>Already know you want blood work or a specific treatment? Skip the quiz, order your panel or explore treatments, and book directly.</p>
+              <span class="go">Blood tests &amp; treatments &rarr;</span>
+            </div>
+            <div class="cc" onclick="enterPortal('dashboard')">
+              <div class="tag">Existing patient</div>
+              <div class="ic">&#9750;</div>
+              <h3>Open your portal</h3>
+              <p>Your results, blood tests, treatments and appointments, all in one place. Pick up right where you left off.</p>
+              <span class="go">Go to your portal &rarr;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="sec alt">
+          <div class="sec-head"><span class="eyebrow">How it works</span><h2>From questions to a clear plan.</h2></div>
+          <div class="steps3">
+            <div class="s3"><div class="no">1</div><h4>Take the 10-minute check</h4><p>A private assessment of your energy, sleep and hormonal health. No account needed.</p></div>
+            <div class="s3"><div class="no">2</div><h4>Get your clinician-reviewed plan</h4><p>Clear next steps, a recommended blood panel and a supplement stack matched to you.</p></div>
+            <div class="s3"><div class="no">3</div><h4>Start feeling the difference</h4><p>Order directly, book a clinician and track progress from your private portal.</p></div>
+          </div>
+        </section>
+
+        <!-- CREDIBILITY BAND -->
+        <section class="band grain">
+          <div class="lwrap">
+            <div class="bstat"><div class="n">30,000+</div><div class="l">Men supported</div></div>
+            <div class="bstat"><div class="n">4.9&#9733;</div><div class="l">Average patient rating</div></div>
+            <div class="bstat"><div class="n">72 hrs</div><div class="l">Typical time to results</div></div>
+            <div class="bstat"><div class="n">100%</div><div class="l">Clinician-reviewed</div></div>
+          </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="sec">
+          <div class="sec-head"><span class="eyebrow">Why Harborview</span><h2>Care that actually goes somewhere.</h2></div>
+          <div class="landfeat">
+            <div class="lf"><div class="ic">&#9873;</div><h3>A plan, not a PDF</h3><p>Clear next steps, a recommended blood panel, a clinician review and a supplement stack matched to you.</p></div>
+            <div class="lf"><div class="ic">&#9878;</div><h3>Order directly, anytime</h3><p>Know what you need? Buy a blood panel or explore treatments straight away, no assessment required.</p></div>
+            <div class="lf"><div class="ic">&#9829;</div><h3>Real clinicians, real care</h3><p>Everything is reviewed by our medical team, and urgent answers are flagged to a human straight away.</p></div>
+          </div>
+        </section>
+
+        <!-- CLOSING CTA -->
+        <section class="close grain">
+          <div class="lwrap">
+            <span class="eyebrow">Start today</span>
+            <h2>Your 10-minute head start on feeling better.</h2>
+            <p>Private, clinician-led and built around you. No account needed to begin.</p>
+            <button class="btn gold big" onclick="startQuiz()">Take the free health check &rarr;</button>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="lfoot">
+          <div class="lwrap">
+            <div>
+              <div class="brandmark"><span class="m">H</span><div><b>Harborview</b><small>Men's Health</small></div></div>
+              <p class="about">Private, clinician-led men's health. Assessments, blood testing, treatment and ongoing care, all in one place.</p>
+            </div>
+            <div class="cols">
+              <div class="col"><h5>Care</h5><a onclick="startQuiz()">Health check</a><a onclick="enterPortal('bloods')">Blood testing</a><a onclick="enterPortal('treatments')">Treatments</a><a onclick="enterPortal('appointments')">Appointments</a></div>
+              <div class="col"><h5>Clinic</h5><a onclick="enterPortal('dashboard')">Patient portal</a><a onclick="enterPortal('support')">Support</a><a onclick="startQuiz()">About us</a><a onclick="startQuiz()">Our clinicians</a></div>
+            </div>
+          </div>
+          <div class="lwrap"><hr class="rule"/><div class="fine"><span>&copy; Harborview Men's Health. Screening guidance, reviewed by clinicians. Not a diagnosis.</span><span>Demo on the Ted's Health white-label platform &middot; no data stored</span></div></div>
+        </footer>
+
+      </div>
 
       <!-- DASHBOARD (portal) -->
       <div class="view" id="v-dashboard"><div class="dh">
@@ -328,18 +558,31 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
       <div class="view" id="v-results">
         <div class="eyebrow">Your health review</div>
         <h1 style="font-size:30px;margin:8px 0 6px">Here's what your answers are telling us.</h1>
-        <p style="color:var(--muted);font-size:16px;max-width:620px">A clear read on where to focus first. Reviewed by our clinicians. This is not a diagnosis.</p>
+        <p style="color:var(--muted);font-size:16px;max-width:620px">A clear read on where to focus first, and how to start feeling better today. Reviewed by our clinicians. This is not a diagnosis.</p>
         <div class="card" style="margin-top:16px"><div id="overview" style="font-size:15.5px;color:#332f2a"></div></div>
-        <div class="reco" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b style="color:var(--rev)">Saved to your patient portal.</b><div style="font-size:13.5px;color:#3a5a4c">Your results, recommendations and supplement stack are all waiting in your portal.</div></div><button class="btn" onclick="enterPortal('dashboard')">Go to your portal &rarr;</button></div>
+
+        <!-- EARLY MONETISATION: featured supplement matched to answers -->
+        <div id="heroSupp"></div>
+
         <div class="grp">What we're seeing, by area</div>
         <div class="systems" id="systems"></div>
+
+        <!-- FULL STACK, INLINE (moved up, purchasable without leaving the page) -->
+        <div class="grp" id="resultsStackAnchor">Your personalised supplement stack</div>
+        <p class="grpsub">Six essentials matched to your answers and your blood test, reviewed by a clinician. Add what you need, or take the full stack.</p>
+        <div class="stackbar">
+          <div class="sb-copy"><b>Add the full stack</b> — six clinician-reviewed essentials, delivered monthly.</div>
+          <div class="sb-act"><span class="sb-save">Subscribe &amp; save 15%</span><button class="btn" onclick="addAllResults()">Add all to basket &rarr;</button></div>
+        </div>
+        <div class="supp" id="resultsSupps"></div>
+
         <div class="grp">Your recommended next steps</div>
         <div class="steps">
           <div class="step"><span class="k">Baseline testosterone &amp; thyroid panel</span><span class="d">The clearest way to confirm what's driving your energy and sleep.</span><button class="btn ghost" onclick="nav('bloods')">View blood panel &rarr;</button></div>
-          <div class="step"><span class="k">15-minute clinician review</span><span class="d">Talk your results through and turn them into a plan.</span><button class="btn ghost" onclick="nav('appointments')">Book a consultation &rarr;</button></div>
+          <div class="step"><span class="k">15-minute clinician review</span><span class="d">Talk your results through and turn them into a plan. Free with your first supplement order.</span><button class="btn ghost" onclick="nav('appointments')">Book a consultation &rarr;</button></div>
         </div>
-        <div class="grp">Recommended for you: supplements</div>
-        <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap"><div style="max-width:520px"><div style="font-family:Fraunces,serif;font-size:18px">A targeted stack, matched to your answers.</div><p style="color:var(--muted);font-size:14px;margin-top:5px">Clinician-reviewed. Add the whole stack to your basket in one tap.</p></div><button class="btn big" onclick="nav('supps')">See my supplements &rarr;</button></div>
+
+        <div class="reco" style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><b style="color:var(--rev)">Saved to your patient portal.</b><div style="font-size:13.5px;color:#3a5a4c">Your results, recommendations and supplement stack are all waiting in your portal.</div></div><button class="btn ghost" onclick="enterPortal('dashboard')">Go to your portal &rarr;</button></div>
       </div>
 
       <!-- SUPPLEMENTS -->
@@ -386,13 +629,19 @@ input[type=range]{width:100%;accent-color:var(--brand);height:28px}
   </div>
 </div>
 
+<!-- STICKY CHECKOUT BAR -->
+<div class="sticky-buy" id="stickyBuy">
+  <div class="sb-l" id="sbInfo"></div>
+  <button class="btn gold" onclick="nav('basket')">View basket &amp; checkout &rarr;</button>
+</div>
+
 <script>
-const state={assessmentDone:false,nudge:true}; let currentView='landing'; let quizReturn='landing';
+const state={assessmentDone:false,nudge:true}; let currentView='landing'; let quizReturn='landing'; let featuredId='mag';
 const TITLES={landing:'',dashboard:'Home',bloods:'Blood Testing',treatments:'Treatments',appointments:'Appointments',support:'Support',quiz:'Health Assessment',gen:'Health Assessment',results:'Your Results',supps:'Supplements',basket:'Basket',done:'Order confirmed'};
 const PORTAL_VIEWS=new Set(['dashboard','bloods','treatments','appointments','support']);
 function toggleMenu(open){ document.getElementById('app').classList.toggle('open', open===undefined?!document.getElementById('app').classList.contains('open'):open); }
 function setActive(v){ document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('on')); const el=document.querySelector('.sb-item[data-nav="'+v+'"]'); if(el)el.classList.add('on'); }
-function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); }
+function show(v){ document.querySelectorAll('.view').forEach(e=>e.classList.remove('on')); document.getElementById('v-'+v).classList.add('on'); document.getElementById('tbTitle').textContent=TITLES[v]||''; document.getElementById('app').classList.toggle('portal', PORTAL_VIEWS.has(v)); document.getElementById('app').classList.toggle('onland', v==='landing'); setActive(v); currentView=v; window.scrollTo(0,0); toggleMenu(false); updateSticky(); }
 function nav(v){ show(v); }
 function enterPortal(v){ show(v||'dashboard'); }
 function goLanding(){ show('landing'); }
@@ -471,6 +720,40 @@ function buildResults(){
    {t:'Heart & Metabolic',warn:false,p:'No red flags in your answers. Worth protecting with regular movement.',why:'No urgent symptoms reported.'},
   ];
   document.getElementById('systems').innerHTML=sys.map(x=>`<div class="sys"><div class="h"><span class="t">${x.t}</span><span class="chip ${x.warn?'warn':'good'}">${x.warn?'Needs attention':'On track'}</span></div><p>${x.p}</p><div class="why">${x.why}</div></div>`).join('');
+  // choose the single best supplement to lead with, matched to the strongest signal
+  const highStress=(+answers.stress||0)>=7;
+  featuredId = poorSleep ? 'mag' : (lowLibido||(lowEnergy&&poorSleep)) ? 'ashwa' : lowEnergy ? 'd3' : highStress ? 'ashwa' : 'omega';
+  renderFeatured(); renderSupps(); sync();
+}
+function renderFeatured(){
+  const s=SUPPS.find(x=>x.id===featuredId)||SUPPS[0]; const inb=basket.has(s.id);
+  document.getElementById('heroSupp').innerHTML=
+   `<div class="hero-supp"><div class="inner">
+      <div class="hs-tag"><span>&#9733;</span> Recommended to start today</div>
+      <div class="hs-body">
+        <div class="hs-info">
+          <div class="hs-name">${s.n}</div>
+          <div class="hs-why">${s.why} It is the single change our clinicians would start with, based on your answers.</div>
+          <div class="hs-meta">${s.dose} &middot; Clinician-reviewed &middot; Pause or cancel anytime</div>
+        </div>
+        <div class="hs-buy">
+          <div class="hs-price"><b>&pound;${s.price}</b><span>/month</span></div>
+          <button class="btn gold" id="hsAdd" onclick="addFeatured()">${inb?'Added &#10003;':'Add to basket &rarr;'}</button>
+          <a class="hs-link" onclick="scrollToStack()">See all six in your stack &rarr;</a>
+        </div>
+      </div>
+    </div></div>`;
+}
+function addFeatured(){ basket.add(featuredId); sync(); }
+function addAllResults(){ SUPPS.forEach(s=>basket.add(s.id)); sync(); }
+function scrollToStack(){ const el=document.getElementById('resultsStackAnchor'); if(el)el.scrollIntoView({behavior:'smooth',block:'start'}); }
+function updateSticky(){
+  const el=document.getElementById('stickyBuy'); if(!el)return;
+  const items=SUPPS.filter(s=>basket.has(s.id)); const subt=items.reduce((t,s)=>t+s.price,0);
+  const save=sub?Math.round(subt*0.15):0; const tot=subt-save;
+  const showIt=items.length>0 && !['basket','done','landing','gen','quiz'].includes(currentView);
+  el.classList.toggle('on',showIt);
+  document.getElementById('sbInfo').innerHTML=`<b>${items.length} in your basket</b> &middot; &pound;${tot}/mo${save?` &middot; <span style="color:#8fd3b6">save &pound;${save}</span>`:''}`;
 }
 // ---------- Supplements ----------
 const SUPPS=[
@@ -482,14 +765,16 @@ const SUPPS=[
  {id:'b12',src:'From your blood test',blood:true,n:'Vitamin B12 (methyl)',why:'A common deficiency directly relevant to your energy levels.',dose:'1 lozenge daily',price:14},
 ];
 const basket=new Set(); let sub=true;
-function renderSupps(){ document.getElementById('suppList').innerHTML=SUPPS.map(s=>`<div class="item"><span class="src ${s.blood?'blood':''}">${s.src}</span><div class="n">${s.n}</div><div class="why">${s.why}</div><div class="meta">${s.dose}</div><div class="foot"><span class="price">£${s.price}</span><button class="add ${basket.has(s.id)?'in':''}" id="a-${s.id}" onclick="toggleItem('${s.id}')">${basket.has(s.id)?'Added &#10003;':'Add'}</button></div></div>`).join(''); }
+function suppCard(s){ const inb=basket.has(s.id); return `<div class="item"><span class="src ${s.blood?'blood':''}">${s.src}</span><div class="n">${s.n}</div><div class="why">${s.why}</div><div class="meta">${s.dose}</div><div class="foot"><span class="price">£${s.price}</span><button class="add ${inb?'in':''}" data-add="${s.id}" onclick="toggleItem('${s.id}')">${inb?'Added &#10003;':'Add'}</button></div></div>`; }
+function renderSupps(){ const html=SUPPS.map(suppCard).join(''); const a=document.getElementById('suppList'); if(a)a.innerHTML=html; const b=document.getElementById('resultsSupps'); if(b)b.innerHTML=html; }
 function toggleItem(id){ basket.has(id)?basket.delete(id):basket.add(id); sync(); }
 function addAll(){ SUPPS.forEach(s=>basket.add(s.id)); sync(); nav('basket'); }
 function toggleSub(){ sub=!sub; document.getElementById('subTg').className='tg'+(sub?'':' off'); sync(); }
 function sync(){
   document.getElementById('bc').textContent=basket.size;
   document.getElementById('basketBtn').style.display=basket.size?'flex':'none';
-  SUPPS.forEach(s=>{const b=document.getElementById('a-'+s.id); if(b){b.className='add '+(basket.has(s.id)?'in':'');b.innerHTML=basket.has(s.id)?'Added &#10003;':'Add';}});
+  document.querySelectorAll('[data-add]').forEach(b=>{const inb=basket.has(b.dataset.add);b.className='add '+(inb?'in':'');b.innerHTML=inb?'Added &#10003;':'Add';});
+  const hb=document.getElementById('hsAdd'); if(hb){const inb=basket.has(featuredId);hb.innerHTML=inb?'Added &#10003;':'Add to basket &rarr;';}
   const items=SUPPS.filter(s=>basket.has(s.id)); const subt=items.reduce((t,s)=>t+s.price,0);
   document.getElementById('basketRows').innerHTML=items.length?items.map(s=>`<div class="brow"><div><div class="n">${s.n}</div><div class="w">${s.dose}</div></div><div><span class="p">£${s.price}</span><button class="rm" onclick="toggleItem('${s.id}')">remove</button></div></div>`).join(''):'<p style="color:var(--muted);padding:16px 0">Your basket is empty. <a style="color:var(--brand);cursor:pointer" onclick="nav(\'supps\')">Add supplements &rarr;</a></p>';
   const save=sub?Math.round(subt*0.15):0;
@@ -499,6 +784,7 @@ function sync(){
   document.getElementById('total').textContent='£'+(subt-save);
   document.getElementById('checkoutBtn').style.opacity=items.length?'1':'.5';
   document.getElementById('checkoutBtn').style.pointerEvents=items.length?'auto':'none';
+  updateSticky();
 }
 function checkout(){ if(basket.size) show('done'); }
 renderSupps(); sync();
