@@ -928,17 +928,17 @@ function planInBasket(ids){ return ids.length>0 && ids.every(id=>basket.has(id))
 function reviewerStrip(basis){ const d=CLINIC.director||'Dr. Alanna Reid'; const av=initials(d.replace(/^Dr\.?\s*/i,'')); return `<div class="rev-av">${av}</div><div><div class="rev-nm"><b>Reviewed by ${d}</b> · GMC&nbsp;#7421208</div><div class="rev-s">Checked against ${basis} before this plan was shown to you.</div></div>`; }
 function renderProtocol(elId, ids, covered, total){
   const el=document.getElementById(elId); if(!el)return; const t=planTotals(ids); const n=ids.length;
-  const day = sub ? perDay(t.ms) : perDay(t.m); const mo = sub ? t.ms : t.m;
+  const day = sub ? perDay(t.ms) : perDay(t.m); const mo = sub ? t.ms : t.m; const moFull = t.m;
   el.innerHTML=`<div class="protocol"><div class="inner">
     <div class="pro-head">
       <div><div class="pro-eyebrow">Recommended for you</div>
         <div class="pro-title">Your ${n}-part protocol</div>
         <div class="pro-cov"><span>&#10003;</span> Covers ${covered} of your ${total} flagged area${total===1?'':'s'}</div></div>
-      <div class="pro-price"><div class="pro-day"><b>${day}</b><span>/day</span></div><div class="pro-mo">${gbp(mo)}/month${sub?' · save 15%':''}</div></div>
+      <div class="pro-price"><div class="pro-day"><b>${gbp(mo)}</b><span>/month</span></div><div class="pro-mo">${sub?`was ${gbp(moFull)} · save 15% · `:''}about ${day}/day</div></div>
     </div>
     <div class="pro-toggle">
-      <button class="ptg ${sub?'on':''}" onclick="setPlanSub(true)"><span class="rd"></span>Subscribe &amp; save 15% — ${perDay(t.ms)}/day</button>
-      <button class="ptg ${sub?'':'on'}" onclick="setPlanSub(false)"><span class="rd"></span>One-time — ${perDay(t.m)}/day</button>
+      <button class="ptg ${sub?'on':''}" onclick="setPlanSub(true)"><span class="rd"></span>Subscribe &amp; save 15% — ${gbp(t.ms)}/month</button>
+      <button class="ptg ${sub?'':'on'}" onclick="setPlanSub(false)"><span class="rd"></span>One-time — ${gbp(t.m)}</button>
     </div>
     <button class="btn gold big" onclick="startPlan('${elId}')">${planInBasket(ids)?'Plan added — go to basket &rarr;':'Start my plan &rarr;'}</button>
     <div class="pro-disc">${sub?`You'll be charged ${gbp(t.ms)} today, then monthly until you cancel. Cancel in one click, anytime.`:`A single ${gbp(t.m)} order. No subscription.`}</div>
