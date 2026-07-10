@@ -8,7 +8,7 @@ To move quickly, could you share how the technical integration works on your sid
 - How we submit an order to you once a patient has paid on our site, so you dispense direct to them (API endpoint, portal, or email), and whether you pass back tracking or status.
 - Whether stock levels are available in real time so we do not sell something that is out of stock.
 
-On the practitioner requirement, our Chief Medical Officer, Dr Johnny Andrews, will be the named responsible clinician for our patients. We can share his credentials for your records.
+On the practitioner requirement, our Chief Medical Officer, Dr Johnathan Andrews, will be the named responsible clinician for our patients. We can share his credentials for your records.
 
 On terms, we would plan to work on the wholesale basis (your 20% trade discount), with us taking payment on our own site and passing the order to you to fulfil.
 
