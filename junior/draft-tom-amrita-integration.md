@@ -10,7 +10,7 @@ To move quickly, could you share how the technical integration works on your sid
 
 On the practitioner requirement, our Chief Medical Officer, Dr Johnathan Andrews, will be the named responsible clinician for our patients. We can share his credentials for your records.
 
-On terms, we would plan to work on the wholesale basis (your 20% trade discount), with us taking payment on our own site and passing the order to you to fulfil.
+On terms, we would like to work on the wholesale basis rather than commission: we take payment on our own site at the retail price, buy from you at your 20% trade discount, and you dispense direct to the patient. That keeps the 20% as our margin with no manual handling on either side. Please confirm that works for you.
 
 Could we get a short call this week to walk through the integration? Happy to work around your diary.
 
