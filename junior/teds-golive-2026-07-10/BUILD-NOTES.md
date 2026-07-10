@@ -52,19 +52,71 @@ per-clinic code.
 
 ---
 
-## What was deliberately NOT hand-built overnight (and why)
+---
 
-**The supplement funnel (go-live gap #2).** It is fully designed in
-`SUPPLEMENT-FUNNEL-SPEC.md` (this folder), ready to build. It was not
-hand-written tonight because doing it *properly* means a Medusa v2 commerce
-module + Ryft checkout reuse + a fulfilment adapter seam — commerce code that,
-built unverified against live payment/fulfilment paths overnight, would be
-exactly the fragile "surface-level" work this effort is meant to avoid. The
-spec makes it a mechanical build for the next session or for Felix, with the
-external pieces (dropship supplier API, live Ryft) clearly seamed off.
+## Session 2 — full build ("do everything properly, no half measures")
 
-**HealthPilot brand inheritance.** Recommended and specced in the handover
-(the sandbox `Clinic` should forward brand tokens into the HP embed so the quiz
-matches each clinic). Not built tonight because the consuming side lives in the
-separate, not-yet-deployed `health-pilot-frontend` `feat/whitelabel-luxury`
-branch, so it could not be verified end-to-end. Low-risk to add once HP deploys.
+Two further pillars were then built into the real codebase and verified.
+
+### Pillar A — schema-backed clinic customisation layer (commit `d4810f7`)
+
+Deepens per-clinic control of the landing page end to end, backend included.
+
+- **Schema + migration** (`add_clinic_homepage_customisation`): adds
+  `heroCtaLabel`, `showAboutSection`/`aboutHeading`/`aboutBody`,
+  `showTestimonial`/`testimonialQuote`/`testimonialAttribution`/`testimonialRole`,
+  and `serviceCardOrder` to `Clinic` (additive, nullable). All added to
+  `CLINIC_ADMIN_ALLOWED_FIELDS` and returned by `getPublicConfig` (with
+  structural-access defaults). `ClinicPublicConfig` + frontend `ClinicBrandConfig`
+  extended.
+- **Render**: hero CTA-label override, an "our approach" block, a testimonial,
+  and a clinic-defined service-card order (stable reorder; unlisted cards keep
+  natural position).
+- **Editor**: controls for all of the above incl. an arrow-based service-card
+  reorder, feeding the same live preview and the standard `PUT /clinic/:id`.
+- **Verified**: tsc + vite build + nest build clean; 9/9 homepage tests.
+
+### Pillar B — supplement upsell funnel (commit `dcdba44`)
+
+Built into the platform at its own standard, reusing the existing Medusa + Ryft
+commerce so it goes live by *connecting* a supplier + SKUs, not rebuilding.
+
+- **Server**: `SupplementProduct` (per-clinic catalogue; SKU/price/inventory
+  stay in Medusa via `medusaVariantId`) + `PatientSupplementRecommendation`,
+  both tenant-isolated (`CLINIC_SCOPED_MODELS`); additive migration
+  `add_supplement_funnel`. New `domain/supplements` NestJS module —
+  `SupplementsService` (tenant-scoped catalogue CRUD with a cross-tenant
+  ownership guard, recommendation-slug → catalogue mapping, soft-delete) +
+  `SupplementsController` (patient reads, clinic-STAFF CRUD) + DTOs. A
+  `FulfilmentProvider` seam with a `NoopFulfilmentProvider` bound via a DI token,
+  so the funnel runs fully in the sandbox and Felix swaps in a real dropship
+  adapter by changing one `useClass`. 8 unit tests.
+- **Frontend**: `lib/api/supplements` client; a `/dashboard/supplements`
+  catalogue route (recommendations first with the clinical reason, then
+  catalogue; add-to-basket via the existing `useCart`; "Available soon" when a
+  variant isn't seeded); a gated Explore nav entry on `supplementsEnabled`.
+- **Verified**: nest build + vite build + tsc clean; 8 server + 44 frontend
+  tests pass.
+
+**Felix connects (seamed + documented, cannot be coded without external access):**
+- Real dropship adapter behind `FulfilmentProvider` (supplier API/credentials).
+- Live Medusa supplement SKUs + prices + inventory; confirm Ryft covers
+  supplement charges + the platform/clinic split.
+- Extend the HealthPilot summary-export contract to emit supplement
+  recommendation slugs, mapped to each `SupplementProduct.recommendationSlugs`.
+- Live payments go-live (shared with TRT/ED: live Ryft creds + KYB/KYC).
+
+### Still recommended, not built (needs the other repo deployed)
+
+**HealthPilot brand inheritance** — the sandbox `Clinic` forwarding brand tokens
+into the HP embed so the quiz matches each clinic. Not built because the
+consuming side lives in the separate, not-yet-deployed `health-pilot-frontend`
+`feat/whitelabel-luxury` branch, so it can't be verified end-to-end. Low-risk to
+add once HP deploys.
+
+### Full commit list (branch `feat/golive-landing-supplements`)
+
+- `23ca4db` per-clinic public landing page in the product
+- `02565aa` quiz scroll-to-top fix + landing review hardening/polish
+- `d4810f7` schema-backed clinic customisation layer
+- `dcdba44` supplement upsell funnel
