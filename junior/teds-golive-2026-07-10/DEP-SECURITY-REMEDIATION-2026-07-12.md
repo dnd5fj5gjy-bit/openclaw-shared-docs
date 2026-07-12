@@ -7,11 +7,13 @@ Date: 2026-07-12 · Conservative pass (npm audit fix, no --force; revert-if-not-
 | health-pilot-frontend (harden/frontend-golive) | 2/12/6/2 (22) | 2/1/2/0 (5) | c9e4457 |
 | health-pilot-backend (harden/backend-golive) | 1/17/10/1 (29) | 0/3/0/0 (3) | e119019 |
 | th-whitelabel frontend (feat/supplement-commerce) | 3/18/11/4 (36) | 0/1/4/0 (5) | ab4f786 |
-| th-whitelabel server (feat/supplement-commerce) | 4/25/32/7 (68) | (in progress) | targeted bullmq fix — see below |
+| th-whitelabel server (feat/supplement-commerce) | 4/25/32/7 (68) | 2/17/20/3 (42) | dc5fc71 |
 
-th-whitelabel server: `npm audit fix` alone bumped bullmq 5.53.1->5.80.2 which broke tsc (JobProgress type at
-queue.service.ts:117,170 + line-item-event-queue.service.ts:225). A follow-up agent is applying the 1-line type fix to
-unlock its ~2 criticals + ~10 highs while staying green. If that reverts, the server's full 68 stands pending Felix.
+th-whitelabel server: bullmq 5.53.1->5.80.2 broke tsc (JobProgress not assignable to number). Fixed 4 assignment sites
+(queue.service.ts:117,157; line-item-event-queue.service.ts:225; email-queue.service.ts:204) via
+`typeof job.progress === 'number' ? job.progress : 0`, ran npm audit fix (no --force). 68->42 (crit 4->2, high 25->17),
+tsc clean, jest 1419 pass/26 pre-existing. Remaining need --force/majors: @nestjs/cli->webpack chain, @google-cloud/storage
+chain = FELIX.
 
 ## Remaining — NEEDS FELIX (major/breaking bumps, per-package decision)
 ### #1 GO-LIVE PRIORITY — health-pilot-frontend `next` 16.1.6 -> 16.2.10
