@@ -44,5 +44,15 @@ Hard eligibility gate (keep isEligible incl conditions/meds UNKNOWN fail-closed)
 6. Which th-whitelabel service receives summary.ready webhook (for S1 landing point)?
 7. Detail-page cache TTL/invalidation (1hr ok? invalidateSupplementsCache hook exists).
 
+## S1 CONTRACT (SHIPPED — backend sender half) — `recommendationSlugs`
+The `summary.ready` webhook now carries the supplement funnel input. The platform-side `syncRecommendationsFromSlugs` consumer must match this exactly:
+- **Field:** `recommendationSlugs`
+- **Type:** `string[]`
+- **Event:** `summary.ready` (webhook `data.recommendationSlugs`)
+- **Semantics:** de-duplicated, rank-ordered supplement slugs (highest-ranked first) from `recommendedSolutions.supplementMatches[].slug`. Always present. `[]` when there are no matches.
+- **Safety:** flagged / underage intakes throw upstream of the emit (intake-summary.service ~L553) and never fire `summary.ready`, so slugs are only ever populated for eligible intakes; the list can only be empty for them.
+- **Parity channel:** the GET summary-export pull payload (`SummaryExportPayload`) also carries `recommendationSlugs: string[]` (same derivation), so the platform can read slugs from either the webhook or the pull.
+- Source: `extractRecommendationSlugs()` in `src/services/intake/summary-export.service.ts`.
+
 ## SAFETY NON-NEGOTIABLES
 L0 red-flag+age stays deterministic/server-side/upstream of all cost+routing (S4 adds a test enforcing no cost lever reaches it). LLM outputs schema-validated. Prompt-injection delimiters preserved. Personalization gated by diagnostic-language + claims filters. Cost-saving NEVER bypasses a gate.
