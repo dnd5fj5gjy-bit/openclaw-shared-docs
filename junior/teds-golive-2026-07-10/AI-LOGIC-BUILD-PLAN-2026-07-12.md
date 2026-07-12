@@ -54,5 +54,14 @@ The `summary.ready` webhook now carries the supplement funnel input. The platfor
 - **Parity channel:** the GET summary-export pull payload (`SummaryExportPayload`) also carries `recommendationSlugs: string[]` (same derivation), so the platform can read slugs from either the webhook or the pull.
 - Source: `extractRecommendationSlugs()` in `src/services/intake/summary-export.service.ts`.
 
+## S3 STATUS (PARTIAL — landed the safe half, deferred the risky half)
+Landed:
+- `src/services/ai/ai-router.service.ts` — single chokepoint every one of the 9 LLM chat-completions now routes through (analyzeHealth, generateExplanation, analyzeImage, generateReport, rerank, the 3 plan-detail services, blood-test interpretation). Pure pass-through: it owns the provider call + the S0 usage-emit; behaviour/outputs byte-identical. It does NOT cache (S2 stays at service level; router only runs on a cache miss, always cachedHit:false) and does NOT pick models/short-circuit. This is the clean seam **S4 (tiering/short-circuit) plugs into** — add `selectModel()` / `isObviousCase()` in the router; a flagged intake already never reaches it (gate throws upstream). `resolveTaskMaxTokens(task)` reads per-task budgets from `AI_TASK_CONFIG`.
+- Per-task `max_tokens` wiring: the 5 detail/rerank/explanation literals now come from `AI_TASK_CONFIG` (values codified to the de-facto budgets; identical on the wire).
+
+DEFERRED (logged, not shipped):
+- **Aggressive prompt-slim of `buildBaseSystemPrompt`** and the **`AI_PROMPT_VERSION` v1->v2 bump**. Reason: the acceptance bar is "summary-quality unchanged via golden-fixture regression", which needs live-provider output to verify. This environment has no outbound/creds, so quality cannot be validated, and the base prompt's boilerplate is largely SAFETY spine (red-flag severity rules, injection delimiters, non-diagnostic register) that must not be trimmed blind. AI_PROMPT_VERSION stays 'v1' (no prompt change => no S2 cache bust). Prefix-caching (Lever E) note: the base system prompt is already a stable, byte-identical prefix for default-locale traffic (buildOutputLanguageInstruction returns '' for en-GB and is appended only for non-default locales), and system-message-first ordering is already in place — so same-locale traffic already gets the prefix-cache discount without restructuring.
+- max_tokens REDUCTION on analyzeHealth (still config.openai.maxTokens = 4096) — the actual Lever D saving. Same reason: needs an eval to confirm no truncation of the large combined summary payload.
+
 ## SAFETY NON-NEGOTIABLES
 L0 red-flag+age stays deterministic/server-side/upstream of all cost+routing (S4 adds a test enforcing no cost lever reaches it). LLM outputs schema-validated. Prompt-injection delimiters preserved. Personalization gated by diagnostic-language + claims filters. Cost-saving NEVER bypasses a gate.
