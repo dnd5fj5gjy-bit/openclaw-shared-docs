@@ -75,11 +75,21 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .hero-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--moss); }
 
 /* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+/* staggered groups: children ease in one after another when the group enters */
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.stagger.in > * { opacity: 1; transform: none; }
+.stagger.in > *:nth-child(1){ transition-delay: 0.04s; }
+.stagger.in > *:nth-child(2){ transition-delay: 0.12s; }
+.stagger.in > *:nth-child(3){ transition-delay: 0.20s; }
+.stagger.in > *:nth-child(4){ transition-delay: 0.28s; }
+.stagger.in > *:nth-child(5){ transition-delay: 0.36s; }
+.stagger.in > *:nth-child(6){ transition-delay: 0.44s; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .blink, .wave span, .route-line, .contours path, .transmittal .caret, .radio-btn.pulse { animation: none !important; }
+  .stagger > * { opacity: 1; transform: none; transition: none; }
+  .blink, .wave span, .route-line, .contours, .contours path, .transmittal .caret, .radio-btn.pulse, .wp-head .tick { animation: none !important; }
   .contours path { stroke-dashoffset: 0; }
 }
 
