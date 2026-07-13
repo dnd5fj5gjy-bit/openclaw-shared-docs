@@ -32,7 +32,8 @@ section { padding: 6.5rem 0; }
 .wp-head { display: flex; align-items: baseline; gap: 1.4rem; border-top: 2px solid var(--ink); padding-top: 0.9rem; margin-bottom: 3.2rem; }
 .wp-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; }
 .wp-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--moss); }
-.wp-head .tick { margin-left: auto; width: 8px; height: 8px; background: var(--signal); border-radius: 50%; flex-shrink: 0; align-self: center; }
+.wp-head .tick { margin-left: auto; width: 8px; height: 8px; background: var(--signal); border-radius: 50%; flex-shrink: 0; align-self: center; animation: tickPulse 2.6s ease-in-out infinite; }
+@keyframes tickPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(232,72,12,0.5); opacity: 1; } 50% { box-shadow: 0 0 0 6px rgba(232,72,12,0); opacity: 0.7; } }
 .dark .wp-head { border-top-color: var(--bone); }
 .dark .wp-title { color: rgba(246,247,242,0.55); }
 
@@ -42,13 +43,18 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .nav-inner { max-width: 1180px; margin: 0 auto; padding: 1.1rem 2.2rem; display: flex; justify-content: space-between; align-items: center; }
 .nav-brand { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; }
 .nav-brand .arrow-sep { color: var(--signal); padding: 0 0.35rem; }
-.nav-links { display: flex; gap: 1.8rem; }
+.nav-links { display: flex; gap: 1.4rem; }
 .nav-links a { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em; color: var(--moss); transition: color 0.25s ease; }
 .nav-links a:hover { color: var(--signal); }
+.nav-links a.active { color: var(--ink); text-decoration-color: var(--signal); }
+
+/* ---------- scroll progress ---------- */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--signal); z-index: 200; transition: width 0.12s linear; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 0 5rem; overflow: hidden; }
-.contours { position: absolute; inset: 0; z-index: 0; opacity: 0.55; pointer-events: none; }
+.contours { position: absolute; inset: 0; z-index: 0; opacity: 0.55; pointer-events: none; animation: contourFloat 24s ease-in-out infinite alternate; will-change: transform; }
+@keyframes contourFloat { from { transform: translateY(0) scale(1); } to { transform: translateY(-16px) scale(1.015); } }
 .contours path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawPath 3.2s ease forwards; }
 .contours path:nth-child(2) { animation-delay: 0.2s; }
 .contours path:nth-child(3) { animation-delay: 0.4s; }
@@ -70,16 +76,26 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .hero h1 .sig { color: var(--signal); }
 .hero-sub { max-width: 46ch; margin-top: 2.2rem; font-size: 1.12rem; color: var(--ink-soft); }
 .hero-foot { display: flex; align-items: center; gap: 2.2rem; margin-top: 3rem; flex-wrap: wrap; }
-.btn { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--bone); padding: 1.05rem 2rem; border: 1px solid var(--ink); cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
-.btn:hover { background: var(--signal); border-color: var(--signal); color: var(--bone); }
+.btn { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--bone); padding: 1.05rem 2rem; border: 1px solid var(--ink); cursor: pointer; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+.btn:hover { background: var(--signal); border-color: var(--signal); color: var(--bone); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(232,72,12,0.25); }
 .hero-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--moss); }
 
 /* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+/* staggered groups: children ease in one after another when the group enters */
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.stagger.in > * { opacity: 1; transform: none; }
+.stagger.in > *:nth-child(1){ transition-delay: 0.04s; }
+.stagger.in > *:nth-child(2){ transition-delay: 0.12s; }
+.stagger.in > *:nth-child(3){ transition-delay: 0.20s; }
+.stagger.in > *:nth-child(4){ transition-delay: 0.28s; }
+.stagger.in > *:nth-child(5){ transition-delay: 0.36s; }
+.stagger.in > *:nth-child(6){ transition-delay: 0.44s; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .blink, .wave span, .route-line, .contours path, .transmittal .caret, .radio-btn.pulse { animation: none !important; }
+  .stagger > * { opacity: 1; transform: none; transition: none; }
+  .blink, .wave span, .route-line, .contours, .contours path, .transmittal .caret, .radio-btn.pulse, .wp-head .tick { animation: none !important; }
   .contours path { stroke-dashoffset: 0; }
 }
 
@@ -144,8 +160,8 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .tx.bear { border-left: 2px solid var(--signal); padding-left: 1.1rem; }
 .tx.pending .tx-body { color: rgba(246,247,242,0.4); letter-spacing: 0.3em; }
 .radio-foot { display: flex; justify-content: center; gap: 1rem; padding: 1.3rem 1.4rem 1.6rem; border-top: 1px solid rgba(246,247,242,0.18); }
-.radio-btn { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: var(--bone); color: var(--ink); border: 1px solid var(--bone); padding: 0.85rem 1.7rem; cursor: pointer; transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease; }
-.radio-btn:hover { background: var(--signal); border-color: var(--signal); color: var(--bone); }
+.radio-btn { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: var(--bone); color: var(--ink); border: 1px solid var(--bone); padding: 0.85rem 1.7rem; cursor: pointer; transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease, transform 0.25s ease; }
+.radio-btn:hover:not(:disabled) { background: var(--signal); border-color: var(--signal); color: var(--bone); transform: translateY(-1px); }
 .radio-btn:disabled { opacity: 0.4; cursor: default; }
 .radio-btn.ghost { background: transparent; color: rgba(246,247,242,0.75); border-color: rgba(246,247,242,0.35); }
 .radio-btn.ghost:hover { border-color: var(--signal); color: var(--signal); background: transparent; }
@@ -283,16 +299,19 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <nav id="nav">
   <div class="nav-inner">
     <div class="nav-brand">BEAR GRYLLS VENTURES <span class="arrow-sep">→</span> OPENAI</div>
     <div class="nav-links">
-      <a href="#idea">01 IDEA</a>
-      <a href="#demo">02 EXPERIENCE</a>
-      <a href="#roster">03 ROSTER</a>
-      <a href="#bear">04 BEAR</a>
-      <a href="#route">05 ROUTE</a>
-      <a href="#over">06 TALK</a>
+      <a href="#situation">01 SITUATION</a>
+      <a href="#idea">02 IDEA</a>
+      <a href="#demo">03 EXPERIENCE</a>
+      <a href="#roster">04 ROSTER</a>
+      <a href="#bear">05 BEAR</a>
+      <a href="#route">08 ROUTE</a>
+      <a href="#over">09 CLOSE</a>
     </div>
   </div>
 </nav>
@@ -317,7 +336,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
     <h1>When it matters,<br>people want a voice<br>they <span class="sig">know.</span></h1>
     <p class="hero-sub">ChatGPT Voice, with the world's most trusted experts on the other end of the conversation. Starting with Bear Grylls.</p>
     <div class="hero-foot">
-      <a href="#idea" class="btn">Walk the route</a>
+      <a href="#situation" class="btn">Walk the route</a>
       <span class="hero-note">READING TIME · 4 MIN · PREPARED JULY 2026</span>
     </div>
   </div>
@@ -336,7 +355,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       </div>
       <div class="reveal">
         <div class="ledger-cap">Field record · why this voice</div>
-        <div class="ledger" id="ledger">
+        <div class="ledger stagger" id="ledger">
           <div class="ledger-row"><span class="val" data-count="2" data-suffix="bn">0</span><span class="lab">VIEWERS · THE MOST-WATCHED SURVIVAL GUIDE ON EARTH</span></div>
           <div class="ledger-row"><span class="val" data-count="50" data-suffix="m">0</span><span class="lab">BOOKS SOLD · A PUBLISHED BODY OF METHOD BEHIND EVERY ANSWER</span></div>
           <div class="ledger-row"><span class="val" data-count="93" data-suffix="%">0</span><span class="lab">TRUST RATING · ONE OF THE MOST TRUSTED CELEBRITIES ON EARTH · SEE WP·05</span></div>
@@ -355,16 +374,16 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <p class="idea-lede">You ask about lighting a fire in the rain. ChatGPT recognises the territory and offers a handover. <span class="q">"Would you like Bear Grylls to talk you through it?"</span></p>
       <p class="idea-body">One word, and you are speaking with Bear. His voice, his methods, his calm. When the moment passes, ChatGPT carries on as before. The mechanic is a single, simple handover, and it changes what the product is.</p>
     </div>
-    <div class="notes">
-      <div class="note reveal">
+    <div class="notes stagger">
+      <div class="note">
         <span class="key">Recognition</span>
         <p>A voice people already know changes the feel of the whole product. It stops being a tool answering a query and becomes a person talking you through a moment.</p>
       </div>
-      <div class="note reveal">
+      <div class="note">
         <span class="key">Trust</span>
         <p>The same guidance lands harder from someone with a lifetime behind it. In the outdoors, where advice can carry real consequence, that trust is a genuine safety feature.</p>
       </div>
-      <div class="note reveal">
+      <div class="note">
         <span class="key">Word of mouth</span>
         <p>The first time someone hears Bear answer them on a hillside, they tell everyone they know. This is a product moment that markets itself.</p>
       </div>
@@ -417,7 +436,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
           <div class="channel-detail-inner">
             <span></span>
             <div>
-              <p>The most recognised survival figure on earth, and the launch partner. Two billion viewers, fifty million books sold, and an audience that spans every generation and every continent. He has already pioneered interactive adventure with Netflix's You vs Wild, the first series where the audience chose the route. Bear Grylls Ventures can move on this immediately. <a class="link" href="https://www.beargrylls.com" target="_blank" rel="noopener">BEARGRYLLS.COM →</a></p>
+              <p>The most recognised survival figure on earth, and the launch partner. Two billion viewers, fifty million books sold, and an audience that spans every generation and every continent. He has already pioneered interactive adventure with Netflix's You vs. Wild, the first series where the audience chose the route. Bear Grylls Ventures can move on this immediately. <a class="link" href="https://www.beargrylls.com" target="_blank" rel="noopener">BEARGRYLLS.COM →</a></p>
               <p class="ch-broker">BGV · In-house · Ready to sign</p>
             </div>
           </div>
@@ -426,7 +445,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <div class="channel" id="ch2">
         <div class="channel-row" onclick="toggleChannel('ch2')">
           <span class="ch-id">CH 02</span>
-          <span class="ch-name">A Gordon Ramsay</span>
+          <span class="ch-name">Gordon Ramsay</span>
           <span class="ch-cat">Cooking · Food</span>
           <span class="ch-status">Illustrative</span>
           <span class="ch-plus">+</span>
@@ -444,7 +463,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <div class="channel" id="ch3">
         <div class="channel-row" onclick="toggleChannel('ch3')">
           <span class="ch-id">CH 03</span>
-          <span class="ch-name">A Martha Stewart</span>
+          <span class="ch-name">Martha Stewart</span>
           <span class="ch-cat">Home · Living</span>
           <span class="ch-status">Illustrative</span>
           <span class="ch-plus">+</span>
@@ -462,7 +481,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <div class="channel" id="ch4">
         <div class="channel-row" onclick="toggleChannel('ch4')">
           <span class="ch-id">CH 04</span>
-          <span class="ch-name">A Kevin Hart</span>
+          <span class="ch-name">Kevin Hart</span>
           <span class="ch-cat">Comedy · Entertainment</span>
           <span class="ch-status">Illustrative</span>
           <span class="ch-plus">+</span>
@@ -523,7 +542,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       </div>
       <div class="trust-foot">
         <p class="tf-note">PLUS <strong>92% LIKABILITY</strong> AMONG US ADULTS EARNING OVER $50K. TRUST IS THE PRODUCT CHATGPT SELLS. BEAR CARRIES IT READY-MADE.</p>
-        <p class="tf-src">SOURCES: QUALTRICS, AUG–SEP 2024, US ADULTS UNDER 34, "HOW TRUSTWORTHY / INSPIRING DO YOU FIND EACH OF THE FOLLOWING?" (AMONG THOSE AWARE) · E-SCORE CELEBRITY, SEP 2024</p>
+        <p class="tf-src">SOURCES: QUALTRICS, AUG-SEP 2024, US ADULTS UNDER 34, "HOW TRUSTWORTHY / INSPIRING DO YOU FIND EACH OF THE FOLLOWING?" (AMONG THOSE AWARE) · E-SCORE CELEBRITY, SEP 2024</p>
       </div>
     </div>
   </div>
@@ -567,7 +586,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
         <h2>A new reason to talk to ChatGPT.</h2>
         <p>Every assistant will eventually sound good. Very few will ever sound like someone. The companies that win voice will be the ones people feel a relationship with, and relationships are built with people, not models. This partnership gives ChatGPT the first and best of them, in the category where trust matters most, with a clear map to the rest.</p>
       </div>
-      <div class="manifest reveal">
+      <div class="manifest stagger">
         <div class="manifest-row"><span class="m-key">First</span><p>The first named expert voices inside any major AI assistant. A story every headline tells with ChatGPT's name in it.</p></div>
         <div class="manifest-row"><span class="m-key">Trusted</span><p>A 93% trust rating, imported directly into the product. People believe answers more when they believe the person giving them.</p></div>
         <div class="manifest-row"><span class="m-key">Daily</span><p>Cooking, home, humour and the outdoors bring Voice into everyday family life, far beyond the desk.</p></div>
@@ -586,7 +605,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <h2>Start small. Start real. Start now.</h2>
       <p>This does not need a grand programme to begin. It needs one category, one voice and a few months of real usage data.</p>
     </div>
-    <div class="route reveal">
+    <div class="route stagger">
       <div class="route-line"></div>
       <div class="leg first">
         <div class="leg-tag">Leg 01 · Pilot</div>
@@ -634,17 +653,41 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <script>
 var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---------- nav border ----------
+// ---------- nav border + scroll progress + scrollspy ----------
 var nav = document.getElementById('nav');
+var progress = document.getElementById('scrollProgress');
+var spyLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+var spySections = spyLinks.map(function(a) { return document.querySelector(a.getAttribute('href')); });
+var ticking = false;
+function onScroll() {
+  var y = window.scrollY || window.pageYOffset;
+  nav.classList.toggle('scrolled', y > 60);
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  // scrollspy: last section whose top has passed the upper third of the viewport
+  var active = -1, line = window.innerHeight * 0.35;
+  spySections.forEach(function(sec, i) {
+    if (sec && sec.getBoundingClientRect().top <= line) active = i;
+  });
+  spyLinks.forEach(function(a, i) { a.classList.toggle('active', i === active); });
+  ticking = false;
+}
 window.addEventListener('scroll', function() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+  if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+}, { passive: true });
+onScroll();
 
 // ---------- reveal on scroll ----------
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// ---------- staggered groups ----------
+var stagObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); stagObs.unobserve(e.target); } });
+}, { threshold: 0.2 });
+document.querySelectorAll('.stagger').forEach(function(el) { stagObs.observe(el); });
 
 // ---------- transmittal typewriter ----------
 (function() {
@@ -804,12 +847,24 @@ var currentMetric = 'trust';
 var bars = document.querySelectorAll('#trustChart .tbar');
 var chartShown = false;
 
-function renderBars(metric, animateFrom) {
+function countUpEl(el, target, dur) {
+  if (reducedMotion) { el.textContent = target + '%'; return; }
+  var start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    var p = Math.min((ts - start) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + '%';
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function renderBars(metric) {
   bars.forEach(function(bar) {
     var i = parseInt(bar.getAttribute('data-i'), 10);
     var v = trustData[metric][i];
     bar.style.height = v + '%';
-    bar.querySelector('.tval').textContent = v + '%';
+    countUpEl(bar.querySelector('.tval'), v, 1100);
   });
 }
 function setMetric(m) {
