@@ -847,12 +847,24 @@ var currentMetric = 'trust';
 var bars = document.querySelectorAll('#trustChart .tbar');
 var chartShown = false;
 
-function renderBars(metric, animateFrom) {
+function countUpEl(el, target, dur) {
+  if (reducedMotion) { el.textContent = target + '%'; return; }
+  var start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    var p = Math.min((ts - start) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + '%';
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function renderBars(metric) {
   bars.forEach(function(bar) {
     var i = parseInt(bar.getAttribute('data-i'), 10);
     var v = trustData[metric][i];
     bar.style.height = v + '%';
-    bar.querySelector('.tval').textContent = v + '%';
+    countUpEl(bar.querySelector('.tval'), v, 1100);
   });
 }
 function setMetric(m) {
