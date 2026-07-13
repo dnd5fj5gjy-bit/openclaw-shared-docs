@@ -1,0 +1,112 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1600px;height:900px;background:#fff;font-family:'Inter',Arial,sans-serif;color:#111}
+  .slide{position:relative;width:1600px;height:900px;padding:60px 70px;overflow:hidden}
+  .kicker{font-size:19px;font-weight:800;letter-spacing:1.5px;color:#1a1a1a}
+  h1{font-size:68px;font-weight:900;letter-spacing:-1px;margin:6px 0 10px;line-height:1}
+  .sub{font-size:26px;color:#3a3a3a;font-weight:400}
+  .sub b{font-weight:800;color:#111}
+
+  /* left stat block */
+  .stat{position:absolute;left:70px;top:430px;width:300px}
+  .stat .big{font-size:118px;font-weight:900;line-height:.9;letter-spacing:-3px}
+  .stat .cap{font-size:26px;font-weight:400;color:#222;margin-top:8px;line-height:1.15}
+  .stat .rule{height:2px;background:#111;margin:26px 0 14px;width:230px}
+  .stat .lik{font-size:30px;font-weight:400;letter-spacing:.5px}
+  .stat .lik sup{font-size:16px}
+
+  /* charts */
+  .charts{position:absolute;left:400px;right:70px;top:210px;height:560px;display:flex;gap:70px;align-items:flex-end}
+  .group{flex:1;display:flex;flex-direction:column;align-items:center}
+  .bars{display:flex;align-items:flex-end;justify-content:center;gap:26px;height:470px;width:100%}
+  .bar{position:relative;width:92px;display:flex;justify-content:center}
+  .col{width:92px;background:#9c9c9c;border-radius:2px 2px 0 0;position:relative}
+  .col.bear{background:#a9c8e2}
+  .pct{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-weight:800;font-size:26px}
+  .head{position:absolute;left:50%;transform:translateX(-50%);bottom:100%;pointer-events:none}
+  .head img{display:block;filter:drop-shadow(0 3px 4px rgba(0,0,0,.18))}
+  .glabel{margin-top:20px;font-size:30px;font-weight:900;letter-spacing:.5px}
+  .glabel sup{font-size:16px;font-weight:700}
+
+  .foot-src{position:absolute;left:410px;top:720px;width:520px;font-size:11px;color:#9a9a9a;line-height:1.45}
+  .footer{position:absolute;left:0;right:0;bottom:0;height:74px;background:#efefef;display:flex;align-items:center;justify-content:space-between;padding:0 70px}
+  .brand{font-size:30px;font-weight:900;letter-spacing:1px}
+  .brand .sl{color:#111}
+  .date{font-size:22px;font-weight:800;letter-spacing:1px}
+</style></head>
+<body>
+<div class="slide">
+  <div class="kicker">BEAR GRYLLS</div>
+  <h1>TRUSTED &amp; INSPIRING CELEBRITY</h1>
+  <div class="sub">Bear Grylls celebrity comparisons with regard to <b>trust</b> and <b>inspiration</b>.</div>
+
+  <div class="stat">
+    <div class="big">92%</div>
+    <div class="cap">Likability amongst<br>US Adults with<br>income &gt;$50K</div>
+    <div class="rule"></div>
+    <div class="lik">LIKABILITY<sup>2</sup></div>
+  </div>
+
+  <div class="charts">
+    <!-- TRUST -->
+    <div class="group">
+      <div class="bars" id="trust"></div>
+      <div class="glabel">TRUST<sup>1</sup></div>
+    </div>
+    <!-- INSPIRATION -->
+    <div class="group">
+      <div class="bars" id="insp"></div>
+      <div class="glabel">INSPIRATION<sup>1</sup></div>
+    </div>
+  </div>
+
+  <div class="foot-src">
+    1 Qualtrics, August-September 2024, US, +34 year olds, n=317<br>
+    &nbsp;&nbsp;"How Trustworthy are each of the following?" (among those aware). A: Very or Somewhat<br>
+    &nbsp;&nbsp;"How Inspiring do you feel each of the following?" (among those aware). A: Very or Somewhat<br>
+    2 E-Score Celebrity, September 2024. A: Like a Lot, Like, and Like Some
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="sl">E/BG</span></div>
+    <div class="date">OCT 2025</div>
+  </div>
+</div>
+
+<script>
+  // natural sizes: bear 370x500, oprah 410x540, fallon 350x490, cooper 390x465
+  const HEADS = {
+    bear:  {w:370,h:500},
+    oprah: {w:410,h:540},
+    fallon:{w:350,h:490},
+    cooper:{w:390,h:465},
+  };
+  const MAXBAR = 400; // px at 100%
+  // head display width (px) tuned per person so faces read at similar scale
+  const HW = {bear:118, oprah:150, fallon:118, cooper:122};
+  // how far head sits above bar top (px overlap up); bottom of head tucks slightly behind bar
+  function bar(person, pct){
+    const wrap=document.createElement('div'); wrap.className='bar';
+    const col=document.createElement('div'); col.className='col'+(person==='bear'?' bear':'');
+    col.style.height=(pct/100*MAXBAR)+'px';
+    const p=document.createElement('div'); p.className='pct'; p.textContent=pct+'%';
+    col.appendChild(p);
+    const h=document.createElement('div'); h.className='head';
+    const img=document.createElement('img');
+    img.src='heads/'+person+'.png';
+    const w=HW[person]; const ar=HEADS[person].h/HEADS[person].w;
+    img.style.width=w+'px'; img.style.height=(w*ar)+'px';
+    // tuck head bottom behind bar top by ~18px
+    h.style.marginBottom='-18px';
+    h.appendChild(img); col.appendChild(h);
+    wrap.appendChild(col); return wrap;
+  }
+  const trust=[['bear',93],['oprah',82],['fallon',87],['cooper',91]];
+  const insp =[['bear',92],['oprah',83],['fallon',80],['cooper',84]];
+  trust.forEach(([p,v])=>document.getElementById('trust').appendChild(bar(p,v)));
+  insp.forEach(([p,v])=>document.getElementById('insp').appendChild(bar(p,v)));
+</script>
+</body></html>
