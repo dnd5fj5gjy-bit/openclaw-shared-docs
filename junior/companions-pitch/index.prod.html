@@ -653,17 +653,41 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <script>
 var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---------- nav border ----------
+// ---------- nav border + scroll progress + scrollspy ----------
 var nav = document.getElementById('nav');
+var progress = document.getElementById('scrollProgress');
+var spyLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+var spySections = spyLinks.map(function(a) { return document.querySelector(a.getAttribute('href')); });
+var ticking = false;
+function onScroll() {
+  var y = window.scrollY || window.pageYOffset;
+  nav.classList.toggle('scrolled', y > 60);
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  // scrollspy: last section whose top has passed the upper third of the viewport
+  var active = -1, line = window.innerHeight * 0.35;
+  spySections.forEach(function(sec, i) {
+    if (sec && sec.getBoundingClientRect().top <= line) active = i;
+  });
+  spyLinks.forEach(function(a, i) { a.classList.toggle('active', i === active); });
+  ticking = false;
+}
 window.addEventListener('scroll', function() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+  if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+}, { passive: true });
+onScroll();
 
 // ---------- reveal on scroll ----------
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// ---------- staggered groups ----------
+var stagObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); stagObs.unobserve(e.target); } });
+}, { threshold: 0.2 });
+document.querySelectorAll('.stagger').forEach(function(el) { stagObs.observe(el); });
 
 // ---------- transmittal typewriter ----------
 (function() {
