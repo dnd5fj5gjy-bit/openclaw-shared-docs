@@ -6,6 +6,10 @@
 <title>Companions — Bear Grylls Ventures × OpenAI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Archivo:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="heads/bear.png">
+<link rel="preload" as="image" href="heads/oprah.png">
+<link rel="preload" as="image" href="heads/fallon.png">
+<link rel="preload" as="image" href="heads/cooper.png">
 <style>
 :root {
   --paper: #ECEEE7;
@@ -127,6 +131,12 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .ledger-row .lab { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--moss); text-align: right; max-width: 28ch; line-height: 1.5; }
 .ledger-cap { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moss); margin-bottom: 0.8rem; }
 .ledger-row .val.text { font-size: 1.25rem; white-space: normal; line-height: 1.15; max-width: 9ch; }
+.sit-aside { border: 1px solid var(--ink); background: var(--bone); padding: 2.4rem 2.2rem 2.2rem; align-self: start; box-shadow: 0 14px 40px rgba(23,29,26,0.06); }
+.sit-aside .qmark { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 4.6rem; line-height: 0.55; color: var(--signal); display: block; height: 0.5em; }
+.sit-aside .sit-quote { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: clamp(1.35rem, 2.1vw, 1.72rem); line-height: 1.24; letter-spacing: -0.015em; color: var(--ink); margin: 1.1rem 0 1.6rem; }
+.sit-aside .sit-div { height: 1px; background: var(--contour); margin-bottom: 1.4rem; }
+.sit-aside .sit-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; line-height: 1.9; letter-spacing: 0.04em; color: var(--moss); }
+.sit-aside .sit-note strong { color: var(--signal); font-weight: 600; }
 
 /* ---------- clickability affordances ---------- */
 .nav-links a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color 0.25s ease, text-decoration-color 0.25s ease; }
@@ -388,13 +398,19 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <section id="situation">
   <div class="wrap">
     <div class="wp-head reveal"><span class="wp-num">WP·01</span><span class="wp-title">The Situation</span><span class="tick"></span></div>
-    <div class="sit-grid" style="grid-template-columns: 1fr;">
-      <div class="reveal" style="max-width: 66ch;">
+    <div class="sit-grid">
+      <div class="reveal">
         <h2>Voice is winning. The voice is anonymous.</h2>
         <p>ChatGPT Voice already feels like magic. Hundreds of millions of people can ask anything, hands free, in plain speech, and get a brilliant answer back.</p>
         <p>But the voice on the other end belongs to no one. It is warm, capable and interchangeable. And when the question really matters, whether you are halfway up a hillside in fog or halfway through a Sunday roast, anonymous puts a ceiling on trust.</p>
         <p>For over twenty years, Bear Grylls has been the voice people turn to when things get wild. This proposal is about putting that voice, and voices like it, inside the product the world is already talking to.</p>
       </div>
+      <aside class="sit-aside reveal">
+        <span class="qmark">&ldquo;</span>
+        <p class="sit-quote">A brilliant answer from no one in particular is still a stranger talking.</p>
+        <div class="sit-div"></div>
+        <p class="sit-note">The ceiling on Voice was never intelligence. It is <strong>trust</strong>. And trust has a face, a history and a name. That is the gap this proposal closes.</p>
+      </aside>
     </div>
   </div>
 </section>
@@ -453,7 +469,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
     <div class="wp-head reveal"><span class="wp-num">WP·04</span><span class="wp-title">The Roster</span><span class="tick"></span></div>
     <div class="roster-intro reveal">
       <h2>One handover. Every category people ask about.</h2>
-      <p>The mechanic repeats. ChatGPT recognises the territory of a question and offers the voice the world already associates with it. The outdoors is the proving ground. Bear is signed and ready today. The channels below show where the idea travels next, and the calibre of voice each category calls for. The names are illustrative of the map, not deals in hand, and BGV is well placed to help open those doors when the time is right.</p>
+      <p>The mechanic repeats. ChatGPT recognises the territory of a question and offers the voice the world already associates with it. The outdoors is the proving ground. Bear is signed and ready today. The channels below show where the idea travels next, and the calibre of voice each category calls for. These are not abstract examples: BGV holds the relationships across entertainment and media to bring names like these to the table.</p>
     </div>
     <div class="channels-hint reveal">▸ Select a channel to open it</div>
     <div class="channels reveal">
@@ -480,7 +496,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
           <span class="ch-id">CH 02</span>
           <span class="ch-name">Gordon Ramsay</span>
           <span class="ch-cat">Cooking · Food</span>
-          <span class="ch-status">Illustrative</span>
+          <span class="ch-status">BGV can deliver</span>
           <span class="ch-plus">+</span>
         </div>
         <div class="channel-detail">
@@ -488,7 +504,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
             <span></span>
             <div>
               <p>Someone burns a sauce mid-dinner party and asks for help. Imagine the voice that answers. Cooking is one of the highest-volume question categories in any assistant, and it is made for a named voice with genuine kitchen authority.</p>
-              <p class="ch-broker">Illustrative · BGV can help open the door</p>
+              <p class="ch-broker">BGV · Relationship in place · We can deliver</p>
             </div>
           </div>
         </div>
@@ -498,7 +514,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
           <span class="ch-id">CH 03</span>
           <span class="ch-name">Martha Stewart</span>
           <span class="ch-cat">Home · Living</span>
-          <span class="ch-status">Illustrative</span>
+          <span class="ch-status">BGV can deliver</span>
           <span class="ch-plus">+</span>
         </div>
         <div class="channel-detail">
@@ -506,7 +522,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
             <span></span>
             <div>
               <p>Hosting, homemaking, gardens, fixing and finishing. The questions people ask every single day, answered by the voice that defined the category. Home is the highest-frequency territory of everyday questions, and the natural second or third chapter once the handover has proved itself in the wild.</p>
-              <p class="ch-broker">Illustrative · BGV can help open the door</p>
+              <p class="ch-broker">BGV · Relationship in place · We can deliver</p>
             </div>
           </div>
         </div>
@@ -516,7 +532,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
           <span class="ch-id">CH 04</span>
           <span class="ch-name">Kevin Hart</span>
           <span class="ch-cat">Comedy · Entertainment</span>
-          <span class="ch-status">Illustrative</span>
+          <span class="ch-status">BGV can deliver</span>
           <span class="ch-plus">+</span>
         </div>
         <div class="channel-detail">
@@ -524,7 +540,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
             <span></span>
             <div>
               <p>Sometimes people talk to ChatGPT just for the company. A comic voice of this calibre turns idle moments into entertainment, and gives Voice a personality people open the app purely to spend time with. The first assistant you talk to because it is funny is a product category of its own.</p>
-              <p class="ch-broker">Illustrative · BGV can help open the door</p>
+              <p class="ch-broker">BGV · Relationship in place · We can deliver</p>
             </div>
           </div>
         </div>
@@ -586,10 +602,10 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
         </div>
       </div>
       <div class="trust-chart" id="trustChart">
-        <div class="tcol lead"><div class="tbar" data-i="0"><img class="thead" src="heads/bear.png" alt="Bear Grylls" loading="lazy"><span class="tval">93%</span></div></div>
-        <div class="tcol"><div class="tbar" data-i="1"><img class="thead" src="heads/oprah.png" alt="Oprah Winfrey" loading="lazy"><span class="tval">82%</span></div></div>
-        <div class="tcol"><div class="tbar" data-i="2"><img class="thead" src="heads/fallon.png" alt="Jimmy Fallon" loading="lazy"><span class="tval">87%</span></div></div>
-        <div class="tcol"><div class="tbar" data-i="3"><img class="thead" src="heads/cooper.png" alt="Anderson Cooper" loading="lazy"><span class="tval">91%</span></div></div>
+        <div class="tcol lead"><div class="tbar" data-i="0"><img class="thead" src="heads/bear.png" alt="Bear Grylls" decoding="async" fetchpriority="high"><span class="tval">93%</span></div></div>
+        <div class="tcol"><div class="tbar" data-i="1"><img class="thead" src="heads/oprah.png" alt="Oprah Winfrey" decoding="async" fetchpriority="high"><span class="tval">82%</span></div></div>
+        <div class="tcol"><div class="tbar" data-i="2"><img class="thead" src="heads/fallon.png" alt="Jimmy Fallon" decoding="async" fetchpriority="high"><span class="tval">87%</span></div></div>
+        <div class="tcol"><div class="tbar" data-i="3"><img class="thead" src="heads/cooper.png" alt="Anderson Cooper" decoding="async" fetchpriority="high"><span class="tval">91%</span></div></div>
       </div>
       <div class="tnames">
         <span class="tname lead">BEAR GRYLLS<span class="role">ADVENTURER</span></span>
@@ -795,9 +811,9 @@ var steps = [
   { cls: 'you',  meta: 'TX · YOU · 16:42', text: 'I\'m out on a hike with my two boys and we want to light a fire to cook s\'mores. What\'s the best way to get one going?', audio: 'clips/you1.mp3' },
   { cls: 'gpt',  meta: 'RX · CHATGPT · 16:42', text: 'Great plan. This sounds like Bear Grylls territory. Would you like Bear to talk you through it?', audio: 'clips/gpt1.mp3' },
   { cls: 'you',  meta: 'TX · YOU · 16:43', text: 'Yeah, let\'s do it.', audio: 'clips/you2.mp3' },
-  { cls: 'bear',  meta: 'RX · BEAR GRYLLS · 16:43 · CHANNEL HANDOVER', text: 'Right lads, this is going to be brilliant! Job one, dry kindling. Find me twigs that snap and crackle when you bend them. That\'s the sound of a good fire. Anything green and bendy, leave it, too wet to burn. Grab a big handful of those snappy little twigs, and we\'ll build up from there!', audio: 'clips/bear1.mp3' },
+  { cls: 'bear',  meta: 'RX · BEAR GRYLLS · 16:43 · CHANNEL HANDOVER', text: 'Okay team, let\'s get this fire going! First job, we need some dry kindling. Look for little twigs that snap and crackle when you bend them. That sharp, crisp sound tells you they\'re bone dry and ready to burn. If they just bend, they\'re too green, too wet, so leave those. Grab yourself a good handful of the snappy ones, and we\'ll build it up from there. You\'ve got this.', audio: 'clips/bear1.mp3' },
   { cls: 'you',  meta: 'TX · YOU · 16:44', text: 'Perfect, the boys have run off to collect the wood. What should I be doing while they\'re gone?', audio: 'clips/you3.mp3' },
-  { cls: 'bear',  meta: 'RX · BEAR GRYLLS · 16:45', text: 'While the boys are off collecting wood, you\'ve got the important job. The fire pit. Scrape the ground back to bare earth, ring it with a few small rocks, and that\'s where the magic happens. Oh, and save me a marshmallow! Great work, team.', audio: 'clips/bear2.mp3' }
+  { cls: 'bear',  meta: 'RX · BEAR GRYLLS · 16:45', text: 'Right, while the boys are off gathering the wood, here\'s your job, and it\'s an important one. Get that fire pit ready. Scrape the ground right back to bare earth, ring it with a few small rocks, and that\'s where all the magic happens. Oh, and do me a favour, save me a marshmallow! Great work, team.', audio: 'clips/bear2.mp3' }
 ];
 var idx = 0, busy = false;
 var log = document.getElementById('radioLog');
