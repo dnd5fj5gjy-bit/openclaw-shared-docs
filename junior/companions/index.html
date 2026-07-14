@@ -52,30 +52,48 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--signal); z-index: 200; transition: width 0.12s linear; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 0 5rem; overflow: hidden; }
-.contours { position: absolute; inset: 0; z-index: 0; opacity: 0.55; pointer-events: none; animation: contourFloat 24s ease-in-out infinite alternate; will-change: transform; }
-@keyframes contourFloat { from { transform: translateY(0) scale(1); } to { transform: translateY(-16px) scale(1.015); } }
-.contours path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawPath 3.2s ease forwards; }
-.contours path:nth-child(2) { animation-delay: 0.2s; }
-.contours path:nth-child(3) { animation-delay: 0.4s; }
-.contours path:nth-child(4) { animation-delay: 0.6s; }
-.contours path:nth-child(5) { animation-delay: 0.8s; }
-.contours path:nth-child(6) { animation-delay: 1.0s; }
-.contours path:nth-child(7) { animation-delay: 1.2s; }
-.contours path:nth-child(8) { animation-delay: 1.4s; }
-.contours path:nth-child(9) { animation-delay: 1.6s; }
+.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 9rem 0 6rem; overflow: hidden; background:
+  radial-gradient(120% 80% at 78% 12%, rgba(232,72,12,0.06) 0%, rgba(232,72,12,0) 42%),
+  linear-gradient(180deg, #EFF1EA 0%, var(--paper) 46%, #E4E7DD 100%); }
+/* dawn glow low on the horizon */
+.hero-glow { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; z-index: 0; pointer-events: none;
+  background: radial-gradient(80% 100% at 68% 100%, rgba(232,72,12,0.10) 0%, rgba(232,72,12,0.03) 30%, transparent 62%);
+  animation: glowPulse 11s ease-in-out infinite alternate; }
+@keyframes glowPulse { from { opacity: 0.7; } to { opacity: 1; } }
+/* topographic contour lines, always drifting */
+.contours { position: absolute; inset: -4% -2% 0; z-index: 0; opacity: 0.5; pointer-events: none; animation: contourDrift 26s ease-in-out infinite alternate; will-change: transform; }
+@keyframes contourDrift { 0% { transform: translate3d(0,0,0) scale(1.02); } 100% { transform: translate3d(-22px,-18px,0) scale(1.05); } }
+.contours path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawPath 3.4s ease forwards; }
+.contours path:nth-child(2) { animation-delay: 0.15s; } .contours path:nth-child(3) { animation-delay: 0.3s; }
+.contours path:nth-child(4) { animation-delay: 0.45s; } .contours path:nth-child(5) { animation-delay: 0.6s; }
+.contours path:nth-child(6) { animation-delay: 0.75s; } .contours path:nth-child(7) { animation-delay: 0.9s; }
+.contours path:nth-child(8) { animation-delay: 1.05s; } .contours path:nth-child(9) { animation-delay: 1.2s; }
+.contours path:nth-child(10) { animation-delay: 1.35s; } .contours path:nth-child(11) { animation-delay: 1.5s; }
+.contours path:nth-child(12) { animation-delay: 1.65s; }
 @keyframes drawPath { to { stroke-dashoffset: 0; } }
-.hero-inner { position: relative; z-index: 1; }
-.transmittal { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; line-height: 1.9; letter-spacing: 0.08em; border: 1px solid var(--ink); padding: 0.9rem 1.3rem; margin-bottom: 3rem; background: var(--bone); min-height: 8.2em; min-width: 320px; }
+/* layered mountain ridgelines along the base */
+.ridge { position: absolute; left: -3%; right: -3%; bottom: 0; width: 106%; height: 100%; z-index: 0; pointer-events: none; }
+.ridge-far { opacity: 0.32; animation: ridgeFar 30s ease-in-out infinite alternate; will-change: transform; }
+.ridge-near { opacity: 0.5; animation: ridgeNear 22s ease-in-out infinite alternate; will-change: transform; }
+@keyframes ridgeFar { from { transform: translate3d(0,0,0); } to { transform: translate3d(20px,4px,0); } }
+@keyframes ridgeNear { from { transform: translate3d(0,0,0); } to { transform: translate3d(-26px,0,0); } }
+/* rising embers / pollen */
+.embers { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; }
+.transmittal { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; line-height: 1.9; letter-spacing: 0.08em; border: 1px solid var(--ink); padding: 0.9rem 1.3rem; margin-bottom: 2.6rem; background: rgba(246,247,242,0.86); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); box-shadow: 0 10px 30px rgba(23,29,26,0.06); min-height: 8.2em; min-width: 320px; }
 .transmittal .k { color: var(--moss); }
 .transmittal .live { color: var(--signal); font-weight: 600; }
 .transmittal .caret { display: inline-block; width: 7px; height: 1em; background: var(--signal); vertical-align: -2px; animation: blink 0.9s steps(1) infinite; }
 .blink { display: inline-block; width: 7px; height: 7px; background: var(--signal); border-radius: 50%; margin-right: 0.45rem; animation: blink 1.6s infinite; vertical-align: 1px; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
-.hero h1 { font-size: clamp(3rem, 8.2vw, 7.2rem); font-weight: 800; max-width: 15ch; }
+.hero h1 { font-size: clamp(3rem, 8.4vw, 7.4rem); font-weight: 800; max-width: 15ch; letter-spacing: -0.03em; }
 .hero h1 .sig { color: var(--signal); }
-.hero-sub { max-width: 46ch; margin-top: 2.2rem; font-size: 1.12rem; color: var(--ink-soft); }
-.hero-foot { display: flex; align-items: center; gap: 2.2rem; margin-top: 3rem; flex-wrap: wrap; }
+.hero-sub { max-width: 44ch; margin-top: 2.4rem; font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.55; color: var(--ink-soft); font-weight: 300; }
+.hero-foot { display: flex; align-items: center; gap: 1.8rem; margin-top: 3.4rem; flex-wrap: wrap; }
+.hero-scroll { display: inline-flex; align-items: center; gap: 0.7rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+.hero-scroll .dot { width: 22px; height: 34px; border: 1.5px solid var(--ink); border-radius: 12px; position: relative; }
+.hero-scroll .dot::after { content: ''; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; background: var(--signal); border-radius: 2px; transform: translateX(-50%); animation: scrollDot 1.8s ease-in-out infinite; }
+@keyframes scrollDot { 0% { opacity: 0; transform: translate(-50%,0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%,10px); } }
 .btn { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--bone); padding: 1.05rem 2rem; border: 1px solid var(--ink); cursor: pointer; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
 .btn:hover { background: var(--signal); border-color: var(--signal); color: var(--bone); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(232,72,12,0.25); }
 .hero-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--moss); }
@@ -95,7 +113,7 @@ nav.scrolled { border-bottom-color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .stagger > * { opacity: 1; transform: none; transition: none; }
-  .blink, .wave span, .route-line, .contours, .contours path, .transmittal .caret, .radio-btn.pulse, .wp-head .tick { animation: none !important; }
+  .blink, .wave span, .route-line, .contours, .contours path, .transmittal .caret, .radio-btn.pulse, .wp-head .tick, .hero-glow, .ridge-far, .ridge-near, .hero-scroll .dot::after { animation: none !important; }
   .contours path { stroke-dashoffset: 0; }
 }
 
@@ -192,6 +210,26 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .ch-broker { font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal); margin-top: 1rem; }
 .channel.open .channel-row { background: var(--paper-deep); }
 
+/* ---------- broker callout ---------- */
+.broker { display: grid; grid-template-columns: auto 1fr; gap: 1.6rem; align-items: center; margin-top: 2.6rem; border: 1px solid var(--ink); background: var(--bone); padding: 1.8rem 2rem; }
+.broker .broker-mark { font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bone); background: var(--signal); padding: 0.5rem 0.85rem; white-space: nowrap; }
+.broker p { color: var(--ink-soft); max-width: 74ch; font-size: 0.99rem; }
+.broker p strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 640px) { .broker { grid-template-columns: 1fr; gap: 1rem; } .broker .broker-mark { justify-self: start; } }
+
+/* ---------- questions made for Bear ---------- */
+.qbank { margin-top: 3.2rem; }
+.qbank .qbank-cap { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal); margin-bottom: 1.4rem; }
+.qgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--contour); border: 1px solid var(--contour); }
+.qcard { background: var(--bone); padding: 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; transition: background 0.25s ease, transform 0.25s ease; }
+.qcard:hover { background: var(--paper); transform: translateY(-2px); }
+.qcard .qcat { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--moss); }
+.qcard .qtext { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 1.06rem; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); }
+.qcard .qtext::before { content: '\201C'; color: var(--signal); margin-right: 0.1em; }
+.qcard .qtext::after { content: '\201D'; color: var(--signal); margin-left: 0.05em; }
+@media (max-width: 860px) { .qgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .qgrid { grid-template-columns: 1fr; } }
+
 /* ---------- why bear ---------- */
 .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 4.5rem; }
 .why-grid h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 1.6rem; max-width: 16ch; }
@@ -212,9 +250,9 @@ nav.scrolled { border-bottom-color: var(--ink); }
 .tcol.lead .tbar { background: var(--signal); }
 .tbar .tval { position: absolute; bottom: 0.7rem; left: 0; right: 0; text-align: center; color: var(--bone); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; }
 .tcol.lead .tval { color: var(--bone); }
-/* cut-out heads riding the top of each bar */
-.tbar .thead { position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, 32%); height: clamp(46px, 6.4vw, 76px); width: auto; pointer-events: none; filter: grayscale(1) contrast(1.03) drop-shadow(0 3px 5px rgba(0,0,0,0.18)); }
-.tcol.lead .tbar .thead { filter: grayscale(1) contrast(1.05) drop-shadow(0 3px 6px rgba(232,72,12,0.32)); }
+/* portrait medallions riding the top of each bar */
+.tbar .thead { position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, 28%); width: clamp(56px, 7.4vw, 88px); height: auto; aspect-ratio: 1 / 1; border-radius: 50%; background: var(--bone); pointer-events: none; box-shadow: 0 0 0 2px var(--bone), 0 0 0 3px rgba(23,29,26,0.18), 0 5px 13px rgba(23,29,26,0.20); }
+.tcol.lead .tbar .thead { box-shadow: 0 0 0 2px var(--bone), 0 0 0 3px var(--signal), 0 6px 16px rgba(232,72,12,0.32); }
 .tnames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 0.9rem; }
 .tname { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.12em; text-align: center; color: var(--moss); line-height: 1.6; }
 .tname.lead { color: var(--ink); }
@@ -315,32 +353,42 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <a href="#bear">05 BEAR</a>
       <a href="#safeguards">06 SAFEGUARDS</a>
       <a href="#route">09 ROUTE</a>
-      <a href="#over">10 CLOSE</a>
     </div>
   </div>
 </nav>
 
 <!-- ======================= HERO ======================= -->
 <header class="hero">
-  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
     <g stroke="#C8CFC0" stroke-width="1.5">
       <path pathLength="1" d="M-100 720 C 200 640, 380 780, 640 690 S 1100 560, 1540 660"/>
       <path pathLength="1" d="M-100 780 C 220 700, 400 840, 660 750 S 1120 620, 1560 720"/>
       <path pathLength="1" d="M-100 660 C 180 590, 360 720, 620 640 S 1080 510, 1520 600"/>
       <path pathLength="1" d="M-100 600 C 160 545, 340 660, 600 590 S 1060 470, 1500 545"/>
+      <path pathLength="1" d="M-100 540 C 150 495, 330 600, 590 535 S 1050 425, 1500 495"/>
       <path pathLength="1" d="M900 80 C 1020 40, 1180 120, 1300 70 S 1480 20, 1560 60"/>
       <path pathLength="1" d="M860 140 C 1000 95, 1180 185, 1320 130 S 1500 75, 1580 120"/>
       <path pathLength="1" d="M820 205 C 980 155, 1180 250, 1340 190 S 1520 135, 1600 185"/>
+      <path pathLength="1" d="M840 270 C 1000 225, 1200 315, 1360 255 S 1540 205, 1620 250"/>
       <path pathLength="1" d="M240 120 C 330 90, 430 150, 520 115"/>
       <path pathLength="1" d="M210 170 C 320 130, 450 200, 560 155"/>
+      <path pathLength="1" d="M180 225 C 300 185, 440 255, 560 210"/>
     </g>
   </svg>
+  <svg class="ridge ridge-far" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill="#B9C1B0" d="M0 646 L120 604 L260 664 L400 560 L560 642 L700 582 L860 652 L1020 572 L1180 640 L1320 592 L1440 632 L1440 900 L0 900 Z"/>
+  </svg>
+  <svg class="ridge ridge-near" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill="#8B9682" d="M0 772 L160 706 L300 786 L460 694 L620 776 L780 704 L940 786 L1100 712 L1260 784 L1440 722 L1440 900 L0 900 Z"/>
+  </svg>
+  <canvas class="embers" id="embers" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <div class="transmittal" id="transmittal" aria-label="From Bear Grylls Ventures. To OpenAI. Regarding named expert voices for ChatGPT. Status: ready to transmit."></div>
     <h1>When it matters,<br>people want a voice<br>they <span class="sig">know.</span></h1>
     <p class="hero-sub">ChatGPT Voice, with the world's most trusted experts on the other end of the conversation. Starting with Bear Grylls.</p>
     <div class="hero-foot">
-      <a href="#situation" class="btn">Walk the route</a>
+      <a href="#situation" class="hero-scroll" aria-label="Scroll to begin"><span class="dot"></span>SCROLL TO BEGIN</a>
       <span class="hero-note">READING TIME · 5 MIN · PREPARED JULY 2026</span>
     </div>
   </div>
@@ -501,6 +549,10 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
         </div>
       </div>
     </div>
+    <div class="broker reveal">
+      <span class="broker-mark">BGV · One door</span>
+      <p><strong>We can broker and negotiate the deals across every category.</strong> Bear is signed and ready today, and Bear Grylls Ventures holds the relationships, the reach and the track record to bring the right named voice to cooking, home, comedy and beyond. OpenAI works with a single point of contact; we open the doors and handle the talent side of the table.</p>
+    </div>
   </div>
 </section>
 
@@ -516,6 +568,17 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
       <div class="reveal">
         <p>And there is only one name in it. Bear is brand safe, family loved and globally recognised, from Man vs. Wild to Running Wild with guests including President Obama, Roger Federer and Julia Roberts, to fifteen years as Chief Scout to a worldwide family of over fifty million Scouts.</p>
         <p>Bear Grylls Ventures brings the licensed voice, a published body of survival methodology to ground every answer, and a team that builds brands for a living. BGV brings the voice, the trust and the rights. OpenAI brings the intelligence that makes it come alive.</p>
+      </div>
+    </div>
+    <div class="qbank reveal">
+      <div class="qbank-cap">The questions Bear was made for</div>
+      <div class="qgrid stagger">
+        <div class="qcard"><span class="qcat">Fire</span><span class="qtext">It's started raining, how do I keep my campfire going?</span></div>
+        <div class="qcard"><span class="qcat">Water</span><span class="qtext">Can I drink from this stream, and how do I make it safe?</span></div>
+        <div class="qcard"><span class="qcat">Navigation</span><span class="qtext">I think we've lost the trail, how do I find my way back?</span></div>
+        <div class="qcard"><span class="qcat">Wildlife</span><span class="qtext">There's a snake on the path ahead, what should I do?</span></div>
+        <div class="qcard"><span class="qcat">Weather</span><span class="qtext">A storm's rolling in fast, where's the safest place to shelter?</span></div>
+        <div class="qcard"><span class="qcat">Family</span><span class="qtext">My kids are cold and flagging on the mountain, how do I keep them going?</span></div>
       </div>
     </div>
     <div class="trust-block reveal" id="trustBlock">
@@ -651,23 +714,6 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
         <div class="leg-tag">Leg 03 · Scale</div>
         <h3>Open the other channels</h3>
         <p>Take the proven mechanic into cooking, home and comedy with the right voice for each. BGV helps open the doors and bring the right voice to every category.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= WP 09 CLOSE ======================= -->
-<section class="close-sec" id="over">
-  <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·10</span><span class="wp-title">Sign Off</span><span class="tick"></span></div>
-    <div class="reveal">
-      <h2>Over to <span class="sig">you.</span><span class="end-caret"></span></h2>
-      <p>Bear has long admired what OpenAI is building, and this idea comes from genuine enthusiasm for where voice is heading. We think it could be something special, we would love to build the first chapter of it together, and we are ready to move quickly.</p>
-      <a href="mailto:jesse@beargryllsventures.com?subject=Companions%20%7C%20Bear%20Grylls%20Ventures%20x%20OpenAI" class="btn" style="background: var(--signal); border-color: var(--signal);">Start the conversation</a>
-      <div class="sign-off">
-        <strong>JESSE GRYLLS</strong><br>
-        ON BEHALF OF BEAR GRYLLS VENTURES<br>
-        NEVER GIVE UP
       </div>
     </div>
   </div>
@@ -913,6 +959,63 @@ var trustObs = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.35 });
 trustObs.observe(document.getElementById('trustBlock'));
+
+// ---------- hero embers / drifting motes ----------
+(function() {
+  var cv = document.getElementById('embers');
+  if (!cv || reducedMotion) return;
+  var ctx = cv.getContext('2d');
+  var hero = cv.parentElement;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, parts = [];
+  function size() {
+    W = hero.offsetWidth; H = hero.offsetHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function seed() {
+    var n = Math.max(18, Math.min(42, Math.round(W / 34)));
+    parts = [];
+    for (var i = 0; i < n; i++) {
+      var warm = Math.random() < 0.4;
+      parts.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: 0.7 + Math.random() * 1.9,
+        sp: 0.12 + Math.random() * 0.42,
+        drift: (Math.random() - 0.5) * 0.35,
+        ph: Math.random() * Math.PI * 2,
+        pv: 0.004 + Math.random() * 0.01,
+        a: 0.12 + Math.random() * 0.4,
+        warm: warm
+      });
+    }
+  }
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.y -= p.sp; p.ph += p.pv;
+      p.x += p.drift + Math.sin(p.ph) * 0.3;
+      if (p.y < -6) { p.y = H + 6; p.x = Math.random() * W; }
+      if (p.x < -6) p.x = W + 6; else if (p.x > W + 6) p.x = -6;
+      var tw = p.a * (0.6 + 0.4 * Math.sin(p.ph * 1.7));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.warm ? 'rgba(232,72,12,' + tw.toFixed(3) + ')' : 'rgba(85,96,79,' + (tw * 0.7).toFixed(3) + ')';
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  var raf;
+  size(); seed(); frame();
+  var rt;
+  window.addEventListener('resize', function() {
+    clearTimeout(rt);
+    rt = setTimeout(function() { size(); seed(); }, 180);
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
