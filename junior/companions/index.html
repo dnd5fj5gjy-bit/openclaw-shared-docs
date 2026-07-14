@@ -124,22 +124,19 @@ nav.scrolled { border-bottom-color: var(--ink); }
   .contours path { stroke-dashoffset: 0; }
 }
 
-/* ---------- situation ---------- */
-.sit-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; }
-.sit-grid h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 1.6rem; max-width: 18ch; }
-.sit-grid p { margin-bottom: 1.15rem; color: var(--ink-soft); max-width: 58ch; }
+/* ---------- tee-up / premise ---------- */
+.teeup { padding: 7rem 0 7.5rem; background: var(--paper); border-bottom: 1px solid var(--contour); }
+.teeup-kick { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal); margin-bottom: 1.8rem; }
+.teeup-lead { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: clamp(1.6rem, 3.3vw, 2.75rem); line-height: 1.22; letter-spacing: -0.02em; color: var(--ink); max-width: 30ch; }
+.teeup-lead .sig { color: var(--signal); }
+
+/* ---------- ledger (field record) ---------- */
 .ledger { border-top: 1px solid var(--ink); }
 .ledger-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--contour); }
 .ledger-row .val { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; white-space: nowrap; min-width: 3.2ch; }
 .ledger-row .lab { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--moss); text-align: right; max-width: 28ch; line-height: 1.5; }
 .ledger-cap { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moss); margin-bottom: 0.8rem; }
 .ledger-row .val.text { font-size: 1.25rem; white-space: normal; line-height: 1.15; max-width: 9ch; }
-.sit-aside { border: 1px solid var(--ink); background: var(--bone); padding: 2.4rem 2.2rem 2.2rem; align-self: start; box-shadow: 0 14px 40px rgba(23,29,26,0.06); }
-.sit-aside .qmark { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 4.6rem; line-height: 0.55; color: var(--signal); display: block; height: 0.5em; }
-.sit-aside .sit-quote { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: clamp(1.35rem, 2.1vw, 1.72rem); line-height: 1.24; letter-spacing: -0.015em; color: var(--ink); margin: 1.1rem 0 1.6rem; }
-.sit-aside .sit-div { height: 1px; background: var(--contour); margin-bottom: 1.4rem; }
-.sit-aside .sit-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; line-height: 1.9; letter-spacing: 0.04em; color: var(--moss); }
-.sit-aside .sit-note strong { color: var(--signal); font-weight: 600; }
 
 /* ---------- clickability affordances ---------- */
 .nav-links a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color 0.25s ease, text-decoration-color 0.25s ease; }
@@ -320,7 +317,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
   section { padding: 4.5rem 0; }
   .wrap { padding: 0 1.4rem; }
   .nav-links { display: none; }
-  .sit-grid, .why-grid, .gains-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .why-grid, .gains-grid { grid-template-columns: 1fr; gap: 3rem; }
   .case-grid { grid-template-columns: 1fr; }
   .case-col + .case-col { border-left: none; border-top: 1px solid var(--ink); }
   .route { grid-template-columns: 1fr; gap: 2.8rem; }
@@ -347,12 +344,11 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
   <div class="nav-inner">
     <div class="nav-brand">BEAR GRYLLS VENTURES <span class="arrow-sep">→</span> OPENAI</div>
     <div class="nav-links">
-      <a href="#situation">01 SITUATION</a>
-      <a href="#idea">02 IDEA</a>
-      <a href="#demo">03 EXPERIENCE</a>
-      <a href="#roster">04 ROSTER</a>
-      <a href="#bear">05 BEAR</a>
-      <a href="#route">09 ROUTE</a>
+      <a href="#idea">01 IDEA</a>
+      <a href="#demo">02 EXPERIENCE</a>
+      <a href="#roster">03 ROSTER</a>
+      <a href="#bear">04 BEAR</a>
+      <a href="#route">07 ROUTE</a>
     </div>
   </div>
 </nav>
@@ -388,37 +384,24 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
     <h1>When it matters,<br>people want a voice<br>they <span class="sig">know.</span></h1>
     <p class="hero-sub">ChatGPT Voice, with the world's most trusted experts on the other end of the conversation. Starting with Bear Grylls.</p>
     <div class="hero-foot">
-      <a href="#situation" class="hero-scroll" aria-label="Scroll to begin"><span class="dot"></span>SCROLL TO BEGIN</a>
+      <a href="#premise" class="hero-scroll" aria-label="Scroll to begin"><span class="dot"></span>SCROLL TO BEGIN</a>
       <span class="hero-note">READING TIME · 5 MIN · PREPARED JULY 2026</span>
     </div>
   </div>
 </header>
 
-<!-- ======================= WP 01 SITUATION ======================= -->
-<section id="situation">
+<!-- ======================= LEAD-IN / PREMISE ======================= -->
+<section class="teeup" id="premise">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·01</span><span class="wp-title">The Situation</span><span class="tick"></span></div>
-    <div class="sit-grid">
-      <div class="reveal">
-        <h2>Voice is winning. The voice is anonymous.</h2>
-        <p>ChatGPT Voice already feels like magic. Hundreds of millions of people can ask anything, hands free, in plain speech, and get a brilliant answer back.</p>
-        <p>But the voice on the other end belongs to no one. It is warm, capable and interchangeable. And when the question really matters, whether you are halfway up a hillside in fog or halfway through a Sunday roast, anonymous puts a ceiling on trust.</p>
-        <p>For over twenty years, Bear Grylls has been the voice people turn to when things get wild. This proposal is about putting that voice, and voices like it, inside the product the world is already talking to.</p>
-      </div>
-      <aside class="sit-aside reveal">
-        <span class="qmark">&ldquo;</span>
-        <p class="sit-quote">A brilliant answer from no one in particular is still a stranger talking.</p>
-        <div class="sit-div"></div>
-        <p class="sit-note">The ceiling on Voice was never intelligence. It is <strong>trust</strong>. And trust has a face, a history and a name. That is the gap this proposal closes.</p>
-      </aside>
-    </div>
+    <div class="teeup-kick reveal">▸ The premise</div>
+    <p class="teeup-lead reveal">For over twenty years, Bear Grylls has been the voice people turn to when things get wild. This proposal is about putting that voice, and voices like it, <span class="sig">inside the product the world is already talking to.</span></p>
   </div>
 </section>
 
 <!-- ======================= WP 02 THE IDEA ======================= -->
 <section class="dark" id="idea">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·02</span><span class="wp-title">The Idea</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·01</span><span class="wp-title">The Idea</span><span class="tick"></span></div>
     <div class="reveal">
       <p class="idea-lede">You ask about lighting a fire in the rain. ChatGPT recognises the territory and offers a handover. <span class="q">"Would you like Bear Grylls to talk you through it?"</span></p>
       <p class="idea-body">One word, and you are speaking with Bear. His voice, his methods, his calm. When the moment passes, ChatGPT carries on as before. The mechanic is a single, simple handover, and it changes what the product is.</p>
@@ -443,7 +426,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 03 EXPERIENCE ======================= -->
 <section id="demo">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·03</span><span class="wp-title">The Experience</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·02</span><span class="wp-title">The Experience</span><span class="tick"></span></div>
     <div class="demo-intro reveal">
       <h2>A campfire, two boys and a bag of marshmallows.</h2>
       <p>This is how the handover feels in a live voice conversation, out on a family hike. Key the radio and step through it, with the real voices. Sound on.</p>
@@ -466,7 +449,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 04 ROSTER ======================= -->
 <section id="roster" style="background: var(--paper-deep);">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·04</span><span class="wp-title">The Roster</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·03</span><span class="wp-title">The Roster</span><span class="tick"></span></div>
     <div class="roster-intro reveal">
       <h2>One handover. Every category people ask about.</h2>
       <p>The mechanic repeats. ChatGPT recognises the territory of a question and offers the voice the world already associates with it. The outdoors is the proving ground. Bear is signed and ready today. The channels below show where the idea travels next, and the calibre of voice each category calls for. These are not abstract examples: BGV holds the relationships across entertainment and media to bring names like these to the table.</p>
@@ -552,7 +535,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 05 WHY BEAR ======================= -->
 <section id="bear">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·05</span><span class="wp-title">Why Bear, Why First</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·04</span><span class="wp-title">Why Bear, Why First</span><span class="tick"></span></div>
     <div class="why-grid">
       <div class="reveal">
         <h2>The perfect pilot category.</h2>
@@ -623,7 +606,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 07 THE CASE ======================= -->
 <section id="case">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·07</span><span class="wp-title">Two Ways to Answer the Same Question</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·05</span><span class="wp-title">Two Ways to Answer the Same Question</span><span class="tick"></span></div>
     <div class="case-grid reveal">
       <div class="case-col">
         <div class="case-tag">Today</div>
@@ -652,7 +635,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 07 GAINS ======================= -->
 <section class="dark" id="gains">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·08</span><span class="wp-title">What OpenAI Gains</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·06</span><span class="wp-title">What OpenAI Gains</span><span class="tick"></span></div>
     <div class="gains-grid">
       <div class="reveal">
         <h2>A new reason to talk to ChatGPT.</h2>
@@ -672,7 +655,7 @@ footer .wrap { display: flex; justify-content: space-between; font-family: 'IBM 
 <!-- ======================= WP 08 ROUTE ======================= -->
 <section id="route">
   <div class="wrap">
-    <div class="wp-head reveal"><span class="wp-num">WP·09</span><span class="wp-title">The Route</span><span class="tick"></span></div>
+    <div class="wp-head reveal"><span class="wp-num">WP·07</span><span class="wp-title">The Route</span><span class="tick"></span></div>
     <div class="route-intro reveal">
       <h2>Start small. Start real. Start now.</h2>
       <p>This does not need a grand programme to begin. It needs one category, one voice and a few months of real usage data.</p>
