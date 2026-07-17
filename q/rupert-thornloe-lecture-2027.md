@@ -1,28 +1,21 @@
 # Rupert Thornloe Memorial Lecture — Oxford University OTC — 27 Feb 2027
 ## Brief: "What I wish I'd been told when I was 20"
+## v2 — tighter, more honest, less self-focused
 
-Colonel, cadets, distinguished guests, and — especially — the Thornloe family: thank you for having me, and thank you for trusting me with an evening that means so much to this Corps.
+Colonel, cadets, and the Thornloe family — thank you for having me here, in a room built to remember Rupert. I'll try not to waste it.
 
-I know what this lecture is. It's not really a talk. It's a way of keeping a good man present in a room he can't be in anymore. Rupert Thornloe wore this uniform before he wore the one he died in. So before I say anything else — it's a privilege to stand where he once stood, and I don't take that lightly.
+I'm not going to give you a highlights reel. You can find that elsewhere. I want to tell you the true version of what happened to me at 20, because I think it's more use to you than the tidy one.
 
-Right, the brief I was given: what do I wish someone had told me when I was 20.
+At 21 I broke my back in three places on a parachute jump, training for Special Forces. A doctor told me I might not walk properly again. I lay in that bed and I wasn't brave about it. I was scared, and a bit ashamed, and I genuinely thought I'd blown the one life I wanted.
 
-Here's the honest answer. I wish someone had told me that the moment that breaks you is not the end of your story — it's usually the start of the one worth telling.
+What actually got me through the eighteen months after wasn't grit or a plan. It was smaller and less impressive than that. It was doing the physio on the day I didn't want to. Then doing it again the next day. Nobody was watching. There was no moment where I decided to be strong — I just kept showing up because the alternative was worse.
 
-When I was 21, training for Special Forces selection, my parachute failed. I fell from 16,000 feet, landed badly on the reserve, and broke my back in three places. A doctor told me I might not walk properly again, let alone climb. I remember lying in that hospital bed thinking my life — the one I'd actually wanted — was over before it began.
+I failed Special Forces selection once, before I passed it. I've been afraid on the side of more mountains than I can count, and the fear has never once left before I moved — it leaves because I move, not before.
 
-Eighteen months later I stood on the summit of Everest, the youngest Brit to do it at the time. But that's not really the story I want you to take away tonight. The real story is the eighteen months in between — the physio, the small humiliating steps, the days I couldn't get out of bed unaided. Everest was one hard day. The comeback was the actual climb, and nobody claps for that part.
+That's really the whole of what I wish someone had told me at 20: the fear doesn't go away, readiness doesn't arrive, and most of what looks like courage from the outside is just somebody doing the boring next thing on a day they didn't feel like it. Nobody claps for that part. It's the only part that matters.
 
-So — three things, quickly, that I wish I'd known at 20.
+You'll be tested in ways I can't predict for you — in this Corps, and after it. When that happens, it won't feel like a film. It'll feel ordinary, and a bit frightening, and you won't feel ready. Do it anyway. That's it. That's the lesson, and it's the only one I actually trust.
 
-**First: opportunity almost never looks like opportunity.** It looked, for me, like a broken back. It looked like failing SAS selection the first time — yes, I failed before I passed. It looked, years later, like a phone call asking if I'd climb into volcanoes and eat raw grubs on television, which sounded ridiculous to everyone I knew. I said yes anyway. That "ridiculous" yes became a career I never planned for. If it feels safe and obvious, it's probably not the opportunity — it's the consolation prize.
-
-**Second: you don't quit in the dramatic moment. You quit quietly, months earlier, when nobody's watching.** Everest doesn't kill people on summit day — it kills them on the descent, tired, when they stop concentrating and take the easy line down. Selection doesn't break people in the big test. It breaks them at 4am on the ordinary day when the excuse to stop is reasonable and nobody would blame them. So the discipline that matters isn't the big brave stand. It's showing up, again, on the boring Tuesday when it would be so easy not to.
-
-**Third — and this is the one I'd have needed most at 20 — courage is not the absence of fear. It's action about thirty seconds before you feel ready.** I have been afraid on the side of a mountain more times than I can count, and the fear has never once left before I moved. It leaves because I move. If you wait to feel ready, you'll wait your whole life. Readiness is a myth we tell ourselves to stay comfortable.
-
-You're cadets. You already know, better than most people your age, that leadership isn't a rank — it's what you do when it's hard and nobody's watching, and what you do for the people to your left and right. That's exactly what Rupert Thornloe did with his life, and it's why his name is on this lecture instead of forgotten.
-
-So take the opportunity that scares you. Keep moving when giving up would be reasonable. And go about thirty seconds before you feel ready — because that's where the life you actually want is hiding.
+Rupert did that, when it counted, for the people either side of him. That's the standard in this room. I'm just glad to have had the chance to say so.
 
 Thank you.
