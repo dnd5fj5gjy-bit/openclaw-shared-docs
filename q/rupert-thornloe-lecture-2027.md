@@ -1,19 +1,21 @@
 # Rupert Thornloe Memorial Lecture — Oxford University OTC — 27 Feb 2027
-## Brief: "What I wish I'd been told when I was 20"
-## v3 — humble pass
+## v4 — practical, 3 points, less Rupert, humble tone kept
 
-Colonel, cadets, and the Thornloe family — thank you for having me. This lecture belongs to Rupert far more than it belongs to me, and I'm aware of that standing here.
+Colonel, cadets — thank you for having me. I'll keep this practical, because that's what stays with you longer than any speech does.
 
-I was asked what I wish I'd been told at 20. I don't have anything wise, really — just one true thing.
+Three things. That's it.
 
-At 21 I broke my back in three places on a parachute jump. A doctor said I might not walk properly again. I wasn't brave about it. I was scared, a bit ashamed, and I thought I'd lost the one life I wanted.
+**One. Failure is fine.**
+I failed Special Forces selection once, before I passed it. At 21 I broke my back in three places on a parachute jump — a doctor told me I might not walk properly again. I wasn't brave about it, I was scared and a bit ashamed. But failing didn't end anything. It was just the middle of the story, not the end of it. The only failure that actually costs you is the one you stop after.
 
-What got me through the months after wasn't willpower. It was smaller than that, and duller. Physio on the day I didn't want to do it. Then again the next day. Nobody was watching, and there was no moment I decided to be strong — I just kept turning up, because stopping felt worse.
+**Two. Courage is a decision, not a feeling.**
+Nobody feels ready. I've stood on the side of more mountains frightened than I can count, and the fear has never once left before I moved — it leaves because I move, not before. So stop waiting to feel brave. You decide first. The feeling catches up, or it doesn't, and it doesn't matter either way.
 
-I failed Special Forces selection once before I passed it. I've been frightened on more mountains than I can count, and the fear has never once left before I moved. It leaves because I move, not before. I don't think that makes me unusual — I think it's just true for most people, and nobody tells you that at 20.
+**Three. Never giving up conquers almost everything else.**
+Talent, connections, a good CV — none of it beats the person who simply keeps turning up after everyone sensible would have stopped. Most of what looks like character from the outside is just somebody doing the next dull thing on a day they didn't feel like it. Nobody watching, no medal for it. That's the whole game.
 
-So, for what it's worth: the fear doesn't go away, and you never feel ready. Most of what looks like courage from outside is just someone doing the next small thing on a day they didn't feel like it. That's all I've got. I was lucky enough to have people around me who kept me turning up on the bad days, and I'd rather credit them than pretend it was character.
+This lecture carries Rupert Thornloe's name because he lived exactly that — decided, and kept going, for the people beside him, when it counted. That's the only standard worth measuring yourselves against tonight.
 
-Rupert did the hard, unglamorous version of this — for the people beside him, when it mattered. That's the standard in this room, not mine. I'm grateful to have been asked to stand near it for an evening.
+Fail without fear of it. Decide before you feel ready. Don't stop.
 
 Thank you.
