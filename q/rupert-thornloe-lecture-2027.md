@@ -1,21 +1,19 @@
 # Rupert Thornloe Memorial Lecture — Oxford University OTC — 27 Feb 2027
 ## Brief: "What I wish I'd been told when I was 20"
-## v2 — tighter, more honest, less self-focused
+## v3 — humble pass
 
-Colonel, cadets, and the Thornloe family — thank you for having me here, in a room built to remember Rupert. I'll try not to waste it.
+Colonel, cadets, and the Thornloe family — thank you for having me. This lecture belongs to Rupert far more than it belongs to me, and I'm aware of that standing here.
 
-I'm not going to give you a highlights reel. You can find that elsewhere. I want to tell you the true version of what happened to me at 20, because I think it's more use to you than the tidy one.
+I was asked what I wish I'd been told at 20. I don't have anything wise, really — just one true thing.
 
-At 21 I broke my back in three places on a parachute jump, training for Special Forces. A doctor told me I might not walk properly again. I lay in that bed and I wasn't brave about it. I was scared, and a bit ashamed, and I genuinely thought I'd blown the one life I wanted.
+At 21 I broke my back in three places on a parachute jump. A doctor said I might not walk properly again. I wasn't brave about it. I was scared, a bit ashamed, and I thought I'd lost the one life I wanted.
 
-What actually got me through the eighteen months after wasn't grit or a plan. It was smaller and less impressive than that. It was doing the physio on the day I didn't want to. Then doing it again the next day. Nobody was watching. There was no moment where I decided to be strong — I just kept showing up because the alternative was worse.
+What got me through the months after wasn't willpower. It was smaller than that, and duller. Physio on the day I didn't want to do it. Then again the next day. Nobody was watching, and there was no moment I decided to be strong — I just kept turning up, because stopping felt worse.
 
-I failed Special Forces selection once, before I passed it. I've been afraid on the side of more mountains than I can count, and the fear has never once left before I moved — it leaves because I move, not before.
+I failed Special Forces selection once before I passed it. I've been frightened on more mountains than I can count, and the fear has never once left before I moved. It leaves because I move, not before. I don't think that makes me unusual — I think it's just true for most people, and nobody tells you that at 20.
 
-That's really the whole of what I wish someone had told me at 20: the fear doesn't go away, readiness doesn't arrive, and most of what looks like courage from the outside is just somebody doing the boring next thing on a day they didn't feel like it. Nobody claps for that part. It's the only part that matters.
+So, for what it's worth: the fear doesn't go away, and you never feel ready. Most of what looks like courage from outside is just someone doing the next small thing on a day they didn't feel like it. That's all I've got. I was lucky enough to have people around me who kept me turning up on the bad days, and I'd rather credit them than pretend it was character.
 
-You'll be tested in ways I can't predict for you — in this Corps, and after it. When that happens, it won't feel like a film. It'll feel ordinary, and a bit frightening, and you won't feel ready. Do it anyway. That's it. That's the lesson, and it's the only one I actually trust.
-
-Rupert did that, when it counted, for the people either side of him. That's the standard in this room. I'm just glad to have had the chance to say so.
+Rupert did the hard, unglamorous version of this — for the people beside him, when it mattered. That's the standard in this room, not mine. I'm grateful to have been asked to stand near it for an evening.
 
 Thank you.
