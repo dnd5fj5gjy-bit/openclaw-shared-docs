@@ -3,49 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ted's Health — Ambassador Role Overview</title>
+<title>Ted's Health - Ambassador Role Overview</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap');
   :root{
-    --navy:#0B1F2A; --navy2:#112D3C; --gold:#C9A24B; --gold-l:#E4C879;
-    --cream:#F6F3EC; --ink:#1c2a33; --line:rgba(11,31,42,.12);
+    --ink:#0E1614; --panel:#0F2027; --teal:#0B2E30; --teal2:#123A3D;
+    --sand:#F6F4EE; --line:rgba(14,22,20,.09); --muted:#5B6863;
+    --accent:#B8895A; --accent-l:#D9B48C;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--sand);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:740px;margin:0 auto;padding:0 20px 80px}
 
-  .hero{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;margin:0 -18px 22px;padding:40px 26px 32px;border-bottom:3px solid var(--gold)}
-  .hero .eyebrow{color:var(--gold-l);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
-  .hero h1{font-size:30px;font-weight:800;line-height:1.15;margin:8px 0 10px}
-  .hero p{color:#cdd9e0;font-size:15px;max-width:60ch}
+  .hero{background:linear-gradient(160deg,var(--teal) 0%,var(--teal2) 60%,#1A4A4D 100%);color:#fff;margin:0 -20px 28px;padding:52px 30px 40px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(216,180,140,.16) 0%,transparent 70%);border-radius:50%}
+  .hero .eyebrow{position:relative;color:var(--accent-l);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+  .hero h1{position:relative;font-family:'DM Serif Display',serif;font-weight:400;font-size:36px;line-height:1.15;margin:12px 0 14px;max-width:14ch}
+  .hero p{position:relative;color:rgba(255,255,255,.72);font-size:15px;max-width:56ch;font-weight:300}
 
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;box-shadow:0 1px 0 rgba(11,31,42,.03)}
-  .kicker{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;margin-bottom:8px}
-  h2{font-size:19px;font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:10px}
-  .lead{font-size:14.5px;color:#41525c;line-height:1.6;margin-bottom:10px}
+  .section{margin:0 0 30px}
+  .kicker{color:var(--accent);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .kicker::before{content:'';width:16px;height:1px;background:var(--accent)}
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:23px;color:var(--ink);line-height:1.28;margin-bottom:12px}
+  .lead{font-size:15px;color:var(--muted);line-height:1.7;font-weight:300}
 
-  ul.bullets{list-style:none;margin-top:6px}
-  ul.bullets li{position:relative;padding-left:18px;font-size:14px;color:#27343c;line-height:1.6;margin-top:8px}
-  ul.bullets li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
-  ul.bullets li b{color:var(--navy)}
+  ul.bullets{list-style:none;margin-top:4px}
+  ul.bullets li{position:relative;padding-left:20px;font-size:14.5px;color:#28322f;line-height:1.65;margin-top:11px;font-weight:300}
+  ul.bullets li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  ul.bullets li b{color:var(--ink);font-weight:600}
 
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:600px){.two-col{grid-template-columns:1fr}}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:2px;padding:26px 28px;box-shadow:0 1px 2px rgba(14,22,20,.04)}
+  .panel.tint{background:linear-gradient(155deg,#0F2027,#123A3D);color:#fff}
+  .panel.tint h2{color:#fff}
+  .panel.tint .kicker{color:var(--accent-l)}
+  .panel.tint .kicker::before{background:var(--accent-l)}
+  .panel.tint ul.bullets li{color:rgba(255,255,255,.82)}
+  .panel.tint ul.bullets li b{color:#fff}
 
-  .expect-card{background:#fbf7ec;border-color:rgba(201,162,75,.45)}
+  .steps{margin-top:4px}
+  .step{display:flex;gap:18px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+  .step:first-child{border-top:none;padding-top:2px}
+  .step-num{flex:0 0 auto;width:30px;height:30px;border:1px solid var(--accent);color:var(--accent);font-family:'DM Serif Display',serif;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .step-body b{color:var(--ink);display:block;font-size:15px;font-weight:600;margin-bottom:3px}
+  .step-body p{font-size:14px;color:var(--muted);line-height:1.6;font-weight:300}
 
-  .not-card{background:#fff;border:1px dashed var(--line)}
-  .not-card p{font-size:13.5px;color:#5a6a72;line-height:1.6}
-  .not-card p + p{margin-top:6px}
+  .not-list p{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;padding-left:20px;position:relative}
+  .not-list p::before{content:'—';position:absolute;left:0;color:var(--accent);font-weight:600}
+  .not-list p + p{margin-top:10px}
 
-  .steps{counter-reset:step}
-  .step{display:flex;gap:14px;align-items:flex-start;margin-top:14px}
-  .step:first-child{margin-top:0}
-  .step-num{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold-l);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
-  .step-body b{color:var(--navy);display:block;font-size:14.5px;margin-bottom:2px}
-  .step-body p{font-size:13.5px;color:#41525c;line-height:1.55}
+  .divider{height:1px;background:var(--line);margin:0 0 30px}
 
-  .foot{text-align:center;color:#8a97a0;font-size:12px;margin-top:22px}
+  .foot{text-align:center;color:#9aa39d;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:10px;font-weight:400}
 </style>
 </head>
 <body>
@@ -54,64 +62,76 @@
   <div class="hero">
     <div class="eyebrow">Ted's Health · For Nick Mathew</div>
     <h1>What the Ambassador Role Looks Like</h1>
-    <p>A straight rundown of what the role actually involves and how it works day to day — so you can see whether it's a fit before we get into the specifics.</p>
+    <p>A straight rundown of what the role actually involves and how it works day to day, so you can see whether it's a fit before we get into the specifics.</p>
   </div>
 
-  <div class="card">
+  <div class="section panel">
     <div class="kicker">The idea</div>
     <h2>Why we work with ambassadors at all</h2>
-    <p class="lead">Ted's Health grows through people whose audience already trusts them on health and performance — not through generic ads. An ambassador is someone who takes the test themselves, has a genuine result or experience worth talking about, and is comfortable sharing that with their audience in their own voice. We're not looking for a script read out loud — we're looking for real people who found it useful.</p>
+    <p class="lead">Ted's Health grows through people whose audience already trusts them on health and performance, not through generic ads. An ambassador is someone who takes the test themselves, has a genuine result or experience worth talking about, and is comfortable sharing that with their audience in their own voice. We're not looking for a script read out loud; we're looking for real people who found it useful.</p>
   </div>
 
-  <div class="card expect-card">
+  <div style="height:20px"></div>
+
+  <div class="section panel tint">
     <div class="kicker">What it involves</div>
     <h2>What we're actually asking for</h2>
     <ul class="bullets">
-      <li><b>Take the test yourself</b> and have a genuine experience worth talking about — good or middling, we're not asking you to oversell it.</li>
-      <li><b>One piece of content</b> to start — a post, story or short video about your results/experience, in your own words.</li>
+      <li><b>Take the test yourself</b> and have a genuine experience worth talking about, good or middling. We're not asking you to oversell it.</li>
+      <li><b>One piece of content</b> to start: a post, story or short video about your results and experience, in your own words.</li>
       <li><b>Share a code</b> with your audience in whatever way fits how you normally post.</li>
-      <li><b>Stay in touch periodically</b> — a re-share or mention every so often, not a one-and-done. This is an ongoing relationship, not a single transaction.</li>
-      <li><b>Represent it accurately</b> — your own experience only, no medical claims made on our behalf.</li>
+      <li><b>Stay in touch periodically.</b> A re-share or mention every so often, not a one-and-done. This is an ongoing relationship, not a single transaction.</li>
+      <li><b>Represent it accurately.</b> Your own experience only, no medical claims made on our behalf.</li>
     </ul>
   </div>
 
-  <div class="card">
+  <div style="height:30px"></div>
+
+  <div class="section">
     <div class="kicker">How it works</div>
     <h2>Day to day, what this actually looks like</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body"><b>You go through the test</b><p>Same process any client goes through — blood test, then a consultation to talk through your results.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body"><b>You share your take</b><p>Once you've had the results and consultation, you post about it in your own voice — no script, no brand-speak.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body"><b>Light-touch agreement</b><p>A short written agreement covering what's expected on both sides and how long it runs — nothing heavy, no exclusivity unless we specifically agree one.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body"><b>Ongoing, not one-off</b><p>You keep it in rotation over time rather than a single post and done — and we're on hand for anything you need along the way.</p></div>
+    <div class="panel">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><b>You go through the test</b><p>Same process any client goes through: blood test, then a consultation to talk through your results.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><b>You share your take</b><p>Once you've had the results and consultation, you post about it in your own voice. No script, no brand-speak.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><b>Light-touch agreement</b><p>A short written agreement covering what's expected on both sides and how long it runs. Nothing heavy, no exclusivity unless we specifically agree one.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body"><b>Ongoing, not one-off</b><p>You keep it in rotation over time rather than a single post and done, and we're on hand for anything you need along the way.</p></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="card not-card">
+  <div style="height:30px"></div>
+
+  <div class="section">
     <div class="kicker">What this isn't</div>
-    <p>It's not a paid influencer contract with fixed deliverables and a monthly invoice — it works differently to that.</p>
-    <p>It's not a medical endorsement — you're speaking to your own experience, not making claims on our behalf. Our clinical team owns everything clinical.</p>
-    <p>It's not exclusive by default — if that ever becomes relevant for either side, we'd talk about it separately.</p>
+    <div class="not-list">
+      <p>Not a paid influencer contract with fixed deliverables and a monthly invoice. It works differently to that.</p>
+      <p>Not a medical endorsement. You're speaking to your own experience, not making claims on our behalf. Our clinical team owns everything clinical.</p>
+      <p>Not exclusive by default. If that ever becomes relevant for either side, we'd talk about it separately.</p>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="divider"></div>
+
+  <div class="section panel">
     <div class="kicker">Any questions</div>
     <h2>Let's talk it through</h2>
-    <p class="lead" style="margin-bottom:0">Happy to jump on a quick call if anything here needs unpacking, or if you want to shape it slightly differently to fit how you work. Just say the word.</p>
+    <p class="lead">Happy to jump on a quick call if anything here needs unpacking, or if you want to shape it slightly differently to fit how you work. Just say the word.</p>
   </div>
 
-  <div class="foot">Ted's Health · Ambassador Programme · prepared for Nick Mathew</div>
+  <div class="foot">Ted's Health · Ambassador Programme · Prepared for Nick Mathew</div>
 
 </div>
 </body>
