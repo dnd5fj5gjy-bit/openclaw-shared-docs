@@ -16,9 +16,11 @@ Thanks for putting this down on paper, it is a good starting point and the struc
 
 **Fulfilment.** We would rather run this as dropship than wholesale. We list the range on Modern Savage, the order routes straight through to your distribution, and you ship it. Same flow at your end, and it means we can carry the full range from day one rather than guessing at opening volumes. On that basis, Modern Savage retains 45% of net sales, you cover pick, pack and ship, and there is no minimum order commitment either way. Since that takes the stock risk off us and leaves it where the manufacturing already sits, I think it lands close to where your 50% wholesale was.
 
-**Packaging.** One pack for both sites. The front carries Modern Savage x Fat Cow, and below that a credit line reading "Created by Bear Grylls and his family". If you would like your own name in there alongside it, say so and we will include it. That is entirely your call and there is no expectation either way.
+**Packaging.** One pack for both sites. The front carries Modern Savage x Fat Cow, and below that a credit line reading "Created in partnership with Bear Grylls and his family". If you would like your own name in there alongside it, say so and we will include it. That is entirely your call and there is no expectation either way.
 
 **Royalty on your channels.** 5% is light for a co-branded product where half the brand is ours, and where the pack credit travels with every unit you sell as well as every unit we sell. We would want 10% of net sales, with net sales meaning gross receipts less VAT and actual refunds, and nothing else coming off the top, so no marketing, affiliate, discount or platform costs deducted before the calculation. Quarterly reconciliation as you proposed is fine.
+
+The one thing I would add alongside it is a modest annual minimum. If the range performs the way you expect, it never comes into play. Tell us what you are forecasting for year one and we will set it somewhere comfortably below that.
 
 **Bear's name.** One thing worth flagging early so it does not catch anyone out down the line. The credit on the pack is agreed and we are glad to have it there. Beyond the pack though, Bear's name and likeness sit outside this partnership. They are managed centrally across everything the family does, and we do not have a completely free hand with them ourselves, so it is not something we can pass on. Modern Savage will use Bear's name in marketing the range, which is ours to do.
 
