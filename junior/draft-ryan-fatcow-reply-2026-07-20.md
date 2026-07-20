@@ -20,8 +20,6 @@ Thanks for putting this down on paper, it is a good starting point and the struc
 
 **Royalty on your channels.** 5% is light for a co-branded product where half the brand is ours, and where the pack credit travels with every unit you sell as well as every unit we sell. We would want 10% of net sales, with net sales meaning gross receipts less VAT and actual refunds, and nothing else coming off the top, so no marketing, affiliate, discount or platform costs deducted before the calculation. Quarterly reconciliation as you proposed is fine.
 
-The one thing I would add alongside it is a modest annual minimum. If the range performs the way you expect, it never comes into play. Tell us what you are forecasting for year one and we will set it somewhere comfortably below that.
-
 **Bear's name.** One thing to flag early so it does not catch anyone out later. The credit on the pack is agreed and we are glad to have it there.
 
 Beyond the pack, this is still us testing the water, which is what you and I agreed, and while we are at that stage I want to keep decisions on Bear's name and likeness with me, case by case, rather than signing over a blanket right to use it. That is not me trying to make life difficult. His name gets used across a lot of different things and the only way I can keep it coherent is to look at each use in context. Once something is out there I cannot pull it back.
