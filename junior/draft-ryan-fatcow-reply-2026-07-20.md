@@ -28,10 +28,6 @@ If there is a specific instance where you would like to use it, whether that is 
 
 To be practical rather than obstructive about it: this is not us being precious. Bear's name and likeness are managed centrally across everything the family does and those approvals sit outside this partnership. Ask and you will get a straight answer quickly.
 
-**Two practical ones.** Who manufactures for you, and can you send over your product liability and recall cover, along with the cosmetic safety documentation and who is named as Responsible Person. Standard for us on anything carrying our name.
-
-Leave our launch posts blank for the moment and we will firm that up once the above is agreed.
-
 Best,
 Jesse
 
