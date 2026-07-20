@@ -20,13 +20,9 @@ Thanks for putting this down on paper, it is a good starting point and the struc
 
 **Royalty on your channels.** 5% is light for a co-branded product where half the brand is ours, and where the pack credit travels with every unit you sell as well as every unit we sell. We would want 10% of net sales, with net sales meaning gross receipts less VAT and actual refunds, and nothing else coming off the top, so no marketing, affiliate, discount or platform costs deducted before the calculation. Quarterly reconciliation as you proposed is fine.
 
-**Bear Grylls name and likeness.** I want to be unambiguous here, and it is not a negotiating position, it is simply how we handle it everywhere.
+**Bear's name.** One thing worth flagging early so it does not catch anyone out down the line. The credit on the pack is agreed and we are glad to have it there. Beyond the pack though, Bear's name and likeness sit outside this partnership. They are managed centrally across everything the family does, and we do not have a completely free hand with them ourselves, so it is not something we can pass on. Modern Savage will use Bear's name in marketing the range, which is ours to do.
 
-The credit line on the pack is agreed, and that is the extent of it. Beyond that, the licence covers the Modern Savage brand and does not extend to Bear Grylls' name, image or likeness. Modern Savage will use Bear's name in marketing the range, because that is ours to use. Fat Cow does not have that right.
-
-If there is a specific instance where you would like to use it, whether that is a campaign, a product listing, social, the affiliate push or the email to your list, come to us in advance and in writing and we will consider it case by case. We reserve the right to decline for any reason. Nothing in the agreement should be read as a general or implied permission, and any approval we do give applies to that one use only.
-
-To be practical rather than obstructive about it: this is not us being precious. Bear's name and likeness are managed centrally across everything the family does and those approvals sit outside this partnership. Ask and you will get a straight answer quickly.
+If there is something specific you want to do with it, a campaign, a listing, social, the affiliate push, the email to your list, just come to us first and we will take it to the right people and come back to you quickly. Some things will be fine and some will not, and it is much easier handled that way than after the fact. We will get the detail written into the agreement so it is clear on paper for both of us.
 
 Best,
 Jesse
