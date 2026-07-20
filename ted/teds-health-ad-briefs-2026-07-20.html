@@ -1,0 +1,489 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Ted's Health — Ad Briefs</title>
+
+<style>
+  :root{
+    --teal:#05656F;
+    --teal-deep:#03454C;
+    --cream:#E6E1DD;
+    --ink:#1F1E1E;
+    --white:#FFFFFF;
+    --line: rgba(31,30,30,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--teal-deep) 0%, var(--teal) 55%, #0d7c86 100%);
+    color:var(--white);
+    padding:96px 32px 84px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1.4px);
+    background-size:22px 22px;
+    opacity:.35;
+    mask-image:linear-gradient(to bottom right, black, transparent 65%);
+  }
+  .hero-inner{position:relative; max-width:1040px; margin:0 auto;}
+  .eyebrow{
+    font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:rgba(255,255,255,0.75); font-weight:600; margin-bottom:22px;
+  }
+  h1.title{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:clamp(36px,5.2vw,58px);
+    line-height:1.08;
+    margin:0 0 22px;
+    max-width:780px;
+  }
+  .hero-sub{
+    font-size:17px; color:rgba(255,255,255,0.85); max-width:620px; margin:0 0 34px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:28px; margin-top:34px;
+    border-top:1px solid rgba(255,255,255,0.22); padding-top:26px;
+  }
+  .hero-meta div{font-size:13px; color:rgba(255,255,255,0.7);}
+  .hero-meta strong{display:block; color:var(--white); font-size:14.5px; font-weight:600; margin-bottom:3px;}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section.block{padding:64px 0;}
+  section.block.divider{border-top:1px solid var(--line);}
+  h2.section-h{
+    font-family:'Playfair Display',serif; font-weight:600;
+    font-size:22px; color:var(--teal-deep); margin:0 0 18px;
+  }
+  p.lead{font-size:16px; color:#3a3937; max-width:760px;}
+
+  /* ---------- BRAND SNAPSHOT ---------- */
+  .swatches{display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;}
+  .swatch{
+    width:120px; border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    background:var(--white);
+  }
+  .swatch .chip{height:66px;}
+  .swatch .label{padding:9px 11px; font-size:11.5px;}
+  .swatch .label b{display:block; font-size:12.5px; margin-bottom:1px;}
+  .type-row{display:flex; gap:40px; margin-top:22px; flex-wrap:wrap;}
+  .type-sample{font-family:'Inter',sans-serif;}
+  .type-sample .big{font-size:34px; font-weight:700; color:var(--ink);}
+  .type-sample .cap{font-size:12px; color:#77746f; letter-spacing:.06em; text-transform:uppercase; margin-top:6px;}
+  .type-sample.serif-note .big{font-family:'Playfair Display',serif; font-weight:600;}
+
+  .constraint-box{
+    background:var(--white); border:1px solid var(--line); border-radius:16px;
+    padding:22px 26px; margin-top:26px;
+  }
+  .constraint-box h3{margin:0 0 10px; font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--teal-deep);}
+  .constraint-box ul{margin:0; padding-left:18px; font-size:14.5px; color:#3a3937;}
+  .constraint-box li{margin-bottom:6px;}
+
+  /* ---------- BRIEF CARD ---------- */
+  .brief{
+    margin:56px 0; border-radius:20px; overflow:hidden;
+    border:1px solid var(--line); background:var(--white);
+  }
+  .brief-head{
+    background:linear-gradient(120deg, var(--teal-deep), var(--teal));
+    color:var(--white); padding:34px 36px;
+  }
+  .brief-num{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:10px;}
+  .brief-head h3{
+    font-family:'Playfair Display',serif; font-weight:600; font-size:28px; margin:0 0 12px;
+  }
+  .brief-head .benchmark{
+    font-size:14px; color:rgba(255,255,255,0.88); max-width:700px;
+  }
+  .brief-body{padding:32px 36px 38px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:28px;}
+  @media (max-width:720px){.row2{grid-template-columns:1fr;}}
+  .field h4{
+    margin:0 0 8px; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-deep);
+  }
+  .field p, .field div{font-size:14.5px; color:#3a3937; margin:0;}
+  .hook-box{
+    background:var(--cream); border-radius:12px; padding:16px 18px; font-size:15px;
+    border-left:3px solid var(--teal);
+  }
+
+  table.beats{width:100%; border-collapse:collapse; font-size:14px; margin-top:6px;}
+  table.beats th{
+    text-align:left; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:#8a8781; padding:8px 10px; border-bottom:1px solid var(--line);
+  }
+  table.beats td{
+    padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top; color:#302f2d;
+  }
+  table.beats td.ts{white-space:nowrap; font-weight:600; color:var(--teal-deep); width:78px;}
+
+  .script-box{
+    background:var(--ink); color:var(--cream); border-radius:14px; padding:20px 22px;
+    font-size:14.5px; margin-top:6px;
+  }
+  .script-box .vo-line{margin-bottom:9px;}
+  .script-box .vo-line b{color:#8fd6dc; font-weight:600; margin-right:6px;}
+
+  .price-tag{
+    display:inline-block; background:rgba(5,101,111,0.1); color:var(--teal-deep);
+    border:1px dashed var(--teal); border-radius:999px; padding:4px 12px; font-size:13px; font-weight:600;
+  }
+
+  .why{
+    margin-top:24px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:14.5px; font-style:italic; color:#3a3937;
+  }
+  .why b{font-style:normal; color:var(--teal-deep);}
+
+  .tag-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;}
+  .tag{
+    background:var(--cream); border-radius:999px; padding:4px 11px; font-size:12px; color:#4a4844;
+  }
+
+  footer{
+    padding:50px 32px 70px; text-align:center; color:#8a8781; font-size:12.5px;
+  }
+
+  @media (prefers-color-scheme: dark){
+    body{background:#141514; color:#ece9e4;}
+    .constraint-box, .swatch, .brief{background:#1d1e1c; border-color:rgba(255,255,255,0.08);}
+    table.beats td{color:#d8d5cf;}
+    table.beats th{color:#8f8c86;}
+    .field p, .field div, p.lead{color:#c8c5be;}
+    .hook-box{background:#242522;}
+    .tag{background:#242522; color:#c8c5be;}
+    footer{color:#6f6c66;}
+    .why{color:#c8c5be; border-color:rgba(255,255,255,0.08);}
+  }
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Ted's Health — Creative Direction</div>
+    <h1 class="title">Four Ad Briefs, Benchmarked Against Reference Creative</h1>
+    <p class="hero-sub">Olly flagged four reference ads for structure and production quality. Below are four new, distinct Ted's Health concepts — each modelled on one reference's pacing and craft, none of them a copy.</p>
+    <div class="hero-meta">
+      <div><strong>Brand</strong>Ted's Health — modern healthcare and nutrition for men</div>
+      <div><strong>References</strong>4 screen-recorded reels (10–16s each)</div>
+      <div><strong>Product status</strong>Pre-packaging — stock footage direction throughout</div>
+      <div><strong>Pricing</strong>Not confirmed — placeholders used throughout</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="block">
+    <h2 class="section-h">Brand snapshot (from Ted's Health Brand &amp; Identity Guidelines, Sept 2025)</h2>
+    <p class="lead">Ted's Health positions as modern, personalised men's care — fast, discreet, expert-led, on the customer's terms. Tone sits closer to <b>friend than medical</b>, calm rather than loud, elegant rather than edgy, with a playful-serious midpoint. Tagline: <i>"Maximising Men's Potential."</i> No em dashes anywhere in copy — house rule, hyphens only.</p>
+
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#05656F;"></div><div class="label"><b>Strength</b>#05656F</div></div>
+      <div class="swatch"><div class="chip" style="background:#1F1E1E;"></div><div class="label"><b>Balance</b>#1F1E1E</div></div>
+      <div class="swatch"><div class="chip" style="background:#E6E1DD;border-bottom:1px solid #ddd;"></div><div class="label"><b>Comfort</b>#E6E1DD</div></div>
+      <div class="swatch"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #ddd;"></div><div class="label"><b>Clarity</b>#FFFFFF</div></div>
+      <div class="swatch"><div class="chip" style="background:linear-gradient(135deg,#05656F,#ffffff);"></div><div class="label"><b>Momentum</b>gradient</div></div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-sample"><div class="big">Aa</div><div class="cap">Made Outer Sans — primary</div></div>
+      <div class="type-sample"><div class="big">Aa</div><div class="cap">Cerebri Sans — secondary</div></div>
+      <div class="type-sample serif-note"><div class="big">Aa</div><div class="cap">This doc's display face (Playfair) — for this brief only</div></div>
+    </div>
+
+    <div class="constraint-box">
+      <h3>Standing constraints for all four briefs</h3>
+      <ul>
+        <li><b>No final packaging exists.</b> Every product/texture shot below is written as premium stock footage direction, never a specific pack render.</li>
+        <li><b>Pricing is undecided.</b> Every CTA carries a <span class="price-tag">[PRICE — TBC]</span> placeholder.</li>
+        <li>Visual system: rounded corners, pill buttons, the dot-particle brand pattern as an accent, Strength teal and Comfort cream as the working palette.</li>
+        <li>Tone: premium, credible, plain-spoken. No metaphors, no cheesy framing, no em dashes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 1 ============ -->
+  <section class="brief">
+    <div class="brief-head">
+      <div class="brief-num">Brief 01 of 04</div>
+      <h3>No Two Men Run the Same</h3>
+      <div class="benchmark"><b>Benchmark:</b> Reference video 1 (10.7s) — a minimalist, almost silent reel: warm gradient background, a single light streak, one line of white serif-style text at a time, capsules arranged by hand to spell the brand name in the final beat. No product shot, no face, just typography and light. Benchmarked for its restraint and pacing, not its subject.</div>
+    </div>
+    <div class="brief-body">
+      <div class="row2">
+        <div class="field">
+          <h4>Hook (0-3s)</h4>
+          <div class="hook-box">Full-bleed warm light streak across a dark teal backdrop. White text fades in, no logo yet: <b>"Every man's baseline is different."</b></div>
+        </div>
+        <div class="field">
+          <h4>Visual style / mood</h4>
+          <p>Near-silent, unhurried. Single continuous background (a warm light diagonal across a teal-to-black gradient), text is the only thing that moves. No cuts faster than 2-3 seconds. Premium, editorial, confident in the white space.</p>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:26px;">
+        <h4>Beat-by-beat structure</h4>
+        <table class="beats">
+          <tr><th>Time</th><th>Beat</th></tr>
+          <tr><td class="ts">0-3s</td><td>Hook line fades in over the light-streak background. No sound but a low ambient tone building.</td></tr>
+          <tr><td class="ts">3-6s</td><td>Line changes: <i>"Your metabolism, your muscle, your recovery. None of it reads off a chart."</i> Background light shifts almost imperceptibly.</td></tr>
+          <tr><td class="ts">6-9s</td><td>Third line: <i>"Ted's Health starts with you, not a shelf average."</i> Camera very slowly pushes in.</td></tr>
+          <tr><td class="ts">9-11s</td><td>Final beat: premium stock macro shot of whole-food ingredients (grass-fed beef, liver, eggs, greens) arranged in a loose scatter that resolves into the Ted's Health wordmark shape. Logo lockup and CTA line.</td></tr>
+        </table>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>On-screen text / copy</h4>
+          <p>"Every man's baseline is different." → "Your metabolism, your muscle, your recovery. None of it reads off a chart." → "Ted's Health starts with you, not a shelf average." → "ted's HEALTH — Maximising Men's Potential."</p>
+        </div>
+        <div class="field">
+          <h4>Voiceover / caption script draft</h4>
+          <div class="script-box">
+            <div class="vo-line"><b>VO:</b> Every man's baseline is different.</div>
+            <div class="vo-line"><b>VO:</b> Your metabolism, your muscle, your recovery. None of it reads off a chart.</div>
+            <div class="vo-line"><b>VO:</b> Ted's Health starts with you, not a shelf average.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>Visual / stock footage direction</h4>
+          <p>Background: licensed premium gradient/light-leak stock (warm amber into deep teal, matches Momentum gradient). Final beat: macro stock or shot food photography of whole ingredients on a dark surface, no branding on any item, arranged to loosely echo the wordmark. No actor, no face, no packaging.</p>
+        </div>
+        <div class="field">
+          <h4>Music / pacing note</h4>
+          <p>Single sustained ambient/piano cue, no percussion until the final beat where it resolves on one soft chord as the logo lands. Total 3 text changes across 11 seconds keeps the read slow and confident, matching the reference's restraint.</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <h4>CTA</h4>
+        <p>"Find your baseline. <span class="price-tag">[PRICE — TBC]</span> — Learn more at ted'shealth.com"</p>
+      </div>
+
+      <div class="why"><b>Why this works:</b> it borrows the reference's confidence in stillness and typography rather than its product category, giving Ted's Health a premium, editorial hook built entirely on individuality, no cast or packaging required.</div>
+      <div class="tag-row"><span class="tag">Typography-led</span><span class="tag">Personalisation angle</span><span class="tag">Ingredient stock only</span></div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 2 ============ -->
+  <section class="brief">
+    <div class="brief-head">
+      <div class="brief-num">Brief 02 of 04</div>
+      <h3>Real Food, Not a Lab</h3>
+      <div class="benchmark"><b>Benchmark:</b> Reference video 2 (15.3s) — a cinematic 3D-style product reveal: jars on a shelf pulled into focus by a moving object, a hero bottle shot on a lit surface, closing on a wordmark and a compliance-style CTA card. Benchmarked for its focus-pull reveal rhythm and the confidence of a dedicated "hero shot" beat.</div>
+    </div>
+    <div class="brief-body">
+      <div class="row2">
+        <div class="field">
+          <h4>Hook (0-3s)</h4>
+          <div class="hook-box">Slow rack-focus through a softly lit pantry shelf of premium stock whole-food jars (bone broth, ghee, liver capsules, greens) - out of focus at first, then one item sharpens. Text: <b>"Most blends start in a lab."</b></div>
+        </div>
+        <div class="field">
+          <h4>Visual style / mood</h4>
+          <p>Warm, tactile, kitchen-adjacent lighting rather than clinical white. Slow rack-focus and dolly moves, not hard cuts. Reads more "considered pantry" than "supplement shelf".</p>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:26px;">
+        <h4>Beat-by-beat structure</h4>
+        <table class="beats">
+          <tr><th>Time</th><th>Beat</th></tr>
+          <tr><td class="ts">0-3s</td><td>Rack-focus across a shelf of whole-food stock ingredients, text: "Most blends start in a lab."</td></tr>
+          <tr><td class="ts">3-7s</td><td>Cut to a single item pulled forward and lit (premium stock macro of a spoon of nutrient-dense powder or a bowl of whole ingredients). Text: "Ours starts on a farm."</td></tr>
+          <tr><td class="ts">7-11s</td><td>Hero beat: a clean, lit surface shot of a generic premium jar silhouette (unbranded stock, standing in for future packaging), slow 180-degree turn. Text: "One scoop, from real food."</td></tr>
+          <tr><td class="ts">11-15s</td><td>Logo card on Comfort cream background, wordmark centred, CTA line beneath in Strength teal, small disclaimer-style line for credibility ("Formulated with whole-food ingredients").</td></tr>
+        </table>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>On-screen text / copy</h4>
+          <p>"Most blends start in a lab." → "Ours starts on a farm." → "One scoop, from real food." → "ted's HEALTH — Maximising Men's Potential." → small print: "Formulated with whole-food ingredients."</p>
+        </div>
+        <div class="field">
+          <h4>Voiceover / caption script draft</h4>
+          <div class="script-box">
+            <div class="vo-line"><b>VO:</b> Most blends start in a lab.</div>
+            <div class="vo-line"><b>VO:</b> Ours starts on a farm.</div>
+            <div class="vo-line"><b>VO:</b> One scoop, from real food.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>Visual / stock footage direction</h4>
+          <p>Use licensed farm-to-table and whole-food stock (grazing cattle at a distance, a butcher block, a bowl of liver/bone broth ingredients, a hand stirring a scoop into water) intercut with a generic unbranded jar silhouette for the hero beat. Explicitly avoid any specific product render, this is a placeholder hero shot only until packaging exists.</p>
+        </div>
+        <div class="field">
+          <h4>Music / pacing note</h4>
+          <p>Warm acoustic or light instrumental building through the 15 seconds, one soft swell at the hero jar turn (7-11s), settling for the closing card. 4 distinct beats across 15 seconds, matching the reference's unhurried reveal.</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <h4>CTA</h4>
+        <p>"See what's inside. <span class="price-tag">[PRICE — TBC]</span> — ted'shealth.com"</p>
+      </div>
+
+      <div class="why"><b>Why this works:</b> it matches the reference's cinematic reveal rhythm while making the credibility claim (whole food vs lab-made) the emotional driver instead of a category-generic product shot.</div>
+      <div class="tag-row"><span class="tag">Craft/quality angle</span><span class="tag">Hero reveal beat</span><span class="tag">Farm-to-food stock</span></div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 3 ============ -->
+  <section class="brief">
+    <div class="brief-head">
+      <div class="brief-num">Brief 03 of 04</div>
+      <h3>The Five Minutes Before the Day Starts</h3>
+      <div class="benchmark"><b>Benchmark:</b> Reference video 3 (15.7s) — a macro hand/product close-up (fingers holding a capsule against warm light), a short punchy line, a category statement, then a wordmark resolve with "start your journey" CTA. Benchmarked for its intimate macro framing and its trick of downplaying a claim ("it's kind of a small deal") before landing the real one.</div>
+    </div>
+    <div class="brief-body">
+      <div class="row2">
+        <div class="field">
+          <h4>Hook (0-3s)</h4>
+          <div class="hook-box">Macro shot, warm backlight: a hand stirring a spoon through water/milk in a glass, condensation catching the light. Text: <b>"It's kind of a small habit."</b></div>
+        </div>
+        <div class="field">
+          <h4>Visual style / mood</h4>
+          <p>Intimate, tactile, golden-hour backlight. Everything shot close (hands, glass, steam/condensation) rather than wide lifestyle. Feels like a private morning ritual, not a gym ad.</p>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:26px;">
+        <h4>Beat-by-beat structure</h4>
+        <table class="beats">
+          <tr><th>Time</th><th>Beat</th></tr>
+          <tr><td class="ts">0-3s</td><td>Macro: hand stirring a scoop of powder into liquid, backlit. Text: "It's kind of a small habit."</td></tr>
+          <tr><td class="ts">3-7s</td><td>Cut to a close, slower shot of the drink being lifted, light catching the glass. Text builds: "It's kind of a small habit that changes how the whole day goes."</td></tr>
+          <tr><td class="ts">7-11s</td><td>Large type card, no visual distraction, cream background: "Whole-food nutrition. Built for men."</td></tr>
+          <tr><td class="ts">11-15s</td><td>Wordmark resolves centre-frame on Strength teal background. CTA text beneath.</td></tr>
+        </table>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>On-screen text / copy</h4>
+          <p>"It's kind of a small habit." → "...that changes how the whole day goes." → "Whole-food nutrition. Built for men." → "ted's HEALTH — Start the day differently."</p>
+        </div>
+        <div class="field">
+          <h4>Voiceover / caption script draft</h4>
+          <div class="script-box">
+            <div class="vo-line"><b>VO:</b> It's kind of a small habit.</div>
+            <div class="vo-line"><b>VO:</b> One that changes how the whole day goes.</div>
+            <div class="vo-line"><b>VO:</b> Whole-food nutrition, built for men.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>Visual / stock footage direction</h4>
+          <p>Premium morning-routine stock: hands, glass, steam, natural window light. No branded packaging visible, use a plain glass or neutral shaker, never a labelled product. Skin tones and setting should read as approachable, not aspirational-model, in line with the brand's "friend not medical" characteristic.</p>
+        </div>
+        <div class="field">
+          <h4>Music / pacing note</h4>
+          <p>Soft, warm acoustic guitar or minimal piano, slow tempo throughout (this is the calmest of the four briefs). One tempo lift at the wordmark resolve. 4 beats over 15 seconds, mirroring the reference's slow build to a short, punchy payoff line.</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <h4>CTA</h4>
+        <p>"Start the habit. <span class="price-tag">[PRICE — TBC]</span> — ted'shealth.com"</p>
+      </div>
+
+      <div class="why"><b>Why this works:</b> it reuses the reference's "small claim, bigger payoff" copy structure and intimate macro framing, but roots the emotional driver in daily ritual and vitality rather than treatment.</div>
+      <div class="tag-row"><span class="tag">Ritual angle</span><span class="tag">Macro/intimate framing</span><span class="tag">Morning routine stock</span></div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 4 ============ -->
+  <section class="brief">
+    <div class="brief-head">
+      <div class="brief-num">Brief 04 of 04</div>
+      <h3>The Numbers Men Don't Talk About</h3>
+      <div class="benchmark"><b>Benchmark:</b> Reference video 4 (11.0s) — a swipeable stat-card carousel (World Obesity Day awareness post): bold data points in clean cards over a soft gradient, one message per card, ending on a brand card. Benchmarked for its data-led credibility structure and its confidence in letting numbers carry the emotion.</div>
+    </div>
+    <div class="brief-body">
+      <div class="row2">
+        <div class="field">
+          <h4>Hook (0-3s)</h4>
+          <div class="hook-box">Soft teal-to-cream gradient background, small pill label "MEN'S HEALTH DATA". Bold statement fades in: <b>"Most men have no idea what's actually in their diet."</b></div>
+        </div>
+        <div class="field">
+          <h4>Visual style / mood</h4>
+          <p>Card-based, editorial, data-forward. White stat cards with rounded corners (matching Ted's Health's 16-24px corner radius system) float over the gradient background. Feels credible and slightly clinical without losing warmth, closest of the four to the brand's "expert-led" side.</p>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:26px;">
+        <h4>Beat-by-beat structure</h4>
+        <table class="beats">
+          <tr><th>Time</th><th>Beat</th></tr>
+          <tr><td class="ts">0-2s</td><td>Pill label + hook line over gradient background: "Most men have no idea what's actually in their diet."</td></tr>
+          <tr><td class="ts">2-5s</td><td>Stat card 1 (white card, teal accent icon): "Only 1 in 3 UK men hit their daily protein target."</td></tr>
+          <tr><td class="ts">5-8s</td><td>Stat card 2: "Men are 40% less likely than women to track what they eat."</td></tr>
+          <tr><td class="ts">8-9.5s</td><td>Stat card 3, shorter beat: "Most 'healthy' snacks are still ultra-processed."</td></tr>
+          <tr><td class="ts">9.5-11s</td><td>Brand card: wordmark, tagline, CTA. "ted's HEALTH — Maximising Men's Potential."</td></tr>
+        </table>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>On-screen text / copy</h4>
+          <p>"Most men have no idea what's actually in their diet." → "Only 1 in 3 UK men hit their daily protein target." → "Men are 40% less likely than women to track what they eat." → "Most 'healthy' snacks are still ultra-processed." → "ted's HEALTH — Maximising Men's Potential."</p>
+          <p style="margin-top:8px;font-size:12.5px;color:#8a8781;">Note: stats above are placeholders for the script draft. Final data points need sourcing and verification before this brief goes into production.</p>
+        </div>
+        <div class="field">
+          <h4>Voiceover / caption script draft</h4>
+          <div class="script-box">
+            <div class="vo-line"><b>VO:</b> Most men have no idea what's actually in their diet.</div>
+            <div class="vo-line"><b>VO:</b> Only 1 in 3 hit their daily protein target.</div>
+            <div class="vo-line"><b>VO:</b> And most "healthy" snacks are still ultra-processed.</div>
+            <div class="vo-line"><b>VO:</b> Ted's Health. Built to close that gap.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <h4>Visual / stock footage direction</h4>
+          <p>No lifestyle footage needed, this is a graphics-first format. Background: soft Momentum-gradient (teal into white/cream) as a static or very slow-moving plate. Stat cards use the brand's rounded-corner system, Strength teal for numbers, Balance near-black for supporting text, small line-icon accents (heart rate, protein, packaging) in teal.</p>
+        </div>
+        <div class="field">
+          <h4>Music / pacing note</h4>
+          <p>Fast, clipped pacing versus the other three briefs, a beat every 2-3 seconds with a light percussive "tick" as each card lands, keeping energy up for 11 seconds total. Matches the reference's rapid swipe-through rhythm even though this is a fixed-length video, not a real carousel.</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <h4>CTA</h4>
+        <p>"Close the gap. <span class="price-tag">[PRICE — TBC]</span> — ted'shealth.com"</p>
+      </div>
+
+      <div class="why"><b>Why this works:</b> it's the one brief that leads entirely with credibility and data rather than mood or ritual, giving the campaign a sharper, more skeptical-audience-facing option alongside the other three.</div>
+      <div class="tag-row"><span class="tag">Data/PSA angle</span><span class="tag">Graphics-first, no cast</span><span class="tag">Fast pacing</span></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Ted's Health — Ad Briefs — prepared by Ted — 20 July 2026</footer>
