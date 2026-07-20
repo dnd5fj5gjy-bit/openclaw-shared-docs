@@ -22,11 +22,13 @@ Thanks for putting this down on paper, it is a good starting point and the struc
 
 The one thing I would add alongside it is a modest annual minimum. If the range performs the way you expect, it never comes into play. Tell us what you are forecasting for year one and we will set it somewhere comfortably below that.
 
-**Bear's name.** One thing to flag early so it does not catch anyone out later. The credit on the pack is agreed and we are glad to have it there. Beyond the pack, I want to keep decisions on Bear's name and likeness with me, case by case, rather than signing over a blanket right to use it.
+**Bear's name.** One thing to flag early so it does not catch anyone out later. The credit on the pack is agreed and we are glad to have it there.
 
-That is not me trying to make life difficult. His name gets used across a lot of different things, and the only way I can keep it coherent is to look at each use in context. A blanket permission means I lose sight of where it ends up, and once something is out there I cannot pull it back.
+Beyond the pack, this is still us testing the water, which is what you and I agreed, and while we are at that stage I want to keep decisions on Bear's name and likeness with me, case by case, rather than signing over a blanket right to use it. That is not me trying to make life difficult. His name gets used across a lot of different things and the only way I can keep it coherent is to look at each use in context. Once something is out there I cannot pull it back.
 
-So in practice, if there is something you want to do, a campaign, a listing, social, the affiliate push, the email to your list, send it over and I will come back to you quickly. I would expect to say yes to most of it. We will get the detail into the agreement so it is clear on paper for both of us.
+So in practice, if there is something you want to do, a campaign, a listing, social, the affiliate push, the email to your list, send it over and I will come back to you quickly. I would expect to say yes to most of it. And if this range does what we both think it can, a broader arrangement is a proper conversation to have further down the line.
+
+We will get the detail into the agreement so it is clear on paper for both of us.
 
 Best,
 Jesse
