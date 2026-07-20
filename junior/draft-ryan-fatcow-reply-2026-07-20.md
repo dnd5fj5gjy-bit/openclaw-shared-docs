@@ -6,7 +6,9 @@ Reflects Jesse's decisions 20 Jul:
 - Modern Savage uses Bear's name; Fat Cow gets no NIL licence. Any use by them is per instance, in
   writing, in advance, refusable for any reason, no implied permission.
 - ONE pack across both channels. Front carries "Modern Savage x Fat Cow". Credit line reads
-  "Created by Bear Grylls and his family", with Ryan named too if he wants it.
+  "Created in partnership with Bear Grylls and his family", with Ryan named too if he wants it.
+  ("Created by" was rejected: Bear did not formulate it, Fat Cow did, so it is an unsupportable claim.)
+- No minimum guarantee and no forecast ask. Jesse cut both.
 
 ---
 
