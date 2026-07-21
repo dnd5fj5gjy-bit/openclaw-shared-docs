@@ -1,5 +1,5 @@
 # Alastair Nicolas — faith-forward training community
-**Tue 21 Jul, 10:00 UK, Zoom.** Mobile if needed: 07850455447.
+**Tue 21 Jul, 11:00 UK, Zoom.** Mobile if needed: 07850455447.
 
 ---
 
