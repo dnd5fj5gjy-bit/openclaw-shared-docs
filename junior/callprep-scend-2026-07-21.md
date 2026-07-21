@@ -1,6 +1,6 @@
 # SCEND — UK 3PL intro call
-**Tue 21 Jul, 09:00 UK, Teams. Jack Crumpton, Director, SCEND (UK) Ltd.**
-Also invited: Raemy, CJ.
+**Tue 21 Jul, 10:00 UK, Teams. Jack Crumpton, Director, SCEND (UK) Ltd.**
+Also invited: Raemy, CJ, and Felix (added this morning).
 
 ---
 
