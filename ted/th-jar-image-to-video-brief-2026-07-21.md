@@ -21,6 +21,14 @@ What is the Highlight? Animate this single still into a 6-10 second video of the
 - No on-screen text or captions (added later at ad-build stage)
 - Avoid: warping label, morphing tablet, flickering shadows, fast/punchy motion - tone is calm and aspirational, not high-energy
 
+**Reference (as Link)**
+-
+
+**Preferred Music**
+None - product is silent/still-life, no motion of people or action to cut to. If a track is needed for pacing, calm/ambient/minimal only, no vocals.
+
+---
+
 **Formats needed:** 9:16 (1080x1920) and 1:1 (1080x1080), H.264 mp4, loopable if possible.
 
 **Timeline:** Placeholder for ad testing - speed over perfection. Flag if turnaround will be more than 3-4 days.
