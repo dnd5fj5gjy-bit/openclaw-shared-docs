@@ -341,7 +341,7 @@ Name:    Title: Designated Member    Date:
 
 ## SCHEDULE 3 — POINTS TO CONFIRM BEFORE SIGNATURE
 
-1. The Modern Savage contracting entity and its VAT registration position.
+1. VAT registration numbers for both Parties, for invoicing.
 2. Identity and location of the manufacturer (clause 12.1).
 3. Product liability and recall insurance certificate (clause 14.1).
 4. Confirmation of responsible person status and that the safety report and notification cover the co-branded pack as sold (clause 13.1).
