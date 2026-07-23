@@ -110,7 +110,7 @@ Even in the perfect case, where the straight-line revenue lands exactly and cost
 
 Discounted at 10%, that is **$7.25M against $7.58M** — about $330k of present value given away for nothing. At 15%, roughly $430k.
 
-Then risk-adjust it. If Liberty comes in 20% under the modelled revenue and costs hold, Bear's total lands near **$7.75M instead of $10M**. Under the $2M salary he gets $10M and the Fund absorbs the miss — which is precisely why they want to change it. If the deal is renegotiated or ends after Year 3, which is ordinary for a university NIL arrangement, Bear has collected $4.64M of his $10M and the Fund has taken its pref and $3.64M.
+Then risk-adjust it. If Liberty comes in 20% under the modelled revenue and costs hold, Bear's total lands near **$7.8M instead of $10M**. Under the $2M salary he gets $10M and the Fund absorbs the miss — which is precisely why they want to change it. If the deal is renegotiated or ends after Year 3, which is ordinary for a university NIL arrangement, Bear has collected $4.64M of his $10M and the Fund has taken its pref and $3.64M.
 
 "The same over five years" is true only at the end of five perfect years.
 
