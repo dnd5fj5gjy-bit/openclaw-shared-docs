@@ -2,6 +2,8 @@
 
 Worked through the night on Last Stop. Everything below is rigorously QC'd against the locked geometry and canon. Here's what's ready, in the order you asked for it (styles → angles → environments).
 
+**Start here:** `laststop-HERO-KEYART-2026-07-22.png` — the single frame that best captures the show: the trio in the diner at dusk, the Last Lamp out the window. If you only look at one image, that's it. Everything else builds toward being able to make frames like that on demand.
+
 ## 1. STYLE OPTIONS — pick a look
 `laststop-STYLE-OPTIONS-2026-07-22.png` — the hero angle in four styles side by side:
 1. **Painterly** (matches the reference you sent) — ink linework + full painted shading, lamplight glow, warm dusk. **My recommendation, and clearly the closest to your reference.**
