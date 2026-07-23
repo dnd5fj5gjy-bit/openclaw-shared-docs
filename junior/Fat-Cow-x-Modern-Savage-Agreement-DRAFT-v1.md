@@ -302,7 +302,7 @@ Name: Ryan Porter    Title: Director    Date:
 
 **SIGNED** for and on behalf of BEAR GRYLLS VENTURES LLP
 
-Name:    Title: Designated Member    Date:
+Name: CJ Cardenas    Title: Managing Director, duly authorised    Date:
 
 ---
 
