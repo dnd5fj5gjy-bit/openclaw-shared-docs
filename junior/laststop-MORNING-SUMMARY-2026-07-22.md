@@ -11,7 +11,8 @@ Worked through the night on Last Stop. Everything below is rigorously QC'd again
 
 ## 2. THE DINER — full 12-angle set in the painterly style
 `laststop-PAINTERLY-angles-2026-07-22.png` — all twelve locked camera angles rendered in the painterly look, one consistent room / dusk / hand. Built off the approved geometry, so nothing has drifted. This is the whole set ready to go the moment you confirm the style.
-- **QC flags (minor, non-blocking):** a couple of sign faces drift toward near-Latin letters (stage-end door sign, one back-counter sign); and the stage-end frame reads the east exit + rails rather than the west stage — I'll re-shoot that camera. Everything else is clean.
+- **Signage hardened overnight:** the alien-glyph forms were redesigned (the old ones were too letter-like, so the painter kept "correcting" them into English) and the set re-rendered — signs now read as genuine invented script across the board, no English. The stage-end camera (which had shown the exit instead of the stage) is fixed.
+- **One minor residual:** the back-counter angle keeps a slightly letter-like sign in the far background — I kept that frame because its alternative came back less dressed. Easily re-run. (Also logged: invented wall *posters* can still attract English, since only the menu boards carry glyph geometry — a next-pass fix.)
 
 ## 3. OTHER RECURRING ENVIRONMENTS — new, from canon
 `laststop-ENVIRONMENTS-2026-07-22.png` — four recurring locations established in the same painterly house style, built from the bible:
