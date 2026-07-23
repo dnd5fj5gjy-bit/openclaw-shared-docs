@@ -19,7 +19,7 @@ Our reasoning is straightforward: the property is a small, single-purpose struct
 
 As an opening proposal for discussion, we would suggest:
 
-- Extending the Term from 30 years to 100 years from the original Term Start Date of 22 March 2021, giving a new expiry of 21 March 2121;
+- Extending the Term from 30 years to 75 years from the original Term Start Date of 22 March 2021, giving a new expiry of 21 March 2096;
 - A single lump sum payment of £15,000, payable at completion of the extension, in place of any further rent reviews; and
 - The Principal Rent thereafter fixed at a nominal £1 per annum for the remainder of the extended Term, with no further rent reviews under Part Four of the Lease.
 
