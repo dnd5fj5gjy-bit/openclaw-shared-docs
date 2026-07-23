@@ -10,7 +10,7 @@ Draft v1 — 23 July 2026
 
 **(1) TOP DOG NOW LIMITED**, a company registered in England and Wales (company number 12542411) whose registered office is at International House, 12 Constance Street, London E16 2DQ, trading as **Fat Cow Skincare** ("**Fat Cow**")
 
-**(2) [MODERN SAVAGE CONTRACTING ENTITY]**, whose registered office is at [address] ("**Modern Savage**")
+**(2) BEAR GRYLLS VENTURES LLP**, a limited liability partnership registered in England and Wales (registered number OC360369) whose registered office is at 2nd Floor, Connaught House, 1-3 Mount Street, London W1K 3NB, which operates the Modern Savage brand in the United Kingdom ("**Modern Savage**")
 
 each a "Party" and together the "Parties".
 
@@ -20,7 +20,7 @@ each a "Party" and together the "Parties".
 
 A. Fat Cow develops, has manufactured and sells tallow-based skincare products.
 
-B. Modern Savage operates a direct-to-consumer health brand and holds the rights necessary to grant the permissions it grants under this Agreement.
+B. Modern Savage operates the Modern Savage direct-to-consumer health brand in the United Kingdom and holds the rights necessary to grant the permissions it grants under this Agreement.
 
 C. The Parties wish to launch a co-branded skincare product, sold through both Parties' own direct-to-consumer channels on a made-to-demand basis, on the commercial terms agreed between Jesse Grylls and Ryan Porter in correspondence between 20 and 23 July 2026 and recorded in this Agreement.
 
