@@ -10,7 +10,7 @@ Draft v1 — 23 July 2026
 
 **(1) TOP DOG NOW LIMITED**, a company registered in England and Wales (company number 12542411) whose registered office is at International House, 12 Constance Street, London E16 2DQ, trading as **Fat Cow Skincare** ("**Fat Cow**")
 
-**(2) BEAR GRYLLS VENTURES LLP**, a limited liability partnership registered in England and Wales (registered number OC360369) whose registered office is at 2nd Floor, Connaught House, 1-3 Mount Street, London W1K 3NB, which operates the Modern Savage brand in the United Kingdom ("**Modern Savage**")
+**(2) BEAR GRYLLS VENTURES LLP**, a limited liability partnership registered in England and Wales (registered number OC360369) whose registered office is at Ignition Law, 1 Sans Walk, London EC1R 0LT, which operates the Modern Savage brand in the United Kingdom ("**Modern Savage**")
 
 each a "Party" and together the "Parties".
 
