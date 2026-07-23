@@ -300,9 +300,9 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 Name: Ryan Porter    Title: Director    Date:
 
-**SIGNED** for and on behalf of [MODERN SAVAGE CONTRACTING ENTITY]
+**SIGNED** for and on behalf of BEAR GRYLLS VENTURES LLP
 
-Name:    Title:    Date:
+Name:    Title: Designated Member    Date:
 
 ---
 
