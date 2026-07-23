@@ -17,6 +17,11 @@ We would welcome the Estate's consideration of substantially extending the term 
 
 Our reasoning is straightforward: the property is a small, single-purpose structure (a private slipway supporting two non-commercial boats) with a low base rent. We suspect the administrative cost to the Estate of running periodic Open Market Rent reviews and surveyor appointments on an asset of this size is not far off the value those reviews recover. A longer, fixed-rent term would give the Estate certainty of income over a much longer horizon while removing that ongoing administrative overhead — and would give us long-term certainty for a structure we built and maintain entirely at our own cost.
 
+Our specific proposal is as follows:
+
+- Extend the Term from 30 years to 60 years from the original Term Start Date of 22 March 2021, giving a new expiry of 21 March 2081; and
+- Fix the Principal Rent at £1,400 per annum (the figure recently confirmed at the current review) for the remainder of the extended Term, with no further rent reviews under Part Four of the Lease.
+
 We appreciate a fully review-free term may not be straightforward for the Estate to agree, and would equally welcome discussing a longer but less frequent review cycle (for example, every 15-20 years rather than every 5) as a fallback if that is more workable internally.
 
 We would be grateful for the opportunity to discuss this with the relevant member of your Estates team at your convenience.
