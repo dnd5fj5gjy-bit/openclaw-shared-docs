@@ -25,7 +25,7 @@ Worked through the night on Last Stop. Everything below is rigorously QC'd again
 `laststop-TRIO-painterly-2026-07-22.png` — Champ, Etta and Tuff restyled into the painterly look, every locked feature intact (Champ's spotted tail + apron, Etta's antennae + nose ring + logbook + pregnancy, Tuff's dark glasses + locs + robe). A proposal, so the characters match the new backgrounds.
 
 ## 5. FIRST PAINTERLY COMPOSITE — the cast in the room
-`laststop-COMPOSITE-proof-2026-07-22.png` — the end-to-end test that had never been run: the trio composited into the painterly hero. Three takes, all on-model — Champ working behind the counter, Etta at the counter with her logbook, Tuff in the booth — the room untouched, one of each, glyphs intact. This proves the whole painterly pipeline works: locked room + locked characters → finished frame.
+`laststop-COMPOSITE-proof-2026-07-22.png` (hero angle) and `laststop-COMPOSITE-doorpov-2026-07-22.png` (door angle) — the end-to-end test that had never been run: the trio composited into the painterly diner, in **two different angles**. All takes on-model — Champ working behind the counter, Etta at the counter with her logbook, Tuff in a booth — the room untouched, one of each, glyphs intact. This proves the whole painterly pipeline works and generalizes across angles: locked room + locked characters → finished frame.
 
 ## Also done tonight
 - Built the painterly pipeline (`LSSTYLE=painterly`) and the environment/trio tools, all reusable.
