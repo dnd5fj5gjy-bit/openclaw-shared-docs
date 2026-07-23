@@ -15,7 +15,8 @@ Worked through the night on Last Stop. Everything below is rigorously QC'd again
 - **One minor residual:** the back-counter angle keeps a slightly letter-like sign in the far background — I kept that frame because its alternative came back less dressed. Easily re-run. (Also logged: invented wall *posters* can still attract English, since only the menu boards carry glyph geometry — a next-pass fix.)
 
 ## 3. OTHER RECURRING ENVIRONMENTS — new, from canon
-`laststop-ENVIRONMENTS-2026-07-22.png` — four recurring locations established in the same painterly house style, built from the bible:
+`laststop-ENVIRONMENTS-2026-07-22.png` — five recurring locations established in the same painterly house style, built from the bible:
+- **The diner exterior** — the streamliner-car diner at the end of the line, "O" emblem, Last Lamp on the buffer block. The most-used establishing shot (the diner appears every episode).
 - **The Last Lamp** — the title object, Wick's lantern on the buffer block at the end of the line.
 - **The railhead town** — the street, the diner with its "O" emblem, the iron running through.
 - **The Gullet** — the under-city black market down the gorge, lantern-lit tiers.
