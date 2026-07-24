@@ -118,6 +118,8 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 6.8 Modern Savage may include an insert in Fat Cow's shipments under clause 9.2.
 
+6.9 **Stock and availability.** Fat Cow will maintain sufficient stock, or the ability to manufacture and fulfil within five business days, to meet reasonably forecast demand on the MS Channel, and will hold not less than four weeks' cover against the rolling forecast provided under this clause. Modern Savage will provide a rolling eight-week demand forecast and will give Fat Cow reasonable advance notice of any marketing activity or Bear Grylls post expected to drive a spike in demand. In any period of short supply, Fat Cow will allocate available stock to MS Channel orders in priority to FC Channel orders. If the Product is out of stock on the MS Channel for more than ten consecutive business days, other than through Modern Savage's own act or omission, Modern Savage may, without prejudice to its other rights, suspend the exclusivity in clause 16 and source or fulfil the Product itself for the period of unavailability.
+
 ### 7. FC Channel — royalty
 
 7.1 Fat Cow may sell the Product through the FC Channel and sets its own retail price for that channel.
