@@ -303,8 +303,9 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 Name: Ryan Porter    Title: Director    Date:
 
 **SIGNED** for and on behalf of BEAR GRYLLS VENTURES LLP
+acting by a member (or designated member) duly authorised to bind the LLP:
 
-Name: CJ Cardenas    Title: Managing Director, duly authorised    Date:
+Name: Bear Grylls    Title: Member, Bear Grylls Ventures LLP, duly authorised to bind the LLP    Date:
 
 ---
 
