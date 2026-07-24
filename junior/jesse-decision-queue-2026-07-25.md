@@ -1,59 +1,63 @@
 # Everything waiting on you, ranked by what it costs to wait
 
-**Built 24 Jul, evening. For Saturday morning. Every item checked against your mailbox and calendar tonight, not against my notes.**
+**Built 24 Jul, evening. For Saturday morning. Every row below was checked against your mailbox, drafts and calendar tonight, not against my notes. Five rows I had written from memory turned out to be wrong and have been fixed or closed.**
 
-Thirteen things are sitting on a decision from you. They have arrived one at a time over about a week, which is why they do not feel like thirteen. Every one of them has a draft, an analysis or a recommendation already done, so none of them need work from you beyond a word.
+Fourteen things are sitting on a decision from you. They have arrived one at a time over about a week, which is why they do not feel like fourteen. Every one has a draft, an analysis or a recommendation already done, so none of them need work from you beyond a word.
 
-They are ranked by what another week of silence actually costs, not by how loud they have been.
-
-You can answer most of this with a list of one-word replies. Where I have a recommendation it is in bold, so "1 call, 2 yes, 3 A" is a complete answer.
+Ranked by what another week of silence actually costs, not by how loud they have been. Where I have a recommendation it is in bold, so "1 send, 2 call, 4 A" is a complete answer.
 
 ---
+
+## Ten seconds, and it decays overnight
+
+**1. Your email to OpenAI is still sitting in your drafts, unsent, and has no subject line.** Created 17:50 today, right after the Bear x OpenAI call, to Charles Porch and Whitney G, copying CJ and Alexander Cooper. It has the Frame.io links to the Series Trailer and the JEEP fine cut with the AG26 password. I have not touched it. If you thought that went, it did not, and they are waiting on links you said you would send today. **Add a subject and send it.** A blank subject to that address list also risks being filtered.
 
 ## Costs real money or a date this week
 
-**1. Belmark / ACF artwork.** The drop-dead was Friday and it passed. Drew at ACF has not answered anything since the 22 Jul call, including two requests from Sarah for a shipping address. **Call Drew on 631 484 7042** rather than emailing again. Correction to what I told you earlier tonight: the chase I drafted is no longer in your drafts folder, so there is nothing sitting there to send. If you would rather send it than call, say so and I will rebuild it in five minutes. Waiting costs: 8 Sep slips day for day, and Monday is already three days lost.
+**2. Belmark / ACF artwork.** The drop-dead was Friday and it passed. Drew at ACF has not answered anything since the 22 Jul call, including two requests from Sarah for a shipping address. **Call Drew on 631 484 7042** rather than emailing again. Correction to what I told you at 20:00: the chase I drafted is not in your drafts folder, so there is nothing sitting there to send. If you would rather send than call, say so and I will rebuild it in five minutes. Waiting costs: 8 Sep slips day for day, and Monday is already three days lost.
 
-**2. Belmark price hold and real lead time.** Separate from the above and easier. The 30 June quote **expires 30 July** and Sarah never confirmed she would hold it. The 15-day lead time the whole 8 Sep date rests on has also never been confirmed by anyone at Belmark. **One line to Sarah asking for both, Monday.** Waiting costs: the slip stops being only a date problem and becomes a pricing one. Say go and I will draft it.
+**3. Belmark price hold and real lead time.** The 30 June quote **expires 30 July** and Sarah never confirmed she would hold it. The 15-day lead time the whole 8 Sep date rests on has never been confirmed by anyone at Belmark either. **One line to Sarah asking for both, Monday.** Say go and I will draft it.
 
-**3. UK: Adult + Mini, or reformulate Summit.** Summit is not GB-sellable as formulated. Everything on the UK track sequences off this one call. **Recommend Adult + Mini, park Summit.** Waiting costs: the UK back-of-pack artwork is cheap to do this week while the artwork file is already open for Belmark, and a cold restart in October if it is not.
+**4. UK: Adult + Mini, or reformulate Summit.** Summit is not GB-sellable as formulated. Everything on the UK track sequences off this one call. **Recommend Adult + Mini, park Summit.** Waiting costs: the UK back-of-pack artwork is cheap this week while the artwork file is already open for Belmark, and a cold restart in October if it is not.
 
 ## People who are waiting on you
 
-**4. Nathan Belsley.** Still has no decision and is going cold. Yes, no, or a holding note? **A holding note today beats a yes next week.**
+**5. Nathan Belsley.** Still no decision, last contact 20 Jul, going cold. Yes, no, or a holding note? **A holding note today beats a yes next week.**
 
-**5. Beau Bennett, MS employee #1.** I need structure, an opening number and a walk-away. Full costing is in the memo, headline: W-2 is cheaper than 1099 across his whole range and is the lower-risk classification. **Recommend W-2, open $7,000/month, authority to $8,500.**
+**6. Beau Bennett, MS employee #1.** I need structure, an opening number and a walk-away. Headline from the costing memo: W-2 is cheaper than 1099 across his whole range and is the lower-risk classification. **Recommend W-2, open $7,000/month, authority to $8,500.**
 
-**6. Jake Collins.** Which shape, and do I open a call? His consultant option prices at roughly $210k full-time-equivalent against a $150k base, so it is the more expensive of his two.
+**7. Jake Collins.** Which shape, and do I open a call? His consultant option prices at roughly $210k full-time-equivalent against a $150k base, so it is the more expensive of his two.
 
-**7. Post-call one-liners you owe me.** SCEND: does a monthly minimum exist. Alastair: did he bite on ownership. Inuvi: API or PDF. Thirty seconds each and three workstreams unstick.
+**8. Two post-call one-liners.** Alastair: did he bite on ownership. Inuvi: API or PDF. Thirty seconds each. (SCEND is answered, see the bottom.)
 
 ## Money on the table, no hard clock
 
-**8. Fat Cow / Ryan.** v5 of the agreement is built and your reply to Ryan is drafted and still sitting in your drafts. Still gated on the 19.1 rights chain and which entity signs, both of which need CJ, not you. **Chase CJ on those two, then send.**
+**9. Fat Cow / Ryan.** v5 is built and your reply to Ryan is genuinely sitting in your drafts, last touched 23 Jul. Still gated on the 19.1 rights chain and which entity signs, both of which need CJ, not you. **Chase CJ on those two, then send.**
 
-**9. Calita.** Draft to Lauren unsent. Jamie Christie wants your phone number before the 31 July call, and they answered neither date you asked for. Your call whether to hand over the number. Same deflect-to-a-call pattern as Aviform.
+**10. Calita.** Jamie Christie wants your phone number before the 31 July call, and they answered neither date you asked for. Same deflect-to-a-call pattern as Aviform. Your call whether to hand over the number. Correction: I had a reply to Lauren recorded as drafted and waiting. It is not in either drafts folder, so there is nothing to send until you tell me the line to take.
 
-**10. Second UK 3PL quote.** I offered an independent one and you have not said yes or no. **Recommend yes**, it is free leverage on the first quote.
+**11. Second UK 3PL quote.** I offered an independent one and you have not said yes or no. **Recommend yes**, it is free leverage, and SCEND have now put real terms in writing to compare against.
 
 ## Yours to do, nobody can do it for you
 
-**11. Swiss permit biometrics.** In person at Sion, no appointment means no permit issued. You book it. Want me to pull available slots that fit around the boat?
+**12. Swiss permit biometrics.** In person at Sion, no appointment means no permit issued. You book it. Want me to pull slots that fit around the boat?
 
-**12. Anthropic usage credits.** Org at 90% and on track to hit the spend limit. If it hits, all five agents stop. Raise it, or leave it? And do you want Felix told, since he operates the account?
+**13. Anthropic usage credits.** Org at 90% and on track to hit the spend limit. If it hits, all five agents stop. Raise it, or leave it? And do you want Felix told, since he operates the account?
 
 ## Creative, unblocked by one sentence each
 
-**13. Last Stop and Zagoria.** Last Stop: the diner cannot be a converted streamliner carriage, the locked footprint contradicts it. **Recommend it becomes a building with a rounded end, carriage as a separate object.** Also needs the carriage A or B pick, the O position, and whether the car sits on sand, sleeper blocks or bogies. Zagoria: rebuild EP004 whole under the new rules, **which is my recommendation**, or lock the pipeline first. All exterior art is on hold until the first of these.
+**14. Last Stop and Zagoria.** Last Stop: the diner cannot be a converted streamliner carriage, the locked footprint contradicts it. **Recommend a building with a rounded end, carriage as a separate object.** Also needs the carriage A or B pick, the O position, and whether the car sits on sand, sleeper blocks or bogies. Zagoria: rebuild EP004 whole under the new rules, **my recommendation**, or lock the pipeline first. All exterior art is on hold until the first of these.
 
 ---
 
-## What I would do if you only answer three
+## If you only answer three
 
-1, 3 and 4. The first has a live clock, the third unblocks an entire market, and the fourth is a person who will take another offer.
+1, 2 and 4. The first decays overnight, the second has a live clock, the third unblocks an entire market.
 
-## Checked and closed, so you do not see it again
+## Checked and closed, so you do not see these again
 
-**Ted's weight loss review with Mia.** I had this down as a draft waiting to go out proposing Friday 9am. It is dead: you moved the call yourself and it went ahead Thursday 23 Jul at 09:30, before Monday's go-live. Nothing needed from you.
+**Ted's weight loss review with Mia.** I had this as a draft waiting to go out proposing Friday 9am. Dead: you moved the call yourself and it went ahead Thursday 23 Jul at 09:30, before Monday's go-live.
 
-**Note on the ones marked "send it":** nothing goes out without your word, as always. Every draft named here I have confirmed exists tonight.
+**SCEND monthly minimum.** I was going to ask you whether it existed. Jack Crumpton answered it directly on 23 Jul and the answer is good: **zero minimum spend written into the contract for the full twelve months.** Also on the record now: 12-month term, 90-day notice, exit charged at an hourly rate to prepare stock and nothing more, and if they miss SLAs two months running you can leave at any time. That is a stronger position than we assumed.
+
+**Note:** nothing goes out without your word, as always. Every draft named above I have confirmed exists tonight, and I have said so plainly where one does not.
