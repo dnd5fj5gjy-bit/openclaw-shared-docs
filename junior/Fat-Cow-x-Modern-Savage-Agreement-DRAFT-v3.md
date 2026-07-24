@@ -128,6 +128,8 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 7.4 The royalty applies equally to sales to Approved Stockists, calculated on the amounts actually received by Fat Cow from the stockist.
 
+7.5 **Price floor.** Fat Cow will not offer or sell the Product through the FC Channel at a price more than 20% below the Reference Price, being a floor of £36.00 including VAT at the launch Reference Price of £45.00, without Modern Savage's prior written approval. This applies however the reduction is achieved, including by list price, discount, voucher, loyalty credit, subscription or Bundle allocation. The floor protects the retail positioning of the Product and of the Bear Grylls credit and prevents the FC Channel undercutting the MS Channel. If the Reference Price changes under clause 1, the floor moves with it so that it remains 20% below the Reference Price then in force.
+
 ### 8. Stockists
 
 8.1 Fat Cow may offer the Product to its existing retail stockists, subject to Modern Savage's prior written approval **for each stockist individually**.
