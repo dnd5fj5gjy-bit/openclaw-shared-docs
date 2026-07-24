@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Where Your Food Comes From</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#13130F;--panel:#1B1C15;--panel-2:#20221A;
+    --bone:#EAE6D8;--bone-dim:#A5A491;--bone-faint:#6C6C5A;
+    --green:#83A257;--green-soft:#AECB78;--green-deep:#4E6B34;
+    --slate:#8A9AA2;--slate-soft:#AEBBC1;
+    --line:#2C2E22;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--green)}
+
+  header{position:relative;padding:96px 0 0;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 15% 0%,rgba(131,162,87,.16),transparent 58%)}
+  .hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .hero-tag .brand{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim)}
+  .hero-tag .rule{height:1px;flex:1;background:var(--line)}
+  .hero-tag .kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+  h1{font-family:'Oswald',sans-serif;font-weight:300;text-transform:uppercase;line-height:.98;letter-spacing:.005em;font-size:clamp(38px,7vw,74px);color:var(--bone)}
+  h1 b{font-weight:600}
+  .concept{margin-top:24px;max-width:600px;color:var(--bone-dim);font-size:16px;padding-bottom:44px}
+  .hero-art{width:100%;display:block}
+
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:24px}
+  .s-head .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--green);letter-spacing:.2em;margin-bottom:12px;display:block}
+  h2{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(24px,3.6vw,34px);letter-spacing:.01em;line-height:1.05;color:var(--bone)}
+  .lead{font-size:17px;color:var(--bone);max-width:660px}
+  .lead .accent{color:var(--green-soft)}
+
+  /* spec strip */
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px}
+  .spec{padding:20px 22px;border-left:1px solid var(--line)}
+  .spec:first-child{border-left:none}
+  .spec .k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);display:block;margin-bottom:7px}
+  .spec .v{font-family:'Oswald',sans-serif;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:.02em;color:var(--bone)}
+
+  /* one-liners */
+  .angle{margin-top:28px}
+  .angle:first-of-type{margin-top:6px}
+  .angle-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint);margin-bottom:13px;display:flex;align-items:center;gap:14px}
+  .angle-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .line{padding:15px 22px;border:1px solid var(--line);border-radius:3px;background:var(--panel);margin-bottom:10px;
+    font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(16px,2.2vw,20px);letter-spacing:.02em;color:var(--bone)}
+  .line.pick{border-color:#3b4a26;background:linear-gradient(160deg,rgba(131,162,87,.12),transparent 70%)}
+  .line .tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--black);background:var(--green);padding:3px 9px;border-radius:2px;margin-left:12px;vertical-align:middle}
+
+  /* look & feel */
+  .shots{list-style:none;display:grid;gap:11px;margin:6px 0 22px}
+  .shots li{position:relative;padding-left:26px;color:var(--bone);font-size:15px}
+  .shots li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(131,162,87,.55)}
+  .terms-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .chip{font-family:'Space Mono',monospace;font-size:12px;padding:6px 11px;border-radius:2px;border:1px solid var(--line);color:var(--bone-dim);background:rgba(0,0,0,.2)}
+  .grade{font-size:14px;color:var(--bone-dim);padding-top:16px;border-top:1px dashed var(--line)}
+  .grade b{color:var(--bone);font-weight:600}
+
+  /* duo cards */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card{padding:28px 30px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .card .eyebrow{margin-bottom:14px;display:block}
+  .card h2{font-size:clamp(19px,2.5vw,24px);margin-bottom:14px}
+  .card p{color:var(--bone-dim);font-size:14.5px}
+  .card p+p{margin-top:11px}
+  .card .example{color:var(--green-soft);font-style:italic;font-size:14.5px}
+  .card ul{list-style:none;display:grid;gap:9px;margin-top:4px}
+  .card li{position:relative;padding-left:18px;color:var(--bone-dim);font-size:14px}
+  .card li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--slate);border-radius:50%}
+
+  /* reference */
+  .refbox{padding:26px 30px;border:1px dashed var(--green-deep);border-radius:3px;background:linear-gradient(160deg,rgba(131,162,87,.07),transparent);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .refbox .rk{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+  .refbox .rv{color:var(--bone-dim);font-size:15px}
+  .refbox .slot{font-family:'Space Mono',monospace;color:var(--green-soft);font-size:13px;border:1px solid var(--green-deep);border-radius:3px;padding:7px 13px;text-decoration:none;transition:background .2s ease}
+  .refbox a.slot:hover{background:rgba(131,162,87,.12)}
+
+  .tone{border-bottom:none;padding-bottom:96px}
+  .tone-box{padding:32px 36px;border-radius:3px;background:linear-gradient(120deg,rgba(131,162,87,.1),rgba(138,154,162,.05));border:1px solid var(--line)}
+  .tone-box p{font-size:16px;color:var(--bone);line-height:1.7}
+  .tone-box .hot{color:var(--green-soft);font-weight:600}
+
+  /* hero photo slot */
+  .hero-photo{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;text-align:center;
+    background:
+      radial-gradient(90% 120% at 50% 125%,rgba(95,125,62,.5),transparent 60%),
+      radial-gradient(70% 90% at 78% 18%,rgba(174,203,120,.18),transparent 55%),
+      linear-gradient(180deg,#1a2014,#12130e);}
+  .hero-photo::after{content:"";position:absolute;inset:16px;border:1px solid rgba(174,203,120,.18);border-radius:2px;pointer-events:none}
+  .hp-inner{position:relative;z-index:1;padding:24px}
+  .hp-eyebrow{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--green-soft);display:block;margin-bottom:13px}
+  .hp-line{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(18px,3vw,26px);letter-spacing:.02em;color:var(--bone)}
+  .hp-note{font-family:'Space Mono',monospace;font-size:11px;color:var(--bone-faint);margin-top:13px;display:block;letter-spacing:.05em}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:720px){
+    .specs{grid-template-columns:repeat(2,1fr)}
+    .spec:nth-child(3){border-left:none}
+    .spec{border-top:1px solid var(--line)}
+    .spec:nth-child(-n+2){border-top:none}
+    .duo{grid-template-columns:1fr}
+    header{padding:64px 0 0}
+    section{padding:46px 0}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hero-tag">
+      <span class="brand">Modern Savage</span><span class="rule"></span>
+      <span class="kind">Content Concept / Ambient</span>
+    </div>
+    <h1>Where your<br><b>food comes from</b></h1>
+    <p class="concept">Slow, beautiful, quiet. Bison grazing across green mountain country, held long enough to breathe. One line of text, no hard sell. The calm counterpart to our punchy edits - this one builds the feeling of the brand and where real food begins.</p>
+  </div>
+  <svg class="hero-art" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1e2417"/><stop offset="1" stop-color="#13130F"/>
+      </linearGradient>
+      <radialGradient id="sun" cx="76%" cy="34%" r="26%">
+        <stop offset="0" stop-color="rgba(174,203,120,.55)"/><stop offset="1" stop-color="rgba(174,203,120,0)"/>
+      </radialGradient>
+    </defs>
+    <rect width="900" height="300" fill="url(#sky)"/>
+    <rect width="900" height="300" fill="url(#sun)"/>
+    <circle cx="684" cy="102" r="34" fill="rgba(200,222,150,.35)"/>
+    <path d="M0 168 L120 120 L230 158 L330 110 L470 165 L600 118 L720 160 L820 122 L900 156 L900 300 L0 300 Z" fill="#3a4a29" opacity=".55"/>
+    <path d="M0 205 L140 168 L280 200 L400 160 L540 202 L680 165 L820 205 L900 182 L900 300 L0 300 Z" fill="#465c2f" opacity=".7"/>
+    <path d="M0 238 C160 214 320 250 470 236 C620 222 760 252 900 232 L900 300 L0 300 Z" fill="#557038"/>
+    <path d="M0 262 C200 250 360 276 520 264 C700 250 780 272 900 260 L900 300 L0 300 Z" fill="#5f7d3e"/>
+    <g transform="translate(360 236) scale(0.9)" fill="#1c1d15">
+      <path d="M8 26 C4 20 6 15 12 16 C18 10 28 9 35 13 C39 3 52 1 60 8 C64 4 72 6 76 13 L88 14 L82 20 C86 24 85 30 79 31 C76 35 71 33 69 28 C63 31 56 30 51 27 C46 33 40 36 33 35 L32 48 L27 48 L28 33 C22 33 16 31 12 26 L11 47 L6 47 L7 27 C4 27 2 26 1 24 Z"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="specs">
+      <div class="spec"><span class="k">Format</span><span class="v">Ambient film</span></div>
+      <div class="spec"><span class="k">Funnel</span><span class="v">Top / Brand</span></div>
+      <div class="spec"><span class="k">Duration</span><span class="v">10 - 20 sec</span></div>
+      <div class="spec"><span class="k">Ratio</span><span class="v">9 : 16</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">01 / The idea</span></div>
+    <p class="lead">Simple, beautiful footage of bison grazing in lush green mountain country. Let the shots run long and calm - no fast cuts, no drama. One quiet line of text, and that is it. The point is to make people <em>feel</em> where real food should come from. <span class="accent">Modern Savage is never sold on screen - it lives only in the caption, as the quiet answer.</span></p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">02 / The one line</span><h2>Simple, empowering, over the footage</h2></div>
+    <p class="lead" style="margin-bottom:8px;font-size:15.5px;color:var(--bone-dim)">One short line laid gently over the beautiful grazing shots. Aesthetic and empowering, never preachy - it should make the viewer feel something and want to choose better. Nothing else on screen. Options by tone below.</p>
+
+    <div class="angle">
+      <div class="angle-label">Empowering</div>
+      <div class="line pick">Know where your food comes from <span class="tag">Lead</span></div>
+      <div class="line">Take back what you eat</div>
+      <div class="line">Strength starts at the source</div>
+      <div class="line">Food you can stand behind</div>
+      <div class="line">Real food. Real strength.</div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-label">The prompt</div>
+      <div class="line">Do you know where your food comes from?</div>
+      <div class="line">This is where it should start</div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-label">The statement</div>
+      <div class="line">Real food starts here</div>
+      <div class="line">Before the packaging</div>
+      <div class="line">The way nature intended</div>
+      <div class="line">This is the source</div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-label">Brand-tied (a touch more Modern Savage)</div>
+      <div class="line">Nothing hidden. Nothing added.</div>
+      <div class="line">From the wild, not the lab</div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">03 / Look &amp; feel</span><h2>Simple, slow, cinematic</h2></div>
+    <ul class="shots">
+      <li>Wide shot of bison grazing across a green mountain valley, mist and morning light</li>
+      <li>Slow drone drift over rolling green hills, herd small in the frame</li>
+      <li>Close, patient shot of a single bison grazing, breath and movement, shallow focus</li>
+      <li>Sunlight through long grass and greenery, dew, gentle wind</li>
+      <li>Wide landscape held still - mountains, green, sky - the animal small within it</li>
+    </ul>
+    <div class="terms-label">Stock search terms</div>
+    <div class="chips">
+      <span class="chip">bison grazing green mountains</span>
+      <span class="chip">buffalo herd valley aerial</span>
+      <span class="chip">cattle grazing morning mist</span>
+      <span class="chip">green rolling hills drone slow</span>
+      <span class="chip">sunlight long grass wind</span>
+    </div>
+    <p class="grade"><b>Pace:</b> slow, long holds, minimal cuts. <b>Grade:</b> lush natural greens, soft warm light, nothing over-stylised. Let it look real and calm.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="duo">
+      <div class="card">
+        <span class="eyebrow">04 / Caption</span>
+        <h2>Modern Savage as the quiet answer</h2>
+        <p>The video stays pure and unbranded. The caption is where Modern Savage appears - as the solution the footage sets up, kept subtle, never salesy.</p>
+        <p class="example">"Know where your food comes from. Whole-food nutrition, from the source. Modern Savage."</p>
+      </div>
+      <div class="card">
+        <span class="eyebrow">05 / Music</span>
+        <h2>Calm and cinematic</h2>
+        <ul>
+          <li>Soft, emotive, ambient - let the visuals breathe</li>
+          <li>A gentle trending sound works if it fits the calm</li>
+          <li>No hard beat drop - this concept is stillness, not energy</li>
+          <li>Low and warm, never busy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">06 / Aesthetic reference</span></div>
+    <div class="refbox">
+      <span class="rk">Reference</span>
+      <span class="rv">The look and pace to match:</span>
+      <a class="slot" href="https://www.instagram.com/reel/DYX2zHIhv8W/?igsh=MWxpdHZyZHV0MGVraA==" target="_blank" rel="noopener">instagram.com/reel/DYX2zHIhv8W</a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal tone">
+  <div class="wrap">
+    <div class="s-head"><span class="num">07 / In one breath</span></div>
+    <div class="tone-box">
+      <p><span class="hot">Beautiful, slow footage of bison grazing in green mountains</span> - one simple, empowering line like "Know where your food comes from" laid over the top - held calm, minimal text, no selling. Modern Savage appears only in the caption, as the quiet answer to the question the footage asks.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
