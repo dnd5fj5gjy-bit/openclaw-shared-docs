@@ -106,7 +106,7 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 6.2 There is **no minimum order quantity and no minimum commitment** in either direction.
 
-6.3 **Modern Savage retains 45% of Net Receipts. Fat Cow invoices 55% of Net Receipts.** At the Reference Price of £45.00 including VAT (£37.50 excluding VAT) this is £16.88 to Modern Savage and £20.63 to Fat Cow per unit.
+6.3 **Modern Savage retains 45% of Net Receipts. Fat Cow invoices 55% of Net Receipts.** At the Reference Price of £45.00 including VAT (£37.50 excluding VAT) this is approximately £16.88 to Modern Savage and £20.62 to Fat Cow per unit. The percentages govern; the per-unit figures are illustrative only. Each Party's share is calculated on actual Net Receipts and rounded to the nearest penny.
 
 6.4 Modern Savage sets its own retail and promotional pricing for the MS Channel and is free to price and promote as it sees fit. Because both Parties' shares are a percentage of what is actually received, any discount is borne by both Parties in the same proportion. Any change to the Reference Price itself is by agreement under clause 1.
 
