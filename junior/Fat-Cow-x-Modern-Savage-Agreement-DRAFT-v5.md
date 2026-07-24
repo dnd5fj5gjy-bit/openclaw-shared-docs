@@ -215,9 +215,13 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 ### 16. Exclusivity
 
-16.1 During the term, within the Territory, Fat Cow will not produce or supply a co-branded skincare product with any brand or individual whose primary positioning is ancestral, primal or organ-based health and nutrition, without Modern Savage's prior written approval.
+16.1 During the term, and for 12 months after it ends, within the Territory, Fat Cow will not, and will procure that its group companies do not, without Modern Savage's prior written approval:
 
-16.2 Nothing in this Agreement restricts Fat Cow's own-brand range or Modern Savage's supplement business.
+(a) produce or supply a co-branded skincare product with any brand or individual whose primary positioning is ancestral, primal or organ-based health and nutrition; or
+
+(b) produce, supply or sell any own-brand or third-party skincare product that is substantially similar to the Product, including any honey-and-propolis balm of similar formulation, name or positioning.
+
+16.2 Except as set out in clause 16.1(b), nothing in this Agreement restricts Fat Cow's own-brand range or Modern Savage's supplement business.
 
 16.3 Modern Savage will not launch a competing tallow-based skincare product in the Territory during the term.
 
