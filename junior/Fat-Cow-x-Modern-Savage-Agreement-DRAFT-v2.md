@@ -258,7 +258,7 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 18.5 Ownership of the co-branded artwork follows the underlying rights in it: every element comprising or derived from Bear Grylls IP or the Modern Savage marks is owned by Modern Savage or by the relevant owner of the Bear Grylls IP, and every element comprising Fat Cow's own marks is owned by Fat Cow. To the extent any such element is created by or on behalf of a Party, that Party assigns it, and will procure the assignment of it, to the Party that owns the underlying rights. Neither Party may use the co-branded artwork, or any element of it carrying the other's marks or Bear Grylls IP, outside this Agreement.
 
-18.5 Bear Grylls IP is dealt with exclusively by clause 5 and this clause 18 does not widen it.
+18.6 Bear Grylls IP is dealt with exclusively by clause 5 and this clause 18 does not widen it.
 
 ### 19. Warranties, indemnities and liability
 
