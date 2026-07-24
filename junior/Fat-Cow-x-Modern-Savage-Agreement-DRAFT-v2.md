@@ -344,10 +344,13 @@ Name: Bear Grylls    Title: Member, Bear Grylls Ventures LLP, duly authorised to
 
 ## SCHEDULE 3 — POINTS TO CONFIRM BEFORE SIGNATURE
 
-1. VAT registration numbers for both Parties, for invoicing.
-2. Identity and location of the manufacturer (clause 12.1).
-3. Product liability and recall insurance certificate (clause 14.1).
-4. Confirmation of responsible person status and that the safety report and notification cover the co-branded pack as sold (clause 13.1).
-5. Written confirmation from Fat Cow's fulfilment provider that both stores can be connected (clause 6.6).
-6. Final pack artwork and the launch date.
-7. The Article 28 processor terms (clause 15.3).
+1. **Chain of title for the rights granted (clause 19.1, Recital B).** Confirm that Bear Grylls Ventures LLP holds, or has an intra-group licence or written authority from the owner of the Bear Grylls IP and from Modern Savage Inc (Delaware) permitting it to grant, the pack uses of Bear Grylls IP and of the Modern Savage marks under this Agreement, so that the warranty at clause 19.1 is accurate on signature. Alternatively, confirm the correct contracting entity.
+2. **Family name and likeness, and endorsement reality (clauses 4.2, 5, 13.2).** Confirm Bear Grylls Ventures LLP can grant use of the "and his family" names and likeness, and that the "Created in partnership with…" credit is a genuine and substantiable partnership for CAP Code purposes.
+3. VAT registration numbers for both Parties, for invoicing.
+4. Identity and location of the manufacturer (clause 12.1).
+5. Product liability and recall insurance certificate (clause 14.1), and confirmation that £5 million cover is adequate given Bear Grylls' profile.
+6. Confirmation of responsible person status and that the safety report and notification cover the co-branded pack as sold (clause 13.1).
+7. Written confirmation from Fat Cow's fulfilment provider that both stores can be connected (clause 6.6).
+8. Confirmation that the 90g tin is genuinely under 100ml for the hand-luggage claim, which is itself a pack claim requiring substantiation (clause 12.3).
+9. Final pack artwork and the launch date.
+10. The Article 28 processor terms (clause 15.3).
