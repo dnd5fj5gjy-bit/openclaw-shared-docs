@@ -96,7 +96,7 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 5.7 Fat Cow will not register, apply for or assert any right in any name, mark or domain incorporating or resembling Bear Grylls IP or the Modern Savage marks.
 
-5.8 On expiry or termination all use of Bear Grylls IP by Fat Cow ceases, subject only to clause 17.4.
+5.8 On expiry or termination all use of Bear Grylls IP by Fat Cow ceases, subject only to the sell-through period in clause 17.5.
 
 5.9 The Parties acknowledge that damages would not be an adequate remedy for breach of this clause and that Modern Savage may seek injunctive relief.
 
