@@ -268,6 +268,8 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 18.6 Bear Grylls IP is dealt with exclusively by clause 5 and this clause 18 does not widen it.
 
+18.7 The product name "Ancestral Honey Balm", and any confusingly similar name for a skincare product, is reserved to Modern Savage in the Territory. Fat Cow acquires no right in it, will not use, register or apply for it other than for the Product under this Agreement, and will cease using it on termination.
+
 ### 19. Warranties, indemnities and liability
 
 19.1 Each Party warrants it has the right and authority to enter this Agreement and to grant the rights and permissions it grants.
