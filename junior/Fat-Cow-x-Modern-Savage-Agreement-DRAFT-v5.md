@@ -330,7 +330,7 @@ Name: Bear Grylls    Title: Member, Bear Grylls Ventures LLP, duly authorised to
 | Key ingredients | Tallow base with honey and propolis, full INCI to be attached |
 | Reference Price | £45.00 including VAT (£37.50 ex VAT) |
 | Modern Savage share, MS Channel | 45% of Net Receipts (£16.88 per unit at Reference Price) |
-| Fat Cow invoice, MS Channel | 55% of Net Receipts (£20.63 per unit at Reference Price) |
+| Fat Cow invoice, MS Channel | 55% of Net Receipts (approx. £20.62 per unit at Reference Price) |
 | Delivery charges, MS Channel | Passed to Fat Cow in full, outside the split |
 | Royalty, FC Channel | 10% of Net Sales |
 | FC Channel pricing | No discounting below the £45 Reference Price (inc VAT) without approval; affiliate links and codes excepted |
