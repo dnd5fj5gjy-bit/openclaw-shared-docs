@@ -282,7 +282,7 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 
 19.4 Neither Party excludes liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot be excluded at law.
 
-19.5 Subject to 19.2 and 19.4, neither Party is liable for loss of profit, revenue, goodwill or anticipated saving, and each Party's total liability in any 12-month period is capped at the greater of £250,000 and the total amounts paid or payable between the Parties under this Agreement in that period.
+19.5 Subject to 19.2 and 19.4, neither Party is liable for loss of profit, revenue, goodwill or anticipated saving, and each Party's total liability in any 12-month period is capped at the greater of £250,000 and the total amounts paid or payable between the Parties under this Agreement in that period. For the avoidance of doubt, this cap does not apply to Fat Cow's indemnities under clause 19.2, to either Party's liability for breach of clause 5, or to any liability that cannot be limited at law.
 
 ### 20. Confidentiality and announcements
 
