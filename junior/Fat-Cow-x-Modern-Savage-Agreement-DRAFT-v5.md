@@ -250,7 +250,7 @@ C. The Parties wish to launch a co-branded skincare product, sold through both P
 (c) both Parties remove the Product from their listings and all use of the other's marks and of Bear Grylls IP ceases;
 (d) Fat Cow ships any orders already accepted, and outstanding amounts under clauses 6, 7 and 10 are settled within 30 days;
 (e) Modern Savage may require Fat Cow to transfer or take down any co-branded landing page, listing or asset carrying Bear Grylls IP;
-(f) clauses 5.5, 5.7, 5.8, 5.9, 10.5, 11, 14, 15, 18, 19, 20 and 21 survive.
+(f) clauses 5.5, 5.7, 5.8, 5.9, 7, 8, 10.5, 11, 13, 14, 15, 18, 19, 20 and 21 survive, so that during the sell-through period the royalty, the price and affiliate limits, the reporting, the stockist controls and the regulatory obligations continue to apply to any units still being sold.
 
 17.6 Neither Party owes the other compensation, indemnity or goodwill payment on termination beyond the amounts due under 17.5(d).
 
