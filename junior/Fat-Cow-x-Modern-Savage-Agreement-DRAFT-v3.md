@@ -323,6 +323,7 @@ Name: Bear Grylls    Title: Member, Bear Grylls Ventures LLP, duly authorised to
 | Fat Cow invoice, MS Channel | 55% of Net Receipts (£20.63 per unit at Reference Price) |
 | Delivery charges, MS Channel | Passed to Fat Cow in full, outside the split |
 | Royalty, FC Channel | 10% of Net Sales |
+| FC Channel price floor | £36.00 inc VAT (no more than 20% below the £45 Reference Price) without approval |
 | Minimum order quantity | None |
 | Minimum commitment | None |
 | Territory | United Kingdom |
