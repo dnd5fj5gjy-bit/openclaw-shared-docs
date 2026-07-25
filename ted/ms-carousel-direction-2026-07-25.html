@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Carousel Visual Direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Fraunces:ital,wght@0,400;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#13130F;--panel:#1B1C15;--panel-2:#20221A;
+    --bone:#EAE6D8;--bone-dim:#A5A491;--bone-faint:#6C6C5A;
+    --green:#83A257;--green-soft:#AECB78;--green-deep:#4E6B34;
+    --slate:#8A9AA2;--slate-soft:#AEBBC1;--gold:#C9A24B;
+    --line:#2C2E22;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--green)}
+
+  header{position:relative;padding:96px 0 56px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 15% 0%,rgba(131,162,87,.16),transparent 58%)}
+  .hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .hero-tag .brand{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim)}
+  .hero-tag .rule{height:1px;flex:1;background:var(--line)}
+  .hero-tag .kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+  h1{font-family:'Oswald',sans-serif;font-weight:300;text-transform:uppercase;line-height:.98;letter-spacing:.005em;font-size:clamp(38px,7vw,74px);color:var(--bone)}
+  h1 b{font-weight:600}
+  .concept{margin-top:24px;max-width:620px;color:var(--bone-dim);font-size:16px}
+
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:24px}
+  .s-head .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--green);letter-spacing:.2em;margin-bottom:12px;display:block}
+  h2{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(24px,3.6vw,34px);letter-spacing:.01em;line-height:1.05;color:var(--bone)}
+  .lead{font-size:17px;color:var(--bone);max-width:680px}
+  .lead .accent{color:var(--green-soft)}
+
+  /* content stays */
+  .keepbox{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--green);border-radius:3px;padding:28px 32px;margin-bottom:22px}
+  .keepbox p{color:var(--bone-dim);max-width:680px}
+  .keepbox p+p{margin-top:13px}
+  .keepbox strong{color:var(--bone);font-weight:600}
+  .var-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);margin:6px 0 13px}
+  .vars{display:grid;gap:10px}
+  .var{padding:15px 20px;border:1px solid var(--line);border-radius:3px;background:var(--panel);font-family:'Fraunces',serif;font-size:clamp(15px,2.1vw,18px);line-height:1.35;color:var(--bone)}
+  .var em{font-style:italic;font-weight:600;color:var(--green-soft)}
+  .var-note{font-size:13.5px;color:var(--bone-faint);margin-top:14px}
+
+  /* principles */
+  .princ{display:grid;gap:14px}
+  .p-item{display:grid;grid-template-columns:38px 1fr;gap:18px;padding:22px 26px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .p-item .pn{font-family:'Space Mono',monospace;font-size:13px;color:var(--green)}
+  .p-item h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:18px;letter-spacing:.02em;color:var(--bone);margin-bottom:6px}
+  .p-item p{color:var(--bone-dim);font-size:14.5px}
+
+  /* palette + type */
+  .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .spec-card{padding:26px 28px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .spec-card .eyebrow{display:block;margin-bottom:18px}
+  .swatches{display:flex;flex-wrap:wrap;gap:12px}
+  .sw{display:flex;flex-direction:column;gap:6px}
+  .sw .chipc{width:74px;height:50px;border-radius:3px;border:1px solid rgba(255,255,255,.1)}
+  .sw .hex{font-family:'Space Mono',monospace;font-size:10px;color:var(--bone-dim)}
+  .sw .nm{font-family:'Space Mono',monospace;font-size:8.5px;color:var(--bone-faint);text-transform:uppercase;letter-spacing:.1em}
+  .type-sample{font-family:'Fraunces',serif;color:var(--bone);font-size:26px;line-height:1.15;margin-bottom:6px}
+  .type-sample em{font-style:italic;font-weight:600;color:var(--green-soft)}
+  .type-note{color:var(--bone-dim);font-size:14px;margin-top:14px}
+  .type-note b{color:var(--bone)}
+
+  .tone{border-bottom:none;padding-bottom:96px}
+  .tone-box{padding:32px 36px;border-radius:3px;background:linear-gradient(120deg,rgba(131,162,87,.1),rgba(201,162,75,.06));border:1px solid var(--line)}
+  .tone-box p{font-size:16px;color:var(--bone);line-height:1.7}
+  .tone-box .hot{color:var(--green-soft);font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:720px){
+    .spec-grid{grid-template-columns:1fr}
+    header{padding:64px 0 44px}
+    section{padding:46px 0}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hero-tag">
+      <span class="brand">Modern Savage</span><span class="rule"></span>
+      <span class="kind">Content Concept / Visual Direction</span>
+    </div>
+    <h1>Carousels,<br><b>elevated</b></h1>
+    <p class="concept">The content is great - keep the hooks, titles and themes exactly, and keep making variations of them. This is only about the aesthetic: more real, more empowering, more real greenery, so the whole feed looks premium and engaging.</p>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">01 / The content stays</span><h2>Keep it, and keep varying it</h2></div>
+    <div class="keepbox">
+      <p><strong>The hooks, titles and themes are landing - do not change them.</strong> "The number one supplement ingredient... but everybody ignores it," "the most nourishing parts of your food were quietly removed" - this is exactly the tone we want.</p>
+      <p>Keep the setup-then-italic-payoff device, keep the brand marks, and keep producing in these same themes with fresh variations each time. Same voice, new angles.</p>
+    </div>
+    <p class="var-label">Variation directions - same voice, new hooks</p>
+    <div class="vars">
+      <div class="var">Your grandparents ate the whole animal.<em>We settled for the leftovers.</em></div>
+      <div class="var">The cheapest thing on the shelf is the one they took out of your food.<em>On purpose.</em></div>
+      <div class="var">Real food never needed a label to explain itself.<em>Ours still doesn't.</em></div>
+    </div>
+    <p class="var-note">Examples of the kind of variation to keep spinning up - not final copy, just the direction.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">02 / The aesthetic</span><h2>Real, empowering, premium</h2></div>
+    <div class="princ">
+      <div class="p-item"><span class="pn">01</span><div><h3>Real, not stock-y</h3><p>Editorial imagery with natural light and shallow depth of field - it should look shot, not sourced. If it feels like a catalogue photo, it is not there yet.</p></div></div>
+      <div class="p-item"><span class="pn">02</span><div><h3>Real greenery, alive</h3><p>Push into deep, natural, sun-touched greens and warm earth tones. Lush and golden-hour, never flat olive or muddy.</p></div></div>
+      <div class="p-item"><span class="pn">03</span><div><h3>Empowering framing</h3><p>Low angles, strong silhouettes, the raw power of the animal and the landscape. Every slide should make the viewer feel strength.</p></div></div>
+      <div class="p-item"><span class="pn">04</span><div><h3>Let it breathe</h3><p>One clear subject, strong negative space, and room around the type. Crowded reads cheap; space reads premium.</p></div></div>
+      <div class="p-item"><span class="pn">05</span><div><h3>Texture and craft</h3><p>Natural materials - stone, hide, paper, soil, grain. Tactility is what separates premium from generic.</p></div></div>
+      <div class="p-item"><span class="pn">06</span><div><h3>One consistent grade</h3><p>Every slide graded the same way, same type scale, same margins - so the whole set feels designed and engaging as a piece.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">03 / Palette &amp; type</span><h2>Lock these for a premium, consistent feel</h2></div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <span class="eyebrow">Palette - real green, warm earth</span>
+        <div class="swatches">
+          <div class="sw"><div class="chipc" style="background:#2F3D25"></div><span class="hex">#2F3D25</span><span class="nm">Forest</span></div>
+          <div class="sw"><div class="chipc" style="background:#5F7D3E"></div><span class="hex">#5F7D3E</span><span class="nm">Field</span></div>
+          <div class="sw"><div class="chipc" style="background:#A7B487"></div><span class="hex">#A7B487</span><span class="nm">Sage</span></div>
+          <div class="sw"><div class="chipc" style="background:#C9A24B"></div><span class="hex">#C9A24B</span><span class="nm">Golden hour</span></div>
+          <div class="sw"><div class="chipc" style="background:#E8E2CF"></div><span class="hex">#E8E2CF</span><span class="nm">Bone</span></div>
+          <div class="sw"><div class="chipc" style="background:#1C1B16"></div><span class="hex">#1C1B16</span><span class="nm">Charcoal</span></div>
+        </div>
+      </div>
+      <div class="spec-card">
+        <span class="eyebrow">Type - editorial with a punch</span>
+        <p class="type-sample">Real food.<em>Nothing hidden.</em></p>
+        <p class="type-note">A high-end editorial <b>serif</b> for hooks - roman for the setup, <b>italic</b> for the payoff - paired with a clean sans for any supporting text. One type scale and generous margins across every slide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal tone">
+  <div class="wrap">
+    <div class="s-head"><span class="num">04 / In one breath</span></div>
+    <div class="tone-box">
+      <p><span class="hot">Keep every hook, title and theme - just keep varying them.</span> Lift the aesthetic to real, empowering and premium: deep natural greenery, golden-hour light, strong framing, one consistent grade and an editorial serif across the set. Same message, far more premium and engaging.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
