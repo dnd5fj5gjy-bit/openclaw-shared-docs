@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Profile & Highlights Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#14110E;--panel:#1D1915;--panel-2:#231E19;
+    --bone:#EAE3D6;--bone-dim:#A69C8B;--bone-faint:#6E665A;
+    --ember:#D06B2C;--ember-soft:#E08a4f;
+    --slate:#8A9AA2;--slate-soft:#AEBBC1;
+    --line:#332C24;--line-cold:#2A3238;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember)}
+
+  /* hero */
+  header{position:relative;padding:96px 0 56px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 12% 0%,rgba(208,107,44,.15),transparent 55%),radial-gradient(120% 90% at 100% 120%,rgba(138,154,162,.09),transparent 50%)}
+  .hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .hero-tag .brand{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim)}
+  .hero-tag .rule{height:1px;flex:1;background:var(--line)}
+  .hero-tag .kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+  h1{font-family:'Oswald',sans-serif;font-weight:300;text-transform:uppercase;line-height:.98;letter-spacing:.005em;font-size:clamp(38px,7vw,72px);color:var(--bone)}
+  h1 b{font-weight:600}
+  .concept{margin-top:24px;max-width:600px;color:var(--bone-dim);font-size:16px}
+
+  /* highlights tray mockup */
+  .tray{padding:48px 0 8px}
+  .tray-inner{display:flex;gap:22px;justify-content:space-between;flex-wrap:wrap}
+  .hl{display:flex;flex-direction:column;align-items:center;gap:11px;flex:1;min-width:92px}
+  .hl .circ{width:74px;height:74px;border-radius:50%;background:var(--panel-2);border:2px solid var(--ember);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px rgba(208,107,44,.18)}
+  .hl .circ svg{width:32px;height:32px;stroke:var(--ember-soft);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .hl .lbl{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);text-align:center}
+
+  /* sections */
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:24px}
+  .s-head .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);letter-spacing:.2em;margin-bottom:12px;display:block}
+  h2{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(24px,3.6vw,34px);letter-spacing:.01em;line-height:1.05;color:var(--bone)}
+  .lead{font-size:17px;color:var(--bone);max-width:660px}
+  .lead .accent{color:var(--ember-soft)}
+
+  /* context note */
+  .note{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:3px;padding:28px 32px}
+  .note .eyebrow{display:block;margin-bottom:12px}
+  .note h2{font-size:clamp(19px,2.6vw,25px);margin-bottom:14px}
+  .note p{color:var(--bone-dim);max-width:660px}
+  .note p+p{margin-top:13px}
+  .note strong{color:var(--bone);font-weight:600}
+  .note .wild{color:var(--ember-soft);font-weight:600}
+  .note .farm{color:var(--slate-soft);font-weight:600}
+
+  /* bio before/after */
+  .bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .bio{padding:26px 28px;border-radius:3px;border:1px solid var(--line);background:var(--panel)}
+  .bio.now{opacity:.85}
+  .bio.next{border-color:#43371f;background:linear-gradient(160deg,rgba(208,107,44,.09),transparent 70%)}
+  .bio .tag{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;display:block}
+  .bio.now .tag{color:var(--bone-faint)}
+  .bio.next .tag{color:var(--ember)}
+  .bio .body{font-size:15px;line-height:1.7}
+  .bio.now .body{color:var(--bone-dim)}
+  .bio .strap{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.02em;color:var(--ember-soft);font-size:16px;display:block;margin-bottom:8px}
+  .bio .cta{color:var(--bone);font-weight:600}
+  .bio .lnk{color:var(--slate-soft)}
+  .bio-why{margin-top:18px;font-size:13.5px;color:var(--bone-faint);max-width:660px}
+  .bio-why b{color:var(--bone-dim)}
+
+  /* highlight detail cards */
+  .hcards{display:grid;gap:14px}
+  .hcard{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:26px 28px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .hcard.anchor{border-color:#43371f;background:linear-gradient(160deg,rgba(208,107,44,.1),transparent 65%)}
+  .hcard .badge{width:64px;height:64px;border-radius:50%;background:var(--panel-2);border:2px solid var(--ember);display:flex;align-items:center;justify-content:center}
+  .hcard .badge svg{width:28px;height:28px;stroke:var(--ember-soft);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .hcard .no{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--ember);margin-bottom:5px}
+  .hcard h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:22px;letter-spacing:.02em;color:var(--bone);margin-bottom:12px}
+  .hcard .anchor-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--black);background:var(--ember);padding:3px 9px;border-radius:2px;margin-left:10px;vertical-align:middle}
+  .hrow{display:flex;gap:11px;margin-bottom:9px}
+  .hrow:last-child{margin-bottom:0}
+  .hrow .k{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint);min-width:78px;padding-top:3px}
+  .hrow .v{color:var(--bone-dim);font-size:14.5px;line-height:1.55}
+  .hrow .v b{color:var(--bone);font-weight:600}
+
+  /* tone strip */
+  .tone{border-bottom:none;padding-bottom:96px}
+  .tone-box{padding:32px 36px;border-radius:3px;background:linear-gradient(120deg,rgba(208,107,44,.09),rgba(138,154,162,.06));border:1px solid var(--line)}
+  .tone-box p{font-size:16px;color:var(--bone);line-height:1.7}
+  .tone-box .hot{color:var(--ember-soft);font-weight:600}
+  .tone-box .cold{color:var(--slate-soft);font-weight:600}
+
+  /* profile preview mockup */
+  .preview{padding:56px 0;border-bottom:1px solid var(--line);text-align:center}
+  .preview .cap{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bone-faint);margin-bottom:24px}
+  .igcard{max-width:460px;margin:0 auto;background:#fff;border-radius:16px;padding:28px 26px;color:#111;text-align:left;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .ig-top{display:flex;gap:22px;align-items:center;margin-bottom:16px}
+  .ig-avatar{width:84px;height:84px;border-radius:50%;background:#2a2a2a;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  .ig-avatar svg{width:62px;height:62px;fill:#C0632A}
+  .ig-stats{display:flex;flex:1;justify-content:space-around}
+  .ig-stat{text-align:center}
+  .ig-stat b{display:block;font-size:17px;color:#111;font-weight:700;line-height:1.2}
+  .ig-stat span{font-size:12px;color:#666}
+  .ig-handle{font-weight:700;font-size:16px;color:#111}
+  .ig-name{font-size:13px;color:#666;margin:1px 0 10px}
+  .ig-bio{font-size:13.5px;color:#111;line-height:1.6}
+  .ig-bio .strap{font-weight:700;display:block}
+  .ig-bio .cta{font-weight:600}
+  .ig-bio .link{color:#2f57b3;font-weight:600}
+  .ig-btns{display:flex;gap:7px;margin:15px 0 4px}
+  .ig-btn{flex:1;border-radius:9px;padding:8px 0;text-align:center;font-size:13px;font-weight:600}
+  .ig-btn.primary{background:#4a54e1;color:#fff}
+  .ig-btn.ghost{background:#efefef;color:#111}
+  .ig-hls{display:flex;gap:13px;margin-top:18px;overflow-x:auto;padding-bottom:4px}
+  .ig-hl{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto;width:52px}
+  .ig-hl .c{width:52px;height:52px;border-radius:50%;background:#1D1915;border:2px solid #C0632A;display:flex;align-items:center;justify-content:center}
+  .ig-hl .c svg{width:23px;height:23px;stroke:#E08a4f;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .ig-hl .t{font-size:8.5px;color:#333;letter-spacing:.03em;text-transform:uppercase;text-align:center;line-height:1.2}
+  .preview .foot{margin-top:22px;font-size:13px;color:var(--bone-faint);max-width:520px;margin-left:auto;margin-right:auto}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:720px){
+    .bio-grid{grid-template-columns:1fr}
+    .tray-inner{gap:16px}
+    .hl{min-width:70px}
+    .hl .circ{width:60px;height:60px}
+    .hl .circ svg{width:26px;height:26px}
+    .hcard{grid-template-columns:1fr;gap:16px}
+    header{padding:64px 0 44px}
+    section{padding:46px 0}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hero-tag">
+      <span class="brand">Modern Savage</span><span class="rule"></span>
+      <span class="kind">Instagram Brief / Profile Setup</span>
+    </div>
+    <h1>Profile &amp;<br><b>Highlights setup</b></h1>
+    <p class="concept">Our competitors run a full profile with a complete Highlights tray. We have none set up yet. This is not about copying their tabs - it is about building our own, in our voice, around the one thing they cannot match.</p>
+  </div>
+</header>
+
+<section class="preview reveal">
+  <div class="wrap">
+    <p class="cap">The target profile</p>
+    <div class="igcard">
+      <div class="ig-top">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 120 90"><path d="M18,52 C13,45 16,40 23,41 C29,35 39,33 47,37 C51,25 65,23 73,31 C79,29 85,33 87,41 C91,39 95,41 96,45 L103,41 L98,48 C102,52 101,59 94,60 C91,64 86,63 84,58 C78,61 72,59 68,55 L67,72 L60,72 L61,54 C54,56 46,56 40,53 L39,72 L32,72 L33,51 C28,50 23,50 19,56 Z"/></svg>
+        </div>
+        <div class="ig-stats">
+          <div class="ig-stat"><b>72</b><span>posts</span></div>
+          <div class="ig-stat"><b>2,789</b><span>followers</span></div>
+          <div class="ig-stat"><b>5</b><span>following</span></div>
+        </div>
+      </div>
+      <div class="ig-handle">modernsavagenutrition</div>
+      <div class="ig-name">Modern Savage</div>
+      <div class="ig-bio">
+        <span class="strap">Real Food. Real Strength. Nothing Hidden.</span>
+        Animal-based whole-food nutrition, created by @beargrylls and his family.<br>
+        <span class="cta">Join the Founding Tribe &#128071;</span><br>
+        <span class="link">modernsavage.co</span>
+      </div>
+      <div class="ig-btns">
+        <div class="ig-btn primary">Follow</div>
+        <div class="ig-btn ghost">Message</div>
+      </div>
+      <div class="ig-hls">
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 14.2c2.6.4 4.5 2.6 4.5 5.3"/></svg></div><span class="t">Family</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div><span class="t">Nothing<br>Hidden</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div><span class="t">Blends</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="2.4"/><path d="M8 20c0-3 1.8-5.2 4-5.2S16 17 16 20"/><path d="M9 12.5l3 1.8 3-1.8"/></svg></div><span class="t">Mini</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><path d="M5 3v18"/><path d="M5 4h11l-2 3 2 3H5"/></svg></div><span class="t">Tribe</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><path d="M3 19l6-10 4 6 2-3 6 7z"/><circle cx="17" cy="6" r="1.6"/></svg></div><span class="t">Wild</span></div>
+        <div class="ig-hl"><div class="c"><svg viewBox="0 0 24 24"><path d="M14 6l4 4"/><path d="M4 20l7-7"/><path d="M13 3l8 8-3 3-8-8z"/></svg></div><span class="t">Build</span></div>
+      </div>
+    </div>
+    <p class="foot">Rough preview of the finished profile - new bio in place, all seven Highlights live. Final logo and cover art get dropped straight in.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="note">
+      <span class="eyebrow">Context - the one thing to build around</span>
+      <h2>Bear-and-wild, not farm-and-gentle</h2>
+      <p>Our main competitor sits in a <span class="farm">farm-and-gentle</span> lane - local farmers, pastoral tone, soft aesthetic. Our lane is <span class="wild">Bear-and-wild</span>: a globally known adventurer and his whole family, plus savage, nose-to-tail, expedition DNA that no farm-led brand can fake.</p>
+      <p>So we do not borrow the soft farm look. Everything below leans <strong>rugged, real and honest</strong>. That is the edge, and every Highlight should reinforce it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">01 / Fix the bio first</span><h2>Add the one thing it is missing</h2></div>
+    <p class="lead" style="margin-bottom:24px;font-size:15.5px;color:var(--bone-dim)">The bio is solid but has no call to action - and pre-launch, that is its only job. Every profile visit should have a way in.</p>
+    <div class="bio-grid">
+      <div class="bio now">
+        <span class="tag">Now</span>
+        <p class="body">The ultimate animal based whole food nutrition blend created by @beargrylls and his family.</p>
+      </div>
+      <div class="bio next">
+        <span class="tag">New</span>
+        <p class="body">
+          <span class="strap">Real Food. Real Strength. Nothing Hidden.</span>
+          Animal-based whole-food nutrition, created by @beargrylls and his family.<br>
+          <span class="cta">Join the Founding Tribe &#128071;</span><br>
+          <span class="lnk">modernsavage.co</span>
+        </p>
+      </div>
+    </div>
+    <p class="bio-why">Drop <b>"the ultimate"</b> - it reads like every other brand. The tagline and the family do the work. The new line adds the strapline, keeps the founder credit, and points every visitor at the waitlist.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">02 / The seven Highlights</span><h2>Build these, in this order</h2></div>
+    <p class="lead" style="margin-bottom:26px;font-size:15.5px;color:var(--bone-dim)">Seven Highlights, each one distinctly ours. "What goes in it" is for whoever builds the covers and content. "Why it is ours" is the reason it earns a slot.</p>
+
+    <div class="hcards">
+
+      <div class="hcard anchor">
+        <div class="badge"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 14.2c2.6.4 4.5 2.6 4.5 5.3"/></svg></div>
+        <div>
+          <div class="no">01</div>
+          <h3>Our Family <span class="anchor-tag">Anchor</span></h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">The founder story - Bear, Shara and the three boys, and why they built Modern Savage. Real voice, real footage, the origin.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v"><b>The biggest edge we have.</b> A globally famous adventurer and his whole family behind the brand is something no farm-led competitor can fake. Lead with it.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+        <div>
+          <div class="no">02</div>
+          <h3>Nothing Hidden</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">The full label. Every ingredient, where it is sourced, the nose-to-tail thinking, nothing synthetic. Show the actual blend.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v">Transparency as proof. <b>Show what is in it - do not claim what it does</b>, which also keeps us clear of advertising-standards trouble. This is the trust builder.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+        <div>
+          <div class="no">03</div>
+          <h3>The Blends</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">The range explained - Modern Savage, Mini Savage and Summit Stack, and what each one is for.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v">We have a <b>range, not a single tub</b>. Lay the three out clearly so people see the system, not one product.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="2.4"/><path d="M8 20c0-3 1.8-5.2 4-5.2S16 17 16 20"/><path d="M9 12.5l3 1.8 3-1.8"/></svg></div>
+        <div>
+          <div class="no">04</div>
+          <h3>Mini Savage</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">The kids' blend as its own story - why an animal-based blend for children, and how the family uses it.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v">A dedicated children's product is a real differentiator. Competitors talk about "every generation" - <b>we have an actual product for the youngest one.</b> Own it.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M5 3v18"/><path d="M5 4h11l-2 3 2 3H5"/></svg></div>
+        <div>
+          <div class="no">05</div>
+          <h3>Founding Tribe</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">How to get in first - the waitlist, what founding members get, and how to join.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v"><b>The main conversion point right now.</b> This is where the new bio CTA lands, and where pre-launch attention turns into a list.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M3 19l6-10 4 6 2-3 6 7z"/><circle cx="17" cy="6" r="1.6"/></svg></div>
+        <div>
+          <div class="no">06</div>
+          <h3>Wild</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">The Bear adventure and ancestral-eating angle - expedition, survival, and eating the way humans were built to.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v">Rugged and real. Wild country, not farm gardens. <b>This is the aesthetic lane that is uniquely ours</b> and the one to protect hardest.</span></div>
+        </div>
+      </div>
+
+      <div class="hcard">
+        <div class="badge"><svg viewBox="0 0 24 24"><path d="M14 6l4 4"/><path d="M4 20l7-7"/><path d="M13 3l8 8-3 3-8-8z"/></svg></div>
+        <div>
+          <div class="no">07</div>
+          <h3>The Build</h3>
+          <div class="hrow"><span class="k">Goes in it</span><span class="v">Behind the scenes of a brand that has not launched yet - honest progress, the making of, the road to launch.</span></div>
+          <div class="hrow"><span class="k">Why it is ours</span><span class="v">Turns "nothing to sell yet" into a story. <b>Builds anticipation and fills the pre-launch gap</b> with something genuinely authentic.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reveal tone">
+  <div class="wrap">
+    <div class="s-head"><span class="num">03 / Hold the line</span></div>
+    <div class="tone-box">
+      <p>Across every cover and every clip: <span class="hot">rugged, real, honest</span>. Dark, wild, expedition-grade visuals - never <span class="cold">soft-farm pastel</span>. Show, do not claim. If a Highlight could sit just as easily on a gentle farm brand's profile, it is not Modern Savage yet.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
