@@ -46,7 +46,13 @@ Ranked by what another week of silence actually costs, not by how loud they have
 
 ## Creative, unblocked by one sentence each
 
-**14. Last Stop and Zagoria.** Last Stop: the diner cannot be a converted streamliner carriage, the locked footprint contradicts it. **Recommend a building with a rounded end, carriage as a separate object.** Also needs the carriage A or B pick, the O position, and whether the car sits on sand, sleeper blocks or bogies. Zagoria: rebuild EP004 whole under the new rules, **my recommendation**, or lock the pipeline first. All exterior art is on hold until the first of these.
+**14. Last Stop.** The diner cannot be a converted streamliner carriage, the locked footprint contradicts it. **Recommend a building with a rounded end, carriage as a separate object.** Also needs the carriage A or B pick, the O position, and whether the car sits on sand, sleeper blocks or bogies. All exterior art is on hold until you answer.
+
+**15. Zagoria, and I found something while you were asleep.** The question was rebuild EP004 whole or lock the pipeline first. I went looking at the character plates tonight and the answer changed.
+
+**Podcask's head is a television.** His eye and mouth are flat graphics on a screen panel. A generative talking-head model expects a jaw and lips and will hallucinate anatomy onto a TV set, which on its own explains why his talking shots have never worked, and no amount of better reference art would have fixed it. His lip-sync is a 2D compositing problem, so I built it: `podcask_screen_sync.py` drives his mouth from a real EP004 line, renders in seconds, costs nothing per shot, and I wrote a gate that proves every pixel outside the mouth is untouched. Feelon is the opposite case, a real face a model can drive, but with a glass dome that generative passes will repaint, so drive the face and lock the dome.
+
+Proof is at `build/PROOF/podcask-screen-sync.mp4`. **Recommend you still rebuild EP004 whole, but on this pipeline for Podcask rather than the old one.** I have not yet run it head to head against a generative pass, which is the one thing that would settle it properly.
 
 ---
 
