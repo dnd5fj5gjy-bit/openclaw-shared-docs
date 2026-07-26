@@ -41,12 +41,22 @@ If he offers a date after Wednesday 29 July, say this:
 
 > "I have to be straight with you about why that's a problem. Bear is on stage at the Health Optimisation Summit on 12 September and that date cannot move. Working back through Belmark's print run, the fill and the freight, anything past Wednesday means we don't have product to sell at the single biggest moment this brand gets this year. So if Wednesday genuinely isn't possible, tell me now and I'll plan around it, but I need to know today."
 
-## Question 3, the ten-second one Sarah has asked twice
+## Question 3 — CHANGED 26 JUL. Do not ask him for the address.
 
-> "One more tiny thing while I've got you. Sarah at Belmark has asked twice for a shipping address for the blank sizing samples. Can you give it to me now and I'll pass it straight on?"
+The earlier version of this script had you asking Drew for the samples shipping address. **You already gave it to him.** On WhatsApp, Tue 22 July at 14:22, eight minutes after your call:
 
-**Good:** he reads out an address.
-**Red flag:** he does not have it to hand. That tells you he has not been reading the thread at all, which is your real answer about everything else on this call.
+> Jesse Grylls, Abersoch Boatyard Services, The Saltings, Pwllheli, LL53 7AR, United Kingdom
+
+Sarah asked him for that address on 22 July and again on 23 July, and he has not answered her either time. So the address exists, it has been sitting with him for four days, and Belmark are still waiting on it. Asking him for it again would have you chasing your own information.
+
+Say this instead:
+
+> "One tiny thing while I've got you. I sent you the samples address on WhatsApp last Tuesday, the boatyard in Pwllheli. Sarah's asked twice and she's still waiting, so did that reach her? If it's easier I'll just send it to her myself now."
+
+**Good:** he says he'll forward it, or says send it yourself.
+**Red flag:** he does not remember it. That tells you he has not been reading either thread, which is your real answer about everything else on this call.
+
+**Worth knowing before you decide:** that is a Welsh boatyard, not the copacker. On 16 July you told Sarah to send the blanks to the copacker for a trial fill. If you have since decided to see them yourself first, fine, but Belmark should be told which it is, because a trial fill and a look are different jobs. Tell me which and I will put it to Sarah in one line.
 
 ## Question 4, only if the mood is good
 
