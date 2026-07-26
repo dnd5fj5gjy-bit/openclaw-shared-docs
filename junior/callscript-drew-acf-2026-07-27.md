@@ -82,4 +82,6 @@ Just one of these and I'll take it from there:
 
 ---
 
-**If he does not pick up:** WhatsApp him the same opener as a voice note rather than typing it. He lists WhatsApp on his own signature, and a voice note from you is much harder to leave unanswered than a fifth email. If nothing by Monday evening, that is itself the answer and Tuesday's decision gets made without him.
+**If he does not pick up:** send the opener as a WhatsApp **voice note** rather than typing it, in the thread you already have. A voice note from you is much harder to leave unanswered than a fifth email, and WhatsApp is the channel that has actually worked with him. If nothing by Monday evening, that is itself the answer and Tuesday's decision gets made without him.
+
+**One thing this changes about how you read him.** He is not ignoring you. He took a WhatsApp call on 22 July and you were messaging each other the same afternoon. He is responsive to you personally and unresponsive to the email thread with Belmark on it, and he has now sat four days on a two-line answer Sarah asked for twice. Treat that as a man who is avoiding the artwork specifically, not one who is out of contact. It means a friendly call will get answered and still get you nothing, unless you make him say a date out loud.
