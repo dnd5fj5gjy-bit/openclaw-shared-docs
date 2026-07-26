@@ -2,9 +2,13 @@
 
 **Andrew Kouvel, ACF Pharma. 631 484 7042 (cell, WhatsApp, Telegram). US Eastern, so from 13:00 BST.**
 
+Verified at source 26 Jul: number and channels are off his own email signature, and ACF Pharma is at 610 SW 12th Ave, Pompano Beach, Florida, so Eastern is right. He signs email as **Drew**, and your phone has him saved as **Andy Kouvel**. Same man.
+
+**Use WhatsApp, not a cold dial.** It is the only channel with a proven result: you and he had a WhatsApp call on Tue 22 July at 14:14, and you messaged him at 14:22 straight after. Four emails have failed and one WhatsApp call worked. Open the thread you already have rather than ringing a number cold.
+
 You are not chasing artwork. You are getting one of two things: the print-ready back panel, or a date he will say out loud. Either is a result. A friendly non-answer is not.
 
-Four emails have already failed, so do not open by referencing them. Open warm and assume nothing is wrong.
+Do not open by referencing the failed emails. Open warm and assume nothing is wrong.
 
 ---
 
