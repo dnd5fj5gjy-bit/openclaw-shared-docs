@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Modern Savage - Founding 800 (internal preview)</title>
+<style>
+  :root{
+    --ink:#171310; --paper:#f6f1e9; --card:#fffdf9;
+    --rust:#8c3a1e; --moss:#3f4a35; --sand:#e3d8c6; --muted:#6b6259;
+    --line:#ded2bf;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-serif,Georgia,"Times New Roman",serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  .sans{font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+
+  /* preview control strip */
+  .ctrl{background:#171310;color:#f6f1e9;padding:12px 20px;font-family:ui-sans-serif,-apple-system,sans-serif;font-size:13px}
+  .ctrl .inner{max-width:720px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .ctrl b{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;opacity:.75;margin-right:4px}
+  .ctrl button{font:inherit;font-size:12px;padding:5px 11px;border-radius:999px;cursor:pointer;
+    border:1px solid #4a423a;background:transparent;color:#f6f1e9}
+  .ctrl button.on{background:#f6f1e9;color:#171310;border-color:#f6f1e9;font-weight:600}
+  .ctrl .sep{width:1px;height:20px;background:#4a423a;margin:0 4px}
+  .note{max-width:720px;margin:0 auto;font-size:11.5px;opacity:.6;padding-top:8px}
+
+  header{padding:44px 0 8px;text-align:center}
+  .mark{font-family:ui-sans-serif,-apple-system,sans-serif;font-size:12px;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--rust);font-weight:700}
+  h1{font-size:clamp(30px,7vw,46px);line-height:1.1;margin:20px 0 14px;letter-spacing:-.01em}
+  .sub{font-size:18px;color:var(--muted);max-width:32em;margin:0 auto}
+
+  .counter{margin:30px auto;max-width:420px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;text-align:center}
+  .counter .n{font-size:46px;font-weight:700;letter-spacing:-.02em;line-height:1;display:block}
+  .counter .lbl{font-family:ui-sans-serif,sans-serif;font-size:12.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .bar{height:6px;background:var(--sand);border-radius:99px;margin-top:14px;overflow:hidden}
+  .bar span{display:block;height:100%;background:var(--rust);border-radius:99px;transition:width .4s}
+
+  section{padding:14px 0}
+  h2{font-size:22px;margin:34px 0 12px;letter-spacing:-.01em}
+  p{margin:0 0 14px}
+
+  .options{display:grid;gap:12px;margin:18px 0}
+  .opt{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:16px 18px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;cursor:pointer}
+  .opt.hero{border-color:var(--rust);box-shadow:0 2px 0 rgba(140,58,30,.12)}
+  .opt .t{font-weight:700;font-size:17px}
+  .opt .d{font-size:14px;color:var(--muted);font-family:ui-sans-serif,sans-serif}
+  .opt .p{font-size:20px;font-weight:700;white-space:nowrap}
+  .tag{display:inline-block;font-family:ui-sans-serif,sans-serif;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--rust);border:1px solid var(--rust);border-radius:99px;
+    padding:2px 8px;margin-left:8px;vertical-align:2px}
+
+  .incl{background:transparent;border-left:3px solid var(--moss);padding:2px 0 2px 16px;margin:20px 0}
+  .incl li{margin-bottom:8px}
+  ul{padding-left:20px;margin:0 0 14px}
+
+  .compliance{background:#efe7da;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    font-size:15.5px;margin:22px 0}
+  .compliance strong{display:block;margin-bottom:6px}
+
+  .cta{display:block;width:100%;text-align:center;background:var(--rust);color:#fff;border:0;
+    border-radius:12px;padding:18px;font-family:ui-sans-serif,sans-serif;font-size:17px;font-weight:700;
+    letter-spacing:.01em;cursor:pointer;text-decoration:none}
+  .cta.ghost{background:transparent;color:var(--rust);border:1.5px solid var(--rust)}
+  .micro{font-family:ui-sans-serif,sans-serif;font-size:12.5px;color:var(--muted);text-align:center;margin-top:10px}
+
+  .waitlist{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:20px 0}
+  .waitlist input{width:100%;padding:14px;border:1px solid var(--line);border-radius:9px;
+    font-family:ui-sans-serif,sans-serif;font-size:16px;background:#fff;margin-bottom:10px}
+
+  .faq dt{font-weight:700;margin-top:16px}
+  .faq dd{margin:6px 0 0;color:var(--muted)}
+
+  .tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:40px 0 0;flex-wrap:wrap}
+  .tabs button{font-family:ui-sans-serif,sans-serif;font-size:13px;padding:10px 14px;border:0;
+    background:transparent;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent}
+  .tabs button.on{color:var(--ink);font-weight:700;border-bottom-color:var(--rust)}
+  .email{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .email .subj{font-family:ui-sans-serif,sans-serif;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .email pre{white-space:pre-wrap;font-family:ui-serif,Georgia,serif;font-size:15px;margin:0;line-height:1.6}
+
+  footer{margin:50px 0 40px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:ui-sans-serif,sans-serif;font-size:12.5px;color:var(--muted)}
+  .hide{display:none !important}
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#f2ece3;--paper:#14110e;--card:#1d1915;--sand:#3a332b;--line:#332c25;--muted:#a49a8d;--rust:#d1673f}
+    .compliance{background:#221d18}
+    .waitlist input{background:#14110e;color:#f2ece3}
+  }
+</style>
+</head>
+<body>
+
+<div class="ctrl sans">
+  <div class="inner">
+    <b>Preview</b>
+    <button data-state="open" class="on">Open</button>
+    <button data-state="low">Nearly gone</button>
+    <button data-state="out">Sold out</button>
+    <span class="sep"></span>
+    <b>Charge</b>
+    <button data-pay="A" class="on">On despatch</button>
+    <button data-pay="B">Now</button>
+  </div>
+  <div class="note inner">Internal preview for Jesse. Not live, not connected to payments, no data captured. Built 27 Jul 2026.</div>
+</div>
+
+<div class="wrap">
+
+<header>
+  <div class="mark">Modern Savage</div>
+  <h1 id="hl">The Founding 800</h1>
+  <p class="sub" id="sub">The first run of a primal organ blend you actually want to drink. Eight hundred places, then it closes until run two.</p>
+</header>
+
+<div class="counter" id="counterBox">
+  <span class="n" id="cn">612</span>
+  <div class="lbl" id="clbl">of 800 founding places remaining</div>
+  <div class="bar"><span id="cbar" style="width:23.5%"></span></div>
+</div>
+
+<!-- ================= OPEN / LOW ================= -->
+<div id="buying">
+
+<section>
+  <p>Humans ate nose to tail for two hundred thousand years. Then we stopped, quietly, because organ meat got inconvenient. Everyone selling it back to you buries it in six capsules a day, and they do that for one reason: it tastes bad.</p>
+  <p>We took the opposite decision. One scoop, made to taste like real food, with the full panel printed on the pouch. This is the first run, and we are making exactly enough of it.</p>
+</section>
+
+<section>
+  <h2>Choose your founding place</h2>
+  <div class="options">
+    <div class="opt hero">
+      <div><div class="t">Founding Bundle <span class="tag">Most take this</span></div>
+        <div class="d">Adult + Summit. Or Adult + Mini for the family.</div></div>
+      <div class="p">$125</div>
+    </div>
+    <div class="opt">
+      <div><div class="t">The Full Set</div>
+        <div class="d">Adult + Summit + Mini. All three, one place.</div></div>
+      <div class="p">$180</div>
+    </div>
+    <div class="opt">
+      <div><div class="t">Adult Blend</div>
+        <div class="d">The single pouch on its own.</div></div>
+      <div class="p">$79.99</div>
+    </div>
+  </div>
+
+  <div class="incl">
+    <strong class="sans" style="font-size:13px;letter-spacing:.1em;text-transform:uppercase">Every founding place includes</strong>
+    <ul>
+      <li><strong>Your price locked for twelve months.</strong> Whatever happens to pricing, yours holds.</li>
+      <li><strong>A hand-numbered insert.</strong> One of eight hundred, with your number on it.</li>
+      <li><strong>Founding community access from today</strong>, not from delivery.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="compliance" id="comp">
+  <strong>This is a pre-order, and you will not be charged today.</strong>
+  We are making the first run now. Your place is reserved and your card is charged only when your order
+  leaves the warehouse, on or before <strong>12 October 2026</strong>. If anything slips we will email you
+  before that date and you can cancel with one reply.
+</div>
+
+<button class="cta" onclick="return false">Reserve my founding place</button>
+<div class="micro" id="micro">No charge today. Cancel any time before despatch.</div>
+
+<div id="lowWaitlist" class="waitlist hide">
+  <p style="margin-bottom:12px"><strong>Nearly gone.</strong> If run one closes before you decide, put your name down for run two and we will hold your place in the queue.</p>
+  <input type="email" placeholder="you@email.com" disabled>
+  <button class="cta ghost" onclick="return false">Join the run two list</button>
+</div>
+
+</div><!-- /buying -->
+
+<!-- ================= SOLD OUT ================= -->
+<div id="soldout" class="hide">
+  <section>
+    <p>All eight hundred founding places went in under two days. We are not going to quietly print more and pretend it was always eight hundred and forty, so run one is closed.</p>
+    <p><strong>Run two ships in December.</strong> The list below is the queue for it, in order. Founding pricing does not carry over, but the people on this list get first access and twenty-four hours before anyone else.</p>
+  </section>
+  <div class="waitlist">
+    <input type="email" placeholder="you@email.com" disabled>
+    <button class="cta" onclick="return false">Hold my place for run two</button>
+    <div class="micro">One email when it opens. Nothing else.</div>
+  </div>
+</div>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <h2>Straight answers</h2>
+  <dl>
+    <dt>When does it actually arrive?</dt>
+    <dd id="faq1">On or before 12 October. That date has buffer in it deliberately. If we can ship sooner, we will, and you will get tracking the moment it leaves.</dd>
+    <dt>What happens if you are late?</dt>
+    <dd>We email you before the date with a new one, and you cancel with one reply if you would rather not wait. No form, no chasing, no store credit.</dd>
+    <dt>Why only eight hundred?</dt>
+    <dd>Because it is a subscription, not a one-off. Eight hundred is the number the first run can keep supplied every month until run two lands. Selling more would mean selling you a second month we cannot ship.</dd>
+    <dt>Is the counter real?</dt>
+    <dd>Yes. It moves when someone orders and it does not move otherwise.</dd>
+    <dt>Can I change the blends in my bundle?</dt>
+    <dd>Yes, at any point before despatch. Reply to your confirmation email.</dd>
+  </dl>
+</section>
+
+<!-- ================= EMAILS (internal tab) ================= -->
+<div class="tabs">
+  <button class="on" data-tab="page">Page</button>
+  <button data-tab="emails">The three emails</button>
+</div>
+
+<div id="tab-emails" class="hide">
+  <p class="sans" style="font-size:13.5px;color:var(--muted);margin-top:18px">
+    Lift straight into Klaviyo. All three exist before the page opens, including the delay notice, which is
+    written now precisely because the moment you need it is the moment you have least time to write it well.</p>
+
+  <div class="email">
+    <div class="subj">1 &middot; Confirmation &middot; sends immediately</div>
+    <pre>Subject: You are founding member 0341
+
+Your place in the first run of Modern Savage is reserved.
+
+You are one of eight hundred. Your insert card will have 0341 printed
+on it, by hand, and your price is locked for the next twelve months
+whatever we do to it afterwards.
+
+What happens next. We are finishing the first production run. Your
+order ships on or before 12 October and you will get tracking the
+moment it leaves the warehouse.
+
+[A] You have not been charged. Your card is charged when the order ships.
+[B] You were charged today, and the amount is on the receipt below.
+
+If anything slips, we email you before that date with a new one and you
+can cancel with one reply.
+
+One thing you get today: the founding room. It is where the formula
+arguments, the label photographs and the first taste tests go, before
+they go anywhere else.
+
+[Join the founding room]
+
+Bear</pre>
+  </div>
+
+  <div class="email">
+    <div class="subj">2 &middot; Delay notice &middot; written now, sent only if needed</div>
+    <pre>Subject: Your Modern Savage order: a new date, and how to cancel
+
+Your order was due to ship by 12 October. It will now ship by
+[NEW DATE].
+
+If you would rather not wait, reply to this email with the word cancel
+and we will refund you in full, same day, to the card you used. No form
+and no questions.
+
+[A] You have not been charged, and you will not be unless it ships.
+[B] You were charged on [DATE] and the refund goes back to the same card.
+
+That is the important part, so it is at the top. The reason is that
+[ONE SENTENCE, PLAIN, NO SUPPLY CHAIN LECTURE].
+
+We would rather tell you early than let the date pass quietly.
+
+Bear</pre>
+  </div>
+
+  <div class="email">
+    <div class="subj">3 &middot; Run two waitlist &middot; sends on sold-out signup</div>
+    <pre>Subject: You are number 214 in the queue for run two
+
+Run one is closed. You are number 214 on the list for run two, which
+ships in December.
+
+You get first access and a twenty-four hour head start on everyone
+else. Founding pricing does not carry over, and we are not going to
+pretend otherwise.
+
+One email when it opens. Nothing in between.
+
+Bear</pre>
+  </div>
+</div>
+
+<footer>
+  Internal preview built by Junior, 27 July 2026. Copy, prices and the 800 cap are from
+  ms-preorder-sizing (26 Jul) and preorder-compliance (25 Jul). Not a live store: no payment path,
+  no data capture, no tracking. The 12 October date and the December run-two month are placeholders
+  pending Jesse's call.
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+(function(){
+  var state='open', pay='A';
+
+  var el=function(id){return document.getElementById(id)};
+  var STATES={
+    open:{n:612,hl:'The Founding 800',
+      sub:'The first run of a primal organ blend you actually want to drink. Eight hundred places, then it closes until run two.'},
+    low:{n:37,hl:'37 places left',
+      sub:'Run one closes when the counter hits zero. Run two will not ship until December.'},
+    out:{n:0,hl:'All 800 places are gone',
+      sub:'Run one closed in under two days. Run two ships in December.'}
+  };
+
+  function render(){
+    var s=STATES[state];
+    el('cn').textContent=s.n;
+    el('hl').textContent=s.hl;
+    el('sub').textContent=s.sub;
+    el('cbar').style.width=((800-s.n)/800*100).toFixed(1)+'%';
+    el('clbl').textContent = state==='out' ? 'run one is closed' : 'of 800 founding places remaining';
+
+    el('buying').classList.toggle('hide', state==='out');
+    el('soldout').classList.toggle('hide', state!=='out');
+    el('lowWaitlist').classList.toggle('hide', state!=='low');
+
+    if(pay==='A'){
+      el('comp').innerHTML='<strong>This is a pre-order, and you will not be charged today.</strong>'+
+        ' We are making the first run now. Your place is reserved and your card is charged only when your '+
+        'order leaves the warehouse, on or before <strong>12 October 2026</strong>. If anything slips we will '+
+        'email you before that date and you can cancel with one reply.';
+      el('micro').textContent='No charge today. Cancel any time before despatch.';
+    } else {
+      el('comp').innerHTML='<strong>This is a pre-order. You are paying today for a product that ships on or '+
+        'before 12 October 2026.</strong> We are making the first run now. Your order is reserved and we will '+
+        'email you tracking the moment it leaves the warehouse. If we miss that date we will email you before '+
+        'it with a new one, and you can cancel for a full refund, no questions and no chasing.';
+      el('micro').textContent='Charged today. Full refund if we miss 12 October.';
+    }
+  }
+
+  document.querySelectorAll('.ctrl button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var group = b.dataset.state ? '[data-state]' : '[data-pay]';
+      document.querySelectorAll('.ctrl '+group).forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      if(b.dataset.state) state=b.dataset.state; else pay=b.dataset.pay;
+      render();
+    });
+  });
+
+  document.querySelectorAll('.tabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      var emails = b.dataset.tab==='emails';
+      el('tab-emails').classList.toggle('hide', !emails);
+      ['counterBox','buying','soldout'].forEach(function(id){
+        el(id).classList.toggle('hide', emails);
+      });
+      if(!emails) render();
+      document.querySelector('.faq').classList.toggle('hide', emails);
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
