@@ -100,7 +100,7 @@ SCEND (UK) Ltd confirmed rates in writing on 23 July. This replaces the estimate
 
 Two things this changes in the model:
 
-**First, the "fulfilment is a pass-through" line needs watching.** The model excludes fulfilment from margin on the basis that the customer pays it. That holds only while what we charge covers what SCEND bills. At £5.01 on a single-pouch order, a typical £3.95 customer-facing delivery charge loses about £1.06 every time. On 1,000 single-pouch subscribers that is roughly £12,700 a year of quiet leakage. **Set the customer-facing shipping price off the SCEND rate card, and default to Tracked 48 rather than Tracked 24, which costs £0.97 more.**
+**First, the "fulfilment is a pass-through" line holds, but only just.** The model excludes fulfilment from margin on the basis that the customer pays it. The site charges **£4.99** UK delivery against SCEND's £5.01, so we are 2p short on a single-pouch order and comfortably ahead on a full stack, where £4.99 covers a £5.42 cost only if the customer is buying enough to clear the free-delivery threshold. It is close to neutral rather than leaking, which is the right answer, but it is not a margin with room in it. **Two things follow: default to Tracked 48 rather than Tracked 24, which costs £0.97 more and would turn 2p short into a pound short; and re-check this the moment Royal Mail raise rates, because at 2p of headroom any increase comes straight out of gross profit.**
 
 **Second, the fixed base is now known:** about £216 a month before a single parcel moves, rising with storage as stock grows. That sits inside the model's existing overhead allowance rather than adding to it.
 
