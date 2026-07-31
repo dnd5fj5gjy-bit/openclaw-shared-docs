@@ -43,46 +43,92 @@ That framing matters because it decides everything else. This is not a retail pr
 
 ## 3. What the numbers look like
 
-**Read this section as a model, not a report.** The prices and the structure are verified from the live site. The costs are my working assumptions and are flagged as such. Correct the assumptions and the conclusions move, which is the point of laying it out this way rather than quoting a single figure.
+These are the projections built for Raemy and reviewed by him, carried forward from the model at `modern-savage-financial-model-2026-07-14.xlsx`, with the fulfilment line now replaced by SCEND's confirmed rates rather than an estimate.
+
+### The assumptions the model runs on
+
+| Input | UK | US | Source |
+|---|---|---|---|
+| Subscription price, net of VAT | £45.83 | $59.99 | £55 inc VAT — matches the live site |
+| One-time price, net of VAT | £54.17 | $79.99 | £65 inc VAT — matches the live site |
+| COGS per unit, product + pouch + insert | £21.00 | $25.50 | UK is the £19-23 midpoint, **still TBC on the manufacturer's quote** |
+| Monthly churn | 9% | 9% | Premium supplement benchmark is 8-14%; the Bear brand should pull to the low end |
+| CAC, paid | £35 | $45 | UK cheaper on audience density |
+| Payment fees | 2.9% + 25p | 2.9% + 30c | Stripe |
+| One-time buyers | 30% of new sub adds | same | Non-subscribing buyers |
+| FX | £1 = $1.30 | | Consolidation rate |
 
 ### Per-subscriber economics, per month
-
-UK supplement powders are standard-rated for VAT, so the £55 sticker is £45.83 of actual revenue.
 
 | | Single pouch | Full stack (3) |
 |---|---|---|
 | Price charged | £55.00 | £139.98 |
 | Revenue after VAT | £45.83 | £116.65 |
-| Product cost *(assumed £20/pouch)* | £20.00 | £60.00 |
-| Fulfilment and packaging *(assumed)* | £4.00 | £5.50 |
-| **Contribution per month** | **~£21.83** | **~£51.15** |
-| **Margin** | **~48%** | **~44%** |
+| Product cost | £21.00 | £63.00 |
+| Payment fees | £1.85 | £4.31 |
+| **Gross profit per month** | **£22.98** | **£49.34** |
+| **Gross margin** | **50.1%** | **42.3%** |
+| Expected lifetime at 9% churn | 11.1 months | 11.1 months |
+| **Lifetime value** | **~£255** | **~£548** |
+| CAC | £35 | £35 |
+| **LTV : CAC** | **7.3 : 1** | **15.7 : 1** |
+| **CAC payback** | **1.5 months** | **0.7 months** |
 
-*The £20 unit cost is the single most important assumption on this page and it is mine, not a quoted figure. If the real UK manufactured cost is £15, contribution per single pouch rises to about £26.83 and the whole model improves by a quarter. If it is £25, it falls to about £16.83. **Getting the actual costed figure from the manufacturer is the highest-value number in this document.***
+Anything above 3:1 on LTV:CAC is healthy and payback under three months means paid spend recycles fast enough to fund its own growth. Both are comfortably clear on these assumptions. **The number that decides whether that stays true is the £21 unit cost, which is still an estimate.** At £15 the single-pouch gross profit rises to £28.98; at £25 it falls to £18.98 and the margin drops under 42%.
 
-### What a subscriber is worth over their life
+**The bundle is where the economics actually live.** A full-stack subscriber is worth 2.1 times a single-pouch one over their life, costs the same to acquire, and as section 3.1 shows, costs almost nothing more to ship. That is the whole argument for making it the hero of every page, which the site already does.
 
-Assuming 75% month-on-month retention, an average subscriber stays about four months.
+### 3.1 What the 3PL actually costs, now it is a real number
 
-| | Single | Full stack |
-|---|---|---|
-| Lifetime contribution | **~£87** | **~£205** |
-| What we can afford to pay to acquire one | up to ~£40 | up to ~£100 |
+SCEND (UK) Ltd confirmed rates in writing on 23 July. This replaces the estimate the model was carrying.
 
-The full-stack subscriber is worth 2.4 times the single. That is the argument for making the bundle the hero of every page and every email, which the site already does.
+| Line | Rate |
+|---|---|
+| First pick | £1.02 |
+| Each additional item in the same order | £0.41 |
+| Insert / postcard | £0.15 |
+| Small box | £0.44 |
+| Postage, Tracked 48, up to 2kg | £2.99 |
+| **Single-pouch order, all in** | **£5.01** |
+| **Full-stack order (3 pouches), all in** | **£5.42** |
+| Goods-in | £15 per pallet, single SKU and single batch per pallet |
+| Storage | 72p per pallet per day, about £66/month on three pallets |
+| Account package | £150/month |
+| Minimum spend | **£0 for the full 12 months** |
 
-### What it looks like at scale
+**The insight in that table: three pouches cost 41p more to ship than one.** The bundle is 2.1 times the lifetime value for 8% more fulfilment cost. Every incentive points the same way.
 
-Monthly contribution, before overheads, at a 60/40 split of single to full-stack subscribers:
+Two things this changes in the model:
 
-| Active subscribers | Monthly revenue | Monthly contribution | Annualised contribution |
+**First, the "fulfilment is a pass-through" line needs watching.** The model excludes fulfilment from margin on the basis that the customer pays it. That holds only while what we charge covers what SCEND bills. At £5.01 on a single-pouch order, a typical £3.95 customer-facing delivery charge loses about £1.06 every time. On 1,000 single-pouch subscribers that is roughly £12,700 a year of quiet leakage. **Set the customer-facing shipping price off the SCEND rate card, and default to Tracked 48 rather than Tracked 24, which costs £0.97 more.**
+
+**Second, the fixed base is now known:** about £216 a month before a single parcel moves, rising with storage as stock grows. That sits inside the model's existing overhead allowance rather than adding to it.
+
+Also secured, and worth noting because it was a genuine blocker: goods-in at the £15 pallet rate rather than 20p per item saves about £650 on a first run of 3,500 units; batch and expiry are captured at goods-in with per-order traceability for recall; same-day dispatch to 8pm; and SCEND is registered with its local food authority, which clears the food business operator registration by letting us register at their address.
+
+### 3.2 The projections
+
+From the model, at base assumptions. Conservative halves the subscriber adds and runs 12% churn with higher CAC; Bull runs 1.8-2x adds at 7% churn.
+
+| | Conservative | **Base** | Bull |
 |---|---|---|---|
-| 500 | ~£43,000 | ~£16,800 | ~£202,000 |
-| 1,000 | ~£85,000 | ~£33,600 | ~£403,000 |
-| 2,500 | ~£212,000 | ~£84,000 | ~£1.01m |
-| 5,000 | ~£425,000 | ~£168,000 | ~£2.02m |
+| Year-1 net revenue, USD | $2.48m | **$5.41m** | $10.62m |
+| Year-1 gross profit, USD | $1.32m | **$2.88m** | $5.65m |
+| Active subscribers, Dec-26 | 2,556 | **5,310** | 9,917 |
+| Active subscribers, Dec-27 | 5,597 | **13,272** | 27,994 |
+| Run-rate revenue exiting Dec-27 | $4.25m | **$9.99m** | $20.95m |
+| Peak funding need | -$179,780 | **-$161,250** | -$161,250 |
+| Operating cash flow turns positive | Sep-26 | **Sep-26** | Sep-26 |
 
-**The honest read:** around 1,000 active subscribers the business covers a real operating team and starts paying for itself. Below about 500 it is a project being funded. Above 2,500 it is a genuine business, and the constraint stops being demand and becomes supply and cash.
+**Base is the plan of record.** The headline is that the peak funding need is about $161,000 and operating cash flow turns positive in the first trading month, which is the unusual and genuinely good thing about this business: it is a subscription sold to an audience that costs nothing to reach, so it does not need a large capital base to start compounding.
+
+**On the 5,000 / 20,000 / 50,000 customer targets.** Worth being straight about these. At 9% churn, 50,000 active subscribers by December 2026 needs roughly 57,000 acquisitions in four months. The email list at a 2-3% conversion gives about 1,700 of them. The other 55,000 would be paid, at roughly £35-45 each, which is about $2.5m of media spend, against inventory around five times the current run. **Treat 50,000 as the 18-24 month goal rather than the year-one plan.** The Base case is what to run the business on.
+
+### 3.3 One thing in the model that is now out of date
+
+The model was built for a US-first launch in September with the UK following in November on a separate manufacturing track. The live site says something different: made in the UK, pre-orders open now, delivering around October, with UK and US delivery from UK-made stock.
+
+The unit economics and the per-subscriber maths are unaffected, because they are driven by price, cost and churn rather than by geography. **What does change is the phasing of when subscribers arrive and when cash is committed**, and the funding curve should be re-cut against the actual pre-order and production dates. That is a half-day of work once I have the run size and the production schedule, and it is item 2 in section 6.
 
 ### The cash shape of a subscription pre-order
 
