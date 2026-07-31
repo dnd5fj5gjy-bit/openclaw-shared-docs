@@ -58,6 +58,37 @@ These are the projections built for Raemy and reviewed by him, carried forward f
 | One-time buyers | 30% of new sub adds | same | Non-subscribing buyers |
 | FX | £1 = $1.30 | | Consolidation rate |
 
+### 3.0 Pricing, both markets
+
+The two markets are priced separately and deliberately. They are not one price converted into the other, and reading them as a conversion produces the wrong conclusion.
+
+| | UK, as charged | UK net of VAT | UK net at $1.30 | US, as charged |
+|---|---|---|---|---|
+| Subscription, per pouch | **£55.00** | £45.83 | $59.58 | **$59.99** |
+| One-off purchase | **£65.00** | £54.17 | $70.42 | **$79.99** *(see note)* |
+| Full stack, per pouch subscribed | **£46.66** | £38.88 | $50.55 | *to confirm* |
+| Full stack, monthly total | **£139.98** | £116.65 | $151.65 | *to confirm* |
+| Delivery | **£4.99** | | | **$7.99** standard, $12.99 expedited |
+
+**The thing worth seeing in that table:** on subscription, once VAT is stripped out, the two markets are priced within 1% of each other. £45.83 net converts to $59.58 against a US price of $59.99. The UK sticker looks 19% higher than a straight conversion of the US price purely because UK supplement powders are standard-rated and the 20% VAT sits inside the £55. **The UK is not priced at a premium. It is priced identically and taxed.**
+
+The one-off price is where they genuinely diverge. UK £65 is £54.17 net, or $70.42, against $79.99 in the US, so the US one-off carries about a 14% premium over the UK equivalent. That may well be deliberate, since the US gap between subscription and one-off is the stronger nudge onto subscription, but it is worth confirming it is a decision rather than an artefact.
+
+**Two flags on the US column.** The structured data on the live product page returns **$79.00**, not the $79.99 the model runs on. It is a pound either way but it means one of the two is wrong, and the model is the thing feeding every projection. And I could not read the US subscription or bundle prices directly, because the site serves currency by location and I resolve to the UK. The US figures above come from the financial model, not from the live site, and unlike everything in the UK column they are unverified. **Confirm the US subscription price, the US bundle price and the one-off, and I will lock the column.**
+
+### The margin difference between the two markets
+
+This matters more now that the UK is the launch market.
+
+| | UK | US |
+|---|---|---|
+| Net revenue per subscription | £45.83 | $59.99 |
+| Unit cost | £21.00 | $25.50 *(≈£19.62)* |
+| Gross profit before fees | £24.83 | $34.49 *(≈£26.53)* |
+| **Gross margin** | **~54%** | **~57%** |
+
+The UK unit costs more to make than the US one and returns less per sale once VAT is out. It is still a healthy margin, but **the UK is structurally the weaker of the two markets on unit economics**, and we are launching into it first. That is not an argument against the decision, which is right for supply, speed and compliance reasons. It is an argument for treating the £21 UK unit cost as the number to negotiate hardest, because it is both the highest cost and the least confirmed figure in the model.
+
 ### Per-subscriber economics, per month
 
 | | Single pouch | Full stack (3) |
