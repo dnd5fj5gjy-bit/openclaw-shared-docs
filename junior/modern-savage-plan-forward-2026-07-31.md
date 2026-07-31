@@ -190,4 +190,10 @@ Give me those five and I will turn this from a model into a plan with actual fig
 
 **Verified from modernsavage.co on 31 July 2026:** the three products and their descriptions; £55 per month subscribed and £65 one-off; the full stack at £46.66 each, £139.98 per month; 28 servings per pouch and a 23.5g scoop; delivered every 28 days; cancellation any time after the second delivery; pre-orders open with the card charged on order; delivery targeted at around October 2026 with a full refund available before dispatch; made in the UK; UK and US delivery; no shipping to Switzerland.
 
-**My assumptions, not facts:** £20 product cost per pouch, £4 to £5.50 fulfilment and packaging, 75% month-on-month retention, the 60/40 split of single to full-stack subscribers, and the roughly eight-week manufacturing lead time. Every figure in section 3 inherits these. Section 6 is how they get replaced.
+**Verified from SCEND (UK) Ltd, confirmed in writing 23 July 2026:** £5.01 per single-item order on Tracked 48 including small box and one insert; £1.02 first pick and £0.41 per additional item; £2.99 postage to 2kg; goods-in at the £15 pallet rate on single-SKU single-batch pallets; 72p per pallet per day storage; £150 monthly account package; £0 minimum spend for twelve months; no setup fee; batch and expiry captured at goods-in; same-day dispatch to 8pm; SCEND registered with its local food authority.
+
+**Carried from the financial model reviewed by Raemy (14 July 2026):** the assumption set in section 3, and the Conservative, Base and Bull scenario outputs in 3.2.
+
+**Still assumptions, not facts:** the £21 UK unit cost, which is a midpoint of an estimated range and not a quoted figure; 9% monthly churn; £35 UK CAC; 30% one-time buyers alongside subscribers; and the roughly eight-week manufacturing lead time. Every figure in section 3 inherits these. Section 6 is how they get replaced.
+
+**Known stale:** the model's launch phasing (US September, UK November) predates the UK-first, pre-order-live position on the site today. Unit economics are unaffected; the funding curve needs re-cutting, per 3.3.
