@@ -178,11 +178,11 @@ Set the reorder trigger by date, not by watching stock. With a manufacturing lea
 
 I have deliberately not asserted the following, because guessing at them is what went wrong last time.
 
-1. **The real manufactured cost per pouch**, from the UK manufacturer. Every margin number above moves with it and it is the one figure I would most like to replace.
-2. **The size of the first production run**, in pouches per SKU. This sets the subscriber ceiling and therefore whether we should cap the pre-order at all.
-3. **The current live list size**, and how many are already on the waiting list. My working figures are from internal documents and I no longer trust them enough to print.
-4. **What is committed and already spent**, so the funding requirement is a real number rather than a range.
-5. **Who owns what**, entity and share structure as it now stands.
+1. **The real manufactured cost per pouch**, from the UK manufacturer. The model runs on £21 as the midpoint of an estimated range. Every margin, LTV and funding number above moves with it, and it is the single figure I would most like to replace.
+2. **The size of the first production run and the production schedule.** This sets the subscriber ceiling, decides whether the pre-order needs a cap at all, and is what I need to re-cut the funding curve for the UK-first sequence rather than the US-first one the model was built on.
+3. **The current live list size**, and how many are on the waiting list. My working figures are from internal documents and I no longer trust them enough to print.
+4. **What is committed and already spent.** The model puts peak funding need at about $161,000; turning that into a real cash requirement needs the actual committed position.
+5. **Who owns what**, entity and share structure as it now stands, and whether UK stock sits under the US entity or a UK one. That last part is not academic: as an overseas seller holding stock in the UK we are a non-established taxable person, so VAT registration is required from the first sale with no threshold, and SCEND need the number for their Fulfilment House Due Diligence file before they can hold stock.
 
 Give me those five and I will turn this from a model into a plan with actual figures in it, in a day.
 
