@@ -109,25 +109,32 @@ Anything above 3:1 on LTV:CAC is healthy and payback under three months means pa
 
 **The bundle is where the economics actually live.** A full-stack subscriber is worth 2.1 times a single-pouch one over their life, costs the same to acquire, and as section 3.1 shows, costs almost nothing more to ship. That is the whole argument for making it the hero of every page, which the site already does.
 
-### 3.1 What the 3PL actually costs, now it is a real number
+### 3.1 Fulfilment, both markets
 
-SCEND (UK) Ltd confirmed rates in writing on 23 July. This replaces the estimate the model was carrying.
+Two 3PLs, one on each side of the Atlantic, sharing a warehouse management system so we run one platform rather than two.
 
-| Line | Rate |
-|---|---|
-| First pick | £1.02 |
-| Each additional item in the same order | £0.41 |
-| Insert / postcard | £0.15 |
-| Small box | £0.44 |
-| Postage, Tracked 48, up to 2kg | £2.99 |
-| **Single-pouch order, all in** | **£5.01** |
-| **Full-stack order (3 pouches), all in** | **£5.42** |
-| Goods-in | £15 per pallet, single SKU and single batch per pallet |
-| Storage | 72p per pallet per day, about £66/month on three pallets |
-| Account package | £150/month |
-| Minimum spend | **£0 for the full 12 months** |
+| | **UK — SCEND (UK) Ltd** | **US — Ships A Lot** |
+|---|---|---|
+| Status | Terms confirmed in writing 23 Jul, contract being drafted | **Signed and integrated.** Orders push to the warehouse, tracking returns |
+| First pick | £1.02 | *within the $3-5 all-in estimate* |
+| Each additional item | £0.41 | *as above* |
+| Insert / postcard | £0.15 | $0.15 |
+| Box | £0.44 small | *included in estimate* |
+| Postage | £2.99 Tracked 48, to 2kg | *included in estimate* |
+| **Per single-pouch order** | **£5.01** | **~$3-5, rate card not in hand** |
+| **Per full-stack order (3)** | **£5.42** | *unknown until the rate card is read* |
+| Goods-in | £15 per pallet, single SKU and batch per pallet | not separately quoted |
+| Storage | 72p per pallet per day, ~£66/month on three pallets | ~$40 per pallet per month |
+| Account / platform fee | £150/month | none quoted |
+| Minimum spend | **£0 for twelve months** | **No minimums**, reviewed at six months |
+| Warehouses | Cheshire | Mississippi and Idaho |
+| Customer-facing delivery | £4.99 | $7.99 standard, $12.99 expedited, free over ~$100 |
 
-**The insight in that table: three pouches cost 41p more to ship than one.** The bundle is 2.1 times the lifetime value for 8% more fulfilment cost. Every incentive points the same way.
+**The asymmetry in that table is the point.** The UK column is a rate card confirmed line by line in writing. The US column is a range from our own selection brief plus the commercial terms we know were agreed. **The actual Ships A Lot per-order rates are on Susan's Qwilr, which I do not hold.** I would rather show that gap than convert a range into a number that looks precise and is not. Getting that document is item 6 in section 6, and it is a five-minute ask.
+
+**What the UK column already tells us: three pouches cost 41p more to ship than one.** The full stack is 2.1 times the lifetime value for 8% more fulfilment cost. If Ships A Lot's structure is similar, and pick-and-pack pricing usually is, the same logic holds in the US and the bundle should be the hero in both markets.
+
+Also secured on the UK side, and worth noting because it was a genuine blocker: goods-in at the £15 pallet rate rather than 20p per item saves about £650 on a first run of 3,500 units; batch and expiry captured at goods-in with per-order traceability for recall; same-day dispatch to 8pm; and SCEND registered with its local food authority, which clears the food business operator registration by letting us register at their address.
 
 Two things this changes in the model:
 
