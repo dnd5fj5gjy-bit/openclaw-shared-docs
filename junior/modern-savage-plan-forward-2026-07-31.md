@@ -225,6 +225,8 @@ I have deliberately not asserted the following, because guessing at them is what
 3. **The current live list size**, and how many are on the waiting list. My working figures are from internal documents and I no longer trust them enough to print.
 4. **What is committed and already spent.** The model puts peak funding need at about $161,000; turning that into a real cash requirement needs the actual committed position.
 5. **Who owns what**, entity and share structure as it now stands, and whether UK stock sits under the US entity or a UK one. That last part is not academic: as an overseas seller holding stock in the UK we are a non-established taxable person, so VAT registration is required from the first sale with no threshold, and SCEND need the number for their Fulfilment House Due Diligence file before they can hold stock.
+6. **The Ships A Lot rate card**, from Susan's Qwilr. It is the only reason the US fulfilment column in 3.1 is a range rather than a set of numbers, and it is a five-minute ask to a partner we have already signed with.
+7. **The US subscription, bundle and one-off prices**, confirmed. The site serves currency by location so I resolve to the UK and cannot read them, and the model and the live structured data disagree by a pound on the one-off. Confirm these and the entire US column in 3.0 and the per-subscriber table locks.
 
 Give me those five and I will turn this from a model into a plan with actual figures in it, in a day.
 
