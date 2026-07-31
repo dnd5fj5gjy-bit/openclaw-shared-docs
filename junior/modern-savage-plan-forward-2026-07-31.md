@@ -89,25 +89,31 @@ This matters more now that the UK is the launch market.
 
 The UK unit costs more to make than the US one and returns less per sale once VAT is out. It is still a healthy margin, but **the UK is structurally the weaker of the two markets on unit economics**, and we are launching into it first. That is not an argument against the decision, which is right for supply, speed and compliance reasons. It is an argument for treating the £21 UK unit cost as the number to negotiate hardest, because it is both the highest cost and the least confirmed figure in the model.
 
-### Per-subscriber economics, per month
+### Per-subscriber economics, per month, both markets
 
-| | Single pouch | Full stack (3) |
-|---|---|---|
-| Price charged | £55.00 | £139.98 |
-| Revenue after VAT | £45.83 | £116.65 |
-| Product cost | £21.00 | £63.00 |
-| Payment fees | £1.85 | £4.31 |
-| **Gross profit per month** | **£22.98** | **£49.34** |
-| **Gross margin** | **50.1%** | **42.3%** |
-| Expected lifetime at 9% churn | 11.1 months | 11.1 months |
-| **Lifetime value** | **~£255** | **~£548** |
-| CAC | £35 | £35 |
-| **LTV : CAC** | **7.3 : 1** | **15.7 : 1** |
-| **CAC payback** | **1.5 months** | **0.7 months** |
+| | **UK single** | **UK full stack** | **US single** | **US full stack** |
+|---|---|---|---|---|
+| Price charged | £55.00 | £139.98 | $59.99 | *to confirm* |
+| Revenue net of VAT | £45.83 | £116.65 | $59.99 *(no VAT in sticker)* | — |
+| Product cost | £21.00 | £63.00 | $25.50 | $76.50 |
+| Payment fees | £1.85 | £4.31 | $2.04 | — |
+| **Gross profit per month** | **£22.98** | **£49.34** | **$32.45** | — |
+| **Gross margin** | **50.1%** | **42.3%** | **54.1%** | — |
+| Lifetime at 9% churn | 11.1 months | 11.1 months | 11.1 months | 11.1 months |
+| **Lifetime value** | **~£255** | **~£548** | **~$360** | — |
+| CAC | £35 | £35 | $45 | $45 |
+| **LTV : CAC** | **7.3 : 1** | **15.7 : 1** | **8.0 : 1** | — |
+| **CAC payback** | **1.5 months** | **0.7 months** | **1.4 months** | — |
 
-Anything above 3:1 on LTV:CAC is healthy and payback under three months means paid spend recycles fast enough to fund its own growth. Both are comfortably clear on these assumptions. **The number that decides whether that stays true is the £21 unit cost, which is still an estimate.** At £15 the single-pouch gross profit rises to £28.98; at £25 it falls to £18.98 and the margin drops under 42%.
+Anything above 3:1 on LTV:CAC is healthy, and payback under three months means paid spend recycles fast enough to fund its own growth. Every column that can be computed clears both bars comfortably.
 
-**The bundle is where the economics actually live.** A full-stack subscriber is worth 2.1 times a single-pouch one over their life, costs the same to acquire, and as section 3.1 shows, costs almost nothing more to ship. That is the whole argument for making it the hero of every page, which the site already does.
+**Comparing like for like:** a UK single subscriber is worth about £255 over their life, a US one about $360, which is roughly £277 at $1.30. So **the US subscriber is worth about 9% more than the UK one**, on the same churn and despite a higher CAC. That gap is entirely the VAT and the higher UK unit cost, and it is the clearest argument in this document for pushing hard on the UK manufacturing price.
+
+**The number that decides whether any of this holds is the £21 UK unit cost, which is still an estimate.** At £15 the single-pouch gross profit rises to £28.98 and the UK overtakes the US on subscriber value. At £25 it falls to £18.98 and UK margin drops under 42%.
+
+**The US full-stack column is empty because I do not have the US bundle price.** If it were set on the same 15.2% bundle discount the UK uses, it would land around $152.70 a month, which on the same cost base gives roughly $71 of monthly gross profit and an LTV near $790. I have deliberately not put that in the table, because it is my arithmetic on an assumed pricing decision rather than a price anyone has set. Confirm the US bundle price and it becomes real.
+
+**The bundle is where the economics live.** A UK full-stack subscriber is worth 2.1 times a single-pouch one, costs the same to acquire, and as section 3.1 shows costs 41p more to ship. That is the whole argument for making it the hero of every page in both markets, which the UK site already does.
 
 ### 3.1 Fulfilment, both markets
 
@@ -141,8 +147,6 @@ Two things this changes in the model:
 **First, the "fulfilment is a pass-through" line holds, but only just.** The model excludes fulfilment from margin on the basis that the customer pays it. The site charges **£4.99** UK delivery against SCEND's £5.01, so we are 2p short on a single-pouch order and comfortably ahead on a full stack, where £4.99 covers a £5.42 cost only if the customer is buying enough to clear the free-delivery threshold. It is close to neutral rather than leaking, which is the right answer, but it is not a margin with room in it. **Two things follow: default to Tracked 48 rather than Tracked 24, which costs £0.97 more and would turn 2p short into a pound short; and re-check this the moment Royal Mail raise rates, because at 2p of headroom any increase comes straight out of gross profit.**
 
 **Second, the fixed base is now known:** about £216 a month before a single parcel moves, rising with storage as stock grows. That sits inside the model's existing overhead allowance rather than adding to it.
-
-Also secured, and worth noting because it was a genuine blocker: goods-in at the £15 pallet rate rather than 20p per item saves about £650 on a first run of 3,500 units; batch and expiry are captured at goods-in with per-order traceability for recall; same-day dispatch to 8pm; and SCEND is registered with its local food authority, which clears the food business operator registration by letting us register at their address.
 
 ### 3.2 The projections
 
