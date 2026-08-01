@@ -4,6 +4,6 @@ Strengths. He has done this exact thing before. He co-founded Zigi Bands and too
 
 Weaknesses, and they are real. He is not AI-native. He uses Claude and ChatGPT as assistants and has built no automation, which was the weakest answer of the four calls we did. Six roles in eight years with only one past two and a half years, so on paper more of a starter than a finisher, although the long one was the COO job. His references are still untaken and I want them before he goes far.
 
-Why I think he is the right call now. Your point about running one simple US test and reading the market is exactly the job I need doing. He is American, he has put product on US shelves, and he knows the fulfilment end, which is where this launch will actually break. We have settled at around 5,000 dollars a month with a review at the first reorder or three months, whichever comes first, so the cost of being wrong is small and the review is a real gate rather than a formality.
+Why I think he is the right call now. We are launching the US and the UK together, not one market, so there is a lot more operational load in the next two months than I can carry on top of everything else. He is American, he has put product on US shelves, and he knows the fulfilment end, which is exactly where a two-market launch breaks. We have settled at around 5,000 dollars a month with a review at the first reorder or three months, whichever comes first, so the cost of being wrong is small and the review is a real gate rather than a formality.
 
 Interested in your read.
