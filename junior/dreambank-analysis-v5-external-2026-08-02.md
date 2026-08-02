@@ -39,9 +39,12 @@ the three modelled years the deposit book generates roughly **£20.0m of gross i
 £180k implementation charge. Dream Bank keeps the rest and pays its staff, its offices and its
 marketing out of it.
 
-In Year 1 the payment fees alone are **£840k against £797k of interest income**. Your own note on the
-Assumptions tab says exactly this. Across all three years, per-payment fees are the single largest cost
-line in the business - larger than the entire payroll in every one of them.
+Put against revenue rather than interest, the picture is starker. **In Year 1 ClearBank's fees are
+£1.47m against £1.06m of core revenue** - they exceed everything the business earns by £406k before a
+single salary is paid. Over three years they take **44% of core revenue**, falling to 32% by Year 3 as
+volume tiers down. In Year 1 the payment fees alone are **£840k against £797k of interest income**, a
+point your own note on the Assumptions tab already makes. Across all three years per-payment fees are
+the single largest cost line in the business, larger than the entire payroll in every one of them.
 
 The pricing underneath all of it lapsed on **31 March 2026**. Every cost line in the model flows from a
 proposal that is no longer live, and the negotiating position is not strong: the £180k implementation
