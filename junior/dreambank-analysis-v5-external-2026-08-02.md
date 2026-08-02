@@ -101,12 +101,6 @@ to accounting, none built and no partners signed. They carry **£3.86m of Year 3
 More pointedly, strip them out and Year 2 goes from £842k of EBITDA to a **loss of £82k**, so they are
 not upside on top of a working core, they are what makes the middle year work.
 
-**There is no entity.** Companies House shows one company, HelpBnk UK Limited (14844480), an
-advertising agency with Simon as sole director and sole PSC. There is no Dream Bank, DreamFund or Dream
-Media on the register, and Simon still shows exactly one appointment as of today. We assume the
-intention is to incorporate a NewCo at completion, which is entirely normal - we just cannot document
-what the £100k would be buying a share of until it exists.
-
 **There is no price.** No valuation, no percentage and no equity appears anywhere in the model or the
 covering email. A cheque size has been proposed without saying what it is worth or what it buys.
 
