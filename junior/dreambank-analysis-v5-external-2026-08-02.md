@@ -226,10 +226,11 @@ fintechs would pay a fortune for. But the business plan attached to it is not ye
 
 A customer is offered less than three established competitors already give away. The majority of the
 economics leave for ClearBank on terms that lapsed in March and cannot now be renegotiated from
-strength. A third of the profit sits in ten products that do not exist, and without them the second
-year is a loss. The round is short of its own calculated requirement. And the entire growth case rests
-on promotion that has no cost, no term and no commitment attached to it, offered by the same party now
-being asked to write the cheque.
+strength. The growth case needs the fastest business-account launch this market has seen, on a marketing
+budget of £5,000 a month, while the same team stands up ten regulated product lines in twenty-two
+months. A third of the profit sits in those ten products, and without them the second year is a loss.
+The round is short of its own calculated requirement. And all of it rests on promotion that has no cost,
+no term and no commitment attached to it, offered by the same party now being asked to write the cheque.
 
 Every one of those is fixable and none of them needs anything but time and work. That is why we are
 saying not yet rather than no. But they need fixing before a number can sensibly be discussed, and we
