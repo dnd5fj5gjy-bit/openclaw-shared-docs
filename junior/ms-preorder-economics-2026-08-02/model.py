@@ -114,18 +114,40 @@ for c_usd in COGS_BAND_USD:
           f"| {usd(s['contribution']):>9} ({s['contribution']/s['net']*100:4.0f}% of net)")
 
 # ---- 3. Break-even against committed cash -----------------------------
+# This is a TREASURY question, not a margin one, so it compares cash in against cash out.
+# COGS does not appear: the ACF balance inside the committed figure IS the cost of the run.
+# Deducting it again here would double-count it.
+#
 # [ESTIMATE / STALE] The last committed-cash figure is ~$106,000 from the 26 Jul sizing doc,
 # and it was built on the ACF/US route which is now superseded. Nobody has restated it.
 COMMITTED = 106_000
+
+
+def cash_retained(market, kind):
+    """Cash actually kept from one order: gross, less processing, less VAT owed to HMRC."""
+    o = order(market, kind, 0)
+    keep = o["gross"] - o["fees"] - (o["gross"] - o["net"])   # last term is the VAT
+    return keep * FX_GBPUSD if market == "UK" else keep
+
+
 print(f"\n3. HOW MANY ORDERS SELF-FUND THE RUN  (against the last stated {usd(COMMITTED)},")
-print("   which is itself from 26 Jul and built on the superseded ACF route)\n")
-for c_usd in COGS_BAND_USD:
-    s_single = order("US", "sub", c_usd)["contribution"]
-    s_bundle = order("US", "bundle", c_usd)["contribution"]
-    print(f"   at {usd(c_usd)}/pouch:  {COMMITTED/s_single:6.0f} single orders   or   "
-          f"{COMMITTED/s_bundle:5.0f} bundles")
-print("\n   The founding cap is 800. Read the bundle column: at anything under $24/pouch,")
-print("   800 bundles clears the committed cash. 800 singles never does, at any COGS in the band.")
+print("   itself from 26 Jul and built on the superseded ACF route. Cash in vs cash out;")
+print("   COGS is deliberately absent - it is already inside the committed figure.)\n")
+for market in ("US", "UK"):
+    for kind, label in (("sub", "single"), ("bundle", "bundle")):
+        k = cash_retained(market, kind)
+        print(f"   {market} {label:6}  keeps {usd(k):>8} of cash per order  ->  "
+              f"{COMMITTED/k:5.0f} orders to cover the run")
+print(f"\n   Rescale for any other committed figure: divide it by the cash-per-order above.")
+print(f"   Each $10,000 of committed cash needs {10_000/cash_retained('US','bundle'):.0f} more US bundles"
+      f" or {10_000/cash_retained('US','sub'):.0f} more US singles.")
+print("\n   Against the 800-place cap this is the whole commercial point:")
+b800 = 800 * cash_retained("US", "bundle")
+s800 = 800 * cash_retained("US", "sub")
+print(f"     800 bundles raise {usd(b800)}  -> covers the run with {usd(b800-COMMITTED)} spare")
+print(f"     800 singles raise {usd(s800)}  -> leaves {usd(COMMITTED-s800)} to find elsewhere")
+print("   Same 800 customers, same 800 units of the scarce Adult SKU. The mix is the difference")
+print("   between a launch that pays for itself and one that needs a cheque.")
 
 # ---- 4. UK refund exposure --------------------------------------------
 print("\n4. UK CASH IS NOT YET EARNED CASH\n")
