@@ -123,9 +123,9 @@ no fee, no hedge and no second revenue line standing behind it.
 ## Where we land
 
 The gap here is stage, not honesty. This is a credible team with a real mission and distribution most
-fintechs would pay a fortune for, holding a plan that has not finished being built. No entity, no
-valuation, no current supplier pricing, a round that is short of its own number, and an acquisition
-forecast resting on promotion that nobody has priced or committed.
+fintechs would pay a fortune for, holding a plan that has not finished being built. No valuation, no
+current supplier pricing, a round that is short of its own number, and an acquisition forecast resting
+on promotion that nobody has priced or committed.
 
 Every one of those is fixable, and none of them needs anything but time and work. We would rather see
 them fixed than overlooked, and we would want to look again once they are.
