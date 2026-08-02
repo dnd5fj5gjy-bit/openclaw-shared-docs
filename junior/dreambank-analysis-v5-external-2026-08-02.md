@@ -131,8 +131,8 @@ Every one of those is fixable, and none of them needs anything but time and work
 them fixed than overlooked, and we would want to look again once they are.
 
 The most useful next step from our side would be a short call on two things specifically: what the
-£100k is buying and in what entity, and how the Bear and Simon distribution is going to be treated -
-priced, committed, or both.
+£100k is buying, and how the Bear and Simon distribution is going to be treated - priced, committed, or
+both.
 
 ---
 
