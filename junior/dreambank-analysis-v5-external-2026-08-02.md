@@ -1,7 +1,6 @@
 # Dream Bank - our read on the model
 
-**2 August 2026.** Bear Grylls Ventures. Based on the financial model circulated by Jack on 31 July,
-and Companies House records checked 2 August 2026.
+**2 August 2026.** Bear Grylls Ventures. Based on the financial model circulated by Jack on 31 July.
 
 ---
 
