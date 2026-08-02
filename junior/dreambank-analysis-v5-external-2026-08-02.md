@@ -165,16 +165,22 @@ no fee, no hedge and no second revenue line standing behind it.
 ## Where we land
 
 The gap here is stage, not honesty. This is a credible team with a real mission and distribution most
-fintechs would pay a fortune for, holding a plan that has not finished being built. No valuation, no
-current supplier pricing, a round that is short of its own number, and an acquisition forecast resting
-on promotion that nobody has priced or committed.
+fintechs would pay a fortune for. But the business plan attached to it is not yet a good one.
 
-Every one of those is fixable, and none of them needs anything but time and work. We would rather see
-them fixed than overlooked, and we would want to look again once they are.
+A customer is offered less than three established competitors already give away. The majority of the
+economics leave for ClearBank on terms that lapsed in March and cannot now be renegotiated from
+strength. A third of the profit sits in ten products that do not exist, and without them the second
+year is a loss. The round is short of its own calculated requirement. And the entire growth case rests
+on promotion that has no cost, no term and no commitment attached to it, offered by the same party now
+being asked to write the cheque.
+
+Every one of those is fixable and none of them needs anything but time and work. That is why we are
+saying not yet rather than no. But they need fixing before a number can sensibly be discussed, and we
+would want to look again once they are.
 
 The most useful next step from our side would be a short call on two things specifically: what the
-£100k is buying, and how the Bear and Simon distribution is going to be treated - priced, committed, or
-both.
+customer gets that they cannot get free from Tide or Starling today, and how the Bear and Simon
+distribution is going to be treated - priced, committed, or both.
 
 ---
 
