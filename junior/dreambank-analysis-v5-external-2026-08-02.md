@@ -65,16 +65,14 @@ in the model as "0% at launch, review as the deposit book scales". Account fees 
 banking is core to the brand. So the customer proposition is a free account that pays them nothing,
 while Dream Bank earns 3.40% on their balance and takes a margin on their card spend.
 
-The difficulty is that free is not a differentiator in this market. Tide, Starling and Monzo all have
-free business accounts, all are app-first, all are aimed at exactly the sole traders and small limited
-companies Dream Bank is targeting, and several of them pay interest on balances. They are also
-currently paying **£50 to £200 in cash bonuses** to open an account.
+The difficulty is that free is not a differentiator in this market. Tide, Starling and Monzo all offer
+free business accounts, all are app-first, and all are aimed at exactly the sole traders and small
+limited companies Dream Bank is targeting.
 
 Set side by side, an entrepreneur choosing Dream Bank gets an account that is free, like the others,
-pays 0%, unlike several of the others, forgoes a sign-up bonus the others are handing out, and comes
-from a brand new provider with no track record. The only thing on Dream Bank's side of that comparison
-is Simon and Bear. That is a real asset, but it is being asked to carry the entire proposition rather
-than to amplify a better one.
+pays them 0% on their balance, and comes from a brand new provider with no track record. The only thing
+on Dream Bank's side of that comparison is Simon and Bear. That is a real asset, but it is being asked
+to carry the entire proposition rather than to amplify a better one.
 
 The model has the fix in its own margin: it notes that £2 a month on each account would add roughly
 £750k in Year 1 and £4.35m by Year 3. The decision to give that away was deliberate. Our concern is
