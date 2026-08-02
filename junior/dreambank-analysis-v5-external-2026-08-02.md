@@ -197,6 +197,28 @@ no fee, no hedge and no second revenue line standing behind it.
 
 ---
 
+## In fairness, four things point the other way
+
+We would rather state these than have you think we missed them.
+
+**The model is conservative in places.** Savings account balances are not modelled at all - the deposit
+forecast is current accounts only, so the interest line understates what a real deposit book would
+generate.
+
+**The product strategy is the right one.** Every one of the ten is white-label or partnership rather
+than an in-house build, which is the correct way to add regulated products without taking on the
+capital and the permissions yourself.
+
+**Phase 2/3 improves the cash curve rather than straining it.** The peak funding requirement is £2.63m
+combined against £2.76m for the core business alone, so the new products pay for themselves before they
+pay anything else.
+
+**Your own downside case still works.** At -30% on growth, attach and take rates, the model still shows
+a profitable Year 3. The disagreement between us is not whether the arithmetic holds. It is whether the
+inputs on the left-hand side are the right ones.
+
+---
+
 ## Where we land
 
 The gap here is stage, not honesty. This is a credible team with a real mission and distribution most
