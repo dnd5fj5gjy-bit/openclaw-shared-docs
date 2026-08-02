@@ -13,6 +13,19 @@ comes from your own sheet.
 
 ---
 
+## The verdict
+
+On the plan as it stands, this is not yet investable.
+
+The idea has real merit and the distribution behind it is genuinely unusual. But the customer
+proposition is weaker than what a UK entrepreneur can already get for free elsewhere, the majority of
+the economics leave the business before management sees them, and the growth forecast only holds if
+Bear and Simon promote it indefinitely for nothing. Those are not tuning problems. They are the plan.
+
+We think it could become a real business. We do not think it is one yet.
+
+---
+
 ## The structural point: you are renting the bank
 
 ClearBank holds the licence, the accounts and the money. Dream Bank owns the app and the brand. That is
