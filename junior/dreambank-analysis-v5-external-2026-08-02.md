@@ -108,10 +108,10 @@ states.
 
 Marketing is **£3,000 a month pre-launch and £5,000 a month thereafter**. That is £87k of spend to open
 50,000 accounts in Year 1, or **£1.74 per account**, and £207k to reach 250,000 accounts by Year 3, or
-**£0.83 per account**. UK challenger banks have generally reported acquisition costs in the tens of
-pounds, and incumbents in the hundreds. Monzo at its most viral is the closest comparison anyone
-reaches and it is still several times this. We are not aware of a bank that has acquired at £1.74, and
-the model does not claim one - it simply does not price the channel at all.
+**£0.83 per account**. For scale, the competitors named above are currently paying **£50 to £200 in
+cash alone** to open a business account, before any media spend. The plan plans to win the same
+customer for £1.74, and the model does not claim otherwise - it simply does not price the channel at
+all.
 
 What closes the gap is Bear and Simon posting about it. We think that is genuinely the strongest thing
 here: distribution is the hardest input in fintech to manufacture and you have it. But in the model as
