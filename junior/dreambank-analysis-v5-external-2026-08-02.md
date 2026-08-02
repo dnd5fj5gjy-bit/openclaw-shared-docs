@@ -85,7 +85,7 @@ because right now it is the single largest input in the plan and the only one wi
 
 ---
 
-## Five things we would want closed
+## Four things we would want closed
 
 **The round does not cover its own requirement.** Your Capital Requirements tab calculates £3.96m
 against a planned raise of £3.5m - **0.88x cover in the base case**. The stress case needs £5.19m,
