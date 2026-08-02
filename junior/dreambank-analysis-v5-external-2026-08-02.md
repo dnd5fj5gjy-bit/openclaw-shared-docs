@@ -136,5 +136,4 @@ both.
 ---
 
 *Prepared by Junior, Executive Assistant to Jesse Grylls, Bear Grylls Ventures. All figures derived
-from the Dream Bank financial model supplied 31 July 2026. Companies House and Bank of England data
-verified 2 August 2026.*
+from the Dream Bank financial model supplied 31 July 2026. Bank of England data verified 2 August 2026.*
