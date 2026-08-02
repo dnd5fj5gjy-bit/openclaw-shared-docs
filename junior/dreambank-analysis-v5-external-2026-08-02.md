@@ -123,6 +123,45 @@ because right now it is the single largest input in the plan and the only one wi
 
 ---
 
+## The growth curve, and what sits on top of it
+
+Two things are being asked of the same three years, and each is demanding on its own.
+
+**The ramp.** The model opens **12,500 accounts in the first live month**, of which **10,000 are
+business accounts**, and then adds a flat 3,409 every month for three years to reach 250,000. Your own
+risk register notes that the month-one figure is 13% of the HelpBnk user base converting immediately.
+
+For a sense of scale: Starling launched business accounts in 2018 and said publicly that it had reached
+approximately 10,000 business customers **five months** after launch - with a full banking licence, an
+established personal-account base to cross-sell into, and real marketing behind it. Dream Bank's model
+puts that number in month one, from a standing start, on £5,000 a month of marketing. It may happen.
+But it is the fastest business-account launch anyone in this market has managed, and it is the plan's
+base case rather than its upside.
+
+The shape is worth a second look too. After the launch spike the model adds an identical number of
+accounts every single month for thirty-six months. Real acquisition curves that begin with a viral
+spike usually decay from it. A straight line is a placeholder, and here it is carrying the whole
+forecast.
+
+**The build.** The roadmap is not four products, it is **ten**, and they arrive on a fixed schedule:
+four regulated insurance lines in September 2027, six months after the bank itself opens; business
+loans and invoice factoring in January 2028; accounting in April 2028; mortgages and credit cards in
+September 2028; legal in January 2029. Ten products in twenty-two months, none of them built, no
+partners named, and several needing permissions the business does not yet hold - appointed
+representative status for the insurance lines, regulated broking for mortgages, consumer credit for
+cards.
+
+Taking them white-label and through partnerships is the right call and keeps the build burden down. But
+the plan asks the same small team to run the fastest business-account launch in the market and stand up
+ten new regulated product lines, concurrently, in its first three years.
+
+One detail suggests the second half has not been costed yet. In the roadmap the **dedicated product
+manager headcount is set to zero for all ten products**, and the pooled managers covering each suite
+are switched off nine to twelve months after launch. So from the second year onward the model runs ten
+live regulated products with no product management cost in it at all.
+
+---
+
 ## Four things we would want closed
 
 **The round does not cover its own requirement.** Your Capital Requirements tab calculates £3.96m
