@@ -46,12 +46,9 @@ Felix knowing before he builds the basket.
 Tom asked on 31 July: *"Is access restricted by login? (this impacts product availability)"*. He
 flagged the impact himself, because his brands gate on it.
 
-- Amrita's own site says: *"The Amrita Nutrition site is for registered Practitioners and their
-  clients."* Everyone else is sent to their consumer site, Supplement Hub.
-- Pure Encapsulations' own channel policy is explicit that selling online does not convert their
-  healthcare-professional channel into a direct-to-consumer one.
-- Jesse answered this correctly on 20 July: the supplements sit *"inside the patient's own portal
-  behind login, rather than on an open public storefront."*
+- Amrita's own site says: "The Amrita Nutrition site is for registered Practitioners and their clients." Everyone else is sent to their consumer site, Supplement Hub.
+- Pure Encapsulations' own channel policy is explicit that selling online does not convert their healthcare-professional channel into a direct-to-consumer one.
+- Jesse answered this correctly on 20 July: the supplements sit "inside the patient's own portal behind login, rather than on an open public storefront."
 - **Felix's reply today at 12:52 says browsing is open to anyone and only buying needs an account.**
 
 That is the version that goes to Tom's brand managers. Pure Encapsulations is the brand Jesse
