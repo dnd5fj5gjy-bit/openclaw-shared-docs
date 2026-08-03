@@ -102,7 +102,7 @@ Modern Savage is Bear's own brand. A co-branded Nero x Modern Savage capsule, pr
 
 ## 2.1 The product
 
-A short co-branded capsule drawn from Nero's existing range, for example shorts, boxers and a tee or base layer. Final selection agreed between us. Nero manufactures.
+A short co-branded capsule drawn from Nero's existing range: shorts and boxers. Nero manufactures.
 
 Artwork and product approval by both sides before production.
 
