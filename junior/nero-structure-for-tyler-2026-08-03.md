@@ -24,13 +24,7 @@ Set once, evidenced by the Shopify export and the company's accounts, and fixed 
 
 Growth only. Revenue up to the Baseline is untouched.
 
-## 4. Year one minimum
-
-**$150,000 across year one**, invoiced at $37,500 per quarter, **fully creditable against the growth share**. Where the growth share exceeds $150,000 in year one, the growth share is paid and the minimum falls away.
-
-No minimum in years two or three.
-
-## 5. Settlement, cash or shares
+## 4. Settlement, cash or shares
 
 Within **30 days of each quarterly statement**, Bear elects whether that quarter's amount is settled in cash, in Nero shares, or in any combination of the two. The election is Bear's, quarter by quarter, and may differ each quarter.
 
