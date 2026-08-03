@@ -30,7 +30,7 @@ Within **30 days of each quarterly statement**, Bear elects whether that quarter
 
 Shares are allotted within 20 business days of the election. Where they are not allotted, the amount remains payable in cash.
 
-## 6. Share price on a settlement in shares
+## 5. Share price on a settlement in shares
 
 **Price = the lower of:**
 
@@ -43,7 +43,7 @@ The quarter's amount is divided by that price to give the shareholding issued.
 
 **Illustrative arithmetic only, figures not proposed:** on a Baseline of $3.0M and year one Net Revenue of $4.0M, growth is $1.0M and the growth share is $250,000. Trailing revenue of $4.0M gives $8.0M under B, which is lower than A, so $250,000 divided by $8.0M is 3.1% of the company.
 
-## 7. Ceiling and term
+## 6. Ceiling and term
 
 The growth share runs until the **earlier** of:
 
@@ -54,22 +54,21 @@ At that point the growth share ends and nothing continues automatically. Bear ha
 
 **The maximum aggregate holding under this structure is 15%.**
 
-## 8. What Bear provides, each year
+## 7. What Bear provides, each year
 
 - Two shoot days
 - Six posts across Bear's own channels
 - Whitelisting of approved assets for Nero's paid media
-- One in-person appearance
 - Three introductions to Bear's retail and distribution contacts
 - A launch announcement and a supporting quote
 
 Podcast and press mentions are best efforts and are not contractual.
 
-## 9. Reporting
+## 8. Reporting
 
 Quarterly statement within 30 days of each quarter end, with the underlying Shopify and accounting export, and an annual reconciliation to the filed accounts.
 
-## 10. Remedies, both ways
+## 9. Remedies, both ways
 
 **Nero:** the name licence suspends, with 30 days to cure, on a late quarterly statement, a failure to allot elected shares, a failure to pay any amount elected in cash, or a late annual reconciliation.
 
@@ -77,11 +76,11 @@ Quarterly statement within 30 days of each quarter end, with the underlying Shop
 
 Neither remedy affects the 5% or any shares already issued.
 
-## 11. Standard protections
+## 10. Standard protections
 
-Pre-emption on new issues and a minimum holding floor. Tag-along on a sale. Where shares are issued to a third party below the price in section 6, that lower price applies to Bear's outstanding elections.
+Pre-emption on new issues and a minimum holding floor. Tag-along on a sale. Where shares are issued to a third party below the price in section 5, that lower price applies to Bear's outstanding elections.
 
-On a change of control or an institutional funding round, Bear elects either to settle all outstanding amounts up to the 15% ceiling at the price in section 6, or to continue unaffected.
+On a change of control or an institutional funding round, Bear elects either to settle all outstanding amounts up to the 15% ceiling at the price in section 5, or to continue unaffected.
 
 Quarterly management accounts, cap table on request, and a board observer seat at 10%.
 
