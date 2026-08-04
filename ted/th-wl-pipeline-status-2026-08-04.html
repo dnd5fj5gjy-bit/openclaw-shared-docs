@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health White-Label - Partner Pipeline Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f7f8fb;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+  .hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #163366 100%);
+    color: #fff;
+    padding: 72px 32px 56px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    color: #7ec8e3;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .hero h1 { font-size: 2.4rem; max-width: 780px; margin: 0 auto 18px; }
+  .hero p { color: #cdd8ec; max-width: 640px; margin: 0 auto; font-size: 1.02rem; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  .summary-strip {
+    max-width: 920px;
+    margin: -36px auto 0;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(13,27,62,0.12);
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .stat-card .n { font-family: 'DM Serif Display', serif; font-size: 2rem; color: #0d1b3e; }
+  .stat-card .l { font-size: 0.78rem; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+  section { padding: 56px 0; border-bottom: 1px solid #e8ecf4; }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    color: #3182ce;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h2 { font-size: 1.8rem; color: #0d1b3e; margin-bottom: 8px; }
+  .lead { color: #4a5568; max-width: 680px; margin-bottom: 32px; font-size: 0.95rem; }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .badge.onboarded { background: #d4f4dd; color: #1a7a3d; }
+  .badge.ready { background: #fdeecb; color: #a3670c; }
+  .badge.discovery { background: #dbe9fd; color: #1a56a3; }
+  .badge.unclear { background: #edeff3; color: #5a6270; }
+  .partner-card {
+    background: #fff;
+    border: 1px solid #e8ecf4;
+    border-left: 4px solid #3182ce;
+    border-radius: 0 10px 10px 0;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .partner-card.onboarded { border-left-color: #1a7a3d; }
+  .partner-card.ready { border-left-color: #d69511; }
+  .partner-card.discovery { border-left-color: #3182ce; }
+  .partner-card.unclear { border-left-color: #9aa2b1; }
+  .partner-card h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.05rem; color: #0d1b3e; margin-bottom: 2px; }
+  .partner-card .sub { color: #718096; font-size: 0.85rem; margin-bottom: 12px; }
+  .timeline { list-style: none; margin: 10px 0 14px; }
+  .timeline li { font-size: 0.88rem; color: #4a5568; padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .timeline li::before { content: "-"; position: absolute; left: 0; color: #a0aec0; }
+  .timeline .date { color: #1a1a2e; font-weight: 500; }
+  .evidence {
+    background: #f7f8fb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #4a5568;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  .evidence .lbl { font-style: normal; font-weight: 600; color: #3182ce; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; display: block; margin-bottom: 4px; }
+  .flag {
+    background: #fff8e6;
+    border: 1px solid #f0d68a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #8a6300;
+    margin-top: 10px;
+  }
+  footer { padding: 40px 32px 60px; text-align: center; color: #a0aec0; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Ted's Health White-Label</div>
+  <h1>Partner Pipeline Status</h1>
+  <p>Every person or clinic touched in the TH WL conversation, read thread-by-thread from Olly's inbox - full bodies, not previews. Snapshot as of 4 Aug 2026.</p>
+</div>
+
+<div class="summary-strip">
+  <div class="stat-card"><div class="n">1</div><div class="l">Onboarded</div></div>
+  <div class="stat-card"><div class="n">3</div><div class="l">Ready to onboard</div></div>
+  <div class="stat-card"><div class="n">8</div><div class="l">In discovery</div></div>
+  <div class="stat-card"><div class="n">7</div><div class="l">Other / unclear</div></div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-label">Stage 1</div>
+  <h2>Onboarded <span class="badge onboarded">Live</span></h2>
+  <p class="lead">Confirmed live, selling under their own branding on the platform.</p>
+
+  <div class="partner-card onboarded">
+    <h3>Ollie Matthews - Ojay Health</h3>
+    <div class="sub">ollie@ojayhealth.com</div>
+    <ul class="timeline">
+      <li><span class="date">22 Jun</span> - Setup back-and-forth with Thomas Filmer on sign-up flow, referral vs platform links.</li>
+      <li><span class="date">10 Jul, 09:34</span> - Ollie asks how to check who's signed up ("I can only see one live patient").</li>
+      <li><span class="date">10 Jul, 12:54</span> - Thomas confirms a patient's payment went through.</li>
+      <li><span class="date">13 Jul</span> - Injection-method support thread for a live patient.</li>
+      <li><span class="date">23 Jul</span> - Olly cites Ojay to a new prospect (Stephan Grabner) as the reference case.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Olly, 23 Jul, to Stephan Grabner: "an example of a partner who's already onboarded, with the platform set up under their own branding" (ojayhealth.netlify.app).</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 2</div>
+  <h2>Past discovery - next step is onboarding <span class="badge ready">In motion</span></h2>
+  <p class="lead">Discovery is done and they've agreed to move forward. Onboarding mechanics (signup link, KYC, contract) are already underway or sent.</p>
+
+  <div class="partner-card ready">
+    <h3>Ian Worthington - GymWolfPT</h3>
+    <div class="sub">ian@gymwolfpt.com - Preston-based PT/coach</div>
+    <ul class="timeline">
+      <li><span class="date">21 Jul</span> - Discovery call booked.</li>
+      <li><span class="date">22 Jul, 14:47</span> - Call held. Ian: "Really great speaking with you, exciting times with the white labelling."</li>
+      <li><span class="date">22 Jul, 12:47</span> - Olly sends the 6-step onboarding link + custom call background; partnership agreement to follow.</li>
+      <li><span class="date">22 Jul, 16:49</span> - Ian: "All submitted (Ted's Health ad Ryft account) mate."</li>
+      <li><span class="date">23 Jul</span> - Ryft (KYC/payments) rejects Ian's utility bill; Olly asks for a resubmission.</li>
+      <li><span class="date">27 Jul</span> - Ian resubmits a new utility bill.</li>
+      <li><span class="date">3 Aug</span> - Olly chasing verification status, proposes a follow-up call to "maximise the WL."</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Furthest-along unconfirmed case - onboarding mechanically started, KYC verification is the only thing outstanding.</div>
+  </div>
+
+  <div class="partner-card ready">
+    <h3>Dr William Turner (Will Buxton) - Effect Doctors</h3>
+    <div class="sub">wb@effectdoctors.com</div>
+    <ul class="timeline">
+      <li><span class="date">27 Feb</span> - Early "Exploring a Partnership" conversation.</li>
+      <li><span class="date">26 Mar</span> - Will: "I've signed up!" (informal/referral-level).</li>
+      <li><span class="date">16 Jul</span> - Formal "Effect Doctors x Ted's Health on-boarding" Zoom call held.</li>
+      <li><span class="date">16 Jul, 12:39</span> - Olly sends the 6-step onboarding link plus the call recording.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Olly, 16 Jul: "Great to chat earlier... here's the onboarding link which will take you through a 6-step process... I hope the onboarding goes smoothly." No confirmation yet that the signup was finished.</div>
+  </div>
+
+  <div class="partner-card ready">
+    <h3>Guy Littlejohn - Function</h3>
+    <div class="sub">Wellness network for founders/business owners, Greater Manchester/Cheshire</div>
+    <ul class="timeline">
+      <li><span class="date">2 Jul</span> - Zoom call held: "Guy (Function) x Teds Health White-Label Onboarding" (26:10).</li>
+      <li><span class="date">3 Jul</span> - LinkedIn connection accepted.</li>
+      <li><span class="date">16 Jul</span> - Olly, in a separate thread with Debbie Bosworth, describes the model as "similar to what we've seen with Guy... fitting our panel straight into your central hub" - implying it's a working arrangement.</li>
+    </ul>
+    <div class="flag">No direct confirmation email or contract with Guy himself was found - this rests on the call title and Olly's own indirect remark. Worth confirming directly with Olly whether Guy is actually live, in which case this moves to Onboarded.</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 3</div>
+  <h2>In discovery <span class="badge discovery">Evaluating</span></h2>
+  <p class="lead">Discovery call held, being scheduled, or actively in back-and-forth - no firm commitment to onboard yet.</p>
+
+  <div class="partner-card discovery">
+    <h3>Leigh Kirby - independent nurse / mobile clinic (Heim Health)</h3>
+    <div class="sub">nurse.bernie@hotmail.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">17 Jul</span> - Inbound to partnerships@tedshealth.com; Olly sends the full WL overview.</li>
+      <li><span class="date">20 Jul</span> - Discovery call held.</li>
+      <li><span class="date">22 Jul</span> - Olly confirms clinic + home visits both possible, shares the Ojay Health demo, says onboarding call is ~30 min.</li>
+      <li><span class="date">22 Jul - 4 Aug</span> - Repeated reschedules (holiday, sick child).</li>
+      <li><span class="date">4 Aug</span> - Follow-up locked for Thu 6 Aug, 10:00-10:30, TH's Medical Director joining.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Olly, 22 Jul: "We won't need any more than 30 minutes for onboarding" - promised but not yet run as of 4 Aug.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Stephan Grabner - Amatsu Clinic</h3>
+    <div class="sub">Abergavenny - clinic director</div>
+    <ul class="timeline">
+      <li><span class="date">16 Jul</span> - Cold outreach, Stephan agrees to a call.</li>
+      <li><span class="date">22 Jul</span> - Discovery call held (rescheduled once).</li>
+      <li><span class="date">23 Jul</span> - Olly sends full WL overview + Ojay Health example, proposes a second call with the Medical Director.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Olly, 23 Jul: "Have a read and a chat internally... we'll book in for another call to go through it in more detail." No reply since.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Joanna (Jo) Maclean - Swift Blood Tests</h3>
+    <div class="sub">enquiries@swiftbloodtests.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">16 Jul</span> - Cold outreach; Jo asks for commercial model/branding/clinical-responsibility detail first.</li>
+      <li><span class="date">17 Jul</span> - Olly sends full breakdown + explainer video.</li>
+      <li><span class="date">20 Jul, 08:25</span> - Jo: "It certainly sounds like an interesting opportunity... I'd be happy to arrange a call."</li>
+      <li><span class="date">24 Jul</span> - Discovery call held (18:20 recording).</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Discovery complete, no follow-up/next-step email from either side since the 24 Jul call.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Kurt Farrar - Your Baby Scan</h3>
+    <div class="sub">kurt.farrar@yourbabyscan.com</div>
+    <ul class="timeline">
+      <li><span class="date">29 Jul</span> - Zoom invite sent/accepted.</li>
+      <li><span class="date">30 Jul</span> - Discovery call held (16:26 recording).</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>No pre-call origin email or post-call follow-up found - Calendly/Zoom-only trail, quiet since 30 Jul.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Jill Crowe - independent, Hartlepool</h3>
+    <ul class="timeline">
+      <li><span class="date">17 Jul</span> - Jill proposes a Q&A platform, mental-health service help, intros, market-gap mapping.</li>
+      <li><span class="date">17 Jul</span> - Olly: "best next step would be for you, me and Jonny to jump on a call... we've just launched a new white-label service."</li>
+      <li><span class="date">22 Jul</span> - "Jill Crowe x Teds Health Partnership Discussion" call held.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Discovery/pitch call held covering both her own ideas and the WL pitch. No next-step email since.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Daren Fletcher - Posture Dynamics</h3>
+    <div class="sub">daren@posturedynamics.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">27 Jul</span> - Zoom invite sent (no earlier cold-outreach email found).</li>
+      <li><span class="date">3 Aug</span> - Discovery call held.</li>
+      <li><span class="date">4 Aug, 10:01</span> - Olly sends detailed technical follow-up (CRP panel, GLP-1 meds).</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Olly, 4 Aug: "Once you've had a chance to chat with your team, let me know when it may be best to set up a follow-up call, which I can include our medical director in." Next step explicitly on Daren.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>John Hartley - Cardio-HART / Cardio-Phoenix</h3>
+    <div class="sub">cardiophoenix.com</div>
+    <ul class="timeline">
+      <li><span class="date">21-23 Jul</span> - Inbound pitch (turnkey cardiology reporting), reframed by Olly as a two-way WL conversation.</li>
+      <li><span class="date">24 Jul</span> - John confirms interest and availability.</li>
+      <li><span class="date">3-4 Aug</span> - Call rescheduled three times (clash, then day-of cancellation).</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Now set for 5 Aug - no discovery call has actually taken place yet.</div>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Dr Malaika Smith - Dr Malaika Clinics</h3>
+    <div class="sub">info@drmalaikaclinics.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">16 Jul</span> - Cold outreach; clinic already runs testosterone blood tests via Goodbody.</li>
+      <li><span class="date">24 Jul</span> - Malaika interested, flags: "We are currently not CQC registered... in case this would prevent us from being able to work with you."</li>
+      <li><span class="date">24 Jul</span> - Jonathan Andrews reassures her CQC registration isn't required on her end, asks for availability w/c 3 Aug.</li>
+    </ul>
+    <div class="evidence"><span class="lbl">Evidence</span>Interest confirmed both sides, compliance concern already resolved, but no call booked yet.</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 4</div>
+  <h2>Other / unclear <span class="badge unclear">Flagged</span></h2>
+  <p class="lead">Surfaced in the same search but don't fit the three stages cleanly - declined, gone cold, no reply, or off-category.</p>
+
+  <div class="partner-card unclear">
+    <h3>Debbie Bosworth - Ideal Edge</h3>
+    <div class="sub">debbie@idealedge.co</div>
+    <ul class="timeline">
+      <li><span class="date">10-16 Jul</span> - Full discovery process ran (call, biomarker/pricing Q&A, model clarification).</li>
+      <li><span class="date">16 Jul, 12:41</span> - Debbie declines: "TRT is not a priority partner for me at present... this conversation needs be banked for the time being."</li>
+      <li><span class="date">20 Jul</span> - Olly acknowledges gracefully, leaves the door open.</li>
+    </ul>
+    <div class="flag">Closed/parked at the prospect's own request, not dead-cold. Not a live discovery.</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>Mike James - Endurance Physio</h3>
+    <ul class="timeline">
+      <li><span class="date">3 Mar</span> - Calendly meeting booked for 30 Mar.</li>
+      <li><span class="date">30 Mar</span> - Olly cancels same-day ("something urgent has just come up"), asks to reschedule.</li>
+    </ul>
+    <div class="flag">Never rescheduled, thread gone cold since March. Not formally closed, just dead. Note: workspace notes from 15 Jul separately flag Mike as a "recent lead" with a voice-note sent - worth Olly confirming which is current.</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>Marina Abdalla - NutriPrep UK</h3>
+    <div class="sub">marina@nutriprepuk.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">15 Jul</span> - Discovery call booked.</li>
+      <li><span class="date">16 Jul, 13:06</span> - Marina cancels via Calendly: "I dont see patients that may require our collaboration."</li>
+    </ul>
+    <div class="flag">Explicit no-fit declaration before any call took place.</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>Rishi - Pharmica</h3>
+    <div class="sub">rishi@pharmica.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">24 Jun</span> - Single cold outbound pitch (1.2M+ patients, Sir Steve Redgrave association).</li>
+    </ul>
+    <div class="flag">No reply in 41 days - never entered discovery.</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>James Farmer - The Infinite Game</h3>
+    <div class="sub">james@jamesfarmer.co.uk</div>
+    <ul class="timeline">
+      <li><span class="date">8 Jul</span> - Single cold outbound pitch (~300 coached leaders/high performers).</li>
+    </ul>
+    <div class="flag">No reply in 27 days - never entered discovery.</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>Alan Cooper - Function Black</h3>
+    <div class="sub">Co-Founder, Managed IT Services, London</div>
+    <ul class="timeline">
+      <li><span class="date">24 Jul</span> - Cold, unanswered LinkedIn connection request only.</li>
+    </ul>
+    <div class="flag">No engagement, and managed IT is not an obvious WL fit (clinic/pharmacy/coach/telehealth).</div>
+  </div>
+
+  <div class="partner-card unclear">
+    <h3>Shaurya Arun - PSA (Professional Squash Association)</h3>
+    <ul class="timeline">
+      <li><span class="date">Jan-Jul</span> - Long-running thread, but this is event sponsorship/brand activation (Optasia Squash Championships, London Squash Classic), not a TH WL partnership.</li>
+      <li><span class="date">10 Feb</span> - Jesse declined the initial £5k sponsorship ask.</li>
+      <li><span class="date">21 Jul, bumped 29 Jul</span> - Re-pitched a new event, no reply since.</li>
+    </ul>
+    <div class="flag">Wrong category - surfaced only because the name appeared in WL-adjacent searches. Recommend excluding from the TH WL pipeline proper.</div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  Compiled from Olly's M365 mailbox - full thread reads, not search-snippet previews. Snapshot: 4 Aug 2026.<br>
+  Internal Ted's Health/BGV staff (Thomas Filmer, Jonathan Andrews, Calvin/Ku Creatives) excluded as non-partners.
+</footer>
+
+</body>
+</html>
