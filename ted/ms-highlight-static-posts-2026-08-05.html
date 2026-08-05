@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Highlight Static Posts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#14110E;
+    --panel:#1D1915;
+    --panel-2:#231E19;
+    --bone:#EAE3D6;
+    --bone-dim:#A69C8B;
+    --bone-faint:#6E665A;
+    --ember:#D06B2C;
+    --ember-soft:#E08a4f;
+    --slate:#8A9AA2;
+    --slate-soft:#AEBBC1;
+    --line:#332C24;
+    --line-cold:#2A3238;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember)}
+  header{position:relative;padding:96px 0 64px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 15% 0%, rgba(208,107,44,.14), transparent 55%),radial-gradient(120% 90% at 100% 120%, rgba(138,154,162,.10), transparent 50%)}
+  .hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .hero-tag .brand{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim)}
+  .hero-tag .rule{height:1px;flex:1;background:var(--line)}
+  .hero-tag .kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+  h1{font-family:'Oswald',sans-serif;font-weight:300;text-transform:uppercase;line-height:.98;font-size:clamp(32px,6vw,58px);color:var(--bone)}
+  h1 .then{display:block;font-weight:600}
+  .concept{margin-top:26px;max-width:620px;color:var(--bone-dim);font-size:16px}
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .spec{padding:20px 22px;border-left:1px solid var(--line)}
+  .spec:first-child{border-left:none}
+  .spec .k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);display:block;margin-bottom:7px}
+  .spec .v{font-family:'Oswald',sans-serif;font-weight:500;font-size:15px;text-transform:uppercase;letter-spacing:.02em;color:var(--bone)}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:26px}
+  .s-head .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);letter-spacing:.2em;margin-bottom:12px;display:block}
+  h2{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(22px,3.2vw,30px);letter-spacing:.01em;line-height:1.05;color:var(--bone)}
+  .lead{font-size:16.5px;color:var(--bone-dim);max-width:680px}
+  .note{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:3px;padding:26px 30px}
+  .note p{color:var(--bone-dim);max-width:680px;font-size:15px}
+  .note p+p{margin-top:12px}
+  .note strong{color:var(--bone);font-weight:600}
+  .posts{display:grid;gap:18px;margin-top:24px}
+  .post{padding:28px 30px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .post.cold{border-color:var(--line-cold)}
+  .post-head{display:flex;align-items:baseline;gap:14px;margin-bottom:4px;flex-wrap:wrap}
+  .post-head .no{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);letter-spacing:.1em}
+  .post-head h3{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(19px,2.6vw,24px);letter-spacing:.01em;color:var(--ember-soft)}
+  .anchor-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--ember);padding:4px 9px;border-radius:2px}
+  .cover-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint);border:1px solid var(--line);padding:4px 9px;border-radius:2px;margin-left:auto}
+  .post-row{display:flex;gap:14px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .post-row:first-of-type{border-top:none;margin-top:14px;padding-top:0}
+  .post-row .lab{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint);min-width:80px;padding-top:2px}
+  .post-row .txt{color:var(--bone);font-size:14.5px;line-height:1.55}
+  .post-row .txt em{color:var(--ember-soft);font-style:normal;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{font-family:'Space Mono',monospace;font-size:11.5px;padding:5px 10px;border-radius:2px;border:1px solid var(--line);color:var(--bone-dim);background:rgba(0,0,0,.2)}
+  .summary{border-bottom:none;padding-bottom:96px}
+  .summary-box{padding:30px 34px;border-radius:3px;background:linear-gradient(120deg,rgba(208,107,44,.08),rgba(138,154,162,.08));border:1px solid var(--line)}
+  .summary-box p{font-size:15.5px;color:var(--bone);line-height:1.7}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:720px){
+    .specs{grid-template-columns:repeat(2,1fr)}
+    .spec:nth-child(3){border-left:none}
+    .spec{border-top:1px solid var(--line)}
+    .spec:nth-child(-n+2){border-top:none}
+    header{padding:64px 0 48px}
+    section{padding:44px 0}
+    .post{padding:22px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hero-tag">
+      <span class="brand">Modern Savage</span>
+      <span class="rule"></span>
+      <span class="kind">Organic / Highlight Covers</span>
+    </div>
+    <h1><span class="then">One static post<br>per Highlight</span></h1>
+    <p class="concept">Seven evergreen static posts, one for each Highlight from the Profile & Highlights brief. These live in the tray permanently, not on the grid or in Stories for 24 hours - so each one is the single best static image for that Highlight's job, not a moment-in-time post.</p>
+  </div>
+  <div class="wrap" style="margin-top:44px;padding:0">
+    <div class="wrap">
+      <div class="specs">
+        <div class="spec"><span class="k">Surface</span><span class="v">Highlight tray</span></div>
+        <div class="spec"><span class="k">Format</span><span class="v">9:16 static</span></div>
+        <div class="spec"><span class="k">Count</span><span class="v">7, one per tab</span></div>
+        <div class="spec"><span class="k">Lifespan</span><span class="v">Permanent</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="note">
+      <span class="eyebrow" style="display:block;margin-bottom:12px">The rule for this batch</span>
+      <h2>Rugged and real, never soft-farm</h2>
+      <p>Carried straight from the Highlights brief: dark, wild, expedition-grade visuals across every cover. <strong>Wild</strong> also carries the "then vs now" grading from the Editor Brief reel - warm and primal, never the cold modern half, since a Highlight is a permanent home, not a place for the "now" side of that contrast.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">01 / The seven posts</span><h2>Ready to save into each tab</h2></div>
+
+    <div class="posts">
+
+      <div class="post">
+        <div class="post-head"><span class="no">01</span><h3>Our Family</h3><span class="anchor-tag">Anchor</span><span class="cover-tag">Warm grade</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">Bear, Shara and the three boys together outdoors - unposed, mid-activity rather than a lineup. Natural light, golden hour if possible.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"The family behind it."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">Real Food. Real Strength. Nothing Hidden. Built by us, for our family first.</span></div>
+      </div>
+
+      <div class="post">
+        <div class="post-head"><span class="no">02</span><h3>Nothing Hidden</h3><span class="cover-tag">Neutral / product</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">Flat-lay of the full label with every ingredient visible and legible, tub open beside it, natural texture (wood, stone, not a white studio surface).</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Everything that's in it. Nothing that isn't."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">Full ingredient list, always visible. Show, never claim.</span></div>
+      </div>
+
+      <div class="post">
+        <div class="post-head"><span class="no">03</span><h3>The Blends</h3><span class="cover-tag">Neutral / product</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">All three tubs - Modern Savage, Mini Savage, Summit Stack - lined up together, even lighting, same angle on each so the range reads as a system.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Three blends. One system."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">Not one tub - a range for every stage of the family.</span></div>
+      </div>
+
+      <div class="post">
+        <div class="post-head"><span class="no">04</span><h3>Mini Savage</h3><span class="cover-tag">Warm grade</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">One of the boys with the Mini Savage tub, candid, at the table or outdoors - a kid's product shown in a kid's hands, not staged studio.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Built for the youngest one too."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">The only blend in the range made just for kids.</span></div>
+      </div>
+
+      <div class="post">
+        <div class="post-head"><span class="no">05</span><h3>Founding Tribe</h3><span class="cover-tag">CTA / conversion</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">Simple, high-contrast type-led image - dark background, no product, no faces. This is the click-through moment, keep it clean.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Join the Founding Tribe."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">First access, before anyone else. Link in bio.</span></div>
+      </div>
+
+      <div class="post cold">
+        <div class="post-head"><span class="no">06</span><h3>Wild</h3><span class="cover-tag">Then-vs-now grade</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">The single warm/primal still from the Editor Brief reel - hands turning meat over an open fire, embers rising, golden hour grade. Only the "Then" half; this tab never shows the cold "Now" side.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Eating the way we were built to."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">Wild country, not farm gardens. This is the aesthetic that's ours.</span></div>
+      </div>
+
+      <div class="post">
+        <div class="post-head"><span class="no">07</span><h3>The Build</h3><span class="cover-tag">BTS</span></div>
+        <div class="post-row"><span class="lab">Visual</span><span class="txt">Honest behind-the-scenes still - a production line, a packing bench, hands on a prototype tub. Not polished, deliberately in-progress.</span></div>
+        <div class="post-row"><span class="lab">Text</span><span class="txt"><em>"Still being built. Come along."</em></span></div>
+        <div class="post-row"><span class="lab">Caption</span><span class="txt">Nothing to buy yet - but here's how we're getting there.</span></div>
+      </div>
+
+    </div>
+
+    <div class="chips" style="margin-top:22px">
+      <span class="chip">Dark, wild, expedition-grade</span>
+      <span class="chip">No soft-farm pastel</span>
+      <span class="chip">Show, don't claim</span>
+      <span class="chip">One flagship image per tab</span>
+    </div>
+  </div>
+</section>
+
+<section class="reveal summary">
+  <div class="wrap">
+    <div class="s-head"><span class="num">02 / In one breath</span></div>
+    <div class="summary-box">
+      <p>Seven static images, each built to be the permanent cover content for one Highlight tab - Our Family for the founder story, Nothing Hidden and The Blends for product proof, Mini Savage for the kids' line, Founding Tribe as the clean CTA, Wild carrying the warm half of the "then vs now" grade, and The Build as honest pre-launch BTS. All rugged and real, never soft-farm, and each one does the single job its tab needs to do.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
