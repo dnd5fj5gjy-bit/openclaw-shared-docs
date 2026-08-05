@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Savage - Story Post Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#14110E;
+    --panel:#1D1915;
+    --panel-2:#231E19;
+    --bone:#EAE3D6;
+    --bone-dim:#A69C8B;
+    --bone-faint:#6E665A;
+    --ember:#D06B2C;
+    --ember-soft:#E08a4f;
+    --slate:#8A9AA2;
+    --slate-soft:#AEBBC1;
+    --line:#332C24;
+    --line-cold:#2A3238;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--bone);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember)}
+  header{position:relative;padding:96px 0 64px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 15% 0%, rgba(208,107,44,.14), transparent 55%),radial-gradient(120% 90% at 100% 120%, rgba(138,154,162,.10), transparent 50%)}
+  .hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .hero-tag .brand{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim)}
+  .hero-tag .rule{height:1px;flex:1;background:var(--line)}
+  .hero-tag .kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+  h1{font-family:'Oswald',sans-serif;font-weight:300;text-transform:uppercase;line-height:.98;font-size:clamp(34px,6.4vw,64px);color:var(--bone)}
+  h1 .then{display:block;font-weight:600}
+  .concept{margin-top:26px;max-width:600px;color:var(--bone-dim);font-size:16px}
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .spec{padding:20px 22px;border-left:1px solid var(--line)}
+  .spec:first-child{border-left:none}
+  .spec .k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);display:block;margin-bottom:7px}
+  .spec .v{font-family:'Oswald',sans-serif;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:.02em;color:var(--bone)}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:26px}
+  .s-head .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);letter-spacing:.2em;margin-bottom:12px;display:block}
+  h2{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(22px,3.2vw,30px);letter-spacing:.01em;line-height:1.05;color:var(--bone)}
+  .lead{font-size:16.5px;color:var(--bone-dim);max-width:660px}
+  .note{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:3px;padding:26px 30px}
+  .note p{color:var(--bone-dim);max-width:660px;font-size:15px}
+  .note p+p{margin-top:12px}
+  .note strong{color:var(--bone);font-weight:600}
+  .stories{display:grid;gap:18px;margin-top:24px}
+  .story{padding:28px 30px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+  .story-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+  .story-head .idx{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);letter-spacing:.1em}
+  .story-head h3{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(19px,2.6vw,24px);letter-spacing:.01em;color:var(--ember-soft)}
+  .fmt-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--slate-soft);padding:4px 9px;border-radius:2px;margin-left:auto}
+  .story-row{display:flex;gap:14px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .story-row:first-of-type{border-top:none;margin-top:14px;padding-top:0}
+  .story-row .lab{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint);min-width:74px;padding-top:2px}
+  .story-row .txt{color:var(--bone);font-size:14.5px;line-height:1.55}
+  .story-row .txt em{color:var(--ember-soft);font-style:normal;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{font-family:'Space Mono',monospace;font-size:11.5px;padding:5px 10px;border-radius:2px;border:1px solid var(--line);color:var(--bone-dim);background:rgba(0,0,0,.2)}
+  .summary{border-bottom:none;padding-bottom:96px}
+  .summary-box{padding:30px 34px;border-radius:3px;background:linear-gradient(120deg,rgba(208,107,44,.08),rgba(138,154,162,.08));border:1px solid var(--line)}
+  .summary-box p{font-size:15.5px;color:var(--bone);line-height:1.7}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:720px){
+    .specs{grid-template-columns:repeat(2,1fr)}
+    .spec:nth-child(3){border-left:none}
+    .spec{border-top:1px solid var(--line)}
+    .spec:nth-child(-n+2){border-top:none}
+    header{padding:64px 0 48px}
+    section{padding:44px 0}
+    .story{padding:22px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hero-tag">
+      <span class="brand">Modern Savage</span>
+      <span class="rule"></span>
+      <span class="kind">Organic / IG Stories</span>
+    </div>
+    <h1><span class="then">Then vs now,<br>told in stories</span></h1>
+    <p class="concept">Nine organic Story posts built off the "how food used to be earned vs the modern world" angle from the Reel brief - same rule set, adapted for the Stories surface: quick, native, interactive, not a shrink-fit of the Reel.</p>
+  </div>
+  <div class="wrap" style="margin-top:44px;padding:0">
+    <div class="wrap">
+      <div class="specs">
+        <div class="spec"><span class="k">Surface</span><span class="v">IG Stories</span></div>
+        <div class="spec"><span class="k">Format</span><span class="v">9:16, native</span></div>
+        <div class="spec"><span class="k">Cadence</span><span class="v">Daily, 1 story</span></div>
+        <div class="spec"><span class="k">Brand</span><span class="v">Caption only</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="note">
+      <span class="eyebrow" style="display:block;margin-bottom:12px">The rule carried over from the Reel</span>
+      <h2>Both eras stay equally beautiful</h2>
+      <p>No story should read as "good footage vs bad footage." Warm/primal and cold/modern are graded differently, never shot at different quality. Same as the Reel: <strong>Modern Savage is never shown on screen</strong> - it only appears in the caption, as the way back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="num">01 / The nine posts</span><h2>Ready-to-post concepts</h2></div>
+
+    <div class="stories">
+
+      <div class="story">
+        <div class="story-head"><span class="idx">01</span><h3>The Hook, Standalone</h3><span class="fmt-tag">Text card</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">A single still from the "Then" half - hands turning meat over an open fire, embers rising. No motion needed.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"How our grandparents got their food."</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">None. Let the line and the image sit. This is the teaser before the Reel drops.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">Modern Savage is the way back.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">02</span><h3>The Flip, Standalone</h3><span class="fmt-tag">Text card</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">A single still from the "Now" half - plastic-wrapped meat on a styrofoam tray under cold light.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"...vs the modern world."</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">None. Post the day after story 01 as the answer to the question it left open.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">Somewhere along the way, we lost this.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">03</span><h3>This or That</h3><span class="fmt-tag">Poll sticker</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">Split frame - fire and open land on the left, fluorescent aisle on the right.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"Which one are you built for?"</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">Poll sticker, options labelled by the two images rather than words. Outcome is obvious - that is the point, it makes people tap.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">You already know the answer.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">04</span><h3>Guess The Era</h3><span class="fmt-tag">Quiz sticker</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">A tightly cropped, ambiguous macro shot - could read as either era at first glance (e.g. hands and fire, close enough to hide context).</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"Then or now?"</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">Quiz sticker, two options: Then / Now. Next story reveals the wide shot and the correct answer.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">No caption needed - let the quiz carry it.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">05</span><h3>Countdown to the Reel</h3><span class="fmt-tag">Countdown sticker</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">Best single frame from Part 1 of the Reel - the drone shot over the green valley at golden hour.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"The way back drops Friday."</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">Countdown sticker to the Reel's publish time. Let followers set a reminder.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">Modern Savage is the way back.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">06</span><h3>Reel Repost, Day Of</h3><span class="fmt-tag">Native share</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">The Reel itself, shared natively to Stories the moment it goes live.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt">Keep the Reel's own on-screen text - no extra overlay needed.</span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">Link sticker to the Reel if driving traffic off-post; otherwise none, let it play.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">It is live.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">07</span><h3>Behind the Grade</h3><span class="fmt-tag">BTS clip</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">Split-screen colour-grading comparison - same shot, warm grade next to cold grade, shown side by side.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"Same shot. Same quality. Opposite temperature."</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">None, or an emoji slider ("which feels warmer") if you want a light interaction.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">That is the whole trick - the contrast is never quality, only colour.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">08</span><h3>Hook Line Carousel</h3><span class="fmt-tag">Multi-frame</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">Three consecutive story frames, same still image (community eating around the fire) held throughout.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt">Frame 1: <em>"Three generations ago, this was normal."</em> Frame 2: <em>"Now we just unwrap it."</em> Frame 3: <em>"Your body still remembers this."</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">None. Tests three hook lines from the Reel brief's option bank in sequence, cheaply, before committing one to paid.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">Not used - the lines are the whole post.</span></div>
+      </div>
+
+      <div class="story">
+        <div class="story-head"><span class="idx">09</span><h3>Ask Us Anything: Then vs Now</h3><span class="fmt-tag">Question sticker</span></div>
+        <div class="story-row"><span class="lab">Visual</span><span class="txt">Warm-graded still, hunter or riders on open plains.</span></div>
+        <div class="story-row"><span class="lab">Text</span><span class="txt"><em>"What did food look like where you grew up?"</em></span></div>
+        <div class="story-row"><span class="lab">Sticker</span><span class="txt">Question sticker. Reshare the best replies as follow-up stories over the next day or two - free, on-narrative UGC.</span></div>
+        <div class="story-row"><span class="lab">Caption</span><span class="txt">None needed - the question is the post.</span></div>
+      </div>
+
+    </div>
+
+    <div class="chips" style="margin-top:22px">
+      <span class="chip">No product on screen</span>
+      <span class="chip">No voiceover</span>
+      <span class="chip">Brand in caption only</span>
+      <span class="chip">Same warm/cold grade rule as the Reel</span>
+    </div>
+  </div>
+</section>
+
+<section class="reveal summary">
+  <div class="wrap">
+    <div class="s-head"><span class="num">02 / In one breath</span></div>
+    <div class="summary-box">
+      <p>Stories carry the same "then vs now" narrative as the Reel but do the jobs Stories are actually good at - teasing, polling, countdown, BTS, UGC prompts - instead of squeezing the Reel down to fit. Post 01-02 as a teaser pair before the Reel, 03-04 for engagement any day, 05-06 around the Reel's launch, 07-09 as evergreen filler across the week.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
