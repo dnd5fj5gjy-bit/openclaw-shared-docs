@@ -14,12 +14,11 @@ body{font-family:'Inter',sans-serif;color:#141414;line-height:1.6;font-size:10.6
 h1{font-family:'Barlow Condensed',sans-serif;font-size:34pt;line-height:.96;text-transform:uppercase;
    font-weight:700;margin:0 0 4pt;letter-spacing:-.01em}
 h1 + p{color:#6b6b6b;font-size:11pt;margin-bottom:3pt}
-h2{font-family:'Barlow Condensed',sans-serif;font-size:24pt;text-transform:uppercase;font-weight:700;
-   margin:30pt 0 11pt;border-top:3px solid #8a3b17;padding-top:12pt;
-   break-after:avoid;page-break-after:avoid;break-before:page;page-break-before:always}
-h2:first-of-type{break-before:auto;page-break-before:auto}
-h3{font-family:'Barlow Condensed',sans-serif;font-size:16.5pt;text-transform:uppercase;font-weight:600;
-   margin:19pt 0 7pt;color:#8a3b17;break-after:avoid;page-break-after:avoid}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:23pt;text-transform:uppercase;font-weight:700;
+   margin:26pt 0 10pt;border-top:3px solid #8a3b17;padding-top:11pt;
+   break-after:avoid;page-break-after:avoid}
+h3{font-family:'Barlow Condensed',sans-serif;font-size:16pt;text-transform:uppercase;font-weight:600;
+   margin:17pt 0 6pt;color:#8a3b17;break-after:avoid;page-break-after:avoid}
 p{margin:0 0 9pt}
 strong{font-weight:600;color:#000}
 blockquote{margin:11pt 0;padding:10pt 14pt;background:#f4f1ea;border-left:4px solid #8a3b17;
