@@ -407,7 +407,7 @@ launch, not before you read this.
 | Aviform | Wendy Greaves — private.label@aviform.co.uk | UK manufacturer lead, furthest along | Has her answer, building a purchase list. **Yours** |
 | Protein Partners | Sam Platt | UK manufacturer, said yes 4 Aug | **Owed a reply, 2 days** |
 | Calita | Lauren Stevens, quality team | UK manufacturer, 500 MOQ | Waiting on a number since 23 Jul. **Yours** |
-| Parkacre | | UK manufacturer lead | 10,000 MOQ. Least attractive |
+| Parkacre | Lauren Todd | UK manufacturer lead | **Effectively closed.** 10,000 MOQ; Jesse declined 22 Jul: "I don't think that will work for us" |
 | SCEND (UK) Ltd | Jack Crumpton, Director — jack@scend.com | UK 3PL | Waiting on 5 details since 3 Aug |
 | Ships A Lot | Ryan; Susan U | US 3PL | **Rate card never sent, 27 days** |
 | Belmark | Sarah Salscheider, De Pere WI | Pouch printing | Artwork live |
