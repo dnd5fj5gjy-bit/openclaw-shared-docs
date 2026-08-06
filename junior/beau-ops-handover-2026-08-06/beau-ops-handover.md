@@ -377,6 +377,10 @@ issue, because supplements sit under the FDA and not the USDA.
 the UK mean we must either charge on despatch or state a clear ship window. We are currently charging up
 front against an October promise, so the ship window statement has to be right and visible.
 
+**This is already with counsel.** Paul Obszanski at Ice Miller is reviewing the Modern Savage terms and
+conditions with Raemy, last exchange 4 August 19:45. Do not make changes to what the pre-order pages
+promise without going through that review.
+
 ## Still genuinely unsettled
 
 The novel-food status of bovine colostrum in Mini Savage, whether every whole-food and fermented vitamin
