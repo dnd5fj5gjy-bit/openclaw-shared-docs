@@ -8,488 +8,502 @@
 
   :root{
     --ink:#12100e;
-    --paper:#f4f1ea;
-    --sand:#e6e0d2;
-    --orange:#e0521f;
-    --deep:#1b3a2f;
-    --stone:#6f685c;
-    --line:rgba(18,16,14,.14);
+    --paper:#f6f3ed;
+    --night:#141110;
+    --fire:#e8471f;
+    --gold:#f5a623;
+    --stone:#7a726b;
+    --line:rgba(18,16,14,.13);
+    --lineD:rgba(255,255,255,.15);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#555;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  body{background:#4a4a4a;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
 
   .slide{
     width:1600px;height:900px;position:relative;overflow:hidden;
     background:var(--paper);color:var(--ink);
-    padding:82px 96px 106px;display:flex;flex-direction:column;
+    padding:84px 96px 100px;display:flex;flex-direction:column;
     page-break-after:always;break-after:page;
   }
   .slide:last-child{page-break-after:auto}
 
-  /* ---------- shared furniture ---------- */
+  /* ---------- furniture ---------- */
   .kicker{
     font-family:'Barlow Condensed',sans-serif;font-weight:600;
-    text-transform:uppercase;letter-spacing:.22em;font-size:19px;
-    color:var(--orange);margin-bottom:22px;
+    text-transform:uppercase;letter-spacing:.24em;font-size:19px;
+    color:var(--fire);margin-bottom:24px;
   }
   h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;
-     font-size:118px;line-height:.92;letter-spacing:-.015em;text-transform:uppercase}
+     font-size:118px;line-height:.9;letter-spacing:-.015em;text-transform:uppercase}
   h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;
-     font-size:70px;line-height:.98;letter-spacing:-.01em;text-transform:uppercase;
-     margin-bottom:34px}
-  .sub{font-size:27px;line-height:1.45;color:var(--stone);max-width:1120px;font-weight:300}
+     font-size:76px;line-height:.95;letter-spacing:-.012em;text-transform:uppercase;
+     margin-bottom:38px}
+  .sub{font-size:27px;line-height:1.42;color:var(--stone);max-width:1080px;font-weight:300}
   p{font-size:22px;line-height:1.55}
 
-  .num{page:auto;position:absolute;right:52px;bottom:40px;z-index:3;
+  .num{position:absolute;right:54px;bottom:42px;z-index:5;
     font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.16em;
-    color:var(--stone);opacity:.65}
-  .brandmark{position:absolute;left:96px;bottom:40px;z-index:3;
-    font-family:'Barlow Condensed',sans-serif;font-size:19px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--stone);opacity:.7}
+    color:var(--stone);opacity:.6}
+  .brandmark{position:absolute;left:96px;bottom:42px;z-index:5;
+    font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stone);opacity:.65}
 
-  .rule{height:5px;width:96px;background:var(--orange);margin:0 0 34px}
+  .dark{background:var(--night);color:var(--paper)}
+  .dark .sub,.dark .num,.dark .brandmark{color:rgba(246,243,237,.6)}
+  .dark .kicker{color:var(--gold)}
 
-  /* ---------- dark variant ---------- */
-  .dark{background:var(--deep);color:var(--paper)}
-  .dark .sub,.dark .num,.dark .brandmark{color:rgba(244,241,234,.62)}
-  .dark .kicker{color:#f0a03c}
-
-  /* ---------- cover ---------- */
-  .cover{background:var(--deep);color:var(--paper);justify-content:flex-end;padding-bottom:132px}
-
-  .cover .peaks{position:absolute;left:0;right:0;bottom:0;height:430px;opacity:.28}
-  .cover h1{font-size:158px;position:relative}
-  .cover .tag{position:relative;font-size:31px;font-weight:300;
-    color:rgba(244,241,234,.8);margin-top:30px;max-width:1040px;line-height:1.4}
-  .cover .top{position:absolute;top:82px;left:96px;z-index:3;
-    font-family:'Barlow Condensed',sans-serif;letter-spacing:.3em;font-size:21px;
-    text-transform:uppercase;color:#f0a03c}
-
-  /* ---------- statement slide ---------- */
-  .statement{justify-content:center}
-  .statement .big{font-family:'Barlow Condensed',sans-serif;font-weight:700;
-    font-size:96px;line-height:1.02;text-transform:uppercase;max-width:1300px}
-  .statement .big em{font-style:normal;color:var(--orange)}
-
-  /* ---------- grids ---------- */
-  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:14px}
-  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:14px}
-  .g2{display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:10px}
-
-  .card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:34px 32px}
-  .dark .card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.14)}
-  .card h3{font-family:'Barlow Condensed',sans-serif;font-size:31px;font-weight:700;
-    text-transform:uppercase;margin-bottom:14px;letter-spacing:.01em}
-  .card p{font-size:20px;line-height:1.5;color:var(--stone)}
-  .dark .card p{color:rgba(244,241,234,.72)}
-
-  .stat{font-family:'Barlow Condensed',sans-serif;font-weight:700;
-    font-size:88px;line-height:.9;color:var(--orange);letter-spacing:-.01em}
-  .stat.deep{color:var(--deep)}
-  .dark .stat{color:#f0a03c}
-  .dark .stat.deep{color:var(--paper)}
-  .statlabel{font-size:19px;line-height:1.45;color:var(--stone);margin-top:16px}
-  .dark .statlabel{color:rgba(244,241,234,.66)}
-
-  /* ---------- value chain ---------- */
-  .chain{display:flex;align-items:stretch;gap:0;margin-top:30px;
-    border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
-  .link{flex:1;padding:32px 26px;border-right:1px solid var(--line);position:relative}
-  .link:last-child{border-right:0}
-  .link.us{background:var(--deep);color:var(--paper)}
-  .link .who{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.12em;color:var(--stone);margin-bottom:16px}
-  .link.us .who{color:#f0a03c}
-  .link .amt{font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:700;line-height:.9}
-  .link .note{font-size:17px;color:var(--stone);margin-top:14px;line-height:1.45}
-  .link.us .note{color:rgba(244,241,234,.7)}
-
-  /* ---------- ledger rows ---------- */
-  .ledger{margin-top:26px;border-top:1px solid var(--line)}
-  .row{display:flex;justify-content:space-between;align-items:baseline;
-    padding:17px 4px;border-bottom:1px solid var(--line);font-size:23px}
-  .row .lab{color:var(--stone);font-weight:400}
-  .row .val{font-family:'Barlow Condensed',sans-serif;font-size:33px;font-weight:600}
-  .row.total .lab{color:var(--ink);font-weight:600}
-  .row.total .val{color:var(--orange);font-size:44px}
-  .dark .row{border-color:rgba(255,255,255,.16)}
-  .dark .row .lab{color:rgba(244,241,234,.66)}
-  .dark .row.total .lab{color:var(--paper)}
-
-  /* ---------- change list ---------- */
-  .change{display:flex;gap:28px;padding:19px 0;border-bottom:1px solid var(--line);align-items:flex-start}
-  .change:last-child{border-bottom:0}
-  .change .idx{font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:700;
-    color:var(--orange);line-height:.9;width:52px;flex:none}
-  .change .body h4{font-family:'Barlow Condensed',sans-serif;font-size:31px;
-    text-transform:uppercase;font-weight:700;margin-bottom:7px}
-  .change .body p{font-size:19px;color:var(--stone);line-height:1.48;max-width:1300px}
-  .dark .change{border-color:rgba(255,255,255,.15)}
-  .dark .change .body p{color:rgba(244,241,234,.7)}
-
-  /* ---------- steps ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 44px;margin-top:22px}
-  .step{border-top:4px solid var(--orange);padding-top:20px}
-  .step .n{font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.2em;
-    color:var(--orange);text-transform:uppercase;margin-bottom:10px}
-  .step h4{font-family:'Barlow Condensed',sans-serif;font-size:30px;text-transform:uppercase;
-    font-weight:700;margin-bottom:10px;line-height:1.05}
-  .step p{font-size:18px;color:var(--stone);line-height:1.5}
-
-  .foot{margin-top:auto;font-size:18px;color:var(--stone);padding-top:26px;
-    border-top:1px solid var(--line);line-height:1.5;max-width:1300px}
-  .dark .foot{border-color:rgba(255,255,255,.16);color:rgba(244,241,234,.6)}
-
-  .slide.tight{padding-top:64px;padding-bottom:104px}
-  .slide.tight h2{font-size:60px;margin-bottom:20px}
-  .slide.tight .kicker{margin-bottom:16px}
-
-  .flag{background:rgba(224,82,31,.09);border-left:5px solid var(--orange);
-    padding:24px 28px;margin-top:26px;font-size:21px;line-height:1.55}
-  .dark .flag{background:rgba(240,160,60,.11);border-color:#f0a03c}
+  /* one-line closing note, replaces the old paragraph feet */
+  .note{margin-top:auto;padding-top:26px;border-top:1px solid var(--line);
+    font-size:20px;line-height:1.5;color:var(--stone);max-width:1330px}
+  .note strong{color:var(--ink);font-weight:600}
+  .dark .note{border-color:var(--lineD);color:rgba(246,243,237,.62)}
+  .dark .note strong{color:var(--paper)}
 
   /* ---------- photography ---------- */
   .photo{position:absolute;inset:0;z-index:0}
   .photo img{width:100%;height:100%;object-fit:cover;display:block}
   .photo::after{content:'';position:absolute;inset:0}
-  .slide > *:not(.photo):not(.halfshot):not(.top):not(.brandmark):not(.num){position:relative;z-index:2}
+  .slide > *:not(.photo):not(.halfshot){position:relative;z-index:2}
 
-  /* scrims - tuned per slide so type always clears the image */
   .scrim-bottom .photo::after{background:linear-gradient(to top,
-      rgba(8,14,12,.96) 0%, rgba(8,14,12,.88) 30%, rgba(8,14,12,.62) 55%, rgba(8,14,12,.30) 78%, rgba(8,14,12,.18) 100%)}
+      rgba(8,7,6,.97) 0%, rgba(8,7,6,.9) 26%, rgba(8,7,6,.6) 52%, rgba(8,7,6,.24) 76%, rgba(8,7,6,.12) 100%)}
   .scrim-left .photo::after{background:linear-gradient(to right,
-      rgba(12,18,16,.94) 0%, rgba(12,18,16,.82) 42%, rgba(12,18,16,.30) 72%, rgba(12,18,16,.05) 100%)}
-  .scrim-full .photo::after{background:rgba(12,18,16,.80)}
+      rgba(8,7,6,.95) 0%, rgba(8,7,6,.88) 38%, rgba(8,7,6,.44) 66%, rgba(8,7,6,.06) 100%)}
+  .scrim-full .photo::after{background:rgba(9,8,7,.78)}
 
-  /* ---------- packaging concept row ---------- */
-  .packs{display:grid;grid-template-columns:repeat(7,1fr);gap:16px;margin-top:10px;
-    align-items:end}
-  .packs figure{margin:0;display:flex;flex-direction:column;align-items:center}
-  .packs img{height:322px;width:auto;max-width:100%;display:block;border-radius:3px;
-    box-shadow:0 14px 30px rgba(0,0,0,.42)}
-  .packs figcaption{font-family:'Barlow Condensed',sans-serif;font-size:16px;
-    letter-spacing:.13em;text-transform:uppercase;margin-top:14px;text-align:center;
-    color:rgba(244,241,234,.55);line-height:1.3;min-height:42px}
-
-  /* ---------- two-up photo panel ---------- */
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
-  .duo img{width:100%;height:430px;object-fit:cover;display:block;border-radius:3px}
-
-  /* half-bleed image panel inside a light slide */
-  .halfshot{position:absolute;right:0;top:0;bottom:0;width:46%;z-index:0;overflow:hidden}
+  .halfshot{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:0;overflow:hidden}
   .halfshot img{width:100%;height:100%;object-fit:cover;display:block}
   .halfshot::after{content:'';position:absolute;inset:0;
-    background:linear-gradient(to right, var(--paper) 0%, rgba(244,241,234,.35) 12%, transparent 26%)}
-  .narrow{max-width:830px}
+    background:linear-gradient(to right, var(--paper) 0%, rgba(246,243,237,.3) 14%, transparent 30%)}
+  .dark .halfshot::after{background:linear-gradient(to right, var(--night) 0%, rgba(20,17,16,.3) 14%, transparent 30%)}
+  .narrow{max-width:840px}
+  .narrower{max-width:700px}
+
+  /* ---------- cover ---------- */
+  .cover{background:var(--night);color:var(--paper);justify-content:flex-end;padding-bottom:126px}
+  .cover h1{font-size:152px}
+  .cover .tag{font-size:31px;font-weight:300;color:rgba(246,243,237,.82);
+    margin-top:32px;max-width:1010px;line-height:1.38}
+  .cover .top{position:absolute;top:84px;left:96px;z-index:3;
+    font-family:'Barlow Condensed',sans-serif;letter-spacing:.32em;font-size:21px;
+    text-transform:uppercase;color:var(--gold)}
+
+  /* ---------- hero number ---------- */
+  .hero{font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:280px;line-height:.82;letter-spacing:-.03em;color:var(--paper)}
+  .hero em{font-style:normal;color:var(--gold)}
+  .herolab{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;
+    letter-spacing:.16em;font-size:30px;color:var(--gold);margin-top:26px}
+
+  /* ---------- stat rows ---------- */
+  .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:auto;
+    padding-top:34px;border-top:1px solid var(--lineD)}
+  .statrow.four{grid-template-columns:repeat(4,1fr);gap:40px}
+  .statrow .n{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:74px;
+    line-height:.9;color:var(--paper)}
+  .statrow .l{font-size:18px;line-height:1.45;color:rgba(246,243,237,.66);margin-top:14px}
+
+  /* ---------- cards ---------- */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:34px 32px}
+  .dark .card{background:rgba(255,255,255,.055);border-color:var(--lineD)}
+  .card h3{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;
+    text-transform:uppercase;margin-bottom:14px}
+  .card p{font-size:20px;line-height:1.5;color:var(--stone)}
+  .dark .card p{color:rgba(246,243,237,.72)}
+  .card.hot{background:var(--fire);border-color:var(--fire);color:#fff}
+  .card.hot h3{color:#fff}
+  .card.hot p{color:rgba(255,255,255,.92)}
+
+  /* ---------- competitor positioning ---------- */
+  .pos{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px}
+  .pos .box{border:1px solid var(--lineD);border-radius:3px;padding:32px 28px;
+    display:flex;flex-direction:column;min-height:330px}
+  .pos .box .nm{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:700;
+    text-transform:uppercase;line-height:1;margin-bottom:8px}
+  .pos .box .cat{font-family:'Barlow Condensed',sans-serif;font-size:19px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .pos .box p{font-size:19px;line-height:1.5;color:rgba(246,243,237,.7)}
+  .pos .box .px{margin-top:auto;font-family:'Barlow Condensed',sans-serif;font-size:26px;
+    letter-spacing:.06em;color:rgba(246,243,237,.5);padding-top:18px}
+  .pos .box.ours{background:var(--fire);border-color:var(--fire)}
+  .pos .box.ours p{color:rgba(255,255,255,.94)}
+  .pos .box.ours .cat{color:#fff}
+  .pos .box.ours .px{color:rgba(255,255,255,.8)}
+
+  /* ---------- pack gallery ---------- */
+  .gallery{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:30px;margin-top:6px;align-items:start}
+  .gallery .lead img{width:100%;height:auto;display:block;border-radius:4px;
+    box-shadow:0 20px 46px rgba(0,0,0,.5)}
+  .minis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .minis img{width:100%;height:auto;display:block;border-radius:3px;opacity:.72;
+    box-shadow:0 8px 20px rgba(0,0,0,.4)}
+  .shotcol img{width:100%;height:339px;object-fit:cover;display:block;border-radius:3px;margin-bottom:16px}
+  .cap{font-family:'Barlow Condensed',sans-serif;font-size:17px;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(246,243,237,.5);margin-top:12px}
+
+  /* ---------- value chain ---------- */
+  .chain{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:20px;
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
+  .link{padding:34px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+  .link:last-child{border-right:0}
+  .link.us{background:var(--night);color:var(--paper)}
+  .link .who{font-family:'Barlow Condensed',sans-serif;font-size:23px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.14em;color:var(--stone);margin-bottom:18px}
+  .link.us .who{color:var(--gold)}
+  .link .amt{font-family:'Barlow Condensed',sans-serif;font-size:62px;font-weight:700;line-height:.88;
+    color:var(--fire)}
+  .link.us .amt{color:var(--gold)}
+  .link .note2{font-size:17px;color:var(--stone);margin-top:16px;line-height:1.45}
+  .link.us .note2{color:rgba(246,243,237,.7)}
+  .digital{margin-top:0;background:var(--fire);color:#fff;padding:24px 32px;
+    border-radius:0 0 3px 3px;display:flex;gap:44px;align-items:center}
+  .digital .dh{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;flex:none}
+  .digital .ds{font-size:19px;line-height:1.45;color:rgba(255,255,255,.94)}
+
+  /* ---------- waterfall ---------- */
+  .fall{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin-top:26px;
+    align-items:end;height:400px}
+  .bar{display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+  .bar .v{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:700;
+    margin-bottom:12px;line-height:1}
+  .bar .fillwrap{width:100%;background:rgba(18,16,14,.05);border-radius:2px;
+    display:flex;align-items:flex-end;height:262px}
+  .bar .fill{width:100%;background:#d8d1c4;border-radius:2px}
+  .bar.take .fill{background:var(--fire)}
+  .bar.keep .fill{background:var(--night)}
+  .bar.keep .v{color:var(--fire)}
+  .bar .lb{font-size:16px;line-height:1.4;color:var(--stone);margin-top:16px;min-height:66px}
+
+  /* ---------- scale columns ---------- */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:12px;align-items:end}
+  .tier{border:1px solid var(--lineD);border-radius:3px;padding:34px 32px;
+    display:flex;flex-direction:column;justify-content:flex-end}
+  .tier .st{font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+  .tier .big{font-family:'Barlow Condensed',sans-serif;font-weight:700;line-height:.86;
+    color:var(--paper)}
+  .tier .money{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:60px;
+    color:var(--gold);line-height:1;margin-top:20px}
+  .tier .l{font-size:18px;line-height:1.45;color:rgba(246,243,237,.62);margin-top:16px}
+  .tier.t1{height:330px}.tier.t2{height:420px}.tier.t3{height:530px;background:rgba(232,71,31,.14);border-color:var(--fire)}
+  .tier.t1 .big{font-size:76px}.tier.t2 .big{font-size:96px}.tier.t3 .big{font-size:118px}
+
+  /* ---------- gst doors ---------- */
+  .doors{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:10px}
+  .door{border:1px solid var(--lineD);border-radius:3px;padding:36px 32px;text-align:left}
+  .door .pc{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:130px;
+    line-height:.84;color:rgba(246,243,237,.34)}
+  .door h3{font-family:'Barlow Condensed',sans-serif;font-size:29px;font-weight:700;
+    text-transform:uppercase;margin:20px 0 12px}
+  .door p{font-size:19px;line-height:1.5;color:rgba(246,243,237,.66)}
+  .door.base{background:var(--fire);border-color:var(--fire)}
+  .door.base .pc{color:#fff}
+  .door.base p{color:rgba(255,255,255,.92)}
+
+  /* ---------- timeline ---------- */
+  .tl{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:16px}
+  .tl .s{border-top:5px solid var(--fire);padding-top:22px}
+  .tl .s .n{font-family:'Barlow Condensed',sans-serif;font-size:19px;letter-spacing:.2em;
+    color:var(--fire);text-transform:uppercase;margin-bottom:12px}
+  .tl .s h4{font-family:'Barlow Condensed',sans-serif;font-size:30px;text-transform:uppercase;
+    font-weight:700;margin-bottom:12px;line-height:1.03}
+  .tl .s p{font-size:18px;color:var(--stone);line-height:1.48}
+  .askbox{margin-top:38px;background:var(--night);color:var(--paper);border-radius:3px;
+    padding:36px 42px;display:flex;align-items:center;gap:52px}
+  .askbox .amt{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:104px;
+    line-height:.86;color:var(--gold);flex:none}
+  .askbox .tx{font-size:22px;line-height:1.5;color:rgba(246,243,237,.82)}
+  .askbox .tx strong{color:var(--paper);font-weight:600}
+
+  /* ---------- statement ---------- */
+  .statement{justify-content:center}
+  .statement .big{font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:92px;line-height:1.0;text-transform:uppercase;max-width:1220px;color:var(--paper)}
+  .statement .big em{font-style:normal;color:var(--gold)}
+
+  /* ---------- decisions list ---------- */
+  .dec{display:flex;gap:30px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .dec:last-child{border-bottom:0}
+  .dec .idx{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;
+    color:var(--fire);line-height:.9;width:50px;flex:none}
+  .dec .body h4{font-family:'Barlow Condensed',sans-serif;font-size:30px;
+    text-transform:uppercase;font-weight:700;margin-bottom:7px}
+  .dec .body p{font-size:19px;color:var(--stone);line-height:1.46;max-width:1290px}
 </style>
 </head>
 <body>
 
-<!-- 1 COVER -->
+<!-- 01 COVER -->
 <section class="slide cover scrim-bottom">
   <div class="photo"><img src="pack/deck-everest.jpg" alt=""></div>
   <div class="top">Bear Grylls Ventures &middot; India</div>
   <h1>Bear Grylls<br>Everest Power</h1>
-  <div class="tag">A ten rupee sachet of energy and electrolytes, made in India,
-    on every street in India. Sold wholesale only, through a distributor network
-    we can see straight through.</div>
+  <div class="tag">A ten rupee sachet of energy and electrolytes. Made in India,
+    sold wholesale only, on every street in India.</div>
   <div class="brandmark">Working plan &middot; 6 August 2026</div>
   <div class="num">01</div>
 </section>
 
-<!-- 2 THE BUSINESS IN FOUR LINES -->
-<section class="slide dark">
-  <div class="kicker">The business in four lines</div>
-  <h2 style="font-size:62px;margin-bottom:26px">What we make, how we sell it,<br>and what we keep</h2>
-  <div class="g4" style="gap:22px">
-    <div class="card" style="padding:26px 24px"><div class="stat" style="font-size:50px">Rs 10</div><h3 style="margin:14px 0 10px;font-size:26px">A twelve gram sachet</h3><p style="font-size:18px">Glucose and electrolytes, tear and drop into water. No caffeine, no fizz, no fridge. India's impulse price point, the same as a shampoo sachet.</p></div>
-    <div class="card" style="padding:26px 24px"><div class="stat" style="font-size:50px">Made in India</div><h3 style="margin:14px 0 10px;font-size:26px">On somebody else's line</h3><p style="font-size:18px">Third-party contract manufacture on licensed sachet capacity that already exists. We bring the formula and the volume. No factory, no capex.</p></div>
-    <div class="card" style="padding:26px 24px"><div class="stat" style="font-size:50px">Boxes of 100</div><h3 style="margin:14px 0 10px;font-size:26px">Wholesale only</h3><p style="font-size:18px">We never sell to a consumer. One exclusive distributor per territory, minimum 300 outlets, into every kirana, petrol pump and street stall.</p></div>
-    <div class="card" style="padding:26px 24px"><div class="stat" style="font-size:50px">Rs 3.75</div><h3 style="margin:14px 0 10px;font-size:26px">Kept on every sachet</h3><p style="font-size:18px">A 56% contribution margin after goods, royalty, freight and trade spend. Every box scanned and settled digitally, so we see the sale happen.</p></div>
+<!-- 02 WHY NOW - THE HEAT -->
+<section class="slide dark scrim-left">
+  <div class="photo"><img src="pack/deck-vendor.jpg" alt=""></div>
+  <div class="kicker">Why now</div>
+  <div class="hero">554</div>
+  <div class="herolab">Heatwave days across India in 2024. It was 230 the year before.</div>
+  <div class="statrow">
+    <div><div class="n">54 days</div><div class="l">of labour lost by the average Indian farm worker to extreme heat in 2024, the hottest year on record</div></div>
+    <div><div class="n">25,000</div><div class="l">heatstroke cases reported in a single Indian summer, with over 200 deaths</div></div>
+    <div><div class="n">9%</div><div class="l">of income lost by India's outdoor workers to heat, pushing the poorest further into poverty</div></div>
   </div>
-  <div class="foot">Four things have to be true: a shop sells ten a day, a distributor earns enough to stay, the powder costs what we think, and the sachet survives a Rajasthan summer on an open shelf. The rest of this deck is those four questions.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">02</div>
 </section>
 
-<!-- 3 MARKET -->
-<section class="slide dark scrim-full">
-  <div class="photo"><img src="pack/shop-strip.jpg" alt=""></div>
-  <div class="kicker">Why India, why now</div>
-  <h2 class="narrow">The channel already exists.<br>It is thirteen million<br>shops wide.</h2>
-  <div class="g4">
-    <div><div class="stat">13m</div><div class="statlabel">kirana stores, street vendors and petrol pumps, carrying roughly 85% of all FMCG sales in India</div></div>
-    <div><div class="stat">$312m</div><div class="statlabel">India electrolyte powder market in 2024, growing at 9.9% a year to $547m by 2030</div></div>
-    <div><div class="stat">228bn</div><div class="statlabel">UPI transactions in 2025, worth about $3.6 trillion. The payment rail is already in the shopkeeper's hand</div></div>
-    <div><div class="stat">#1</div><div class="statlabel">India is already the world's largest exporter of electrolyte powder. We are not doing the supply chain a favour by choosing it</div></div>
+<!-- 03 THE IDEA -->
+<section class="slide">
+  <div class="halfshot" style="width:38%"><img src="pack/jesse-pick-2.jpg" alt=""></div>
+  <div class="kicker">The idea</div>
+  <h2 class="narrower">Ten rupees.<br>Twelve grams.<br>Thirteen million shops.</h2>
+  <div class="sub" style="max-width:790px;margin-bottom:36px">Glucose and electrolytes in a single-serve
+    sachet. Tear it, drop it in water, drink it. No caffeine, no fizz, no fridge, no cold chain.
+    The formulation is sixty years old and does not need to be clever.</div>
+  <div class="g2" style="max-width:790px;gap:34px">
+    <div>
+      <div style="font-family:'Barlow Condensed';font-weight:700;font-size:56px;color:var(--fire);line-height:1">Made in India</div>
+      <p style="font-size:19px;color:var(--stone);margin-top:10px">On licensed sachet capacity that already exists. No factory, no capex.</p>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed';font-weight:700;font-size:56px;color:var(--fire);line-height:1">Wholesale only</div>
+      <p style="font-size:19px;color:var(--stone);margin-top:10px">Boxes of 100. One exclusive distributor per territory. We never touch a consumer.</p>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed';font-weight:700;font-size:56px;color:var(--fire);line-height:1">Rs 3.75</div>
+      <p style="font-size:19px;color:var(--stone);margin-top:10px">Kept on every sachet. A 56% contribution margin after everything.</p>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed';font-weight:700;font-size:56px;color:var(--fire);line-height:1">Every box scanned</div>
+      <p style="font-size:19px;color:var(--stone);margin-top:10px">Unique code per box, settled on UPI. We see every sale as it happens.</p>
+    </div>
   </div>
-  <div class="foot">Rural India is now over 40% of premium FMCG sales and growing at 11% a year, and kirana still holds about 91% of rural grocery. The part of the market that quick commerce cannot reach is the part we are selling to.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">03</div>
 </section>
 
-<!-- 4 PRODUCT -->
-<section class="slide">
-  <div class="halfshot" style="width:32%"><img src="pack/concepts/c1-blue-nimbu-namak.jpg" alt=""></div>
-  <div class="kicker">The product</div>
-  <h2>Twelve grams. Ten rupees.<br>No fridge, no fizz, no caffeine.</h2>
-  <div class="g3" style="max-width:1030px;grid-template-columns:repeat(3,1fr);gap:24px">
-    <div class="card"><h3>What it is</h3><p>Glucose and electrolyte powder in a single-serve sachet. Tear, drop into 300 to 500ml of water, drink. Citrus and nimbu-masala. The formulation is sixty years old and does not need to be clever.</p></div>
-    <div class="card"><h3>What it survives</h3><p>Shelf-stable for eighteen months at 45 degrees, because that is what a petrol pump in Rajasthan actually is. No cold chain, no glass, no returns logistics.</p></div>
-    <div class="card"><h3>What it costs</h3><p>MRP Rs 10. India's bridge-pack price point, the same as a shampoo sachet. <strong>Glucon-D already sells a sachet at exactly Rs 10</strong>, which is the proof the price point works in our category.</p></div>
+<!-- 04 THE CHANNEL -->
+<section class="slide dark scrim-left">
+  <div class="photo"><img src="pack/deck-street.jpg" alt=""></div>
+  <div class="kicker">The channel</div>
+  <div class="hero" style="font-size:230px">13<em>m</em></div>
+  <div class="herolab">Kirana stores, street stalls and petrol pumps. They carry 85% of everything sold in India.</div>
+  <div class="statrow">
+    <div><div class="n">$312m</div><div class="l">India electrolyte powder market in 2024, growing 9.9% a year to $547m by 2030</div></div>
+    <div><div class="n">228bn</div><div class="l">UPI transactions in 2025, about $3.6 trillion. The payment rail is already in the shopkeeper's hand</div></div>
+    <div><div class="n">91%</div><div class="l">of rural grocery still goes through kirana. This is the half of India quick commerce cannot reach</div></div>
   </div>
-  <div class="flag"><strong>Where we sit on price.</strong> Electral is Rs 23 for 21.8g, the pharmacy premium. Prolyte trades around Rs 10 for 21g, the value end. At Rs 10 for 12g we are dearer per gram than Prolyte and far cheaper per gram than Electral. We are not competing on rupees per gram and should not try to. The premium is the name on the front, which is the entire thesis.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">04</div>
 </section>
 
-<!-- 5 PACKAGING DIRECTIONS -->
-<section class="slide dark tight">
-  <div class="kicker">Packaging &middot; early directions</div>
-  <h2 style="font-size:56px;margin-bottom:14px">Seven routes, nothing chosen.</h2>
-  <div class="sub" style="font-size:22px;margin-bottom:26px;max-width:1340px">Concept visuals only, produced to show
-    the territory rather than the answer. The face, the mountain and the ten rupee format are settled. Colour,
-    flavour lead and hierarchy are open, and the final artwork will be set by a designer against the
-    Indian labelling rules, not generated.</div>
-  <div class="packs">
-    <figure><img src="pack/concepts/c1-blue-nimbu-namak.jpg" alt=""><figcaption>Blue &middot; nimbu-namak</figcaption></figure>
-    <figure><img src="pack/concepts/c7-orange-21g-compliant.jpg" alt=""><figcaption>Orange &middot; sunrise</figcaption></figure>
-    <figure><img src="pack/concepts/c2-red-blue-mg.jpg" alt=""><figcaption>Five minerals stated</figcaption></figure>
-    <figure><img src="pack/concepts/c6-colourband-climb.jpg" alt=""><figcaption>Benefit bands</figcaption></figure>
-    <figure><img src="pack/concepts/c3-red-portrait.jpg" alt=""><figcaption>Red &middot; portrait</figcaption></figure>
-    <figure><img src="pack/concepts/c8-orange-hydration.jpg" alt=""><figcaption>Orange flavour</figcaption></figure>
-    <figure><img src="pack/concepts/c9-english-only.jpg" alt=""><figcaption>English only</figcaption></figure>
+<!-- 05 THE WEDGE -->
+<section class="slide dark">
+  <div class="kicker">The gap</div>
+  <h2>Every competitor in India<br>is a pharmacy product.</h2>
+  <div class="pos">
+    <div class="box"><div class="cat">Pharmacy</div><div class="nm">Electral</div><p>You buy it when a child has diarrhoea. Medicine, bought in an emergency.</p><div class="px">Rs 23 &middot; 21.8g</div></div>
+    <div class="box"><div class="cat">Hospital</div><div class="nm">Enerzal</div><p>Prescribed, clinical and priced like it. Bought when someone is already ill.</p><div class="px">Rs 14.50 &middot; 5g</div></div>
+    <div class="box"><div class="cat">Children</div><div class="nm">Glucon-D</div><p>Mothers buy it in summer for the kids. Owned by Zydus and defended hard.</p><div class="px">Rs 10 &middot; sachet</div></div>
+    <div class="box ours"><div class="cat">Nobody owns this</div><div class="nm">Everest<br>Power</div><p>The one you drink because the day is long and hot and you are working through it.</p><div class="px">Rs 10 &middot; 12g</div></div>
   </div>
-  <div class="foot">Three decisions come before artwork. <strong>Colour:</strong> red and yellow is the most crowded
-    shelf in India, so blue is the cheapest differentiation available to us. <strong>Language:</strong> Hindi-led
-    or English-only is a positioning decision rather than a design one, and the rural half of thirteen million
-    shops decides it. <strong>Dose:</strong> these concepts variously say one glass, one bottle and one litre, and
-    several print 21g against the 12g this plan is costed on. Sachet weight and dilution set both the taste and
-    the margin, so they are formula decisions.</div>
+  <div class="note"><strong>Nobody in India sells hydration to a working adult who is not sick.</strong>
+    Two hundred million people do outdoor manual work in that heat, and the only thing on the shelf for them
+    was designed for a sick child.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">05</div>
 </section>
 
-<!-- 6 IN THE SHOP -->
-<section class="slide tight">
-  <div class="kicker">What it looks like in the channel</div>
-  <h2 style="font-size:56px;margin-bottom:14px">Hanging in the doorway,<br>at arm's length from the counter.</h2>
-  <div class="duo">
-    <img src="pack/shop-handover.jpg" alt="">
-    <img src="pack/shop-counter.jpg" alt="">
-  </div>
-  <div class="foot">A ten rupee sachet is not chosen, it is reached for. It has to survive being hung on a
-    string in full sun, read from two metres by someone who is not looking for it, and handed over in one
-    motion with no change given. That is the whole design brief, and it is why the face goes large and the
-    copy stays short. Visualisations, not photographs of finished product.</div>
+<!-- 06 THE NAME -->
+<section class="slide">
+  <div class="halfshot"><img src="pack/deck-himalaya-trail.jpg" alt=""></div>
+  <div class="kicker">The unfair advantage</div>
+  <h2 class="narrower" style="font-size:70px">A rickshaw driver<br>in Indore already<br>trusts this face<br>about heat.</h2>
+  <div class="sub" style="max-width:740px;font-size:26px">Man vs Wild ran across India on Discovery for a
+    decade. The episode with Prime Minister Modi is one of the most watched factual broadcasts in the
+    history of Indian television.</div>
+  <div class="note" style="max-width:740px"><strong>There is no other hydration brand in India that can
+    put a face on a ten rupee sachet and have it mean survival.</strong> That is the entire brand argument
+    and it does not need a second one. It is also why the premium works: at Rs 10 for 12g we are dearer per
+    gram than Prolyte and far cheaper than Electral, and we are not competing on rupees per gram.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">06</div>
 </section>
 
-<!-- 7 WHY THE NAME -->
-<section class="slide dark scrim-full">
-  <div class="photo"><img src="pack/deck-vendor.jpg" alt=""></div>
-  <div class="kicker">The unfair advantage</div>
-  <h2>Every competitor is a<br>pharmacy product.</h2>
-  <div class="g4">
-    <div class="card"><h3>Electral</h3><p>A pharmacy product. You buy it when a child has diarrhoea. Rs 23 for 21.8g.</p></div>
-    <div class="card"><h3>Enerzal</h3><p>A hospital product. Prescribed, clinical, and priced like it. Rs 14.50 for 5g.</p></div>
-    <div class="card"><h3>Glucon-D</h3><p>A children's product. Mothers buy it in summer. Owned by Zydus and defended hard.</p></div>
-    <div class="card" style="background:rgba(240,160,60,.16);border-color:#f0a03c"><h3>Everest Power</h3><p>The one you drink because the day is long and hot and you are working through it. Nobody owns that.</p></div>
+<!-- 07 THE PACK -->
+<section class="slide dark">
+  <div class="kicker">The pack &middot; direction, not artwork</div>
+  <h2 style="font-size:60px;margin-bottom:26px">Read from two metres,<br>in full sun, by someone<br>who was not looking for it.</h2>
+  <div class="gallery">
+    <div class="lead">
+      <img src="pack/jesse-pick-2.jpg" alt="">
+      <div class="cap">Lead direction</div>
+    </div>
+    <div>
+      <div class="minis">
+        <img src="pack/jesse-pick-1.jpg" alt="">
+        <img src="pack/concepts/c1-blue-nimbu-namak.jpg" alt="">
+        <img src="pack/concepts/c2-red-blue-mg.jpg" alt="">
+        <img src="pack/concepts/c7-orange-21g-compliant.jpg" alt="">
+      </div>
+      <div class="cap">Alternates &middot; colour and flavour lead</div>
+    </div>
+    <div class="shotcol">
+      <img src="pack/shop-handover.jpg" alt="">
+      <img src="pack/shop-strip.jpg" alt="">
+      <div class="cap">In the channel &middot; visualisation</div>
+    </div>
   </div>
-  <div class="foot">Man vs Wild ran across India on Discovery for a decade and the Modi episode is one of the most watched factual broadcasts in Indian television history. There is no other hydration brand in India that can put a face on a Rs 10 sachet that a rickshaw driver in Indore already trusts about surviving heat. That is the entire brand argument and it does not need a second one.</div>
+  <div class="note"><strong>A ten rupee sachet is not chosen, it is reached for.</strong> The face goes large,
+    the copy stays short, and the whole thing has to survive being hung on a string in the sun. Final artwork
+    is set by a designer against the Indian labelling rules, not generated.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">07</div>
 </section>
 
-<!-- 6 DISTRIBUTION -->
+<!-- 08 HOW IT MOVES -->
 <section class="slide">
-  <div class="kicker">The model</div>
-  <h2>Wholesale only. One distributor<br>per region, town and city.</h2>
-  <div class="g2">
-    <div>
-      <p style="color:var(--stone);margin-bottom:26px">We never sell to a consumer and we never run a warehouse of our own. We make powder, we sell boxes of 100, and we appoint the person in each territory who already drives a van full of somebody else's brands.</p>
-      <div class="ledger" style="margin-top:0">
-        <div class="row"><span class="lab">Us to distributor</span><span class="val">Rs 6.63</span></div>
-        <div class="row"><span class="lab">Distributor to shop</span><span class="val">Rs 7.20</span></div>
-        <div class="row"><span class="lab">Shop to customer</span><span class="val">Rs 10.00</span></div>
-        <div class="row"><span class="lab">Minimum order to a shop</span><span class="val">100</span></div>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="margin-bottom:24px"><h3>Territory is drawn at 300 outlets</h3><p>At 150 outlets a distributor grosses Rs 17,000 a month, which is not a business and they quit by month four. At 300 they gross Rs 52,000, which is a real job. At 500 it is Rs 115,000, which is a career. We draw the map around the number that keeps people.</p></div>
-      <div class="card"><h3>Exclusive, and revocable</h3><p>One territory, one distributor, exclusivity in writing, and a monthly volume floor. The app tells us who is hitting it. Exclusivity is what they are buying and it is what we take back when they under-deliver.</p></div>
-    </div>
+  <div class="kicker">How it moves</div>
+  <h2>We sell boxes. Somebody else<br>drives the van.</h2>
+  <div class="chain">
+    <div class="link us"><div class="who">Us</div><div class="amt">Rs 375</div><div class="note2">per box of 100, after goods, royalty, freight and trade spend. No warehouse, no fleet, no lease.</div></div>
+    <div class="link"><div class="who">Distributor</div><div class="amt">Rs 58</div><div class="note2">per box. One per territory, exclusive in writing, revocable on a monthly volume floor. Minimum 300 outlets.</div></div>
+    <div class="link"><div class="who">The shop</div><div class="amt">Rs 127</div><div class="note2">per box, on a Rs 720 outlay that turns over inside a month. Better than the atta on the next shelf.</div></div>
+    <div class="link"><div class="who">The street</div><div class="amt">Rs 10</div><div class="note2">printed on the front, tax included by law. The vendor takes a note, gives no change, files nothing.</div></div>
   </div>
+  <div class="digital">
+    <div class="dh">The app</div>
+    <div class="ds">Every box carries a unique 2D code printed on the filling line. The rep scans it, the shop
+      pays by UPI against that scan, and the box is bound to a shop, a GPS point, a distributor and a timestamp
+      that nobody can unpick later. Sell-in and sell-through on one screen, live, nationally.</div>
+  </div>
+  <div class="note"><strong>Our compliance surface is about a thousand distributors, not thirteen million shops.</strong>
+    GST is charged upstream and sits inside the printed price, so the last mile carries no paperwork at all.
+    A street vendor stocks us because we ask nothing of him he is not already doing for Glucon-D.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">08</div>
 </section>
 
-<!-- 7 TAX IN AN INFORMAL CHANNEL -->
+<!-- 09 THE TEN RUPEES -->
 <section class="slide">
-  <div class="kicker">The obvious objection</div>
-  <h2>How does any of this work<br>with a man selling off a cart?</h2>
-  <div class="g3">
-    <div class="card"><h3>The tax is already paid</h3><p>GST is collected upstream, not on the street. We charge it when we invoice the distributor. The distributor charges it when he invoices the shop. By the time the box reaches a cart, the tax has been paid twice over and is sitting inside the printed price.</p></div>
-    <div class="card"><h3>MRP is legally tax-inclusive</h3><p>Under the Legal Metrology Act the printed maximum retail price includes all taxes. The vendor sells at Rs 10, keeps his margin, and calculates, collects and remits nothing. There is no till, no return, no paperwork.</p></div>
-    <div class="card"><h3>He does not need to register</h3><p>GST registration bites at Rs 40 lakh of turnover, roughly Rs 3.3 lakh a month. A street cart is nowhere near it. He simply cannot reclaim input credit, which costs him nothing because he bought at a price that already included the tax.</p></div>
+  <div class="kicker">Unit economics</div>
+  <h2 style="margin-bottom:10px">Where each of the ten rupees goes</h2>
+  <div class="fall">
+    <div class="bar"><div class="v">Rs 10.00</div><div class="fillwrap"><div class="fill" style="height:100%;background:var(--night)"></div></div><div class="lb">Consumer pays at the cart</div></div>
+    <div class="bar take"><div class="v" style="color:var(--fire)">-1.53</div><div class="fillwrap"><div class="fill" style="height:15%"></div></div><div class="lb">GST at 18%</div></div>
+    <div class="bar take"><div class="v" style="color:var(--fire)">-1.27</div><div class="fillwrap"><div class="fill" style="height:13%"></div></div><div class="lb">Retailer margin, 15%, top of the band</div></div>
+    <div class="bar take"><div class="v" style="color:var(--fire)">-0.57</div><div class="fillwrap"><div class="fill" style="height:6%"></div></div><div class="lb">Distributor margin, 8%, top of the band</div></div>
+    <div class="bar take"><div class="v" style="color:var(--fire)">-2.10</div><div class="fillwrap"><div class="fill" style="height:21%"></div></div><div class="lb">Cost of goods</div></div>
+    <div class="bar take"><div class="v" style="color:var(--fire)">-0.78</div><div class="fillwrap"><div class="fill" style="height:8%"></div></div><div class="lb">Royalty at 5%, freight and trade spend</div></div>
+    <div class="bar keep"><div class="v">Rs 3.75</div><div class="fillwrap"><div class="fill" style="height:37%"></div></div><div class="lb"><strong style="color:var(--ink)">We keep 56.5%</strong></div></div>
   </div>
-  <div class="flag"><strong>The compliance surface is about a thousand distributors, not thirteen million shops</strong> - every registered entity in the chain is one we appoint and contract. That is the point of selling wholesale only: we carry the paperwork and the last mile carries none of it. A street vendor stocks us because we ask nothing of him he is not already doing for Glucon-D.</div>
+  <div class="note"><strong>We pay the top of the band to both the shop and the distributor on purpose.</strong>
+    We are a new brand buying shelf space we have not earned, and margin is a cheaper way to buy it than advertising.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">09</div>
 </section>
 
-<!-- 8 THE APP -->
+<!-- 10 THE PRIZE -->
 <section class="slide dark">
-  <div class="kicker">The part worth building</div>
-  <h2>Scan the box. Take the payment.<br>See every sale as it happens.</h2>
-  <div class="g4">
-    <div class="card"><h3>1. Scan</h3><p>Every box of 100 carries a unique 2D code printed on the filling line. The rep scans it in the shop.</p></div>
-    <div class="card"><h3>2. Collect</h3><p>The shop pays by UPI against that scan. It confirms in two seconds, free, on a phone they already use.</p></div>
-    <div class="card"><h3>3. Bind</h3><p>The box is now permanently tied to a shop, a GPS point, a distributor and a timestamp. Nobody can unpick it later.</p></div>
-    <div class="card"><h3>4. See</h3><p>Sell-in and sell-through on the same screen, live, nationally. A Pune box scanned in Surat lights up the moment it happens.</p></div>
+  <div class="kicker">If ten a day holds</div>
+  <h2 style="margin-bottom:28px">What the network is worth</h2>
+  <div class="tiers">
+    <div class="tier t1"><div class="st">Pilot &middot; one state</div><div class="big">5,000</div><div class="l">outlets &middot; 1.5m sachets a month</div><div class="money">&pound;0.6m</div></div>
+    <div class="tier t2"><div class="st">Year one &middot; five states</div><div class="big">60,000</div><div class="l">outlets &middot; 18m sachets a month</div><div class="money">&pound;7.6m</div></div>
+    <div class="tier t3"><div class="st">Year three &middot; national</div><div class="big">400,000</div><div class="l">outlets &middot; 120m sachets a month</div><div class="money">&pound;51m</div></div>
   </div>
-  <div class="flag"><strong>On the crypto question.</strong> The instinct is right and the rail is wrong. Using crypto to pay for goods is prohibited in India, the RBI has kept an outright ban on the table over private stablecoins, and every transfer carries 1% TDS on top of a 30% tax on gains. A shopkeeper in Nashik is not opening a wallet. UPI gives us better traceability than a stablecoin would, for free, today. We build the settlement layer swappable, and if the RBI's Digital Rupee matures into a programmable state-backed rail, that is where this idea comes back legally.</div>
+  <div class="note"><strong>Treat the third column with more suspicion than the first two.</strong> Everest,
+    India's largest spice brand, reaches roughly 400,000 outlets after nearly sixty years of trading. That is
+    the shape of the prize and it is also a decade of work, not a forecast.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">10</div>
 </section>
 
-<!-- 8 UNIT ECONOMICS -->
+<!-- 11 WHAT HAS TO BE TRUE -->
 <section class="slide">
-  <div class="kicker">Unit economics</div>
-  <h2>Where each of the ten rupees goes</h2>
-  <div class="ledger">
-    <div class="row"><span class="lab">Consumer pays</span><span class="val">Rs 10.00</span></div>
-    <div class="row"><span class="lab">Less GST at 18%</span><span class="val">Rs 8.47</span></div>
-    <div class="row"><span class="lab">Less retailer margin, 15%, top of the packaged FMCG band</span><span class="val">Rs 7.20</span></div>
-    <div class="row"><span class="lab">Less distributor margin, 8%, top of band</span><span class="val">Rs 6.63</span></div>
-    <div class="row"><span class="lab">Less cost of goods</span><span class="val">Rs 4.53</span></div>
-    <div class="row"><span class="lab">Less brand royalty at 5%, freight and trade spend</span><span class="val">Rs 3.75</span></div>
-    <div class="row total"><span class="lab">Contribution to us, per sachet</span><span class="val">Rs 3.75 &nbsp;/&nbsp; 56.5%</span></div>
+  <div class="kicker">What has to be true</div>
+  <h2>Three numbers, and everything<br>rests on the first one.</h2>
+  <div class="g3">
+    <div class="card hot"><h3>Ten a day</h3><p>Three boxes per outlet per month carries every scale figure in this deck, and nothing supports it yet except judgement. At five a day the year one contribution halves and the distributor economics stop working. The pilot exists for this and nothing else.</p></div>
+    <div class="card"><h3>Rs 2.10 of goods</h3><p>Built from wholesale trade prices, not a quotation. Sachet laminate is the volatile line and it is priced in dollars. Every 50 paise of error is 13% of our contribution. First thing to replace with a real number.</p></div>
+    <div class="card"><h3>A single-brand van</h3><p>Rs 58 a box is thin. Indian distributors survive on 8% because they carry twenty brands in one van. Ours will probably have to already distribute something else, and the territory map should be drawn on that basis.</p></div>
   </div>
-  <div class="foot">We pay the top of the band to both the shop and the distributor deliberately. We are a new brand buying shelf space we have not earned, and the cheapest way to buy it is margin rather than advertising.</div>
+  <div class="note"><strong>Everything else in this deck is either sourced or arithmetic.</strong> These three are
+    judgement, and they are the ones to attack first.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">11</div>
 </section>
 
-<!-- 9 THE CHAIN -->
-<section class="slide">
-  <div class="kicker">One box of 100 sachets</div>
-  <h2>Everyone in the chain has<br>a reason to carry it</h2>
-  <div class="chain">
-    <div class="link"><div class="who">The shop</div><div class="amt">Rs 127</div><div class="note">per box, on a Rs 720 outlay that turns over in under a month. Better than the atta on the next shelf.</div></div>
-    <div class="link"><div class="who">The distributor</div><div class="amt">Rs 58</div><div class="note">per box, thin on its own, which is why the distributor is someone already running a van of other brands.</div></div>
-    <div class="link us"><div class="who">Us</div><div class="amt">Rs 375</div><div class="note">per box, after cost of goods, royalty, freight and trade spend. No warehouse, no fleet, no retail lease.</div></div>
+<!-- 12 GST -->
+<section class="slide dark">
+  <div class="kicker">The cheapest money in the plan</div>
+  <h2 style="margin-bottom:28px">The same powder is taxed<br>at 0%, 18% or 40%</h2>
+  <div class="doors">
+    <div class="door"><div class="pc">0%</div><h3>ORS &middot; HSN 3004</h3><p>Contribution Rs 4.88, a 62% margin. Oral rehydration salts are exempt as an essential drug, but the formula has to qualify.</p></div>
+    <div class="door base"><div class="pc">18%</div><h3>Proprietary food &middot; HSN 2106</h3><p>Contribution Rs 3.75, a 56.5% margin. This is the base case behind every number in this deck.</p></div>
+    <div class="door"><div class="pc">40%</div><h3>Caffeinated beverage</h3><p>Contribution Rs 2.76, a 49% margin. This is what happens if the formula is written without checking.</p></div>
   </div>
-  <div class="flag">The load-bearing assumption in everything that follows is <strong>three boxes per outlet per month</strong>, which is ten sachets a day out of one shop. It is unproven. The pilot exists to confirm or kill it and nothing else in this deck matters until it does.</div>
+  <div class="note"><strong>Thirteen points of margin turn on a form.</strong> Get an advance ruling before the
+    formula is locked and design the formula to land where we want, rather than finding out afterwards where it
+    landed. A few thousand pounds, worth roughly &pound;1.7m a year at year one volume.</div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">12</div>
 </section>
 
-<!-- 10 SCALE -->
-<section class="slide dark">
-  <div class="kicker">If the assumption holds</div>
-  <h2>What the network is worth</h2>
-  <div class="g3">
-    <div class="card"><div class="who" style="font-family:'Barlow Condensed';font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:#f0a03c;margin-bottom:16px">Pilot &middot; one state</div><div class="stat">5,000</div><div class="statlabel">outlets &middot; 1.5m sachets a month &middot; about &pound;0.6m a year of contribution</div></div>
-    <div class="card"><div class="who" style="font-family:'Barlow Condensed';font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:#f0a03c;margin-bottom:16px">Year one &middot; five states</div><div class="stat">60,000</div><div class="statlabel">outlets &middot; 18m sachets a month &middot; about &pound;7.6m a year of contribution</div></div>
-    <div class="card"><div class="who" style="font-family:'Barlow Condensed';font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:#f0a03c;margin-bottom:16px">Year three &middot; national</div><div class="stat">400,000</div><div class="statlabel">outlets &middot; 120m sachets a month &middot; about &pound;51m a year of contribution</div></div>
+<!-- 13 NINETY DAYS AND THE ASK -->
+<section class="slide">
+  <div class="kicker">The next ninety days</div>
+  <h2 style="margin-bottom:26px">Five things, in this order</h2>
+  <div class="tl">
+    <div class="s"><div class="n">First call</div><h4>Trademark</h4><p>File Bear Grylls Everest Power in classes 5, 30 and 32 before a word is said to anyone in India.</p></div>
+    <div class="s"><div class="n">In parallel</div><h4>Licence terms</h4><p>Confirm who licenses the Bear Grylls mark and on what terms. The 5% royalty is a placeholder and the real number moves everything.</p></div>
+    <div class="s"><div class="n">Weeks 2-6</div><h4>Three quotes</h4><p>Three manufacturers, one written spec, with the per-box unique code stated on page one. It is not standard and the app depends on it.</p></div>
+    <div class="s"><div class="n">Weeks 2-8</div><h4>Advance GST ruling</h4><p>On the intended formula, before it is locked. Thirteen points of margin turn on the answer.</p></div>
+    <div class="s"><div class="n">Weeks 6-16</div><h4>One city</h4><p>One distributor, 300 outlets, ninety days, answering one question. Not five states.</p></div>
   </div>
-  <div class="foot">For scale on the third column: Everest, India's largest spice brand, is stocked in roughly 400,000 outlets after nearly sixty years of trading. That is the shape of the prize and it is also the reason to treat the third column with more suspicion than the first two. Distribution at that width is a decade of work, not a forecast.</div>
+  <div class="askbox">
+    <div class="amt">&pound;50k</div>
+    <div class="tx"><strong>What it costs to find out.</strong> Trademark, advance ruling, compliant artwork,
+      one production run, a thin app and someone on the ground for a quarter. That is the order of magnitude,
+      to be replaced with quotes, and it buys the answer to the only question that matters: <strong>does one
+      shop sell ten a day?</strong></div>
+  </div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">13</div>
 </section>
 
-<!-- 11 FOUR CHANGES -->
-<section class="slide tight">
-  <div class="kicker">Four decisions that change the numbers</div>
-  <h2>What I would change<br>about the brief</h2>
-  <div class="change"><div class="idx">1</div><div class="body"><h4>Settle in UPI, not stablecoins</h4><p>Crypto payment for goods is prohibited in India and the RBI has an outright ban on the table for private stablecoins. Keep the scan, the app and the audit trail. Change the rail. UPI does the job better, free, on a phone the shop already owns.</p></div></div>
-  <div class="change"><div class="idx">2</div><div class="body"><h4>No caffeine</h4><p>Caffeinated beverages moved into the 40% GST slab on 22 September 2025. Uncaffeinated electrolyte powder sits at 18% or lower. Twenty-two points of tax, plus a mandatory warning label, plus the loss of every customer under eighteen, for an ingredient we do not need.</p></div></div>
-  <div class="change"><div class="idx">3</div><div class="body"><h4>Indian Himalayan rock salt, not Himalayan pink salt</h4><p>The pink salt on every shelf in the world is mined at Khewra in Pakistan, and India banned all imports from Pakistan, direct and indirect, on 2 May 2025. We cannot legally use it. Real Indian Himalayan rock salt is mined at Drang and Gumma in Mandi, Himachal Pradesh, the only rock salt deposit in India. Smaller story, and it is ours.</p></div></div>
-  <div class="change"><div class="idx">4</div><div class="body"><h4>Bear Grylls Everest Power, never Everest Power</h4><p>Everest is India's number one spice brand, Rs 2,601 crore of revenue, 400,000 outlets across 1,000 towns. That is our exact channel. Everest on its own is unprotectable and picks a fight we do not need. The Bear Grylls name is the asset; Everest is a descriptor sitting under it.</p></div></div>
-  <div class="brandmark">Bear Grylls Everest Power</div>
+<!-- 14 CLOSE -->
+<section class="slide statement scrim-full dark">
+  <div class="photo"><img src="pack/shop-strip.jpg" alt=""></div>
+  <div class="kicker">The whole thing in one line</div>
+  <div class="big">Ten rupees,<br>thirteen million shops,<br>and a name India already<br><em>trusts about water.</em></div>
+  <div class="sub" style="margin-top:40px;color:rgba(246,243,237,.78);font-size:29px">Prove ten a day in one city.
+    Everything after that is a distribution problem, and distribution problems are solved with margin and time.</div>
+  <div class="brandmark">Bear Grylls Everest Power &middot; 6 August 2026</div>
   <div class="num">14</div>
 </section>
 
-<!-- 12 GST -->
-<section class="slide dark">
-  <div class="kicker">The highest-value few thousand pounds in the plan</div>
-  <h2>The same powder is taxed<br>at 0%, 18% or 40%</h2>
-  <div class="g3">
-    <div class="card"><h3>ORS, HSN 3004</h3><div class="stat" style="font-size:70px">0%</div><div class="statlabel">We receive Rs 7.82. Contribution Rs 4.88, a 62% margin. Oral rehydration salts are GST exempt as an essential drug.</div></div>
-    <div class="card" style="background:rgba(240,160,60,.16);border-color:#f0a03c"><h3>Proprietary food, HSN 2106</h3><div class="stat" style="font-size:70px">18%</div><div class="statlabel">We receive Rs 6.63. Contribution Rs 3.75, a 56.5% margin. This is the base case in every number in this deck.</div></div>
-    <div class="card"><h3>Caffeinated beverage</h3><div class="stat" style="font-size:70px">40%</div><div class="statlabel">We receive Rs 5.59. Contribution Rs 2.76, a 49% margin. This is what happens if we get the formula wrong.</div></div>
-  </div>
-  <div class="foot">Get an advance ruling from the Indian tax authority before the formula is locked, and design the formula to land where we want rather than finding out afterwards where it landed. Model at 18%. Treat anything better as upside. This costs a few thousand pounds and is worth thirteen points of gross margin, which at year-one volume is roughly &pound;1.7m a year.</div>
+<!-- 15 APPENDIX -->
+<section class="slide">
+  <div class="kicker">Appendix &middot; decisions already taken</div>
+  <h2 style="font-size:62px;margin-bottom:24px">Four things in the original<br>brief that had to change</h2>
+  <div class="dec"><div class="idx">1</div><div class="body"><h4>Settle in UPI, not stablecoins</h4><p>Using crypto to pay for goods is prohibited in India, the RBI has an outright ban on the table for private stablecoins, and every transfer carries 1% TDS on top of 30% on gains. Keep the scan, the code and the audit trail. Change the rail. Build settlement swappable in case the Digital Rupee matures into a programmable state-backed alternative.</p></div></div>
+  <div class="dec"><div class="idx">2</div><div class="body"><h4>No caffeine</h4><p>Caffeinated beverages moved into the 40% GST slab on 22 September 2025, and FSSAI has banned the words "energy drink" outright. Twenty-two points of tax, a mandatory warning label and the loss of every customer under eighteen, for an ingredient we do not need.</p></div></div>
+  <div class="dec"><div class="idx">3</div><div class="body"><h4>Indian Himalayan rock salt, not Himalayan pink salt</h4><p>The pink salt on every shelf in the world is mined at Khewra in Pakistan, and India banned all imports from Pakistan, direct and indirect, on 2 May 2025. Real Indian Himalayan rock salt comes from Drang and Gumma in Mandi, Himachal Pradesh, the only rock salt deposit in India. Smaller story, and it is ours.</p></div></div>
+  <div class="dec"><div class="idx">4</div><div class="body"><h4>Bear Grylls Everest Power, never Everest Power</h4><p>Everest is India's number one spice brand, Rs 2,601 crore of revenue, 400,000 outlets across 1,000 towns, which is our exact channel. Everest alone is unprotectable and picks a fight we do not need. The Bear Grylls name is the asset and Everest is a descriptor sitting under it.</p></div></div>
   <div class="brandmark">Bear Grylls Everest Power</div>
   <div class="num">15</div>
-</section>
-
-<!-- 13 MANUFACTURING -->
-<section class="slide">
-  <div class="kicker">Manufacturing</div>
-  <h2>Made in India, on somebody<br>else's line</h2>
-  <div class="g2">
-    <div>
-      <p style="color:var(--stone);margin-bottom:24px">Third-party contract manufacture, not our own plant. India has deep, cheap, licensed capacity in ORS and form-fill-seal sachets sitting idle. We bring the formula, the artwork and the volume. We bring no capital expenditure at all.</p>
-      <p style="color:var(--stone)">Site it in the west or centre of the country, near a port and near the freight corridors, so we are not paying to move powder across India before the business starts.</p>
-    </div>
-    <div>
-      <div class="card"><h3>What we ask for before anything is real</h3>
-      <p style="margin-bottom:12px">&middot; Quoted price per sachet at 1m, 10m and 100m units</p>
-      <p style="margin-bottom:12px">&middot; FSSAI licence number, verified at source</p>
-      <p style="margin-bottom:12px">&middot; Stability trial at 45 degrees and 75% humidity</p>
-      <p style="margin-bottom:12px">&middot; Confirmation they can print a unique 2D code per box on the line</p>
-      <p style="color:var(--ink);font-weight:500">That last one is not standard, and the entire app depends on it. Ask it first, not last.</p></div>
-    </div>
-  </div>
-  <div class="foot">Cost of goods in this model is Rs 2.10 a sachet, built from trade prices rather than a quote. A 21.8g ORS sachet trades at Rs 4.65 to Rs 6.00 all-in on the Indian wholesale exchanges, which already carries the manufacturer's margin and the trader's, so Rs 2.10 for 12g at volume is defensible. It is still an estimate and it moves the whole model, so it is the first thing to replace with a real number.</div>
-  <div class="brandmark">Bear Grylls Everest Power</div>
-  <div class="num">16</div>
-</section>
-
-<!-- 14 90 DAYS -->
-<section class="slide">
-  <div class="kicker">The next ninety days</div>
-  <h2>Six things, in this order</h2>
-  <div class="steps">
-    <div class="step"><div class="n">First call</div><h4>Trademark</h4><p>File Bear Grylls Everest Power in classes 5, 30 and 32 before a word is said to anyone in India. Given the Everest situation this is not a formality.</p></div>
-    <div class="step"><div class="n">In parallel</div><h4>Licence terms</h4><p>Confirm who licenses the Bear Grylls mark for consumer products and on what terms. The 5% royalty here is a placeholder and the real number moves everything.</p></div>
-    <div class="step"><div class="n">Weeks 2-6</div><h4>Three quotes</h4><p>Three manufacturers against one written spec, with the per-box unique code requirement stated on page one.</p></div>
-    <div class="step"><div class="n">Weeks 2-8</div><h4>Advance GST ruling</h4><p>On the intended formula, before it is locked. Thirteen points of margin turn on the answer.</p></div>
-    <div class="step"><div class="n">Weeks 6-16</div><h4>One city, one distributor</h4><p>Not five states. One territory, 300 outlets, ninety days, answering one question: does a shop sell ten a day?</p></div>
-    <div class="step"><div class="n">Alongside</div><h4>Build the app thin</h4><p>Scan, UPI collect, map, dashboard. Nothing else. It is an anti-fraud instrument, not a product.</p></div>
-  </div>
-  <div class="foot">The pilot is the whole plan. Everything above it is preparation and everything below it is scale.</div>
-  <div class="brandmark">Bear Grylls Everest Power</div>
-  <div class="num">17</div>
-</section>
-
-<!-- 15 RISKS -->
-<section class="slide dark">
-  <div class="kicker">What I am least sure about</div>
-  <h2>The three numbers most<br>likely to be wrong</h2>
-  <div class="g3">
-    <div class="card"><h3>Ten a day</h3><p>Three boxes per outlet per month carries every scale figure in this deck and nothing supports it yet except judgement. If it is five a day rather than ten, the year-one contribution halves and the distributor economics stop working. The pilot exists for this.</p></div>
-    <div class="card"><h3>Rs 2.10 of COGS</h3><p>Built from wholesale trade prices, not a quotation. Sachet laminate is the volatile line and it is priced in dollars. Every 50 paise of error is 13% of our contribution.</p></div>
-    <div class="card"><h3>A single-brand distributor</h3><p>Rs 58 a box is thin, and the reason Indian FMCG distributors survive on 8% is that they carry twenty brands in one van. A distributor carrying only us may not be viable, in which case we either widen the margin or accept that our distributor already distributes something else. I lean towards the second.</p></div>
-  </div>
-  <div class="foot">Everything else in this deck is either sourced or arithmetic. These three are judgement, and they are the ones to attack first.</div>
-  <div class="brandmark">Bear Grylls Everest Power</div>
-  <div class="num">18</div>
-</section>
-
-<!-- 16 CLOSE -->
-<section class="slide statement cover scrim-full">
-  <div class="photo"><img src="pack/deck-himalaya-trail.jpg" alt=""></div>
-  <div style="position:relative">
-    <div class="kicker">The whole thing in one line</div>
-    <div class="big" style="color:var(--paper);font-size:86px;max-width:1180px">Ten rupees,<br>thirteen million shops,<br>and a name India already<br><em style="color:#f0a03c">trusts about water.</em></div>
-    <div class="tag" style="margin-top:40px">Prove ten a day in one city. Everything else is a distribution problem,<br>and distribution problems are solved with margin and time.</div>
-  </div>
-  <div class="brandmark">Bear Grylls Everest Power &middot; 6 August 2026</div>
-  <div class="num">19</div>
 </section>
 
 </body>
