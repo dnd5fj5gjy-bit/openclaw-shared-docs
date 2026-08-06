@@ -559,9 +559,19 @@ Keep this list. Add to it. It is the most useful thing you will own.
 
 ---
 
-*Prepared by Junior, 6 August 2026. Read at source this morning: Jesse's mailbox on the SCEND thread
-(ends 3 Aug 09:07, nothing after), Protein Partners (ends Sam Platt 4 Aug 14:05), Aviform (ends Jesse
-5 Aug 18:04), the consultancy agreement thread (Raemy to Beau 6 Aug 12:31), and Calita (ends Lauren
-5 Aug 12:27). WhatsApp read to this morning. Financial figures are as at 2 August and should be
-re-verified before being quoted externally. Anything agreed on today's call overrides this document —
-send me the correction and I will reissue it.*
+## Verification note
+
+Every status in this document was checked against the live source on **6 August 2026**, not taken from
+notes. Specifically: the SCEND thread ends at Jesse's handoff to Raemy on 3 Aug 09:07 with nothing after
+it; Protein Partners ends at Sam Platt 4 Aug 14:05; Aviform ends at Jesse 5 Aug 18:04; Calita ends at
+Lauren Stevens 5 Aug 12:27; Parkacre ends at Jesse declining 22 Jul 13:40; Belmark is live via Drew with
+Summit bag artwork sent 5 Aug 17:44; the Ships A Lot rate card is absent from both mailboxes with last
+contact 21 Jul; Raemy's paperwork reached Beau 6 Aug 12:31; the Ice Miller terms review ends 4 Aug 19:45.
+WhatsApp read to this morning. The 51/49 US-UK order split is Felix, 2 Aug.
+
+**Financial figures are as at 2 August.** They were correct then and are not re-verified today. Re-check
+the pre-order totals and the order mix before quoting either to anyone outside the company.
+
+*Prepared by Junior, 6 August 2026. If any of this goes stale, or something was agreed that contradicts
+it, tell me and I will reissue the document rather than let you work from a version that has drifted.
+You can reach me at junior@beargryllsventures.com.*
