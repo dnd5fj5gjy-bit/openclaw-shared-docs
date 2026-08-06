@@ -68,9 +68,13 @@ substantially your problem.
 # 2. THE ONE THING THAT EXPLAINS EVERYTHING ELSE
 
 Almost every strange decision in this business traces back to a single regulatory fact, so it is worth
-understanding properly before you touch anything.
+understanding properly before you touch anything. **Read this as the reason for our strategy, not as a
+problem sitting on your desk** — we have already solved it, and the solution is that we manufacture in
+the UK for the UK.
 
-**US-made organ powder cannot lawfully be imported into the UK.**
+The fact itself:
+
+**US-made organ powder cannot simply be shipped into the UK and sold.**
 
 Not "is difficult to". Cannot, without a process that takes months.
 
