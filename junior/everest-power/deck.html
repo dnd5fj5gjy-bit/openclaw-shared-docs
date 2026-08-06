@@ -152,6 +152,26 @@
   .flag{background:rgba(224,82,31,.09);border-left:5px solid var(--orange);
     padding:24px 28px;margin-top:26px;font-size:21px;line-height:1.55}
   .dark .flag{background:rgba(240,160,60,.11);border-color:#f0a03c}
+
+  /* ---------- photography ---------- */
+  .photo{position:absolute;inset:0;z-index:0}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .photo::after{content:'';position:absolute;inset:0}
+  .slide > *:not(.photo){position:relative;z-index:2}
+
+  /* scrims - tuned per slide so type always clears the image */
+  .scrim-bottom::after{background:linear-gradient(to top,
+      rgba(12,18,16,.95) 0%, rgba(12,18,16,.86) 30%, rgba(12,18,16,.35) 62%, rgba(12,18,16,.12) 100%)}
+  .scrim-left::after{background:linear-gradient(to right,
+      rgba(12,18,16,.94) 0%, rgba(12,18,16,.82) 42%, rgba(12,18,16,.30) 72%, rgba(12,18,16,.05) 100%)}
+  .scrim-full::after{background:rgba(12,18,16,.80)}
+
+  /* half-bleed image panel inside a light slide */
+  .halfshot{position:absolute;right:0;top:0;bottom:0;width:46%;z-index:0;overflow:hidden}
+  .halfshot img{width:100%;height:100%;object-fit:cover;display:block}
+  .halfshot::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(to right, var(--paper) 0%, rgba(244,241,234,.55) 16%, transparent 42%)}
+  .narrow{max-width:830px}
 </style>
 </head>
 <body>
