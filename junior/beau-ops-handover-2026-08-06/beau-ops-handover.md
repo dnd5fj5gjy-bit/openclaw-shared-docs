@@ -1,7 +1,12 @@
 # Modern Savage — Operations Handover
 
 **For: Beau Bennett, Head of Operations**
-**Prepared by: Junior, for Jesse Grylls. 6 August 2026.**
+**Prepared by: Junior, for Jesse Grylls. 6 August 2026, version 2.**
+
+> **Version 2 supersedes the copy sent earlier today.** Section 2 and section 3.1 have been corrected.
+> The earlier version implied that UK import compliance on raw materials was ours to carry. It is not.
+> Our UK manufacturer buys those materials and is the importer of record, which is exactly why we are
+> manufacturing in the UK. Please work from this copy.
 
 ---
 
