@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Three Seas to the Sky - Jesse Grylls - India Series Pitch</title>
+<style>
+  @page { size: 1600px 900px; margin: 0; }
+
+  :root{
+    --ink:#0A0B0D;
+    --paper:#F4F1EA;
+    --dim:rgba(244,241,234,.62);
+    --dimmer:rgba(244,241,234,.40);
+    --rule:rgba(244,241,234,.18);
+    --hot:#D9682C;
+    --sand:#C9A227;
+    --disp:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+  html,body{ background:#1a1a1a; font-family:var(--disp); }
+
+  .slide{
+    position:relative; width:1600px; height:900px; overflow:hidden;
+    background:var(--ink); color:var(--paper);
+    page-break-after:always; break-after:page;
+    display:block;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+
+  /* ---------- media ---------- */
+  .bg{ position:absolute; inset:0; }
+  .bg img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .scrim{ position:absolute; inset:0; }
+  .scrim.bottom{ background:linear-gradient(to top, rgba(10,11,13,.94) 0%, rgba(10,11,13,.72) 26%, rgba(10,11,13,.10) 62%, rgba(10,11,13,.28) 100%); }
+  .scrim.left{ background:linear-gradient(to right, rgba(10,11,13,.95) 0%, rgba(10,11,13,.86) 34%, rgba(10,11,13,.28) 68%, rgba(10,11,13,.10) 100%); }
+  .scrim.full{ background:rgba(10,11,13,.80); }
+  .scrim.soft{ background:linear-gradient(to top, rgba(10,11,13,.86) 0%, rgba(10,11,13,.30) 45%, rgba(10,11,13,.15) 100%); }
+
+  /* ---------- chrome ---------- */
+  .pad{ position:absolute; inset:0; padding:74px 92px; }
+  .eyebrow{
+    font-size:13px; letter-spacing:.34em; text-transform:uppercase;
+    font-weight:600; color:var(--hot);
+  }
+  .eyebrow .muted{ color:var(--dimmer); }
+  .folio{
+    position:absolute; left:92px; right:92px; bottom:44px;
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--dimmer); font-weight:600;
+  }
+  .folio .t{ color:var(--dim); }
+
+  /* ---------- type ---------- */
+  h1{
+    font-size:104px; line-height:.90; font-weight:700; letter-spacing:-.035em;
+    text-transform:uppercase;
+  }
+  h2{
+    font-size:66px; line-height:.94; font-weight:700; letter-spacing:-.032em;
+    text-transform:uppercase;
+  }
+  h3{ font-size:34px; line-height:1.04; font-weight:700; letter-spacing:-.02em; }
+  .lede{ font-size:23px; line-height:1.48; font-weight:300; color:var(--dim); letter-spacing:-.005em; }
+  .body{ font-size:17px; line-height:1.58; font-weight:300; color:var(--dim); }
+  .body strong{ font-weight:600; color:var(--paper); }
+  .tiny{ font-size:12.5px; line-height:1.5; font-weight:400; color:var(--dimmer); }
+  .kicker{ font-size:13px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:var(--paper); }
+
+  .rule{ height:1px; background:var(--rule); border:0; }
+  .hair{ width:56px; height:3px; background:var(--hot); }
+
+  /* ---------- stat ---------- */
+  .stat .n{ font-size:62px; font-weight:700; letter-spacing:-.04em; line-height:.94; }
+  .stat .n.sm{ font-size:46px; }
+  .stat .l{ font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--dimmer); margin-top:10px; font-weight:600; line-height:1.35; }
+  .stat .l b{ color:var(--dim); font-weight:600; }
+
+  .row{ display:flex; }
+  .cols{ display:grid; gap:36px; }
+  .c2{ grid-template-columns:1fr 1fr; }
+  .c3{ grid-template-columns:repeat(3,1fr); }
+  .c4{ grid-template-columns:repeat(4,1fr); }
+
+  .card{ border-top:1px solid var(--rule); padding-top:20px; }
+  .card .h{ font-size:17px; font-weight:700; letter-spacing:-.01em; margin-bottom:9px; }
+  .card .p{ font-size:14.5px; line-height:1.55; color:var(--dimmer); font-weight:300; }
+  .card .p b{ color:var(--dim); font-weight:600; }
+
+  .num{ font-size:12px; font-weight:700; color:var(--hot); letter-spacing:.2em; margin-bottom:12px; }
+
+  /* ---------- episode grid ---------- */
+  .eps{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+  .ep{ position:relative; border-radius:2px; overflow:hidden; background:#141518; height:196px; }
+  .ep img{ width:100%; height:100%; object-fit:cover; display:block; opacity:.92; }
+  .ep .g{ position:absolute; inset:0; background:linear-gradient(to top, rgba(10,11,13,.95) 6%, rgba(10,11,13,.35) 52%, rgba(10,11,13,0) 100%); }
+  .ep .t{ position:absolute; left:14px; right:14px; bottom:12px; }
+  .ep .t .e{ font-size:10px; letter-spacing:.22em; color:var(--hot); font-weight:700; }
+  .ep .t .n{ font-size:17px; font-weight:700; letter-spacing:-.015em; margin:3px 0 3px; }
+  .ep .t .d{ font-size:11.5px; line-height:1.34; color:rgba(244,241,234,.62); font-weight:300; }
+  .ep.blank{ background:transparent; border:1px solid var(--rule); display:flex; align-items:center; padding:18px; }
+  .ep.blank .z{ font-size:13.5px; line-height:1.5; color:var(--dimmer); font-weight:300; }
+  .ep.blank .z b{ color:var(--paper); font-weight:700; display:block; margin-bottom:7px; font-size:14px; letter-spacing:.02em; }
+
+  /* ---------- misc ---------- */
+  .quote{ font-size:34px; line-height:1.26; font-weight:300; letter-spacing:-.02em; color:var(--paper); }
+  .quote em{ font-style:normal; color:var(--hot); }
+
+  .lang{ display:flex; flex-wrap:wrap; gap:9px; }
+  .lang span{ font-size:14px; padding:8px 15px; border:1px solid var(--rule); border-radius:100px; color:var(--dim); font-weight:400; }
+
+  .timeline{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--rule); }
+  .tl{ padding:26px 30px 0 0; border-right:1px solid var(--rule); }
+  .tl:last-child{ border-right:0; padding-right:0; }
+  .tl .s{ font-size:11.5px; letter-spacing:.24em; color:var(--hot); font-weight:700; }
+  .tl .n{ font-size:30px; font-weight:700; letter-spacing:-.025em; margin:10px 0 11px; }
+  .tl .p{ font-size:14.5px; line-height:1.55; color:var(--dimmer); font-weight:300; }
+
+  .steps{ counter-reset:s; }
+  .step{ display:grid; grid-template-columns:52px 1fr 176px; gap:22px; padding:17px 0; border-bottom:1px solid var(--rule); align-items:baseline; }
+  .step:first-child{ border-top:1px solid var(--rule); }
+  .step .i{ font-size:13px; font-weight:700; color:var(--hot); letter-spacing:.14em; }
+  .step .h{ font-size:19px; font-weight:600; letter-spacing:-.015em; }
+  .step .h span{ display:block; font-size:13.5px; font-weight:300; color:var(--dimmer); margin-top:5px; letter-spacing:0; }
+  .step .c{ font-size:14px; color:var(--dim); text-align:right; font-weight:600; }
+  .step .c b{ color:var(--hot); font-weight:700; }
+
+  .money{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
+  .money > div{ border-left:1px solid var(--rule); padding:0 32px; }
+  .money > div:first-child{ border-left:0; padding-left:0; }
+
+  .src{ font-size:10.5px; line-height:1.5; color:rgba(244,241,234,.30); font-weight:400; }
+</style>
+</head>
+<body>
+
+<!-- ============ 01 COVER ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/cover.png" alt=""></div>
+  <div class="scrim bottom"></div>
+  <div class="pad">
+    <div class="eyebrow">Jesse Grylls <span class="muted">&nbsp;/&nbsp;</span> India <span class="muted">&nbsp;/&nbsp; Series pitch &nbsp;/&nbsp; August 2026</span></div>
+    <div style="position:absolute; left:92px; right:92px; bottom:132px;">
+      <h1 style="font-size:132px;">Three Seas<br>to the Sky</h1>
+      <div style="height:30px;"></div>
+      <div class="hair"></div>
+      <div style="height:24px;"></div>
+      <div class="lede" style="max-width:830px; font-size:24px;">
+        A multi-season adventure series that runs the length of India. Made for YouTube.
+        Released in nine languages. Funded by Indian brands, and owned outright.
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">Three Seas to the Sky</span><span>Confidential</span></div>
+</section>
+
+<!-- ============ 02 THE LOGLINE / FORMAT ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/leg_kanyakumari.png" alt=""></div>
+  <div class="scrim left"></div>
+  <div class="pad">
+    <div class="eyebrow">01 <span class="muted">&nbsp;/&nbsp; The pitch</span></div>
+    <div style="position:absolute; left:92px; top:230px; width:800px;">
+      <div class="quote">
+        One man walks, climbs, swims and flies the entire length of India in one continuous line
+        &mdash; from the last rock in the southern sea to a <em>6,128-metre Himalayan summit he
+        jumps off the top of</em>.
+      </div>
+      <div style="height:44px;"></div>
+      <hr class="rule">
+      <div class="cols c3" style="gap:30px; margin-top:26px;">
+        <div><div class="kicker" style="color:var(--dimmer); font-size:11px;">Format</div>
+          <div class="body" style="margin-top:8px; color:var(--paper); font-weight:400; font-size:16px;">9 &times; 25&ndash;35 min<br>Returnable series</div></div>
+        <div><div class="kicker" style="color:var(--dimmer); font-size:11px;">Platform</div>
+          <div class="body" style="margin-top:8px; color:var(--paper); font-weight:400; font-size:16px;">YouTube-native<br>No broadcaster, no window</div></div>
+        <div><div class="kicker" style="color:var(--dimmer); font-size:11px;">Language</div>
+          <div class="body" style="margin-top:8px; color:var(--paper); font-weight:400; font-size:16px;">Shot in English<br>Released in 8 Indian languages</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The pitch</span><span>01 / 16</span></div>
+</section>
+
+<!-- ============ 03 THE VACANCY ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/vacancy.png" alt=""></div>
+  <div class="scrim left"></div>
+  <div class="pad">
+    <div class="eyebrow">02 <span class="muted">&nbsp;/&nbsp; The vacancy</span></div>
+    <div style="position:absolute; left:92px; top:212px; width:790px;">
+      <h2>The top of<br>this category<br>is empty.</h2>
+      <div style="height:30px;"></div>
+      <div class="body" style="font-size:18px; max-width:720px;">
+        India's biggest creators clear <strong>70 million subscribers</strong>. Its biggest channels
+        dedicated to adventure and expedition stop at around <strong>four million</strong>. That gap
+        is not missing appetite. It is a missing person.
+      </div>
+      <div style="height:36px;"></div>
+      <div class="cols c3" style="gap:30px;">
+        <div class="card"><div class="h">No incumbent</div><div class="p">India has no domestic Bear Grylls, no Backshall, no Honnold. The seat is unoccupied.</div></div>
+        <div class="card"><div class="h">Proven appetite</div><div class="p">Bear's <b>Man vs Wild</b> with PM Modi reached <b>42.7m</b> cumulatively across the Discovery network and DD National, and made Discovery the country's <b>No. 3 channel</b> that week.</div></div>
+        <div class="card"><div class="h">Whitespace, on the record</div><div class="p">Warner Bros. Discovery, June 2026: survival-led factual in India <b>&ldquo;remains largely untapped.&rdquo;</b></div></div>
+      </div>
+      <div style="height:26px;"></div>
+      <div class="src">Subscriber figures: third-party trackers, 2026. Discovery / BARC India, 2019. WBD statement accompanying the launch of <i>Naked and Afraid: Aadimanav</i>, Discovery Channel India, 15 June 2026 &mdash; addressed on the following page.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The vacancy</span><span>02 / 16</span></div>
+</section>
+
+<!-- ============ 04 THE COMPETITION, ANSWERED ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">03 <span class="muted">&nbsp;/&nbsp; The competitive answer</span></div>
+    <div style="position:absolute; left:92px; top:200px; width:1416px;">
+      <h2>Somebody has already<br>said the seat is empty.</h2>
+      <div style="height:26px;"></div>
+      <div class="lede" style="max-width:1000px;">
+        The quote above is Warner Bros. Discovery's. It comes from the announcement of
+        <strong style="color:var(--paper); font-weight:600;">Naked and Afraid: Aadimanav</strong>, the
+        first Indian adaptation of the format, which premiered on Discovery Channel India in June.
+        The strongest third-party validation of this category is a competitor sitting down in the chair.
+        So here is the difference, in their words and ours.
+      </div>
+      <div style="height:46px;"></div>
+      <div class="cols c2" style="gap:76px;">
+        <div>
+          <div class="num">THEIRS</div>
+          <div class="card" style="border-color:var(--rule);">
+            <div class="h">A cast-based broadcast format</div>
+            <div class="p" style="font-size:15px;">Contributors change every series. There is no continuing figure for an audience to follow, the IP sits with the network, the channel owns the distribution, and nothing accumulates between seasons. When the commission ends, the audience does not move anywhere &mdash; because it never belonged to a person.</div>
+          </div>
+        </div>
+        <div>
+          <div class="num">OURS</div>
+          <div class="card" style="border-color:var(--hot);">
+            <div class="h">A person, and a position</div>
+            <div class="p" style="font-size:15px;">One continuing figure across every season. We own the IP, the channel, the audience and the back catalogue. Every episode compounds into the same asset, in eight Indian languages. A format can be cancelled. A position in a market cannot.</div>
+          </div>
+        </div>
+      </div>
+      <div style="height:52px;"></div>
+      <hr class="rule">
+      <div style="height:22px;"></div>
+      <div class="body" style="font-size:17px; max-width:1180px;">
+        <strong>This is a position, not a show.</strong> Shows come and go. A position compounds, which
+        means nothing is wasted if a single season underperforms &mdash; it is still an instalment
+        towards the same thing.
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The competitive answer</span><span>03 / 16</span></div>
+</section>
+
+<!-- ============ 05 THE AUDIENCE ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/why_now.png" alt=""></div>
+  <div class="scrim bottom"></div>
+  <div class="pad">
+    <div class="eyebrow">04 <span class="muted">&nbsp;/&nbsp; Why now</span></div>
+    <div style="position:absolute; left:92px; right:92px; bottom:118px;">
+      <h2 style="font-size:58px;">The biggest audience on earth.<br>Not yet the biggest money.</h2>
+      <div style="height:26px;"></div>
+      <div class="lede" style="max-width:1080px; font-size:21px;">
+        Which is exactly why now. Roughly half a billion Indians are still not online. Building an
+        audience here is cheap today and will not be in five years.
+      </div>
+      <div style="height:40px;"></div>
+      <hr class="rule">
+      <div style="height:26px;"></div>
+      <div class="cols c4" style="gap:40px;">
+        <div class="stat"><div class="n">958m</div><div class="l">Indians online today<br><b>Growing 8% a year</b></div></div>
+        <div class="stat"><div class="n">~440m</div><div class="l">Still not online<br><b>Rural growing 4&times; urban</b></div></div>
+        <div class="stat"><div class="n">650m</div><div class="l">Monthly logged-in<br><b>Shorts viewers in India</b></div></div>
+        <div class="stat"><div class="n">&#8377;99bn</div><div class="l">Connected-TV ad revenue, <b>+42% in a year</b>, while linear TV posted its fourth straight annual decline</div></div>
+      </div>
+      <div style="height:26px;"></div>
+      <div class="src">IAMAI / Kantar, Internet in India 2025 (958m, 8%, rural 4&times;). DataReportal, Digital 2026 India (offline population). Google India Brandcast 2025 (650m Shorts, 75m connected-TV 18+). FICCI-EY 2026 (CTV ad revenue &#8377;99bn +42%; linear TV decline). India is YouTube's largest market: 100m+ channels uploaded last year, 15,000+ past a million subscribers, and &#8377;21,000 crore paid out over three years to creators, artists and media companies.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">Why now</span><span>04 / 16</span></div>
+</section>
+
+<!-- ============ 06 THE SHOW ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/leg_ladakh.png" alt=""></div>
+  <div class="scrim left"></div>
+  <div class="pad">
+    <div class="eyebrow">05 <span class="muted">&nbsp;/&nbsp; The show</span></div>
+    <div style="position:absolute; left:92px; top:206px; width:800px;">
+      <h2>Season one<br>runs the length<br>of the country.</h2>
+      <div style="height:28px;"></div>
+      <div class="body" style="font-size:18px;">
+        He starts in the sea at the southernmost rock of India and finishes on a Himalayan summit in
+        Ladakh that he flies off the top of, taking on the hardest thing each region has to offer on
+        the way up.
+      </div>
+      <div style="height:38px;"></div>
+      <div class="cols c3" style="gap:26px;">
+        <div class="stat"><div class="n sm">~3,000<span style="font-size:26px;">km</span></div><div class="l">One continuous line<br>Tamil Nadu to Ladakh</div></div>
+        <div class="stat"><div class="n sm">6,128<span style="font-size:26px;">m</span></div><div class="l">Sea level to summit<br>First frame to last</div></div>
+        <div class="stat"><div class="n sm">9</div><div class="l">Regions, nine separate<br>technical disciplines</div></div>
+      </div>
+      <div style="height:38px;"></div>
+      <hr class="rule">
+      <div style="height:22px;"></div>
+      <div class="body" style="font-size:18px; color:var(--paper); font-weight:400;">
+        A route has a countdown built into it. The audience always knows how far he has come and how
+        far is left. A travelogue can never manufacture that.
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The show</span><span>05 / 16</span></div>
+</section>
+
+<!-- ============ 07 THE ROUTE / PROFILE ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">06 <span class="muted">&nbsp;/&nbsp; The spine</span></div>
+    <div style="position:absolute; left:92px; top:172px; width:1416px;">
+      <h3 style="font-size:40px;">Sea level to 6,128 metres. South to north. No unit ever flies backwards.</h3>
+      <div style="height:14px;"></div>
+      <div class="body" style="max-width:1000px;">The route is the cost control as well as the story. Nine legs, ordered by latitude, shot in two tight blocks.</div>
+      <div style="height:26px;"></div>
+
+      <svg viewBox="0 0 1416 420" width="1416" height="420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grd" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#D9682C" stop-opacity=".10"/>
+            <stop offset="100%" stop-color="#D9682C" stop-opacity=".42"/>
+          </linearGradient>
+        </defs>
+
+        <!-- altitude gridlines -->
+        <g stroke="rgba(244,241,234,.13)" stroke-width="1">
+          <line x1="0" y1="330" x2="1416" y2="330"/>
+          <line x1="0" y1="255" x2="1416" y2="255"/>
+          <line x1="0" y1="180" x2="1416" y2="180"/>
+          <line x1="0" y1="105" x2="1416" y2="105"/>
+          <line x1="0" y1="30"  x2="1416" y2="30"/>
+        </g>
+        <g fill="rgba(244,241,234,.34)" font-family="Helvetica Neue, Arial" font-size="10.5" font-weight="600" letter-spacing="1.4">
+          <text x="0" y="326">0 m</text>
+          <text x="0" y="251">1,500 m</text>
+          <text x="0" y="176">3,000 m</text>
+          <text x="0" y="101">4,500 m</text>
+          <text x="0" y="26">6,000 m</text>
+        </g>
+
+        <!-- terrain fill under the line -->
+        <path d="M96,330 L262,290 L420,307 L520,299 L676,259 L900,209 L1054,130 L1198,152 L1360,24 L1360,346 L96,346 Z"
+              fill="url(#grd)"/>
+        <!-- the line -->
+        <path d="M96,330 L262,290 L420,307 L520,299 L676,259 L900,209 L1054,130 L1198,152 L1360,24"
+              fill="none" stroke="#D9682C" stroke-width="2.5" stroke-linejoin="round"/>
+
+        <!-- nodes -->
+        <g fill="#0A0B0D" stroke="#D9682C" stroke-width="2.5">
+          <circle cx="96" cy="330" r="6"/><circle cx="262" cy="290" r="6"/><circle cx="420" cy="307" r="6"/>
+          <circle cx="520" cy="299" r="6"/><circle cx="676" cy="259" r="6"/><circle cx="900" cy="209" r="6"/>
+          <circle cx="1054" cy="130" r="6"/><circle cx="1198" cy="152" r="6"/>
+        </g>
+        <circle cx="1360" cy="24" r="9" fill="#D9682C" stroke="#0A0B0D" stroke-width="2.5"/>
+
+        <!-- labels -->
+        <g font-family="Helvetica Neue, Arial" font-size="12.5" font-weight="700" fill="#F4F1EA" letter-spacing=".2">
+          <text x="96"   y="368" text-anchor="middle">KANYAKUMARI</text>
+          <text x="262"  y="368" text-anchor="middle">WESTERN GHATS</text>
+          <text x="420"  y="368" text-anchor="middle">HAMPI</text>
+          <text x="520"  y="392" text-anchor="middle">BADAMI</text>
+          <text x="676"  y="368" text-anchor="middle">KONKAN KADA</text>
+          <text x="900"  y="368" text-anchor="middle">BIR BILLING</text>
+          <text x="1054" y="368" text-anchor="middle">MIYAR VALLEY</text>
+          <text x="1198" y="392" text-anchor="middle">ZANSKAR</text>
+          <text x="1360" y="368" text-anchor="middle" fill="#D9682C">DZO JONGO</text>
+        </g>
+        <g font-family="Helvetica Neue, Arial" font-size="10.5" font-weight="500" fill="rgba(244,241,234,.42)" letter-spacing=".6">
+          <text x="96"   y="384" text-anchor="middle">SEA LEVEL</text>
+          <text x="262"  y="384" text-anchor="middle">~800 m</text>
+          <text x="420"  y="384" text-anchor="middle">~470 m</text>
+          <text x="520"  y="408" text-anchor="middle">~650 m</text>
+          <text x="676"  y="384" text-anchor="middle">~1,420 m</text>
+          <text x="900"  y="384" text-anchor="middle">2,430 m LAUNCH</text>
+          <text x="1054" y="384" text-anchor="middle">~4,000 m WALLS</text>
+          <text x="1198" y="408" text-anchor="middle">~4,000 m</text>
+          <text x="1360" y="384" text-anchor="middle" fill="rgba(217,104,44,.75)">6,128 m &mdash; THEN FLY</text>
+        </g>
+      </svg>
+
+      <div style="height:16px;"></div>
+      <hr class="rule">
+      <div style="height:18px;"></div>
+      <div class="body" style="font-size:16px; max-width:1300px;">
+        <strong>Deliberately excluded:</strong> whitewater, and any long-form endurance leg. Every episode
+        is a technical discipline with a visual payoff. No filler, and no travel for travel's sake.
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The spine</span><span>06 / 16</span></div>
+</section>
+
+<!-- ============ 08 THE LEGS ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">07 <span class="muted">&nbsp;/&nbsp; The episodes</span></div>
+    <div style="position:absolute; left:92px; top:166px; width:1416px;">
+      <h3 style="font-size:40px;">Nine regions. Nine disciplines. Nine titles that travel.</h3>
+      <div style="height:24px;"></div>
+      <div class="eps">
+        <div class="ep"><img src="img/leg_kanyakumari.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 01 &middot; TAMIL NADU</div><div class="n">Kanyakumari</div><div class="d">A dawn swim to the southernmost rock of India, where three seas meet.</div></div></div>
+        <div class="ep"><img src="img/leg_ghats.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 02 &middot; WESTERN GHATS</div><div class="n">The Jungle</div><div class="d">Rope work and waterfall abseils through monsoon canopy.</div></div></div>
+        <div class="ep"><img src="img/leg_hampi.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 03 &middot; KARNATAKA</div><div class="n">Hampi</div><div class="d">A highline strung above the granite and the ruins.</div></div></div>
+        <div class="ep"><img src="img/leg_badami.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 04 &middot; KARNATAKA</div><div class="n">Badami</div><div class="d">Sandstone sport climbing to 7c+. Nobody expects this in India.</div></div></div>
+        <div class="ep"><img src="img/leg_konkan.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 05 &middot; MAHARASHTRA</div><div class="n">Konkan Kada</div><div class="d">A BASE exit from the great curved wall of the Sahyadri.</div></div></div>
+        <div class="ep"><img src="img/leg_bir.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 06 &middot; HIMACHAL</div><div class="n">Bir Billing</div><div class="d">Cross-country from a site that has hosted the Paragliding World Cup twice.</div></div></div>
+        <div class="ep"><img src="img/leg_miyar.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 07 &middot; HIMACHAL</div><div class="n">Miyar Valley</div><div class="d">Big-wall alpine granite. Essentially unfilmed.</div></div></div>
+        <div class="ep"><img src="img/leg_zanskar.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 08 &middot; LADAKH</div><div class="n">Zanskar</div><div class="d">High-altitude riding through the gorge country.</div></div></div>
+        <div class="ep"><img src="img/leg_ladakh.png" alt=""><div class="g"></div><div class="t">
+          <div class="e">EP 09 &middot; LADAKH</div><div class="n">Dzo Jongo</div><div class="d">6,128 m on foot. Then he flies off the top.</div></div></div>
+        <div class="ep blank"><div class="z"><b>Four assets before a frame airs</b>
+          A highline over the Hampi ruins, a BASE exit off Konkan Kada, big-wall granite in the Miyar Valley, and a summit flight in Ladakh. Each one stands alone as a marketing asset.</div></div>
+      </div>
+      <div style="height:22px;"></div>
+      <div class="src">Location plates are treatments for tone and framing, generated for this document. Photography drops into the same frames once the first block is shot.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The episodes</span><span>07 / 16</span></div>
+</section>
+
+<!-- ============ 09 THE FINALE ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/finale.png" alt=""></div>
+  <div class="scrim bottom"></div>
+  <div class="pad">
+    <div class="eyebrow">08 <span class="muted">&nbsp;/&nbsp; The finale</span></div>
+    <div style="position:absolute; left:92px; right:92px; bottom:112px;">
+      <h2 style="font-size:70px;">Summit it. Then fly off it.</h2>
+      <div style="height:24px;"></div>
+      <div class="lede" style="max-width:1000px; font-size:21px;">
+        He starts the season in the sea at the bottom of India and ends it on the summit of
+        <strong style="color:var(--paper); font-weight:600;">Dzo Jongo, 6,128 m</strong>, climbed on foot
+        &mdash; then flies off the top and lands in the valley. An Indian peak, climbed and flown by an
+        Indian-funded production. The whole country, bottom to top.
+      </div>
+      <div style="height:34px;"></div>
+      <hr class="rule">
+      <div style="height:24px;"></div>
+      <div class="cols c4" style="gap:40px;">
+        <div class="stat"><div class="n sm">6,128<span style="font-size:22px;">m</span></div><div class="l">Climbed on foot</div></div>
+        <div class="stat"><div class="n sm">~2,500<span style="font-size:22px;">m</span></div><div class="l">Of flight, summit to valley floor</div></div>
+        <div class="stat"><div class="n sm">123</div><div class="l">Peaks the IMF opens to foreigners<br><b>51 Uttarakhand &middot; 47 Himachal &middot; 15 J&amp;K &middot; 10 Sikkim</b></div></div>
+        <div class="stat"><div class="n sm">~2 mo</div><div class="l">Permit lead time, via the Leh tourism office<br><b>Open for 2026 expeditions</b></div></div>
+      </div>
+      <div style="height:22px;"></div>
+      <div class="src">Dzo Jongo is named deliberately. <b>Stok Kangri, the peak most people assume, has been closed since 2020</b> over glacier depletion and has no confirmed reopening &mdash; anyone in the Indian adventure trade knows this, so the deck does not rely on it. Dzo Jongo is open, permitted through mountaineering operators at the Leh tourism office, and can be twinned with Kang Yatse II in a single window. It sits in high-altitude cold desert within the Hemis protected area, filmed under park permission and the standard wildlife fee. That is a different thing from the tiger reserves and core forest zones we rule out on page 14, and we mean that distinction precisely.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The finale</span><span>08 / 16</span></div>
+</section>
+
+<!-- ============ 10 TONE AND LOOK ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">09 <span class="muted">&nbsp;/&nbsp; Tone and look</span></div>
+    <div style="position:absolute; left:92px; top:158px; width:1416px;">
+      <h3 style="font-size:40px;">Shot like a film, cut like a channel.</h3>
+      <div style="height:22px;"></div>
+      <div class="cols c2" style="gap:60px; align-items:start;">
+        <div>
+          <div class="body" style="font-size:17px;">
+            We keep what worked in the format Bear built &mdash; the accessibility, the direct address to
+            camera, the jeopardy an audience can read without being told. What we drop are the
+            constraints broadcast imposed, none of which apply here.
+          </div>
+          <div style="height:30px;"></div>
+          <div class="card" style="border-color:var(--hot);">
+            <div class="num">THE BIG ONE</div>
+            <div class="h" style="font-size:22px;">Continuation is now an asset.</div>
+            <div class="p" style="font-size:15px;">Broadcast made every episode stand alone, so nothing could build. YouTube rewards the opposite: serialisation compounds watch time and a season arc creates returning subscribers. A continuous journey was structurally impossible on television. It is the optimal shape here.</div>
+          </div>
+          <div style="height:26px;"></div>
+          <div class="cols c2" style="gap:26px;">
+            <div class="card"><div class="h">Small unit, big frame</div><div class="p">A five-person travelling crew at Indian rates. Drone and long lens carry the scale; nothing is staged that cannot be done for real.</div></div>
+            <div class="card"><div class="h">Titles that need no context</div><div class="p">A number, a place, or a first. The BASE exit works as a thumbnail in any market on earth with no cultural translation at all.</div></div>
+          </div>
+        </div>
+        <div>
+          <div style="height:206px; border-radius:2px; overflow:hidden; background:#141518;">
+            <img src="img/leg_konkan.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt="">
+          </div>
+          <div style="height:14px;"></div>
+          <div class="row" style="gap:14px;">
+            <div style="flex:1; height:150px; border-radius:2px; overflow:hidden; background:#141518;">
+              <img src="img/leg_badami.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></div>
+            <div style="flex:1; height:150px; border-radius:2px; overflow:hidden; background:#141518;">
+              <img src="img/leg_miyar.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></div>
+          </div>
+          <div style="height:14px;"></div>
+          <div class="tiny">Reference frames for grade and framing: desaturated earth palette, available light, the figure kept small so the country stays the co-lead. Nothing shot handheld that could be shot still.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">Tone and look</span><span>09 / 16</span></div>
+</section>
+
+<!-- ============ 11 WHY HIM ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">10 <span class="muted">&nbsp;/&nbsp; The talent</span></div>
+    <div style="position:absolute; left:92px; top:186px; width:1416px;">
+      <h2>Four advantages that<br>do not transfer to anyone else.</h2>
+      <div style="height:46px;"></div>
+      <div class="cols c4" style="gap:40px;">
+        <div class="card"><div class="num">01</div><div class="h">A name India already trusts</div><div class="p">Bear's India work is not abstract goodwill. It is among the highest-rated infotainment ever broadcast in the country. That recognition is inherited, and it is the cheapest audience acquisition available to anyone in this category.</div></div>
+        <div class="card"><div class="num">02</div><div class="h">Qualified across nine disciplines</div><div class="p">Not a presenter being taught on camera. Climbing, BASE, paragliding, skydiving, high-altitude riding, rope work &mdash; done at a real standard. That is what makes the jeopardy legible and the footage honest.</div></div>
+        <div class="card"><div class="num">03</div><div class="h">A generation's timing</div><div class="p">Connected TV in India now carries advertising money that linear television is losing, and cinematic long-form is finally worth making for this market. Two years ago it was not.</div></div>
+        <div class="card"><div class="num">04</div><div class="h">No gatekeeper</div><div class="p">YouTube-native means no commissioner to convince, no window to wait for, and nobody else owning the IP, the audience or the back catalogue.</div></div>
+      </div>
+      <div style="height:62px;"></div>
+      <hr class="rule">
+      <div style="height:26px;"></div>
+      <div class="row" style="gap:60px; align-items:baseline;">
+        <div style="width:300px;"><div class="kicker">And the obvious objection,<br>answered up front</div></div>
+        <div style="flex:1;">
+          <div class="quote" style="font-size:27px; max-width:1000px;">
+            The surname buys the first click and nothing else. Bear appears <em>once</em>, in one scene,
+            at the start line of season one &mdash; then he is gone and does not come back. Everything
+            after that has to be earned, which is exactly the point.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The talent</span><span>10 / 16</span></div>
+</section>
+
+<!-- ============ 12 THE CEILING BREAKER ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/languages.png" alt=""></div>
+  <div class="scrim left"></div>
+  <div class="pad">
+    <div class="eyebrow">11 <span class="muted">&nbsp;/&nbsp; The ceiling-breaker</span></div>
+    <div style="position:absolute; left:92px; top:184px; width:880px;">
+      <h2>One shoot.<br>Eight Indias.</h2>
+      <div style="height:26px;"></div>
+      <div class="body" style="font-size:18px; max-width:820px;">
+        Every episode is released fully dubbed into India's major languages, in
+        <strong>Jesse's own voice, cloned</strong> &mdash; not a stranger reading his lines. The
+        relationship with the audience survives translation, which is the thing dubbing normally destroys.
+      </div>
+      <div style="height:28px;"></div>
+      <div class="lang">
+        <span>English</span><span>Hindi</span><span>Bengali</span><span>Marathi</span><span>Telugu</span>
+        <span>Tamil</span><span>Gujarati</span><span>Kannada</span><span>Malayalam</span>
+      </div>
+      <div style="height:34px;"></div>
+      <div class="cols c2" style="gap:44px;">
+        <div class="card"><div class="h">This is why the ceiling exists</div><div class="p">India's biggest travel and adventure channels stop near four million partly because they are single-language. Nobody has served all of them at once.</div></div>
+        <div class="card"><div class="h">Near-zero marginal cost</div><div class="p">One shoot, one edit, one grade. Each additional language is an audio pass, not another production. These economics did not exist three years ago.</div></div>
+        <div class="card"><div class="h">What the sponsor is buying</div><div class="p">One integration, delivered eight times over in the languages their customers actually think in &mdash; plus the English original worldwide, at no extra cost to them.</div></div>
+        <div class="card" style="border-color:var(--hot);"><div class="h">Handled properly, or not at all</div><div class="p">Audiences punish a bad dub harder than no dub. Hindi is quality-controlled by a native speaker before release, the smaller languages roll out only once they clear that bar, and every synthetic track is disclosed. Cloning his own voice with his consent is not a deepfake, and we say so plainly.</div></div>
+      </div>
+      <div style="height:20px;"></div>
+      <div class="src">Voice-clone quality, platform disclosure rules and per-language reception are all tested on a single pilot episode before the full slate commits to this. It is item three of the next steps.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The ceiling-breaker</span><span>11 / 16</span></div>
+</section>
+
+<!-- ============ 13 THE ARC + SLATE ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">12 <span class="muted">&nbsp;/&nbsp; The arc</span></div>
+    <div style="position:absolute; left:92px; top:174px; width:1416px;">
+      <h3 style="font-size:40px;">One position. Three acts. Then it stops needing him.</h3>
+      <div style="height:30px;"></div>
+      <div class="timeline">
+        <div class="tl"><div class="s">SEASON ONE</div><div class="n">Discover India</div><div class="p">The length of the country. Three seas to the sky. He establishes the position on his own.</div></div>
+        <div class="tl"><div class="s">SEASON TWO</div><div class="n">Assemble the Team</div><div class="p">Indian explorers chosen for what they overcame, not just what they can climb. The audience transfers to people it has watched being selected.</div></div>
+        <div class="tl"><div class="s">SEASON THREE</div><div class="n">India to the World</div><div class="p">The team leaves India together and takes on a global objective. At that point it is an Indian franchise with an international footprint, not a foreign presenter's show.</div></div>
+      </div>
+      <div style="height:56px;"></div>
+      <hr class="rule">
+      <div style="height:26px;"></div>
+      <div class="kicker" style="color:var(--dimmer); font-size:11px;">The slate beyond season one</div>
+      <div style="height:22px;"></div>
+      <div class="cols c4" style="gap:36px;">
+        <div class="card"><div class="h">The Seven Sisters</div><div class="p">The least-filmed corner of India.</div></div>
+        <div class="card"><div class="h">Highest Roads on Earth</div><div class="p">Ladakh, Spiti, altitude records.</div></div>
+        <div class="card"><div class="h">Vol-Biv Himalaya</div><div class="p">Hike-and-fly traverse. A world first.</div></div>
+        <div class="card"><div class="h">The Handoff</div><div class="p">No itinerary. Locals decide where he goes next.</div></div>
+      </div>
+      <div style="height:24px;"></div>
+      <div class="body" style="font-size:15.5px;">Further concepts in development: <strong>Sacred Mountains</strong> (pilgrimage routes and altitude) and <strong>Monsoon</strong> (the wettest inhabited place on earth).</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The arc and the slate</span><span>12 / 16</span></div>
+</section>
+
+<!-- ============ 14 THE MONEY ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">13 <span class="muted">&nbsp;/&nbsp; The money</span></div>
+    <div style="position:absolute; left:92px; top:164px; width:1416px;">
+      <h2 style="font-size:58px;">Indian brands pay for it,<br>before a frame is shot.</h2>
+      <div style="height:26px;"></div>
+      <div class="row" style="gap:60px; align-items:flex-start;">
+        <div style="width:420px;">
+          <div class="stat"><div class="n" style="font-size:96px; color:var(--hot);">$250k</div>
+            <div class="l" style="font-size:14px; margin-top:14px;">A season, all in, paid up front.</div></div>
+          <div style="height:26px;"></div>
+          <div class="body" style="font-size:16px;">
+            That is <strong>three to six category sponsors</strong> at the top of the current Indian
+            rate card, or <strong>one title sponsor</strong> priced above it. Naming the shape of the
+            cap table is the first question every brand asks, because it tells them what they are
+            buying and who they are sharing it with.
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="cols c2" style="gap:44px;">
+            <div class="card"><div class="h">What the rate card actually says</div><div class="p">Integrated sponsorships with the largest Indian YouTube creators run <b>&#8377;15&ndash;80 lakh</b>, roughly <b>$18,000&ndash;95,000</b>, and YouTube integrations price at <b>three to five times</b> the equivalent Instagram Reel. A cinematic series delivered in eight Indian languages plus worldwide English prices <b>above</b> that card, not inside it.</div></div>
+            <div class="card"><div class="h">Who we are selling to</div><div class="p">Indian brands first: two-wheeler and automotive, telecoms, apparel, hydration and nutrition, watches, insurance. Global endemic brands second, as a top-up rather than the base.</div></div>
+            <div class="card"><div class="h">Why we keep the ad revenue</div><div class="p">An India-only audience earns roughly <b>a tenth</b> of what a UK or US one does per thousand views. Global English viewing is our margin, not our funding. We are not betting the business on ad rates.</div></div>
+            <div class="card"><div class="h">Why it costs this little</div><div class="p">Two tight shooting blocks, a five-person travelling crew, Indian rates, and no unit ever flying between regions. The route design is the cost control.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="height:36px;"></div>
+      <hr class="rule">
+      <div style="height:20px;"></div>
+      <div class="body" style="font-size:16px; max-width:1300px;">
+        <strong>Where the risk actually sits, stated honestly.</strong> Once a season is funded there is
+        no production risk on our side: if it underperforms, the sponsor has still had their reach and we
+        have still built the position. Until a lead sponsor signs, every pound of risk is ours.
+      </div>
+      <div style="height:14px;"></div>
+      <div class="src">Indian influencer rate-card data, 2026. Rupee conversions at approximately &#8377;84/$. RPM bands vary by source; the roughly tenfold India-versus-UK/US gap is consistent across all of them.</div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">The money</span><span>13 / 16</span></div>
+</section>
+
+<!-- ============ 15 RISK ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">14 <span class="muted">&nbsp;/&nbsp; What could go wrong</span></div>
+    <div style="position:absolute; left:92px; top:190px; width:1416px;">
+      <h2>Named up front,<br>not buried at the back.</h2>
+      <div style="height:44px;"></div>
+      <div class="cols c4" style="gap:40px;">
+        <div class="card"><div class="num">01</div><div class="h">Air disciplines drive the insurance</div><div class="p">BASE and high-altitude flight need a specialist broker, named certified operators and a signed rescue plan before a frame is shot. Any brand's legal team will ask, so it is priced in from the start rather than discovered later.</div></div>
+        <div class="card"><div class="num">02</div><div class="h">Permits are dependencies, not tasks</div><div class="p">IMF peak permits, aero-sports clearance in airspace near a sensitive border, Ladakh inner-line permits, state film permissions and drone approvals. Long lead times, in the schedule from day one.</div></div>
+        <div class="card"><div class="num">03</div><div class="h">Altitude is the schedule risk</div><div class="p">A 6,000-metre summit with a flyable weather window is the one leg that cannot be forced. Contingency days and a lower fallback peak, rather than assuming the mountain cooperates.</div></div>
+        <div class="card" style="border-color:var(--hot);"><div class="num">04</div><div class="h">Reputational lines we will not cross</div><div class="p">No filming in tiger reserves or core forest zones. There is precedent in Bear's India work and it drew a serious backlash. The upside is small and the cost is pre-loaded, so the line is drawn now and in writing.</div></div>
+      </div>
+      <div style="height:58px;"></div>
+      <hr class="rule">
+      <div style="height:22px;"></div>
+      <div class="body" style="font-size:16.5px; max-width:1300px;">
+        A sponsor's legal team reads this page first. Everything on it is a known cost with a known
+        owner, which is a materially different proposition from a production that has not thought
+        about any of it yet.
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">What could go wrong</span><span>14 / 16</span></div>
+</section>
+
+<!-- ============ 16 NEXT ============ -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">15 <span class="muted">&nbsp;/&nbsp; What happens next</span></div>
+    <div style="position:absolute; left:92px; top:156px; width:1416px;">
+      <h3 style="font-size:40px;">Five moves, in order. Only one of them needs money today.</h3>
+      <div style="height:28px;"></div>
+      <div class="steps">
+        <div class="step"><div class="i">01</div>
+          <div class="h">Indian lead sponsor conversations<span>Two-wheeler, telecoms and apparel first. Every other category prices off them.</span></div>
+          <div class="c">No cost</div></div>
+        <div class="step"><div class="i">02</div>
+          <div class="h">A sizzle shoot &mdash; two days in Hampi<span>The cheapest item here and it transforms every page in this deck. Five-person crew, drone, two days on the ground, one week of edit, at Indian rates.</span></div>
+          <div class="c"><b>~$18k</b><br><span style="font-size:11px; font-weight:400; color:var(--dimmer);">The only cheque asked for now</span></div></div>
+        <div class="step"><div class="i">03</div>
+          <div class="h">Voice-clone pilot<span>One episode dubbed in Hindi and Tamil, tested on real viewers before the slate commits to nine languages.</span></div>
+          <div class="c">Runs off the sizzle</div></div>
+        <div class="step"><div class="i">04</div>
+          <div class="h">Peak and aero-sports permits<span>Confirm Dzo Jongo on the open list and start the permit clock. Roughly two months of lead time, so it starts before the money lands, not after.</span></div>
+          <div class="c">Nominal</div></div>
+        <div class="step"><div class="i">05</div>
+          <div class="h">Indian production service company<span>Required for state permissions, permits and local crew. Appointed once a lead sponsor is in.</span></div>
+          <div class="c">On signature</div></div>
+      </div>
+      <div style="height:36px;"></div>
+      <div class="quote" style="font-size:27px; max-width:1240px;">
+        The position is vacant, the audience is the largest on the platform, the name is already known
+        there, and the technology to speak to all of it in its own languages only just arrived.
+        <em>This is a timing question, not a feasibility one.</em>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">What happens next</span><span>15 / 16</span></div>
+</section>
+
+<!-- ============ 17 BACK ============ -->
+<section class="slide">
+  <div class="bg"><img src="img/closing.png" alt=""></div>
+  <div class="scrim bottom"></div>
+  <div class="pad">
+    <div style="position:absolute; left:92px; right:92px; bottom:112px;">
+      <h1 style="font-size:88px;">Three Seas<br>to the Sky</h1>
+      <div style="height:28px;"></div>
+      <div class="hair"></div>
+      <div style="height:26px;"></div>
+      <div class="row" style="gap:80px; align-items:baseline;">
+        <div><div class="kicker" style="font-size:20px; letter-spacing:.02em; text-transform:none;">Jesse Grylls</div>
+          <div class="tiny" style="margin-top:8px; font-size:14px;">jesse@beargryllsventures.com</div></div>
+        <div class="tiny" style="max-width:640px; font-size:13px;">
+          Made for YouTube. Released in nine languages. Funded by Indian brands, and owned outright.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="t">Three Seas to the Sky</span><span>16 / 16</span></div>
+</section>
+
+</body>
+</html>
