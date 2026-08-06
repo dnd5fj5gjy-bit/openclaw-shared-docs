@@ -155,16 +155,14 @@ Let her come back with the answer. If she raises the establishment-listing point
 sign about the supplier. Do not run her compliance process for her, and do not go around her to Drew on
 this — Jesse has already put the two of them in direct contact and that is the right shape.
 
-While you are there, the second question for Drew is simply: **how is bovine lung in a US human
-supplement, and how is it sourced and classified?** Ask it neutrally. It is a genuine question, not an
-accusation.
+**One piece of relationship context before you deal with ACF at all.** There is **no written agreement of
+any kind with them** — no master agreement, no supply agreement, no terms, no NDA. The only contractual
+document is a spec sheet whose entire agreement text is an authorisation to manufacture. That cuts both
+ways: nothing restricts us, and nothing assigns the formula to us either. Drew is also still actively
+working our packaging artwork with Belmark, so the relationship is live and worth handling gently.
 
-**Be aware of the relationship context before you write.** There is **no written agreement of any kind
-with ACF** — no master agreement, no supply agreement, no terms, no NDA. The only contractual document
-is a spec sheet whose entire agreement text is an authorisation to manufacture. That cuts both ways:
-nothing restricts us, and nothing assigns the formula to us either. Jesse has separately raised a worry
-that Drew may be unhappy that we are moving manufacture to the UK. **So keep this exchange narrow and
-factual. Ask about establishment listing. Do not open the formula ownership question in writing.**
+**So keep anything you send him narrow and practical.** Do not raise formula ownership, and do not put
+the UK manufacturing strategy to him in writing. Both of those are Jesse's to handle. See section 5.
 
 ## 3.2 Protein Partners. Sam Platt is owed three things and has had nothing for two days.
 
