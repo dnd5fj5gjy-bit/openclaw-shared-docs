@@ -253,14 +253,22 @@ Food Business Operator registration is required for the UK. The good news is tha
 solved: SCEND is registered with its local food authority and we register as FBO at their address. Make
 sure it actually gets done rather than assumed.
 
-## 4.3 Your own paperwork. Raemy and CJ own it.
+## 4.3 Your own paperwork. Raemy owns it.
 
-**Raemy sent you "NDA, Consultancy Agreement & Other" at 12:31 today**, so this should be in your inbox
-already. You asked for it on 3 August and it took three days, for which the honest answer is that it was
-being marked up properly rather than ignored — Jesse returned tracked changes on 5 August at 14:36,
-Felix reviewed at 16:36, and the 40-hour clause in 3.1 was softened and agreed by 17:14.
+**Raemy sent you the NDA and the Consultancy Agreement at 12:31 today**, to your personal address, with
+Jesse and Em copied. It was marked up properly rather than sitting idle — Jesse returned tracked changes
+on 5 August at 14:36, Felix reviewed at 16:36, and the 40-hour clause in 3.1 was softened and agreed by
+17:14.
 
-If it has not arrived, say so immediately rather than waiting.
+Two things he needs back: the signed documents, and **contact details for two references from your roles
+of the last three years**. Getting those to him this week keeps the paperwork off the critical path.
+
+## 4.4 Your email address
+
+**beau@modernsavage.co** was created today. If anything about the mailbox is not working, Felix is your
+route, not IT support. Move your correspondence onto it straight away, because from today you are the
+named contact on supplier threads and they should have a Modern Savage address for you rather than a
+personal one.
 
 ---
 
