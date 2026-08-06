@@ -101,12 +101,22 @@ ingredient most likely to block a certificate is simply fine if the product is m
 
 ### What follows from this
 
-1. **UK manufacture is the answer**, not a workaround. Make it in the UK and the entire import regime
-   disappears — no border, no certificate, no listing, no APHA licence, and the lung problem resolves
-   itself.
-2. **But there is a trap, and it is live right now.** "Made in the UK" only helps if the organ material
-   is UK or EU sourced. If a UK factory imports the organ powder from America, the same meat rules apply
-   to that ingredient. See item 3.1 below, because this is exactly what is about to happen.
+1. **UK manufacture is the answer, and it is the strategy we are already executing.** Make it in the UK
+   and the entire import regime disappears for us — no border, no certificate, no listing, no APHA
+   licence, and the lung problem resolves itself.
+2. **Where a residual question sits, and whose it is.** "Made in the UK" removes our import exposure
+   entirely. Some blends will still have to be bought from ACF because they cannot be sourced in the UK.
+   **When our UK manufacturer buys raw materials from ACF, that importation and its compliance are
+   theirs, not ours.** They are the buyer and the importer of record: the export health certificate, the
+   IPAFFS pre-notification, the border checks and the establishment-listing question all sit on their
+   side of the line. We are buying a finished, UK-made product from a UK company.
+
+   That is the whole commercial point of manufacturing here, and it is why the answer to "how do we
+   handle UK import compliance" is that we do not have to.
+
+   **What remains ours is not paperwork, it is supply risk.** If a raw material turns out not to be
+   importable, our manufacturer cannot make the product to the current spec, and that changes our
+   formula or our timeline. So we need to know the answer. We do not need to own the process. See 3.1.
 3. **BG Summit Stack is exempt from all of it.** No animal organs, so it is not meat, so it imports on
    ordinary food supplement rules. It is the only SKU that could be sold in the room at the 12 September
    Summit if the organ products end up US-only.
