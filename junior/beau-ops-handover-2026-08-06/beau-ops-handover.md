@@ -503,7 +503,8 @@ of supply chain and nobody was looking at the whole chain at once.
 # 12. YOUR FIRST WEEK
 
 **Today**
-- Confirm you have Raemy's paperwork email from 12:31.
+- Get onto beau@modernsavage.co and work from it from here on.
+- Confirm you have Raemy's paperwork email from 12:31, and send him your two references.
 - Email Ships A Lot for the rate card. Two paragraphs. Easiest win on the board.
 - Email Drew Kouvel with the establishment listing question (3.1). Narrow and factual.
 
