@@ -103,7 +103,11 @@ Raemy should be reading the articles and Bear's share documents this week, not i
 
 ## What to ask Andrew and Jessica, in writing, now
 
-1. **Who is the offeror?** Is it Teybridge F1 DAC or an affiliate, and is it connected to any current shareholder, director or PSC? If it is connected, this is a related-party transaction and the independent-offer framing does not hold.
+1. **If existing shareholders take up their full pro-rata entitlement, does the offeror still receive
+   the 3,001 shares?** This is the first question and it decides all the others. The letter says
+   subscribing pro rata preserves your percentage; it also says the funding is conditional on the
+   offeror getting 3,001 shares. Both cannot be true. *(Added 08:20 6 Aug - see the update at the top.)*
+2. **Who is the offeror?** Is it Teybridge F1 DAC or an affiliate, and is it connected to any current shareholder, director or PSC? If it is connected, this is a related-party transaction and the independent-offer framing does not hold.
 2. **Are the 3,001 shares issued for cash or as non-cash consideration for the facility?** And what resolution is the Board relying on to allot them.
 3. **Confirm the current issued share count.** The register's last statement of capital is 2,972 as at 31 January 2025, which is eighteen months old.
 4. **The full terms of the £7m** - rate, maturity, fees, covenants, security, and what happens on default given Teybridge already holds a charge over every asset.
