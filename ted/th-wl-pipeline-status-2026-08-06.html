@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Health White-Label - Partner Pipeline Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f7f8fb;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+  .hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #163366 100%);
+    color: #fff;
+    padding: 72px 32px 56px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    color: #7ec8e3;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .hero h1 { font-size: 2.4rem; max-width: 780px; margin: 0 auto 18px; }
+  .hero p { color: #cdd8ec; max-width: 640px; margin: 0 auto; font-size: 1.02rem; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  .summary-strip {
+    max-width: 920px;
+    margin: -36px auto 0;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(13,27,62,0.12);
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .stat-card .n { font-family: 'DM Serif Display', serif; font-size: 2rem; color: #0d1b3e; }
+  .stat-card .l { font-size: 0.78rem; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+  section { padding: 56px 0; border-bottom: 1px solid #e8ecf4; }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    color: #3182ce;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h2 { font-size: 1.8rem; color: #0d1b3e; margin-bottom: 8px; }
+  .lead { color: #4a5568; max-width: 680px; margin-bottom: 32px; font-size: 0.95rem; }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .badge.onboarded { background: #d4f4dd; color: #1a7a3d; }
+  .badge.ready { background: #fdeecb; color: #a3670c; }
+  .badge.discovery { background: #dbe9fd; color: #1a56a3; }
+  .badge.unclear { background: #edeff3; color: #5a6270; }
+  .partner-card {
+    background: #fff;
+    border: 1px solid #e8ecf4;
+    border-left: 4px solid #3182ce;
+    border-radius: 0 10px 10px 0;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .partner-card.onboarded { border-left-color: #1a7a3d; }
+  .partner-card.ready { border-left-color: #d69511; }
+  .partner-card.discovery { border-left-color: #3182ce; }
+  .partner-card.unclear { border-left-color: #9aa2b1; }
+  .partner-card h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.05rem; color: #0d1b3e; margin-bottom: 2px; }
+  .partner-card .sub { color: #718096; font-size: 0.85rem; margin-bottom: 12px; }
+  .timeline { list-style: none; margin: 10px 0 14px; }
+  .timeline li { font-size: 0.88rem; color: #4a5568; padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .timeline li::before { content: "-"; position: absolute; left: 0; color: #a0aec0; }
+  .timeline .date { color: #1a1a2e; font-weight: 500; }
+  .evidence {
+    background: #f7f8fb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #4a5568;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  .evidence .lbl { font-style: normal; font-weight: 600; color: #3182ce; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; display: block; margin-bottom: 4px; }
+  .flag {
+    background: #fff8e6;
+    border: 1px solid #f0d68a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #8a6300;
+    margin-top: 10px;
+  }
+  .src {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: #718096;
+    background: #eef1f7;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+  footer { padding: 40px 32px 60px; text-align: center; color: #a0aec0; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Ted's Health White-Label</div>
+  <h1>Partner Pipeline Status</h1>
+  <p>Talk-track for the call - every live partner and lead across Ted's and Calvin's outreach, grouped by stage. Snapshot as of 6 Aug 2026.</p>
+</div>
+
+<div class="summary-strip">
+  <div class="stat-card"><div class="n">7</div><div class="l">Live partners</div></div>
+  <div class="stat-card"><div class="n">3</div><div class="l">Confirmed - onboarding</div></div>
+  <div class="stat-card"><div class="n">3</div><div class="l">In discussion / warm</div></div>
+  <div class="stat-card"><div class="n">1</div><div class="l">Confirmed interest</div></div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-label">Stage 1</div>
+  <h2>Live partners <span class="badge onboarded">7 total</span></h2>
+  <p class="lead">Six from Ted's own outreach, one from Calvin's.</p>
+
+  <div class="partner-card onboarded">
+    <h3>Effect Doctors</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 29 Jul 2026.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>Swift Blood Tests</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 25 Jul 2026. Calvin took the discovery call.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>GymWolfPT Health</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 22 Jul 2026.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>By Firdous Health</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 13 Jul 2026.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>Function B2B Health</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 2 Jul 2026.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>OJay Health</h3>
+    <span class="src">Ted's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 19 Jun 2026.</div>
+  </div>
+
+  <div class="partner-card onboarded">
+    <h3>Cheshire Bloods Clinic (Kurat)</h3>
+    <span class="src">Calvin's outreach</span>
+    <div class="evidence"><span class="lbl">Status</span>Created 4 Aug 2026.</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 2</div>
+  <h2>Confirmed yes <span class="badge ready">Awaiting onboarding</span></h2>
+  <p class="lead">Ted's leads - discovery complete, said yes, onboarding not yet run.</p>
+
+  <div class="partner-card ready">
+    <h3>Deven Jethwa</h3>
+    <div class="sub">Runs a pharmacy</div>
+    <ul class="timeline">
+      <li>Discovery call complete, confirmed yes.</li>
+      <li>Waiting to set up the onboarding call - expected within the next day or two.</li>
+    </ul>
+  </div>
+
+  <div class="partner-card ready">
+    <h3>Leigh Kirby</h3>
+    <div class="sub">Trained nurse, set up an aesthetic clinic</div>
+    <ul class="timeline">
+      <li>Discovery call complete, confirmed yes.</li>
+      <li>Due to onboard Thursday 6 August.</li>
+    </ul>
+  </div>
+
+  <div class="partner-card ready">
+    <h3>Maggie - Mint Health</h3>
+    <ul class="timeline">
+      <li>Responded and confirmed interest.</li>
+      <li>Discovery/onboarding call booked for 26 August.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 3</div>
+  <h2>In discussion / warm <span class="badge discovery">Post-discovery, not yet confirmed</span></h2>
+
+  <div class="partner-card discovery">
+    <h3>Daren Fletcher</h3>
+    <div class="sub">Calvin lead</div>
+    <ul class="timeline">
+      <li>Discovery call complete, very interested.</li>
+      <li>Wanted more detail on inflammatory biomarkers and weight-loss medication - since sent.</li>
+      <li>Hopeful to onboard within the next week.</li>
+    </ul>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Stephen - Clinic Director, Amatsu</h3>
+    <div class="sub">Ted's Health lead</div>
+    <ul class="timeline">
+      <li>Discovery call went well.</li>
+      <li>Wanted to understand the business first - how D2C operates, examples of clinics already onboarded.</li>
+      <li>Details and examples sent, plus a follow-up email to try to book an onboarding call.</li>
+    </ul>
+  </div>
+
+  <div class="partner-card discovery">
+    <h3>Debbie</h3>
+    <div class="sub">Ted's Health lead</div>
+    <ul class="timeline">
+      <li>Call held ~3 weeks ago. Keen on the white-label partnership, primarily to use us as a blood-test provider for her.</li>
+      <li>At that stage the Wellman panel wasn't registered on the platform - it now is, so reopening the conversation to bring her back onboard.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Stage 4</div>
+  <h2>Confirmed interest <span class="badge unclear">Awaiting discovery call booking</span></h2>
+
+  <div class="partner-card unclear">
+    <h3>Malaika - Dr Malaika Clinics</h3>
+    <div class="sub">Runs a clinic specialising in medical aesthetics and skincare</div>
+    <ul class="timeline">
+      <li>Confirmed interest, awaiting a time to be booked for the discovery call.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  Compiled from Olly's status note ahead of the call. Snapshot: 6 Aug 2026.
+</footer>
+
+</body>
+</html>
