@@ -410,7 +410,8 @@ launch, not before you read this.
 | Parkacre | Lauren Todd | UK manufacturer lead | **Effectively closed.** 10,000 MOQ; Jesse declined 22 Jul: "I don't think that will work for us" |
 | SCEND (UK) Ltd | Jack Crumpton, Director — jack@scend.com | UK 3PL | Waiting on 5 details since 3 Aug |
 | Ships A Lot | Ryan; Susan U | US 3PL | **Rate card never sent, 27 days** |
-| Belmark | Sarah Salscheider, De Pere WI | Pouch printing | Artwork live |
+| Belmark | Sarah Salscheider, De Pere WI | Pouch printing (US run) | Artwork live and moving. Drew is running this thread; Summit bag artwork sent 5 Aug 17:44 |
+| Ice Miller | Paul Obszanski | US counsel | Reviewing the Modern Savage terms and conditions, last exchange 4 Aug 19:45 |
 | Rhug Estate | | UK bison liver | Now a fallback, not a dependency |
 | Tri-Locker | Chris Yapp — chris.yapp@tri-locker.co.uk, 07792 937231 | Contract packing and packaging | New, via Bear, 6 Aug. Unworked |
 
