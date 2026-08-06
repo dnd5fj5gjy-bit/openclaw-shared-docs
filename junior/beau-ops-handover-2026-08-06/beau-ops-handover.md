@@ -127,26 +127,33 @@ ingredient most likely to block a certificate is simply fine if the product is m
 
 Ordered by what is costing us money. Every one of these needs your name and a date against it.
 
-## 3.1 The ACF import question. Ask it this week, in writing.
-
-**This is the most important item on the list and the newest.**
+## 3.1 Confirm the ACF raw materials can actually reach our UK manufacturer.
 
 On 5 August at 18:04 Jesse replied to Wendy Greaves at Aviform, having spoken to ACF: Aviform should buy
 from ACF anything it cannot source in the UK, take ACF's exact 21 Nutrient Multi Blend and the
 berry/superfruit pre-blends rather than substituting, **and the bison liver too**, so that we are no
 longer dependent on Rhug Estate for it. Drew Kouvel was copied in. Wendy is to deal with him directly.
 
-The pre-blends are plant material and import on ordinary supplement rules. Fine.
+**To be clear about ownership, because it matters: that purchase is Aviform's, and so is the import
+compliance that comes with it.** They are the buyer and the importer of record. We are not importing
+anything. This is precisely why we are manufacturing in the UK.
 
-**The organ powder is not.** Aviform buying beef organ blend from ACF is an import of a meat powder, and
-it hits the exact gate described in section 2. The instruction as written is general enough to cover it,
-and Wendy is about to build a purchase list against it.
+The pre-blends are plant material and move on ordinary supplement rules, so they are straightforward.
+Any organ or meat-derived material is the more involved one, for the reasons in section 2, and it is
+Aviform's job to handle it.
 
-**One question settles it. Put it to Drew directly, in writing, not on a call:**
+**Your job is narrower and it is about supply, not compliance.** We need to know whether the materials
+we have specified can actually be obtained, because if one cannot, our formula or our timeline changes
+and we would rather find that out now than in October.
 
-> Who actually produces your organ powder, and is that establishment listed for export to Great Britain?
+So the question to Wendy, not to Drew, is simply:
 
-Get the answer in writing because we may need to show it to a vet or to APHA.
+> Are there any raw materials on the ACF list you expect difficulty importing, and if so, what would you
+> substitute and how would that change the spec and the lead time?
+
+Let her come back with the answer. If she raises the establishment-listing point herself, that is a good
+sign about the supplier. Do not run her compliance process for her, and do not go around her to Drew on
+this — Jesse has already put the two of them in direct contact and that is the right shape.
 
 While you are there, the second question for Drew is simply: **how is bovine lung in a US human
 supplement, and how is it sourced and classified?** Ask it neutrally. It is a genuine question, not an
