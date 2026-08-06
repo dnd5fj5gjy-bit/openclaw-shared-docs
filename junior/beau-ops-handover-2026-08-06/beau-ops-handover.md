@@ -435,7 +435,7 @@ launch, not before you read this.
 
 | Company | Person | What they are | State as of 6 Aug |
 |---|---|---|---|
-| ACF Pharma / Lightning Nutra | Andrew "Drew" Kouvel — drew@acfpharma.com, 631.484.7042 | US manufacturer, historical track, still live on artwork. 610 SW 12th Ave, Pompano Beach FL 33069 | **Your question 3.1 goes to him** |
+| ACF Pharma / Lightning Nutra | Andrew "Drew" Kouvel — drew@acfpharma.com, 631.484.7042 | US manufacturer, and raw material supplier to our UK manufacturer. Still live on artwork. 610 SW 12th Ave, Pompano Beach FL 33069 | Aviform deals with him directly on raw materials. Handle gently, see 3.1 |
 | Aviform | Wendy Greaves — private.label@aviform.co.uk | UK manufacturer lead, furthest along | Has her answer, building a purchase list. **Yours** |
 | Protein Partners | Sam Platt | UK manufacturer, said yes 4 Aug | **Owed a reply, 2 days** |
 | Calita | Lauren Stevens, quality team | UK manufacturer, 500 MOQ | Waiting on a number since 23 Jul. **Yours** |
