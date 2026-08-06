@@ -1,6 +1,45 @@
 # DIRTEA: the share issue is a change of control, and the clock runs to 26 August
 
-**Built 6 August 2026, 04:30 BST. Every number below verified at Companies House or taken from the letter itself.**
+**Built 6 August 2026, 04:30 BST. Updated 08:20 BST after reading Raemy's reply to Bear.
+Every number below verified at Companies House or taken from the letter itself.**
+
+---
+
+## UPDATE, 6 August 08:20 — Raemy has answered, and the letter has two readings
+
+Bear forwarded the letter to Raemy at 20:47 last night asking "This ok Raemy?". Raemy replied at 20:24
+(clocks on the thread are inconsistent, the reply is the later message): the Shareholders' agreement has
+pre-emption rights, so the shares have to be offered to existing shareholders first, DIRTEA wait 21 days
+to see if anyone takes them up, and if not "this deal as is, then goes through". His conclusion:
+**"We do not need to do anything currently - this is an FYI... Looks in line."**
+
+He is right that there is nothing procedurally to sign and no vote to attend. **He is answering a
+different question from the one the letter poses**, and the gap between them is Bear's stake.
+
+**The letter can be read two ways and they lead to opposite outcomes.**
+
+- **Reading A, Raemy's.** The 3,001 shares are offered to existing shareholders first under the SHA's
+  pre-emption. Take them up and nobody is diluted. But the funding offer is *conditional on the offeror
+  receiving 3,001 ordinary shares* - so if the shareholders take them up in full, **the £7m does not
+  happen.** On this reading the company is offering something that, if accepted, kills the money it is
+  raising. That is not a normal thing for a letter to do, and it is worth asking why it does.
+- **Reading B, the one the conditionality points at.** The offeror gets 3,001 regardless, and existing
+  shareholders are offered *further* shares alongside. On this reading Bear pays £1.95m and still ends
+  up below where he started.
+
+Under Reading B the letter's own promise fails arithmetically. It says subscribing pro rata enables a
+shareholder "to maintain their current percentage ownership". **It cannot.** If every existing holder
+subscribes their full pro-rata 3,001, the count goes to 8,974 and Bear's 466 shares are **5.2%**, not
+7.8%. You cannot issue 3,001 shares to an outsider and leave everyone else's percentage intact - the
+two statements in the letter cannot both be true.
+
+**So the question that has to be answered before the 21 days run is simply: which is it.** One line to
+Andrew settles it: *if existing shareholders take up their full pro-rata entitlement, does the offeror
+still receive 3,001 shares?* Everything else - the £1.95m, the 3.9%, the 50.24% - hangs off that answer,
+and right now Bear has been told "nothing to do" without it.
+
+The other half stands whichever reading is right: **no reply is a decline.** Raemy's own account of the
+mechanism confirms it. The default lands on **Wednesday 26 August** and it is chosen by silence.
 
 ---
 
