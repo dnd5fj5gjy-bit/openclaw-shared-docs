@@ -108,11 +108,11 @@ Raemy should be reading the articles and Bear's share documents this week, not i
    subscribing pro rata preserves your percentage; it also says the funding is conditional on the
    offeror getting 3,001 shares. Both cannot be true. *(Added 08:20 6 Aug - see the update at the top.)*
 2. **Who is the offeror?** Is it Teybridge F1 DAC or an affiliate, and is it connected to any current shareholder, director or PSC? If it is connected, this is a related-party transaction and the independent-offer framing does not hold.
-2. **Are the 3,001 shares issued for cash or as non-cash consideration for the facility?** And what resolution is the Board relying on to allot them.
-3. **Confirm the current issued share count.** The register's last statement of capital is 2,972 as at 31 January 2025, which is eighteen months old.
-4. **The full terms of the £7m** - rate, maturity, fees, covenants, security, and what happens on default given Teybridge already holds a charge over every asset.
-5. **Why £8,330?** That is the October 2024 rescue price. Twenty-two months, continued losses and a doubling of debt later, there is no discount. Ask what supports it.
-6. **Does the Board accept that 3,001 shares takes the offeror through 50%**, and what board seats, veto rights and consent rights come with it.
+3. **Are the 3,001 shares issued for cash or as non-cash consideration for the facility?** And what resolution is the Board relying on to allot them.
+4. **Confirm the current issued share count.** The register's last statement of capital is 2,972 as at 31 January 2025, which is eighteen months old.
+5. **The full terms of the £7m** - rate, maturity, fees, covenants, security, and what happens on default given Teybridge already holds a charge over every asset.
+6. **Why £8,330?** That is the October 2024 rescue price. Twenty-two months, continued losses and a doubling of debt later, there is no discount. Ask what supports it.
+7. **Does the Board accept that 3,001 shares takes the offeror through 50%**, and what board seats, veto rights and consent rights come with it.
 
 ---
 
