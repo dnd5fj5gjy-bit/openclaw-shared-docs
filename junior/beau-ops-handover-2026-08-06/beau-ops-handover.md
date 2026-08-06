@@ -220,8 +220,9 @@ board** for a small first UK run. Keep it live. You own the whole thread from to
 Wendy now has her answer from 5 August and will come back with a purchase list and questions. From today
 she deals with you.
 
-**Subject to 3.1.** If the organ powder fails the GB listing test, that purchase list changes before it
-is placed. Do not let her spend against an instruction that may not clear the border.
+**Read alongside 3.1.** Her purchasing and her import compliance are hers to run. What you want from the
+exchange is early warning: if anything on the ACF list is going to be difficult to bring in, we want to
+hear it now, because it would change our spec or our dates.
 
 ## 3.6 The one page. Due Friday.
 
