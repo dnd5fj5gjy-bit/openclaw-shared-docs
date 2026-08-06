@@ -172,12 +172,17 @@ Three asks in one email:
 segregation is not possible, that probably kills bison in the UK product rather than merely delaying it,
 which is a brand decision and not yours (see section 5).
 
-## 3.3 Ships A Lot have still never sent a rate card. Contract executed 10 July.
+## 3.3 The Ships A Lot rate card. Contract executed 10 July, no card on file.
+
+**Verified 6 August: there is no rate card in either Jesse's mailbox or mine.** The most recent contact
+on that relationship is 21 July. So either it was never sent or it went somewhere we cannot see, and
+both need the same email.
 
 That is **27 days**. Without the rate card we cannot state a true margin on a single US order, so every
 US number we hold is a range rather than a figure.
 
-This is two emails of work, squarely in your lane, and a clean early win. Chase it today.
+This is two emails of work, squarely in your lane, and a clean early win. Chase it today. Your contacts
+are Ryan and Susan U.
 
 Separately, their onboarding runs 2-3 weeks and needs to be underway. Confirm where that stands.
 
