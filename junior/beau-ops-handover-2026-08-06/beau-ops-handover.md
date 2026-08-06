@@ -545,8 +545,10 @@ of supply chain and nobody was looking at the whole chain at once.
 
 Keep this list. Add to it. It is the most useful thing you will own.
 
-1. Who produces ACF's organ powder, and is that establishment GB-listed?
-2. Does bovine lung block a GB export health certificate? Needs Drew and APHA.
+1. Is there anything on the ACF raw materials list Aviform expects difficulty importing, and what would
+   they substitute if so? (Their compliance, our supply risk.)
+2. Does bovine lung create a problem for any UK route? Relevant only if a UK manufacturer needs to bring
+   in US organ material rather than source domestically.
 3. Can Protein Partners run a segregated non-halal batch?
 4. What is the Ships A Lot per-order rate?
 5. When will the UK VAT number and EORI exist?
