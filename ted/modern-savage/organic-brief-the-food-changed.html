@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern Savage — Organic Brief — The Food Changed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter+Tight:wght@300;350;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --frost:#F4F5F4; --mist:#E6E8E6;
+  --pine:#0A140C; --pine-700:#1B2A1D; --moss:#525A50;
+  --amber:#F6A742; --amber-deep:#D68220; --amber-shadow:#98530E;
+  --quiet:#666D64; --border:rgba(10,20,12,.14); --border-strong:rgba(10,20,12,.30);
+  --border-inverse:rgba(255,255,255,.18);
+  --f-display:'Archivo',-apple-system,sans-serif;
+  --f-body:'Inter Tight',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--frost);color:var(--pine);font-family:var(--f-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+p{margin:0 0 14px;max-width:68ch}
+
+/* ---- masthead ---- */
+.mast{background:var(--pine);color:var(--white);padding:clamp(40px,6vw,72px) 0 clamp(32px,4vw,48px)}
+.eyebrow{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin:0 0 20px}
+.mast h1{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase;margin:0}
+.mast .sub{font-family:var(--f-body);font-weight:350;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);margin:18px 0 0;max-width:60ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border-inverse);border:1px solid var(--border-inverse);margin-top:clamp(28px,4vw,40px)}
+.meta div{background:var(--pine);padding:16px 18px}
+.meta dt{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 6px}
+.meta dd{margin:0;font-size:14px;color:var(--white);line-height:1.4}
+
+/* ---- section ---- */
+section{padding:clamp(40px,5vw,64px) 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.sec-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--amber-shadow)}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,4vw,40px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase;margin:0}
+.lede{font-size:clamp(16px,1.8vw,18px);line-height:1.55;font-weight:350;color:#23301F;max-width:64ch}
+hr{height:1px;background:var(--border);border:0;margin:0}
+
+/* ---- idea callout ---- */
+.thesis{border-left:2px solid var(--amber);padding:4px 0 4px 22px;margin:22px 0}
+.thesis p:last-child{margin-bottom:0}
+
+/* ---- slide cards ---- */
+.slide{background:var(--white);border:1px solid var(--border);margin-bottom:18px}
+.slide-head{display:flex;align-items:baseline;gap:12px;padding:18px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.slide-head .n{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.05em;line-height:1}
+.slide-head .t{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-.02em;text-transform:uppercase}
+.slide-head .tag{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;padding:5px 8px;margin-left:auto}
+.tag-swap{background:var(--amber);color:var(--pine)}
+.tag-new{background:var(--pine);color:var(--white)}
+.slide-body{padding:20px 22px}
+
+/* split frame device echoing the creative */
+.frame{display:grid;grid-template-columns:1fr;border:1px solid var(--border)}
+.frame.split{grid-template-columns:1fr 1fr}
+@media(max-width:640px){.frame.split{grid-template-columns:1fr}}
+.pane{padding:16px 18px;background:var(--frost)}
+.pane+.pane{border-left:1px solid var(--border)}
+@media(max-width:640px){.pane+.pane{border-left:0;border-top:1px solid var(--border)}}
+.pane.then{background:var(--frost)}
+.pane.now{background:var(--mist)}
+.pane .role{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin:0 0 10px}
+.pane .dir{font-size:13.5px;color:var(--pine-700);margin:0 0 12px}
+.pane .dir:last-child{margin-bottom:0}
+.ost{font-family:var(--f-body);font-weight:350;font-size:16px;font-style:italic;line-height:1.4;color:var(--pine);margin:0}
+.ost-label{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--quiet);display:block;margin:0 0 5px}
+.note{font-size:13px;color:var(--moss);margin:14px 0 0;padding-top:12px;border-top:1px solid var(--border)}
+.note b{color:var(--pine);font-weight:500}
+
+/* pine turn slide */
+.pane.pineframe{background:var(--pine);color:var(--white)}
+.pane.pineframe .role{color:rgba(255,255,255,.5)}
+.pane.pineframe .ost{color:var(--white)}
+
+/* ---- caption block ---- */
+.caption{background:var(--white);border:1px solid var(--border);padding:clamp(20px,3vw,30px)}
+.caption p{font-size:15.5px;line-height:1.6;max-width:60ch}
+.caption p:last-child{margin-bottom:0}
+.caption .close{font-style:italic;color:var(--pine-700)}
+
+/* ---- compliance ---- */
+.guard{background:var(--pine);color:var(--white);padding:clamp(24px,4vw,40px) 0}
+.guard h2{color:var(--white)}
+.guard .sec-num{color:var(--amber)}
+.guard .lede{color:rgba(255,255,255,.72)}
+.rule-list{list-style:none;margin:22px 0 0;padding:0;counter-reset:g}
+.rule-list li{counter-increment:g;position:relative;padding:16px 0 16px 44px;border-top:1px solid var(--border-inverse);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85);max-width:72ch}
+.rule-list li:before{content:counter(g,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--amber)}
+.rule-list li b{color:var(--white);font-weight:500}
+.src{font-family:var(--f-mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.55}
+
+/* ---- flag ---- */
+.flag{background:var(--mist);border-left:2px solid var(--amber-shadow);padding:16px 20px;font-size:14px;color:var(--pine-700);margin-top:8px}
+.flag b{font-weight:600}
+
+footer{padding:34px 0;border-top:1px solid var(--border);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Organic content brief · @modernsavagenutrition</p>
+    <h1>The Food<br>Changed</h1>
+    <p class="sub">The same foods our grandparents ate don't carry what they used to. Not a doom fact, the reason Modern Savage exists. Truth → Shift → Consequence → Answer, landing on the product as the plate, restored.</p>
+    <dl class="meta">
+      <div><dt>For</dt><dd>KU Creatives</dd></div>
+      <div><dt>Platform</dt><dd>Instagram, organic</dd></div>
+      <div><dt>Format</dt><dd>5-slide carousel</dd></div>
+      <div><dt>Voice</dt><dd>Family "we", no Bear on camera</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The idea</h2></div>
+  <p class="lede">Keep the split-frame "then / now" device the editors built, it's strong, it just needs somewhere to land. Each comparison points at something that's actually in the scoop: the vegetables set up the real berries and whole-food vitamins, the grass-fed beef sets up the grass-fed organs.</p>
+  <div class="thesis">
+    <p>Two comparison beats give the piece rhythm and get the organ story in, which is the thing we're really selling. Then the turn, then the answer.</p>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Slide by slide</h2></div>
+
+  <!-- Slide 1 -->
+  <div class="slide">
+    <div class="slide-head"><span class="n">1</span><span class="t">Cover / thesis</span></div>
+    <div class="slide-body">
+      <div class="frame">
+        <div class="pane">
+          <p class="role">Full frame · single</p>
+          <p class="dir">The raw liver-on-the-wooden-board shot. Warm, ancestral, organs are the hero ingredient. Existing asset is good.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">Your grandparents never took a supplement. Here's what changed.</p>
+        </div>
+      </div>
+      <p class="note"><b>Note:</b> This is the hook. Single block, no split frame on this slide.</p>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <div class="slide-head"><span class="n">2</span><span class="t">Vegetables</span><span class="tag tag-swap">Image swap</span></div>
+    <div class="slide-body">
+      <div class="frame split">
+        <div class="pane then">
+          <p class="role">Then · top</p>
+          <p class="dir">Hands harvesting vegetables into a basket. Existing top image is good.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">The same vegetables our grandparents grew.</p>
+        </div>
+        <div class="pane now">
+          <p class="role">Now · bottom · swap needed</p>
+          <p class="dir">Replace the pesticide-sprayer shot. Use oversized, glossy, uniform supermarket produce, or a vast uniform monocrop field.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">Bred for size and shelf life. 16% less calcium. 15% less iron.</p>
+        </div>
+      </div>
+      <p class="note"><b>Why the swap:</b> the honest villain is crops bred bigger and faster for yield, not spraying. Keeps image and claim telling the same story (see guardrail 03).</p>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <div class="slide-head"><span class="n">3</span><span class="t">Grass-fed beef</span><span class="tag tag-swap">Replaces chicken</span></div>
+    <div class="slide-body">
+      <div class="frame split">
+        <div class="pane then">
+          <p class="role">Then · top</p>
+          <p class="dir">Cattle on open pasture. Golden light, wide and calm.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">Cattle used to spend their lives on grass.</p>
+        </div>
+        <div class="pane now">
+          <p class="role">Now · bottom</p>
+          <p class="dir">A feedlot / grain-finishing pen. Tighter, greyer, more crowded.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">Now they're grain-finished, fast. What the animal eats ends up in the meat.</p>
+        </div>
+      </div>
+      <p class="note"><b>Note:</b> kept deliberately qualitative, no percentage. The grass-fed vs grain-fed difference is real but the numbers swing by study, and slide 2 already carries the one hard stat. One numbers slide is cleaner than two.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <div class="slide-head"><span class="n">4</span><span class="t">The turn</span><span class="tag tag-new">New beat</span></div>
+    <div class="slide-body">
+      <div class="frame">
+        <div class="pane pineframe">
+          <p class="role">No photo · solid pine (#0A140C)</p>
+          <span class="ost-label" style="color:rgba(255,255,255,.5)">On-screen text</span>
+          <p class="ost">The food changed. What our bodies need didn't.</p>
+        </div>
+      </div>
+      <p class="note"><b>Note:</b> the pivot from problem to brand. Give it room, let it breathe as its own beat.</p>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide">
+    <div class="slide-head"><span class="n">5</span><span class="t">The answer</span><span class="tag tag-new">New beat</span></div>
+    <div class="slide-body">
+      <div class="frame">
+        <div class="pane">
+          <p class="role">Product shot or warm family-table frame</p>
+          <p class="dir">Pouch / scoop, or a family table. The landing.</p>
+          <span class="ost-label">On-screen text</span>
+          <p class="ost">So we built the plate our grandparents had. Grass-fed organs, real berries, whole-food vitamins. One scoop. Nothing hidden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Type &amp; style</h2></div>
+  <p class="lede">Match the existing series: white text over footage, serif italic on the emphasis words, split frame on the comparison slides (2 and 3), single frame on 1, 4 and 5.</p>
+  <div class="flag"><b>Flag for Olly:</b> the serif italic isn't in the Modern Savage web design system (which uses Archivo, uppercase, for display). Fine to keep for social consistency, but worth a decision at some point on whether social and web should share a type identity.</div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Caption</h2></div>
+  <div class="caption">
+    <p>Your grandparents didn't take supplements. The food did the work.</p>
+    <p>It carried what the soil, the seed and the animal put into it. Somewhere along the way, we started growing for size and speed instead of what's inside. The vegetables look the same. They just carry less.</p>
+    <p>That's the whole reason we built Modern Savage. Grass-fed organs, real berries, whole-food vitamins. The plate our grandparents had, in one scoop.</p>
+    <p class="close">Real food. Real strength. Nothing hidden.</p>
+  </div>
+</section>
+
+<section class="guard">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Compliance</h2></div>
+    <p class="lede">Please hold these.</p>
+    <ol class="rule-list">
+      <li><b>Keep the payoff qualitative.</b> Slide 5 stays "grass-fed organs, real berries, whole-food vitamins". No calories, protein grams or any macro figures for our formula, on screen or in the caption. Those aren't signed off yet.</li>
+      <li><b>No health claims.</b> Strength and nourishment framing only. Nothing that says the product boosts, treats, fixes or prevents anything.</li>
+      <li><b>The one hard stat is sourced.</b> "16% less calcium, 15% less iron" comes from Davis et al (2004), <span class="src">Changes in USDA Food Composition Data for 43 Garden Crops, 1950 to 1999, J Am Coll Nutr.</span> The study attributes the decline to crop varieties bred for yield and size, which is why slide 2's bottom image must show big / uniform produce rather than spraying. Keep image and claim aligned.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Modern Savage · Organic brief</span>
+  <span>The Food Changed · v1</span>
+</footer>
+
+</body>
+</html>
