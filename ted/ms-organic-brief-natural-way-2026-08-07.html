@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern Savage — Organic Brief — The Natural Way</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter+Tight:wght@300;350;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --frost:#F4F5F4; --mist:#E6E8E6;
+  --pine:#0A140C; --pine-700:#1B2A1D; --moss:#525A50;
+  --amber:#F6A742; --amber-deep:#D68220; --amber-shadow:#98530E;
+  --quiet:#666D64; --border:rgba(10,20,12,.14); --border-strong:rgba(10,20,12,.30);
+  --border-inverse:rgba(255,255,255,.18);
+  --f-display:'Archivo',-apple-system,sans-serif;
+  --f-body:'Inter Tight',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--frost);color:var(--pine);font-family:var(--f-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+p{margin:0 0 14px;max-width:68ch}
+
+/* masthead */
+.mast{background:var(--pine);color:var(--white);padding:clamp(40px,6vw,72px) 0 clamp(32px,4vw,48px)}
+.eyebrow{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin:0 0 20px}
+.mast h1{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase;margin:0}
+.mast .sub{font-family:var(--f-body);font-weight:350;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);margin:18px 0 0;max-width:60ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border-inverse);border:1px solid var(--border-inverse);margin-top:clamp(28px,4vw,40px)}
+.meta div{background:var(--pine);padding:16px 18px}
+.meta dt{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 6px}
+.meta dd{margin:0;font-size:14px;color:var(--white);line-height:1.4}
+
+/* section */
+section{padding:clamp(40px,5vw,64px) 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.sec-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--amber-shadow)}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,4vw,40px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase;margin:0}
+.lede{font-size:clamp(16px,1.8vw,18px);line-height:1.55;font-weight:350;color:#23301F;max-width:64ch}
+hr{height:1px;background:var(--border);border:0;margin:0}
+
+/* the no-text rule callout */
+.hero-rule{background:var(--white);border:1px solid var(--border);border-left:2px solid var(--amber);padding:clamp(22px,3vw,32px);margin-top:24px}
+.hero-rule .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-shadow);margin:0 0 12px}
+.hero-rule p{font-family:var(--f-display);font-weight:600;font-size:clamp(19px,2.6vw,26px);letter-spacing:-.03em;line-height:1.15;margin:0;max-width:24ch}
+
+/* spec grid */
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:24px}
+@media(max-width:640px){.spec{grid-template-columns:1fr}}
+.spec .cell{background:var(--white);padding:20px 22px}
+.spec .cell h3{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--moss);margin:0 0 12px;font-weight:500}
+.spec .cell p{font-size:14px;line-height:1.55;color:var(--pine-700);margin:0}
+.spec .cell p+p{margin-top:8px}
+
+/* caption cards */
+.cap{background:var(--white);border:1px solid var(--border);padding:22px 24px;margin-bottom:14px}
+.cap .head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.cap .num{font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.05em;line-height:1}
+.cap .name{font-family:var(--f-display);font-weight:700;font-size:13px;letter-spacing:-.01em;text-transform:uppercase}
+.cap .pick{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;background:var(--amber);color:var(--pine);padding:5px 8px;margin-left:auto}
+.cap .body{font-size:16px;line-height:1.55;color:var(--pine);max-width:52ch;margin:0}
+.cap .tagline{display:block;margin-top:12px;font-style:italic;color:var(--pine-700);font-size:15px}
+.cap.sparing{background:var(--frost)}
+
+/* mechanic steps */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:24px}
+@media(max-width:700px){.flow{grid-template-columns:1fr}}
+.flow .step{background:var(--white);padding:22px}
+.flow .step .s{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--amber-shadow);margin:0 0 10px}
+.flow .step h4{font-family:var(--f-display);font-weight:700;font-size:16px;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 8px}
+.flow .step p{font-size:13.5px;line-height:1.5;color:var(--moss);margin:0}
+
+/* guardrails */
+.guard{background:var(--pine);color:var(--white);padding:clamp(24px,4vw,40px) 0}
+.guard h2{color:var(--white)} .guard .sec-num{color:var(--amber)} .guard .lede{color:rgba(255,255,255,.72)}
+.rule-list{list-style:none;margin:22px 0 0;padding:0;counter-reset:g}
+.rule-list li{counter-increment:g;position:relative;padding:16px 0 16px 44px;border-top:1px solid var(--border-inverse);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85);max-width:72ch}
+.rule-list li:before{content:counter(g,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--amber)}
+.rule-list li b{color:var(--white);font-weight:500}
+
+.flag{background:var(--mist);border-left:2px solid var(--amber-shadow);padding:16px 20px;font-size:14px;color:var(--pine-700);margin-top:24px}
+.flag b{font-weight:600}
+
+footer{padding:34px 0;border-top:1px solid var(--border);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Organic content brief · pillar 04 · pure aesthetic nature</p>
+    <h1>The<br>Natural Way</h1>
+    <p class="sub">The breather in the feed. One unbroken shot, the scale and beauty of the planet, empowering music. No sell, no cuts, no text on screen. Modern Savage speaks only in the caption.</p>
+    <dl class="meta">
+      <div><dt>For</dt><dd>KU Creatives</dd></div>
+      <div><dt>Platform</dt><dd>Reels first, grid on merit</dd></div>
+      <div><dt>Format</dt><dd>Single-shot nature, 15-30s</dd></div>
+      <div><dt>On-screen text</dt><dd>None</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The idea</h2></div>
+  <p class="lede">This is the one post in the mix with nothing to prove and nothing to sell. Not a comparison, not a point being made, just the scale and beauty of the planet on its own, scored to lift. It exists to make someone stop scrolling and feel grounded for fifteen seconds. The grounding lives in the caption, never in the footage, so we let the image simply be beautiful.</p>
+  <div class="hero-rule">
+    <p class="k">The one rule everything hangs on</p>
+    <p>No text on screen. The frame stays pure. Every word lives in the caption.</p>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Shot spec</h2></div>
+  <p class="lede">One idea per clip. Let the image breathe. Nothing busy, nothing that needs explaining.</p>
+  <div class="spec">
+    <div class="cell">
+      <h3>Motion</h3>
+      <p>One continuous shot, no cuts. Slow, unbroken movement: a drone push or pull, an aerial glide, or a slow gimbal move.</p>
+      <p>15 to 30 seconds. Loop-friendly where the shot allows.</p>
+    </div>
+    <div class="cell">
+      <h3>Subject</h3>
+      <p>Pure natural beauty at scale, nothing more: mountain ranges, coastlines, forest canopy, open plains, big weather, rivers, herds.</p>
+      <p>One subject per clip, no montage. No message, no contrast, no human element unless it reads purely as scale.</p>
+    </div>
+    <div class="cell">
+      <h3>Grade &amp; frame</h3>
+      <p>Natural and filmic. Rich but real, not a screensaver. No logo bug, no graphics.</p>
+      <p>9:16 primary. Frame a 4:5 safe zone from the start so a winner can move to the grid clean (see mechanic).</p>
+    </div>
+    <div class="cell">
+      <h3>Music</h3>
+      <p>Empowering and cinematic, a slow build. Orchestral swell or ambient pads that rise and open out. Reverent and vast, never hype.</p>
+      <p>Nothing lyrical that competes with the calm. Cleared for commercial use.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Captions</h2></div>
+  <p class="lede">All the words live here. Grounding and reconnection, landing on a tagline line so the pillar feels consistent whichever clip it sits under. Rotate them so the feed never repeats a line.</p>
+
+  <div class="cap">
+    <div class="head"><span class="num">1</span><span class="name">Reconnection</span><span class="pick">Default pick</span></div>
+    <p class="body">This is the world that made us. We were never meant to live apart from it.</p>
+    <span class="tagline">Real food. Real strength. Nothing hidden.</span>
+  </div>
+
+  <div class="cap">
+    <div class="head"><span class="num">2</span><span class="name">Grounding</span></div>
+    <p class="body">Feet on the earth. Sun on your back. Food that grew from the ground and the herd. None of it is new. We just forgot.</p>
+    <span class="tagline">Modern by design. Savage by nature.</span>
+  </div>
+
+  <div class="cap">
+    <div class="head"><span class="num">3</span><span class="name">Scale &amp; humility</span></div>
+    <p class="body">The natural world has been getting this right for a very long time. Our job was only ever to live in step with it.</p>
+    <span class="tagline">Real food. Real strength. Nothing hidden.</span>
+  </div>
+
+  <div class="cap">
+    <div class="head"><span class="num">4</span><span class="name">Quiet &amp; poetic</span></div>
+    <p class="body">Before labels, before aisles, before everything was built to be faster, there was this. Whole. Wild. Enough.</p>
+    <span class="tagline">We made Modern Savage to bring a little of it back to the table.</span>
+  </div>
+
+  <div class="cap sparing">
+    <div class="head"><span class="num">5</span><span class="name">Brand-forward</span><span class="pick">Use sparingly</span></div>
+    <p class="body">Nature never needed a supplement. We're just putting back what modern food left out.</p>
+    <span class="tagline">Grass-fed organs, real berries, whole-food vitamins. The natural way, in one scoop.</span>
+  </div>
+
+  <div class="flag"><b>POV:</b> keep this pillar mostly on captions 1 to 4, the ones that land on philosophy and tagline. Save number 5 for the occasional post. If every nature clip ends on an ingredient list, the pillar stops being the breather and starts being an ad.</div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Reels first, grid on merit</h2></div>
+  <p class="lede">These post as Reels by default. The main grid stays selective and earns its content: only the clips the audience votes for graduate to it, so the storefront stays high-quality.</p>
+  <div class="flow">
+    <div class="step">
+      <p class="s">Step 01</p>
+      <h4>Post to Reels</h4>
+      <p>Run these at volume as Reels only. They're low-risk test units. The looser, hook-led caption can live here.</p>
+    </div>
+    <div class="step">
+      <p class="s">Step 02</p>
+      <h4>Let the audience vote</h4>
+      <p>Judge on saves and shares, not view count. A save on a nature clip means someone wanted to feel it again, which is exactly the effect we're after.</p>
+    </div>
+    <div class="step">
+      <p class="s">Step 03</p>
+      <h4>Winners earn the grid</h4>
+      <p>Graduate standouts to the main grid, re-cropped to the 4:5 safe zone, and swap in the cleaner tagline-led caption for a more brand-aware audience.</p>
+    </div>
+  </div>
+  <div class="flag"><b>To confirm:</b> set a real bar for "winner" so it isn't a judgment call each time, for example top performer per batch, or a save / share threshold. Tell me your number and I'll write it into the brief.</div>
+</section>
+
+<section class="guard">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Guardrails</h2></div>
+    <p class="lede">Please hold these.</p>
+    <ol class="rule-list">
+      <li><b>Nothing on screen.</b> No burned-in text, no captions in-frame, no logo bug, no graphics. If a clip needs a word on screen to make sense, it belongs in a different pillar.</li>
+      <li><b>No sell in the video.</b> The clip is pure nature and scale. Modern Savage enters only in the written caption under the post.</li>
+      <li><b>No health claims.</b> Grounding and reconnection framing only. Nothing that says the product boosts, treats, fixes or prevents anything.</li>
+      <li><b>Music must be cleared</b> for commercial use before it goes near a post.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Modern Savage · Organic brief</span>
+  <span>The Natural Way · v1</span>
+</footer>
+
+</body>
+</html>
