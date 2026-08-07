@@ -30,7 +30,7 @@ in November**, and say so on the product pages before a customer works it out fo
 .gantt{margin:18px 0 6px}
 .gantt .grid{display:grid;grid-template-columns:152px repeat(14,1fr);
   align-items:center;row-gap:3px;font-size:9.5px}
-.gantt .lab{padding-right:8px;text-align:right;line-height:1.25;color:#1a1a1a}
+.gantt .lab{grid-column:1;padding-right:8px;text-align:right;line-height:1.25;color:#1a1a1a}
 .gantt .lab.hdr{color:#777;font-size:8.5px;text-transform:uppercase;letter-spacing:.4px}
 .gantt .mon{text-align:center;font-weight:680;font-size:10px;border-bottom:1px solid #1a1a1a;
   padding-bottom:2px;margin-bottom:2px}
