@@ -206,16 +206,13 @@ References are still untaken.
 
 Ordered by what it costs to leave alone, not by effort.
 
-1. **Appoint a designer to the back-of-bag artwork.** Jesse or Olly. This is the October date, and it
-   has been sitting since Tuesday.
-2. **Two questions to Sarah Salscheider at Belmark.** Print lead time from artwork approval to delivery
-   in Pompano Beach, and whether the 30 June pricing still holds. One-liners, both blocking.
-3. **One question to Drew.** Who produces the organ powder and is that establishment GB-listed. Two
-   supplier instructions currently depend on the answer.
-4. **The segregation question to Sam Platt.** It rides alongside the three Beau already sent.
-5. **A date out of Raemy on VAT and EORI**, and the answer to whether BGV LLP is already registered.
-6. **The Ships A Lot rate card.**
-7. **Decide what the product pages promise UK buyers**, given November. That one is Jesse's.
+- **1. Appoint a designer to the back-of-bag artwork.** Jesse or Olly. This is the October date, and it has been sitting since Tuesday.
+- **2. Two questions to Sarah Salscheider at Belmark.** Print lead time from artwork approval to delivery in Pompano Beach, and whether the 30 June pricing still holds. One-liners, both blocking.
+- **3. One question to Drew.** Who produces the organ powder and is that establishment GB-listed. Two supplier instructions currently depend on the answer.
+- **4. The segregation question to Sam Platt.** It rides alongside the three Beau already sent.
+- **5. A date out of Raemy on VAT and EORI**, and the answer to whether BGV LLP is already registered.
+- **6. The Ships A Lot rate card.**
+- **7. Decide what the product pages promise UK buyers**, given November. That one is Jesse's.
 
 Items 2 to 6 are Beau's lane. Item 1 is not, and item 7 is not.
 
