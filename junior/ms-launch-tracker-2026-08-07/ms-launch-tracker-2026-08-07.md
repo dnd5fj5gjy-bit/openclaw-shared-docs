@@ -30,6 +30,61 @@ in November**, and say so on the product pages before a customer works it out fo
 
 ---
 
+## The chart
+
+<!--raw-->
+<div class="gantt">
+<div class="grid">
+  <div class="lab hdr"></div>
+  <div class="mon" style="grid-column:2/6">August</div>
+  <div class="mon" style="grid-column:6/10">September</div>
+  <div class="mon" style="grid-column:10/14">October</div>
+  <div class="mon" style="grid-column:14/16">November</div>
+
+  <div class="lab hdr">Week commencing</div>
+  <div class="wk">10</div><div class="wk">17</div><div class="wk">24</div><div class="wk">31</div>
+  <div class="wk">7</div><div class="wk">14</div><div class="wk">21</div><div class="wk">28</div>
+  <div class="wk">5</div><div class="wk">12</div><div class="wk">19</div><div class="wk">26</div>
+  <div class="wk">2</div><div class="wk">9</div>
+
+  <div class="sec">US TRACK &mdash; to first dispatch</div>
+  <div class="lab">Back-of-bag artwork</div><div class="bar red" style="grid-column:2/3">not started</div>
+  <div class="lab">Prepress + Belmark print</div><div class="bar asm" style="grid-column:3/6">lead time assumed</div>
+  <div class="lab">Freight to Pompano Beach</div><div class="bar" style="grid-column:6/7"></div>
+  <div class="lab">ACF fill</div><div class="bar" style="grid-column:7/9"></div>
+  <div class="lab">Ships A Lot receive</div><div class="bar" style="grid-column:9/10"></div>
+  <div class="lab">First US dispatch</div><div class="bar gold" style="grid-column:10/12">first half of October</div>
+
+  <div class="sec">UK TRACK &mdash; to first dispatch</div>
+  <div class="lab">Protein Partners quotes</div><div class="bar" style="grid-column:2/3">in progress</div>
+  <div class="lab">Formula + pricing approved</div><div class="bar" style="grid-column:3/4"></div>
+  <div class="lab">Samples (7 working days)</div><div class="bar" style="grid-column:4/5"></div>
+  <div class="lab">Sample approval, PO raised</div><div class="bar" style="grid-column:5/6"></div>
+  <div class="lab">Production (8-10 wks from PO)</div><div class="bar" style="grid-column:6/14">Sam Platt's own numbers</div>
+  <div class="lab">First UK dispatch</div><div class="bar gold" style="grid-column:14/16">2-16 Nov</div>
+
+  <div class="sec">GATES &mdash; each one stops the track above it</div>
+  <div class="lab">UK VAT number</div><div class="bar red" style="grid-column:2/6">4-8 wks if not already registered</div>
+  <div class="lab">EORI number</div><div class="bar" style="grid-column:6/7"></div>
+  <div class="lab">FBO registration</div><div class="bar red" style="grid-column:2/4">28 days' notice</div>
+  <div class="lab">SCEND contract + onboarding</div><div class="bar" style="grid-column:2/6"></div>
+  <div class="lab">Ships A Lot rate card</div><div class="bar red" style="grid-column:2/5">28 days overdue</div>
+  <div class="lab">ACF organ powder: GB-listed?</div><div class="bar red" style="grid-column:2/3">one email</div>
+  <div class="lab">Site claims, Art 27 rep</div><div class="bar" style="grid-column:2/5"></div>
+
+  <div class="sec">FIXED MOMENTS</div>
+  <div class="lab">Bear on stage, Hope of Survival</div><div class="bar gold" style="grid-column:6/7">12 Sep</div>
+  <div class="lab">Date-slip email to pre-orders</div><div class="bar red" style="grid-column:3/4">cheaper the sooner it goes</div>
+</div>
+<div class="key">
+  <span><i class="k"></i>evidenced in writing by a supplier</span>
+  <span><i class="k red"></i>not started, overdue, or blocking</span>
+  <span><i class="k asm"></i>our assumption, not their commitment</span>
+  <span><i class="k gold"></i>milestone</span>
+</div>
+</div>
+<!--/raw-->
+
 ## The critical path, in one line
 
 Back-of-bag artwork → Belmark print → freight to Florida → ACF fill → Ships A Lot receive → dispatch.
