@@ -14,16 +14,9 @@ if they are one thing.
 
 On current evidence, read at source today:
 
-- **First US dispatch: first half of October at best**, and that assumes artwork is approved inside
-  the next week and Belmark print in three weeks. We do not know Belmark's print lead time. Nobody has
-  asked them. That single unknown moves the US date more than anything else on this page.
-- **First UK dispatch: early to mid November.** That comes straight off Sam Platt's own numbers, given
-  to us today: 7 working days to samples after formula and pricing are approved, then 8 to 10 weeks
-  production from PO. There is no arrangement of those numbers that reaches October.
-- **Only one of our three SKUs can legally serve a UK customer out of the US run.** Summit has no
-  animal material and imports as ordinary goods. The adult blend is beef organ powder, legally meat.
-  Mini Savage contains bovine colostrum, a dairy product of animal origin. Both sit behind an export
-  health certificate from a GB-approved establishment.
+- **First US dispatch: first half of October at best**, and that assumes artwork is approved inside the next week and Belmark print in three weeks. We do not know Belmark's print lead time. Nobody has asked them. That single unknown moves the US date more than anything else on this page.
+- **First UK dispatch: early to mid November.** That comes straight off Sam Platt's own numbers, given to us today: 7 working days to samples after formula and pricing are approved, then 8 to 10 weeks production from PO. There is no arrangement of those numbers that reaches October.
+- **Only one of our three SKUs can legally serve a UK customer out of the US run.** Summit has no animal material and imports as ordinary goods. The adult blend is beef organ powder, legally meat. Mini Savage contains bovine colostrum, a dairy product of animal origin. Both sit behind an export health certificate from a GB-approved establishment.
 
 So the honest shape of the launch is: **announce on 12 September, dispatch US in October, dispatch UK
 in November**, and say so on the product pages before a customer works it out for themselves.
