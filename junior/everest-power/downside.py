@@ -44,21 +44,25 @@ if __name__ == "__main__":
     print("EVEREST POWER - MARGIN DOWNSIDE".center(78))
     print(f"MRP Rs {MRP:.2f} per 12g sachet, GST {GST:.0%} (proprietary food, no caffeine)\n")
 
-    print(f"  {'Case':<32}{'COGS':>6}{'We get':>9}{'Contrib':>9}{'Margin':>8}"
+    print(f"  {'':<3}{'Case':<30}{'COGS':>6}{'We get':>9}{'Contrib':>9}{'Margin':>8}"
           f"{'  Yr at Base':>13}")
     print("  " + "-" * 76)
     base_vol = VOLUMES[1][1]
-    for label, cogs, r, d, f, t in CASES:
+    for n, (label, cogs, r, d, f, t) in enumerate(CASES, 1):
         contrib, we_receive = contribution(cogs, r, d, f, t)
-        print(f"  {label:<32}{cogs:>6.2f}{we_receive:>9.2f}{contrib:>9.2f}"
-              f"{contrib/(MRP/(1+GST)):>7.0%}"
+        # Margin stated on the SAME basis as page 8 of the pitch: contribution over
+        # what we receive, NOT over the shelf price. On the shelf-price basis the plan
+        # case reads 48% rather than 61.5%, which looks like a collapse and is only a
+        # change of denominator. See [[ops_check_what_the_percentage_is_of]].
+        print(f"  {str(n)+'.':<3}{label:<30}{cogs:>6.2f}{we_receive:>9.2f}{contrib:>9.2f}"
+              f"{contrib/we_receive:>7.1%}"
               f"{'  GBP ' + format(money(contrib, base_vol)/1e6, '.2f') + 'm':>13}")
 
     print("\n  Base = 2.5 sachets/outlet/day across 60,000 outlets = 4.5m sachets/month.")
-    print("  'Margin' is contribution over the GST-exclusive shelf price, not over what we receive.\n")
+    print("  Margin = contribution / what WE receive - the same basis as page 8 of the pitch.\n")
 
-    print("  VOLUME x MARGIN - annual contribution, GBP m")
-    print(f"  {'':<22}" + "".join(f"{lbl.split()[0]:>12}" for lbl, _, _, _, _, _ in CASES))
+    print("  VOLUME x MARGIN - annual contribution, GBP m (case numbers as above)")
+    print(f"  {'':<22}" + "".join(f"{n:>11}." for n in range(1, len(CASES) + 1)))
     print("  " + "-" * 76)
     for vlabel, vol in VOLUMES:
         row = f"  {vlabel:<22}"
