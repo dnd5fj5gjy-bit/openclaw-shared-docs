@@ -23,13 +23,22 @@ LINES = [
  # fee still not quoted; KNM promised their quotation 11 Aug 2026.
  ("FSSAI central licence, GST, PAN, TAN, bank account",             1_000, "[RFQ]"),
  ("Accounting, statutory audit, company secretarial, 12 months",    3_000, "[RFQ]"),
- # QUOTED 10 Aug 2026. Intepat: search + written opinion USD 50, then USD 225 prof
- # + USD 100 official per class = USD 1,025 for 3 classes. At USD 1.27/GBP ~ GBP 810.
- # Anand and Anand for the same scope: search USD 250 PER CLASS (750) + filing USD 1,215
- # = USD 1,965, and their schedule shows a further USD 730 of acceptance, publication and
- # registration-certificate stages that Intepat's does not mention. Hence the line below.
+ # ALL THREE TRADE MARK QUOTES NOW IN, 10 Aug 2026. Same scope, 3 classes:
+ #   Intepat        search + written opinion USD 50; filing USD 225 prof + USD 100 official
+ #                  per class = USD 1,025. At USD 1.27/GBP ~ GBP 850 all in. INSTRUCTED.
+ #   Anand & Anand  search USD 250 PER CLASS (750) + filing USD 1,215 = USD 1,965, plus a
+ #                  further USD 730 of acceptance/publication/certificate stages.
+ #   S. S. Rana     (16:57 10 Aug) search GBP 150 PER CLASS (450) + filing GBP 455 per class
+ #                  (200 prof + 105 official + 150 final formalities) = GBP 1,365. Total
+ #                  GBP 1,815 - the most expensive of the three, and the only one that
+ #                  refused a view on the EVEREST conflict without being paid for the search.
+ # Line below stays at the Intepat number because Intepat is instructed and working.
  ("Trade mark: clearance search + filing, 3 classes (Intepat quote)",  810, ""),
- ("Trade mark: prosecution to registration certificate",               600, "[RFQ]"),
+ # Post-filing. Rana is the only firm to price it: GBP 200 per office-action reply and
+ # GBP 200 per hearing, per application - so a 3-class objection is GBP 600-1,200. Rana
+ # bundles the registration certificate into its filing fee; Intepat's schedule is silent
+ # on it and has been asked. The 600 below is a one-objection-on-one-class assumption.
+ ("Trade mark: prosecution to registration certificate",               600, "[RFQ - Intepat]"),
  ("Formula and flavour development, blind sip tests",               6_000, ""),
  ("Lab work: nutritional analysis, stability at 45C/75% RH",        2_000, "[RFQ]"),
  ("Production-ready artwork: sachet, outer box, code layout",       5_000, ""),
