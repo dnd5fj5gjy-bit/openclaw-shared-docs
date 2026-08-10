@@ -17,7 +17,11 @@ COGS_PILOT = 3.25   # ASSUMPTION - the single biggest unknown until quotes land.
 LINES = [
  ("Indian company: incorporation as a WOS, FDI/FEMA filings",      2_000, "[RFQ]"),
  ("Resident director service, 12 months",                          5_000, "[RFQ]"),
- ("FSSAI licence, GST, PAN, TAN, bank account",                     1_000, "[RFQ]"),
+ # KNM India (Sandeep Bansal) 10 Aug 2026, in writing: we need a CENTRAL FSSAI licence
+ # as brand owner/marketer/relabeller, and the contract manufacturer's own licence covers
+ # our product at his address - so no second licence at the factory. Structure settled,
+ # fee still not quoted; KNM promised their quotation 11 Aug 2026.
+ ("FSSAI central licence, GST, PAN, TAN, bank account",             1_000, "[RFQ]"),
  ("Accounting, statutory audit, company secretarial, 12 months",    3_000, "[RFQ]"),
  # QUOTED 10 Aug 2026. Intepat: search + written opinion USD 50, then USD 225 prof
  # + USD 100 official per class = USD 1,025 for 3 classes. At USD 1.27/GBP ~ GBP 810.
