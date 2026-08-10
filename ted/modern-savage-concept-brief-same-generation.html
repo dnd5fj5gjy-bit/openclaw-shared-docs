@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern Savage — Concept Brief — Same Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter+Tight:wght@300;350;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --frost:#F4F5F4; --mist:#E6E8E6;
+  --pine:#0A140C; --pine-700:#1B2A1D; --moss:#525A50;
+  --amber:#F6A742; --amber-deep:#D68220; --amber-shadow:#98530E;
+  --quiet:#666D64; --border:rgba(10,20,12,.14); --border-strong:rgba(10,20,12,.30);
+  --border-inverse:rgba(255,255,255,.18);
+  --f-display:'Archivo',-apple-system,sans-serif;
+  --f-body:'Inter Tight',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--frost);color:var(--pine);font-family:var(--f-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+p{margin:0 0 14px;max-width:68ch}
+
+/* masthead */
+.mast{background:var(--pine);color:var(--white);padding:clamp(40px,6vw,72px) 0 clamp(32px,4vw,48px)}
+.eyebrow{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin:0 0 20px}
+.mast h1{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase;margin:0}
+.mast .sub{font-family:var(--f-body);font-weight:350;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);margin:18px 0 0;max-width:62ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border-inverse);border:1px solid var(--border-inverse);margin-top:clamp(28px,4vw,40px)}
+.meta div{background:var(--pine);padding:16px 18px}
+.meta dt{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 6px}
+.meta dd{margin:0;font-size:14px;color:var(--white);line-height:1.4}
+
+/* section */
+section{padding:clamp(40px,5vw,64px) 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.sec-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--amber-shadow)}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,4vw,40px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase;margin:0}
+.lede{font-size:clamp(16px,1.8vw,18px);line-height:1.55;font-weight:350;color:#23301F;max-width:64ch}
+hr{height:1px;background:var(--border);border:0;margin:0}
+
+/* reference beat list */
+.ref{background:var(--white);border:1px solid var(--border);padding:6px 22px;margin-top:22px}
+.ref .row{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--border)}
+.ref .row:first-child{border-top:0}
+.ref .t{font-family:var(--f-mono);font-size:11px;color:var(--amber-shadow);letter-spacing:.04em}
+.ref .d{font-size:14px;color:var(--pine-700);line-height:1.5}
+.ref .d b{color:var(--pine);font-weight:600}
+
+/* beat timeline */
+.beats{margin-top:24px;border:1px solid var(--border)}
+.beat{display:grid;grid-template-columns:96px 1fr;gap:0;border-top:1px solid var(--border)}
+.beat:first-child{border-top:0}
+.beat .time{background:var(--pine);color:var(--white);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;padding:18px;display:flex;align-items:flex-start}
+.beat .content{background:var(--white);padding:18px 22px}
+.beat .content h4{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 4px}
+.beat .content .role{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-shadow);margin:0 0 10px}
+.beat .content p{font-size:14px;line-height:1.55;color:var(--pine-700);margin:0}
+.beat .content .osd{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:var(--moss);margin-top:10px;padding-top:10px;border-top:1px dashed var(--border-strong)}
+.beat .content .osd b{color:var(--pine)}
+.beat.turn .content{background:var(--frost)}
+.beat.pay .content{background:var(--mist)}
+
+/* two-col elevation */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:24px}
+@media(max-width:640px){.split2{grid-template-columns:1fr}}
+.split2 .cell{background:var(--white);padding:22px}
+.split2 .cell.a{background:var(--white)}
+.split2 .cell.b{background:var(--pine);color:var(--white)}
+.split2 .cell h3{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin:0 0 14px;font-weight:500}
+.split2 .cell.a h3{color:var(--amber-shadow)}
+.split2 .cell.b h3{color:var(--amber)}
+.split2 .cell ul{margin:0;padding-left:16px}
+.split2 .cell li{font-size:13.5px;line-height:1.5;margin-bottom:9px}
+.split2 .cell.b li{color:rgba(255,255,255,.85)}
+
+/* elevation four */
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:24px}
+@media(max-width:640px){.spec{grid-template-columns:1fr}}
+.spec .cell{background:var(--white);padding:20px 22px}
+.spec .cell h3{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--moss);margin:0 0 12px;font-weight:500}
+.spec .cell p{font-size:14px;line-height:1.55;color:var(--pine-700);margin:0}
+
+/* text options */
+.opt{background:var(--white);border:1px solid var(--border);padding:18px 22px;margin-bottom:12px}
+.opt .lab{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-shadow);margin:0 0 8px}
+.opt .line{font-family:var(--f-display);font-weight:600;font-size:19px;letter-spacing:-.03em;margin:0}
+.opt .alt{font-size:13px;color:var(--moss);margin:10px 0 0}
+
+/* caption */
+.caption{background:var(--white);border:1px solid var(--border);padding:clamp(20px,3vw,30px)}
+.caption p{font-size:15.5px;line-height:1.6;max-width:58ch}
+.caption p:last-child{margin-bottom:0}
+.caption .close{font-style:italic;color:var(--pine-700)}
+
+/* guardrails */
+.guard{background:var(--pine);color:var(--white);padding:clamp(24px,4vw,40px) 0}
+.guard h2{color:var(--white)} .guard .sec-num{color:var(--amber)} .guard .lede{color:rgba(255,255,255,.72)}
+.rule-list{list-style:none;margin:22px 0 0;padding:0;counter-reset:g}
+.rule-list li{counter-increment:g;position:relative;padding:16px 0 16px 44px;border-top:1px solid var(--border-inverse);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85);max-width:74ch}
+.rule-list li:before{content:counter(g,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--amber)}
+.rule-list li b{color:var(--white);font-weight:500}
+
+.flag{background:var(--mist);border-left:2px solid var(--amber-shadow);padding:16px 20px;font-size:14px;color:var(--pine-700);margin-top:24px}
+.flag b{font-weight:600}
+
+footer{padding:34px 0;border-top:1px solid var(--border);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Concept brief · BG-facing · contrast format</p>
+    <h1>Same<br>Generation</h1>
+    <p class="sub">A proven contrast format rebuilt for Modern Savage. One generation, two ways to feed it: the herd queueing for engineered processed hype, and Bear taking what the wild already made. The film stays pure contrast so it reads as a real take, not an ad. Modern Savage lives entirely in the caption.</p>
+    <dl class="meta">
+      <div><dt>For</dt><dd>KU Creatives</dd></div>
+      <div><dt>Format</dt><dd>Single video, 9:16, 18-20s</dd></div>
+      <div><dt>Platform</dt><dd>Reels / TikTok</dd></div>
+      <div><dt>Reference</dt><dd>556k likes (@kevbreton)</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Why the reference worked</h2></div>
+  <p class="lede">Dead-simple mechanic: a contrast meme riding one music track, with two burned-in labels doing all the storytelling. We're keeping the mechanic exactly and swapping in a stronger cast, because Bear eating from the wild is real, not a lifestyle pose.</p>
+  <div class="ref">
+    <div class="row"><span class="t">0-6s</span><span class="d"><b>"Same Generation".</b> Rapid, chaotic cuts of kids in cars filming themselves, hyped, tearing into viral fast-food novelty items. Cramped, loud, junk.</span></div>
+    <div class="row"><span class="t">~6s</span><span class="d"><b>The transition.</b> Music dips and hard-cuts. This beat-drop is the whole trick.</span></div>
+    <div class="row"><span class="t">7-15s</span><span class="d"><b>"Different mindset".</b> Outdoors: wading into a river, camping, cooking over a stove, fishing. Climaxes on a plate of real food held up to the water as the track peaks.</span></div>
+    <div class="row"><span class="t">16-19s</span><span class="d">Outro on the outdoor scene, handle and logo.</span></div>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Our beat sheet</h2></div>
+  <p class="lede">Same structure, same music-driven transition, same two-label device. New cast, and a payoff that lands on the brand.</p>
+  <div class="beats">
+    <div class="beat">
+      <div class="time">0.0 – 6.0s</div>
+      <div class="content">
+        <p class="role">The herd</p>
+        <h4>Same Generation</h4>
+        <p>The processed-food feeding frenzy. Malls, crowds, congestion, people queueing round the block for the latest engineered hype drop. Frantic consumption, screens, artificial colour, packaging. Cuts land roughly every 1s, moving swiftly and building energy, matching the reference's pace.</p>
+        <p class="osd"><b>On-screen:</b> Same Generation</p>
+      </div>
+    </div>
+    <div class="beat turn">
+      <div class="time">~6.0s</div>
+      <div class="content">
+        <p class="role">The turn</p>
+        <h4>Hard cut on the beat</h4>
+        <p>Music and noise drop out on the transition. Silence for a breath, then the wild comes up. This cut is load-bearing, it has to land on the track.</p>
+      </div>
+    </div>
+    <div class="beat">
+      <div class="time">6.0 – 14.0s</div>
+      <div class="content">
+        <p class="role">Bear</p>
+        <h4>Different mindset</h4>
+        <p>Bear in the wild, and this half has to be as gripping as the first, not a scenic wind-down. Pull his most engaging, high-octane footage: crazy stunts, extreme feats, dramatic descents and crossings, and eating food straight from the wild. The stuff that makes people stop and keep watching. Warmer, wider, filmic grade, but the drama and pace stay high. Cuts moving at the same roughly 1s clip so momentum carries straight through the transition, no drop. Natural sound rising underneath: wind, water, breath.</p>
+        <p class="osd"><b>On-screen:</b> Different mindset <span style="color:var(--quiet)">(alternates in section 04)</span></p>
+      </div>
+    </div>
+    <div class="beat pay">
+      <div class="time">~15.0s</div>
+      <div class="content">
+        <p class="role">The payoff · peak</p>
+        <h4>The wild delivers</h4>
+        <p>Climax on Bear and what nature gave him, timed to the track's peak, exactly where the reference lands its food reveal. No pouch, no logo, no product. The video stays a pure contrast piece so it reads as a real take and keeps its share instinct. Modern Savage lives in the caption only.</p>
+        <p class="osd"><b>On-screen close:</b> optional label only, see section 04</p>
+      </div>
+    </div>
+    <div class="beat">
+      <div class="time">15 – 19s</div>
+      <div class="content">
+        <p class="role">Outro</p>
+        <h4>Handle only</h4>
+        <p>End on the wild. Just the @modernsavagenutrition handle, the way the reference signs off with its creator handle. No wordmark card, no tagline lockup in-frame.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Making it premium</h2></div>
+  <p class="lede">The elevation isn't fancier graphics, and it isn't slowing down. Both halves stay swift and high-octane like the reference. The premium comes from the two halves speaking opposite visual languages, grade, framing and sound, so the contrast carries the message even at pace.</p>
+  <div class="split2">
+    <div class="cell a">
+      <h3>Same Generation — engineered</h3>
+      <ul>
+        <li>Cold, clinical grade. Oversaturated artificial colour.</li>
+        <li>Claustrophobic crops, screens, glare, crowds.</li>
+        <li>Frantic cutting, jump cuts, motion, noise.</li>
+        <li>Sound: layered, loud, synthetic, airless.</li>
+      </ul>
+    </div>
+    <div class="cell b">
+      <h3>Bear — alive</h3>
+      <ul>
+        <li>Warm, natural, filmic grade. Real light.</li>
+        <li>His most gripping footage: stunts, feats, wild-eating.</li>
+        <li>Same swift ~1s pace, high drama, momentum carries through.</li>
+        <li>Sound: natural and clean, wind, water, breath.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="cell">
+      <h3>Typography</h3>
+      <p>Replace the reference's plain sans labels with restrained brand type (Archivo), small and confident, never meme-y. The label is a whisper, not a shout.</p>
+    </div>
+    <div class="cell">
+      <h3>Music &amp; sound design</h3>
+      <p>Scored, not just a trending audio. Build the frenzy, drop it hard on the transition, open into the wild, climb to the payoff. Cleared for commercial use.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>On-screen text</h2></div>
+
+  <div class="opt">
+    <p class="lab">Label 1 · keep exactly</p>
+    <p class="line">Same Generation</p>
+    <p class="alt">It's the hook that earned the 556k. Don't touch it.</p>
+  </div>
+  <div class="opt">
+    <p class="lab">Label 2 · default, with alternates</p>
+    <p class="line">Different mindset</p>
+    <p class="alt">Premium alternates if we want to make it ours: "Different wiring" · "Different fuel" · "Another way entirely".</p>
+  </div>
+  <div class="opt">
+    <p class="lab">Closing label · optional · keep it non-product</p>
+    <p class="line">Different mindset</p>
+    <p class="alt">If we hold a label to the end, keep it the same idea, no product line on screen. The reference just lets the final shot play. The selling all happens in the caption, so the film stays shareable.</p>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Caption</h2></div>
+  <div class="caption">
+    <p>One generation, two ways to feed it.</p>
+    <p>One queues for the next thing engineered to be craved. The other takes what the wild already made, the way humans always did.</p>
+    <p>Bear built Modern Savage so you don't have to catch it, skin it or stomach it raw. Grass-fed organs, real berries, whole-food vitamins. The oldest nutrition there is, in one scoop.</p>
+    <p class="close">Real food. Real strength. Nothing hidden.</p>
+  </div>
+</section>
+
+<hr class="wrap" style="max-width:920px">
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Assets to lock first</h2></div>
+  <div class="spec">
+    <div class="cell">
+      <h3>Bear archive footage · key dependency</h3>
+      <p>Prioritise his most engaging, high-drama moments: crazy stunts, extreme feats and eating food straight from the wild. Pick for watchability, the clips that hook and hold, not scenic filler. Must be cleared for commercial use by the brand. Confirm exactly what we can clear before KU cut anything, the edit lives or dies on this.</p>
+    </div>
+    <div class="cell">
+      <h3>Processed-hype footage</h3>
+      <p>Crowds, queues, malls, frantic consumption. Generic and unbranded, or stock. See guardrail 01 on brands.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guard">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Guardrails</h2></div>
+    <p class="lede">Please hold these.</p>
+    <ol class="rule-list">
+      <li><b>No identifiable competitor brands.</b> No competitor logos, named packaging or real storefronts in the "Same Generation" half. In a paid brand ad that's legal and brand exposure. Use generic / unbranded crowds and packaging, or blur marks. Confirm with Olly before anything branded goes in.</li>
+      <li><b>Calibrate the wild-eating.</b> Primal, impressive and ancestral, tied to organs since that's the product bridge. Not gratuitous gross-out. This is a premium family brand, so it's strength, not shock value.</li>
+      <li><b>BG voice.</b> If we add any Bear voiceover, use the new improved BG AI voice, not the old one. Otherwise music and sound design carry it, no VO.</li>
+      <li><b>No health claims.</b> Strength and nourishment framing only. Nothing that says the product boosts, treats, fixes or prevents anything.</li>
+      <li><b>Keep the payoff qualitative.</b> "Grass-fed organs, real berries, whole-food vitamins." No calories, protein grams or macros for our formula, on screen or in the caption. Those aren't signed off yet.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Modern Savage · Concept brief</span>
+  <span>Same Generation · v1</span>
+</footer>
+
+</body>
+</html>
