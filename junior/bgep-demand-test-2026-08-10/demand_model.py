@@ -164,7 +164,7 @@ if __name__ == "__main__":
     base = scenario(SCENARIOS["Base"])
     for label, idx in SEASON_INDEX.items():
         m = base["sachets_mo"] * idx
-        print(f"  {label:<26}{m/1e6:>7.1f}m sachets/mo   {m*12/1000/1000/12:>7,.0f} tonnes/mo")
+        print(f"  {label:<26}{m/1e6:>7.1f}m sachets/mo   {m*12/1000/1000:>7,.0f} tonnes/mo")
     line()
     peak_plan = scenario(SCENARIOS["Plan (3 boxes/outlet/mo)"])["sachets_mo"] * 2.0
     print(f"  At the PLAN rate, a 2x summer peak is {peak_plan/1e6:.0f}m sachets in a month.")
