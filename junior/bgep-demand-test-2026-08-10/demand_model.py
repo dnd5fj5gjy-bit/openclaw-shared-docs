@@ -186,8 +186,13 @@ if __name__ == "__main__":
                 print(f"  {label:<26}", end="")
             else:
                 print(f"  {'':<26}", end="")
-            print(f"{outlets:>5} outlets -> Rs {gross:>9,.0f}/mo gross "
-                  f"({'viable' if gross > 200_000 else 'NOT viable alone'})")
+            if gross > 200_000:
+                verdict = "viable on us alone"
+            elif gross > 150_000:
+                verdict = "borderline"
+            else:
+                verdict = "NOT viable alone"
+            print(f"{outlets:>5} outlets -> Rs {gross:>9,.0f}/mo gross ({verdict})")
     line()
     print("  Reading: below the plan rate, no distributor can live on BGEP alone.")
     print("  That is not fatal - it means we ride an EXISTING distributor's book")
