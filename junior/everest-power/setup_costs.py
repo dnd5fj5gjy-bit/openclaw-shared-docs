@@ -27,17 +27,28 @@ LINES = [
  # fee still not quoted; KNM promised their quotation 11 Aug 2026.
  ("FSSAI central licence, GST, PAN, TAN, bank account",             1_000, "[RFQ]"),
  ("Accounting, statutory audit, company secretarial, 12 months",    3_000, "[RFQ]"),
- # ALL THREE TRADE MARK QUOTES NOW IN, 10 Aug 2026. Same scope, 3 classes:
+ # ALL THREE TRADE MARK QUOTES IN. Same scope, 3 classes, restated 11 Aug 2026 at the
+ # corrected FX above and at the TRUE statutory fee, which Anand & Anand confirmed in
+ # writing 11 Aug: INR 9,000 per class, billed at spot on the day of filing.
+ # INR 9,000 = USD 94 = GBP 70. That fee is identical for all three firms, so any gap
+ # between a firm's "official fee" line and INR 9,000 is padding, not service:
+ #   Intepat        USD 100/class  -> USD 6 over.  Accurate.
+ #   Anand & Anand  USD 140/class  -> USD 46 over, 49%. Inflated their headline by USD 138.
+ #   S. S. Rana     GBP 105/class  -> INR 13,535, 50% over. GBP 105 of padding over 3 classes.
+ # Totals to registration certificate, 3 classes, restated:
  #   Intepat        search + written opinion USD 50; filing USD 225 prof + USD 100 official
- #                  per class = USD 1,025. At USD 1.27/GBP ~ GBP 850 all in. INSTRUCTED.
- #   Anand & Anand  search USD 250 PER CLASS (750) + filing USD 1,215 = USD 1,965, plus a
- #                  further USD 730 of acceptance/publication/certificate stages.
- #   S. S. Rana     (16:57 10 Aug) search GBP 150 PER CLASS (450) + filing GBP 455 per class
- #                  (200 prof + 105 official + 150 final formalities) = GBP 1,365. Total
- #                  GBP 1,815 - the most expensive of the three, and the only one that
- #                  refused a view on the EVEREST conflict without being paid for the search.
+ #                  per class = USD 1,025 = GBP 759. INSTRUCTED 9 Aug, search running,
+ #                  findings chased 11 Aug 03:12. Certificate stage still unpriced.
+ #   Anand & Anand  search USD 300/class (900, was quoted 250 on 10 Aug and re-quoted at 300
+ #                  on 11 Aug while described as unchanged) + filing USD 1,077 at true
+ #                  official fee + USD 730 acceptance/publication/certificate = USD 2,707
+ #                  = GBP 2,004. Confirmed 11 Aug: nothing else falls due in a clean case.
+ #                  Now the MOST expensive of the three, not Rana.
+ #   S. S. Rana     search GBP 150/class (450) + filing GBP 455/class (200 prof + 105
+ #                  official + 150 final formalities) = GBP 1,365. Total GBP 1,815. Only
+ #                  firm that refused a view on the EVEREST conflict without being paid.
  # Line below stays at the Intepat number because Intepat is instructed and working.
- ("Trade mark: clearance search + filing, 3 classes (Intepat quote)",  810, ""),
+ ("Trade mark: clearance search + filing, 3 classes (Intepat quote)",  759, ""),
  # Post-filing. Rana is the only firm to price it: GBP 200 per office-action reply and
  # GBP 200 per hearing, per application - so a 3-class objection is GBP 600-1,200. Rana
  # bundles the registration certificate into its filing fee; Intepat's schedule is silent
