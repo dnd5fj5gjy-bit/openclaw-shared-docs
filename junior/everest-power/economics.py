@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 """
 Bear Grylls Everest Power - unit economics model.
-Built 6 Aug 2026. All figures in INR unless stated. GBP at 106 INR = 1 GBP.
+Built 6 Aug 2026. All figures in INR unless stated.
+
+REVISED 11 Aug 2026, two corrections:
+  1. FX now imported from fx.py, verified at source. This file previously carried
+     INR_GBP = 106.0 while setup_costs.py had been corrected to the real rate, so
+     every GBP figure below was 21% too high.
+  2. The scale table ran on 10 sachets/outlet/day, which the demand test of 10 Aug
+     established is about four times too high as a twelve-month average. The base
+     case is now 2.5/day and 10/day is shown as the bull case, clearly labelled.
 
 Sources for the anchors used here are listed in PLAN.md. Everything below the
 "ASSUMPTION" label is our estimate and needs a real quote before it goes in a deck
 that asks anyone for money.
 """
 
-INR_GBP = 106.0
-INR_USD = 84.0
+from fx import INR_GBP, INR_USD, fx_note
 
 
 def money(x):
@@ -42,7 +49,9 @@ COGS = {
 }
 COGS_TOTAL = sum(COGS.values())
 
-BRAND_ROYALTY = 0.05      # % of net revenue, to the Bear Grylls mark
+# No brand royalty. Jesse, 7 Aug 2026: BGV owns Everest Power outright, so the Bear
+# Grylls mark is not licensed in from anyone and there is no royalty line. Earlier
+# versions of this model carried a 5% placeholder (HISTORICAL, 6-7 Aug 2026).
 SECONDARY_FREIGHT = 0.15  # per sachet, to distributor
 TRADE_SPEND = 0.30        # per sachet, distributor incentives + scheme + app rewards
 
@@ -61,12 +70,11 @@ def chain(mrp, gst_rate, use_superstockist=False):
 
 def pnl(mrp, gst_rate, use_superstockist=False):
     net_mrp, ret, dist, ours = chain(mrp, gst_rate, use_superstockist)
-    royalty = ours * BRAND_ROYALTY
-    variable = COGS_TOTAL + royalty + SECONDARY_FREIGHT + TRADE_SPEND
+    variable = COGS_TOTAL + SECONDARY_FREIGHT + TRADE_SPEND
     contribution = ours - variable
     return {
         "net_mrp": net_mrp, "retailer_buys": ret, "distributor_buys": dist,
-        "our_price": ours, "cogs": COGS_TOTAL, "royalty": royalty,
+        "our_price": ours, "cogs": COGS_TOTAL,
         "freight": SECONDARY_FREIGHT, "trade": TRADE_SPEND,
         "contribution": contribution,
         "margin_pct": contribution / ours * 100 if ours else 0,
@@ -100,7 +108,6 @@ if __name__ == "__main__":
     print(f"  Distributor buys at           {money(base['distributor_buys'])}  (8% to the distributor)")
     print(f"  WE RECEIVE                    {money(base['our_price'])}")
     print(f"    less COGS                  -{money(base['cogs'])}")
-    print(f"    less brand royalty 5%      -{money(base['royalty'])}")
     print(f"    less secondary freight     -{money(base['freight'])}")
     print(f"    less trade spend           -{money(base['trade'])}")
     print(f"  CONTRIBUTION                  {money(base['contribution'])}"
