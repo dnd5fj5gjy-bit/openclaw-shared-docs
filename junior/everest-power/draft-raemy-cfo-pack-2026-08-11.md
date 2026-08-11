@@ -45,7 +45,9 @@ This is the setup budget, which is separate from the unit economics you already 
   Contingency at 15 per cent                                                         GBP 7,795
   Total                                                                              GBP 59,760
 
-Adding the unique code system and the retailer scan and collect app takes it to GBP 82,760. I would not spend that on the pilot. Three hundred outlets can be run on WhatsApp and UPI by hand, and building the app before we know whether a shop sells two and a half sachets a day is buying infrastructure for a business we have not proved.
+The earlier version of this budget carried a second total of GBP 82,760, which added a bought-in unique code system and retailer scan and collect app at GBP 20,000. That line is now out. Jesse has said Felix builds it in house, so it costs internal time rather than cash and the budget you should hold is the GBP 59,760 above. Two things it does not remove. The per box unique code is a printing requirement on the manufacturer, so it has to be written into the manufacturing specification whatever we build, and it is one of the seven lines still unquoted. And collecting by UPI needs the Indian entity and a payment provider before a single rupee moves, which is another reason the entity question below is the one that blocks work.
+
+None of it gates the pilot. Three hundred outlets can be run on WhatsApp and UPI by hand, so the build can happen alongside the pilot rather than in front of it.
 
 Seven of those fourteen lines are still requests for quotation rather than quotes, so treat the total as an order of magnitude and not a commitment. The one that can move it most is the production run, costed here at Rs 3.25 a sachet. At the Rs 2.10 volume price in the model it comes down by GBP 4,460, and no manufacturer has yet given us a price at all.
 
