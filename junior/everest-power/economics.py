@@ -132,20 +132,26 @@ if __name__ == "__main__":
               f"(GBP {gp/INR_GBP:,.0f})")
 
     print("\n--- SCALE: what the brand earns ---")
-    for label, outlets in [("Pilot: 1 state", 5_000),
-                           ("Year 1: 5 states", 60_000),
-                           ("Year 3: national", 400_000)]:
-        # 3 boxes per outlet per month is the assumption that carries everything
-        boxes = outlets * 3
-        sachets = boxes * box
-        rev = sachets * base['our_price']
-        contrib = sachets * base['contribution']
-        print(f"  {label:<22} {outlets:>7,} outlets  "
-              f"{sachets/1e6:>6.1f}m sachets/mo  "
-              f"rev {money(rev/1e7)} cr/mo  "
-              f"contrib GBP {contrib*12/INR_GBP/1e6:>4.1f}m/yr")
+    print("  BASE CASE, 2.5 sachets per outlet per day (75 a month).")
+    print("  This is the corrected planning rate from the demand test of 10 Aug 2026.\n")
+    for rate_label, per_day in [("BASE  2.5/outlet/day", 2.5), ("BULL 10.0/outlet/day", 10.0)]:
+        print(f"  {rate_label}")
+        for label, outlets in [("Pilot: 1 state", 5_000),
+                               ("Year 1: 5 states", 60_000),
+                               ("Year 3: national", 400_000)]:
+            sachets = outlets * per_day * 30
+            rev = sachets * base['our_price']
+            contrib = sachets * base['contribution']
+            print(f"    {label:<20} {outlets:>7,} outlets  "
+                  f"{sachets/1e6:>6.1f}m sachets/mo  "
+                  f"rev {money(rev/1e7)} cr/mo  "
+                  f"contrib GBP {contrib*12/INR_GBP/1e6:>5.2f}m/yr")
+        print()
 
-    print("\n  The load-bearing assumption in every line above is 3 boxes per outlet")
-    print("  per month, i.e. 10 sachets a day out of one shop. Prove or kill that")
-    print("  in the pilot before anything else in this model matters.")
+    print("  The load-bearing assumption in every line above is the rate of sale.")
+    print("  10 a day out of one shop is what the pitch assumed; as a twelve-month")
+    print("  average across 60,000 shops it implies a quarter of Electral's business")
+    print("  in year one, so it is a bull case and not a plan. Prove or kill the real")
+    print("  number in the pilot before anything else in this model matters.")
+    print(f"\n  {fx_note()}")
     print()
