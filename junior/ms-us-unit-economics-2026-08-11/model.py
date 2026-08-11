@@ -284,11 +284,15 @@ def main():
     for o in (single, stack):
         print(f"{o.name:<38}" + "".join(f"{o.contribution(z):>7.2f}" for z in range(1, 10)))
     print()
-    print(f"  Zone 1 to zone 9 swings a single by "
-          f"${single.contribution(1) - single.contribution(9):.2f} and a stack by "
-          f"${stack.contribution(1) - stack.contribution(9):.2f}.")
-    print("  Warehouse location vs customer distribution is worth real money and nobody")
-    print("  has looked at where the pre-order book actually lives.")
+    z18 = single.contribution(1) - single.contribution(8)
+    z19 = single.contribution(1) - single.contribution(9)
+    print(f"  I expected this to matter and it does not. Zones 1 to 8 swing a single by only "
+          f"${z18:.2f};")
+    print(f"  zone 9 alone adds another ${z19-z18:.2f}. SAL's card is close to zone-flat across the")
+    print("  mainland, which is unusual and is a point IN their favour.")
+    print("  Consequence: warehouse siting is not a lever here, and there is no need to pull")
+    print("  the pre-order book apart by geography to price this. One less thing to chase.")
+    print("  Zone 9 (AK/HI/territories) is the only row that needs watching.")
     print()
 
     hr("=")
