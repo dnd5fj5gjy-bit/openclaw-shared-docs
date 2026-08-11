@@ -2,18 +2,24 @@
 """Everest Power - what it costs to get going. 7 Aug 2026.
 EVERY LINE IS MY ESTIMATE, not a quote. The three manufacturer RFQs and three
 incorporation RFQs sent 7 Aug replace lines marked [RFQ] when they come back."""
-# CORRECTED 11 Aug 2026. Was 106.0, which was wrong by ~21% and overstated every
-# rupee-denominated line in GBP. Actual GBP/INR 128.91 on 10 Aug 2026 (mtfxgroup.com
-# historical series). USD/INR 95.40 on 1 Aug 2026, so GBP/USD 1.351.
-INR_GBP = 128.91
-USD_GBP = 1.351
+# FX corrected 11 Aug 2026 (was 106.0, ~21% wrong) and now imported from fx.py so it
+# cannot drift out of step with economics.py and downside.py again.
+from fx import INR_GBP, USD_GBP, fx_note
 
 # Pilot shape, from the deck: one distributor, 300 outlets, 90 days.
-OUTLETS, BOXES_PER_OUTLET_MO, SACHETS_PER_BOX, MONTHS = 300, 3, 100, 3
-pilot_demand = OUTLETS * BOXES_PER_OUTLET_MO * SACHETS_PER_BOX * MONTHS
+# RATE OF SALE CORRECTED 11 Aug 2026. This ran on 3 boxes per outlet per month, i.e.
+# 10 sachets a day, which the demand test of 10 Aug found to be ~4x too high. The
+# planning rate is 2.5/day. It matters here because it is what the first run is sized
+# against.
+OUTLETS, SACHETS_PER_BOX, MONTHS = 300, 100, 3
+SACHETS_PER_OUTLET_DAY = 2.5
+pilot_demand = int(OUTLETS * SACHETS_PER_OUTLET_DAY * 30 * MONTHS)
+pilot_demand_bull = OUTLETS * 10 * 30 * MONTHS
 
-# First production run. Bigger than 90 days of demand - you do not run a line for
-# 270k units, and a printed laminate has its own minimum.
+# First production run. A printed laminate carries its own minimum and you do not run a
+# line for a few tens of thousands of units, so the run is set by the factory, not by
+# the pilot. That is a real working capital point, not a rounding one - see the note
+# printed at the end.
 FIRST_RUN = 500_000
 # COGS at pilot volume is NOT the Rs 2.10 in the model. That is a volume price.
 COGS_PILOT = 3.25   # ASSUMPTION - the single biggest unknown until quotes land. [RFQ]
@@ -70,7 +76,8 @@ LINES = [
  ("India ground support, part time, 3 months",                      5_000, ""),
  ("Travel, two trips",                                              5_000, ""),
 ]
-APP = ("Unique-code system and retailer scan-and-collect app",      20_000, "")
+APP = ("Unique-code system and retailer scan-and-collect app",           0,
+       "[in house - Felix builds it, Jesse 11 Aug 2026. Internal time, no cash line]")
 
 def show(rows, label):
     sub = sum(c for _, c, _ in rows)
@@ -90,7 +97,7 @@ if __name__ == "__main__":
     print(f"First production run: {FIRST_RUN:,} sachets")
     lean = show(LINES, "LEAN PILOT - answers 'does a shop sell ten a day'")
     full = show(LINES + [APP], "WITH THE CODE SYSTEM AND APP BUILT")
-    print(f"\n  The app is £{APP[1]:,} of the difference and the pilot does not need it.")
+    print(f"\n  The app is now built in house (Jesse, 11 Aug 2026), so it is £0 of cash.")
     print(f"  300 outlets can be run on WhatsApp and UPI by hand.")
     print(f"\n  Sensitivity: COGS at Rs 2.10 (the model's volume price) instead of Rs "
           f"{COGS_PILOT} would take £{round(FIRST_RUN*(COGS_PILOT-2.10)/INR_GBP):,} off.")
