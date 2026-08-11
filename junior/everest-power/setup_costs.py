@@ -2,7 +2,11 @@
 """Everest Power - what it costs to get going. 7 Aug 2026.
 EVERY LINE IS MY ESTIMATE, not a quote. The three manufacturer RFQs and three
 incorporation RFQs sent 7 Aug replace lines marked [RFQ] when they come back."""
-INR_GBP = 106.0
+# CORRECTED 11 Aug 2026. Was 106.0, which was wrong by ~21% and overstated every
+# rupee-denominated line in GBP. Actual GBP/INR 128.91 on 10 Aug 2026 (mtfxgroup.com
+# historical series). USD/INR 95.40 on 1 Aug 2026, so GBP/USD 1.351.
+INR_GBP = 128.91
+USD_GBP = 1.351
 
 # Pilot shape, from the deck: one distributor, 300 outlets, 90 days.
 OUTLETS, BOXES_PER_OUTLET_MO, SACHETS_PER_BOX, MONTHS = 300, 3, 100, 3
