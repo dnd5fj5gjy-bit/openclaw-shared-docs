@@ -49,6 +49,12 @@ LINES = [
  #                  firm that refused a view on the EVEREST conflict without being paid.
  # Line below stays at the Intepat number because Intepat is instructed and working.
  ("Trade mark: clearance search + filing, 3 classes (Intepat quote)",  759, ""),
+ # NOT IN THE TOTAL, a live decision for Jesse: Anand & Anand quoted 11 Aug for searching
+ # the EVEREST wordmark alone in classes 5, 30 and 32 at USD 300 per mark per class, so
+ # USD 900 = GBP 666, 4-5 working days, opinion on availability and on the Everest spice
+ # brand included in that fee. They are the only firm that raised the enforcement pattern
+ # of existing EVEREST rights as the real risk, and they enforced HIMALAYAN. Worth buying
+ # only if Intepat's USD 50 opinion comes back thin. Wait for Intepat first.
  # Post-filing. Rana is the only firm to price it: GBP 200 per office-action reply and
  # GBP 200 per hearing, per application - so a 3-class objection is GBP 600-1,200. Rana
  # bundles the registration certificate into its filing fee; Intepat's schedule is silent
