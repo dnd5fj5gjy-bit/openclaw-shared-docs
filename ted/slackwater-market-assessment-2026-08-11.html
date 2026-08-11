@@ -1,0 +1,277 @@
+<title>Slackwater — Adversarial Market Assessment</title>
+<style>
+:root{
+  --navy:#0a1628; --navy2:#101f38; --gold:#c9a961; --ink:#1a1f2b;
+  --paper:#faf8f4; --line:#e4e0d6; --muted:#5c6270; --card:#ffffff;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;}
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-0.01em;}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1c2c47 100%);color:#fff;padding:90px 8vw 80px;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:180%;background:radial-gradient(circle,rgba(201,169,97,0.10),transparent 60%);}
+.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:600;margin-bottom:20px;}
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:900px;margin:0 0 20px;color:#fff;}
+.hero p{max-width:640px;color:#c9d2e0;font-size:1.05rem;font-weight:300;}
+
+.verdict-strip{max-width:1120px;margin:-44px auto 0;background:var(--navy);color:#eef1f6;border-radius:14px;box-shadow:0 20px 50px rgba(10,22,40,0.2);padding:36px 42px;position:relative;z-index:2;}
+.verdict-strip .tag{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;padding:7px 16px;border-radius:20px;margin-bottom:14px;}
+.verdict-strip p{margin:0;font-size:1.05rem;font-weight:300;}
+.verdict-strip b{color:var(--gold);font-weight:600;}
+
+.section{max-width:1120px;margin:0 auto;padding:64px 8vw 0;}
+.section-head{margin-bottom:28px;}
+.section-head .kicker{color:#a58a4a;}
+.section-head h2{font-size:1.8rem;color:var(--navy);margin:6px 0 10px;}
+.section-head p{color:var(--muted);max-width:760px;margin:0;}
+.letter{display:inline-block;width:28px;height:28px;background:var(--navy);color:var(--gold);border-radius:50%;text-align:center;line-height:28px;font-family:'DM Serif Display',serif;font-size:.95rem;margin-right:8px;}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin-bottom:18px;}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;font-size:.83rem;}
+th{text-align:left;background:#f4efe3;color:#7a6633;text-transform:uppercase;letter-spacing:.05em;font-size:.65rem;padding:9px 11px;font-weight:600;}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+
+.alert-box{background:#fff4ee;border:1px solid #eab08a;border-radius:12px;padding:24px 28px;margin-bottom:16px;}
+.alert-box h4{margin:0 0 8px;color:#a5502f;font-family:'DM Serif Display',serif;font-size:1.05rem;}
+.alert-box p{margin:0 0 6px;font-size:.88rem;color:#6b4530;}
+
+.gap-note{background:#fbf6ea;border-left:3px solid var(--gold);padding:14px 18px;border-radius:6px;font-size:.87rem;margin:10px 0;}
+
+.objection-card{background:var(--card);border:1px solid var(--line);border-left:4px solid #a53f3f;border-radius:8px;padding:22px 26px;margin-bottom:14px;}
+.objection-card h4{margin:0 0 8px;color:#a53f3f;font-size:1rem;}
+.objection-card p{margin:0 0 6px;font-size:.88rem;}
+.objection-card .counter{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:8px;}
+
+.rank-list{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 0;}
+.rank-row{display:flex;gap:16px;padding:12px 26px;border-bottom:1px solid var(--line);align-items:baseline;}
+.rank-row:last-child{border-bottom:none;}
+.rank-row .n{font-family:'DM Serif Display',serif;color:var(--gold);width:24px;flex-shrink:0;}
+.rank-row .v{font-weight:600;color:var(--navy);width:220px;flex-shrink:0;font-size:.9rem;}
+.rank-row .d{font-size:.85rem;color:var(--muted);}
+
+.reco-box{background:linear-gradient(135deg,var(--navy),#1c2c47);color:#fff;border-radius:14px;padding:40px 44px;text-align:center;margin:20px 0;}
+.reco-box .label{color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:.75rem;font-weight:600;margin-bottom:10px;}
+.reco-box .line{font-family:'DM Serif Display',serif;font-size:1.7rem;}
+
+.field{margin-bottom:12px;}
+.field .k{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#a58a4a;font-weight:600;margin-bottom:3px;}
+.field .v{font-size:.88rem;color:var(--ink);}
+
+.footer-note{max-width:1120px;margin:60px auto 90px;padding:0 8vw;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:22px;}
+</style>
+
+<div class="hero">
+  <div class="kicker">Adversarial Market Assessment · Compiled by Olly</div>
+  <h1>Slackwater — Does This Idea Survive Contact With Reality?</h1>
+  <p>A live operational coordination system for multi-contractor worksites. This report was explicitly commissioned to try to kill the idea, not sell it — every section below is written adversarially, per the brief.</p>
+</div>
+
+<div class="verdict-strip">
+  <div class="tag">A. Executive Verdict</div>
+  <p><b>VALIDATE BEFORE BUILDING FURTHER.</b> The core capability gap is real — no vendor found combines a deterministic dependency graph, automatic multi-hop propagation, role-specific output, an audit trail, and sub-20-second field capture, in one product, for a whole multi-contractor site. That is genuine whitespace. But two things could kill this before a line of new code is worth writing, and neither is resolved: <b>Petrotechnics/Proscient</b> already sells live simultaneous-operations conflict detection into oil &amp; gas and nuclear — the exact sectors closest to the founder's proving environment — and this research could not get a live, current read on it. And the single sharpest objection found in this entire pass is that <b>the audit trail Slackwater treats as a core feature is exactly the kind of evidence used against contractors in delay disputes</b> — a real, evidenced pattern (see Section Q), not a hypothetical. Both are cheap and fast to test directly. Neither should be assumed away before building more.</p>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">B</div>
+    <h2>Market taxonomy</h2>
+    <p>Seven adjacent software categories were mapped, plus the informal channels that are the real incumbent on most sites.</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Category</th><th>What it actually does</th><th>Closest to Slackwater?</th></tr>
+    <tr><td>Construction PM / field-management / ERP</td><td>Procore, Autodesk Construction Cloud, Oracle Aconex, Bentley SYNCHRO, Fieldwire, CMiC, InEight, Kahua — document/RFI/photo tracking, financials, static schedule viewers</td><td>No propagation engine found in any of them</td></tr>
+    <tr><td>Last Planner / lean / production control</td><td>Touchplan, VisiLean, ALICE Technologies, nPlan — weekly commitment tracking, generative scheduling, predictive risk analytics</td><td>ALICE — has an actual dependency-logic model, but runs offline/pre-construction, not live capture</td></tr>
+    <tr><td>Daily brief / toolbox-talk / safety-briefing</td><td>SafetyCulture (iAuditor), Raken, HammerTech, SiteDocs — checklist distribution with acknowledgement tracking</td><td>SafetyCulture — closest UX analog for the "notify + acknowledge" mechanic, but content is static, not calculated</td></tr>
+    <tr><td>Field collaboration</td><td>Fieldwire, Rhumbix, StructionSite, Bridgit, GoCanvas</td><td>None — task/resource tracking, no dependency logic</td></tr>
+    <tr><td>Common Data Environments / BIM coordination</td><td>Autodesk Construction Cloud, Trimble Connect, Bentley ProjectWise, Asite</td><td>None — model/document federation, not schedule-consequence calculation</td></tr>
+    <tr><td>Simultaneous-operations / control-room / turnaround management</td><td><b>Petrotechnics (Proscient, Ideagen-owned)</b>, Prometheus Group, SAP/Bentley AssetWise, Meridium/APM</td><td><b>Petrotechnics — the uncomfortable precedent.</b> Live conflict detection across simultaneous operations, sold into oil &amp; gas and nuclear for over a decade. Could not get a live, current re-verification this pass — treat as an open, high-priority follow-up, not a closed question.</td></tr>
+    <tr><td>Permit-to-work / EHS</td><td>Intelex, Sphera, VelocityEHS, Cority — permit status tracking</td><td>None found that auto-propagates permit-status changes to downstream dependent activities</td></tr>
+    <tr><td>Communication substitutes</td><td>WhatsApp, Teams, radios, whiteboards, Excel, daily huddles</td><td><b>The real incumbent.</b> Reported as more reliable, not just cheaper, than formal tools (Section G) — this is the hardest competitor on the list precisely because it isn't software.</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">C &amp; D</div>
+    <h2>Competitor database &amp; closest deep-dives</h2>
+    <p>~45 named products checked across both research passes. Full detail retained in research notes; the closest and most consequential are below.</p>
+  </div>
+
+  <div class="alert-box">
+    <h4>Petrotechnics / Proscient (Ideagen) — needs urgent direct follow-up</h4>
+    <p>Sells live simultaneous-operations conflict detection into oil &amp; gas and nuclear — sectors adjacent to, and arguably harder-won than, the marine/tide proving environment Slackwater is currently built around. This research could not reach the current live product (site unreachable during this pass) to confirm exactly how close its feature set sits to Slackwater's — whether it does true deterministic multi-contractor propagation with role-specific output and an audit trail, or a narrower conflict-flagging function. <b>This is the single highest-priority open question before further build investment</b> — a direct product demo or trial account would resolve it in a day, and it should happen before anything else in this report gets acted on.</p>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <tr><th>Product</th><th>Category</th><th>Dependency propagation?</th><th>Threat level</th></tr>
+    <tr><td>ALICE Technologies</td><td>Generative scheduling</td><td>Has real dependency-graph logic, but runs pre-construction/offline, operated by a planner — not live field capture</td><td>Moderate — most technically adjacent, least operationally adjacent</td></tr>
+    <tr><td>Procore</td><td>Field-management suite</td><td>No — confirmed live, page claims only "unify messaging," no documented dependency engine</td><td>Low today, high distribution risk — could bolt this on fastest given existing schedule/RFI data on most large sites</td></tr>
+    <tr><td>Bentley SYNCHRO</td><td>4D scheduling/CDE</td><td>Can "assess impacts of unplanned events" via analyst re-simulation — not automated 10-20s propagation</td><td>Moderate — infra/marine/rail-relevant customer base already</td></tr>
+    <tr><td>Oracle Aconex</td><td>Correspondence/CDE</td><td>Distribution-list based, not calculated — strong audit trail for documents, not consequences</td><td>Low-moderate</td></tr>
+    <tr><td>SafetyCulture (iAuditor)</td><td>Briefing/inspection</td><td>Notification + acknowledgement tracking, but content is static/templated, not calculated</td><td>Low as a competitor, high as a UX pattern to study</td></tr>
+    <tr><td>nPlan</td><td>Predictive risk analytics</td><td>Statistical forecasting on uploaded schedules, not live in-shift propagation</td><td>Low — different mechanism entirely</td></tr>
+    <tr><td>Autodesk Construction Cloud / SAP</td><td>CDE + ERP</td><td>No propagation found; both are shipping AI copilots into existing data (2025-26) — worth monitoring roadmap</td><td>Moderate-high distribution risk, same logic as Procore</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">E &amp; F</div>
+    <h2>Feature matrix &amp; gap analysis</h2>
+  </div>
+  <div class="card">
+    <p style="margin:0 0 10px;"><b>The specific combination Slackwater proposes — deterministic dependency graph + automatic multi-hop propagation + role-specific output + audit trail + sub-20-second field capture, across a whole multi-contractor site — was not found assembled in one product</b> across either research pass. Individual pieces exist scattered across categories (ALICE has the graph logic, SafetyCulture has the ack-UX, Aconex has document-level audit trail, Petrotechnics may have the live conflict-detection piece in adjacent sectors). Nobody has assembled all five in one live-execution tool, as far as this research could establish.</p>
+    <p style="margin:0;">That is genuine whitespace — but whitespace in software is not the same as whitespace in willingness-to-adopt, which is where this assessment gets adversarial (Sections G and Q).</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">G</div>
+    <h2>Voice of customer</h2>
+  </div>
+  <div class="card">
+    <p style="margin:0 0 10px;"><b>The loudest real complaints about existing tools are cost and clunkiness, not "we need better automated impact propagation."</b> Procore reviews (Capterra) converge on price ("by far the most expensive solution"), UI complexity, and admin overhead — not a documented gap shaped like Slackwater's core feature. Nobody in the review sample volunteered wanting this.</p>
+    <p style="margin:0 0 10px;"><b>WhatsApp and informal channels are reported as more reliable, not just cheaper, than formal coordination tools.</b> WhatsApp penetration runs 73% median across middle-income countries, over 90% in some markets; sites typically run 5-20+ groups carrying photo evidence, voice updates, and commitments described in industry analysis as "often more reliable than formally submitted reports." This directly challenges the thesis that faster structured capture beats informal channels.</p>
+    <p style="margin:0;"><b>The cost of poor coordination is real and large at the industry level</b> — Revizto's 2026 survey (2,000+ AEC practitioners, 8 markets) puts global construction rework at $625B/year, with poor coordination now the 3rd-largest driver of budget overruns, against firms "operating at 2-3% net margins" and already seeing software costs rise ~10% YoY. The gap between "this costs the industry a fortune" and "someone specifically wants Slackwater's feature" is the open question a pilot needs to close.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">H</div>
+    <h2>Vertical ranking</h2>
+    <p>20 candidate verticals scored on pain severity, cost of failure, contractor density, existing software saturation, willingness to pay, buyer accessibility, and pilot feasibility. Top 10 shown.</p>
+  </div>
+  <div class="rank-list">
+    <div class="rank-row"><div class="n">1</div><div class="v">Rail possessions (UK)</div><div class="d">Hard time-boxed multi-contractor coordination; Network Rail's own Schedule 8 delay-payment mechanism already prices delay in commercial language the buyer already speaks.</div></div>
+    <div class="rank-row"><div class="n">2</div><div class="v">Marine construction / ports</div><div class="d">Direct match to the founder's own PLA tide-data starting point — tidal windows are structurally the deterministic-cascade case the product is built for.</div></div>
+    <div class="rank-row"><div class="n">3</div><div class="v">Offshore energy (wind O&amp;M)</div><div class="d">Vessel day-rate economics make cost-of-delay legible to the buyer already; concentrated, well-funded developer set.</div></div>
+    <div class="rank-row"><div class="n">4</div><div class="v">Nuclear outages</div><div class="d">Highest £/day cost-of-delay of any vertical — but brutal vetting and sales-cycle length push a first pilot past 12-24 months. Also where Petrotechnics is already entrenched.</div></div>
+    <div class="rank-row"><div class="n">5</div><div class="v">Highways maintenance</div><div class="d">Same possession-like shape as rail, slightly lower per-event stakes.</div></div>
+    <div class="rank-row"><div class="n">6</div><div class="v">Airports</div><div class="d">High cost of overrun, tiny buyer count, low project frequency.</div></div>
+    <div class="rank-row"><div class="n">7</div><div class="v">Data-centre construction</div><div class="d">High willingness-to-pay (hyperscaler buyers), less proven coordination-software need.</div></div>
+    <div class="rank-row"><div class="n">8</div><div class="v">Oil &amp; gas shutdowns</div><div class="d">Extremely high cost-of-delay, but turnaround-management software category is mature and Petrotechnics-adjacent.</div></div>
+    <div class="rank-row"><div class="n">9</div><div class="v">Transmission infrastructure</div><div class="d">Big buyers (National Grid, DNOs), slower urgency cadence.</div></div>
+    <div class="rank-row"><div class="n">10</div><div class="v">Utilities / water / wastewater</div><div class="d">AMP-cycle capital delivery pain, lower per-day delay cost than rail/marine/nuclear.</div></div>
+  </div>
+  <div class="gap-note"><b>Bottom of the list, deliberately:</b> large general construction (commercial/residential) scores near the bottom despite being the largest volume market — it's the most software-saturated (Procore/Autodesk entrenched) and has the least "hard constraint" character, since most delay there is soft sequencing preference, not a missed tide or blocked track.</div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">I</div>
+    <h2>Buyer map</h2>
+  </div>
+  <div class="card">
+    <div class="field"><div class="k">Economic buyer</div><div class="v">Project/construction director (contractor side) or programme director/asset owner (client side) — whoever owns the delay/standby cost line, not whoever owns "software spend."</div></div>
+    <div class="field"><div class="k">Champion</div><div class="v">Site manager, possession manager, marine coordinator, shift/turnaround manager — feels the pain daily, rarely controls budget, so the sales motion needs them to sell upward.</div></div>
+    <div class="field"><div class="k">Daily user</div><div class="v">Supervisors and coordinators across contractors receiving role-appropriate notifications — success depends on this group trusting and acting on output during live operations.</div></div>
+    <div class="field"><div class="k">IT/security gatekeeper</div><div class="v">On regulated infrastructure, an information-security/governance function reviews any new system touching live operational data.</div></div>
+    <div class="field"><div class="k">Likely opponents — the important finding</div><div class="v">Subcontractors who see a timestamped record of "who caused the delay" as liability exposure, not convenience — see Section Q. Also site managers who read automated cross-contractor notification as surveillance or a challenge to informal authority, and existing PMO/scheduling-tool owners who see it as duplication.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">J &amp; K</div>
+    <h2>Pricing precedent &amp; bottom-up market sizing</h2>
+  </div>
+  <div class="card">
+    <p style="margin:0 0 10px;"><b>Pricing:</b> value-based or day-rate-anchored pricing (a small fraction of avoided delay/standby cost, or a flat per-event fee for a possession/turnaround/outage) is more defensible than per-seat SaaS given the value proposition is avoided delay cost, not seat convenience. If a single possession/turnaround overrun costs tens of thousands to (in nuclear's case) potentially over a million pounds per day, even a low-tens-of-thousands software fee per major event is a trivial fraction of value-at-stake — meaning price is very unlikely to be the adoption blocker. Procurement friction is the real gate (Section L), not price sensitivity.</p>
+    <p style="margin:0;"><b>Market sizing (UK, illustrative, unverified against a real counted list):</b> roughly 15-30 tier-1 contractors capable of being an economic buyer, plus asset owners/frameworks across the top verticals (Network Rail and its divisions, National Highways, 10-15 water/wastewater utilities, a handful of major port authorities, 3-5 UK nuclear sites, 5-10 offshore wind developers) — a plausible near-term buyer universe in the order of 60-120 organisations across the top five verticals. <b>Conservative case:</b> single-vertical (rail or marine) UK beachhead, low-single-digit-millions £ ARR ceiling before requiring expansion. <b>Base case:</b> multi-vertical UK penetration of a meaningful minority of that buyer universe, high-single to low-double-digit millions £ ARR at maturity. <b>Aggressive case:</b> depends entirely on whether UK pilots produce a portable playbook, not one-off bespoke work per site — the only path to venture scale.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">L</div>
+    <h2>Procurement &amp; adoption barriers</h2>
+  </div>
+  <div class="card">
+    <p style="margin:0 0 10px;">Cyber Essentials (from £320+VAT self-assessment) and often Cyber Essentials Plus are increasingly expected by buyers, though not confirmed as a universal blanket mandate. ISO 27001, data residency, and DPIA review are standard expectations for anything touching operational data on regulated/critical infrastructure. Framework procurement (Network Rail supplier approval, National Highways supply chain) is slow — multi-month to multi-year — and is the wrong first door for an early-stage product.</p>
+    <p style="margin:0;"><b>Realistic route around this:</b> sell into a single site, shift, or possession/turnaround event via a tier-1 contractor's innovation or digital-rail-type discretionary budget, rather than an enterprise-wide deal with the asset owner directly. This mirrors the general pattern known for construction-tech adoption — land a single-site pilot through a sympathetic project team before any enterprise procurement conversation starts.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">Q</div>
+    <h2>Red-team section — the strongest case against building this</h2>
+    <p>Built adversarially, per the brief, with real evidence rather than logical inference alone. Ordered strongest to weakest.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>1. The audit trail is a liability weapon, not a feature</h4>
+    <p>A structured, timestamped, third-party-generated record of who was notified of a change and who failed to act is exactly the kind of evidence used against a party in a delay dispute. Construction-litigation analysis found directly on point: adding structured/AI monitoring data to a project can inflate e-discovery cost 25-60x (from $2,000-$24,000 to $50,000-$1.5M), and describes exactly this scenario — "a comprehensive, structured, timestamped record... organized by the defendant's own quality-control system into a format that practically cross-examines itself." A subcontractor facing potential liquidated-damages exposure has a rational incentive to refuse to acknowledge promptly, rubber-stamp without reading, or route real coordination back through WhatsApp specifically because it doesn't create the same evidentiary trail.</p>
+    <p class="counter">Counter-evidence found: vendor-side framing presents audit trails as dispute-resolving — but that's written from the GC/owner's perspective of defending against upstream claims, not from the tracked subcontractor's perspective, whose incentives are structurally different.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>2. Construction tech adoption has a documented, brutal failure pattern</h4>
+    <p>Katerra raised $2-3B+, reached a $4B+ valuation, and went bankrupt in 2021 — capital alone doesn't buy adoption. A more directly relevant founder post-mortem (a construction field-management startup) states: "there is only mistrust in construction... the product must be extremely reliable," it took two years before the market even acknowledged the need, and deep workflow integration (not standalone use) was required, blowing the MVP timeline. A separate analysis describes a "death by pilot" trap: construction projects are temporary, teams disperse when a project ends, and a successful pilot's champion is gone before the next sale can close — decoupling the startup's sales cycle from the customer's project cycle.</p>
+    <p class="counter">No strong counter-evidence found — trend data suggests firms are tech-fatigued (adopting ~6 tech categories per firm, up 20% YoY, without translating into effectiveness gains) rather than hungry for a new category.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>3. The core mechanism may be built on the exact behavior that already fails</h4>
+    <p>Field-tool adoption research shows apps built for desk work fail in field conditions, and — critically — systems that flag empty/missing fields "punish silence," incentivizing quick low-quality guesses over accurate-but-slow entries. Autodesk's own data (42% cite "lack of digital skills" as the top barrier) is misleading: trained teams show the same low adoption, meaning the bottleneck is structural/motivational, not skill. Slackwater's entire value proposition depends on someone stopping to log a change accurately in 10-20 seconds under time pressure — the exact input behavior this literature shows the industry has repeatedly failed to sustain. A wrong "deterministic" cascade, trusted by design, is arguably worse than no system.</p>
+    <p class="counter">Counter-evidence: the 10-20s target is explicitly aimed at this friction problem — if genuinely achieved, it addresses the failure mechanism directly. But this is an unbuilt, unproven claim, not evidence the failure mode is avoided.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>4. Cheaper means may already solve it well enough</h4>
+    <p>The WhatsApp finding (Section G) is the sharpest ammunition here: informal channels are reported as more reliable, not just cheaper, because low friction plus human judgment beats structured-but-effortful data entry. Combined with zero organic demand for automated downstream-impact calculation surfacing in the Procore review sample, a credible reading is that a competent site manager plus a daily huddle plus WhatsApp groups already captures the bulk of addressable coordination value on most projects — leaving Slackwater's real addressable pain concentrated in a narrower band (very large, very complex, hard-constraint sites) than the general framing implies.</p>
+    <p class="counter">No strong counter found, other than the plausible-but-unproven point that large complex sites are where the $625B rework and 3rd-largest-overrun-driver figures concentrate.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>5. "Just another app" in an already-cluttered stack</h4>
+    <p>Revizto's survey found technology integration is the top challenge across all firm types because platforms "don't talk to each other cleanly" — firms are "paying for five tools and getting the productivity of three." Slackwater sits on top of an already-cluttered stack (Procore/Aconex/Fieldwire/WhatsApp/radio).</p>
+    <p class="counter">Counter: the same complaint targets platforms that don't reduce app count either — a fast-capture-then-automatic-push system is architecturally different from "another dashboard to check." Real structural difference, though unproven in the field.</p>
+  </div>
+
+  <div class="objection-card">
+    <h4>6. Thin margins on both sides of the transaction</h4>
+    <p>Firms are reported operating at 2-3% net margins industry-wide, with software spend already rising ~10% YoY against that base. GC and subcontractor procurement of coordination tools are documented as separate purchasing categories with different buyers and incentives — and per objection #1, a system whose audit trail can expose the GC's own miscommunications to owner-side claims isn't an unambiguous win for the GC either, complicating who actually champions the purchase.</p>
+    <p class="counter">No direct rebuttal found; unverified whether large-complex-site economics differ meaningfully from broader industry averages.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">N, O &amp; P</div>
+    <h2>Best wedge, best first market, and pilot design</h2>
+  </div>
+  <div class="card">
+    <div class="field"><div class="k">Recommended wedge</div><div class="v">Mid-shift change propagation for a single hard-constraint activity type (e.g. work-window release triggering downstream marine/dive dependencies) — not a whole-site rollout. This matches the founder's existing proving environment and keeps the pilot narrow enough to actually test H5/H6 (will people input enough real-time information; is 10-20s capture realistic) without betting the whole thesis on day one.</div></div>
+    <div class="field"><div class="k">Recommended first market</div><div class="v">UK marine construction/ports, specifically continuing from the existing PLA tide-data proving ground — not rail, despite ranking marginally higher, because the founder already has domain access and working software here. Rail is the logical vertical-two expansion once the wedge is proven.</div></div>
+    <div class="field"><div class="k">Pilot design</div><div class="v">Single site, single shift-type, 4-8 week window, 3-5 contractor organisations minimum to make the multi-party propagation meaningful. Success metrics: percentage of real changes actually logged (tests H5/H6 directly), median capture time against the 10-20s target, percentage of affected parties who acknowledge within a defined window, and — critically — direct qualitative interviews with subcontractor-side users specifically asking whether they felt exposed or protected by the audit trail (tests objection #1 directly rather than assuming it away). Go/no-go criteria should include a specific liability-perception threshold, not just usage metrics.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="kicker">R</div>
+    <h2>Final recommendation</h2>
+  </div>
+  <div class="reco-box">
+    <div class="label">Final call</div>
+    <div class="line">VALIDATE BEFORE BUILDING FURTHER</div>
+  </div>
+  <div class="card">
+    <p style="margin:0 0 10px;">Not BUILD, because two live, resolvable unknowns are load-bearing for the whole thesis and neither is closed: whether Petrotechnics/Proscient already owns this exact capability in adjacent sectors, and whether the audit-trail feature — evidenced here as a real liability exposure, not a hypothetical one — will be actively resisted by the subcontractors it's meant to coordinate. Not KILL, because the core capability gap is genuinely real (no vendor found assembles all five pieces in one live-execution product), the founder already has working software and a real, well-matched proving environment, and the vertical fit (marine, then rail) is structurally sound reasoning, not wishful thinking.</p>
+    <p style="margin:0;"><b>Two things should happen before any further build investment</b>: get a direct, current look at Petrotechnics/Proscient's actual feature set (a day's work, not a research project), and run the narrow pilot in Section P with the liability-perception question built into the pilot design from day one — not discovered the hard way after a subcontractor refuses to use the system.</p>
+  </div>
+</div>
+
+<div class="footer-note">
+  Compiled by Olly, 11 August 2026. Research method: four parallel adversarial research agents across competitor mapping (two passes), vertical/market/buyer analysis, and voice-of-customer/red-team. WebSearch quota was exhausted mid-session across all four agents; each pivoted to direct WebFetch against known URLs or, where that also failed, flagged findings as UNVERIFIED (pre-2026 training knowledge) rather than fabricating current data. Recommend a follow-up pass once search access resets to independently re-verify funding/scale figures and directly re-check Petrotechnics/Proscient before this goes in front of any external party.
+</div>
