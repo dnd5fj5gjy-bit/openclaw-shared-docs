@@ -230,6 +230,23 @@ def main():
         boxes = 52_000 / e["distributor_earns_per_box"]
         print(f"    Option {tag}: needs {boxes:,.0f} boxes/month to clear it "
               f"({boxes*100/75:,.0f} outlets at 2.5/day)")
+    print("\n  THIS IS THE BEST ARGUMENT AGAINST THE RECOMMENDATION BELOW, so it is stated")
+    print("  in full rather than buried. The 10 Aug demand test found that at 8% no single-")
+    print("  brand distributor can live on us - that was flagged as structural, not a")
+    print("  pricing detail. Option C halves the outlet count needed to make him viable.")
+    print("  It is the one thing the expensive pack genuinely fixes.")
+
+    # --- Retailer working capital, which cuts the other way ----------------------
+    print("\n\n--- WHAT THE SHOPKEEPER HAS TO PUT DOWN, PER BOX ---\n")
+    for tag in ("A", "C"):
+        e = results[tag]
+        print(f"  Option {tag}: retailer lays out Rs {e['retailer_buys']*100:,.0f} "
+              f"to earn Rs {e['retailer_earns_per_box']:,.0f}")
+    ca, cc = results["A"], results["C"]
+    print(f"\n  Option C asks a kirana for {cc['retailer_buys']/ca['retailer_buys']-1:+.0%} more cash "
+          f"per box up front.")
+    print("  In a channel that runs on daily working capital, the size of the cheque is")
+    print("  a stocking decision in its own right, separate from whether the item sells.")
 
     # --- The serve size question -------------------------------------------------
     print("\n\n--- THE HALF OF THIS THAT IS NOT FINANCIAL: WHAT ONE SACHET MAKES ---\n")
