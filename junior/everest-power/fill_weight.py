@@ -308,10 +308,20 @@ def main():
     GBP {fx.gbp(annual):,.0f} a year at the base case. That option is simply worse.
 
     Repricing to Rs 20 (option C) is a real business and a different one. It earns
-    Rs {c['contribution']:.2f} a sachet and needs only {ratio*100:.0f}% of the volume, but it buys a fight
-    on Electral's shelf, at Electral's pack size, at Electral's price, with no brand
-    history and no medical channel - and it abandons the impulse thesis the whole
-    60,000-outlet plan is built on. Not for the pilot. Worth revisiting as SKU 2.
+    Rs {c['contribution']:.2f} a sachet, needs only {ratio*100:.0f}% of the volume, and fixes the distributor
+    viability problem the 10 Aug demand test called structural. That is a serious
+    case and it is the reason this is a decision rather than a formality.
+
+    It still loses, on occasion rather than on arithmetic. A 21 g sachet makes a
+    litre, a litre is a jug, and a jug is a sick child at home - the NEED occasion,
+    which is Electral's ground, is the frame Jesse explicitly rejected on 6 Aug, and
+    is the one claim FSSAI will not let us make. 12 g makes a bottle, and a bottle
+    is a working adult on the street, which is the want we are actually selling.
+    Rs 20 also vacates the Rs 10 impulse slot to Reliance's RasKik, and asks the
+    kirana for {cc['retailer_buys']/ca['retailer_buys']-1:+.0%} more cash per box.
+
+    Not for the pilot. Genuinely worth revisiting as SKU 2 once the channel is proven -
+    Electral itself runs 21.8 g and 4.4 g side by side at the same Rs 1.06/gram.
 
   FLAVOUR:  Lime and salt (nimbu). Option A in spec section 6.
 
