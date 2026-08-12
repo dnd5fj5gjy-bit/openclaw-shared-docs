@@ -6,20 +6,21 @@ to the real rate, and economics.py and downside.py were not. For several hours t
 set-up cost was in real pounds and every contribution figure was 21% too high, in the
 same pack. One constant, imported everywhere, so they cannot drift apart again.
 
-VERIFIED 11 Aug 2026 against api.frankfurter.dev (ECB reference rates), date 2026-08-10:
-    GBP -> INR   128.70
-    USD -> INR    95.30
-    USD -> GBP     0.7405   (so GBP -> USD 1.3505)
+RE-VERIFIED 12 Aug 2026 (01:00 BST) against api.frankfurter.dev (ECB reference rates),
+quote date 2026-08-11:
+    GBP -> INR   128.84   (was 128.70 on the 10th, +0.11%)
+    GBP -> USD     1.35
+    USD -> INR    95.44    (derived, 128.84 / 1.35)
 
 These are volatile. Re-verify before any pack that goes to a human, and stamp the date.
 """
 
-FX_DATE = "2026-08-10"
+FX_DATE = "2026-08-11"
 FX_SOURCE = "api.frankfurter.dev (ECB reference rates)"
 
-INR_GBP = 128.70   # rupees per pound
-INR_USD = 95.30    # rupees per dollar
-USD_GBP = 1.3505   # dollars per pound
+INR_GBP = 128.84   # rupees per pound
+INR_USD = 95.44    # rupees per dollar
+USD_GBP = 1.3500   # dollars per pound
 
 
 def gbp(rupees):
