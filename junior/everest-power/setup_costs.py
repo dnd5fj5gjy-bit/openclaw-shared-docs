@@ -104,7 +104,21 @@ LINES = [
  #   GST monthly at INR 20,000 - only from the month we register and start transacting.
  # Target below assumes audit + ROC + tax return + FLA + light bookkeeping. CONFIRM the
  # mandatory list with the adviser; do not take my word for Indian statutory requirements.
- ("Accounting, statutory audit, company secretarial, 12 months",    5_000, "[target - KNM quoted 13,481]"),
+ # DSA QUOTED 13 Aug 2026 and it is WORSE than the quote Jesse already rejected:
+ #   Monthly retainer GBP 990 (discounted from 1,316.67) = GBP 11,880 a year. Covers HR and
+ #     payroll, bookkeeping in Tally, TDS and withholding returns, GST monthly per GSTN,
+ #     annual financial statements, and company secretarial/ROC/RBI FLA.
+ #   Statutory audit GBP 1,500 in year one, paid direct to the auditor.
+ #   Transfer pricing study GBP 1,800 a year - and this one APPLIES to us, because
+ #     repatriating to the parent is an international related-party transaction.
+ #   Threshold extras not yet triggered: tax audit GBP 1,200 over INR 10 crore turnover,
+ #     GST annual return GBP 1,250 per GSTN over INR 5 crore.
+ #   = GBP 15,180 in year one, against KNM's 13,481 that Jesse called crazy.
+ # The discount is conditional: it holds only while headcount stays under 10 and
+ # transactions under 50 a month. Both are pre-revenue assumptions that expire.
+ # Note DSA's retainer prices HR and payroll for a company with no employees, the same
+ # mistake KNM made. That is the line to argue down first.
+ ("Accounting, statutory audit, company secretarial, 12 months",    5_000, "[target - KNM 13,481, DSA 15,180]"),
  # ALL THREE TRADE MARK QUOTES IN. Same scope, 3 classes, restated 11 Aug 2026 at the
  # corrected FX above and at the TRUE statutory fee, which Anand & Anand confirmed in
  # writing 11 Aug: INR 9,000 per class, billed at spot on the day of filing.
