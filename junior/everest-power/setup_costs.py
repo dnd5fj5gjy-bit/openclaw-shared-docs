@@ -54,7 +54,13 @@ LINES = [
  ("Indian company: incorporation as a WOS, FDI/FEMA filings",      3_850, "[DSA QUOTED 13 Aug - KNM 6,627]"),
  # KNM: USD 3,600 p.a. = GBP 2,666. UNDER the 5,000 we assumed. The 182-day resident
  # director was the thing everyone called a blocker and it is the cheapest line here.
- ("Resident director service, 12 months",                          2_666, "[KNM 11 Aug]"),
+ # DSA 13 Aug: resident director GBP 300/month = 3,600 a year, registered office another
+ # GBP 300/month, and GBP 500/month for BOTH together = 6,000 a year. So DSA is dearer than
+ # KNM on the director alone, but KNM's 2,666 does not include a registered office and we
+ # need one. Commenda folds the resident director AND the registered address into its
+ # ~USD 7,000 setup figure, which is why the three are not comparable line by line - see the
+ # note at the foot of this file. Carried at KNM's 2,666 until the scope is made identical.
+ ("Resident director service, 12 months",                          2_666, "[KNM 11 Aug - DSA 3,600, or 6,000 with office]"),
  # KNM India (Sandeep Bansal) 10 Aug 2026, in writing: we need a CENTRAL FSSAI licence
  # as brand owner/marketer/relabeller, and the contract manufacturer's own licence covers
  # our product at his address - so no second licence at the factory. Structure settled,
