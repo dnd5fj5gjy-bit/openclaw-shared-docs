@@ -25,14 +25,64 @@ FIRST_RUN = 500_000
 COGS_PILOT = 3.25   # ASSUMPTION - the single biggest unknown until quotes land. [RFQ]
 
 LINES = [
- ("Indian company: incorporation as a WOS, FDI/FEMA filings",      2_000, "[RFQ]"),
- ("Resident director service, 12 months",                          5_000, "[RFQ]"),
+ # KNM QUOTED 11 Aug 2026 (Sagar Khurana). First real incorporation number. Their
+ # one-off list totals USD 8,950 = GBP 6,627 on the assumption of 2 directors, 1
+ # shareholder: name approval 500, DSC/DIN 600, set-up 2,000, PAN 900, demat 750,
+ # board meeting 750, bank support 750, FC-GPR 750, e-stamping 250, GST 350,
+ # Shop & Establishment 300, IEC 300, ISIN 750. One quote of three - Commenda call
+ # 12 Aug, Dezan Shira has not quoted. Evidence: evidence/knm-quote-2026-08-11/.
+ # JESSE REJECTED KNM'S QUOTE 11 Aug 2026: "That incorporation quote is ridiculous
+ # especially for India. We're not going to pay that. GBP 22,000 for the year is crazy."
+ # He is right and the original GBP 11,000 assumption was not the thing that was wrong -
+ # KNM's SCOPE was. Carried below at a scoped figure, with KNM's quote kept as the
+ # reference we negotiate against.
+ #   KNM one-off USD 8,950 = GBP 6,627. Two lines in it we should not be buying at all:
+ #     Import Export Code, USD 300 - IEC is for importing or exporting. Everest Power is
+ #       made in India and sold in India. Not needed until we export.
+ #     Shop and Establishment, USD 300 - registers a place of business. We have no office.
+ #   Demat account + ISIN (USD 1,500 together) is probably NOT strippable: a wholly owned
+ #   subsidiary of a foreign body corporate is not a "small company", so dematerialisation
+ #   applies. Confirm with the adviser rather than assume.
+ # DEZAN SHIRA QUOTED 13 Aug 2026 (Naina Bhardwaj, naina.bhardwaj@dezshira.com), second
+ # written quote of three. GBP 3,850 fixed for incorporation of a WOS end to end, and it
+ # INCLUDES bank account opening, GST in one state, PAN, TAN, Shops & Establishment and
+ # DGFT/IEC. That is essentially our target, and GBP 2,777 under KNM for the same scope.
+ # Government fees are EXTRA and one of them is not small: SPICE+ incorporation fee scales
+ # with AUTHORISED capital, and DSA's own worked example is Delhi at INR 1 crore authorised
+ # = INR 250,000 government fee (~GBP 1,940). Keep authorised capital low and the paid-up
+ # separate. FEMA/RBI FCGPR government fee GBP 30-80. Evidence: docs/everest-power/dezanshira/.
+ ("Indian company: incorporation as a WOS, FDI/FEMA filings",      3_850, "[DSA QUOTED 13 Aug - KNM 6,627]"),
+ # KNM: USD 3,600 p.a. = GBP 2,666. UNDER the 5,000 we assumed. The 182-day resident
+ # director was the thing everyone called a blocker and it is the cheapest line here.
+ ("Resident director service, 12 months",                          2_666, "[KNM 11 Aug]"),
  # KNM India (Sandeep Bansal) 10 Aug 2026, in writing: we need a CENTRAL FSSAI licence
  # as brand owner/marketer/relabeller, and the contract manufacturer's own licence covers
  # our product at his address - so no second licence at the factory. Structure settled,
  # fee still not quoted; KNM promised their quotation 11 Aug 2026.
- ("FSSAI central licence, GST, PAN, TAN, bank account",             1_000, "[RFQ]"),
- ("Accounting, statutory audit, company secretarial, 12 months",    3_000, "[RFQ]"),
+ # GST, PAN and TAN now sit in the KNM incorporation line above. What is left here is
+ # the FSSAI central licence itself, and KNM's quote does NOT price it despite their
+ # being the firm that settled the licence structure for us. Still unquoted by anyone.
+ ("FSSAI central licence",                                         1_000, "[RFQ - nobody has quoted]"),
+ # KNM QUOTED 11 Aug: INR 1,735,000 a year ex GST = GBP 13,481, against 3,000 assumed.
+ # THIS IS THE LINE THAT BREAKS THE BUDGET, not the incorporation. They have priced a
+ # trading company from day one: bookkeeping GBP 3,730, GST monthly 1,865, statutory
+ # audit 1,748, Companies Act 1,166, transfer pricing 1,360, payroll assuming a minimum
+ # of five employees we do not have. Much of it should be deferrable or scoped down for
+ # a pre-revenue entity. Carried at the quote until argued, so the budget tells the truth.
+ # KNM quoted INR 1,735,000 ex GST = GBP 13,481 for this. REJECTED. They priced a
+ # trading company with staff from day one. What an Indian private limited actually must
+ # do, whatever its size: statutory audit (no small-company exemption in India), annual
+ # ROC filings, corporate tax return, FLA return to RBI, director KYC. What we are NOT
+ # buying in year one:
+ #   Payroll at INR 60,000 assuming a minimum of five employees - we have none.
+ #   Transfer pricing DOCUMENTATION at INR 125,000 - the study is threshold-driven and we
+ #     will be far below it. Form 3CEB certification may still be needed if there is any
+ #     related-party transaction at all; buy the certificate, not the study.
+ #   Bookkeeping at INR 40,000 a month - that is a price for volume we will not have.
+ #   GST monthly at INR 20,000 - only from the month we register and start transacting.
+ # Target below assumes audit + ROC + tax return + FLA + light bookkeeping. CONFIRM the
+ # mandatory list with the adviser; do not take my word for Indian statutory requirements.
+ ("Accounting, statutory audit, company secretarial, 12 months",    5_000, "[target - KNM quoted 13,481]"),
  # ALL THREE TRADE MARK QUOTES IN. Same scope, 3 classes, restated 11 Aug 2026 at the
  # corrected FX above and at the TRUE statutory fee, which Anand & Anand confirmed in
  # writing 11 Aug: INR 9,000 per class, billed at spot on the day of filing.
@@ -92,11 +142,12 @@ def show(rows, label):
 
 if __name__ == "__main__":
     print("EVEREST POWER - COST TO GET GOING")
-    print(f"Pilot: {OUTLETS} outlets x {BOXES_PER_OUTLET_MO} boxes/mo x {MONTHS} months "
-          f"= {pilot_demand:,} sachets of demand")
+    print(f"Pilot: {OUTLETS} outlets x {SACHETS_PER_OUTLET_DAY} sachets/day x {MONTHS} months "
+          f"= {pilot_demand:,} sachets of demand ({pilot_demand_bull:,} at the old 10/day)")
     print(f"First production run: {FIRST_RUN:,} sachets")
-    lean = show(LINES, "LEAN PILOT - answers 'does a shop sell ten a day'")
-    full = show(LINES + [APP], "WITH THE CODE SYSTEM AND APP BUILT")
+    # Since 11 Aug there is ONE number. The app is in house, so the old lean/full pair
+    # printed the same table twice.
+    total = show(LINES + [APP], "COST TO GET GOING - one number")
     print(f"\n  The app is now built in house (Jesse, 11 Aug 2026), so it is £0 of cash.")
     print(f"  300 outlets can be run on WhatsApp and UPI by hand.")
     print(f"\n  Sensitivity: COGS at Rs 2.10 (the model's volume price) instead of Rs "
