@@ -68,7 +68,23 @@ LINES = [
  # GST, PAN and TAN now sit in the KNM incorporation line above. What is left here is
  # the FSSAI central licence itself, and KNM's quote does NOT price it despite their
  # being the firm that settled the licence structure for us. Still unquoted by anyone.
- ("FSSAI central licence",                                         1_000, "[RFQ - nobody has quoted]"),
+ # DSA 13 Aug 2026 gave the best FSSAI answer anyone has given and STILL did not price it.
+ # Three advisers have now explained the structure and none has quoted the licence.
+ # DSA also CONTRADICTS what I had recorded as settled. KNM and Commenda both said
+ # nationwide distribution requires a Central licence. DSA says distribution reach is NOT
+ # the test: Central is mandatory if year-one turnover exceeds INR 20 crore, OR the contract
+ # manufacturer sits in a different state from our registered office, OR we hold stock in
+ # another state, OR we sell through our own website or a marketplace. Selling into many
+ # states through independent distributors does not by itself require Central. DSA still
+ # RECOMMENDS Central from the outset, so the action is unchanged - but the reasoning I
+ # called settled was wrong, and the triggers matter for where we register the office.
+ # Also new and useful: the Kind of Business is "Relabeller", the deemed-manufacturer
+ # category for a brand owner who is the FBO on pack and outsources production, issued at
+ # our head office with the CM's premises and licence in the annexure. We cannot hold
+ # manufacturing premises under it. And the Food Safety Officer / authorised signatory on
+ # the licence must be OUR person, not the nominee director, so food-safety liability stays
+ # with the operating business.
+ ("FSSAI central licence",                                         1_000, "[RFQ - THREE advisers, none has quoted]"),
  # KNM QUOTED 11 Aug: INR 1,735,000 a year ex GST = GBP 13,481, against 3,000 assumed.
  # THIS IS THE LINE THAT BREAKS THE BUDGET, not the incorporation. They have priced a
  # trading company from day one: bookkeeping GBP 3,730, GST monthly 1,865, statutory
