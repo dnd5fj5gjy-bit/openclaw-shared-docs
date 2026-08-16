@@ -29,14 +29,42 @@ one or suppressing volume on the other. Mini Savage is also our single clearest 
 differentiator, because no incumbent has a kids' SKU at all. It is the SKU I would least want priced
 out of reach.
 
-**We are priced at the very top of the category.** £55 subscribed across 28 servings is £1.96 a
-serving, roughly $2.65. Our own competitive teardown in July recommended a $2.10 to $2.50 band and
-identified Noble Origins at $2.36 to $2.63 as the premium comparator. **We are sitting above the top
-of our own recommended band and above the most expensive competitor we identified.**
+### CORRECTION, made later the same night: the pricing is on target and I had this wrong
 
-That may well be the right call given Bear, and premium is the correct instinct for a taste-led
-product. But it was a recommendation of $2.10 to $2.50 and the live price is $2.65, so somebody
-changed it or nobody checked it. Worth knowing which.
+My first pass said we were priced above the top of our own recommended band. **That was wrong, and it
+is worth explaining how, because the mistake is an easy one to repeat.**
+
+I converted the VAT-inclusive UK price into dollars and compared it against a benchmark that was set
+in VAT-exclusive US dollars. That is not a like-for-like comparison. UK consumer prices must be
+displayed inclusive of VAT, US prices are shown before sales tax, so converting one into the other
+overstates the UK price by 20% before you start.
+
+**Then I checked the US prices directly rather than deriving them.** The site prices each market
+independently rather than converting:
+
+| | Subscribe | One-off | Bundle of three |
+|---|---|---|---|
+| UK | £55 | £65 | £46.66 each |
+| US | **$69** | **$79** | **$60 each** |
+
+Against the July recommendation of $2.10 to $2.50 a serving, roughly $59 to $69 a pouch:
+
+- **US subscription $69 = $2.46 a serving. That is exactly at the top of the recommended band, and
+  exactly at the top of the recommended pouch range. On target.**
+- US one-off $79 = $2.82 a serving, above the band, which is normal and intentional: pricing the
+  one-off above the subscription is what makes the subscription the obvious choice.
+- UK £55 inclusive of VAT is £45.83 ex VAT, about $2.22 a serving, **below** the US and below the
+  middle of the band.
+
+So somebody did the work properly. The pricing follows our own recommendation, and the UK and US
+prices are coherent with each other once VAT is accounted for. In cash terms a UK customer pays about
+8% more than a US customer on subscription, and that gap is VAT, which they would pay on anything.
+
+*FX for the above: GBP/USD 1.3537, frankfurter.dev, quote date 14 Aug 2026.*
+
+**What still stands is the parity point above**, which is about the three products being priced the
+same as each other within each currency, not about the level. That question is unaffected by any of
+this.
 
 ---
 
