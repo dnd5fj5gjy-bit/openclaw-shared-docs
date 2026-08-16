@@ -46,7 +46,26 @@ may be worth less than it reads. Full detail and what to do about it in the UK c
 
 ---
 
-Nine more things. The first four take about a minute each.
+## And one you should know about even though it is not yours to action
+
+**Running Wild's economics have broken and the proposed fix is Meta.** Ben Simon at EBG wrote to Bear
+on 7 August, copying Del and CJ. Bear forwarded it to you at 14:50 the same day. Nothing since, nine
+days.
+
+FOX's negotiating baseline for 2027 was described as **"starting from free"**. Drew reads it as a cut
+from $800,000 an episode to around $400,000, against production costs of roughly $800,000. The Fund
+will not cover the gap. The plan is Meta Glasses as season-long title sponsor at about $400k an
+episode, tied into Project Kodiak.
+
+Two reasons it belongs in this pack. **Meta is now spoken for**, so it has to go on the conflict map
+before anyone pitches anything near it. And FOX's other criticism, that the show needs social reach
+and younger engagement, **is the same problem as Modern Savage's 0.06% conversion, from the other
+end.** Bear's audience is enormous and the machinery for converting it is weak. One fix serves both,
+which is a much stronger internal argument than either case makes on its own.
+
+---
+
+Eleven more things. The first four take about a minute each.
 
 **1. Re-send the Metricool invite to junior@beargryllsventures.com.** The 13 August one has expired,
 confirmed from the API error, not guessed. Twenty posts are written and waiting to be loaded as
