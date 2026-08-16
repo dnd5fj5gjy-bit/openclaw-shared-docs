@@ -37,6 +37,18 @@ ownership of BMF. He wanted equity in a venture he considered largely his. The r
 business plan was the point at which he decided the structure was never going to land where he needed
 it, and he had a ready alternative in GORUCK's own event business.
 
+## And NM Capital is still expecting a plan
+
+**14 August, 11:17, WhatsApp to Josh NM Capital**, three days after Farren withdrew:
+
+> we are just finalising the plan then we can get on a call
+
+I cannot tell from here whether that referred to a BMF plan independent of Farren or whether the
+withdrawal had not registered yet. Either reading leads to the same place: **Josh Williams is waiting
+on a plan and a call, and the person who was going to execute it has gone.**
+
+That is worth resolving before the call happens rather than during it.
+
 ## What this actually costs
 
 **BMF has no operator again.** Farren was, on our own assessment, the strongest candidate you had had:
