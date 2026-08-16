@@ -99,6 +99,57 @@ before anyone prints a handle on packaging.
 
 ---
 
+## 3b. Two of the three products have no published ingredients at all
+
+The `/ingredients` page carries a full breakdown for the adult Daily Blend: organs 2,500mg, berries
+1,000mg, beef protein isolate 5,000mg, collagen 5,000mg, fibre and probiotics 3,501mg, minerals
+1,121mg, plus an allergen statement. That is a good, transparent panel.
+
+**Mini Savage and BG Summit Stack have nothing.** Both product pages carry a "View Full Ingredients"
+link, and neither the link nor the ingredients page leads to an actual list for either product. So we
+are taking £65 in advance for a **children's supplement** whose ingredients are not published
+anywhere on the site.
+
+That is below what the category does as standard. Our competitors publish full panels, and
+transparency about doses is one of the two or three things buyers in this category actually compare.
+For the kids' product it is also the single SKU where a parent is most likely to want to read every
+line before buying.
+
+This is a content gap rather than a formulation problem. The information exists, it is in the
+specification. It just is not on the website.
+
+## 3c. The live ingredients page still says Utah salt
+
+The minerals line on `/ingredients` reads: *"Calcium (Aquamin-F™), acerola cherry extract (25% vitamin
+C), **Utah mineral sea salt**"*.
+
+**Celtic Sea Salt replaced Utah Salt on 5 August**, when Calita asked and Jesse answered "Yes the more
+British the better". I flagged on 15 August that this spec change had never been captured anywhere.
+This is what that looks like in public: the change is nine days old and the website still tells
+customers the old formulation.
+
+It is a one-line fix. The reason it is worth raising is that it confirms there is no process
+connecting a formula decision made in a chat to the places that formula is published, and the next
+change will do the same thing.
+
+### A related question I am not qualified to answer
+
+The adult blend is liver-based, and **Mini Savage is a liver-based product for children**. Liver is
+extremely rich in vitamin A in retinol form, which is fat-soluble and accumulates. UK government
+advice tells pregnant women to avoid liver products and vitamin A supplements altogether, and upper
+intake limits for children are lower than for adults.
+
+**No vitamin A quantity is published for any of our products, and there is no age guidance or
+pregnancy note on the site.**
+
+I want to be fair here rather than alarmist: **the category does not do this either.** Carnicopia
+publishes no vitamin A figure and describes their liver capsules as *"suitable for men, women and
+children"*, which is a bolder claim than anything we make. So we are not below the market.
+
+But "no worse than the competition" is a weak standard for a children's product with the family name
+on it, and this is a question for whoever is doing our regulatory work rather than for me. It should
+get a professional answer before launch, not after. Filed here so it is not lost.
+
 ## 4. The approval bottleneck is costing more than any of the above
 
 Three finished, approved marketing assets are sitting unposted:
