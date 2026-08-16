@@ -146,9 +146,20 @@ consideration rather than a theoretical one, and it is the reason dosage on a li
 something to freestyle.
 
 Two practical points. If you are already taking a multivitamin, you may be getting vitamin A from
-both. And **pregnant women are advised to avoid liver and high-dose vitamin A supplements**, which is
-NHS guidance rather than ours. If you are pregnant or trying to conceive, speak to your midwife or GP
-before taking any organ supplement, including ours.
+both sources without having added it up.
+
+And this one is not our opinion, it is national guidance. **The NHS lists liver and liver products
+among the foods to avoid in pregnancy**, in its own words because *"liver and foods containing liver
+have high levels of vitamin A, which can be harmful to your baby."* UK government advice goes further
+and says women who are pregnant, or thinking about becoming pregnant, should avoid liver and liver
+products **and** supplements containing vitamin A, including fish liver oil, unless a GP advises
+otherwise.
+
+So if you are pregnant, breastfeeding or trying to conceive, speak to your midwife, GP or pharmacist
+before taking any organ supplement, ours included. We would rather lose the sale.
+
+*Sources: [NHS, foods to avoid in pregnancy](https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/);
+[NHS, vitamin A](https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-a/).*
 
 **What to look for in a brand.** Third-party testing, and a brand that will show you the certificate.
 Full disclosure of doses rather than a proprietary blend. Clear sourcing. Claims that sound boring,
