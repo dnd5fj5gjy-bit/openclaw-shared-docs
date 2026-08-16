@@ -115,7 +115,13 @@ page says UK and US only, and explicitly says no Canadian address can even be en
 Worth doing because the site's AI discoverability work is genuinely good, which means this error is
 amplified rather than ignored.
 
-**11. Claim `@modernsavage.co` on TikTok. It is free today, I checked.** `@modernsavage` is already
+**11. Bear volunteered you to DIRTEA's board.** On 5 August, in his reply to their CEO and co-founder:
+*"Use Bear Witness digital marketing (Jesse will do a great job for you that is way more true to the
+brand)."* Separately, I chased the 26 August DIRTEA deadline thinking it had been dropped. **It has
+not** — Raemy took a considered decline-by-default position on 5 August and that looks right. Good
+news, reported as such.
+
+**12. Claim `@modernsavage.co` on TikTok. It is free today, I checked.** `@modernsavage` is already
 taken by a dormant account, which is why Instagram is on the `.co` version. Bear meanwhile already has
 **412,000 followers on TikTok**, with no brand account there to point them at. This is the only item
 on the list that gets harder if it waits, and it matters before a handle gets printed on a pouch.
