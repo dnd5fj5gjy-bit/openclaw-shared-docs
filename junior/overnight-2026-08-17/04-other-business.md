@@ -103,7 +103,42 @@ and licence rather than distribute.
 
 ---
 
-## 5. A small security note
+## 5. DIRTEA: I chased this thinking it had been dropped. It has not. But two things are worth knowing.
+
+My records flagged a **26 August deemed-decline deadline** on the DIRTEA share issue, last verified on
+6 August. A deadline ten days out on a position Bear paid roughly £2.45m for seemed worth checking, so
+I did.
+
+**It is handled, and I want to say that plainly rather than manufacture an alarm.** Raemy replied to
+Bear on 5 August at 21:24, copying you:
+
+> As the Shareholders' agreement has pre emption rights, the shares need to be offered to existing
+> shareholders first. Dirtea then need to wait 21 days and see if anyone takes that up. If not, this
+> deal as is, then goes through. **We do not need to do anything currently** - this is an FYI as you
+> are a shareholder and to give you the option as a shareholder to take this offer up.
+
+That is the CFO taking a considered position. Doing nothing means accepting dilution from about 7.8%
+to about 3.88%, and maintaining the stake would cost roughly £1.95m at an unchanged £25m valuation on
+a loss-making business carrying £4.1m of debt. Declining looks like the right call and it has been
+made by the right person.
+
+**Two things I would still note.**
+
+**The 26 August date is real and it arrives by silence.** No Companies House filing has appeared for
+the 3,001 new shares as of tonight, and there has been no further email on the thread since 5 August.
+If anyone ever wanted to revisit, that is the last day. Worth a diary entry rather than a discussion.
+
+**Bear volunteered you to DIRTEA's board.** In the same thread, at 20:47, to Jessica and Andrew:
+
+> Use Bear Witness digital marketing (**Jesse will do a great job for you** that is way more true to
+> the brand)
+
+That went to the CEO and co-founder of a company we are about to be diluted in, as part of a list of
+conditions for their "resurrection". You may have clocked it and be happy with it. If you have not,
+it is the kind of thing that turns into an expectation and then a meeting, and it is easier to shape
+now than to decline later.
+
+## 6. A small security note
 
 While researching partnership contacts I hit four separate fake "Garmin corporate sponsorship" sites
 ranking in search results, on typosquatted domains (`garnimus.it.com`, `garnim.it.com`,
