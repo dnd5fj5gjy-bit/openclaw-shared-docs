@@ -26,10 +26,17 @@ shows. If we approach brands directly we either duplicate them or cut across the
 shortlist as an internal brief to CJ rather than cold emails, because a cold approach from an
 assistant is the wrong instrument for someone with nine million followers. Tell me if you disagree.
 
-**7. Two pricing questions on a page currently taking money.** All three products are priced
-identically at £55 subscribed and £65 one-off, so Mini Savage costs the same as the Summit Stack.
-And £55 across 28 servings is about $2.65 a serving, above the top of the $2.10 to $2.50 band our own
-July work recommended and above the most expensive competitor we found.
+**7. One pricing question, and a correction to my own first answer.** All three products are priced
+identically within each currency, £55 subscribed and £65 one-off in the UK, $69 and $79 in the US.
+So Mini Savage, a kids' pouch, costs the same as the Summit Stack with its creatine, NMN and PQQ.
+That is worth a decision rather than a default.
+
+**I first said we were priced above our own recommended band. That was wrong.** I had converted the
+VAT-inclusive UK price and compared it to a VAT-exclusive US benchmark. Checked properly, the US
+subscription at $69 is $2.46 a serving, which is exactly at the top of the $2.10 to $2.50 band our
+July work recommended. The pricing is on target and the two markets are coherent with each other.
+The bad news is that this wrong version went out in an email to Beau at 21:11 before you froze
+sending, so it needs correcting to him tomorrow.
 
 **8. "Supporting British farmers" is on the homepage** while the adult blend is made in Florida. It
 may be entirely defensible and I am not assuming otherwise, but the press is writing about the brand
