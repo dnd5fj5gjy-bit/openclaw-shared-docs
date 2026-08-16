@@ -90,7 +90,13 @@ right now and the family name is on it.
 
 **9. The Australasia call you asked for on 14 August is this week and nobody has booked it.**
 
-**10. Claim `@modernsavage.co` on TikTok. It is free today, I checked.** `@modernsavage` is already
+**10. A one-line bug tells Google and every AI assistant we ship to 28 countries.** The return-policy
+country list in our product structured data says UK, US, **Canada** and 25 EU states. The shipping
+page says UK and US only, and explicitly says no Canadian address can even be entered. Ten-minute fix.
+Worth doing because the site's AI discoverability work is genuinely good, which means this error is
+amplified rather than ignored.
+
+**11. Claim `@modernsavage.co` on TikTok. It is free today, I checked.** `@modernsavage` is already
 taken by a dormant account, which is why Instagram is on the `.co` version. Bear meanwhile already has
 **412,000 followers on TikTok**, with no brand account there to point them at. This is the only item
 on the list that gets harder if it waits, and it matters before a handle gets printed on a pouch.
