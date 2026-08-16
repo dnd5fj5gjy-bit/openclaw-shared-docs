@@ -65,7 +65,7 @@ which is a much stronger internal argument than either case makes on its own.
 
 ---
 
-Eleven more things. The first four take about a minute each.
+Twelve more things. The first four take about a minute each.
 
 **1. Re-send the Metricool invite to junior@beargryllsventures.com.** The 13 August one has expired,
 confirmed from the API error, not guessed. Twenty posts are written and waiting to be loaded as
@@ -83,8 +83,14 @@ it stops the problem recurring.
 on 16 August. He told Em to decline it back in July. One message settles whether he has changed his
 mind or wants you to handle it.
 
-**5. Four drafts are in the mailbox, none sent.** CJ on partnership lanes, Beau on two live-site
-issues, Kallie Rhea on the Justin J. Moore approach, and the Revolut one is deleted as you asked.
+**5. The queue is four, and the mailbox says so, not my notes.** Manya and Jack from 13 August, plus
+two written tonight: **CJ** on the partnership lanes and **Kallie Rhea** on the Justin J. Moore
+approach. Revolut is deleted as you asked.
+
+**One email was sent, before the freeze**, to Beau at 21:11, on the two live-site issues. It carries
+the pricing claim I got wrong at item 7, so it needs a correction once sending is back on. I also
+found and deleted a duplicate of it still sitting in Drafts, which would otherwise have let you send
+the superseded version by accident.
 
 **6. Decide who owns outbound partnerships.** EBG is paid $25k a month for brand partnerships on the
 shows. If we approach brands directly we either duplicate them or cut across them. I have written the
