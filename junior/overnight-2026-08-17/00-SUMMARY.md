@@ -1,6 +1,27 @@
 # What needs you tomorrow
 
-## Read this one first: do not send the Fat Cow agreement to Ryan's solicitor as it stands
+## Farren Morgan withdrew from BMF five days ago and nobody has replied
+
+I found this sweeping for unanswered partnership approaches. It was on nobody's list, including mine.
+
+**11 August, 20:21.** He is taking The Military Prep Games *"in a different direction and launch it
+independently through GORUCK's internal event ecosystem"*, thanked you, and wished BMF well. Clean
+withdrawal, in writing. It came three hours after Josh Williams asked him for a business plan and an
+investment number.
+
+**BMF has no operator again**, and Farren was the strongest you had had: 267k followers, a 20,000
+email list, and a funded sponsor already attached. This is the second candidate to hit the same wall,
+which was the same both times: what does the person running BMF actually own?
+
+It also lands while Battersea sits on a one-month mutual licence break with nothing in writing.
+
+**A four-line reply to him today** costs nothing and keeps a man who is about to be GORUCK's UK
+Director on good terms. I have not drafted it, because you have frozen sending and the tone should be
+yours.
+
+---
+
+## Then this: do not send the Fat Cow agreement to Ryan's solicitor as it stands
 
 Ryan said on 7 August that his solicitor "will want the final version". **The execution version on
 file is out of date on three things you have already agreed with him**, and two of them are
