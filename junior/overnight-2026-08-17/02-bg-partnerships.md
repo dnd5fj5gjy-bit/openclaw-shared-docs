@@ -225,6 +225,59 @@ and the domain checked before it is acted on.
 
 ---
 
+---
+
+## The biggest BG partnership is already in motion, and it changes the advice above
+
+I found this looking for something else, and it matters more than anything on my shortlist.
+
+**7 August, Benjamin Simon at Everest Brand Group to Bear**, copying Del Shoopman, CJ and Will
+Gardenswartz. Bear forwarded it to Jesse the same afternoon. Nine days ago, and I can see no follow-up
+in the thread since.
+
+**The situation with Running Wild:**
+
+- FOX has "extremely limited schedule availability" for 2027 and their negotiating baseline was
+  described as **"starting from free"**.
+- Drew's read is FOX wants a **50% or more cut from the $800,000 per-episode licence fee, to roughly
+  $400,000**.
+- RW9 currently runs on $400k FOX plus $200k international per episode, against a production cost of
+  about $800k. **The Fund will not underwrite the deficit** without a return path.
+- FOX also say the show needs creative rejuvenation, and cited Dancing with the Stars as a mature
+  format revived through casting digital creators. Their words, per Ben: **social reach, cultural
+  relevance and younger audience engagement need to become casting criteria alongside celebrity
+  recognition.**
+
+**The proposed answer is Meta.** Meta Glasses as season-long title sponsor contributing roughly $400k
+an episode to bridge the gap, tied into **Project Kodiak**, the geo-spatial game built around Meta
+Glasses and Bear's adventure IP. Ben's framing is that this gives Meta a connected platform across
+product, television, gaming, social and real-world experience rather than a sponsorship, and that it
+is *"the only adapt-or-die path for the show."*
+
+### Three things this means for the partnership work Jesse asked for
+
+**1. It confirms the routing recommendation above, emphatically.** EBG is not idle. They are
+structuring a nine-figure-adjacent strategic partnership with Meta right now. Anything we do on brand
+partnerships has to go through them or explicitly around them, and my shortlist should reach CJ and
+EBG as a brief rather than going out as cold emails. That was the right call and this is why.
+
+**2. Meta is spoken for.** Any partnership thinking that touches Meta, Instagram, or AI/AR hardware
+now sits on top of a live strategic negotiation. That belongs on the conflict map, which currently
+does not mention it.
+
+**3. FOX's criticism is the same problem I found on Modern Savage, from the other end.** FOX is saying
+the show needs social reach and younger engagement. Modern Savage has 9M followers upstream converting
+at 0.06%. **Both are symptoms of one thing: Bear's audience is enormous and the machinery for
+converting it is weak.** Fixing it serves the supplement launch and the show's renewal at the same
+time, and that is a considerably stronger internal argument for investing in it than either case makes
+alone.
+
+I have taken no action on this. It is Bear's, Del's and EBG's thread and Jesse was copied for
+awareness. Flagging it because Jesse asked me where the partnership opportunities are, and the honest
+answer is that the largest one is already on the table and nobody mentioned it.
+
+---
+
 ## What is drafted and waiting
 
 Three outreach emails are in the junior@ Drafts folder, unsent, per the standing rule. Each is short,
