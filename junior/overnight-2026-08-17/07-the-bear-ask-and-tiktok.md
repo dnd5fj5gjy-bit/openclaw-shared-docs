@@ -67,22 +67,38 @@ a lot of trust to run through a single pipe.
 much of the content in the calendar is Reels, which cross-post to TikTok with no extra shoot. The gap
 is a channel and an owner, not an asset.
 
-**What I would do, in order:**
+### I checked the handles tonight. Two things worth acting on quickly.
 
-1. **Secure the handle before anything else.** Note that `@modernsavage` on Instagram already belongs
-   to an unrelated individual, which is why the brand is on `@modernsavage.co`. Do not assume TikTok
-   is free. Check it tonight and claim whatever is available, because it costs nothing and gets
-   harder every week. This is worth doing before the packaging is printed, since a handle may end up
-   on a pouch.
-2. **Cross-post the existing Reels.** Zero new production. Start with the three finished assets that
-   are already waiting.
-3. **Fork the content, do not mirror it.** TikTok rewards a different register: rougher, faster, more
-   face-to-camera, less designed. The Jesse piece and the "why organs" education content will travel
-   there. The polished product photography will not.
-4. **Bear's own TikTok presence is a separate question** and a bigger one. Not for tonight, but worth
-   knowing whether it exists and who runs it before building a brand channel that assumes it does.
+Checked in a real browser, with a deliberate nonsense handle as a control, because TikTok serves an
+identical page shell to a plain fetch for accounts that exist and accounts that do not. The control
+is the only reason these answers mean anything.
 
-**What I have not done and why.** I have not checked whether the TikTok handle is available, because
-doing so properly means being logged in, and creating or claiming an account for the business is not
-something I will do without being asked. It is a two-minute job for whoever owns the brand accounts,
-and it is the only step here that is time-sensitive.
+| Handle | Status |
+|---|---|
+| **`@modernsavage.co` on TikTok** | **AVAILABLE.** Returns "Couldn't find this account", same as the control |
+| `@modernsavage` on TikTok | **Taken.** 3,422 followers, 9,929 following, 0 likes. Not us, and dormant by the look of it |
+| **`@beargrylls` on TikTok** | **Already exists. 412,100 followers, 2.5M likes** |
+
+**Two things follow.**
+
+**Claim `@modernsavage.co` on TikTok now.** It matches the Instagram handle exactly, it is free today,
+and it costs nothing. The matching name on the other major platform is not something to leave to
+chance, particularly with packaging artwork about to be drawn and a handle likely to end up printed
+on a pouch. This is the only genuinely time-sensitive item in this document.
+
+**Bear is already on TikTok with 412K followers**, which changes the argument rather than supporting
+it. This is not a case for opening a channel from nothing. There is an existing audience on that
+platform, in the family's name, and no brand account for them to be pointed at. The Instagram problem
+and the TikTok problem are the same problem, and TikTok is the one where the fix is still cheap.
+
+**Then, in order:**
+
+1. **Cross-post the existing Reels.** Zero new production. Start with the three finished assets
+   already waiting.
+2. **Fork the content, do not mirror it.** TikTok rewards a different register: rougher, faster, more
+   face-to-camera, less designed. The Jesse piece and the "why organs" education content will travel.
+   The polished product photography will not.
+
+**What I have not done and why.** I have not created or claimed the account. Registering accounts in
+the business's name is not something I will do off my own bat, and it needs whoever owns the brand
+logins anyway. It is a two-minute job.
