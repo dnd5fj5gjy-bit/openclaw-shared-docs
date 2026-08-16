@@ -170,6 +170,61 @@ opening question rather than a pitch, so nothing is given away and no leverage i
 
 ---
 
+---
+
+## Deeper research on the top two lanes
+
+### Vitality: their entire roster is stadium sport, and that is the opening
+
+I went through Vitality's ambassador list and sponsorship portfolio properly.
+
+**Ambassadors:** Jessica Ennis-Hill, Jonny Wilkinson, Maro Itoje, Joe Root, Jos Buttler, Ellie
+Simmonds, Heather Knight, Lord Sebastian Coe, Keely Hodgkinson, Nat Sciver-Brunt, Luke Donald, Sophia
+Dunkley, Isa Guha, Tracey Neville, Iona Stephen, Dr Punam.
+
+**Sponsorships:** Arsenal, Liverpool, Manchester City, AFC Bournemouth (front-of-shirt from 2026-27),
+Chelsea, England Rugby, Scottish Rugby, Welsh Rugby Union, England Netball, the ECB, The Hundred, and
+Parkrun.
+
+**Every single one is stadium or track sport.** Athletics, rugby, cricket, football, netball. There is
+not one adventurer, explorer, mountaineer or outdoors figure anywhere in it.
+
+That is a much better pitch than "add us to the list". Vitality's model rewards members for moving,
+and their entire communication of that idea currently runs through elite competitive sport, which is
+aspirational but not relatable. **Bear is the opposite: not competing against anyone, outdoors rather
+than in a stadium, family rather than individual, and about resilience rather than podiums.** It
+reaches the member who is never going to identify with an Olympic 800m champion.
+
+Parkrun in the portfolio is the tell. It shows they already understand that mass participation
+matters more than elite performance to their actual book. Bear is the mass-participation version of
+what the rest of that roster represents.
+
+**Named route:** Nick Read runs sponsorship at Vitality and has spoken publicly about their strategy.
+Their published contact routes are a media page and a partnerships form, which is not where this
+belongs. This needs a warm introduction, which is exactly why it should go to CJ and EBG rather than
+out from junior@.
+
+### Garmin: no anchor face, and a warning about researching them
+
+Garmin runs ambassador and affiliate programmes, including "League of Garmin", built on commission
+and a long tail of creators. Same shape as the portable power category: **a lot of small voices, no
+single anchor.** The structural argument holds.
+
+**Two things I chased and killed, which are worth recording so nobody else wastes the time:**
+
+- A search result titled *"What's your mission? Garmin begins the search for the next face of their
+  advertising campaign"* looks exactly like a live opportunity. **It is from 2011**, it was aimed at
+  European aviation pilots, and entries closed on 30 September 2011. The page now 404s. It still
+  ranks.
+- Four of the top results for Garmin sponsorship contacts are **typosquatted domains**
+  (`garnimus.it.com`, `garnim.it.com`, `garminus.it.com`, `garmirn.it.com`) pushing a contact address
+  of `OfficialGarmin@outlook.com`.
+
+Search results for Garmin partnerships are unusually polluted. Anything found that way needs the date
+and the domain checked before it is acted on.
+
+---
+
 ## What is drafted and waiting
 
 Three outreach emails are in the junior@ Drafts folder, unsent, per the standing rule. Each is short,
