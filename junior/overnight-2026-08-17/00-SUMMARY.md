@@ -37,6 +37,11 @@ right now and the family name is on it.
 
 **9. The Australasia call you asked for on 14 August is this week and nobody has booked it.**
 
+**10. Claim `@modernsavage.co` on TikTok. It is free today, I checked.** `@modernsavage` is already
+taken by a dormant account, which is why Instagram is on the `.co` version. Bear meanwhile already has
+**412,000 followers on TikTok**, with no brand account there to point them at. This is the only item
+on the list that gets harder if it waits, and it matters before a handle gets printed on a pouch.
+
 ---
 
 # The one thing worth reading if you only read one thing
