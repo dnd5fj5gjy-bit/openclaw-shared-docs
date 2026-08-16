@@ -1,6 +1,31 @@
 # What needs you tomorrow
 
-Nine things. The first four take about a minute each.
+## Read this one first: do not send the Fat Cow agreement to Ryan's solicitor as it stands
+
+Ryan said on 7 August that his solicitor "will want the final version". **The execution version on
+file is out of date on three things you have already agreed with him**, and two of them are
+concessions in his favour that you would be making twice:
+
+| | File says | You agreed, 7 Aug |
+|---|---|---|
+| Liability cap | £250,000 | set it at his insurance, £5m |
+| Exclusivity tail | 12 months | three months |
+| Contracting party | **Bear Grylls Ventures LLP** | **Modern Savage Limited** |
+
+**And separately: Fat Cow already has a live collaboration with Carnicopia, the closest thing we have
+to a UK competitor.** "CARNICOPIA X Fat Cow Skincare - Inside & Out Glow Stack", £89.99, in stock,
+published 5 July, two weeks before Ryan sent you the proposal. Fat Cow have posted about it
+themselves.
+
+Your clause 16.1(a) bans Fat Cow from co-branding skincare with any brand whose primary positioning is
+organ-based nutrition. That is Carnicopia exactly. **But I do not think the clause as drafted catches
+it**, because the Glow Stack is a bundle of two existing own-brand products rather than a new
+co-branded item, and 16.2 protects Fat Cow's own-brand range. So the exclusivity you are about to sign
+may be worth less than it reads. Full detail and what to do about it in the UK competitive section.
+
+---
+
+Nine more things. The first four take about a minute each.
 
 **1. Re-send the Metricool invite to junior@beargryllsventures.com.** The 13 August one has expired,
 confirmed from the API error, not guessed. Twenty posts are written and waiting to be loaded as
