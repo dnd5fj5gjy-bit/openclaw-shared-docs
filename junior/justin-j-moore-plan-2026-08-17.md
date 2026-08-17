@@ -30,9 +30,24 @@ So "no discounts" does not mean "no affiliates". It means replacing three jobs t
 | Giving the customer a reason to act now | Early position in the pre-order queue, or a bundled extra. Not money off |
 | Giving Justin a reason to post | A fee, a licence, a rev share, or something creative he actually wants. See section 4 |
 
-**Worth checking before building anything:** there is a "Bear Grylls / Adventure Garage Affiliate Setup"
-thread in your mailbox from 25 Jun 2026 (Will Gardenswartz, Jonathan Mathes). BGV may already have
-affiliate rails we can reuse rather than stand up from scratch. I have not opened it yet.
+**I have now opened the "Bear Grylls / Adventure Garage Affiliate Setup" thread (Jun 2026) and it is not
+what I hoped, but it helps anyway.** It is not BGV affiliate rails. It is Bear and you joining
+**RealTruck's** program on **Impact.com** as a publisher, earning **8.5% commission on tracked links** -
+money flowing in, not a way to recruit partners for Modern Savage. So it gives us no tracking for Justin.
+
+Three things it does give us:
+
+1. **It is a live proof of the argument above, sitting in your own mailbox.** RealTruck pays 8.5% on
+   tracked links with **no discount code anywhere in the arrangement**. Affiliate without discount is not
+   a theory, it is the deal you are already on the other side of.
+2. **You already have an Impact.com admin login** (Will invited you as admin, 25 Jun). Impact runs
+   brand-side programs too, so if Modern Savage ever wants real affiliate infrastructure, you are not
+   starting from zero.
+3. **A warm expert.** Jonathan Mathes, VP Affiliate Marketing at Tombras, ran that setup and signed off
+   "we're on standby to assist". One call with him would answer the mechanics question properly.
+
+*Caveat: as of 25 Jun the pages Bear would link to "don't yet exist", so this may have stalled. I have not
+verified whether it ever went live.*
 
 ## 3. Your instinct is right, and it is worth saying why
 
