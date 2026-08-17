@@ -280,12 +280,17 @@ answer is that the largest one is already on the table and nobody mentioned it.
 
 ## What is drafted and waiting
 
-Three outreach emails are in the junior@ Drafts folder, unsent, per the standing rule. Each is short,
-asks a question rather than making a pitch, and gives nothing away on terms:
+**Corrected 17 Aug 2026, 09:05 BST, against the mailbox.** The version of this section written
+overnight said three cold outreach emails (Garmin, Vitality, Global Rescue) were sitting in the
+junior@ Drafts folder. **They are not there.** Drafts holds exactly four items and none of them is a
+brand approach: Manya (Commenda), Jack (SCEND), CJ (these partnership lanes) and Kallie Rhea (Justin
+J. Moore). I have not resurrected the three, because the routing question below has to be answered
+first and a cold approach may be the wrong instrument anyway.
 
-1. **Garmin** — partnerships enquiry, satellite communications
-2. **Vitality** — brand partnerships, the handbook integration angle
-3. **Global Rescue** — expedition medical and evacuation
+**One thing is drafted and waiting on Jesse on this topic:**
 
-They are written to be sendable as they stand. If Jesse would rather route through CJ and EBG, the
-same content works as an internal brief and I will reshape it in ten minutes.
+1. **CJ** - the open partnership lanes, screened against the conflict map, as an internal brief
+   rather than outbound. Number 3 in the approval queue, written 16 Aug 20:01.
+
+The cold versions take ten minutes to write if Jesse wants them. What they need first is his answer
+on who owns outbound: us, or CJ and EBG.
