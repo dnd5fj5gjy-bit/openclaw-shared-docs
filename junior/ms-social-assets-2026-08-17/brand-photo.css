@@ -1,0 +1,87 @@
+/* Modern Savage social card system, PHOTOGRAPHIC variant.
+   Reverse-engineered 17 Aug 2026 from the brand's own published posts (10 and 14 Aug),
+   pulled out of Metricool - not invented. Jesse, 17 Aug: the flat kraft typographic
+   cards were "a bit bland" against this.
+
+   The system, as the account actually uses it:
+     - full-bleed warm/dark photograph, shallow depth of field, rustic surfaces
+     - headline in a serif, mixing light roman with heavy ITALIC on the emphasis words
+     - white type, centred, sitting in the lower third over a darkened gradient
+     - CTA as a rounded outline pill with an amber stroke, white bold label
+*/
+
+:root {
+  --amber: #e8952e;
+  --ink: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; font-family: 'Playfair Display', Georgia, serif; }
+
+.card {
+  width: 1080px; height: 1350px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  align-items: center;
+  padding: 0 84px 96px;
+  margin-bottom: 40px;
+  color: var(--ink);
+  background-size: cover; background-position: center;
+}
+/* legibility gradient - the published posts all darken the lower third */
+.card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,.10) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,.34) 62%, rgba(0,0,0,.66) 100%);
+}
+.card > * { position: relative; z-index: 1; }
+
+h1 {
+  font-size: 88px; font-weight: 400; line-height: 1.06;
+  text-align: center; letter-spacing: -.005em;
+  text-shadow: 0 2px 22px rgba(0,0,0,.45);
+}
+h1 em { font-style: italic; font-weight: 700; }
+h1.small { font-size: 72px; }
+h1.big { font-size: 104px; }
+
+.sub {
+  font-size: 42px; font-weight: 400; line-height: 1.28;
+  text-align: center; margin-top: 26px; max-width: 22ch;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+}
+.sub em { font-style: italic; font-weight: 700; }
+
+.cta {
+  margin-top: 46px;
+  border: 3px solid var(--amber); border-radius: 999px;
+  padding: 20px 44px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 36px; font-weight: 700; letter-spacing: -.01em;
+  text-shadow: 0 2px 14px rgba(0,0,0,.5);
+  background: rgba(0,0,0,.18);
+}
+
+/* numbered slides in a set: small marker top-right */
+.marker {
+  position: absolute; top: 56px; right: 64px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 26px; font-weight: 600; letter-spacing: .2em;
+  opacity: .85; text-shadow: 0 2px 14px rgba(0,0,0,.6);
+}
+
+/* a set's closing card can drop the photo for the wordmark treatment */
+.card.pine { background: #16301c; }
+.card.pine::before { background: none; }
+.card.pine .wordmark {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 118px; font-weight: 900; line-height: .9;
+  text-transform: uppercase; letter-spacing: -.04em;
+  color: #d2b48c; text-align: center;
+}
+.card.pine .kicker {
+  font-family: 'Inter Tight', sans-serif; color: rgba(210,180,140,.72);
+  font-size: 30px; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; margin-top: 34px;
+}
+.card.pine { justify-content: center; }
