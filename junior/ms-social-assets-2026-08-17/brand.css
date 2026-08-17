@@ -1,0 +1,85 @@
+/* Modern Savage social card system, 17 Aug 2026.
+   Palette and type taken off the real pouch artwork and modernsavage.co, not invented:
+   kraft body, deep pine type, Inter Tight (the site's own face) at heavy weights.
+   One stylesheet for every card set - a copied constant gets corrected in one file. */
+
+:root {
+  --kraft: #d2b48c;
+  --pine: #16301c;
+  --pine-soft: rgba(22, 48, 28, .62);
+  --pine-ghost: rgba(22, 48, 28, .18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #555; font-family: 'Inter Tight', sans-serif; }
+
+.card {
+  width: 1080px; height: 1350px;
+  background: var(--kraft);
+  color: var(--pine);
+  padding: 96px 88px;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  margin-bottom: 40px;
+}
+.card::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.16), transparent 42%),
+    radial-gradient(circle at 82% 78%, rgba(90,60,20,.12), transparent 46%);
+}
+/* inverted card, for the closing statement of a set */
+.card.dark { background: var(--pine); color: var(--kraft); }
+.card.dark .rule { background: var(--kraft); }
+.card.dark .eyebrow, .card.dark .foot { color: rgba(210,180,140,.62); }
+.card.dark .num { color: rgba(210,180,140,.18); }
+
+.rule { height: 6px; background: var(--pine); width: 100%; }
+
+.eyebrow {
+  font-size: 30px; font-weight: 600; letter-spacing: .34em;
+  text-transform: uppercase; color: var(--pine-soft); margin: 44px 0 0;
+}
+.num {
+  margin-top: auto;
+  font-size: 190px; font-weight: 900; line-height: .8;
+  letter-spacing: -.04em; color: var(--pine-ghost);
+}
+h1 {
+  font-size: 118px; font-weight: 900; line-height: .92;
+  letter-spacing: -.035em; text-transform: uppercase; margin: 18px 0 34px;
+}
+h1.tight { font-size: 96px; }
+h1.tighter { font-size: 78px; }
+p {
+  font-size: 44px; font-weight: 400; line-height: 1.32;
+  max-width: 15ch; letter-spacing: -.012em;
+}
+p.wide { max-width: 19ch; }
+p + p { margin-top: 26px; }
+.foot {
+  margin-top: 54px; display: flex; justify-content: space-between;
+  align-items: flex-end; font-size: 26px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--pine-soft);
+}
+.spacer { margin-top: auto; }
+
+/* statement card: one line, centred, nothing else */
+.card.statement { justify-content: center; }
+.card.statement .big {
+  font-size: 150px; font-weight: 900; line-height: .88;
+  letter-spacing: -.045em; text-transform: uppercase;
+}
+.card.statement .big.small { font-size: 118px; }
+
+.lede {
+  font-size: 52px; font-weight: 500; letter-spacing: -.015em;
+  line-height: 1.24; max-width: 17ch;
+}
+.pill {
+  display: inline-block; margin-top: 56px;
+  background: var(--pine); color: var(--kraft);
+  font-size: 34px; font-weight: 800; letter-spacing: .2em;
+  text-transform: uppercase; padding: 22px 38px;
+}
+.card.dark .pill { background: var(--kraft); color: var(--pine); }
