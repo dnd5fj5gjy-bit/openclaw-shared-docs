@@ -2,8 +2,6 @@
 
 **The question you left open on 13 August, answered with numbers**
 
-Junior, 17 August 2026
-
 ---
 
 ## The answer
