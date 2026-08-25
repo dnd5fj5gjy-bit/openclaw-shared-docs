@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel-to-Grocery Agent — Idea Doc</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Outfit',sans-serif; color:#1a2233; background:#fafafa; line-height:1.6; }
+  .hero { background:linear-gradient(135deg,#0a1628 0%,#1a3556 100%); color:#fff; padding:80px 8% 100px; }
+  .hero h1 { font-family:'DM Serif Display',serif; font-size:2.6rem; max-width:820px; }
+  .hero p.sub { margin-top:16px; font-size:1.1rem; color:#b8c6db; max-width:640px; }
+  .hero .tag { display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25); padding:6px 14px; border-radius:20px; font-size:0.8rem; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:20px; }
+  .strip { background:#fff; margin:-50px 8% 0; padding:32px; border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,0.08); position:relative; z-index:2; display:flex; gap:32px; flex-wrap:wrap; }
+  .strip div { flex:1; min-width:180px; }
+  .strip h3 { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:#8a94a6; margin-bottom:6px; }
+  .strip p { font-size:0.95rem; font-weight:500; }
+  section { max-width:820px; margin:0 auto; padding:60px 8%; }
+  section.alt { background:#f0f3f8; max-width:none; }
+  section.alt .inner { max-width:820px; margin:0 auto; }
+  h2 { font-family:'DM Serif Display',serif; font-size:1.8rem; margin-bottom:20px; color:#0a1628; }
+  h3 { font-size:1.15rem; font-weight:600; margin:24px 0 10px; color:#0a1628; }
+  p { margin-bottom:14px; color:#3a4356; }
+  ul { margin:0 0 14px 20px; color:#3a4356; }
+  li { margin-bottom:8px; }
+  .step { display:flex; gap:16px; margin-bottom:20px; align-items:flex-start; }
+  .step .num { flex-shrink:0; width:32px; height:32px; border-radius:50%; background:#0a1628; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:0.9rem; }
+  .step div.txt p { margin-bottom:4px; }
+  .step div.txt strong { color:#0a1628; }
+  .card { background:#fff; border:1px solid #e2e6ee; border-radius:10px; padding:20px 24px; margin-bottom:16px; }
+  .card h4 { font-size:1rem; font-weight:600; color:#0a1628; margin-bottom:6px; }
+  .footer { text-align:center; padding:40px; color:#8a94a6; font-size:0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="tag">Idea Doc</span>
+  <h1>Reel-to-Cart: send a recipe video, get the shop delivered</h1>
+  <p class="sub">Sourced from Olly's voice note, 24 Aug 2026. Written up so it's buildable, not just an idea.</p>
+</div>
+
+<div class="strip">
+  <div><h3>What it is</h3><p>A bot/app that turns a recipe reel into an actual grocery order</p></div>
+  <div><h3>Core unlock</h3><p>No new app to learn — you just forward a video</p></div>
+  <div><h3>Status</h3><p>Adjacent products exist; nobody owns this exact loop end-to-end</p></div>
+</div>
+
+<section>
+  <h2>The core idea</h2>
+  <p>Someone sees a recipe reel on Instagram or TikTok. Instead of screenshotting it, half-remembering it, and doing a normal shop, they forward the reel to a bot. The bot watches the video, works out the recipe and exact ingredients, and turns that straight into a shopping basket — with Tesco, M&S, or whichever retailer the person shops with — ready to check out.</p>
+  <p>The whole point is that there's no new app to download and no new habit to learn. The interface is "send a video to a chat," which is something people already do every day.</p>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>How it would actually work</h2>
+    <div class="step"><div class="num">1</div><div class="txt"><p><strong>Ingest.</strong> User forwards a reel (or a screenshot) to the bot via WhatsApp/Telegram/iMessage.</p></div></div>
+    <div class="step"><div class="num">2</div><div class="txt"><p><strong>Recipe extraction.</strong> Video + audio + on-screen text is run through a vision-language model to pull out the dish and its ingredient list with quantities — this is the same class of problem Ted already solves when transcribing and structuring voice notes.</p></div></div>
+    <div class="step"><div class="num">3</div><div class="txt"><p><strong>Basket build.</strong> Ingredients are mapped to real SKUs on the user's chosen retailer (Tesco, Ocado, M&S Food) via their existing grocery API/partner integration, at the right pack size.</p></div></div>
+    <div class="step"><div class="num">4</div><div class="txt"><p><strong>Confirm and send.</strong> Bot replies: "Want the rest of this recipe? Reply yes and it's in your basket for delivery." One tap to confirm, no manual re-typing of a shopping list.</p></div></div>
+    <div class="step"><div class="num">5</div><div class="txt"><p><strong>Memory layer.</strong> The bot remembers what a household has bought before and how fast they use it. "You got oregano last week — still got it, or need more?" Only asks about what's actually likely to have run out, so the basket gets leaner and more accurate every time it's used.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>The second idea inside this — budget mode</h2>
+  <p>Olly raised a related but distinct use case: sending a photo of a weekly shop or a meal-plan reel and having the bot find the cheapest way to build the same meals without overbuying ingredients. This is really a budgeting layer on top of the same core engine — same ingredient-extraction pipeline, but optimising for "cheapest valid substitution + minimum waste" instead of "match this exact recipe."</p>
+  <p>Worth building as a mode, not a separate product: same input (reel/photo), same extraction step, different basket-building logic (cost-minimise vs. recipe-match).</p>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>Why this could work</h2>
+    <div class="card"><h4>Zero-friction input</h4><p>People already save and forward recipe reels constantly. This meets that existing behaviour instead of asking for a new one.</p></div>
+    <div class="card"><h4>Retailer leverage, not competition</h4><p>The product doesn't need to become a grocer — it becomes a front door to Tesco/Ocado/M&S. That's a partnership pitch, not a build-a-warehouse problem. Retailers may want to acquire or white-label it rather than compete with it once it has volume.</p></div>
+    <div class="card"><h4>Compounding memory</h4><p>Every order makes the next one better — pantry state, portion sizes, preferred brands. That's a real moat once a household has used it a few times; a new entrant starts from zero.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Competitive reality check</h2>
+  <p>Pieces of this exist already, which is why Olly flagged "I think it's been done." Worth being precise about what's actually taken and what isn't:</p>
+  <ul>
+    <li><strong>Recipe → ingredient extraction from video/image:</strong> partially solved (Whisk/Samsung Food, SuperCook, various TikTok-recipe-scraper tools) but generally as a standalone app, not a forward-a-reel-to-a-bot flow.</li>
+    <li><strong>Ingredient list → grocery basket:</strong> exists inside single ecosystems (Whisk plugs into some US retailers; some UK meal-kit apps do this for their own recipes) but not generalised across arbitrary social content.</li>
+    <li><strong>Pantry memory / re-order prediction:</strong> exists in isolation (Amazon Dash-style subscribe-and-save, some grocery apps' "buy again") but not tied to recipe-driven ordering.</li>
+  </ul>
+  <p>The whitespace isn't any single piece — it's stitching "arbitrary social video in" straight through to "confirmed basket at your usual retailer out," with memory compounding on top. Worth a proper competitor scan (Whisk, SuperCook, Mealime, ChefGPt-style apps, and any UK-specific reel-to-recipe tools) before committing build time, to confirm nobody's already closed this exact loop.</p>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>What it would take to validate</h2>
+    <ul>
+      <li>Confirm UK grocery retailers with an API or partner programme for basket-building (Tesco, Ocado, M&S) — this is the hard technical/commercial dependency, not the AI part.</li>
+      <li>Build a rough proof-of-concept: reel in, ingredient list out, no basket integration yet. Cheap to test whether extraction is reliable enough on real Instagram/TikTok recipe content.</li>
+      <li>Test with a small group manually completing the basket step, to validate people actually want this before building retailer integrations.</li>
+      <li>Decide the wedge: full recipe-to-cart first, or budget/waste-minimisation mode first — they share infrastructure but have different early adopters (time-poor cooks vs. budget-conscious shoppers).</li>
+    </ul>
+  </div>
+</section>
+
+<div class="footer">Ted · idea doc from Olly's voice note, 25 Aug 2026</div>
+
+</body>
+</html>
