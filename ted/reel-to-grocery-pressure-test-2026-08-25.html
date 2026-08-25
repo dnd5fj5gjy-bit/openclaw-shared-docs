@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel-to-Grocery — Pressure Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Outfit',sans-serif; color:#1a2233; background:#fafafa; line-height:1.6; }
+  .hero { background:linear-gradient(135deg,#2b0a0a 0%,#5a1a1a 100%); color:#fff; padding:80px 8% 100px; }
+  .hero h1 { font-family:'DM Serif Display',serif; font-size:2.6rem; max-width:820px; }
+  .hero p.sub { margin-top:16px; font-size:1.1rem; color:#e0c2c2; max-width:640px; }
+  .hero .tag { display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25); padding:6px 14px; border-radius:20px; font-size:0.8rem; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:20px; }
+  .verdict { background:#fff; margin:-50px 8% 0; padding:32px; border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,0.1); position:relative; z-index:2; border-left:6px solid #8a1c1c; }
+  .verdict h3 { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:#8a94a6; margin-bottom:10px; }
+  .verdict p { font-size:1.05rem; font-weight:500; color:#2b0a0a; }
+  section { max-width:820px; margin:0 auto; padding:56px 8%; }
+  section.alt { background:#f0f3f8; max-width:none; }
+  section.alt .inner { max-width:820px; margin:0 auto; }
+  h2 { font-family:'DM Serif Display',serif; font-size:1.7rem; margin-bottom:20px; color:#0a1628; }
+  h3 { font-size:1.1rem; font-weight:600; margin:22px 0 10px; color:#0a1628; }
+  p { margin-bottom:14px; color:#3a4356; }
+  ul { margin:0 0 14px 20px; color:#3a4356; }
+  li { margin-bottom:8px; }
+  .card { background:#fff; border:1px solid #e2e6ee; border-radius:10px; padding:18px 22px; margin-bottom:14px; }
+  .card h4 { font-size:0.98rem; font-weight:600; color:#0a1628; margin-bottom:6px; }
+  .card .meta { font-size:0.8rem; color:#8a94a6; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.03em; }
+  .killzone { background:#2b0a0a; color:#fff; border-radius:12px; padding:28px 30px; margin:20px 0; }
+  .killzone h3 { color:#fff; margin-top:0; }
+  .killzone p { color:#e0c2c2; }
+  .wedge { background:#f0fff4; border:1px solid #c6e6cf; border-radius:10px; padding:18px 22px; margin-bottom:14px; }
+  .wedge h4 { color:#1a5c33; font-weight:600; margin-bottom:6px; }
+  .stat-row { display:flex; gap:16px; flex-wrap:wrap; margin:20px 0; }
+  .stat { flex:1; min-width:150px; background:#fff; border:1px solid #e2e6ee; border-radius:10px; padding:16px 18px; }
+  .stat .num { font-family:'DM Serif Display',serif; font-size:1.6rem; color:#0a1628; }
+  .stat .lbl { font-size:0.8rem; color:#8a94a6; margin-top:4px; }
+  .footer { text-align:center; padding:40px; color:#8a94a6; font-size:0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="tag">Pressure Test</span>
+  <h1>Reel-to-Cart, stress-tested: who's already doing it, and what actually breaks it</h1>
+  <p class="sub">Market map + real-world feasibility check on the idea doc, 25 Aug 2026. Companion to the idea doc — read that first if you haven't.</p>
+</div>
+
+<div class="verdict">
+  <h3>Headline verdict</h3>
+  <p>The mechanism is not whitespace — a funded UK competitor is building this exact idea right now. The thing that actually kills it isn't AI accuracy, it's that no UK grocer gives a third party checkout access. There is one real wedge left, and it's not the consumer bot.</p>
+</div>
+
+<section>
+  <h2>1. Who's already doing this</h2>
+  <p>This is an active, funded category, not empty space.</p>
+
+  <div class="card">
+    <div class="meta">Direct competitor — UK</div>
+    <h4>Cartd</h4>
+    <p>Antler-backed, founders ex-DoorDash/Waitrose. Building the exact same mechanic: creator recipe video &rarr; checkout on a retailer's site. Publicly says it's still trying to integrate with UK supermarkets - meaning even they haven't cracked retailer checkout access yet. That's the single most important data point in this whole report.</p>
+  </div>
+  <div class="card">
+    <div class="meta">Proof the mechanic works — US</div>
+    <h4>Cooklist</h4>
+    <p>Agentic shopping assistant now live inside Kroger and Wegmans (700+ stores, 10M+ shoppers). Imports recipes from social video into checkout-ready carts. Critically: it's embedded inside the retailer's own app, not a standalone bot sitting on top. That's the model that actually shipped.</p>
+  </div>
+  <div class="card">
+    <div class="meta">UK retailer partnerships already solved</div>
+    <h4>Mealia</h4>
+    <p>Partnered with Tesco, Asda, Sainsbury's and Morrisons. 100k users. Swipe-to-like recipes auto-build a basket with loyalty pricing. No video ingestion, but has the hardest part - the retailer relationships - already in place.</p>
+  </div>
+  <div class="card">
+    <div class="meta">First-party threat</div>
+    <h4>Tesco's own in-app AI assistant</h4>
+    <p>Built with an OpenAI-allied consultancy, suggests recipes and adds to basket, pantry-aware. Trialled with 280k staff since April 2026, consumer rollout imminent. If you're building for Tesco shoppers, Tesco is building it themselves.</p>
+  </div>
+  <div class="card">
+    <div class="meta">Platform-level</div>
+    <h4>Instacart's Ask Instacart / Cart Assistant, and Walmart's rejection of OpenAI checkout</h4>
+    <p>Instacart already does recipe-to-shoppable-cart at scale with real SKU data. Walmart dropped OpenAI's Instant Checkout after it converted 3x worse than Walmart's own flow, and built its own "Sparky" instead - a clear signal that big retailers actively resist handing the checkout moment to an outside bot.</p>
+  </div>
+  <div class="card">
+    <div class="meta">Crowded adjacent field</div>
+    <h4>ReelRecipes, ReelToMeal, Nutrola, Preplo, Honeydew, FoodiePrep, ReciMe, Flavorish, Peel</h4>
+    <p>A genuinely crowded field of "video in, shopping list out" apps. None of them do SKU-accurate checkout via a chat bot - that specific combination is still open, but it's a distribution/UX gap, not a technical moat, since every underlying piece already exists somewhere.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>2. The real kill zone: retailers won't hand over checkout</h2>
+    <div class="killzone">
+      <h3>No major UK grocer offers third-party checkout API access. None.</h3>
+      <p><strong>Tesco</strong> had a basket-only API around 2013, explicitly blocked from touching payment - appears defunct now, with energy going into their own in-house assistant instead.</p>
+      <p><strong>Ocado</strong>'s developer platform is B2B infrastructure it licenses to other retailers (Morrisons, Kroger), not a consumer basket API. Its Alexa skill only builds a list - it does not place the order.</p>
+      <p><strong>Sainsbury's</strong> - nothing found beyond a Whisk list-building tie-up. <strong>M&amp;S Food</strong> runs entirely on Ocado's platform, so inherits the same limits. <strong>Asda</strong> - nothing official, only unauthorised scraping tools exist.</p>
+      <p>The best precedent with real retailer cooperation - Whisk/Samsung Food, ~10 years of relationships across Tesco/Asda/Sainsbury's/Ocado/Waitrose - still tops out at basket-building, then hands the user to the retailer's own login page to pay manually. That is the ceiling achieved <em>with</em> cooperation, not a floor to build above.</p>
+    </div>
+    <p>There's real legal exposure too, not just friction: automating a login/checkout session without the retailer's permission risks UK Computer Misuse Act exposure, ToS breach claims, and database-right issues. The clearest live precedent is <strong>Amazon v. Perplexity (2026)</strong> - Amazon sued and won an injunction against Perplexity's Comet agent for disguising itself to check out on Amazon on a user's behalf. Perplexity won on appeal later, but the legal question is unsettled even in the more bot-friendly US, let alone under UK law, which hasn't been tested here at all.</p>
+    <p><strong>Bottom line:</strong> without an explicit retailer partnership, this cannot complete a real checkout - legally or technically. With a partnership, the realistic best case is "build the basket, hand off for the user to pay" - not the full "reply yes and it arrives" version in the idea doc.</p>
+  </div>
+</section>
+
+<section>
+  <h2>3. Is the AI actually good enough?</h2>
+  <p>Workable, but not reliable enough to trust blind - and every serious competitor already knows it.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="num">80-95%</div><div class="lbl">extraction accuracy, best case (clear text overlay)</div></div>
+    <div class="stat"><div class="num">~70%</div><div class="lbl">accuracy on fast-cut, music-only, no-text videos</div></div>
+    <div class="stat"><div class="num">22-38%</div><div class="lbl">runs with phantom/hallucinated ingredients in one controlled test</div></div>
+  </div>
+  <p>Known failure modes: quantities never stated on screen or in the audio, so the model has to guess (tools admit to flagging "low confidence" rather than solving it); ingredients shown but never narrated, or vice versa; outright hallucination blending the video with a similar training-data recipe - one documented case produced a botulism-risk garlic-in-oil recipe that made the press; "or use X instead" substitution language is still an unsolved parsing problem; SKU/pack-size matching is a second error surface on top, which is why production tools like Pepesto cap themselves to a pre-verified ~1,000-2,000 SKU cache per store rather than open-ended matching.</p>
+  <p>The strongest signal here: every credible production deployment - Uber Eats' Cart Assistant, Pepesto, Cooklist - keeps a mandatory human review/edit step before any spend happens. None of them auto-purchase blind. The best-resourced players in this exact space have already concluded the accuracy isn't there to remove the human check.</p>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>4. Pantry memory and the budget-mode idea</h2>
+    <p><strong>Pantry memory:</strong> no consumer app does pure conversational depletion-guessing without some kind of scanning or logging step. The real threat here is Instacart, which is actively building an "infer what's in your fridge" model using Caper Cart data across 1.6bn lifetime orders - a well-resourced incumbent closing exactly this gap. Amazon also holds patents on ML-based per-item consumption prediction for replenishment, which is a genuine IP risk to be aware of, not just a competitive one.</p>
+    <p><strong>Budget/waste-minimisation mode:</strong> this is the one part of the idea nobody has actually built as described - take a given recipe and re-optimise the ingredients for cost while keeping the meal. Closest things that exist are full-basket price comparators (Trolley.co.uk, Shopsplit, MyGroceryPal) that compare rather than start from a recipe, and budget-first meal planners (MUNCH, SummitPlate) that build a cheap plan from scratch rather than adapt one you already have. It still runs into the same retailer-pricing-access problem that's constrained everything else in this report - Trolley.co.uk nearly folded in 2022 over a £28.8k/year data-licensing demand, MySupermarket shut down in 2020, and Kitche (UK food-waste app) got acquired rather than scaling standalone. It's a genuinely narrower whitespace, but not a free one.</p>
+  </div>
+</section>
+
+<section>
+  <h2>5. Would people actually let it buy for them?</h2>
+  <div class="stat-row">
+    <div class="stat"><div class="num">83%</div><div class="lbl">of Americans view recipe content on social platforms</div></div>
+    <div class="stat"><div class="num">33%</div><div class="lbl">of recipe-savers actually go on to cook it - the real leak before any basket step</div></div>
+    <div class="stat"><div class="num">£27.1bn</div><div class="lbl">UK online grocery market, 2025, ~12% of total grocery, growing 4-5%/yr</div></div>
+  </div>
+  <p>Trust in letting AI complete a purchase is mixed and trending down in some readings: one study found 30% comfortable letting AI finish a purchase; another found comfort dropped from 70% to 45% over the last year; only 4% want AI actually involved at the payment step itself. Grocery is the best-performing category for this though - 41% willing in one survey, ahead of most other purchase types - so the appetite isn't zero, it's just not the "everyone wants this" read the idea doc implicitly assumes.</p>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2>Where the real wedge is - and isn't</h2>
+    <div class="wedge">
+      <h4>Not viable as scoped: consumer bot with automated UK checkout</h4>
+      <p>Blocked by retailer access, not by AI capability. A funded competitor (Cartd) is already trying and hasn't solved it either.</p>
+    </div>
+    <div class="wedge">
+      <h4>Viable wedge 1 - sell the engine to a retailer, not to consumers</h4>
+      <p>Cooklist's model: build the extraction + SKU-matching engine and license/sell it into a retailer's own app, where you're already inside the authenticated environment. Sidesteps the entire checkout-access problem entirely because you're not a third party anymore.</p>
+    </div>
+    <div class="wedge">
+      <h4>Viable wedge 2 - the budget/waste-minimisation engine, as a B2B tool</h4>
+      <p>Recipe-in, cost-optimised-substitution-basket-out is the one sub-idea nobody's actually built. Still needs retailer pricing data, but is narrower and less contested - better pitched as a planning/pricing tool sold to retailers or meal-kit companies than as a consumer checkout product.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What this means for the idea doc</h2>
+  <ul>
+    <li>The core consumer pitch - "forward a reel, get it delivered" - needs to be reframed as "forward a reel, get a ready-to-review basket you complete on the retailer's own app," because that's the actual ceiling every serious player has hit, including well-resourced ones.</li>
+    <li>Retailer partnership isn't a nice-to-have for this idea, it's the whole gate. Nothing else matters until that's answered, and Cartd hasn't answered it either as of this research.</li>
+    <li>If BGV wants in on this space, the sharper play is not "build a consumer app to compete with Cartd" - it's either (a) the B2B engine-for-retailers angle, or (b) the budget/waste-minimisation tool, sold B2B rather than direct to consumer.</li>
+  </ul>
+</section>
+
+<div class="footer">Ted · pressure test on the reel-to-grocery idea, 25 Aug 2026</div>
+
+</body>
+</html>
