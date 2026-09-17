@@ -1,0 +1,561 @@
+<title>Ted's Health | White-Label Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#2B4A3F;
+  --forest-deep:#1E3630;
+  --earth:#C07A45;
+  --earth-light:#D4935E;
+  --cream:#F5F0EA;
+  --cream-dark:#E8E0D6;
+  --charcoal:#2A2A2A;
+  --charcoal-light:#4A4A4A;
+  --white:#FDFBF8;
+  --sand:#D9CCBB;
+  --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans:'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --forest:#2B4A3F;--forest-deep:#1E3630;--earth:#C07A45;--earth-light:#D4935E;
+    --cream:#F5F0EA;--cream-dark:#E8E0D6;--charcoal:#2A2A2A;--charcoal-light:#4A4A4A;
+    --white:#FDFBF8;--sand:#D9CCBB;
+  }
+}
+:root[data-theme="dark"]{
+  --forest:#2B4A3F;--forest-deep:#1E3630;--earth:#C07A45;--earth-light:#D4935E;
+  --cream:#F5F0EA;--cream-dark:#E8E0D6;--charcoal:#2A2A2A;--charcoal-light:#4A4A4A;
+  --white:#FDFBF8;--sand:#D9CCBB;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);font-weight:300;color:var(--charcoal);
+  background:var(--cream);background-color:#F5F0EA;
+  line-height:1.7;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+section{padding:7rem 0}
+.tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--earth);font-weight:500;margin-bottom:1.25rem;display:block}
+.sec-h{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem}
+.lead{font-size:1.1rem;max-width:62ch;color:var(--charcoal-light)}
+.bg-white{background:var(--white)}
+.bg-cream{background:var(--cream)}
+.bg-dark{background:var(--forest-deep);color:var(--white)}
+.bg-dark .lead,.bg-dark p{color:rgba(253,251,248,0.72)}
+.bg-dark .sec-h{color:var(--white)}
+.bg-char{background:var(--charcoal);color:var(--white)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.35rem 0;transition:all .35s ease}
+nav.scrolled{background:rgba(253,251,248,0.92);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(0,0,0,0.07);padding:0.9rem 0}
+.nav-in{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:1.3rem;color:var(--white);transition:color .35s ease;letter-spacing:.01em}
+nav.scrolled .logo{color:var(--forest-deep)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:0.82rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(253,251,248,0.85);transition:color .3s ease}
+nav.scrolled .nav-links a{color:var(--charcoal-light)}
+.nav-links a:hover{color:var(--earth)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:0;
+  background:
+    radial-gradient(1000px 600px at 78% 18%, rgba(192,122,69,0.30), transparent 62%),
+    radial-gradient(800px 700px at 10% 85%, rgba(43,74,63,0.85), transparent 60%),
+    linear-gradient(160deg,#1E3630 0%,#24403A 46%,#16272A 100%);
+}
+.hero::after{content:"";position:absolute;inset:0;opacity:.25;
+  background-image:linear-gradient(rgba(253,251,248,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(253,251,248,.06) 1px,transparent 1px);
+  background-size:64px 64px;pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 2rem;width:100%}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5rem);color:var(--white);max-width:16ch;margin-bottom:1.75rem}
+.hero .tag{color:var(--earth-light)}
+.hero p{color:rgba(253,251,248,0.78);font-size:1.15rem;max-width:56ch;margin-bottom:2.75rem}
+.btn{display:inline-block;background:var(--earth);color:var(--white);text-decoration:none;
+  padding:1rem 2.4rem;border-radius:4px;font-size:0.82rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;transition:all .3s ease;border:1px solid var(--earth)}
+.btn:hover{background:var(--earth-light);border-color:var(--earth-light);transform:translateY(-2px);box-shadow:0 12px 28px rgba(192,122,69,0.32)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(253,251,248,0.4)}
+.btn-ghost:hover{background:rgba(253,251,248,0.08);border-color:var(--white);box-shadow:none}
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;
+  width:1px;height:52px;background:linear-gradient(to bottom,transparent,rgba(253,251,248,.6));animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+.fade{opacity:0;transform:translateY(28px);animation:fadeUp .9s ease forwards}
+.d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.55s}.d4{animation-delay:.75s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Two column */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
+.panel{position:relative;border-radius:4px;overflow:hidden;min-height:420px;
+  background:linear-gradient(150deg,#2B4A3F 0%,#1E3630 55%,#3A2E23 100%);
+  display:flex;align-items:flex-end;padding:2rem}
+.panel::before{content:"";position:absolute;inset:0;opacity:.35;
+  background-image:radial-gradient(circle at 30% 30%,rgba(192,122,69,.45),transparent 55%),radial-gradient(circle at 75% 70%,rgba(217,204,187,.22),transparent 55%)}
+.panel-badge{position:relative;background:rgba(253,251,248,0.95);border-radius:3px;padding:1.1rem 1.4rem;max-width:300px}
+.panel-badge strong{display:block;font-family:var(--serif);font-size:1.05rem;color:var(--forest-deep);margin-bottom:.2rem}
+.panel-badge span{font-size:.78rem;color:var(--charcoal-light);letter-spacing:.04em}
+
+ul.ticks{list-style:none;margin-top:1.75rem}
+ul.ticks li{padding-left:1.9rem;position:relative;margin-bottom:.85rem;color:var(--charcoal-light)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:9px;border-radius:50%;background:var(--earth)}
+.bg-dark ul.ticks li{color:rgba(253,251,248,.75)}
+
+/* Cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3.5rem}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:3.5rem}
+.card{background:rgba(253,251,248,0.06);border:1px solid rgba(253,251,248,0.13);border-radius:4px;padding:2.1rem;transition:all .35s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(192,122,69,.55);box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.card h3{font-size:1.32rem;margin-bottom:.8rem;color:var(--white)}
+.card p{font-size:.95rem;line-height:1.65}
+.card .ico{width:38px;height:38px;border-radius:50%;background:rgba(192,122,69,.2);border:1px solid rgba(192,122,69,.55);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem;color:var(--earth-light);font-size:.95rem;font-weight:600}
+.card-light{background:var(--white);border:1px solid var(--cream-dark)}
+.card-light h3{color:var(--forest-deep)}
+.card-light p{color:var(--charcoal-light)}
+.card-light:hover{box-shadow:0 18px 40px rgba(43,74,63,.1)}
+
+/* Journey */
+.journey{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:3rem}
+.jbtn{flex:1 1 150px;background:var(--white);border:1px solid var(--cream-dark);border-radius:4px;
+  padding:1.3rem 1.1rem;cursor:pointer;text-align:left;font-family:var(--sans);transition:all .3s ease;position:relative}
+.jbtn:hover{transform:translateY(-3px);border-color:var(--earth);box-shadow:0 10px 24px rgba(43,74,63,.1)}
+.jbtn .num{font-family:var(--serif);font-size:1.5rem;color:var(--earth);display:block;line-height:1;margin-bottom:.55rem}
+.jbtn .lbl{font-size:.88rem;font-weight:500;color:var(--forest-deep);display:block;line-height:1.35}
+.jbtn .hint{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:var(--charcoal-light);
+  opacity:0;transition:opacity .3s ease;display:block;margin-top:.6rem}
+.jbtn:hover .hint{opacity:.65}
+.jbtn.active{background:var(--forest-deep);border-color:var(--forest-deep)}
+.jbtn.active .lbl{color:var(--white)}
+.jbtn.active .num{color:var(--earth-light)}
+.jbtn.active .hint{opacity:.8;color:var(--sand)}
+.jdetail{margin-top:1.6rem;background:var(--white);border:1px solid var(--cream-dark);border-left:3px solid var(--earth);
+  border-radius:4px;padding:2.2rem;animation:fadeIn .45s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.jdetail h4{font-size:1.4rem;color:var(--forest-deep);margin-bottom:.8rem}
+.jdetail p{color:var(--charcoal-light)}
+.jdetail .who{display:inline-block;margin-top:1.2rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;
+  padding:.4rem .85rem;border-radius:3px;background:var(--cream);color:var(--forest)}
+
+/* Service cards */
+.svc{background:var(--white);border:1px solid var(--cream-dark);border-radius:4px;padding:2.1rem;cursor:pointer;transition:all .35s ease;position:relative}
+.svc:hover{transform:translateY(-4px);border-color:var(--earth);box-shadow:0 18px 40px rgba(43,74,63,.11)}
+.svc .cat{font-size:.66rem;text-transform:uppercase;letter-spacing:.2em;color:var(--earth);display:block;margin-bottom:.7rem}
+.svc h3{font-size:1.45rem;color:var(--forest-deep);margin-bottom:.7rem}
+.svc p{font-size:.95rem;color:var(--charcoal-light)}
+.svc .arrow{position:absolute;top:1.8rem;right:1.8rem;opacity:0;transition:all .3s ease;color:var(--earth);font-size:1.1rem}
+.svc:hover .arrow{opacity:1;transform:translateX(3px)}
+.svc .earn{display:block;margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--cream-dark);
+  font-size:.85rem;color:var(--forest);line-height:1.6}
+.svc .earn em{font-style:normal;font-size:.63rem;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--earth);display:block;margin-bottom:.45rem;font-weight:600}
+.svc .earn b{color:var(--forest-deep);font-weight:600}
+
+/* Compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:3.5rem}
+.col{border-radius:4px;padding:2.6rem;position:relative}
+.col-alt{background:var(--charcoal);color:var(--white)}
+.col-us{background:var(--forest-deep);color:var(--white);border:1px solid rgba(192,122,69,.5)}
+.col h3{font-size:1.5rem;color:var(--white);margin-bottom:1.6rem}
+.col ul{list-style:none}
+.col li{padding-left:1.9rem;position:relative;margin-bottom:1rem;font-size:.95rem;color:rgba(253,251,248,.72);line-height:1.6}
+.col-alt li::before{content:"";position:absolute;left:.25rem;top:.65em;width:7px;height:7px;border-radius:50%;background:rgba(253,251,248,.32)}
+.col-us li::before{content:"✓";position:absolute;left:0;top:0;color:var(--earth-light);font-size:.9rem}
+.rec{position:absolute;top:-11px;right:1.8rem;background:var(--earth);color:var(--white);font-size:.63rem;
+  text-transform:uppercase;letter-spacing:.18em;padding:.4rem .9rem;border-radius:3px}
+
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.5rem}
+.metric{background:rgba(253,251,248,.06);border:1px solid rgba(253,251,248,.13);border-radius:4px;padding:2rem 1.5rem;text-align:center}
+.metric .big{font-family:var(--serif);font-size:2.5rem;color:var(--earth-light);display:block;line-height:1;margin-bottom:.7rem}
+.metric .lbl{font-size:.85rem;color:rgba(253,251,248,.7);line-height:1.5}
+.summary{margin-top:2rem;background:rgba(192,122,69,.11);border:1px solid rgba(192,122,69,.35);border-radius:4px;padding:2.3rem}
+.summary h3{font-size:1.5rem;color:var(--white);margin-bottom:.9rem}
+
+/* Split table */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:3rem}
+.sbox{background:var(--white);border:1px solid var(--cream-dark);border-top:3px solid var(--earth);border-radius:4px;padding:2rem}
+.sbox h4{font-size:1.25rem;color:var(--forest-deep);margin-bottom:.7rem}
+.sbox p{font-size:.95rem;color:var(--charcoal-light)}
+.sbox .ref{display:block;margin-top:1.1rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--earth)}
+
+/* Steps */
+.steps{counter-reset:s;margin-top:3rem;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:1.6rem 0 1.6rem 4.2rem;border-bottom:1px solid var(--cream-dark)}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1.55rem;
+  font-family:var(--serif);font-size:1.35rem;color:var(--earth)}
+.steps strong{display:block;font-size:1.08rem;color:var(--forest-deep);font-weight:500;margin-bottom:.3rem}
+.steps span{font-size:.95rem;color:var(--charcoal-light)}
+
+/* Close */
+.close-sec{text-align:center}
+.close-sec .lead{margin:0 auto 2.75rem}
+.sig{margin-top:3.2rem;font-size:.9rem;color:var(--charcoal-light)}
+.sig strong{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--forest-deep);font-weight:400;margin-bottom:.25rem}
+
+footer{background:var(--charcoal);color:rgba(253,251,248,.5);padding:2.2rem 0;font-size:.78rem;letter-spacing:.06em;text-align:center}
+
+/* Modal */
+.overlay{position:fixed;inset:0;background:rgba(30,54,48,.72);backdrop-filter:blur(7px);z-index:1000;
+  display:none;align-items:center;justify-content:center;padding:1.5rem}
+.overlay.on{display:flex}
+.modal{background:var(--white);border-radius:5px;max-width:560px;width:100%;padding:3rem;position:relative;animation:fadeIn .35s ease;max-height:86vh;overflow-y:auto}
+.modal .x{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--charcoal-light);line-height:1;font-family:var(--sans)}
+.modal .x:hover{color:var(--earth)}
+.modal .cat{font-size:.66rem;text-transform:uppercase;letter-spacing:.2em;color:var(--earth);display:block;margin-bottom:.7rem}
+.modal h3{font-family:var(--serif);font-size:1.85rem;color:var(--forest-deep);margin-bottom:1rem}
+.modal p{color:var(--charcoal-light);margin-bottom:1rem}
+.modal ul{list-style:none;margin-top:1.2rem}
+.modal li{padding-left:1.6rem;position:relative;margin-bottom:.7rem;color:var(--charcoal-light);font-size:.95rem}
+.modal li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--earth)}
+.note{margin-top:1.6rem;padding:1rem 1.2rem;background:var(--cream);border-radius:3px;font-size:.85rem;color:var(--charcoal-light)}
+.econ{margin-top:1.6rem;padding:1.2rem 1.4rem;background:var(--forest-deep);border-radius:3px;color:rgba(253,251,248,.78);font-size:.9rem}
+.econ strong{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.2em;color:var(--earth-light);margin-bottom:.7rem;font-weight:600}
+.econ span{display:block;margin-bottom:.5rem}
+.econ span:last-child{margin-bottom:0}
+.econ b{color:var(--white);font-weight:600}
+
+.footnote{margin-top:3rem;font-size:.85rem;color:var(--charcoal-light);max-width:72ch}
+.bg-dark .footnote{color:rgba(253,251,248,.55)}
+
+@media(max-width:900px){
+  section{padding:4.5rem 0}
+  .wrap,.nav-in,.hero-in{padding:0 1.4rem}
+  .nav-links{display:none}
+  .two,.compare,.grid3,.grid2,.split{grid-template-columns:1fr;gap:2rem}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .panel{min-height:280px}
+  .jbtn{flex:1 1 100%}
+  .modal{padding:2.2rem 1.6rem}
+  .hero h1{max-width:100%}
+}
+</style>
+<nav id="nav">
+  <div class="nav-in">
+    <div class="logo">Ted&rsquo;s Health</div>
+    <ul class="nav-links">
+      <li><a href="#model">The model</a></li>
+      <li><a href="#journey">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#commercials">Commercials</a></li>
+      <li><a href="#start">Getting started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-in">
+    <span class="tag fade d1">White-label partnership proposal</span>
+    <h1 class="fade d2">Your brand at the front. Our clinical engine behind it.</h1>
+    <p class="fade d3">A regulated men&rsquo;s health service you can offer to the customers you already have, running under your own name, with the clinical, regulatory and operational weight carried by us.</p>
+    <a href="#model" class="btn fade d4">See how it works</a>
+  </div>
+  <div class="scroll-ind"></div>
+</header>
+
+<!-- CONTEXT -->
+<section class="bg-cream" id="model">
+  <div class="wrap">
+    <div class="two">
+      <div class="reveal">
+        <span class="tag">Where you are now</span>
+        <h2 class="sec-h">You already have the audience. This gives you something to sell them.</h2>
+        <p class="lead">Your customers are already asking about energy, weight, sleep, training recovery and sexual health. Without a clinical service behind you, those conversations end with a recommendation to go somewhere else.</p>
+        <p class="lead" style="margin-top:1.2rem">Building that service yourself means CQC registration, prescribers, a dispensing pharmacy, a diagnostics and phlebotomy chain, clinical governance, indemnity cover and a compliant platform. It takes a year and a serious budget before the first patient is seen.</p>
+        <p class="lead" style="margin-top:1.2rem">The white-label route skips all of it. You keep your brand, your customers and your pricing. We sit behind you as the registered clinical provider.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="panel-badge">
+          <strong>CQC-registered provider</strong>
+          <span>GSET Health Ltd, trading as Ted&rsquo;s Health.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="bg-dark">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">What the partnership gives you</span>
+      <h2 class="sec-h">Three things, straight away.</h2>
+      <p class="lead">This is a commercial arrangement with a clean split of responsibility. You own the customer. We own the clinic.</p>
+    </div>
+    <div class="grid3">
+      <div class="card reveal">
+        <div class="ico">01</div>
+        <h3>A revenue line from customers you already have</h3>
+        <p>No new brand to build, no new audience to buy. You add a service to the business you are already running, and monetise the relationships already in it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">02</div>
+        <h3>A service that runs without you</h3>
+        <p>Assessment, prescribing, dispensing, blood draws, results, repeat treatment and clinical support all sit with us. Your team markets it and looks after the customer relationship.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">03</div>
+        <h3>Clinical responsibility stays with us</h3>
+        <p>Ted&rsquo;s Health is the CQC-registered provider for everything clinical delivered through the platform. You do not become a regulated healthcare provider by doing this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="bg-white" id="journey">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">How it works</span>
+      <h2 class="sec-h">One patient journey, two businesses behind it.</h2>
+      <p class="lead">Select any stage to see who does what.</p>
+    </div>
+    <div class="journey reveal">
+      <button class="jbtn active" data-j="0"><span class="num">01</span><span class="lbl">Customer arrives</span><span class="hint">View</span></button>
+      <button class="jbtn" data-j="1"><span class="num">02</span><span class="lbl">Clinical assessment</span><span class="hint">View</span></button>
+      <button class="jbtn" data-j="2"><span class="num">03</span><span class="lbl">Bloods and diagnostics</span><span class="hint">View</span></button>
+      <button class="jbtn" data-j="3"><span class="num">04</span><span class="lbl">Treatment issued</span><span class="hint">View</span></button>
+      <button class="jbtn" data-j="4"><span class="num">05</span><span class="lbl">Payment and split</span><span class="hint">View</span></button>
+      <button class="jbtn" data-j="5"><span class="num">06</span><span class="lbl">Ongoing care</span><span class="hint">View</span></button>
+    </div>
+    <div class="jdetail" id="jdetail"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="bg-cream" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">Service lines</span>
+      <h2 class="sec-h">What you can offer.</h2>
+      <p class="lead">Select any service to see what sits behind it. The lines switched on for your business are confirmed in your Order Form when you sign, so you can start with a narrow set and widen it later.</p>
+    </div>
+    <div class="grid2">
+      <div class="svc reveal" data-s="trt"><span class="arrow">&rarr;</span><span class="cat">Hormone health</span><h3>Testosterone replacement therapy</h3><p>The anchor service. Long treatment cycles, regular monitoring and high retention, which makes it the strongest recurring revenue line of the four.</p></div>
+      <div class="svc reveal" data-s="ed"><span class="arrow">&rarr;</span><span class="cat">Sexual health</span><h3>Erectile dysfunction treatment</h3><p>High demand, fast to convert and rarely discussed openly, which is exactly why customers prefer buying it from a brand they already trust.</p></div>
+      <div class="svc reveal" data-s="wm"><span class="arrow">&rarr;</span><span class="cat">Metabolic health</span><h3>Weight management</h3><p>Clinically supervised weight management, including medical treatment where a clinician judges it appropriate. The most tightly regulated line of the four.</p></div>
+      <div class="svc reveal" data-s="bt"><span class="arrow">&rarr;</span><span class="cat">Diagnostics</span><h3>Blood testing</h3><p>Baseline, confirmatory and monitoring panels. Home visit, in-clinic draw or a posted kit, with results reviewed and explained by a clinician.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="bg-white">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">The case</span>
+      <h2 class="sec-h">Building it yourself, against building it with us.</h2>
+      <p class="lead">Both routes get you to a men&rsquo;s health offer. They differ on how long it takes, what it costs you, and who carries the risk.</p>
+    </div>
+    <div class="compare">
+      <div class="col col-alt reveal">
+        <h3>Building your own clinical service</h3>
+        <ul>
+          <li>Register with the CQC as a healthcare provider and pass inspection before you can trade</li>
+          <li>Recruit and indemnify prescribing clinicians, and stand up a clinical governance framework</li>
+          <li>Contract a registered dispensing pharmacy and a diagnostics and phlebotomy network</li>
+          <li>Commission a compliant patient platform covering intake, consultations, prescriptions and results</li>
+          <li>Carry full clinical liability for every decision made under your name</li>
+          <li>Twelve months and a substantial capital outlay before the first patient pays you anything</li>
+        </ul>
+      </div>
+      <div class="col col-us reveal">
+        <span class="rec">Proposed</span>
+        <h3>White-label with Ted&rsquo;s Health</h3>
+        <ul>
+          <li>Trade under our CQC registration, with us named as the clinical provider</li>
+          <li>Our clinicians, our pharmacy partner, our diagnostics network, already contracted and running</li>
+          <li>A built platform, branded to you, live in weeks rather than quarters</li>
+          <li>Clinical liability sits with us. Your liability covers your own marketing and your own business</li>
+          <li>You set your own retail prices</li>
+          <li>Low cost to start, and revenue from the customer base you already own</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIALS -->
+<section class="bg-cream" id="commercials">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">Commercials</span>
+      <h2 class="sec-h">How the money works.</h2>
+      <p class="lead">There are two ways the money splits, depending on what is being sold.</p>
+    </div>
+    <div class="split">
+      <div class="sbox reveal">
+        <h4>Medication</h4>
+        <p>We charge you a wholesale cost. You set your retail price. Everything above our wholesale cost is yours. We do not take a percentage of it.</p>
+      </div>
+      <div class="sbox reveal">
+        <h4>Everything else</h4>
+        <p>Consultations, blood tests, phlebotomy, consumables. We take our cost off the top, then the profit above that is split <strong>63% to you, 37% to us</strong>.</p>
+        <p style="margin-top:.9rem">So we take the wholesale cost plus 37% of the margin, and you keep the remaining 63%.</p>
+      </div>
+    </div>
+    <div style="margin-top:3.5rem" class="reveal">
+      <h3 style="font-size:1.6rem;color:var(--forest-deep);margin-bottom:1.2rem">Getting paid</h3>
+      <p class="lead">It all happens automatically at the point the customer pays. The payment is split at checkout, so your share lands in your account and ours lands in ours. No invoicing back and forth, no chasing.</p>
+      <ul class="ticks">
+        <li><strong>Your share goes into your own Ryft sub-account,</strong> and you are the merchant of record for the sale to your customer.</li>
+        <li><strong>A £500 onboarding deposit</strong> is payable when you join, through the Payments settings page in the platform. It is earned back automatically out of our share of your early sales, and the split returns to normal by itself once it clears. It shows as its own line on your monthly statement.</li>
+        <li><strong>A monthly statement</strong> sets out every transaction, the split applied and the VAT treatment of each line.</li>
+        <li><strong>We will need your VAT registration status and number</strong> when you sign, because it changes how your commission is treated.</li>
+      </ul>
+      <p class="footnote">Our wholesale costs sit behind the platform and are treated as confidential. The figures above apply across every service line switched on for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="bg-dark">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">The shape of it</span>
+      <h2 class="sec-h">What you are actually taking on.</h2>
+    </div>
+    <div class="metrics">
+      <div class="metric reveal"><span class="big">0</span><span class="lbl">Clinical decisions made by you or your team</span></div>
+      <div class="metric reveal"><span class="big">1</span><span class="lbl">Payment from the customer, split automatically</span></div>
+      <div class="metric reveal"><span class="big">4</span><span class="lbl">Service lines available, enabled to suit you</span></div>
+      <div class="metric reveal"><span class="big">100%</span><span class="lbl">Your brand, from first click to repeat order</span></div>
+    </div>
+    <div class="summary reveal">
+      <h3>A clean division of labour</h3>
+      <p>We provide the platform, the clinicians, the prescribing, the dispensing, the diagnostics, the clinical support and the regulatory cover. You provide the brand, the audience, the marketing and the customer relationship. Your patients never see our name except where the law requires them to know who is treating them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="bg-white">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">How we work together</span>
+      <h2 class="sec-h">The working relationship.</h2>
+      <p class="lead">Two things worth saying plainly before we go further.</p>
+    </div>
+    <div class="grid2">
+      <div class="card card-light reveal">
+        <h3>You are the commercial brand, we are the clinical provider</h3>
+        <p>Your business owns the brand, the customer and the marketing. We do the assessing, prescribing and dispensing, and we hold the registration that sits underneath it. If a customer asks who is treating them, the answer is Ted&rsquo;s Health.</p>
+      </div>
+      <div class="card card-light reveal">
+        <h3>There is flexibility in how we run it</h3>
+        <p>The workflow is not fixed. If something about the way it operates does not fit how your business works, tell us and we will have the conversation. We would rather shape it around you at the start than hand you something rigid and hope it lands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section class="bg-cream" id="start">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">Getting started</span>
+      <h2 class="sec-h">From yes to live.</h2>
+      <p class="lead">The sequence below is the whole process. Most of it is admin on our side once you have signed.</p>
+    </div>
+    <ol class="steps reveal">
+      <li><strong>Agreement signed</strong><span>We send the white-label agreement along with an Order Form confirming which service lines you want switched on. At the same time we take your legal entity name, company number, registered address, VAT registration status and number, and evidence of your insurance.</span></li>
+      <li><strong>Platform set-up</strong><span>You complete Ryft onboarding, which creates the sub-account your share of every sale is paid into, then run through the platform setup wizard. We apply your branding and issue logins to whoever on your team needs them.</span></li>
+      <li><strong>Deposit</strong><span>Once you are set up, a card appears on your Payments settings page to pay the £500 deposit. It is earned back automatically out of our share of your early sales and the split returns to normal by itself once it clears.</span></li>
+      <li><strong>Go live</strong><span>Your offer opens to your customers. We handle every patient from that point forward, we will help you with the launch copy if it is useful, and you get a monthly statement covering everything that traded.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="bg-dark close-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">Next step</span>
+      <h2 class="sec-h">If this reads right, we can move quickly.</h2>
+      <p class="lead">Come back to me with a yes and I will send the agreement and your onboarding link the same day. If there is anything here you want changed or want to understand better first, say so and we will talk it through before anything is signed.</p>
+      <a class="btn" href="mailto:olly@beargryllsventures.com?subject=White-label%20partnership%20-%20happy%20to%20proceed">Confirm and get started</a>
+      <div class="sig">
+        <strong>Olly</strong>
+        Partnerships, Ted&rsquo;s Health<br>olly@beargryllsventures.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Ted&rsquo;s Health &middot; GSET Health Ltd &middot; White-Label Partnership Proposal &middot; Confidential</footer>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <button class="x" id="closeX" aria-label="Close">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// Nav scroll
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>80){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}
+});
+
+// Reveal
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+// Journey
+var J=[
+ {h:"Your customer arrives, under your brand",p:"They reach the service through your website, your social channels or your clinic, on a page carrying your name, your logo and your look. Nothing tells them a third party is involved until the point where the law requires them to know who is providing their clinical care.",w:"You market it. We power it."},
+ {h:"Clinical assessment",p:"The customer completes a medical questionnaire and is assessed by a Ted's Health clinician. Eligibility, suitability and treatment decisions are made independently by that clinician, who can decline to treat if it is not clinically appropriate. Your team plays no part in this and is not permitted to.",w:"Ted's Health only."},
+ {h:"Bloods and diagnostics",p:"Where testing is needed, the platform arranges it. A nurse can visit the customer at home, they can attend a clinic for a draw, or a kit can be posted to them depending on the panel. Results come back into the platform and a clinician reviews and explains them.",w:"Ted's Health arranges and reviews."},
+ {h:"Treatment issued",p:"If treatment is appropriate, a Ted's Health prescriber issues the prescription and it is transmitted to our registered dispensing pharmacy partner, who dispenses and ships directly to the customer. Nothing is held, handled or dispensed by you.",w:"Ted's Health prescribes and dispenses."},
+ {h:"Payment and split",p:"The customer pays once, on your checkout, at the price you have set. Ryft Connect splits that single payment automatically between your sub-account and ours at the moment it is taken. You are the merchant of record for the sale.",w:"Automatic. No invoicing between us."},
+ {h:"Ongoing care",p:"Reviews, monitoring bloods, dose adjustments, repeat prescriptions and clinical questions all run through us. Your customer keeps coming back to your brand, and the recurring revenue keeps landing in your account, with no ongoing clinical workload on your side.",w:"Recurring revenue, no recurring workload."}
+];
+function drawJ(i){
+  var d=J[i];
+  document.getElementById('jdetail').innerHTML='<h4>'+d.h+'</h4><p>'+d.p+'</p><span class="who">'+d.w+'</span>';
+}
+document.querySelectorAll('.jbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.jbtn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    drawJ(parseInt(b.dataset.j,10));
+  });
+});
+drawJ(0);
+
+// Service modals
+var S={
+ trt:{c:"Hormone health",h:"Testosterone replacement therapy",b:"<p>Low testosterone affects energy, mood, body composition, recovery and libido, and a large number of men living with it have never been tested. For a partner business this is the strongest of the four lines, because treatment runs in long supervised cycles rather than one-off purchases.</p><ul><li>Blood testing to establish a baseline, then confirmatory testing before any treatment decision</li><li>Assessment and prescribing by Ted's Health clinicians</li><li>Dispensed and shipped by our registered pharmacy partner</li><li>Scheduled monitoring bloods and clinical review through the treatment cycle</li><li>Repeat treatment and dose adjustment handled entirely by us</li></ul><div class='note'>Public marketing can describe the symptoms, the testing and the pathway. It cannot name the medicine or promise a result.</div>"},
+ ed:{c:"Sexual health",h:"Erectile dysfunction treatment",b:"<p>One of the most searched and least discussed men's health issues. Customers strongly prefer buying it discreetly from a brand they already know, which is exactly the position your business is in.</p><ul><li>Online clinical assessment covering underlying causes rather than symptoms alone</li><li>Prescribing by Ted's Health clinicians where appropriate</li><li>Discreet dispensing and delivery through our pharmacy partner</li><li>Fast to convert, and a natural entry point into wider men's health for your customers</li></ul><div class='note'>The medicines involved are prescription-only and cannot be named in public-facing marketing.</div>"},
+ wm:{c:"Metabolic health",h:"Weight management",b:"<p>Clinically supervised weight management, including medical treatment where a clinician judges it appropriate alongside lifestyle support. Strong demand and strong retention, and the line that needs the most care in how it is marketed.</p><ul><li>Eligibility screening against clinical criteria, with treatment declined where it is not appropriate</li><li>Baseline and monitoring bloods</li><li>Prescribing and dispensing handled by us throughout</li><li>Ongoing clinical review rather than a single transaction</li></ul><div class='note'>This is the most tightly regulated area in the whole offer. Naming a weight-loss medicine in any public-facing material, using before-and-after imagery, or implying a guaranteed outcome would breach the Human Medicines Regulations 2012 and the UK Advertising Codes. We will give you compliant copy to work from. Availability of this line is confirmed on your Order Form.</div>"},
+ bt:{c:"Diagnostics",h:"Blood testing",b:"<p>The entry point for most customers and a service you can sell on its own. Baseline, confirmatory and monitoring panels, with collection arranged to suit the customer.</p><ul><li>Home visit by a qualified phlebotomist</li><li>In-clinic draw at a partner site</li><li>Posted kit for certain panels</li><li>Results reviewed, interpreted and explained by a Ted's Health clinician, rather than a raw PDF sent to the customer</li></ul><div class='note'>Testing converts naturally into treatment where it is clinically indicated, which is why most partners start here.</div>"}
+};
+var ov=document.getElementById('overlay');
+document.querySelectorAll('.svc').forEach(function(c){
+  c.addEventListener('click',function(){
+    var d=S[c.dataset.s];
+    document.getElementById('modalBody').innerHTML='<span class="cat">'+d.c+'</span><h3>'+d.h+'</h3>'+d.b;
+    ov.classList.add('on');
+  });
+});
+function shut(){ov.classList.remove('on')}
+document.getElementById('closeX').addEventListener('click',shut);
+ov.addEventListener('click',function(e){if(e.target===ov){shut()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){shut()}});
+</script>
