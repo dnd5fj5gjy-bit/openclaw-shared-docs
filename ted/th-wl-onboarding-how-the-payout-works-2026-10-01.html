@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How the Payout Works</title>
+<meta name="description" content="Plain-English guide for white-label partners: how patient payments are split, what you see in your reports, invoices, refunds and your set-up list.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A1A2E;--navy:#1B365D;--teal:#4A90A4;--teal-soft:#E6F0F3;--gold:#D4A85C;--gold-soft:#FBF4E7;
+  --text:#2C3E50;--muted:#5F6B7A;--line:#E3E7EC;--bg:#FFFFFF;--bg-alt:#F8F9FA;
+  --green:#2E8B57;--green-soft:#EAF6EF;--red:#C0392B;--red-soft:#FBECEA;--amber:#B7791F;--amber-soft:#FFF6E0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;font-size:15px;overflow-x:hidden}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(212,168,92,0.22),transparent 60%),linear-gradient(160deg,#1A1A2E 0%,#1B365D 70%,#16283F 100%);color:#fff;padding:72px 0 88px}
+.eyebrow{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;max-width:20ch;margin-bottom:22px}
+.hero p.lead{color:rgba(255,255,255,0.82);font-size:1.05rem;max-width:62ch}
+.rule{width:72px;height:3px;background:var(--gold);margin:26px 0}
+.meta{font-size:0.8rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
+.draftflag{display:inline-block;background:var(--gold);color:var(--ink);font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:16px}
+.strip{margin-top:-48px;position:relative;z-index:2}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:10px;box-shadow:0 14px 40px rgba(26,26,46,0.12);overflow:hidden}
+.stat{padding:20px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-size:1.5rem;font-weight:800;color:var(--ink);line-height:1.2}
+.stat span{font-size:0.78rem;color:var(--muted)}
+.toc{margin:34px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-size:0.75rem;font-weight:600;text-decoration:none;color:var(--navy);background:var(--bg-alt);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+section.alt{background:var(--bg-alt)}
+.num{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+h2{font-size:clamp(1.45rem,3.2vw,2rem);font-weight:800;color:var(--ink);line-height:1.2;letter-spacing:-0.01em;margin-bottom:14px}
+h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin:26px 0 8px}
+p{margin-bottom:12px;max-width:74ch}
+.sub{color:var(--muted);max-width:66ch;margin-bottom:26px}
+ul,ol{margin:0 0 14px 20px}li{margin-bottom:6px}
+.callout{border-left:4px solid var(--gold);background:var(--gold-soft);padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0;max-width:80ch}
+.callout b{color:var(--ink)}
+.callout.red{border-color:var(--red);background:var(--red-soft)}
+.callout.teal{border-color:var(--teal);background:var(--teal-soft)}
+.callout.green{border-color:var(--green);background:var(--green-soft)}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:14px 0 22px}
+th{background:var(--ink);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:0.78rem;letter-spacing:0.04em}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+.tablewrap{overflow-x:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.card h4{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px;color:var(--navy)}
+.card.do h4{color:var(--green)}.card.dont h4{color:var(--red)}
+.card.do{border-top:3px solid var(--green)}.card.dont{border-top:3px solid var(--red)}
+.card ul{margin-bottom:0}
+.tag{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-right:6px}
+.tag.go{background:var(--green-soft);color:var(--green)}.tag.gate{background:var(--amber-soft);color:var(--amber)}.tag.info{background:var(--teal-soft);color:var(--navy)}.tag.stop{background:var(--red-soft);color:var(--red)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 8px}
+.step{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:10px;padding:16px 14px}
+.step b.n{display:block;font-size:1.3rem;font-weight:800;color:var(--gold);line-height:1}
+.step h4{font-size:0.85rem;color:var(--ink);margin:8px 0 4px}
+.step p{font-size:0.8rem;color:var(--muted);margin:0}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.pill{font-size:0.8rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.pill.g{color:var(--green);background:var(--green-soft);border-color:#cfe9da}
+.pill.r{color:var(--red);background:var(--red-soft);border-color:#f2cfca}
+.tick li{list-style:none;position:relative;padding-left:28px}
+.tick li:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border:2px solid var(--teal);border-radius:4px}
+.tbc{background:var(--amber-soft);color:var(--amber);font-weight:700;padding:0 5px;border-radius:4px;font-size:0.9em}
+.email{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:34px;box-shadow:0 6px 24px rgba(26,26,46,0.05)}
+.email-head{background:linear-gradient(160deg,#1A1A2E,#1B365D);color:#fff;padding:20px 26px}
+.email-head .k{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.email-head h3{color:#fff;font-size:1.3rem;margin:6px 0 6px}
+.email-head .tags{margin-top:6px}
+.fields{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:14px 26px}
+.fields .row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:5px 0}
+.fields .row span{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-weight:700;padding-top:3px}
+.fields .row div{color:var(--ink);font-weight:500}
+.fields .row div.subj{font-weight:700;font-size:1.02rem}
+.body-copy{padding:26px 30px;max-width:640px}
+.body-copy p{max-width:none;color:var(--text)}
+.body-copy h5{font-size:0.95rem;color:var(--ink);margin:18px 0 4px}
+.body-copy .btn{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:0.9rem;padding:12px 24px;border-radius:8px;margin:8px 0 14px}
+.body-copy .qa{border-top:1px solid var(--line);padding:12px 0}
+.body-copy .qa b{display:block;color:var(--ink);margin-bottom:3px}
+.body-copy .qa p{margin:0}
+.footer-copy{border-top:1px dashed var(--line);margin-top:18px;padding-top:12px;font-size:0.76rem;color:var(--muted)}
+.footer-copy p{font-size:0.76rem;color:var(--muted);margin-bottom:4px}
+.notes{background:var(--amber-soft);border-top:1px solid #f1e0b5;padding:14px 26px;font-size:0.84rem}
+.notes b{color:var(--ink)}
+.notes ul{margin:6px 0 0 18px}
+.internal{background:var(--teal-soft);border:1px solid #c8dde3;border-radius:12px;padding:22px 26px;margin:0 0 8px}
+.internal h3{margin-top:0}
+footer{padding:40px 0 60px;color:var(--muted);font-size:0.8rem}
+@media screen and (max-width:760px){
+  .stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat{border-bottom:1px solid var(--line)}
+  .two,.three,.steps{grid-template-columns:1fr}
+  .fields .row{grid-template-columns:1fr;gap:2px}
+  .body-copy{padding:20px}
+}
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{font-size:11px}
+  .hero{padding:36px 0 84px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body .hero{padding-top:36px !important;padding-bottom:90px !important}
+  body section{break-inside:auto !important;page-break-inside:auto !important}
+  .toc,.no-print{display:none}
+  section{padding:26px 0;break-inside:auto}
+  .card,.step,tr,.callout,.qa,table{break-inside:avoid}
+  table.long{break-inside:auto}
+  .steps{grid-template-columns:repeat(5,1fr)}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="draftflag">Draft v0.1 - pending approval</div>
+<div class="eyebrow">Ted's Health White Label · Partner resource</div>
+<h1>How the payout works</h1>
+<p class="lead">How a patient's payment reaches you, what you will see in your reports, and what we need from you so that your payouts and invoices run smoothly.</p>
+<div class="rule"></div>
+<div class="meta">Ted's Health · Partner onboarding pack · Resource 2 of 2 · Draft 01/10/2026</div>
+</div></header>
+<div class="wrap strip"><div class="stats">
+<div class="stat"><b>You set</b><span>your own retail prices</span></div>
+<div class="stat"><b>1 payment</b><span>from the patient, split automatically</span></div>
+<div class="stat"><b>Ryft</b><span>pays your share to your account</span></div>
+<div class="stat"><b>No fee</b><span>per patient referred</span></div>
+</div></div>
+
+<div class="wrap"><div class="toc no-print">
+<a href="#flow">How money moves</a><a href="#models">Two pricing models</a><a href="#reports">What you will see</a><a href="#docs">Invoices</a><a href="#refunds">Refunds</a><a href="#setup">Your set-up list</a><a href="#faq">Questions</a>
+</div></div>
+
+<section id="flow"><div class="wrap">
+<div class="num">01 · In short</div>
+<h2>The patient pays once. The payment splits automatically.</h2>
+<p>You are the seller. Patients buy from your clinic, at the price you set, through your Ted's Health platform. The payment is split at source, so you are not waiting for someone to send you a transfer and you do not have to chase an invoice for your share of a sale.</p>
+<div class="steps">
+<div class="step"><b class="n">1</b><h4>You connect Ryft</h4><p>You set up a Ryft account and complete its identity checks (KYC and KYB). This is step 5 of your online sign-up.</p></div>
+<div class="step"><b class="n">2</b><h4>Patient pays</h4><p>The patient pays your retail price at your checkout, in one payment.</p></div>
+<div class="step"><b class="n">3</b><h4>Automatic split</h4><p>Ryft divides the payment between your account and Ted's Health, following the pricing model for that item.</p></div>
+<div class="step"><b class="n">4</b><h4>Fees come off</h4><p>Ryft deducts its processing fees and the split-payment fee.</p></div>
+<div class="step"><b class="n">5</b><h4>You receive your share</h4><p>The net amount reaches your account. Payout timing: <span class="tbc">to confirm with Ryft</span></p></div>
+</div>
+<div class="callout teal"><b>You are not paid per patient referred.</b> Your income is your share of what patients pay for the services you sell. We do not pay a fee for each patient you send, and this is deliberate.</div>
+</div></section>
+
+<section id="models" class="alt"><div class="wrap">
+<div class="num">02 · Two pricing models</div>
+<h2>Medication and services work differently</h2>
+<p class="sub">There is no single blanket percentage. Which model applies depends on what the patient is buying. Your exact figures are in your agreement and your Order Form.</p>
+<div class="two">
+<div class="card"><h4>Prescription medication</h4>
+<ul>
+<li>Ted's Health notifies you of a <b>Wholesale Cost</b> for each treatment. It is confidential to you.</li>
+<li>You set your own retail price.</li>
+<li>Ted's Health receives the Wholesale Cost. <b>You keep everything above it</b>, after payment fees.</li>
+<li>There is no percentage split on medication.</li>
+</ul></div>
+<div class="card"><h4>Consultations and services</h4>
+<ul>
+<li>Covers consultations, blood tests, phlebotomy appointments, consumables and other designated services.</li>
+<li>You set your own retail price.</li>
+<li>Ted's Health receives the cost of providing the service, plus an agreed share of the margin. <b>You receive the rest.</b></li>
+<li>The margin is your price minus that cost. The share applies to the margin only, never to the full sale value.</li>
+</ul></div>
+</div>
+<div class="callout"><b>Your price is your decision.</b> Ted's Health may publish recommended prices, but they are guidance only. You can ignore them. If a price you set falls below the Wholesale Cost, your agreement allows us to invoice the difference, payable within 30 days (clause 8.6). Please check this clause with your adviser if you plan to price low.</div>
+<p style="font-size:0.85rem;color:var(--muted)">Wholesale Costs and platform fees can change on written notice where supplier, pharmacy or laboratory costs, regulation or tax change (clause 8.11).</p>
+</div></section>
+
+<section id="reports"><div class="wrap">
+<div class="num">03 · What you will see</div>
+<h2>Why two numbers will never match</h2>
+<p>You will see your sales in two places. They are meant to differ.</p>
+<div class="tablewrap"><table>
+<tr><th style="width:22%">Where</th><th style="width:34%">What it shows</th><th>Why it is different</th></tr>
+<tr><td>Your platform dashboard</td><td>What patients ordered, at your full retail price. This is the <b>gross</b> figure.</td><td>It is the value of the sale before anything is split or deducted.</td></tr>
+<tr><td>Your Ryft account</td><td>What you actually received. This is the <b>net</b> figure.</td><td>It is after Ted's Health's share, Ryft's processing fees and the split-payment fee.</td></tr>
+</table></div>
+<p>If the two totals differ, that is the model working as designed, not an error. You can reconcile from one to the other: gross sales, less the split and fees, equals the net you received.</p>
+<p>Monthly report: <span class="tbc">format and delivery date to be confirmed</span>. Ryft fee rates: <span class="tbc">to be confirmed with Ryft and your Order Form</span>.</p>
+</div></section>
+
+<section id="docs" class="alt"><div class="wrap">
+<div class="num">04 · Invoices and VAT</div>
+<h2>Three documents for every sale</h2>
+<p>Because you sell in your own name while Ted's Health provides the clinical service, each sale produces three invoices:</p>
+<div class="tablewrap"><table>
+<tr><th style="width:6%">#</th><th style="width:26%">From and to</th><th>What it is</th></tr>
+<tr><td>1</td><td>You to the patient</td><td>The full sale value. Ted's Health does not appear on it.</td></tr>
+<tr><td>2</td><td>Ted's Health to you</td><td>The same supplies at the same values as invoice 1.</td></tr>
+<tr><td>3</td><td>You to Ted's Health</td><td>Your commission, <b>self-billed</b>: Ted's Health raises it on your behalf, under a self-billing agreement that you sign.</td></tr>
+</table></div>
+<p>The platform generates these from the same sale data so they always agree.</p>
+<h3>What we need from you before commission invoices can be issued</h3>
+<ul>
+<li>Your registered business address</li>
+<li>Your VAT registration number, if you are VAT-registered. We verify it and record the date we checked.</li>
+<li>A signed self-billing agreement on file</li>
+<li>Completed Ryft identity checks (KYC and KYB)</li>
+</ul>
+<div class="callout"><b>This is not tax advice.</b> How VAT applies to your commission depends on your own circumstances. Please speak to your accountant. Invoice queries go to <b>invoices@tedshealth.com</b>.</div>
+</div></section>
+
+<section id="refunds"><div class="wrap">
+<div class="num">05 · Refunds and chargebacks</div>
+<h2>Refunds are handled by Ted's Health</h2>
+<div class="two">
+<div class="card"><h4>Refunds</h4>
+<ul>
+<li>Only Ted's Health staff can issue a refund. Partners cannot refund patients directly (clause 8.9).</li>
+<li>Where a payment was split, the refund is shared proportionally, and any share already paid out is adjusted.</li>
+<li>If a patient asks you for a refund, send the request to <span class="tbc">partner support contact</span>.</li>
+</ul></div>
+<div class="card"><h4>Chargebacks</h4>
+<ul>
+<li>If a patient disputes a payment with their bank, tell us promptly (clause 8.7).</li>
+<li>Where a chargeback results from misinformation, an unauthorised refund, a breach or fraud on the partner's side, the partner is responsible for it under the agreement.</li>
+</ul></div>
+</div>
+</div></section>
+
+<section id="setup" class="alt"><div class="wrap">
+<div class="num">06 · Your set-up list</div>
+<h2>Get paid on day one</h2>
+<ul class="tick">
+<li>Ryft account connected and identity checks (KYC and KYB) completed</li>
+<li>Payout bank details entered and verified</li>
+<li>Registered business address held on file</li>
+<li>VAT registration number provided, if registered</li>
+<li>Self-billing agreement signed</li>
+<li>Your retail prices set in the platform for each service you offer</li>
+<li>You know who to contact: invoices@tedshealth.com for invoices and charges, support@tedshealth.com for any clinical question</li>
+</ul>
+<div class="callout red"><b>A failed Ryft check can lead to suspension.</b> If your identity checks are not completed, payments cannot be processed (clause 17.1). Please complete them as early as you can.</div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+<div class="num">07 · Questions we hear most</div>
+<h2>Quick answers</h2>
+<div class="card" style="margin-bottom:12px"><h4>Why does my Ryft total not match my platform sales?</h4><p style="margin:0">The platform shows the full retail value. Ryft shows what reached you after the split and fees. See section 03.</p></div>
+<div class="card" style="margin-bottom:12px"><h4>When do I get paid?</h4><p style="margin:0">Your share is paid into your Ryft account automatically when the patient pays. Time to your bank follows your Ryft payout schedule: <span class="tbc">to confirm</span>.</p></div>
+<div class="card" style="margin-bottom:12px"><h4>Do I have to charge the recommended price?</h4><p style="margin:0">No. Recommended prices are guidance only. You set your own prices.</p></div>
+<div class="card" style="margin-bottom:12px"><h4>Do I earn something for each patient I send?</h4><p style="margin:0">No. You earn your share of what patients pay for the services you sell. We do not pay per referral.</p></div>
+<div class="card" style="margin-bottom:12px"><h4>Can I refund a patient myself?</h4><p style="margin:0">No. Refunds are processed by Ted's Health staff. Send us the request and we will deal with it.</p></div>
+<div class="card"><h4>Where can I see the exact figures for my clinic?</h4><p style="margin:0">In your agreement and Order Form. Wholesale Costs are confidential to you and are notified separately.</p></div>
+</div></section>
+
+<footer><div class="wrap">Ted's Health White Label · Partner onboarding pack · How the payout works · Draft v0.1, 01/10/2026. Not for release until reviewed by Raemy (finance) and Helen (legal), with the highlighted items confirmed.</div></footer>
+
+</body>
+</html>
